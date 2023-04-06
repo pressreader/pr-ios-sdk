@@ -1,0 +1,35 @@
+//
+//  PRAccountNotifications.h
+//  PRAPI
+//
+//  Created by berec on 09/12/2019.
+//  Copyright © 2019 NewspaperDirect. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+extern NSNotificationName const PRShowAuthorizeViewNotification;
+extern NSNotificationName const PRAccountServiceSelectNotification;
+
+extern NSNotificationName const PRAccountWillAuthorizeNotification;
+extern NSNotificationName const PRAccountDidAuthorizeNotification;
+extern NSNotificationName const PRAccountWillDeauthorizeNotification;
+extern NSNotificationName const PRAccountDidDeauthorizeNotification;
+extern NSNotificationName const PRAccountHasGotAuthTicketNotification;
+extern NSNotificationName const PRAccountRequestErrorOccuredNotification;
+extern NSNotificationName const PRAccountStatusUpdatedNotification;
+extern NSNotificationName const PRAccountInterruptAuthorization;
+
+extern NSNotificationName const PRAccountPingNotification;
+extern NSNotificationName const PRAccountReachabilityChangedNotification;
+
+extern NSNotificationName const PRAccountsDefaultAccountChangedNotification;
+extern NSNotificationName const PRAccountsDefaultAccountReachabilityChangedNotification;
+extern NSNotificationName const PRAccountsDefaultAccountValidityChangedNotification;
+extern NSNotificationName const PRAccountsPingCompletedNotification;
+extern NSNotificationName const PRAccountsSocialAuthNetworksUpdatedNotification;
+extern NSNotificationName const PRAccountsExternalAuthNetworksUpdatedNotification;
+
+NS_ASSUME_NONNULL_END

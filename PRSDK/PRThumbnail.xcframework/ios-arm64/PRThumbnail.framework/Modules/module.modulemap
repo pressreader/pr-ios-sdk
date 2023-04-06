@@ -1,0 +1,11 @@
+framework module PRThumbnail {
+  umbrella header "PRThumbnail.h"
+
+  export *
+  module * { export * }
+}
+
+module PRThumbnail.Swift {
+  header "PRThumbnail-Swift.h"
+  requires objc
+}

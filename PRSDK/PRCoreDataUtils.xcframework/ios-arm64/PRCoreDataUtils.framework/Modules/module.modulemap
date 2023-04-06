@@ -1,0 +1,11 @@
+framework module PRCoreDataUtils {
+  umbrella header "PRCoreDataUtils.h"
+
+  export *
+  module * { export * }
+}
+
+module PRCoreDataUtils.Swift {
+  header "PRCoreDataUtils-Swift.h"
+  requires objc
+}

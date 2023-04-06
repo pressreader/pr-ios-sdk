@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Video Playback</title>
+        <style type="text/css">
+            html, body { margin: 0; padding: 0; }
+            video { border: 0 }
+        </style>
+        <script>
+            
+            document.onload = function() {
+                document.ontouchmove = function(e){ e.preventDefault(); }
+            };
+            
+            
+            /**
+             * Full screen feature
+             **/
+            
+            // Note: The webkitSupportsFullscreen property is not valid until the movie metadata has loaded.
+            // Install listener function on metadata load.
+            function addListener(){
+                var video = document.getElementsByTagName('video')[0];
+                video.addEventListener('loadedmetadata', loadedmetadataEventHadler, false);
+            }
+            
+            // Important: The webkitEnterFullscreen() method can be invoked only in response 
+            // to a user action, such as clicking a button. 
+            // In this case we cannot just invoke enterFullScreen() here.
+            function loadedmetadataEventHadler () {
+                window.location = 'ENTER_FULL_SCREEN';
+            }
+            
+            function enterFullScreen() {
+                var video = document.getElementsByTagName('video')[0];
+                document.getElementsByTagName('video')[0].webkitEnterFullscreen();
+            }
+        </script>
+    </head>
+    <body ontouchmove="event.preventDefault();" onload="addListener()">
+        <!--div class="video-player" align="left" style="width:100%"-->
+        <video controls autoplay width=%.0f height=%.0f src="%@" poster="%@"></video>
+        <!--/div-->
+    </body>
+</html>
+

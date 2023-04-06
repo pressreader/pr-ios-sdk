@@ -1,0 +1,73 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRCoreDataUtils
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreData
+import Foundation
+@_exported import PRCoreDataUtils
+import Swift
+import _Concurrency
+import _StringProcessing
+extension CoreData.NSManagedObjectContext {
+  public func object<T>(predicate: Foundation.NSPredicate?) -> T where T : CoreData.NSManagedObject
+  public func object<T>(predicate: Foundation.NSPredicate?) -> T? where T : CoreData.NSManagedObject
+}
+extension CoreData.NSManagedObjectContext {
+  public func object(entityName: Swift.String, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil) -> CoreData.NSManagedObject?
+}
+@objc extension CoreData.NSManagedObject {
+  @objc dynamic public class var entityName: Swift.String {
+    @objc get
+  }
+  @objc dynamic public class func itemsCount(context: CoreData.NSManagedObjectContext, predicate: Foundation.NSPredicate? = nil) -> Swift.UInt
+  @objc dynamic public var managedObjectContext_: CoreData.NSManagedObjectContext {
+    @objc get
+  }
+  @objc dynamic public var entityName: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var isAvailable: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public func restore(context: CoreData.NSManagedObjectContext) -> Self
+  @objc dynamic public func delete()
+}
+public enum UpdatableMOError : Swift.Error {
+  case invalidPayload
+  public static func == (a: PRCoreDataUtils.UpdatableMOError, b: PRCoreDataUtils.UpdatableMOError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol UpdatableMO {
+  associatedtype Payload
+  static func payload(with info: [Swift.String : Any]) -> Self.Payload?
+  func update(payload: Self.Payload)
+}
+public protocol StringIdentifiable {
+  var id: Swift.String { get }
+}
+extension PRCoreDataUtils.UpdatableMO {
+  public func update(info: [Swift.String : Any]) throws
+}
+extension PRCoreDataUtils.UpdatableMO where Self : PRCoreDataUtils.IdentifiableMO, Self.Payload : PRCoreDataUtils.StringIdentifiable {
+  public static func object(info: [Swift.String : Any], context: CoreData.NSManagedObjectContext) -> Self?
+  public static func object(payload: Self.Payload, context: CoreData.NSManagedObjectContext) -> Self
+}
+extension CoreData.NSManagedObjectContext {
+  public func fetchItems<T>(predicate: Foundation.NSPredicate? = nil, sortDecriptors: [Foundation.NSSortDescriptor]? = nil) -> [T]? where T : CoreData.NSManagedObject
+  public func fetchItem<T>(predicate: Foundation.NSPredicate) -> T? where T : CoreData.NSManagedObject
+  public func fetchAndDeleteItems<T>(request: CoreData.NSFetchRequest<T>) -> [T] where T : CoreData.NSManagedObject
+  public func deleteItems<T>(request: CoreData.NSFetchRequest<T>) where T : CoreData.NSManagedObject
+}
+public protocol IdentifiableMO : CoreData.NSManagedObject {
+  static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self
+  var id: Swift.String { get set }
+}
+extension PRCoreDataUtils.IdentifiableMO {
+  public static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self
+  public static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self?
+}
+extension PRCoreDataUtils.UpdatableMOError : Swift.Equatable {}
+extension PRCoreDataUtils.UpdatableMOError : Swift.Hashable {}

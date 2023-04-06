@@ -1,0 +1,11 @@
+framework module PRLogKit {
+  umbrella header "PRLogKit.h"
+
+  export *
+  module * { export * }
+}
+
+module PRLogKit.Swift {
+  header "PRLogKit-Swift.h"
+  requires objc
+}

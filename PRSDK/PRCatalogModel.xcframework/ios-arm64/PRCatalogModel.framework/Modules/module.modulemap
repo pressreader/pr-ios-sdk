@@ -1,0 +1,11 @@
+framework module PRCatalogModel {
+  umbrella header "PRCatalogModel.h"
+
+  export *
+  module * { export * }
+}
+
+module PRCatalogModel.Swift {
+  header "PRCatalogModel-Swift.h"
+  requires objc
+}

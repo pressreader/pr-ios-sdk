@@ -1,0 +1,30 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRPromiseKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import PRPromiseKit
+import Swift
+import _Concurrency
+import _StringProcessing
+extension PRPromiseKit.Promise {
+  @discardableResult
+  public func then<T, R>(_ action: @escaping (T) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func then<X, Y, R>(_ action: @escaping (X, Y) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func then<X, Y, Z, R>(_ action: @escaping (X, Y, Z) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func fail<R>(_ action: @escaping (Swift.Error?) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func finally(_ action: @escaping () -> ()) -> PRPromiseKit.Promise
+  @discardableResult
+  public func thenOn<T, R>(_ queue: Dispatch.DispatchQueue, _ action: @escaping (T) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func thenOn<X, Y, R>(_ queue: Dispatch.DispatchQueue, _ action: @escaping (X, Y) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func thenOn<X, Y, Z, R>(_ queue: Dispatch.DispatchQueue, _ action: @escaping (X, Y, Z) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func failOn<R>(_ queue: Dispatch.DispatchQueue, _ action: @escaping (Swift.Error?) throws -> R) -> PRPromiseKit.Promise
+  @discardableResult
+  public func finallyOn(_ queue: Dispatch.DispatchQueue, _ action: @escaping () -> ()) -> PRPromiseKit.Promise
+}

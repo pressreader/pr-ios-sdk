@@ -1,0 +1,115 @@
+//
+//  PRSources.h
+//  PRiphone
+//
+//  Created by Oleg Stepanenko on 25.11.12.
+//  Copyright (c) 2012 NewspaperDirect. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@import PRConfiguration.PRCatalogConfig;
+
+@class PRTitleItem;
+@class PRTitleItemExemplar;
+@class PRSourceList;
+@class PressCatalog, Downloads, Books, Publications;
+@class PRAccountItem;
+
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger, PRCatalogStatus) {
+    PRCatalogStatusUninitialized,
+    PRCatalogStatusInitialization,
+    PRCatalogStatusPartlyReady,
+    PRCatalogStatusReady,
+    PRCatalogStatusUpdating
+};
+
+typedef NS_OPTIONS(NSInteger, PRCatalogPartitionState) {
+    PRCatalogPartitionStateIssuesLoaded = 1 << 0,
+    PRCatalogPartitionStateBooksLoaded = 1 << 1
+};
+
+extern NSNotificationName const PRCatalogUpdateNotification;
+
+typedef NSString * PRCatalogUpdateNotificationInfoKey NS_STRING_ENUM;
+extern PRCatalogUpdateNotificationInfoKey const PRCatalogUpdateNotificationInfoKeyReason;
+
+typedef NS_OPTIONS(NSInteger, PRCatalogUpdateNotificationReason) {
+    PRCatalogUpdateNotificationReasonLatestIssueInfo = 1 << 0,
+    PRCatalogUpdateNotificationReasonRecentlyRead = 1 << 1,
+    PRCatalogUpdateNotificationReasonFavorites = 1 << 2
+};
+
+extern NSNotificationName const PRCatalogCustomCatalogUpdateNotification;
+extern NSNotificationName const PRCatalogPartitionStateUpdateNotification;
+extern NSNotificationName const PRCatalogLoadingErrorNotification;
+
+@interface PRCatalog : NSObject
+
+/// Reload catalog from server
+- (void)reloadCatalogSourcesForced:(BOOL)forced;
+- (void)reloadCustomCatalog;
+
+- (nullable PRTitleItem *)sourceByCid:(NSString *)cid NS_SWIFT_NAME(source(cid:));
+- (nullable NSArray *)supplementsByCID:(NSString *)cid;
+- (nullable NSArray *)regionalEditionsByCID:(NSString *)cid;
+- (nullable NSArray *)relatedPublicationsByCID:(NSString *)cid;
+
+- (void)updateStatus;
+
+@property (nonatomic, strong, readonly) PRSourceList *presenter;
+@property (nonatomic, strong, readonly) PRSourceList *favorites;
+
+@property (nonatomic, assign, readonly) PRCatalogStatus status;
+@property (nonatomic) PRCatalogPartitionState partitionState;
+@property (nonatomic) PRCatalogMode mode;
+
+@property (nonatomic, readonly) NSUInteger sourcesCount;
+@property (nonatomic, readonly) BOOL isReady;
+@property (nonatomic, readonly) BOOL containsSingleCID;
+@property (nonatomic, readonly) BOOL containsSingleParentCID;
+
+/**
+ Catalog presentation style. This value is configurable, you should use it whenever it's possible, because some publishers with one main CID
+ and supplements want to have multi-title style, and some of them - single-title.
+*/
+@property (nonatomic, readonly) BOOL isSingleTitleStyle;
+
+@property (nonatomic, readonly) NSArray<PRAccountItem *> *services;
+
+@property (nullable, nonatomic, strong) NSArray<PRTitleItem *> *sources;
+
+/// Sources without supplements
+@property (nullable, nonatomic, strong) NSArray<PRTitleItem *> *parentSources;
+
+@property (nullable, nonatomic, strong) NSDictionary<NSString *, PRTitleItem *> *sourcesByCID;
+
+@property (nullable, nonatomic, strong) NSDictionary *groupsByName;
+@property (nullable, nonatomic, strong) NSDictionary *groupsByCID;
+
+@property (nullable, nonatomic, strong) NSDictionary<NSString *, NSArray<PRTitleItem *> *> *supplementsByCID;
+@property (nullable, nonatomic, strong) NSDictionary<NSString *, NSArray<PRTitleItem *> *> *regionalEditionsByCID;
+
+@property (nullable, nonatomic, strong) NSDictionary *topCategoriesByName;
+
+@property (nullable, nonatomic, strong) NSArray *regions;
+@property (nullable, nonatomic, strong) NSArray *featuredSourcesCIDs;
+
+/// to synchronize search field value between store controllers
+@property (nullable, nonatomic, copy) NSString *globalSearchText;
+
+@end
+
+@interface PRCatalog (/*Subscriptable*/)
+- (nullable PRTitleItem *)objectForKeyedSubscript:(NSString *)cid;
+@end
+
+
+NS_ASSUME_NONNULL_END
+
+#import "PRCatalog+Promise.h"
+#import "PRCatalog+Categories.h"
+#import "PRCatalog+RecentlyRead.h"
+#import "PRCatalog+Regions.h"

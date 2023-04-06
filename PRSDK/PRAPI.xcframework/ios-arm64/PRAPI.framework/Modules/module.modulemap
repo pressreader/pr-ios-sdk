@@ -1,0 +1,11 @@
+framework module PRAPI {
+  umbrella header "PRAPI.h"
+
+  export *
+  module * { export * }
+}
+
+module PRAPI.Swift {
+  header "PRAPI-Swift.h"
+  requires objc
+}

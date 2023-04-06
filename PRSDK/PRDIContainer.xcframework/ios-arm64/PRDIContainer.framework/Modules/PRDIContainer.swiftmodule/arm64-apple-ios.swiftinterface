@@ -1,0 +1,74 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRDIContainer
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+@_exported import PRDIContainer
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+public protocol DependencyResolver {
+  static func resolveDependency<T>() -> T
+  func resolveDependency<T>() -> T
+}
+extension PRDIContainer.DependencyResolver {
+  public static func resolveDependency<T>() -> T
+  public func resolveDependency<T>() -> T
+}
+extension ObjectiveC.NSObject : PRDIContainer.DependencyResolver {
+}
+@available(*, unavailable)
+@objc extension PRDIContainer.DIContainer {
+  @objc final public func registerDependency(_ dependency: Any, forKey key: PRDIContainer.DIContainer.Key)
+  @objc final public func registerDependency(_ dependency: Any, forType type: Swift.AnyClass)
+  @objc final public func registerWeakDependency(_ dependency: Any, forKey key: PRDIContainer.DIContainer.Key)
+  @objc final public func registerWeakDependency(_ dependency: Any, forType type: Swift.AnyClass)
+  @objc final public func registerStrongDependency(_ dependency: Any, forKey key: PRDIContainer.DIContainer.Key)
+  @objc final public func registerStrongDependency(_ dependency: Any, forType type: Swift.AnyClass)
+}
+@available(*, unavailable)
+@objc extension PRDIContainer.DIContainer {
+  @objc final public func resolveForKey(_ key: PRDIContainer.DIContainer.Key) -> Any?
+  @objc(resolveForType:) final public func resolveForType(_ type: Swift.AnyClass) -> Any?
+}
+@objc @_inheritsConvenienceInitializers final public class DIContainer : ObjectiveC.NSObject {
+  public typealias Key = Swift.String
+  public typealias Initializer<T> = () -> T
+  public enum MemoryManagement {
+    case disposable
+    case strong
+    case weak
+    public static func == (a: PRDIContainer.DIContainer.MemoryManagement, b: PRDIContainer.DIContainer.MemoryManagement) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc(defaultContainer) public static let `default`: PRDIContainer.DIContainer
+  final public func key(type: Any.Type) -> PRDIContainer.DIContainer.Key
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension PRDIContainer.DIContainer {
+  final public func register<T>(_ type: T.Type, key: PRDIContainer.DIContainer.Key? = nil, overrideRegistered: Swift.Bool = true, memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong) where T : ObjectiveC.NSObject
+  final public func register<T>(_ key: PRDIContainer.DIContainer.Key? = nil, memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong, overrideRegistered: Swift.Bool = true, initializer: @escaping PRDIContainer.DIContainer.Initializer<T>)
+  final public func registerMock<T>(_ type: T.Type = T.self, memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong, overrideRegistered: Swift.Bool = true) where T : ObjectiveC.NSObject
+  final public func registerMock<T>(memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong, overrideRegistered: Swift.Bool = true, initializer: @escaping PRDIContainer.DIContainer.Initializer<T>) where T : ObjectiveC.NSObject
+}
+extension PRDIContainer.DIContainer {
+  final public func resolve<T>(key: PRDIContainer.DIContainer.Key? = nil) -> T?
+  final public func resolveRegistered<T>(key: PRDIContainer.DIContainer.Key? = nil) -> T
+  final public func resolveRegisteredMock<T>() -> T where T : ObjectiveC.NSObject
+}
+extension PRDIContainer.DIContainer {
+  @objc(hasDependencyForKey:) final public func hasDependency(key: PRDIContainer.DIContainer.Key) -> Swift.Bool
+  final public func hasDependency<T>(type: T.Type) -> Swift.Bool
+  final public func resolvedStrongDependency<T>(key: PRDIContainer.DIContainer.Key) -> T?
+}
+extension PRDIContainer.DIContainer {
+  @objc(removeDependencyForKey:) final public func remove(key: PRDIContainer.DIContainer.Key)
+  @objc final public func removeAll()
+}
+extension PRDIContainer.DIContainer.MemoryManagement : Swift.Equatable {}
+extension PRDIContainer.DIContainer.MemoryManagement : Swift.Hashable {}

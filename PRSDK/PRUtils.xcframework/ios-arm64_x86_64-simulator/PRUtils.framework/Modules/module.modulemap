@@ -1,0 +1,11 @@
+framework module PRUtils {
+  umbrella header "PRUtils.h"
+
+  export *
+  module * { export * }
+}
+
+module PRUtils.Swift {
+  header "PRUtils-Swift.h"
+  requires objc
+}

@@ -1,0 +1,32 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRSyntacticSugar
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+@_exported import PRSyntacticSugar
+import Swift
+import _Concurrency
+import _StringProcessing
+final public class ObjectAssociationProxy<T> {
+  public init(policy: ObjectiveC.objc_AssociationPolicy = .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+  final public func value(for instance: Any) -> T?
+  final public func set(_ value: T?, for instance: Any)
+  @objc deinit
+}
+public func missingImplementationError(_ message: Swift.String? = nil) -> Swift.Never
+extension Swift.OptionSet {
+  public subscript(option: Self.Element) -> Swift.Bool {
+    get
+    set
+  }
+}
+public func lift<A, B>(_ tuple: (A?, B?)) -> (A, B)?
+public func lift<A, B, C>(_ tuple: (A?, B?, C?)) -> (A, B, C)?
+public func lift<A, B>(_ a: A?, _ b: B?) -> (A, B)?
+public func lift<A, B, C>(_ a: A?, _ b: B?, _ c: C?) -> (A, B, C)?
+public func isSequenceLiftable(args: Any?...) -> Swift.Bool
+public func typeString<T>(_ type: T.Type) -> Swift.String
+public func typeString<T>(_ value: T) -> Swift.String
+extension Swift.SetAlgebra {
+  public mutating func update(_ member: Self.Element, _ set: Swift.Bool)
+}

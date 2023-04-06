@@ -1,0 +1,11 @@
+framework module PRUI {
+  umbrella header "PRUI.h"
+
+  export *
+  module * { export * }
+}
+
+module PRUI.Swift {
+  header "PRUI-Swift.h"
+  requires objc
+}

@@ -1,0 +1,189 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAds
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import PRAPI
+@_exported import PRAds
+import PRConfiguration
+import PRLogKit
+import PRPromiseKit
+import PRUIKit
+import PRUtils
+import Swift
+import UIKit
+import PRUIKit.UIUtils
+import _Concurrency
+import _StringProcessing
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AdBannerPresentation : ObjectiveC.NSObject {
+  @objc final public let info: PRAds.AdBannerInfo
+  @objc final public let bannerVC: UIKit.UIViewController
+  @objc deinit
+}
+public struct GoogleAdModel {
+}
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GoogleAdVC<RootView> : PRUIKit.SwiftVC<RootView, PRAds.GoogleAdModel> where RootView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var adUnitId: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var adManager: PRAds.PRGoogleAdManager? {
+    get
+  }
+  @objc deinit
+}
+extension Foundation.NSNotification.Name {
+  public static let PROnlineBannerVCUpdatedHeight: Foundation.NSNotification.Name
+}
+@objc extension Foundation.NSNotification {
+  @objc public static let PROnlineBannerVCUpdatedHeight: Foundation.NSNotification.Name
+}
+@objc public enum OnlineBannerType : Swift.Int {
+  case undefined = 0
+  case catalog
+  case favorites
+  case library
+  case order
+  case page0
+  case pageNPlus1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class OnlineBannerVC : PRUIKit.PRSafariVC {
+  @objc @_Concurrency.MainActor(unsafe) final public class func catalogBanner() -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func favoritesBanner() -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func libraryBanner() -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func orderBanner(with issue: PRAPI.PRTitleItemExemplar?) -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func page0Banner() -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func pageNPlus1Banner() -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func banner(withType type: PRAds.OnlineBannerType) -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func banner(withType type: PRAds.OnlineBannerType, issue: PRAPI.PRTitleItemExemplar?) -> Self?
+  @objc @_Concurrency.MainActor(unsafe) final public class func onlineBannerType(for screen: PRAds.AdBannerScreen) -> PRAds.OnlineBannerType
+  @objc @_Concurrency.MainActor(unsafe) final public var height: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) final public func reloadHTMLContent()
+  @_Concurrency.MainActor(unsafe) @objc override final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc override final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationResponse: WebKit.WKNavigationResponse, decisionHandler: @escaping (WebKit.WKNavigationResponsePolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc override final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc override final public func adaptivePresentationStyle(for controller: UIKit.UIPresentationController) -> UIKit.UIModalPresentationStyle
+  @_Concurrency.MainActor(unsafe) @objc override final public func adaptivePresentationStyle(for controller: UIKit.UIPresentationController, traitCollection: UIKit.UITraitCollection) -> UIKit.UIModalPresentationStyle
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(url contentURL: Foundation.URL?, scalesPageToFit scalesToFit: Swift.Bool, opaque: Swift.Bool, backgroundColor: UIKit.UIColor?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(url contentURL: Foundation.URL?, opaque: Swift.Bool, backgroundColor: UIKit.UIColor?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(url contentURL: Foundation.URL?, scalesPageToFit scalesToFit: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(url contentURL: Foundation.URL?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class InterstitialAdBannerInfo : ObjectiveC.NSObject {
+  @objc final public let numArticlesBeforeAd: Swift.Int
+  @objc final public let numArticlesBetweenAds: Swift.Int
+  @objc final public let numAdsPerSession: Swift.Int
+  @objc final public let supportedAdSizes: [CoreFoundation.CGSize]
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class HTMLContentManager {
+  public typealias HTMLInfo = (height: CoreFoundation.CGFloat, html: Swift.String)
+  final public class func getHTMLString(for url: Foundation.URL, _ completion: @escaping (PRAds.HTMLContentManager.HTMLInfo?) -> ())
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class InterstitialADView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) final public class AdBannerCollectionViewCell : UIKit.UICollectionViewCell {
+  @objc(fillWithBannerPresentation:) @_Concurrency.MainActor(unsafe) final public func fill(with banner: PRAds.AdBannerPresentation)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public enum AdBannerPosition : Swift.Int {
+  case topScrollable
+  case top
+  case inline
+  case bottom
+  case interstitial
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AdBannerScreen : Swift.Int {
+  case undefined = -1
+  case home = 0
+  case catalog
+  case library
+  case order
+  case articleDetails
+  case page0
+  case pageNPlus1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc final public class AdBannerInfo : ObjectiveC.NSObject {
+  @objc final public let unitId: Swift.String
+  @objc final public let screen: PRAds.AdBannerScreen
+  @objc final public let position: PRAds.AdBannerPosition
+  @objc final public var size: CoreFoundation.CGSize
+  @objc final public let inlinePosition: Swift.Int
+  @objc final public var interstitialBannerInfo: PRAds.InterstitialAdBannerInfo?
+  @objc deinit
+}
+@objc public protocol AdDataSourceDelegate {
+  @objc func presentEmbedableAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @objc func presentInterstitialAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @objc func presentFixedAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @objc func adChangeHandler(_ ad: PRAds.AdBannerPresentation)
+}
+@objc public class AdDataSource : ObjectiveC.NSObject {
+  weak public var delegate: PRAds.AdDataSourceDelegate?
+  @objc public var interstitialAds: [PRAds.AdBannerPresentation]? {
+    @objc get
+  }
+  @objc public var fixedAds: [PRAds.AdBannerPresentation]? {
+    @objc get
+  }
+  @objc public var embedableAds: [PRAds.AdBannerPresentation]? {
+    @objc get
+  }
+  @objc public init?(screen: PRAds.AdBannerScreen, service: PRAds.AdsService, delegate: PRAds.AdDataSourceDelegate? = nil)
+  @objc public func ad(position: PRAds.AdBannerPosition) -> PRAds.AdBannerPresentation?
+  public func resetAdsProvider()
+  @objc public func loadAndPresentBannersWithDefaultSize()
+  @objc public func loadAndPresentBanners(size: CoreFoundation.CGSize)
+  @objc public func loadAndPresentBanners(width: CoreFoundation.CGFloat)
+  public func presentAllBanners()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class InterstitialADVC : PRAds.GoogleAdVC<PRAds.InterstitialADView>, UIKit.UIScrollViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) final public func checkInterstitialAd(withParentViewSize parentSize: CoreFoundation.CGSize, completion: @escaping (Swift.Bool) -> ())
+  @_Concurrency.MainActor(unsafe) final public func presentAnimated(in container: UIKit.UIViewController)
+  @_Concurrency.MainActor(unsafe) final public func dismissViewsAnimated()
+  @_Concurrency.MainActor(unsafe) @objc final public func scrollViewWillEndDragging(_ scrollView: UIKit.UIScrollView, withVelocity velocity: CoreFoundation.CGPoint, targetContentOffset: Swift.UnsafeMutablePointer<CoreFoundation.CGPoint>)
+  @objc deinit
+}
+@objc public protocol AdsService {
+  @objc func requestGoogleAdsConfig(_ completion: @escaping (PRUtils.SPNode?, Swift.Error?) -> ())
+}
+extension PRAds.OnlineBannerType : Swift.Equatable {}
+extension PRAds.OnlineBannerType : Swift.Hashable {}
+extension PRAds.OnlineBannerType : Swift.RawRepresentable {}
+extension PRAds.AdBannerPosition : Swift.Equatable {}
+extension PRAds.AdBannerPosition : Swift.Hashable {}
+extension PRAds.AdBannerPosition : Swift.RawRepresentable {}
+extension PRAds.AdBannerScreen : Swift.Equatable {}
+extension PRAds.AdBannerScreen : Swift.Hashable {}
+extension PRAds.AdBannerScreen : Swift.RawRepresentable {}

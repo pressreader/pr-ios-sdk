@@ -1,0 +1,11 @@
+framework module PRUIKit {
+  umbrella header "PRUIKit.h"
+
+  export *
+  module * { export * }
+}
+
+module PRUIKit.Swift {
+  header "PRUIKit-Swift.h"
+  requires objc
+}

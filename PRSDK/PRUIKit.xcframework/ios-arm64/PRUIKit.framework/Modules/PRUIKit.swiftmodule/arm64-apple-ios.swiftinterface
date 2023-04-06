@@ -1,0 +1,1326 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUIKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreGraphics
+import Foundation
+import MBProgressHUD
+import PRAccessibility
+import PRAlertKit
+import PRConfiguration
+import PRImageProcessing
+import PRLogKit
+import PRSyntacticSugar
+@_exported import PRUIKit
+import PRUtils
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var hasBlurEffect: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var blurContentView: UIKit.UIView? {
+    @objc get
+  }
+  @discardableResult
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func addBlurSubview(blurFrame: CoreFoundation.CGRect, style: UIKit.UIBlurEffect.Style) -> UIKit.UIVisualEffectView
+  @discardableResult
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func addBlurSubview(blurFrame: CoreFoundation.CGRect, style: UIKit.UIBlurEffect.Style, intensity: CoreFoundation.CGFloat) -> UIKit.UIVisualEffectView
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect(style: UIKit.UIBlurEffect.Style, intensity: CoreFoundation.CGFloat)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect(style: UIKit.UIBlurEffect.Style)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func removeBlurEffect()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func blurImage(_ blurRadius: CoreFoundation.CGFloat) -> UIKit.UIImage?
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func addBlurSubview(blurFrame: CoreFoundation.CGRect, style: UIKit.UIBlurEffect.Style, createBlur: () -> UIKit.UIVisualEffectView) -> UIKit.UIVisualEffectView
+}
+extension PRUIKit.PRSafariVC {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func handleInitialPresentation(_ url: Foundation.URL, components: Foundation.URLComponents) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func handleURLChanges(_ url: Foundation.URL, components: Foundation.URLComponents) -> WebKit.WKNavigationActionPolicy
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resetLastSizeParameter()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class TagButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc convenience dynamic public init()
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc deinit
+}
+@objc(PRMenuBottomBar) public protocol PRMenuBottomBar : ObjectiveC.NSObjectProtocol {
+  @objc var isBarHidden: Swift.Bool { get }
+  @objc var menuContainerVC: UIKit.UIViewController { get }
+  @objc var menu: PRUIKit.PRMenu? { get set }
+  @objc func view(for item: PRUIKit.PRMenuItem) -> UIKit.UIView?
+  @objc func insertAttachedSubview(_ subview: UIKit.UIView, hideShadow: Swift.Bool)
+  @objc(showAnimated:) func show(animated: Swift.Bool)
+  @objc(hideAnimated:) func hide(animated: Swift.Bool)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TextViewCell : PRUIKit.CustomViewCell {
+  @objc @_Concurrency.MainActor(unsafe) public var textView: UIKit.UITextView? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) override open func setupView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIKit.UIAccessibilityIdentification {
+  public var accessibilityId: PRAccessibility.AccessibilityId? {
+    get
+    set
+  }
+}
+extension UIKit.UIAccessibilityIdentification where Self : UIKit.UIView {
+  public func setAccessibilityId(_ anId: PRAccessibility.AccessibilityId, applyThemeId: Swift.Bool)
+}
+@available(*, unavailable)
+extension UIKit.UIView {
+  @objc(accessibilityId) @_Concurrency.MainActor(unsafe) dynamic public var _accessibilityId: PRAccessibility.AccessibilityId? {
+    @objc get
+    @objc set
+  }
+}
+@available(*, unavailable)
+extension UIKit.UIBarItem {
+  @objc(accessibilityId) @_Concurrency.MainActor(unsafe) dynamic public var _accessibilityId: PRAccessibility.AccessibilityId? {
+    @objc get
+    @objc set
+  }
+}
+@objc extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func updateAppearanceOfLinks(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
+}
+@objc public enum PRBarButtonSystemItem : Swift.Int {
+  case done
+  case cancel
+  case edit
+  case save
+  case add
+  case flexibleSpacee
+  case fixedSpace
+  case back
+  case actionMenu
+  case appMenu
+  case close
+  case search
+  case undefined
+  case new
+  public func title() -> Swift.String?
+  public func imageName() -> Swift.String?
+  public func accessibilityId() -> PRAccessibility.AccessibilityId?
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc extension UIKit.UIBarButtonItem {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func barButton(systemItem: PRUIKit.PRBarButtonSystemItem, target: Any?, action: ObjectiveC.Selector?) -> UIKit.UIBarButtonItem?
+}
+public func colorWith(r: Swift.Int, g: Swift.Int, b: Swift.Int, a: CoreFoundation.CGFloat = 1) -> UIKit.UIColor
+@objc extension UIKit.UIColor {
+  @objc dynamic public func rgbaString() -> Swift.String?
+}
+extension UIKit.UIView : Swift.Identifiable {
+  public typealias ID = Swift.ObjectIdentifier
+}
+extension UIKit.UIView {
+  public struct InclusionConstraint {
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var inclusionConstraints: [UIKit.NSLayoutConstraint] {
+    @objc get
+  }
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func include(into container: UIKit.UIView, at index: Swift.Int? = nil, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
+  @discardableResult
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func include(into container: UIKit.UIView, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func include(into container: UIKit.UIView, at index: Swift.Int? = nil, top: CoreFoundation.CGFloat? = nil, left: CoreFoundation.CGFloat? = nil, bottom: CoreFoundation.CGFloat? = nil, right: CoreFoundation.CGFloat? = nil) -> [UIKit.NSLayoutConstraint]
+  @discardableResult
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func attach(to anchor: UIKit.UIView, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func updateInclusionConstraints(_ insets: UIKit.UIEdgeInsets)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class ActivityButton : PRUIKit.PRRoundedButton {
+  @_Concurrency.MainActor(unsafe) final public var showActivity: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var activityView: UIKit.UIActivityIndicatorView {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var isEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init(frame: CoreFoundation.CGRect)
+  @objc deinit
+}
+public protocol SkippableView : PRUIKit.AccessibleView {
+  var skipButton: UIKit.UIButton { get }
+}
+extension PRUIKit.SkippableView {
+  public func setupAccessibility()
+}
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public func overrideUserInterfaceStyleWithRegardToAppStyle()
+}
+public protocol RootViewGetable {
+  associatedtype RootViewType : UIKit.UIView
+  var rootView: Self.RootViewType? { get }
+}
+extension PRUIKit.RootViewGetable where Self : UIKit.UIViewController {
+  public var rootView: Self.RootViewType? {
+    get
+  }
+}
+@objc extension UIKit.UIBarButtonItem {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandTitleItem(systemItem: PRUIKit.PRBarButtonSystemItem, font: UIKit.UIFont? = nil, target: Any?, action: ObjectiveC.Selector?) -> UIKit.UIBarButtonItem?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandTitleItem(systemItem: PRUIKit.PRBarButtonSystemItem, font: UIKit.UIFont? = nil, action: @escaping () -> ()) -> UIKit.UIBarButtonItem?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandTitleItem(title: Swift.String?, font: UIKit.UIFont? = nil, target: Any?, action: ObjectiveC.Selector?) -> UIKit.UIBarButtonItem
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandTitleItem(title: Swift.String?, font: UIKit.UIFont? = nil, action: @escaping () -> ()) -> UIKit.UIBarButtonItem
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandButtonItem(systemItem: PRUIKit.PRBarButtonSystemItem, target: Any?, action: ObjectiveC.Selector?) -> UIKit.UIBarButtonItem?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandButtonItem(systemItem: PRUIKit.PRBarButtonSystemItem, action: @escaping () -> ()) -> UIKit.UIBarButtonItem?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandButtonItem(title: Swift.String?, target: Any?, action: ObjectiveC.Selector?) -> UIKit.UIBarButtonItem
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func brandButtonItem(title: Swift.String?, action: @escaping () -> ()) -> UIKit.UIBarButtonItem
+}
+extension PRUIKit.PRViewExtension : PRUIKit.Themeable {
+}
+@available(*, unavailable)
+@objc extension PRUIKit.PRViewExtension {
+  @objc(contentTintColor) final public var objc_contentTintColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultBackgroundColor) final public var objc_defaultBackgroundColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(feedBackgroundColor) final public var objc_feedBackgroundColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultTextColor) final public var objc_defaultTextColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultUIControlTitleColor) final public var objc_defaultUIControlTitleColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultUIControlSubtitleColor) final public var objc_defaultUIControlSubtitleColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(labelColor) final public var objc_labelColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(secondaryLabelColor) final public var objc_secondaryLabelColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc(tableViewSectionHeaderFooterBackgroundColor) final public var objc_tableViewSectionHeaderFooterBackgroundColor: UIKit.UIColor {
+    @objc get
+  }
+}
+@objc extension UIKit.UIApplication {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var isInBackground: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var isActive: Swift.Bool {
+    @objc get
+  }
+}
+extension UIKit.UIView {
+  @nonobjc @_Concurrency.MainActor(unsafe) public func superview<T>(type: T.Type) -> T? where T : UIKit.UIView
+  @objc(superviewWithClass:) @_Concurrency.MainActor(unsafe) dynamic public func objc_superview(type: UIKit.UIView.Type) -> UIKit.UIView?
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class ButtonCell : PRUIKit.CustomViewCell {
+  @objc @_Concurrency.MainActor(unsafe) public var button: UIKit.UIButton? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var height: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) override open func setupView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol TabsPanelDelegate : AnyObject {
+  func tabsPanel(_ view: PRUIKit.TabsPanel, didSelectTab tab: PRUIKit.TabItem)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class TabsPanel : UIKit.UIView, UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegateFlowLayout {
+  public enum TabAlignment {
+    case none
+    case fill
+    case center
+    case firstMargin(CoreFoundation.CGFloat)
+  }
+  @_Concurrency.MainActor(unsafe) public var tabAlignment: PRUIKit.TabsPanel.TabAlignment {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tabs: [PRUIKit.TabItem] {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var selectedTabTitle: Swift.String? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) weak public var delegate: PRUIKit.TabsPanelDelegate?
+  @_Concurrency.MainActor(unsafe) public var tabsCollectionView: UIKit.UICollectionView {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc deinit
+}
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class var scaleCoefficient: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var scaleCoefficient: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var upscaleCoefficient: CoreFoundation.CGFloat {
+    @objc get
+  }
+}
+@objc extension PRUIKit.PRFollowButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func setupAccessibility()
+}
+public protocol AccessibleView : UIKit.UIView {
+  func setupAccessibility()
+}
+final public class TabItem : Swift.Hashable {
+  public enum TabType : Swift.Equatable {
+    case otherIssues(newspaper: Swift.Bool)
+    case onlineStories
+    case supplements
+    case regionalEditions
+    case puzzles
+    case all
+    case publications
+    case books
+    case stories
+    case interests
+    case contents
+    case bookmarks
+    case highlights
+    case custom(id: Swift.String, title: Swift.String)
+    public var title: Swift.String {
+      get
+    }
+    public var accessibilityId: PRAccessibility.AccessibilityId {
+      get
+    }
+    public static func == (a: PRUIKit.TabItem.TabType, b: PRUIKit.TabItem.TabType) -> Swift.Bool
+  }
+  final public let type: PRUIKit.TabItem.TabType
+  final public let title: Swift.String
+  final public var isSelected: Swift.Bool
+  final public var isActive: Swift.Bool
+  public init(type: PRUIKit.TabItem.TabType, isSelected: Swift.Bool = false)
+  final public var hashValue: Swift.Int {
+    get
+  }
+  final public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: PRUIKit.TabItem, rhs: PRUIKit.TabItem) -> Swift.Bool
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class LargeTitleViewNavigationBar : PRUIKit.InsetableNavigationBar {
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SimpleTitleHeaderFooterView : UIKit.UITableViewHeaderFooterView {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var titleLabelInsets: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(reuseIdentifier: Swift.String?)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIKit.UIViewController {
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor(unsafe) public func present(controller: UIKit.UIViewController, animated: Swift.Bool) async
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor(unsafe) public func dismiss(animated: Swift.Bool) async
+  #endif
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class TransparentContainerView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc deinit
+}
+public protocol AnimatableView : UIKit.UIView {
+  func prepareForAnimation()
+  func animateAppearance()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ActionButtonView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public static let viewHeight: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public static let buttonHeight: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) final public var actionButton: UIKit.UIButton {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) final public var continueButtonContainer: UIKit.UIView? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public func safeAreaInsetsDidChange()
+  @_Concurrency.MainActor(unsafe) final public func insert(into view: UIKit.UIView)
+  @objc deinit
+}
+@objc extension PRUIKit.PRActivityVC {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupAccessibility()
+}
+@objc extension MBProgressHUD {
+  @objc @_Concurrency.MainActor(unsafe) public static func showLoading() -> Self
+  @objc @_Concurrency.MainActor(unsafe) public static func showLoading(graceTime: Foundation.TimeInterval) -> Self
+  @objc @_Concurrency.MainActor(unsafe) public static func showKeyWindowHud(title: Swift.String?, message: Swift.String?, animated: Swift.Bool) -> Self
+  @objc @_Concurrency.MainActor(unsafe) public static func showKeyWindowHud(title: Swift.String?, message: Swift.String?, animated: Swift.Bool, graceTime: Foundation.TimeInterval) -> Self
+}
+extension PRUIKit.PRViewExtension {
+  @objc @IBInspectable final public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+}
+@objc extension UIKit.UITableViewCell {
+  @objc @_Concurrency.MainActor(unsafe) public static func createSeparator() -> UIKit.UIView
+}
+@objc @_hasMissingDesignatedInitializers final public class PRViewExtension : ObjectiveC.NSObject {
+  @objc deinit
+}
+extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var pr: PRUIKit.PRViewExtension {
+    @objc get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class PRShapeLayerView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override final public class var layerClass: Swift.AnyClass {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var layer: QuartzCore.CAShapeLayer {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SignInView : PRUIKit.BrandGradientView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc deinit
+}
+extension UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func showWithRegardToPresentationStyle(_ vc: UIKit.UIViewController, popoverSourceItem: Any? = nil, popoverLayoutMargins: UIKit.UIEdgeInsets = .zero, animated: Swift.Bool = true)
+}
+extension UIKit.UINavigationBar : PRUIKit.Stateable {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var hasStoredState: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func saveState()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func restoreState()
+}
+@objc extension UIKit.UIButton {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class var simple: UIKit.UIButton {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class var action: UIKit.UIButton {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class var clearAction: UIKit.UIButton {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class var white: UIKit.UIButton {
+    @objc get
+  }
+}
+@objc extension UIKit.UINavigationBar {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupScrollEdgeAppearance(color: UIKit.UIColor?, transparent: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupStandardAppearance(color: UIKit.UIColor?, transparent: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupAppearance(color: UIKit.UIColor?, transparent: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupTransparentAppearance()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupOpaqueAppearance(color: UIKit.UIColor?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupAppearance(titleTextAttributes attributes: [Foundation.NSAttributedString.Key : Any])
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupTitleTextAttributes(_ attributes: [Foundation.NSAttributedString.Key : Any])
+}
+public protocol SelectionActionMenuItem {
+  var title: Swift.String { get }
+  var action: () -> () { get }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class SelectionActionsMenuCell : UIKit.UITableViewCell {
+  @_Concurrency.MainActor(unsafe) final public var selectionItems: [PRUIKit.SelectionActionMenuItem] {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class InfiniteActivityView : UIKit.UIActivityIndicatorView {
+  @_Concurrency.MainActor(unsafe) @objc override final public func stopAnimating()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UIActivityIndicatorView.Style)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol Themeable {
+  var theme: PRAccessibility.PRTheme { get }
+}
+extension PRUIKit.Themeable {
+  public var contentTintColor: UIKit.UIColor {
+    get
+  }
+  public var defaultUIControlBackgroundColor: UIKit.UIColor {
+    get
+  }
+  public var defaultUIControlTitleColor: UIKit.UIColor {
+    get
+  }
+  public var defaultUIControlSubtitleColor: UIKit.UIColor {
+    get
+  }
+  public var defaultBackgroundColor: UIKit.UIColor {
+    get
+  }
+  public var standoutViewBackgroundColor: UIKit.UIColor {
+    get
+  }
+  public var standoutViewTextColor: UIKit.UIColor {
+    get
+  }
+  public var standoutViewHeaderColor: UIKit.UIColor {
+    get
+  }
+  public var standoutViewSeparatorColor: UIKit.UIColor {
+    get
+  }
+  public var standoutViewGradientBackgroundColors: (start: UIKit.UIColor, end: UIKit.UIColor) {
+    get
+  }
+  public func standoutViewGradientBackgroundColor(height: CoreFoundation.CGFloat) -> UIKit.UIColor
+  public var standoutViewTopHairlineColor: UIKit.UIColor {
+    get
+  }
+  public var standoutViewBottomHairlineColor: UIKit.UIColor {
+    get
+  }
+  public var defaultSeparatorColor: UIKit.UIColor {
+    get
+  }
+  public var navigationBarTintColor: UIKit.UIColor {
+    get
+  }
+  public var navigationBarContentTintColor: UIKit.UIColor {
+    get
+  }
+  public var customNavigationBarContentTintColor: UIKit.UIColor {
+    get
+  }
+  public var menuBarTintColor: UIKit.UIColor {
+    get
+  }
+  public var translucentMenuBarTintColor: UIKit.UIColor {
+    get
+  }
+  public var feedBackgroundColor: UIKit.UIColor {
+    get
+  }
+  public var defaultTextColor: UIKit.UIColor {
+    get
+  }
+  public var labelColor: UIKit.UIColor {
+    get
+  }
+  public var semiPrimaryLabelColor: UIKit.UIColor {
+    get
+  }
+  public var secondaryLabelColor: UIKit.UIColor {
+    get
+  }
+  public var tableViewSectionHeaderFooterBackgroundColor: UIKit.UIColor {
+    get
+  }
+  public var coverPlaceholderTintColor: UIKit.UIColor {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CustomViewCell : UIKit.UITableViewCell {
+  @objc @_Concurrency.MainActor(unsafe) public var view: UIKit.UIView? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var viewEdgeInsets: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var custormSeparatorInset: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var topSeparator: UIKit.UIView {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var bottomSeparator: UIKit.UIView {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) open func setupView()
+  @objc deinit
+}
+@objc extension UIKit.UIFont {
+  @objc dynamic public class func preferredFont(forTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat) -> UIKit.UIFont
+  @objc dynamic public class func preferredFont(forTextStyle style: UIKit.UIFont.TextStyle, scale: CoreFoundation.CGFloat) -> UIKit.UIFont
+}
+@objc extension UIKit.UIFont {
+  @objc @available(*, deprecated, message: "Use `prefererredFontForTextStyle:pointSizeCorrection:` instead or specify weight explicitly")
+  dynamic public class func systemFont(sizeOfTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat) -> UIKit.UIFont
+  @objc dynamic public class func systemFont(sizeOfTextStyle style: UIKit.UIFont.TextStyle, weight: UIKit.UIFont.Weight) -> UIKit.UIFont
+  @objc dynamic public class func systemFont(sizeOfTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat, weight: UIKit.UIFont.Weight) -> UIKit.UIFont
+  @objc dynamic public class func systemFont(sizeOfTextStyle style: UIKit.UIFont.TextStyle, scale: CoreFoundation.CGFloat, weight: UIKit.UIFont.Weight) -> UIKit.UIFont
+}
+@objc extension UIKit.UIFont {
+  @objc dynamic public class func customFont(name: Swift.String, sizeOfTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat = 0) -> UIKit.UIFont?
+}
+extension PRUIKit.PRAppStyle {
+  @objc public static let roundShadeImage: UIKit.UIImage?
+  @objc public static let roundSelectionImage: UIKit.UIImage?
+  @objc public static let roundLightSelectionImage: UIKit.UIImage?
+}
+public func activate(visualFormat format: Swift.String, options: UIKit.NSLayoutConstraint.FormatOptions = [], metrics: [Swift.String : Any]? = nil, views: [Swift.String : Any])
+public func activate(_ constraints: UIKit.NSLayoutConstraint...)
+public func deactivate(_ constraints: UIKit.NSLayoutConstraint...)
+extension UIKit.NSLayoutConstraint {
+  @_Concurrency.MainActor(unsafe) public func activate(withConstant constant: CoreFoundation.CGFloat)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class SubtitleTextCell : PRUIKit.CustomViewCell {
+  @_Concurrency.MainActor(unsafe) final public var titleLabel: UIKit.UILabel {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) final public var subtitleLabel: UIKit.UILabel {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) override final public func setupView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIKit.UITableView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func hideExtraRows()
+}
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public func addChildView(view: some View, containerView: UIKit.UIView? = nil)
+}
+@objc extension UIKit.UIColor {
+  @objc public static var theme: PRAccessibility.PRTheme {
+    @objc get
+  }
+  @objc(contentTintColor) public static var contentTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultTableViewSeparatorColor) public static var defaultTableViewSeparator: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultUIControlBackgroundColor) public static var defaultUIControlBackground: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultUIControlTitleColor) public static var defaultUIControlTitle: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultUIControlSubtitleColor) public static var defaultUIControlSubtitle: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultBackgroundColor) public static var defaultBackground: UIKit.UIColor {
+    @objc get
+  }
+  @objc(standoutViewBackgroundColor) public static var standoutViewBackground: UIKit.UIColor {
+    @objc get
+  }
+  @objc(standoutViewTextColor) public static var standoutViewText: UIKit.UIColor {
+    @objc get
+  }
+  @objc(standoutViewHeaderColor) public static var standoutViewHeader: UIKit.UIColor {
+    @objc get
+  }
+  @objc(standoutViewSeparatorColor) public static var standoutViewSeparator: UIKit.UIColor {
+    @objc get
+  }
+  @objc(defaultSeparatorColor) public static var defaultSeparator: UIKit.UIColor {
+    @objc get
+  }
+  @objc(navigationBarTintColor) public static var navigationBarTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc(navigationBarContentTintColor) public static var navigationBarContentTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc(customNavigationBarContentTintColor) public static var customNavigationBarContentTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc(menuBarTintColor) public static var menuBarTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc(translucentMenuBarTintColor) public static var translucentMenuBarTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc(tableViewHeaderBackgroundColor) public static var tableViewHeaderBackground: UIKit.UIColor {
+    @objc get
+  }
+  @objc(popoverBackgroundColor) public static var popoverBackground: UIKit.UIColor {
+    @objc get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class IssuesRemainingView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) public var count: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ColorPickerActionMenuCell : UIKit.UITableViewCell {
+  public enum ColorPickerSelectionStyle : Swift.Int {
+    case `default`, delete
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum ColorItemSize : Swift.Int {
+    case `default`, small
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public struct ColorPickerActionMenuCellModel {
+    public let color: UIKit.UIColor
+    public let isSelected: Swift.Bool
+    public let style: PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle
+    public let size: PRUIKit.ColorPickerActionMenuCell.ColorItemSize
+    public init(color: UIKit.UIColor, isSelected: Swift.Bool, style: PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle = .default, size: PRUIKit.ColorPickerActionMenuCell.ColorItemSize = .default)
+  }
+  public typealias ColorSelectionHandler = (_ index: Swift.Int) -> ()
+  @_Concurrency.MainActor(unsafe) final public class func contentWidth(itemsSize: PRUIKit.ColorPickerActionMenuCell.ColorItemSize, itemsCount: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) final public var colorSelectionHandler: PRUIKit.ColorPickerActionMenuCell.ColorSelectionHandler?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) final public func update(with models: [PRUIKit.ColorPickerActionMenuCell.ColorPickerActionMenuCellModel])
+  @objc deinit
+}
+extension UIKit.UITableView {
+  @_Concurrency.MainActor(unsafe) public func register<T>(_ type: T.Type) where T : UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) public func register<T>(_ type: T.Type) where T : UIKit.UITableViewHeaderFooterView
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with type: T.Type, for indexPath: Foundation.IndexPath) -> T where T : UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with reuseId: Swift.String, for indexPath: Foundation.IndexPath) -> T where T : UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with type: T.Type) -> T where T : UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with reuseId: Swift.String) -> T where T : UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with type: T.Type, provider: (Swift.String) -> T) -> T where T : UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with reuseId: Swift.String, provider: (Swift.String) -> T) -> T where T : UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableHeaderFooter<T>(with type: T.Type) -> T where T : UIKit.UITableViewHeaderFooterView
+  @_Concurrency.MainActor(unsafe) public func reusableHeaderFooter<T>(with reuseId: Swift.String) -> T where T : UIKit.UITableViewHeaderFooterView
+  @_Concurrency.MainActor(unsafe) public func reusableHeaderFooter<T>(with type: T.Type, provider: (Swift.String) -> T) -> T where T : UIKit.UITableViewHeaderFooterView
+  @_Concurrency.MainActor(unsafe) public func reusableHeaderFooter<T>(with reuseId: Swift.String, provider: (Swift.String) -> T) -> T where T : UIKit.UITableViewHeaderFooterView
+}
+@objc public protocol Reportable {
+  @objc func report()
+}
+@objc extension UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var isAppContainer: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var presenter: UIKit.UIViewController? {
+    @objc get
+  }
+}
+public protocol GetStartedViewDelegate : AnyObject {
+  func viewDidReceiveProceed(_ view: PRUIKit.GetStartedView)
+  func viewDidReceiveSignIn(_ view: PRUIKit.GetStartedView)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class GetStartedView : PRUIKit.SwiftView, PRUIKit.AnimatableView, PRUIKit.ProceedableView {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: PRUIKit.GetStartedViewDelegate?
+  @_Concurrency.MainActor(unsafe) final public var proceedButton: UIKit.UIButton {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public func prepareForAnimation()
+  @_Concurrency.MainActor(unsafe) final public func animateAppearance()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class TabCollectionViewCell : UIKit.UICollectionViewCell {
+  @_Concurrency.MainActor(unsafe) public static let defaultTitleMargin: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public static func width(for text: Swift.String) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) final public var text: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var isSelected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) final public var isDimmed: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class FollowHeaderView : UIKit.UIView {
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak final public var label: UIKit.UILabel? {
+    get
+  }
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak final public var imageView: UIKit.UIImageView? {
+    get
+  }
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak final public var button: PRUIKit.PRFollowButton? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @objc @_Concurrency.MainActor(unsafe) final public func setImage(_ image: UIKit.UIImage?, animated: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) final public func setTitle(_ title: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc extension UIKit.UINavigationItem {
+  public struct Constants {
+  }
+  @objc(setLeftBarButtonItems:animated:startInset:endInset:) @_Concurrency.MainActor(unsafe) dynamic public func setLeftBarButton(_ items: [UIKit.UIBarButtonItem]?, animated: Swift.Bool, startInset: CoreFoundation.CGFloat, endInset: CoreFoundation.CGFloat)
+  @objc(setRightBarButtonItems:animated:startInset:endInset:) @_Concurrency.MainActor(unsafe) dynamic public func setRightBarButton(_ items: [UIKit.UIBarButtonItem]?, animated: Swift.Bool, startInset: CoreFoundation.CGFloat, endInset: CoreFoundation.CGFloat)
+}
+public protocol TopTabView : AnyObject {
+  var tabs: [PRUIKit.TabItem] { get set }
+  var height: CoreFoundation.CGFloat { get }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class BaseTabView<TabView> : PRUIKit.SwiftView where TabView : UIKit.UIView, TabView : PRUIKit.TopTabView {
+  @_Concurrency.MainActor(unsafe) public var topView: TabView? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var topViewHeight: UIKit.NSLayoutConstraint? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open func embedView(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func removeEmbeddedView()
+  @_Concurrency.MainActor(unsafe) public func fill(with tabs: [PRUIKit.TabItem])
+  @_Concurrency.MainActor(unsafe) open func setupSubviews()
+  @objc deinit
+}
+@objc public protocol DeepLinkHandler {
+  @objc @discardableResult
+  func openDeepLink(_ url: Foundation.URL) -> Swift.Bool
+}
+@objc extension UIKit.UIApplication {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func open(_ url: Foundation.URL, performDeepLinkCheck: Swift.Bool)
+}
+extension Foundation.URL {
+  public func open(performDeepLinkCheck: Swift.Bool = true)
+}
+@objc extension Foundation.NSURL {
+  @objc dynamic public func open()
+}
+@objc extension UIKit.UIFont {
+  @objc public static let caption: UIKit.UIFont
+  @objc public static let subheadline: UIKit.UIFont
+  @objc public static let body: UIKit.UIFont
+  @objc public static let headlineBold: UIKit.UIFont
+  @objc public static let footnoteBold: UIKit.UIFont
+  @objc public static let buttonTitle: UIKit.UIFont
+}
+public protocol ProceedableView : PRUIKit.AccessibleView {
+  var proceedButton: UIKit.UIButton { get }
+}
+extension PRUIKit.ProceedableView {
+  public func setupAccessibility()
+}
+@objc extension UIKit.UINavigationItem {
+  public struct AssociatedKeys {
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var largeTitleView: UIKit.UIView? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var standardTitleView: UIKit.UIView? {
+    @objc get
+    @objc set
+  }
+}
+@_hasMissingDesignatedInitializers final public class CommandOpenUrl {
+  public struct CommandOpenUrlOptions : Swift.OptionSet {
+    public let rawValue: Swift.Int
+    public init(rawValue: Swift.Int)
+    public static let errorAlertDenied: PRUIKit.CommandOpenUrl.CommandOpenUrlOptions
+    public static let safariIconHidden: PRUIKit.CommandOpenUrl.CommandOpenUrlOptions
+    public static let checkDeepLinkDisabled: PRUIKit.CommandOpenUrl.CommandOpenUrlOptions
+    public static let all: PRUIKit.CommandOpenUrl.CommandOpenUrlOptions
+    public typealias ArrayLiteralElement = PRUIKit.CommandOpenUrl.CommandOpenUrlOptions
+    public typealias Element = PRUIKit.CommandOpenUrl.CommandOpenUrlOptions
+    public typealias RawValue = Swift.Int
+  }
+  final public class func execute(url: Foundation.URL, presentingController: UIKit.UIViewController, options: PRUIKit.CommandOpenUrl.CommandOpenUrlOptions = [])
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class TextViewHeaderFooterView : UIKit.UITableViewHeaderFooterView {
+  @objc @_Concurrency.MainActor(unsafe) public var textView: UIKit.UITextView {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
+  @objc deinit
+}
+public func REUSE_ID<T>(_ type: T.Type) -> Swift.String
+@objc extension UIKit.UITextField {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func getClearButton() -> UIKit.UIButton?
+}
+@objc extension PRUIKit.PRSwitchButton {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupAccessibility()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func updateAccessibility()
+}
+@objc @_Concurrency.MainActor(unsafe) open class BrandGradientView : PRUIKit.PRGradientLayerView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc extension UIKit.UIButton {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func isEasyTapPoint(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+}
+extension PRUIKit.PRViewExtension {
+  @objc final public var topHairline: UIKit.UIView {
+    @objc get
+  }
+  @objc final public var bottomHairline: UIKit.UIView {
+    @objc get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class EasyTapButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CoreFoundation.CGSize {
+  public func scaleToFitHeight(maxHeight: CoreFoundation.CGFloat, sufficientPortion: CoreFoundation.CGFloat = 1) -> CoreFoundation.CGSize
+}
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) convenience dynamic public init(backgroundColor: UIKit.UIColor?)
+  @objc @_Concurrency.MainActor(unsafe) convenience dynamic public init(theme: PRAccessibility.PRTheme)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class PRRoundedButton : PRUIKit.EasyTapButton {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc required override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class ContentMetrics : ObjectiveC.NSObject {
+  @objc public static let issueCellNibMargin: CoreFoundation.CGFloat
+  @objc public static let compactSideInset: CoreFoundation.CGFloat
+  @objc public static let regularSideInset: CoreFoundation.CGFloat
+  @objc public static var sideInset: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public static var interArticleSpacing: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public static let compactInteritemSpacing: CoreFoundation.CGFloat
+  @objc public static let regularInteritemSpacing: CoreFoundation.CGFloat
+  @objc public static var interitemSpacing: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public static var horizontalScrollerInteritemSpacing: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public static var lineSpacing: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public static var gridCellHeightToWidthRatio: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public static var gridCellSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @objc public static var mediumGridCellSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @objc public static var maxGridCellSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @objc public static let actionMenuContentSideInset: CoreFoundation.CGFloat
+  @objc public static var featuredCatalogSectionMultiplier: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public static let catalogThumbnailRatio: CoreFoundation.CGFloat
+  @objc public static let actionButtonHeight: CoreFoundation.CGFloat
+  @objc public static func gridCellSize(with multiplier: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ReaderProgressView : UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) final public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var subtitle: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var maxValue: Swift.Float {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var currentValue: Swift.Float {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @objc deinit
+}
+extension UIKit.UITableView {
+  @_Concurrency.MainActor(unsafe) convenience public init(style: UIKit.UITableView.Style = .plain, theme: PRAccessibility.PRTheme? = nil)
+}
+@objc extension UIKit.UIFontMetrics {
+  @objc(scaledFontForFont:contentCategoryAdjustment:) dynamic public func scaledFont(for font: UIKit.UIFont, contentCategoryAdjustment: Swift.Int) -> UIKit.UIFont
+  @objc(scaledFontForFont:contentCategoryAdjustment:clampingFrom:to:) dynamic public func scaledFont(for font: UIKit.UIFont, contentCategoryAdjustment: Swift.Int, clamping from: UIKit.UIContentSizeCategory, to: UIKit.UIContentSizeCategory) -> UIKit.UIFont
+  @objc(scaledValueForValue:contentCategoryAdjustment:) dynamic public func scaledValue(for value: CoreFoundation.CGFloat, contentCategoryAdjustment: Swift.Int) -> CoreFoundation.CGFloat
+  @objc(scaledValueForValue:contentCategoryAdjustment:clampingFrom:to:) dynamic public func scaledValue(for value: CoreFoundation.CGFloat, contentCategoryAdjustment: Swift.Int, clamping from: UIKit.UIContentSizeCategory, to: UIKit.UIContentSizeCategory) -> CoreFoundation.CGFloat
+}
+extension UIKit.UIContentSizeCategory {
+  public static func + (left: UIKit.UIContentSizeCategory, right: Swift.Int) -> UIKit.UIContentSizeCategory
+  public func clamp(from: UIKit.UIContentSizeCategory, to: UIKit.UIContentSizeCategory) -> UIKit.UIContentSizeCategory
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class UILabelHidable : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var text: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var attributedText: Foundation.NSAttributedString? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIKit.UILabel : PRUIKit.HighlightableText {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func highlight(words: Swift.String)
+}
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) public class InsetableNavigationBar : UIKit.UINavigationBar {
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didAddSubview(_ subview: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public func alignImageRight()
+}
+extension UIKit.UIColor {
+  @objc convenience dynamic public init(startColor: UIKit.UIColor, endColor: UIKit.UIColor, location: CoreFoundation.CGFloat)
+}
+extension UIKit.UICollectionView {
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with type: T.Type, for indexPath: Foundation.IndexPath, reuseId: Swift.String? = nil) -> T where T : UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableCell<T>(with reuseId: Swift.String, for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) public func register<T>(_ cellType: T.Type, reuseId: Swift.String? = nil) where T : UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) public func reusableSupplementaryView<T>(type: T.Type, kind: Swift.String, for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) public func reusableSupplementaryView<T>(reuseId: Swift.String, kind: Swift.String, for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) public func register<T>(_ viewType: T.Type, forSupplementaryViewOfKind elementKind: Swift.String, reuseId: Swift.String? = nil) where T : UIKit.UICollectionReusableView
+}
+@objc extension UIKit.UINavigationBar {
+  public struct Spacings {
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var largeTitleOffset: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+}
+@objc extension UIKit.UIColor {
+  @objc(translationBackgroundColor) public static var translationBackground: UIKit.UIColor {
+    @objc get
+  }
+  @objc(sampleContentTintColor) public static var sampleContentTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc(globalBlueColor) public static var globalBlue: UIKit.UIColor {
+    @objc get
+  }
+  @objc(globalDestructiveColor) public static var globalDestructive: UIKit.UIColor {
+    @objc get
+  }
+  @objc(darkLogoColor) public static var darkLogo: UIKit.UIColor? {
+    @objc get
+  }
+}
+extension PRUIKit.PRViewExtension {
+  @objc final public var theme: PRAccessibility.PRTheme {
+    @objc get
+    @objc set
+  }
+  @objc final public func _setTheme(_ theme: PRAccessibility.PRTheme)
+}
+#warning("@vs Remove this view as soon as iOS 15 is set as minimum OS version. This view can be replaced with `Color(uiColor:)` initializer.")
+public struct BackgroundView : SwiftUI.UIViewRepresentable {
+  public let color: UIKit.UIColor
+  public init(color: UIKit.UIColor)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: PRUIKit.BackgroundView.Context) -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ view: UIKit.UIView, context: PRUIKit.BackgroundView.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = UIKit.UIView
+}
+@objc extension UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func saveNavigationBarStateOnAppearance()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func restoreNavigationBarStateOnDisappearance()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func applyNavigationBarTintColor(_ color: UIKit.UIColor)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class PRTextField : UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) final public var clearButtonTintColor: UIKit.UIColor?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @objc deinit
+}
+extension PRUIKit.PRTextField {
+  @_Concurrency.MainActor(unsafe) @objc override final public func updateAppearance(with theme: PRAccessibility.PRTheme)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class UIViewStretchable : UIKit.UIView {
+  @objc deinit
+}
+@objc final public class LargeNavigationBarSimulationActor : ObjectiveC.NSObject {
+  @objc final public var difference: CoreFoundation.CGFloat
+  @objc weak final public var largeTitleView: UIKit.UIView? {
+    get
+  }
+  @objc public init(navigationController: UIKit.UINavigationController, largeTitleView: UIKit.UIView, navigationItem: UIKit.UINavigationItem, titleView: UIKit.UIView? = nil)
+  @objc final public func onScrollViewDidScroll()
+  @objc deinit
+}
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resistHCompression()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resistVCompression()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resistHHugging()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resistVHugging()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resistCompression()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resistHugging()
+}
+extension Swift.Array where Element : UIKit.UIView {
+  public func resistVCompression()
+}
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func rightToLeftAllSubviews()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SwiftView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc extension UIKit.UIFont {
+  @objc public static let standardContentCategoryTraitCollection: UIKit.UITraitCollection
+  @objc dynamic public class func scalableSystemFont(sizeOfTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat, weight: UIKit.UIFont.Weight) -> UIKit.UIFont
+  @objc dynamic public class func scalablePreferredFont(forTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat) -> UIKit.UIFont
+  @objc dynamic public class func scalableCustomFont(name: Swift.String, sizeOfTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat) -> UIKit.UIFont?
+  @objc dynamic public var isScalable: Swift.Bool {
+    @objc get
+  }
+}
+@objc extension UIKit.UIFont {
+  @objc dynamic public func scaledFont(contentSizeCategoryAdjustment adjustment: Swift.Int, clamping from: UIKit.UIContentSizeCategory, to: UIKit.UIContentSizeCategory) -> UIKit.UIFont
+  @objc dynamic public func scaledFont(contentSizeCategoryAdjustment adjustment: Swift.Int) -> UIKit.UIFont
+  @objc dynamic public func scaledFontWithContentSizeCategoryAdjustment() -> UIKit.UIFont
+  @objc dynamic public func scaledFontWithContentSizeCategoryAdjustmentClamping(from: UIKit.UIContentSizeCategory, to: UIKit.UIContentSizeCategory) -> UIKit.UIFont
+  @objc dynamic public func scaledPointSize(contentSizeCategoryAdjustment adjustment: Swift.Int, clamping from: UIKit.UIContentSizeCategory, to: UIKit.UIContentSizeCategory) -> CoreFoundation.CGFloat
+  @objc dynamic public func scaledPointSize(contentSizeCategoryAdjustment adjustment: Swift.Int) -> CoreFoundation.CGFloat
+  @objc dynamic public func scaledPointSizeWithContentSizeCategoryAdjustmentClamping(from: UIKit.UIContentSizeCategory, to: UIKit.UIContentSizeCategory) -> CoreFoundation.CGFloat
+  @objc dynamic public func scaledPointSizeWithContentSizeCategoryAdjustment() -> CoreFoundation.CGFloat
+  @objc dynamic public func defaultScaledPointSize() -> CoreFoundation.CGFloat
+  @objc dynamic public func defaultScaledFont() -> UIKit.UIFont
+}
+@objc extension UIKit.UIStackView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func removeArrangedSubviews()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addArrangedFlexibleSpace()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func insertArrangedFlexibleSpace(after view: UIKit.UIView)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addArrangedFixedSpace(space: CoreFoundation.CGFloat)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func insertArrangedFixedSpace(space: CoreFoundation.CGFloat, after view: UIKit.UIView)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func trimStretchableSubviewSpaces()
+}
+@objc extension UIKit.UILabel {
+  @objc @_Concurrency.MainActor(unsafe) convenience dynamic public init(font: UIKit.UIFont, color: UIKit.UIColor? = nil, numberOfLines: Swift.Int = 1)
+  @objc @_Concurrency.MainActor(unsafe) convenience dynamic public init(text: Swift.String)
+}
+@_Concurrency.MainActor(unsafe) open class SwiftVC<RootView, Model> : PRUIKit._PRVC where RootView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) open var model: Model
+  @_Concurrency.MainActor(unsafe) public var rootView: RootView {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public init(model: Model, nibName: Swift.String? = nil, bundle: Foundation.Bundle? = nil)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @objc deinit
+}
+@objc extension QuartzCore.CALayer {
+  @objc dynamic public func applySketchShadow(color: UIKit.UIColor = .black, alpha: Swift.Float = 0.5, x: CoreFoundation.CGFloat = 0, y: CoreFoundation.CGFloat = 2, blur: CoreFoundation.CGFloat = 4, spread: CoreFoundation.CGFloat = 0)
+}
+@objc extension UIKit.UIStackView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setTextColor(_ color: UIKit.UIColor)
+}
+@objc extension UIKit.NSLayoutManager {
+  @objc dynamic public class var defaultHyphenationFactor: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc dynamic public class var isHyphenationEnabled: Swift.Bool {
+    @objc get
+  }
+}
+extension Foundation.NSNotification.Name {
+  public static let fontSizeAdjustmentChange: Foundation.Notification.Name
+}
+@objc extension Foundation.NSNotification {
+  @objc public static let fontSizeAdjustmentChange: Foundation.Notification.Name
+}
+@objc extension Foundation.UserDefaults {
+  @objc final public var fontSizeAdjustment: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc final public var articleDetailsFontSizeAdjustment: Swift.Int {
+    @objc get
+    @objc set
+  }
+}
+public protocol IntroViewDelegate : AnyObject {
+  func introViewDidReceiveProceed(_ view: PRUIKit.IntroView)
+  func introViewDidReceiveSkip(_ view: PRUIKit.IntroView)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class IntroView : PRUIKit.SwiftView, PRUIKit.SkippableView {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: PRUIKit.IntroViewDelegate?
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel?
+  @_Concurrency.MainActor(unsafe) public var subTitleLabel: UIKit.UILabel?
+  @_Concurrency.MainActor(unsafe) public var proceedButton: UIKit.UIButton?
+  @_Concurrency.MainActor(unsafe) public var hideProceedButton: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var imageView: UIKit.UIImageView?
+  @_Concurrency.MainActor(unsafe) public var skipButton: UIKit.UIButton {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ReaderBookmarkView : UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) final public var isBookmarked: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var text: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var textColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public init(isHidingNonBookmarkedState: Swift.Bool = true)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class BrandGradientPopoverBackgroundView : PRUIKit.PRPopoverBackgroundView {
+  @objc deinit
+}
+@objc extension UIKit.UINavigationItem {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstFromEdgeLeftBarButtonItem: UIKit.UIBarButtonItem? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstFromEdgeRightBarButtonItem: UIKit.UIBarButtonItem? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func allBarButtons() -> [UIKit.UIBarButtonItem]
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func applyBarButtonsTintColor(_ color: UIKit.UIColor)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func applyBarButtonsAlpha(_ alpha: CoreFoundation.CGFloat)
+}
+extension UIKit.UIFont {
+  @objc dynamic public var weight: UIKit.UIFont.Weight {
+    @objc get
+  }
+}
+extension UIKit.UIFontDescriptor {
+  @objc dynamic public var weight: UIKit.UIFont.Weight {
+    @objc get
+  }
+}
+extension PRUIKit.PRViewExtension {
+  @objc final public var contentController: UIKit.UIViewController? {
+    @objc get
+    @objc set
+  }
+}
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func forceRelayout()
+}
+@objc extension ObjectiveC.NSObject {
+  @objc dynamic public func logDealloc()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TextCell : PRUIKit.CustomViewCell {
+  @objc @_Concurrency.MainActor(unsafe) public var label: UIKit.UILabel? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) override open func setupView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var dimensionParams: Swift.String {
+    @objc get
+  }
+}
+@objc public protocol Stateable {
+  @objc func saveState()
+  @objc func restoreState()
+}
+@objc public protocol HighlightableText {
+  @objc(highlightWords:) func highlight(words: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class SwitchView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public var action: ((UIKit.UISwitch) -> ())?
+  @_Concurrency.MainActor(unsafe) final public let titleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) final public let subtitleLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) final public let actionSwitch: UIKit.UISwitch
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class ViewTraits : ObjectiveC.NSObject {
+  @objc deinit
+}
+extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var traits: PRUIKit.ViewTraits {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) public func updateTraits() -> PRUIKit.ViewTraits
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) final public class BrandButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) final public func applyBrandAppearance()
+  @objc deinit
+}
+extension PRUIKit.PRBarButtonSystemItem : Swift.Equatable {}
+extension PRUIKit.PRBarButtonSystemItem : Swift.Hashable {}
+extension PRUIKit.PRBarButtonSystemItem : Swift.RawRepresentable {}
+extension PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle : Swift.Equatable {}
+extension PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle : Swift.Hashable {}
+extension PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle : Swift.RawRepresentable {}
+extension PRUIKit.ColorPickerActionMenuCell.ColorItemSize : Swift.Equatable {}
+extension PRUIKit.ColorPickerActionMenuCell.ColorItemSize : Swift.Hashable {}
+extension PRUIKit.ColorPickerActionMenuCell.ColorItemSize : Swift.RawRepresentable {}

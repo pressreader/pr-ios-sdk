@@ -1,0 +1,213 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAccessibility
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+@_exported import PRAccessibility
+import Swift
+import _Concurrency
+import _StringProcessing
+@objc @objcMembers final public class AccessibilityId : ObjectiveC.NSObject {
+  @objc final public let rawValue: Swift.String
+  @objc public init(rawValue: Swift.String)
+  @objc final public func id(with theme: PRAccessibility.PRTheme) -> Swift.String
+  @objc override final public var hash: Swift.Int {
+    @objc get
+  }
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let premiumBanner: PRAccessibility.AccessibilityId
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let feed: PRAccessibility.FeedAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class FeedAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc final public let article: PRAccessibility.AccessibilityId
+  @objc final public let issueThumbnail: PRAccessibility.AccessibilityId
+  @objc final public let interestTag: PRAccessibility.AccessibilityId
+  @objc final public let name: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension PRAccessibility.AccessibilityId {
+  public static let appMenu: PRAccessibility.AppMenuItemAccessibilityId
+}
+public struct AppMenuItemAccessibilityId {
+  public let menu: PRAccessibility.AccessibilityId
+  public let home: PRAccessibility.AccessibilityId
+  public let catalog: PRAccessibility.AccessibilityId
+  public let downloaded: PRAccessibility.AccessibilityId
+  public let bookmarks: PRAccessibility.AccessibilityId
+  public let signIn: PRAccessibility.AccessibilityId
+  public let more: PRAccessibility.AccessibilityId
+  public let hotSpot: PRAccessibility.AccessibilityId
+  public let account: PRAccessibility.AccessibilityId
+  public let settings: PRAccessibility.AccessibilityId
+  public let subscriptions: PRAccessibility.AccessibilityId
+  public let sendFeedback: PRAccessibility.AccessibilityId
+  public let customerSupport: PRAccessibility.AccessibilityId
+  public let webView: PRAccessibility.AccessibilityId
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let account: PRAccessibility.AccountAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let cell: PRAccessibility.AccountCellAccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountCellAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let delete: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let reader: PRAccessibility.ReaderAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ReaderAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let articleDetails: PRAccessibility.ArticleDetailsAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleDetailsAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let orderView: PRAccessibility.OrderAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class OrderAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let cell: PRAccessibility.OrderCellAccessibilityId
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc final public let thumbnail: PRAccessibility.AccessibilityId
+  @objc final public let otherIssues: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class OrderCellAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let date: PRAccessibility.AccessibilityId
+  @objc final public let autoDelivery: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let skippableView: PRAccessibility.AccessibilityId
+  @objc public static let proceedableView: PRAccessibility.AccessibilityId
+  @objc public static let issuesSectionHeader: PRAccessibility.AccessibilityId
+  @objc public static let splashView: PRAccessibility.AccessibilityId
+  @objc public static let networkErrorView: PRAccessibility.AccessibilityId
+  @objc public static let paymentOptionView: PRAccessibility.AccessibilityId
+  @objc public static let activityView: PRAccessibility.AccessibilityId
+  @objc public static let groupHeader: PRAccessibility.AccessibilityId
+  @objc public static let publicationDetailsView: PRAccessibility.AccessibilityId
+  @objc public static let moreMenuView: PRAccessibility.AccessibilityId
+  @objc public static let deallocAlert: PRAccessibility.AccessibilityId
+  @objc public static let sourceView: PRAccessibility.AccessibilityId
+  @objc public static let horizontalScroller: PRAccessibility.AccessibilityId
+  @objc public static let searchField: PRAccessibility.AccessibilityId
+}
+public enum BEAppType : Swift.Int {
+  case single
+  case singleFeed
+  case singleSupplements
+  case singleSupplementsFeed
+  case multi
+  case multiFeed
+  case multiHome
+  public static var configType: PRAccessibility.BEAppType? {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension PRAccessibility.AccessibilityId {
+  @objc public static let tabPanel: PRAccessibility.AccessibilityId
+  public static let tab: PRAccessibility.TabAccessibilityId
+}
+public struct TabAccessibilityId {
+  public let all: PRAccessibility.AccessibilityId
+  public let otherIssues: PRAccessibility.AccessibilityId
+  public let supplements: PRAccessibility.AccessibilityId
+  public let regionalEditions: PRAccessibility.AccessibilityId
+  public let onlineStories: PRAccessibility.AccessibilityId
+  public let publications: PRAccessibility.AccessibilityId
+  public let books: PRAccessibility.AccessibilityId
+  public let stories: PRAccessibility.AccessibilityId
+  public let interests: PRAccessibility.AccessibilityId
+  public let bookmarks: PRAccessibility.AccessibilityId
+  public let highlights: PRAccessibility.AccessibilityId
+  public let puzzles: PRAccessibility.AccessibilityId
+  public let contents: PRAccessibility.AccessibilityId
+  public let custom: PRAccessibility.AccessibilityId
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let article: PRAccessibility.ArticleAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc final public let issueThumbnail: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let button: PRAccessibility.ButtonAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ButtonAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let back: PRAccessibility.AccessibilityId
+  @objc final public let actionMenu: PRAccessibility.AccessibilityId
+  @objc final public let close: PRAccessibility.AccessibilityId
+  @objc final public let done: PRAccessibility.AccessibilityId
+  @objc final public let cancel: PRAccessibility.AccessibilityId
+  @objc final public let read: PRAccessibility.AccessibilityId
+  @objc final public let follow: PRAccessibility.AccessibilityId
+  @objc final public let listen: PRAccessibility.AccessibilityId
+  @objc final public let search: PRAccessibility.AccessibilityId
+  @objc final public let seeAll: PRAccessibility.AccessibilityId
+  @objc final public let choosePublications: PRAccessibility.AccessibilityId
+  @objc final public let tryAgain: PRAccessibility.AccessibilityId
+  @objc final public let feed: PRAccessibility.AccessibilityId
+  @objc final public let feeds: PRAccessibility.AccessibilityId
+  @objc final public let skip: PRAccessibility.AccessibilityId
+  @objc final public let proceed: PRAccessibility.AccessibilityId
+  @objc final public let sourceItemCellInfoBar: PRAccessibility.AccessibilityId
+  @objc final public let similarArticles: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension PRAccessibility.AccessibilityId {
+  @objc public static let recommendedCarousel: PRAccessibility.AccessibilityId
+  public static let navigationFilter: PRAccessibility.NavigationFilterAccessibilityId
+}
+public struct NavigationFilterAccessibilityId {
+  public let collectionView: PRAccessibility.AccessibilityId
+  public let free: PRAccessibility.AccessibilityId
+}
+public enum PRLaunchEnvironmentVar : Swift.String {
+  case command
+  case shortcut
+  case boolConfigParameter_
+  case intConfigParameter_
+  case arrayConfigParameter_
+  case dictionaryConfigParameter_
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension PRAccessibility.BEAppType : Swift.Equatable {}
+extension PRAccessibility.BEAppType : Swift.Hashable {}
+extension PRAccessibility.BEAppType : Swift.RawRepresentable {}
+extension PRAccessibility.PRLaunchEnvironmentVar : Swift.Equatable {}
+extension PRAccessibility.PRLaunchEnvironmentVar : Swift.Hashable {}
+extension PRAccessibility.PRLaunchEnvironmentVar : Swift.RawRepresentable {}

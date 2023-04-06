@@ -1,0 +1,11 @@
+framework module PRSmart {
+  umbrella header "PRSmart.h"
+
+  export *
+  module * { export * }
+}
+
+module PRSmart.Swift {
+  header "PRSmart-Swift.h"
+  requires objc
+}

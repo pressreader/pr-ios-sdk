@@ -1,0 +1,11 @@
+framework module PRSyntacticSugar {
+  umbrella header "PRSyntacticSugar.h"
+
+  export *
+  module * { export * }
+}
+
+module PRSyntacticSugar.Swift {
+  header "PRSyntacticSugar-Swift.h"
+  requires objc
+}

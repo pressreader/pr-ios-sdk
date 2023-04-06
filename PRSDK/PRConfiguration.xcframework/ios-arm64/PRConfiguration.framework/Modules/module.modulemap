@@ -1,0 +1,11 @@
+framework module PRConfiguration {
+  umbrella header "PRConfiguration.h"
+
+  export *
+  module * { export * }
+}
+
+module PRConfiguration.Swift {
+  header "PRConfiguration-Swift.h"
+  requires objc
+}

@@ -1,0 +1,253 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUtils
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Compression
+import Foundation
+import PRConfiguration
+@_exported import PRUtils
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc extension ObjectiveC.NSObject {
+  @objc dynamic public class var className: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var className: Swift.String {
+    @objc get
+  }
+}
+@objc extension Foundation.Bundle {
+  @objc dynamic public func path(forResource resource: Swift.String, ofTypes types: [Swift.String]) -> Swift.String?
+}
+extension Foundation.NSAttributedString {
+  @objc(attributedStringByAppendingAttributedString:) dynamic public func appending(_ aString: Foundation.NSAttributedString) -> Foundation.NSAttributedString
+  @objc dynamic public func trimmedEnd(set: Foundation.CharacterSet) -> Foundation.NSAttributedString
+}
+extension Foundation.NSMutableAttributedString {
+  @objc override dynamic public func trimmedEnd(set: Foundation.CharacterSet) -> Foundation.NSMutableAttributedString
+}
+public protocol Observable {
+  associatedtype Callback
+  func observe(_ callback: Self.Callback) -> Swift.AnyObject
+}
+extension PRUtils.Observable {
+  public func observe(_ callback: Self.Callback) -> Swift.AnyObject
+}
+@_hasMissingDesignatedInitializers public class Observer<Callback> {
+  final public let callback: Callback
+  @objc deinit
+}
+extension PRUtils.Observable {
+  public var observers: PRUtils.WeakArray<PRUtils.Observer<Self.Callback>> {
+    get
+  }
+  public func _observe(_ callback: Self.Callback) -> Swift.AnyObject
+}
+extension Foundation.Data {
+  public func inflated() -> Foundation.Data?
+}
+extension Foundation.NSLocking {
+  @discardableResult
+  public func `do`<Result>(action: () -> Result) -> Result
+}
+@objc extension Foundation.NSArray {
+  @objc(safeObjectAtIndex:) dynamic public func safeObject(at index: Swift.Int) -> Any?
+}
+@objc extension Foundation.NSMutableArray {
+  @objc(safeAddObject:) dynamic public func safeAdd(_ object: Any?)
+}
+extension Swift.Array {
+  public func safeObject(at index: Swift.Int) -> Element?
+}
+@objc extension Foundation.NSOrderedSet {
+  @objc(safeObjectAtIndex:) dynamic public func safeObject(at index: Swift.Int) -> Any?
+}
+extension Swift.String {
+  public var djb2hash: Swift.Int {
+    get
+  }
+  public var sdbmhash: Swift.Int {
+    get
+  }
+}
+@objc extension Foundation.Bundle {
+  @objc dynamic public func appDisplayName() -> Swift.String?
+}
+extension Swift.Dictionary where Key : Swift.RawRepresentable, Key.RawValue : Swift.Hashable {
+  public func rawKeyRepresentation() -> [Swift.Dictionary<Key, Value>.Key.RawValue : Swift.Dictionary<Key, Value>.Value]
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public var firstCharacter: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public var lastCharacter: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public func character(at index: Swift.Int) -> Swift.String?
+}
+public protocol DefaultLocalizedError : Foundation.LocalizedError {
+}
+extension PRUtils.DefaultLocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension Foundation.JSONDecoder.DateDecodingStrategy {
+  public static let flexibleISO8601: Foundation.JSONDecoder.DateDecodingStrategy
+}
+extension Swift.Array where Element : Swift.Equatable {
+  public mutating func removeFirstOccurrence(_ element: Swift.Array<Element>.Element)
+}
+extension Swift.Array {
+  public mutating func removeFirstOccurrence(where predicate: (Swift.Array<Element>.Element) -> Swift.Bool)
+}
+extension Foundation.URL {
+  public var isHTTP: Swift.Bool {
+    get
+  }
+}
+extension Foundation.Date {
+  public var canonicalString: Swift.String {
+    get
+  }
+}
+@objc extension Foundation.NSDate {
+  @objc dynamic public var canonicalString: Swift.String {
+    @objc get
+  }
+}
+extension Swift.String {
+  public var canonicalDate: Foundation.Date? {
+    get
+  }
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public var canonicalDate: Foundation.Date? {
+    @objc get
+  }
+}
+@objc public enum AuthPriority : Swift.Int {
+  case apple
+  case facebook
+  case google
+  case twitter
+  case email
+  case library
+  case other
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc extension PRUtils.PRSignInOption {
+  @objc dynamic public var priority: PRUtils.AuthPriority {
+    @objc get
+  }
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public var stringWithoutHyphenation: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var stringWithProperHyphenation: Swift.String {
+    @objc get
+  }
+}
+extension Swift.String {
+  public func url() -> Foundation.URL?
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public func url() -> Foundation.URL?
+  @objc dynamic public func urlParameters() -> [Swift.String : Swift.String]
+}
+@objc extension Foundation.Bundle {
+  @objc public static func containURLScheme(_ urlScheme: Swift.String?) -> Swift.Bool
+  @objc public static func containAssociatedBranchDomain(_ associatedBranchDomain: Swift.String?) -> Swift.Bool
+  @objc public static func canHandleURL(_ url: Foundation.URL) -> Swift.Bool
+}
+extension Swift.Encodable {
+  public var jsonObject: Any? {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers final public class HTMLFormatter : ObjectiveC.NSObject {
+  @objc final public class func css(font: UIKit.UIFont, fontSource: Swift.String? = nil, color: UIKit.UIColor? = nil, margin: Foundation.NSNumber? = nil) -> Swift.String
+  @objc final public class func isIFrame(_ html: Swift.String) -> Swift.Bool
+  @objc final public class func iFrame(html: Swift.String, width: CoreFoundation.CGFloat) -> Swift.String
+  @objc final public class func fillWidthWrapper(string: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+final public class WeakArray<T> where T : AnyObject {
+  final public var count: Swift.Int {
+    get
+  }
+  public init(_ elements: T...)
+  final public func append(_ element: T)
+  final public func forEach(reverse: Swift.Bool = false, callback: (T) -> ())
+  @objc deinit
+}
+extension Swift.Result {
+  public var isSucceeded: Swift.Bool {
+    get
+  }
+}
+public typealias VoidResult = Swift.Result<(), Swift.Error>
+extension Swift.Result where Success == () {
+  public static var success: Swift.Result<(), Failure> {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers public class Synchronizer : ObjectiveC.NSObject {
+  @objc public func sync(_ block: @escaping () -> ())
+  @objc public func async(_ block: @escaping () -> ())
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class SerialSynchronizer : PRUtils.Synchronizer {
+  @objc public init(label: Swift.String? = nil)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class ConcurrentSynchronizer : PRUtils.Synchronizer {
+  @objc public init(label: Swift.String? = nil)
+  @objc final public func barrierSync(_ block: @escaping () -> ())
+  @objc final public func barrierAsync(_ block: @escaping () -> ())
+  @objc deinit
+}
+extension Swift.String {
+  public func ranges(of substring: Swift.String, options: Swift.String.CompareOptions = [], locale: Foundation.Locale? = nil) -> [Swift.Range<Swift.String.Index>]
+  public func capitalizedFirstLetter() -> Swift.String
+  public mutating func capitalizeFirstLetter()
+}
+public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -> Swift.String
+@objc extension UIKit.UIApplication {
+  @objc @_Concurrency.MainActor(unsafe) public static let PRRootVCClass: Swift.AnyClass?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var rootVC: UIKit.UIViewController? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstKeyWindow: UIKit.UIWindow? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstKeyWindowStatusBarFrame: CoreFoundation.CGRect {
+    @objc get
+  }
+}
+@objc extension Foundation.NSLocale {
+  @objc public static func localizeLanguage(_ language: Swift.String) -> Swift.String
+  @objc dynamic public func languageName(isoCode: Swift.String) -> Swift.String?
+}
+extension Foundation.Locale {
+  public func languageName(isoCode: Swift.String) -> Swift.String?
+}
+extension Swift.Array where Element : Swift.Equatable {
+  public mutating func remove(items: [Element])
+  public mutating func remove(_ item: Element)
+  public func missingItems(from original: [Swift.Array<Element>.Element]) -> [Swift.Array<Element>.Element]?
+}
+@objc extension Foundation.NSString {
+  @objc(sentenceShiftedToWords:maxBeginningCharactersCount:) dynamic public func sentence(shiftedTo words: Foundation.NSString, maxBeginningCharactersCount: Swift.Int) -> Foundation.NSString
+}
+extension PRUtils.AuthPriority : Swift.Equatable {}
+extension PRUtils.AuthPriority : Swift.Hashable {}
+extension PRUtils.AuthPriority : Swift.RawRepresentable {}

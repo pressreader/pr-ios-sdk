@@ -1,0 +1,11 @@
+framework module PRDIContainer {
+  umbrella header "PRDIContainer.h"
+
+  export *
+  module * { export * }
+}
+
+module PRDIContainer.Swift {
+  header "PRDIContainer-Swift.h"
+  requires objc
+}

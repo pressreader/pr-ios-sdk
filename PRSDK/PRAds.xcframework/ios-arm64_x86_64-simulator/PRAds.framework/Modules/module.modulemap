@@ -1,0 +1,11 @@
+framework module PRAds {
+  umbrella header "PRAds.h"
+
+  export *
+  module * { export * }
+}
+
+module PRAds.Swift {
+  header "PRAds-Swift.h"
+  requires objc
+}

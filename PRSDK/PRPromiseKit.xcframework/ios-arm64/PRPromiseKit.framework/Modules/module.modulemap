@@ -1,0 +1,11 @@
+framework module PRPromiseKit {
+  umbrella header "PRPromiseKit.h"
+
+  export *
+  module * { export * }
+}
+
+module PRPromiseKit.Swift {
+  header "PRPromiseKit-Swift.h"
+  requires objc
+}
