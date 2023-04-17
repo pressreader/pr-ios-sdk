@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRConfiguration
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRConfiguration
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreData
 import Foundation
@@ -32,9 +32,6 @@ import _StringProcessing
   @objc final public var isEnabled: Swift.Bool {
     @objc get
   }
-  @objc final public var isOpaque: Swift.Bool {
-    @objc get
-  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -44,9 +41,11 @@ import _StringProcessing
   @objc deinit
 }
 extension PRConfiguration.PRConfigKey {
+  @objc public static let ads: PRConfiguration.AdConfigKey
   @objc public static let analytics: PRConfiguration.AnalyticsConfigKey
   @objc public static let appMenu: PRConfiguration.AppMenuConfigKey
   @objc public static let article: PRConfiguration.ArticleConfigKey
+  public static let att: PRConfiguration.ATTConfigKey
   @objc public static let authorization: PRConfiguration.AuthorizationConfigKey
   public static let autoTranslation: PRConfiguration.AutoTranslationConfigKey
   @objc public static let brandEdition: PRConfiguration.PRConfigKey
@@ -68,6 +67,7 @@ extension PRConfiguration.PRConfigKey {
   public static let requestSimulation: PRConfiguration.RequestSimulationConfigKey
   @objc public static let rcuEnabled: PRConfiguration.PRConfigKey
   @objc public static let search: PRConfiguration.SearchConfigKey
+  @objc public static let splashScreen: PRConfiguration.SplashScreenConfigKey
   @objc public static let tooltipsEnabled: PRConfiguration.PRConfigKey
   @objc public static let userPermissionRequestsDisabled: PRConfiguration.PRConfigKey
   @objc public static let unconditionalPremiumEligibility: PRConfiguration.PRConfigKey
@@ -150,6 +150,7 @@ public struct HomeFeedConfigKey {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AnalyticsConfigKey : ObjectiveC.NSObject {
+  @objc final public let firebase: PRConfiguration.FirebaseAnalyticsConfigKey
   @objc final public let reading: PRConfiguration.ReadingAnalyticsConfigKey
   @objc final public let userIdType: PRConfiguration.PRConfigKey
   @objc final public let treasureData: PRConfiguration.TreasureDataAnalyticsConfigKey
@@ -166,6 +167,7 @@ public struct HomeFeedConfigKey {
   @objc final public let bookOfflineAccessPeriod: PRConfiguration.PRConfigKey
   @objc final public let keepExpiredItems: PRConfiguration.PRConfigKey
   @objc final public let renewableIssueLicense: PRConfiguration.PRConfigKey
+  @objc final public let booksMigrated: PRConfiguration.PRConfigKey
   @objc override dynamic public init()
   @objc deinit
 }
@@ -176,14 +178,25 @@ public struct HomeFeedConfigKey {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @objcMembers final public class FirebaseAnalyticsConfigKey : ObjectiveC.NSObject {
+  @objc final public let userIdKey: PRConfiguration.PRConfigKey
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class SearchConfigKey : ObjectiveC.NSObject {
   @objc final public let global: PRConfiguration.GlobalSearchConfigKey
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @objcMembers final public class SplashScreenConfigKey : ObjectiveC.NSObject {
+  @objc final public let poweredByImageEnabled: PRConfiguration.PRConfigKey
+  @objc final public let animatedLogoEnabled: PRConfiguration.PRConfigKey
+  @objc final public let animatedLogoProgress: PRConfiguration.PRConfigKey
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class GlobalSearchConfigKey : ObjectiveC.NSObject {
   @objc final public let enabled: PRConfiguration.PRConfigKey
-  @objc final public let opaque: PRConfiguration.PRConfigKey
   @objc override dynamic public init()
   @objc deinit
 }
@@ -214,9 +227,19 @@ public struct HomeFeedConfigKey {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AdConfigKey : ObjectiveC.NSObject {
+  @objc final public let type: PRConfiguration.PRConfigKey
+  @objc final public let googleAdsEnabled: PRConfiguration.PRConfigKey
+  @objc final public let htmlAdsEnabled: PRConfiguration.PRConfigKey
+  @objc override dynamic public init()
+  @objc deinit
+}
 public struct ExternalLinkAccountConfigKey {
   public let enabled: PRConfiguration.PRConfigKey
   public let developerName: PRConfiguration.PRConfigKey
+}
+public struct ATTConfigKey {
+  public let permissionRequestEnabled: PRConfiguration.PRConfigKey
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class ExternalLinkAccountConfig : ObjectiveC.NSObject {
   @objc public var isEnabled: Swift.Bool {
@@ -239,6 +262,19 @@ public struct ExternalLinkAccountConfigKey {
   @objc dynamic public var typeSpecificTextForDatePicker: Swift.Bool {
     @objc get
   }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class SplashScreenConfig : ObjectiveC.NSObject {
+  @objc final public var isPoweredByImageEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public var isAnimatedLogoEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public var animatedLogoProgress: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class RadioConfig : ObjectiveC.NSObject {
   @objc final public var featured: PRConfiguration.FeaturedRadioConfig {
@@ -350,7 +386,7 @@ extension Foundation.UserDefaults : PRConfiguration.KeyValueStore {
 extension Foundation.NSUbiquitousKeyValueStore : PRConfiguration.KeyValueStore {
 }
 public struct PRUbiquitousKeyValueStore {
-  public static var store: PRConfiguration.KeyValueStore {
+  public static var store: any PRConfiguration.KeyValueStore {
     get
   }
 }
@@ -397,6 +433,9 @@ public struct PRUbiquitousKeyValueStore {
   @objc(cancellationAdvisoryConfig) dynamic public class var cancellationAdvisory: PRConfiguration.CancellationAdvisoryConfig {
     @objc get
   }
+  @objc(splashScreenConfig) dynamic public class var splashScreen: PRConfiguration.SplashScreenConfig {
+    @objc get
+  }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class LocalServerConfig : ObjectiveC.NSObject {
   @objc final public var serverURL: Swift.String? {
@@ -429,6 +468,9 @@ public struct PRUbiquitousKeyValueStore {
   @objc(externalLinkAccountConfig) dynamic public class var externalLinkAccount: PRConfiguration.ExternalLinkAccountConfig {
     @objc get
   }
+  @objc(attConfig) dynamic public class var att: PRConfiguration.ATTConfig {
+    @objc get
+  }
 }
 extension PRConfiguration.PRConfig {
   public static func bool(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Bool) -> Swift.Bool
@@ -438,6 +480,11 @@ extension PRConfiguration.PRConfig {
   public static func double(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Double) -> Swift.Double
   public static func string(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.String? = nil) -> Swift.String?
   public static func string(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.String) -> Swift.String
+}
+extension PRConfiguration.PRConfig {
+  @objc(adConfig) dynamic public class var ads: PRConfiguration.AdConfig {
+    @objc get
+  }
 }
 @objc @_inheritsConvenienceInitializers final public class ReaderConfig : ObjectiveC.NSObject {
   @objc override dynamic public init()
@@ -504,6 +551,30 @@ extension PRConfiguration.PRConfig {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @objcMembers public class AdsType : ObjectiveC.NSObject, Swift.OptionSet {
+  @objc public static let html: PRConfiguration.AdsType
+  @objc public static let google: PRConfiguration.AdsType
+  @objc final public let rawValue: Swift.Int
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc required public init(rawValue: Swift.Int)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  public typealias ArrayLiteralElement = PRConfiguration.AdsType
+  public typealias Element = PRConfiguration.AdsType
+  public typealias RawValue = Swift.Int
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AdConfig : ObjectiveC.NSObject {
+  @objc final public var simulateGoogleAds: Swift.Bool {
+    @objc get
+  }
+  @objc final public var type: PRConfiguration.AdsType {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AnalyticsConfig : ObjectiveC.NSObject {
   @objc final public var userIdType: PRConfiguration.AnalyticsUserId {
     @objc get
@@ -546,6 +617,9 @@ extension PRConfiguration.PRConfig {
   @objc final public var isCopyButtonAvailable: Swift.Bool {
     @objc get
   }
+  @objc final public var isTextSpacingAvailable: Swift.Bool {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -569,6 +643,9 @@ extension PRConfiguration.PRConfig {
   @objc public var isPushEnabled: Swift.Bool {
     @objc get
   }
+  @objc public var userIdKey: Swift.String? {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -576,6 +653,7 @@ extension PRConfiguration.PRConfig {
   public enum SortingOrder : Swift.Int {
     case specificOnTop
     case generalOnTop
+    case nonSubscriptionOnTop
     public init?(rawValue: Swift.Int)
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
@@ -616,6 +694,10 @@ extension PRConfiguration.PRConfig {
   @objc final public var bookOfflineAccessPeriod: Foundation.TimeInterval {
     @objc get
   }
+  @objc final public var booksMigrated: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -631,6 +713,9 @@ extension PRConfiguration.PRConfig {
   }
   @objc public static let dqRequestSimulation: PRConfiguration.RequestSimulation
   @objc public static let baseRequestSimulation: PRConfiguration.RequestSimulation
+  @objc public static var requestCachesDisabled: Swift.Bool {
+    @objc get
+  }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class CustomerSupportConfig : ObjectiveC.NSObject {
   @objc public var show: Swift.Bool {
@@ -696,6 +781,13 @@ extension PRConfiguration.PRConfig {
     public static let code: Swift.String
   }
   @objc final public func response(request: Swift.String, method: Swift.String) -> Foundation.Data?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ATTConfig : ObjectiveC.NSObject {
+  @objc final public var isPermissionRequestEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
   @objc deinit
 }
 extension PRConfiguration.PRAuthorizationConfig {

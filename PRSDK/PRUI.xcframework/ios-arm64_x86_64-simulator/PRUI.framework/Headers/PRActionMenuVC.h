@@ -30,7 +30,7 @@ extern CGFloat const kAMHeaderHeight;
 @property (nonatomic) PRTheme theme;
 
 @property (nullable, nonatomic, copy) void (^menuItemDidSelectBlock)(__kindof PRMenuItem *menuItem, void (^completionBlock)(void));
-@property (nullable, nonatomic, copy) void (^menuDidDismissBlock)(void);
+@property (nullable, nonatomic, copy) void (^onMenuDidDismiss)(void);
 
 @property (nonatomic, copy, nullable) void(^configureOnViewDidLoad)(__kindof PRActionMenuVC *actionMenuVC);
 @property (nonatomic, copy, nullable) void(^willDisplayCell)(__kindof PRActionMenuVC *actionMenuVC, UITableViewCell *cell, NSIndexPath *menuIndexPath);

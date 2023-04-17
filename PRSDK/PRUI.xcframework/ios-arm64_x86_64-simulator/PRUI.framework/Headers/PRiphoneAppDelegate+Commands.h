@@ -8,9 +8,6 @@
 
 #import "PRiphoneAppDelegate.h"
 
-@import PRAPI.PRCatalogSection;
-@import PRAccessibility.PRLaunchCommand;
-
 @protocol NTFArticle;
 @class NTFArticleItem;
 @class PRWeakLink;
@@ -18,24 +15,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRiphoneAppDelegate (LaunchCommand)
-
-- (void)observeLaunchCommands;
-
-- (BOOL)launchCommand:(PRLaunchCommand)command
-           parameters:(nullable NSDictionary *)params
-           completion:(void (^_Nullable)(BOOL success))completion;
-- (BOOL)launchCommand:(PRLaunchCommand)command parameters:(nullable NSDictionary *)params;
-- (BOOL)launchCommand:(PRLaunchCommand)command withParametersFromURL:(NSURL *)url;
-
-@end
-
-
 @interface PRiphoneAppDelegate (Commands)
 
 - (BOOL)registerLocalServerURL:(nullable NSString *)serverUrl
-                        username:(nullable NSString *)username
-                        password:(nullable NSString *)password;
+                      username:(nullable NSString *)username
+                      password:(nullable NSString *)password;
 
 - (BOOL)openIssueWithCID:(NSString *)cid
                     date:(nullable NSDate *)date
@@ -52,12 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)openCatalogItemWithId:(NSString *)itemId
                         class:(Class)itemClass
-                      catalog:(Catalog *)catalog;
-
-- (BOOL)orderTitleWithCID:(nullable NSString *)cid
-                     date:(nullable NSDate *)date
-    preferableServiceName:(nullable NSString *)preferableServiceName
-            forceDownload:(BOOL)forceDownload;
+                      catalog:(nullable Catalog *)catalog;
 
 - (BOOL)signInWithUserName:(nullable NSString *)username
                   password:(nullable NSString *)password
@@ -77,24 +56,41 @@ onSuccessCommandParameters:(nullable NSDictionary *)onSuccessCommandParameters
 - (BOOL)signInWithExternalNetwork:(nullable NSString *)externalAuthNetwork
              linkToCurrentAccount:(BOOL)linkToCurrentAccount;
 
-- (BOOL)openCatalogWithSection:(PRCatalogSectionType)section
-                   restorePath:(BOOL)restorePath
-                 pathToRestore:(nullable NSString *)pathToRestore
-                       pathURL:(nullable NSURL *)url
-                    filterText:(nullable NSString *)filterText
-                     popToRoot:(BOOL)popToRoot;
-
-- (BOOL)openCatalogWithSection:(PRCatalogSectionType)section;
-- (BOOL)openCatalog:(BOOL)popToRoot;
-
+- (BOOL)openCatalog;
 - (BOOL)openDownloaded;
 - (BOOL)openHomeFeed;
 
 @end
 
 
-@interface PRiphoneAppDelegate (Shortcuts)
-- (void)setupApplicationShortcutItems;
+@interface PRiphoneAppDelegate (RawCommands)
+- (BOOL)registerGiftedAccessWithParameters:(nullable NSDictionary *)params otherCommand:(nullable NSString *)command;
+- (BOOL)signInWithParameters:(nullable NSDictionary *)params;
+- (BOOL)openHotSpotsMapWithParameters:(nullable NSDictionary *)params;
+- (BOOL)openArticle:(id<NTFArticle>)article parameters:(nullable NSDictionary *)params;
+- (BOOL)openPublicationsWithParameters:(nullable NSDictionary *)parameters;
+- (BOOL)openBooksWithParameters:(nullable NSDictionary *)parameters;
+- (BOOL)openUrlWithParameters:(nullable NSDictionary *)params;
+- (BOOL)downloadItemWithParameters:(nullable NSDictionary *)parameters;
+- (BOOL)openGiftCampaignWithParameters:(nullable NSDictionary *)params;
+- (BOOL)openPremiumTrialOnboardingWithParameters:(nullable NSDictionary *)params;
+- (BOOL)startPremiumTrialWithParameters:(nullable NSDictionary *)params;
+- (BOOL)notifyWithParameters:(nullable NSDictionary *)params;
+- (BOOL)openPublicationDetailsWithParameters:(nullable NSDictionary *)params;
+@end
+
+
+@interface PRiphoneAppDelegate (LaunchCommand)
+- (void)observeLaunchCommands;
+@end
+
+
+@interface PRiphoneAppDelegate (Utils)
++ (nullable NSDate *)issueDateFromDictionary:(nullable NSDictionary *)info;
++ (nullable NSString *)cidFromDictionary:(nullable NSDictionary *)params;
++ (NSDictionary *)normaliseParameters:(NSDictionary *)params;
+
+- (void)waitForAPanel:(void(^_Nonnull)(void))completion;
 
 @end
 

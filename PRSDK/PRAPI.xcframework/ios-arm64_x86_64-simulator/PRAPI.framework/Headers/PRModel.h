@@ -69,12 +69,8 @@ extern NSNotificationName const PRModelDismissNotification;
 - (void)stop;
 
 @property (nonatomic, strong, nullable, readonly) NSDictionary<UIApplicationLaunchOptionsKey, id> *launchOptions;
-@property (nonatomic, readonly) PRHost *host;
-@property (nonatomic, readonly) PRThumbnailsManager *thumbnailsManager;
 @property (nonatomic, readonly) PRSharedPreferences *sharedPreferences;
-@property (nonatomic, readonly) PRCoreUtil *util;
 @property (nonatomic, readonly) NSOperationQueue *queue;
-@property (nonatomic, readonly) PRCoreGlobal *glob;
 
 @property (nonatomic, getter = isLibraryInitRequested) BOOL libraryInitRequested;;
 @property (nonatomic, strong) CLLocation *currentLocation;

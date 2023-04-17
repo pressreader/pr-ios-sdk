@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSString *)titleForItemAtIndex:(NSInteger)idx;
 - (nullable NSString *)languageForItemAtIndex:(NSInteger)idx;
 - (nullable NSString *)originalLanguageForItemAtIndex:(NSInteger)idx;
-- (BOOL)udateInfoForItem:(id)item completion:(nullable void(^)(void))completionBlock;
+- (BOOL)updateInfoForItem:(id)item completion:(nullable void(^)(void))completionBlock;
 - (BOOL) hasCollectionsForItemAtIndex:(NSInteger)idx;
 - (nullable NSArray<NSString *> *)collectionsForItemAtIndex:(NSInteger)idx;
 - (void) deleteFromCollectionsItem:(id)item completed:(nullable void (^)(NSError * _Nullable error))completionBlock;

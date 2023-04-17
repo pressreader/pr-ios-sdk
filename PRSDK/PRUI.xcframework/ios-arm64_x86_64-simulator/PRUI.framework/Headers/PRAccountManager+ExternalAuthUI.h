@@ -7,11 +7,10 @@
 //
 
 @import PRAPI.PRAccountManager;
-#import "PRSocialSignInManager+Providers.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRAccountManager (ExternalAuthUI) <PRSocialSignInDelegate>
+@interface PRAccountManager (ExternalAuthUI)
 
 - (nullable UIImage *)imageForNetwork:(PRSignInOption *)network
                       backgroundColor:(UIColor *_Nonnull *_Nullable)backgroundColor

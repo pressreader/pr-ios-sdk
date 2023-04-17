@@ -44,3 +44,4 @@ extern PRCommandName const PRCommandNameShowATTPermissionRequest;
 extern PRCommandName const PRCommandNameShare;
 extern PRCommandName const PRCommandNameShowFeedbackComposer;
 extern PRCommandName const PRCommandNameShowModalAuthorization;
+extern PRCommandName const PRCommandNamePrintText;

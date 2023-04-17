@@ -22,6 +22,7 @@
 #import "PRArticleBlock.h"
 
 #import "PRSmartArticle+PreferredImage.h"
+#import "PRSmartImageRegionDescriptorKey.h"
 
 //! Project version number for PRSmart.
 FOUNDATION_EXPORT double PRSmartVersionNumber;

@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@import PRSyntacticSugar;
+
+typedef void (^PRButtonConfigurationBlock)(UIButtonConfiguration * _Nonnull config);
 
 @interface UIButton (Extended)
 
-- (void)setupWithNormalImage:(NSString *)normalImageName 
-              highlightImage:(NSString *)highlightImageName;
+- (void)setupWithNormalImage:(NSString *_Nullable)normalImageName
+              highlightImage:(NSString *_Nullable)highlightImageName;
 
-- (void)setupWithNormalImage:(NSString *)normalImageName 
-              highlightImage:(NSString *)highlightImageName
+- (void)setupWithNormalImage:(NSString *_Nullable)normalImageName
+              highlightImage:(NSString *_Nullable)highlightImageName
                     capWidth:(CGFloat)capWidth;
 
-/// set the amount of spacing to appear between image and title
-- (void)setSpaceBetweenImageAndTitle:(CGFloat)spacing;
+- (void)configure:(PRButtonConfigurationBlock _Nonnull )block PR_NON_SWIFT;
 
 @end

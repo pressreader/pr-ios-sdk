@@ -20,6 +20,7 @@ typedef NS_ERROR_ENUM(PRDownloadErrorDomain, PRDownloadError) {
 @interface PRDownload (Error) <PRErrorProvider>
 
 + (NSError *)errorWithCode:(PRDownloadError)code description:(nullable NSString *)description;
++ (NSError *)cancelError;
 - (NSError *)errorWithCode:(PRDownloadError)code description:(nullable NSString *)description;
 
 @end

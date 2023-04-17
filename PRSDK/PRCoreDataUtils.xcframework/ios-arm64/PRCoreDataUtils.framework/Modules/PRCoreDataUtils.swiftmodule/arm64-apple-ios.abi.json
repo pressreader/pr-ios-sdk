@@ -6,6 +6,16 @@
     "children": [
       {
         "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "PRCoreDataUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -742,6 +752,99 @@
         "name": "NSManagedObjectContext",
         "printedName": "NSManagedObjectContext",
         "children": [
+          {
+            "kind": "Function",
+            "name": "performAndWaitAndSave",
+            "printedName": "performAndWaitAndSave(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() throws -> τ_0_0",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So22NSManagedObjectContextC15PRCoreDataUtilsE014performAndWaitH4SaveyxxyKXEKlF",
+            "mangledName": "$sSo22NSManagedObjectContextC15PRCoreDataUtilsE014performAndWaitH4SaveyxxyKXEKlF",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "declAttributes": [
+              "Rethrows"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "performAndSave",
+            "printedName": "performAndSave(schedule:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScheduledTaskType",
+                "printedName": "CoreData.NSManagedObjectContext.ScheduledTaskType",
+                "hasDefaultArg": true,
+                "usr": "s:So22NSManagedObjectContextC8CoreDataE17ScheduledTaskTypeO"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() throws -> τ_0_0",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So22NSManagedObjectContextC15PRCoreDataUtilsE14performAndSave8schedule_xAB04CoreE0E17ScheduledTaskTypeO_xyKctYaKlF",
+            "mangledName": "$sSo22NSManagedObjectContextC15PRCoreDataUtilsE14performAndSave8schedule_xAB04CoreE0E17ScheduledTaskTypeO_xyKctYaKlF",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "declAttributes": [
+              "Rethrows",
+              "DiscardableResult"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
           {
             "kind": "Function",
             "name": "object",
@@ -1536,5 +1639,69 @@
     ],
     "json_format_version": 8
   },
-  "ConstValues": []
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObject+Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 715,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObject+Utils.swift",
+      "kind": "StringLiteral",
+      "offset": 898,
+      "length": 40,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObject+Utils.swift",
+      "kind": "StringLiteral",
+      "offset": 906,
+      "length": 2,
+      "value": "\" is out of managedObjectContext\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObjectContext\/NSManagedObjectContext+Request.swift",
+      "kind": "IntegerLiteral",
+      "offset": 858,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObjectContext\/NSManagedObjectContext+Request.swift",
+      "kind": "StringLiteral",
+      "offset": 1201,
+      "length": 20,
+      "value": "\"CD deleteItems: %@\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObjectContext\/NSManagedObjectContext+Request.swift",
+      "kind": "Array",
+      "offset": 1262,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObjectContext\/NSManagedObjectContext+Request.swift",
+      "kind": "StringLiteral",
+      "offset": 1764,
+      "length": 20,
+      "value": "\"CD deleteItems: %@\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObject+Identifiable.swift",
+      "kind": "StringLiteral",
+      "offset": 760,
+      "length": 17,
+      "value": "\"id == \"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObject+Identifiable.swift",
+      "kind": "StringLiteral",
+      "offset": 774,
+      "length": 1,
+      "value": "\"\"\""
+    }
+  ]
 }

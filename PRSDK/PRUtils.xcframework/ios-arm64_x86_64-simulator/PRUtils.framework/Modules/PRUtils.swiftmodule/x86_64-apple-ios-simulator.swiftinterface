@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUtils
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUtils
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Compression
 import Foundation
@@ -17,6 +17,9 @@ import _StringProcessing
   @objc dynamic public var className: Swift.String {
     @objc get
   }
+}
+extension Swift.Bool {
+  public init(_ obj: Any?, defaultValue: Swift.Bool = false)
 }
 @objc extension Foundation.Bundle {
   @objc dynamic public func path(forResource resource: Swift.String, ofTypes types: [Swift.String]) -> Swift.String?
@@ -52,16 +55,16 @@ extension Foundation.NSLocking {
   @discardableResult
   public func `do`<Result>(action: () -> Result) -> Result
 }
-@objc extension Foundation.NSArray {
+extension Foundation.NSArray {
   @objc(safeObjectAtIndex:) dynamic public func safeObject(at index: Swift.Int) -> Any?
 }
-@objc extension Foundation.NSMutableArray {
+extension Foundation.NSMutableArray {
   @objc(safeAddObject:) dynamic public func safeAdd(_ object: Any?)
 }
 extension Swift.Array {
   public func safeObject(at index: Swift.Int) -> Element?
 }
-@objc extension Foundation.NSOrderedSet {
+extension Foundation.NSOrderedSet {
   @objc(safeObjectAtIndex:) dynamic public func safeObject(at index: Swift.Int) -> Any?
 }
 extension Swift.String {
@@ -107,6 +110,7 @@ extension Foundation.URL {
   public var isHTTP: Swift.Bool {
     get
   }
+  public func queryDictionary() -> [Swift.String : Swift.String]
 }
 extension Foundation.Date {
   public var canonicalString: Swift.String {
@@ -194,7 +198,7 @@ extension Swift.Result {
     get
   }
 }
-public typealias VoidResult = Swift.Result<(), Swift.Error>
+public typealias VoidResult = Swift.Result<(), any Swift.Error>
 extension Swift.Result where Success == () {
   public static var success: Swift.Result<(), Failure> {
     get
@@ -229,7 +233,10 @@ public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -
   @objc @_Concurrency.MainActor(unsafe) dynamic public var firstKeyWindow: UIKit.UIWindow? {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstKeyWindowStatusBarFrame: CoreFoundation.CGRect {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstWindowSceneStatusBarFrame: CoreFoundation.CGRect {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstWindowScene: UIKit.UIWindowScene? {
     @objc get
   }
 }

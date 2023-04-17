@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUIKit
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUIKit
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreGraphics
 import Foundation
@@ -45,6 +45,7 @@ extension PRUIKit.PRSafariVC {
   @_Concurrency.MainActor(unsafe) @objc convenience dynamic public init()
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc @_Concurrency.MainActor(unsafe) final public func configure(title: Swift.String, font: UIKit.UIFont)
   @objc deinit
 }
 @objc(PRMenuBottomBar) public protocol PRMenuBottomBar : ObjectiveC.NSObjectProtocol {
@@ -91,6 +92,43 @@ extension UIKit.UIBarItem {
 @objc extension UIKit.UILabel {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func updateAppearanceOfLinks(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class OptionPickerActionMenuCell<Option> : UIKit.UITableViewCell {
+  public enum OptionPickerSelectionStyle : Swift.Int {
+    case `default`, delete
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum OptionItemSize : Swift.Int {
+    case `default`, small, rectangular
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public struct OptionPickerActionMenuCellModel {
+    public let option: Option
+    public let icon: UIKit.UIImage?
+    public let isSelected: Swift.Bool
+    public let style: PRUIKit.OptionPickerActionMenuCell<Option>.OptionPickerSelectionStyle
+    public let itemSize: PRUIKit.OptionPickerActionMenuCell<Option>.OptionItemSize
+    public init(option: Option, icon: UIKit.UIImage? = nil, isSelected: Swift.Bool, style: PRUIKit.OptionPickerActionMenuCell<Option>.OptionPickerSelectionStyle = .default, itemSize: PRUIKit.OptionPickerActionMenuCell<Option>.OptionItemSize = .default)
+  }
+  public typealias OptionSelectionHandler = (_ index: Swift.Int) -> ()
+  @_Concurrency.MainActor(unsafe) public class func contentWidth(itemsSize: PRUIKit.OptionPickerActionMenuCell<Option>.OptionItemSize, itemsCount: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public var title: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var optionSelectionHandler: PRUIKit.OptionPickerActionMenuCell<Option>.OptionSelectionHandler?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(with models: [PRUIKit.OptionPickerActionMenuCell<Option>.OptionPickerActionMenuCellModel])
+  @_Concurrency.MainActor(unsafe) public func optionItemView(with model: PRUIKit.OptionPickerActionMenuCell<Option>.OptionPickerActionMenuCellModel, index: Swift.Int) -> UIKit.UIButton
+  @objc deinit
 }
 @objc public enum PRBarButtonSystemItem : Swift.Int {
   case done
@@ -227,6 +265,11 @@ extension PRUIKit.PRViewExtension : PRUIKit.Themeable {
     @objc get
   }
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ButtonsPickerActionMenuCell<Option> : PRUIKit.OptionPickerActionMenuCell<Option> {
+  @_Concurrency.MainActor(unsafe) override public func optionItemView(with model: PRUIKit.OptionPickerActionMenuCell<Option>.OptionPickerActionMenuCellModel, index: Swift.Int) -> UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc deinit
+}
 extension UIKit.UIView {
   @nonobjc @_Concurrency.MainActor(unsafe) public func superview<T>(type: T.Type) -> T? where T : UIKit.UIView
   @objc(superviewWithClass:) @_Concurrency.MainActor(unsafe) dynamic public func objc_superview(type: UIKit.UIView.Type) -> UIKit.UIView?
@@ -265,7 +308,7 @@ public protocol TabsPanelDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) public var selectedTabTitle: Swift.String? {
     get
   }
-  @_Concurrency.MainActor(unsafe) weak public var delegate: PRUIKit.TabsPanelDelegate?
+  @_Concurrency.MainActor(unsafe) weak public var delegate: (any PRUIKit.TabsPanelDelegate)?
   @_Concurrency.MainActor(unsafe) public var tabsCollectionView: UIKit.UICollectionView {
     get
   }
@@ -459,7 +502,7 @@ public protocol SelectionActionMenuItem {
   var action: () -> () { get }
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class SelectionActionsMenuCell : UIKit.UITableViewCell {
-  @_Concurrency.MainActor(unsafe) final public var selectionItems: [PRUIKit.SelectionActionMenuItem] {
+  @_Concurrency.MainActor(unsafe) final public var selectionItems: [any PRUIKit.SelectionActionMenuItem] {
     get
     set
   }
@@ -687,35 +730,9 @@ extension UIKit.UIViewController {
   }
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ColorPickerActionMenuCell : UIKit.UITableViewCell {
-  public enum ColorPickerSelectionStyle : Swift.Int {
-    case `default`, delete
-    public init?(rawValue: Swift.Int)
-    public typealias RawValue = Swift.Int
-    public var rawValue: Swift.Int {
-      get
-    }
-  }
-  public enum ColorItemSize : Swift.Int {
-    case `default`, small
-    public init?(rawValue: Swift.Int)
-    public typealias RawValue = Swift.Int
-    public var rawValue: Swift.Int {
-      get
-    }
-  }
-  public struct ColorPickerActionMenuCellModel {
-    public let color: UIKit.UIColor
-    public let isSelected: Swift.Bool
-    public let style: PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle
-    public let size: PRUIKit.ColorPickerActionMenuCell.ColorItemSize
-    public init(color: UIKit.UIColor, isSelected: Swift.Bool, style: PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle = .default, size: PRUIKit.ColorPickerActionMenuCell.ColorItemSize = .default)
-  }
-  public typealias ColorSelectionHandler = (_ index: Swift.Int) -> ()
-  @_Concurrency.MainActor(unsafe) final public class func contentWidth(itemsSize: PRUIKit.ColorPickerActionMenuCell.ColorItemSize, itemsCount: Swift.Int) -> CoreFoundation.CGFloat
-  @_Concurrency.MainActor(unsafe) final public var colorSelectionHandler: PRUIKit.ColorPickerActionMenuCell.ColorSelectionHandler?
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ColorPickerActionMenuCell : PRUIKit.OptionPickerActionMenuCell<UIKit.UIColor> {
+  @_Concurrency.MainActor(unsafe) override final public func optionItemView(with model: PRUIKit.OptionPickerActionMenuCell<UIKit.UIColor>.OptionPickerActionMenuCellModel, index: Swift.Int) -> UIKit.UIButton
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) final public func update(with models: [PRUIKit.ColorPickerActionMenuCell.ColorPickerActionMenuCellModel])
   @objc deinit
 }
 extension UIKit.UITableView {
@@ -731,6 +748,10 @@ extension UIKit.UITableView {
   @_Concurrency.MainActor(unsafe) public func reusableHeaderFooter<T>(with reuseId: Swift.String) -> T where T : UIKit.UITableViewHeaderFooterView
   @_Concurrency.MainActor(unsafe) public func reusableHeaderFooter<T>(with type: T.Type, provider: (Swift.String) -> T) -> T where T : UIKit.UITableViewHeaderFooterView
   @_Concurrency.MainActor(unsafe) public func reusableHeaderFooter<T>(with reuseId: Swift.String, provider: (Swift.String) -> T) -> T where T : UIKit.UITableViewHeaderFooterView
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class AlignmentPickerActionMenuCell : PRUIKit.ButtonsPickerActionMenuCell<UIKit.NSTextAlignment> {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc deinit
 }
 @objc public protocol Reportable {
   @objc func report()
@@ -748,7 +769,7 @@ public protocol GetStartedViewDelegate : AnyObject {
   func viewDidReceiveSignIn(_ view: PRUIKit.GetStartedView)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class GetStartedView : PRUIKit.SwiftView, PRUIKit.AnimatableView, PRUIKit.ProceedableView {
-  @_Concurrency.MainActor(unsafe) weak final public var delegate: PRUIKit.GetStartedViewDelegate?
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: (any PRUIKit.GetStartedViewDelegate)?
   @_Concurrency.MainActor(unsafe) final public var proceedButton: UIKit.UIButton {
     get
     set
@@ -830,6 +851,23 @@ extension Foundation.URL {
 }
 @objc extension Foundation.NSURL {
   @objc dynamic public func open()
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseSearchVC<View, Model> : PRUIKit.SwiftVC<View, Model>, UIKit.UISearchBarDelegate where View : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var needDismissButton: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isNavigationBarShadowHidden: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var navigationBarRightBarButtonItems: [UIKit.UIBarButtonItem]? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc open func searchBar(_ searchBar: UIKit.UISearchBar, textDidChange searchText: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc open func searchBarSearchButtonClicked(_ searchBar: UIKit.UISearchBar)
+  @_Concurrency.MainActor(unsafe) @objc open func searchBarCancelButtonClicked(_ searchBar: UIKit.UISearchBar)
+  @_Concurrency.MainActor(unsafe) @objc open func searchBarTextDidEndEditing(_ searchBar: UIKit.UISearchBar)
+  @_Concurrency.MainActor(unsafe) override public init(model: Model, nibName: Swift.String? = nil, bundle: Foundation.Bundle? = nil)
+  @objc deinit
 }
 @objc extension UIKit.UIFont {
   @objc public static let caption: UIKit.UIFont
@@ -1024,6 +1062,16 @@ extension UIKit.UILabel : PRUIKit.HighlightableText {
 extension UIKit.UIButton {
   @_Concurrency.MainActor(unsafe) public func alignImageRight()
 }
+extension UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public func configure(_ block: (inout UIKit.UIButton.Configuration) -> ())
+}
+extension UIKit.UIButton.Configuration {
+  public static func prDefault() -> UIKit.UIButton.Configuration
+}
+@available(*, unavailable)
+@objc extension UIKit.UIButton {
+  @objc @_Concurrency.MainActor(unsafe) public static func prDefaultConfiguration() -> UIKit.UIButton.Configuration
+}
 extension UIKit.UIColor {
   @objc convenience dynamic public init(startColor: UIKit.UIColor, endColor: UIKit.UIColor, location: CoreFoundation.CGFloat)
 }
@@ -1066,16 +1114,6 @@ extension PRUIKit.PRViewExtension {
     @objc set
   }
   @objc final public func _setTheme(_ theme: PRAccessibility.PRTheme)
-}
-#warning("@vs Remove this view as soon as iOS 15 is set as minimum OS version. This view can be replaced with `Color(uiColor:)` initializer.")
-public struct BackgroundView : SwiftUI.UIViewRepresentable {
-  public let color: UIKit.UIColor
-  public init(color: UIKit.UIColor)
-  @_Concurrency.MainActor(unsafe) public func makeUIView(context: PRUIKit.BackgroundView.Context) -> UIKit.UIView
-  @_Concurrency.MainActor(unsafe) public func updateUIView(_ view: UIKit.UIView, context: PRUIKit.BackgroundView.Context)
-  public typealias Body = Swift.Never
-  public typealias Coordinator = Swift.Void
-  public typealias UIViewType = UIKit.UIView
 }
 @objc extension UIKit.UIViewController {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func saveNavigationBarStateOnAppearance()
@@ -1183,6 +1221,10 @@ extension Swift.Array where Element : UIKit.UIView {
     @objc get
   }
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class SpacingPickerActionMenuCell : PRUIKit.ButtonsPickerActionMenuCell<Swift.Double> {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc deinit
+}
 extension Foundation.NSNotification.Name {
   public static let fontSizeAdjustmentChange: Foundation.Notification.Name
 }
@@ -1204,7 +1246,7 @@ public protocol IntroViewDelegate : AnyObject {
   func introViewDidReceiveSkip(_ view: PRUIKit.IntroView)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class IntroView : PRUIKit.SwiftView, PRUIKit.SkippableView {
-  @_Concurrency.MainActor(unsafe) weak public var delegate: PRUIKit.IntroViewDelegate?
+  @_Concurrency.MainActor(unsafe) weak public var delegate: (any PRUIKit.IntroViewDelegate)?
   @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel?
   @_Concurrency.MainActor(unsafe) public var subTitleLabel: UIKit.UILabel?
   @_Concurrency.MainActor(unsafe) public var proceedButton: UIKit.UIButton?
@@ -1238,6 +1280,12 @@ public protocol IntroViewDelegate : AnyObject {
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class BrandGradientPopoverBackgroundView : PRUIKit.PRPopoverBackgroundView {
   @objc deinit
+}
+@objc public protocol GlobalSearchSupportable {
+  @objc func showGlobalSearch(text: Swift.String?)
+}
+extension PRUIKit.GlobalSearchSupportable {
+  public func showGlobalSearch()
 }
 @objc extension UIKit.UINavigationItem {
   @objc @_Concurrency.MainActor(unsafe) dynamic public var firstFromEdgeLeftBarButtonItem: UIKit.UIBarButtonItem? {
@@ -1315,12 +1363,12 @@ extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) final public func applyBrandAppearance()
   @objc deinit
 }
+extension PRUIKit.OptionPickerActionMenuCell.OptionPickerSelectionStyle : Swift.Equatable {}
+extension PRUIKit.OptionPickerActionMenuCell.OptionPickerSelectionStyle : Swift.Hashable {}
+extension PRUIKit.OptionPickerActionMenuCell.OptionPickerSelectionStyle : Swift.RawRepresentable {}
+extension PRUIKit.OptionPickerActionMenuCell.OptionItemSize : Swift.Equatable {}
+extension PRUIKit.OptionPickerActionMenuCell.OptionItemSize : Swift.Hashable {}
+extension PRUIKit.OptionPickerActionMenuCell.OptionItemSize : Swift.RawRepresentable {}
 extension PRUIKit.PRBarButtonSystemItem : Swift.Equatable {}
 extension PRUIKit.PRBarButtonSystemItem : Swift.Hashable {}
 extension PRUIKit.PRBarButtonSystemItem : Swift.RawRepresentable {}
-extension PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle : Swift.Equatable {}
-extension PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle : Swift.Hashable {}
-extension PRUIKit.ColorPickerActionMenuCell.ColorPickerSelectionStyle : Swift.RawRepresentable {}
-extension PRUIKit.ColorPickerActionMenuCell.ColorItemSize : Swift.Equatable {}
-extension PRUIKit.ColorPickerActionMenuCell.ColorItemSize : Swift.Hashable {}
-extension PRUIKit.ColorPickerActionMenuCell.ColorItemSize : Swift.RawRepresentable {}

@@ -14,16 +14,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PRHorizontallyCollapsablePanelVC;
-
-@interface PRFilterableCollectionVC : PRCollectionVC<UISearchBarDelegate,
-                                                     UIPopoverPresentationControllerDelegate,
+@interface PRFilterableCollectionVC : PRCollectionVC<UIPopoverPresentationControllerDelegate,
                                                      AdditionalContentInsetable>
-
-- (void)dismissKeyboard;
-
-@property (nonatomic, readonly) UISearchBar *filterSearchBar;
-@property (nullable, nonatomic, strong) NSString *searchText;
 
 /// YES by default
 @property (nonatomic) BOOL adjustNavigationBarOnScroll;

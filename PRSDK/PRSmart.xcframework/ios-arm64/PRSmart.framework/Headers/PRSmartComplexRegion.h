@@ -13,12 +13,12 @@
     NSMutableDictionary<NSString *, PRSmartRegion *>* textRegions;
 }
 
-- (NSDictionary<NSString *, PRSmartRegion *>*) textRegions;
-- (NSArray<PRSmartRegion *>*) regions;
-- (PRSmartRegion *) textRegionByType:(NSString*)type;
-- (NSString *) textOfRegionByType:(NSString*)type hyphenated:(BOOL)hyphenated;
-- (NSString *) textOfRegionByType:(NSString*)type hyphenated:(BOOL)hyphenated isoLanguage:(NSString *)isoLanguage;
--(void) addSmartRegion:(PRSmartRegion*)region;
--(CGRect) shallowUnionRect;
+- (NSDictionary<NSString *, PRSmartRegion *>*)textRegions;
+- (NSArray<PRSmartRegion *>*)regions;
+- (PRSmartRegion *)textRegionByType:(NSString *)type;
+- (NSString *)textOfRegionByType:(NSString *)type hyphenated:(BOOL)hyphenated;
+- (NSString *)textOfRegionByType:(NSString *)type hyphenated:(BOOL)hyphenated isoLanguage:(NSString *)isoLanguage;
+- (void)addSmartRegion:(PRSmartRegion *)region;
+- (CGRect)shallowUnionRect;
 
 @end

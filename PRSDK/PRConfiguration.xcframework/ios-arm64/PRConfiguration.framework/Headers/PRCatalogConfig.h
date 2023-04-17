@@ -38,8 +38,6 @@ typedef NS_ENUM(NSInteger, PRCatalogSortingOrder) {
 
 /// Open reader for cell, that represents issue, not publication.
 @property (nonatomic, readonly) BOOL catalogIssueClickOpenOrder;
-@property (nonatomic, readonly) BOOL filterPanelEnabled;
-@property (nonatomic, readonly) BOOL nonContextualSearchEnabled;
 @property (nonatomic, readonly) BOOL latestIssuesMixEnabled;
 @property (nonatomic, readonly) BOOL presentIssueAsExemplar;
 @property (nonatomic, readonly) BOOL useOnlineServicesAPI;

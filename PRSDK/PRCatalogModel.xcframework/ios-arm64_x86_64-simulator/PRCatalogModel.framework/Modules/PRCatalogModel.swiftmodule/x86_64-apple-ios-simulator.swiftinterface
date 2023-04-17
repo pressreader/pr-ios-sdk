@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRCatalogModel
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRCatalogModel
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Combine
 import CoreData
@@ -352,6 +352,10 @@ extension PRCatalogModel.Catalog {
     @objc get
     @objc set
   }
+  @objc @NSManaged dynamic public var preloaded: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc @NSManaged dynamic public var entities: Foundation.NSSet? {
     @objc get
     @objc set
@@ -465,6 +469,15 @@ extension PRCatalogModel.Document {
 }
 extension PRCatalogModel.Series {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Series>
+}
+extension PRCatalogModel.CatalogEntity : PRCatalogModel.CatalogableMO {
+  public func setCatalog(_ catalog: PRCatalogModel.Catalog)
+}
+extension PRCatalogModel.CatalogEntity : PRCoreDataUtils.IdentifiableMO {
+  public static func item(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) throws -> Self
+  public func metadata<T>(catalogItem: PRCatalogModel.CatalogItem) -> T? where T : PRCatalogModel.RelationshipMetadata
+  @discardableResult
+  public func processLoadedItems(info: [Swift.String : Any]) -> [PRCatalogModel.CatalogItem]?
 }
 @_inheritsConvenienceInitializers @objc(Downloads) public class Downloads : CoreData.NSManagedObject {
   @objc public static func instance(_ context: CoreData.NSManagedObjectContext) -> PRCatalogModel.Downloads
@@ -654,8 +667,6 @@ extension PRCatalogModel.Catalog : PRCoreDataUtils.IdentifiableMO {
   final public var hasValidLicense: Swift.Bool {
     get
   }
-  @objc override final public func awakeFromFetch()
-  @objc override final public func didTurnIntoFault()
   final public func update(info: [Swift.String : Any])
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
@@ -1290,15 +1301,6 @@ extension PRCatalogModel.Author {
   final public func resetLoading()
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
-}
-extension PRCatalogModel.CatalogEntity : PRCatalogModel.CatalogableMO {
-  public func setCatalog(_ catalog: PRCatalogModel.Catalog)
-}
-extension PRCatalogModel.CatalogEntity : PRCoreDataUtils.IdentifiableMO {
-  public static func item(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) throws -> Self
-  public func metadata<T>(catalogItem: PRCatalogModel.CatalogItem) -> T? where T : PRCatalogModel.RelationshipMetadata
-  @discardableResult
-  public func processLoadedItems(info: [Swift.String : Any]) -> [PRCatalogModel.CatalogItem]?
 }
 @_inheritsConvenienceInitializers @objc(PageArea) public class PageArea : CoreData.NSManagedObject {
   public var rect: CoreFoundation.CGRect {

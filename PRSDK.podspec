@@ -1,11 +1,12 @@
 Pod::Spec.new do |spec|
-  spec.name         = "PRIOSSDK"
-  spec.version      = "6.6.5"
+  spec.name         = "PRSDK"
+  spec.version      = "6.6.6"
   spec.summary      = "Pressreader SDK"
   spec.description  = "Set of PressReader frameworks."
 
   spec.homepage     = "https://www.pressreader.com"
   spec.license      = "MIT"
+  spec.author             = { "PressReader" => "iphonesupport@support.pressreader.com" }
   spec.ios.deployment_target  = "15.0"
   spec.source       = { :git => "https://github.com/pressreader/pr-ios-sdk.git", :tag => spec.version.to_s }
 

@@ -57,7 +57,7 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success);
 
 @property (nonatomic, strong, readonly) NSString *mainCID;
 @property (nonatomic, strong, readonly) PRTitleItem *titleItem;
-@property (nonatomic, weak, readonly) PRTitleItemExemplar *titleExemplar;
+@property (nonatomic, strong, readonly) PRTitleItemExemplar *titleExemplar;
 @property (nonatomic, weak, readonly) PRMyLibraryItem *mli;
 @property (nullable, nonatomic, copy, readonly) NSArray<NSDate *> *availableDates;
 @property (nonatomic, copy, readonly) NSDictionary *availableVersions;

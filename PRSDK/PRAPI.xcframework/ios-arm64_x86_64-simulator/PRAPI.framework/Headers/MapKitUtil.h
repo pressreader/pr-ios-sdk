@@ -47,7 +47,7 @@ NS_INLINE MKCoordinateRegion MKMakeCoordinateRegionFromPRCoordinateRegion(PRCoor
     return MKCoordinateRegionMake(centerCoordinate, span);
 }
 
-NS_INLINE MKCoordinateRegion MKCoordinateRegionZero()
+NS_INLINE MKCoordinateRegion MKCoordinateRegionZero(void)
 {
     return MKCoordinateRegionMake(CLLocationCoordinate2DMake(0, 0), MKCoordinateSpanMake(0, 0));
 }

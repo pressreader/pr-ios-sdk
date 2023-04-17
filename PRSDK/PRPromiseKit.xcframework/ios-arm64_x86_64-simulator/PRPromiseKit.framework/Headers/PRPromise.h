@@ -55,7 +55,7 @@ NS_SWIFT_NAME(Promise) @interface PRPromise : NSObject
      [someInstance someLongOperationWithCompletion:^(NSDictionary *result, NSError *error) {
          resolver(error == nil, result, error);
      }];
- }].then (....);
+ }].then(....);
  @endcode
  */
 + (instancetype)run:(PRPromiseRunBlock)runBlock;
@@ -76,7 +76,7 @@ NS_SWIFT_NAME(Promise) @interface PRPromise : NSObject
                               fail:^(NSError *error) {
                                        resolver(YES, nil, error);
                                    }];
- }].then (....);
+ }].then(....);
  @endcode
  */
 + (instancetype)promiseWithId:(nullable id<NSCopying>)key

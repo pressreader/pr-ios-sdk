@@ -38,21 +38,24 @@ NS_ASSUME_NONNULL_BEGIN
 // Will use the root view controller if `controller` is nil.
 // Will use the ok if `cancelButtonTitle` is nil.
 + (instancetype)presentDismissableAlertWithTitle:(nullable NSString *)title
-                                         message:(nullable NSString *)message
-                               cancelButtonTitle:(nullable NSString *)cancelButtonTitle
-                                      controller:(nullable UIViewController *)controller
-                                       dismissed:(void (^__nullable)(void))completion;
-
-+ (instancetype)presentDismissableAlertWithTitle:(nullable NSString *)title
-                                         message:(nullable NSString *)message
-                               cancelButtonTitle:(nullable NSString *)cancelButtonTitle
-                                      controller:(nullable UIViewController *)controller;
-
-+ (instancetype)presentDismissableAlertWithTitle:(nullable NSString *)title
                                          message:(nullable NSString *)message;
 
++ (instancetype)presentDismissableAlertWithTitle:(nullable NSString *)title
+                                         message:(nullable NSString *)message
+                                       onDismiss:(void (^__nullable)(void))onDismiss;
 
-// Variant that will present an error.
++ (instancetype)presentDismissableAlertWithTitle:(nullable NSString *)title
+                                         message:(nullable NSString *)message
+                               cancelButtonTitle:(nullable NSString *)cancelButtonTitle
+                                      controller:(nullable UIViewController *)controller;
+
++ (instancetype)presentDismissableAlertWithTitle:(nullable NSString *)title
+                                         message:(nullable NSString *)message
+                               cancelButtonTitle:(nullable NSString *)cancelButtonTitle
+                                      controller:(nullable UIViewController *)controller
+                                       onPresent:(void (^__nullable)(void))onPresent
+                                       onDismiss:(void (^__nullable)(void))onDismiss;
+
 + (instancetype)presentDismissableAlertWithTitle:(nullable NSString *)title
                                            error:(nullable NSError *)error
                                cancelButtonTitle:(nullable NSString *)cancelButtonTitle
@@ -62,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
                                            error:(nullable NSError *)error
                                cancelButtonTitle:(nullable NSString *)cancelButtonTitle
                                       controller:(nullable UIViewController *)controller
-                                       dismissed:(void (^ __nullable)(void))completion;
+                                       onDismiss:(void (^__nullable)(void))onDismiss;
 
 // Presentation and dismissal
 // sender can be either UIBarButtonItem, UIView, NSValue with CGRectValue or otherwise including nil controller.view

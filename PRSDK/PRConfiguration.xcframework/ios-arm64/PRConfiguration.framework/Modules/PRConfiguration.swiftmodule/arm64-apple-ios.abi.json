@@ -444,52 +444,6 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "isOpaque",
-            "printedName": "isOpaque",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@PRConfiguration@objc(cs)GlobalSearchConfig(py)isOpaque",
-            "mangledName": "$s15PRConfiguration18GlobalSearchConfigC8isOpaqueSbvp",
-            "moduleName": "PRConfiguration",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@PRConfiguration@objc(cs)GlobalSearchConfig(im)isOpaque",
-                "mangledName": "$s15PRConfiguration18GlobalSearchConfigC8isOpaqueSbvg",
-                "moduleName": "PRConfiguration",
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -711,6 +665,60 @@
           },
           {
             "kind": "Var",
+            "name": "ads",
+            "printedName": "ads",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdConfigKey",
+                "printedName": "PRConfiguration.AdConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)PRConfigKey(cpy)ads",
+            "mangledName": "$s15PRConfiguration11PRConfigKeyC3adsAA08AdConfigC0CvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdConfigKey",
+                    "printedName": "PRConfiguration.AdConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)PRConfigKey(cm)ads",
+                "mangledName": "$s15PRConfiguration11PRConfigKeyC3adsAA08AdConfigC0CvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "analytics",
             "printedName": "analytics",
             "children": [
@@ -864,6 +872,58 @@
                 "implicit": true,
                 "declAttributes": [
                   "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "att",
+            "printedName": "att",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ATTConfigKey",
+                "printedName": "PRConfiguration.ATTConfigKey",
+                "usr": "s:15PRConfiguration12ATTConfigKeyV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15PRConfiguration11PRConfigKeyC3attAA09ATTConfigC0VvpZ",
+            "mangledName": "$s15PRConfiguration11PRConfigKeyC3attAA09ATTConfigC0VvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ATTConfigKey",
+                    "printedName": "PRConfiguration.ATTConfigKey",
+                    "usr": "s:15PRConfiguration12ATTConfigKeyV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration11PRConfigKeyC3attAA09ATTConfigC0VvgZ",
+                "mangledName": "$s15PRConfiguration11PRConfigKeyC3attAA09ATTConfigC0VvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
                   "Final"
                 ],
                 "isFromExtension": true,
@@ -1983,6 +2043,60 @@
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRConfiguration@objc(cs)PRConfigKey(cm)search",
                 "mangledName": "$s15PRConfiguration11PRConfigKeyC6searchAA012SearchConfigC0CvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "splashScreen",
+            "printedName": "splashScreen",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SplashScreenConfigKey",
+                "printedName": "PRConfiguration.SplashScreenConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)PRConfigKey(cpy)splashScreen",
+            "mangledName": "$s15PRConfiguration11PRConfigKeyC12splashScreenAA06Splashe6ConfigC0CvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SplashScreenConfigKey",
+                    "printedName": "PRConfiguration.SplashScreenConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)PRConfigKey(cm)splashScreen",
+                "mangledName": "$s15PRConfiguration11PRConfigKeyC12splashScreenAA06Splashe6ConfigC0CvgZ",
                 "moduleName": "PRConfiguration",
                 "static": true,
                 "implicit": true,
@@ -4787,6 +4901,57 @@
         "children": [
           {
             "kind": "Var",
+            "name": "firebase",
+            "printedName": "firebase",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseAnalyticsConfigKey",
+                "printedName": "PRConfiguration.FirebaseAnalyticsConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfigKey(py)firebase",
+            "mangledName": "$s15PRConfiguration18AnalyticsConfigKeyC8firebaseAA08FirebasebcD0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FirebaseAnalyticsConfigKey",
+                    "printedName": "PRConfiguration.FirebaseAnalyticsConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfigKey(im)firebase",
+                "mangledName": "$s15PRConfiguration18AnalyticsConfigKeyC8firebaseAA08FirebasebcD0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "reading",
             "printedName": "reading",
             "children": [
@@ -5406,6 +5571,57 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "booksMigrated",
+            "printedName": "booksMigrated",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)LibraryConfigKey(py)booksMigrated",
+            "mangledName": "$s15PRConfiguration16LibraryConfigKeyC13booksMigratedAA08PRConfigD0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)LibraryConfigKey(im)booksMigrated",
+                "mangledName": "$s15PRConfiguration16LibraryConfigKeyC13booksMigratedAA08PRConfigD0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -5767,6 +5983,163 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "FirebaseAnalyticsConfigKey",
+        "printedName": "FirebaseAnalyticsConfigKey",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "userIdKey",
+            "printedName": "userIdKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfigKey(py)userIdKey",
+            "mangledName": "$s15PRConfiguration26FirebaseAnalyticsConfigKeyC06userIdE0AA08PRConfigE0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfigKey(im)userIdKey",
+                "mangledName": "$s15PRConfiguration26FirebaseAnalyticsConfigKeyC06userIdE0AA08PRConfigE0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseAnalyticsConfigKey",
+                "printedName": "PRConfiguration.FirebaseAnalyticsConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfigKey"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfigKey(im)init",
+            "mangledName": "$s15PRConfiguration26FirebaseAnalyticsConfigKeyCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfigKey",
+        "mangledName": "$s15PRConfiguration26FirebaseAnalyticsConfigKeyC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "SearchConfigKey",
         "printedName": "SearchConfigKey",
         "children": [
@@ -5924,6 +6297,265 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "SplashScreenConfigKey",
+        "printedName": "SplashScreenConfigKey",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "poweredByImageEnabled",
+            "printedName": "poweredByImageEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey(py)poweredByImageEnabled",
+            "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyC21poweredByImageEnabledAA08PRConfigE0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey(im)poweredByImageEnabled",
+                "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyC21poweredByImageEnabledAA08PRConfigE0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "animatedLogoEnabled",
+            "printedName": "animatedLogoEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey(py)animatedLogoEnabled",
+            "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyC19animatedLogoEnabledAA08PRConfigE0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey(im)animatedLogoEnabled",
+                "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyC19animatedLogoEnabledAA08PRConfigE0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "animatedLogoProgress",
+            "printedName": "animatedLogoProgress",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey(py)animatedLogoProgress",
+            "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyC20animatedLogoProgressAA08PRConfigE0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey(im)animatedLogoProgress",
+                "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyC20animatedLogoProgressAA08PRConfigE0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SplashScreenConfigKey",
+                "printedName": "PRConfiguration.SplashScreenConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey(im)init",
+            "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfigKey",
+        "mangledName": "$s15PRConfiguration21SplashScreenConfigKeyC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "GlobalSearchConfigKey",
         "printedName": "GlobalSearchConfigKey",
         "children": [
@@ -5968,57 +6600,6 @@
                 "declKind": "Accessor",
                 "usr": "c:@M@PRConfiguration@objc(cs)GlobalSearchConfigKey(im)enabled",
                 "mangledName": "$s15PRConfiguration21GlobalSearchConfigKeyC7enabledAA08PRConfigE0Cvg",
-                "moduleName": "PRConfiguration",
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "opaque",
-            "printedName": "opaque",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "PRConfigKey",
-                "printedName": "PRConfiguration.PRConfigKey",
-                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@PRConfiguration@objc(cs)GlobalSearchConfigKey(py)opaque",
-            "mangledName": "$s15PRConfiguration21GlobalSearchConfigKeyC6opaqueAA08PRConfigE0Cvp",
-            "moduleName": "PRConfiguration",
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PRConfigKey",
-                    "printedName": "PRConfiguration.PRConfigKey",
-                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@PRConfiguration@objc(cs)GlobalSearchConfigKey(im)opaque",
-                "mangledName": "$s15PRConfiguration21GlobalSearchConfigKeyC6opaqueAA08PRConfigE0Cvg",
                 "moduleName": "PRConfiguration",
                 "implicit": true,
                 "declAttributes": [
@@ -7019,6 +7600,265 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "AdConfigKey",
+        "printedName": "AdConfigKey",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "type",
+            "printedName": "type",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey(py)type",
+            "mangledName": "$s15PRConfiguration11AdConfigKeyC4typeAA08PRConfigD0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey(im)type",
+                "mangledName": "$s15PRConfiguration11AdConfigKeyC4typeAA08PRConfigD0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "googleAdsEnabled",
+            "printedName": "googleAdsEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey(py)googleAdsEnabled",
+            "mangledName": "$s15PRConfiguration11AdConfigKeyC16googleAdsEnabledAA08PRConfigD0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey(im)googleAdsEnabled",
+                "mangledName": "$s15PRConfiguration11AdConfigKeyC16googleAdsEnabledAA08PRConfigD0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "htmlAdsEnabled",
+            "printedName": "htmlAdsEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey(py)htmlAdsEnabled",
+            "mangledName": "$s15PRConfiguration11AdConfigKeyC14htmlAdsEnabledAA08PRConfigD0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey(im)htmlAdsEnabled",
+                "mangledName": "$s15PRConfiguration11AdConfigKeyC14htmlAdsEnabledAA08PRConfigD0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdConfigKey",
+                "printedName": "PRConfiguration.AdConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey(im)init",
+            "mangledName": "$s15PRConfiguration11AdConfigKeyCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)AdConfigKey",
+        "mangledName": "$s15PRConfiguration11AdConfigKeyC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "ExternalLinkAccountConfigKey",
         "printedName": "ExternalLinkAccountConfigKey",
         "children": [
@@ -7116,6 +7956,65 @@
         "declKind": "Struct",
         "usr": "s:15PRConfiguration28ExternalLinkAccountConfigKeyV",
         "mangledName": "$s15PRConfiguration28ExternalLinkAccountConfigKeyV",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ATTConfigKey",
+        "printedName": "ATTConfigKey",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "permissionRequestEnabled",
+            "printedName": "permissionRequestEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15PRConfiguration12ATTConfigKeyV24permissionRequestEnabledAA08PRConfigC0Cvp",
+            "mangledName": "$s15PRConfiguration12ATTConfigKeyV24permissionRequestEnabledAA08PRConfigC0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRConfigKey",
+                    "printedName": "PRConfiguration.PRConfigKey",
+                    "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration12ATTConfigKeyV24permissionRequestEnabledAA08PRConfigC0Cvg",
+                "mangledName": "$s15PRConfiguration12ATTConfigKeyV24permissionRequestEnabledAA08PRConfigC0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15PRConfiguration12ATTConfigKeyV",
+        "mangledName": "$s15PRConfiguration12ATTConfigKeyV",
         "moduleName": "PRConfiguration",
         "declAttributes": [
           "AccessControl"
@@ -7433,6 +8332,261 @@
         "mangledName": "$s15PRConfiguration23ComScoreAnalyticsConfigC",
         "moduleName": "PRConfiguration",
         "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SplashScreenConfig",
+        "printedName": "SplashScreenConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isPoweredByImageEnabled",
+            "printedName": "isPoweredByImageEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig(py)isPoweredByImageEnabled",
+            "mangledName": "$s15PRConfiguration18SplashScreenConfigC23isPoweredByImageEnabledSbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig(im)isPoweredByImageEnabled",
+                "mangledName": "$s15PRConfiguration18SplashScreenConfigC23isPoweredByImageEnabledSbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isAnimatedLogoEnabled",
+            "printedName": "isAnimatedLogoEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig(py)isAnimatedLogoEnabled",
+            "mangledName": "$s15PRConfiguration18SplashScreenConfigC21isAnimatedLogoEnabledSbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig(im)isAnimatedLogoEnabled",
+                "mangledName": "$s15PRConfiguration18SplashScreenConfigC21isAnimatedLogoEnabledSbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "animatedLogoProgress",
+            "printedName": "animatedLogoProgress",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig(py)animatedLogoProgress",
+            "mangledName": "$s15PRConfiguration18SplashScreenConfigC20animatedLogoProgress12CoreGraphics7CGFloatVvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig(im)animatedLogoProgress",
+                "mangledName": "$s15PRConfiguration18SplashScreenConfigC20animatedLogoProgress12CoreGraphics7CGFloatVvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SplashScreenConfig",
+                "printedName": "PRConfiguration.SplashScreenConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig(im)init",
+            "mangledName": "$s15PRConfiguration18SplashScreenConfigCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig",
+        "mangledName": "$s15PRConfiguration18SplashScreenConfigC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "Final",
           "AccessControl",
           "ObjCMembers",
           "ObjC"
@@ -12225,6 +13379,686 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "AdsType",
+        "printedName": "AdsType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "html",
+            "printedName": "html",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdsType",
+                "printedName": "PRConfiguration.AdsType",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdsType(cpy)html",
+            "mangledName": "$s15PRConfiguration7AdsTypeC4htmlACvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdsType",
+                    "printedName": "PRConfiguration.AdsType",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType(cm)html",
+                "mangledName": "$s15PRConfiguration7AdsTypeC4htmlACvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "google",
+            "printedName": "google",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdsType",
+                "printedName": "PRConfiguration.AdsType",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdsType(cpy)google",
+            "mangledName": "$s15PRConfiguration7AdsTypeC6googleACvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdsType",
+                    "printedName": "PRConfiguration.AdsType",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType(cm)google",
+                "mangledName": "$s15PRConfiguration7AdsTypeC6googleACvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdsType(py)rawValue",
+            "mangledName": "$s15PRConfiguration7AdsTypeC8rawValueSivp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType(im)rawValue",
+                "mangledName": "$s15PRConfiguration7AdsTypeC8rawValueSivg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hash",
+            "printedName": "hash",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdsType(py)hash",
+            "mangledName": "$s15PRConfiguration7AdsTypeC4hashSivp",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "objc_name": "hash",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType(im)hash",
+                "mangledName": "$s15PRConfiguration7AdsTypeC4hashSivg",
+                "moduleName": "PRConfiguration",
+                "overriding": true,
+                "objc_name": "hash",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdsType",
+                "printedName": "PRConfiguration.AdsType",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdsType(im)initWithRawValue:",
+            "mangledName": "$s15PRConfiguration7AdsTypeC8rawValueACSi_tcfc",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Required",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "isEqual",
+            "printedName": "isEqual(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdsType(im)isEqual:",
+            "mangledName": "$s15PRConfiguration7AdsTypeC7isEqualySbypSgF",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "objc_name": "isEqual:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdsType",
+                "printedName": "PRConfiguration.AdsType",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdsType(im)init",
+            "mangledName": "$s15PRConfiguration7AdsTypeCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)AdsType",
+        "mangledName": "$s15PRConfiguration7AdsTypeC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OptionSet",
+            "printedName": "OptionSet",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdsType",
+                    "printedName": "PRConfiguration.AdsType",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s9OptionSetP",
+            "mangledName": "$ss9OptionSetP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SetAlgebra",
+            "printedName": "SetAlgebra",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdsType",
+                    "printedName": "PRConfiguration.AdsType",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s10SetAlgebraP",
+            "mangledName": "$ss10SetAlgebraP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByArrayLiteral",
+            "printedName": "ExpressibleByArrayLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ArrayLiteralElement",
+                "printedName": "ArrayLiteralElement",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdsType",
+                    "printedName": "PRConfiguration.AdsType",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByArrayLiteralP",
+            "mangledName": "$ss25ExpressibleByArrayLiteralP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdConfig",
+        "printedName": "AdConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "simulateGoogleAds",
+            "printedName": "simulateGoogleAds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdConfig(py)simulateGoogleAds",
+            "mangledName": "$s15PRConfiguration8AdConfigC17simulateGoogleAdsSbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfig(im)simulateGoogleAds",
+                "mangledName": "$s15PRConfiguration8AdConfigC17simulateGoogleAdsSbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "type",
+            "printedName": "type",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdsType",
+                "printedName": "PRConfiguration.AdsType",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdConfig(py)type",
+            "mangledName": "$s15PRConfiguration8AdConfigC4typeAA7AdsTypeCvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdsType",
+                    "printedName": "PRConfiguration.AdsType",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdsType"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfig(im)type",
+                "mangledName": "$s15PRConfiguration8AdConfigC4typeAA7AdsTypeCvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdConfig",
+                "printedName": "PRConfiguration.AdConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)AdConfig(im)init",
+            "mangledName": "$s15PRConfiguration8AdConfigCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)AdConfig",
+        "mangledName": "$s15PRConfiguration8AdConfigC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "PRDIContainer",
         "printedName": "PRDIContainer",
@@ -13273,6 +15107,52 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "isTextSpacingAvailable",
+            "printedName": "isTextSpacingAvailable",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)BookReaderConfig(py)isTextSpacingAvailable",
+            "mangledName": "$s15PRConfiguration16BookReaderConfigC22isTextSpacingAvailableSbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)BookReaderConfig(im)isTextSpacingAvailable",
+                "mangledName": "$s15PRConfiguration16BookReaderConfigC22isTextSpacingAvailableSbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -13742,6 +15622,66 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "userIdKey",
+            "printedName": "userIdKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfig(py)userIdKey",
+            "mangledName": "$s15PRConfiguration23FirebaseAnalyticsConfigC9userIdKeySSSgvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfig(im)userIdKey",
+                "mangledName": "$s15PRConfiguration23FirebaseAnalyticsConfigC9userIdKeySSSgvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -13943,6 +15883,43 @@
                 "declKind": "EnumElement",
                 "usr": "s:15PRConfiguration9IAPConfigC12SortingOrderO12generalOnTopyA2EmF",
                 "mangledName": "$s15PRConfiguration9IAPConfigC12SortingOrderO12generalOnTopyA2EmF",
+                "moduleName": "PRConfiguration"
+              },
+              {
+                "kind": "Var",
+                "name": "nonSubscriptionOnTop",
+                "printedName": "nonSubscriptionOnTop",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRConfiguration.IAPConfig.SortingOrder.Type) -> PRConfiguration.IAPConfig.SortingOrder",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SortingOrder",
+                        "printedName": "PRConfiguration.IAPConfig.SortingOrder",
+                        "usr": "s:15PRConfiguration9IAPConfigC12SortingOrderO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRConfiguration.IAPConfig.SortingOrder.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "SortingOrder",
+                            "printedName": "PRConfiguration.IAPConfig.SortingOrder",
+                            "usr": "s:15PRConfiguration9IAPConfigC12SortingOrderO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:15PRConfiguration9IAPConfigC12SortingOrderO20nonSubscriptionOnTopyA2EmF",
+                "mangledName": "$s15PRConfiguration9IAPConfigC12SortingOrderO20nonSubscriptionOnTopyA2EmF",
                 "moduleName": "PRConfiguration"
               },
               {
@@ -14618,6 +16595,100 @@
                   "ObjC"
                 ],
                 "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "booksMigrated",
+            "printedName": "booksMigrated",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)LibraryConfig(py)booksMigrated",
+            "mangledName": "$s15PRConfiguration13LibraryConfigC13booksMigratedSbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)LibraryConfig(im)booksMigrated",
+                "mangledName": "$s15PRConfiguration13LibraryConfigC13booksMigratedSbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)LibraryConfig(im)setBooksMigrated:",
+                "mangledName": "$s15PRConfiguration13LibraryConfigC13booksMigratedSbvs",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration13LibraryConfigC13booksMigratedSbvM",
+                "mangledName": "$s15PRConfiguration13LibraryConfigC13booksMigratedSbvM",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -16196,6 +18267,169 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "ATTConfig",
+        "printedName": "ATTConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isPermissionRequestEnabled",
+            "printedName": "isPermissionRequestEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)ATTConfig(py)isPermissionRequestEnabled",
+            "mangledName": "$s15PRConfiguration9ATTConfigC26isPermissionRequestEnabledSbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)ATTConfig(im)isPermissionRequestEnabled",
+                "mangledName": "$s15PRConfiguration9ATTConfigC26isPermissionRequestEnabledSbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ATTConfig",
+                "printedName": "PRConfiguration.ATTConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)ATTConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)ATTConfig(im)init",
+            "mangledName": "$s15PRConfiguration9ATTConfigCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)ATTConfig",
+        "mangledName": "$s15PRConfiguration9ATTConfigC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "AuthorizationType",
         "printedName": "AuthorizationType",
         "children": [
@@ -17119,6 +19353,56 @@
           },
           {
             "kind": "Var",
+            "name": "splashScreen",
+            "printedName": "splashScreen",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SplashScreenConfig",
+                "printedName": "PRConfiguration.SplashScreenConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cpy)splashScreenConfig",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE12splashScreenAC06SplashD6ConfigCvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "objc_name": "splashScreenConfig",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SplashScreenConfig",
+                    "printedName": "PRConfiguration.SplashScreenConfig",
+                    "usr": "c:@M@PRConfiguration@objc(cs)SplashScreenConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cm)splashScreenConfig",
+                "mangledName": "$sSo8PRConfigC15PRConfigurationE12splashScreenAC06SplashD6ConfigCvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "externalLinkAccount",
             "printedName": "externalLinkAccount",
             "children": [
@@ -17157,6 +19441,56 @@
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cm)externalLinkAccountConfig",
                 "mangledName": "$sSo8PRConfigC15PRConfigurationE19externalLinkAccountAC08ExternaldE6ConfigCvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "att",
+            "printedName": "att",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ATTConfig",
+                "printedName": "PRConfiguration.ATTConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)ATTConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cpy)attConfig",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE3attAC9ATTConfigCvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "objc_name": "attConfig",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ATTConfig",
+                    "printedName": "PRConfiguration.ATTConfig",
+                    "usr": "c:@M@PRConfiguration@objc(cs)ATTConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cm)attConfig",
+                "mangledName": "$sSo8PRConfigC15PRConfigurationE3attAC9ATTConfigCvgZ",
                 "moduleName": "PRConfiguration",
                 "static": true,
                 "declAttributes": [
@@ -17443,6 +19777,56 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "ads",
+            "printedName": "ads",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdConfig",
+                "printedName": "PRConfiguration.AdConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)AdConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cpy)adConfig",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE3adsAC8AdConfigCvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "objc_name": "adConfig",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdConfig",
+                    "printedName": "PRConfiguration.AdConfig",
+                    "usr": "c:@M@PRConfiguration@objc(cs)AdConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cm)adConfig",
+                "mangledName": "$sSo8PRConfigC15PRConfigurationE3adsAC8AdConfigCvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           },
           {
             "kind": "Function",
@@ -17739,6 +20123,55 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "requestCachesDisabled",
+            "printedName": "requestCachesDisabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cpy)requestCachesDisabled",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE21requestCachesDisabledSbvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cm)requestCachesDisabled",
+                "mangledName": "$sSo8PRConfigC15PRConfigurationE21requestCachesDisabledSbvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Class",
@@ -17986,6 +20419,20 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/UserConsentConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 454,
+      "length": 25,
+      "value": "\"USER_CONSENT.SHOULD_ASK\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/UserConsentConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 495,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
       "offset": 206,
@@ -17995,403 +20442,529 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 715,
+      "offset": 786,
       "length": 15,
       "value": "\"BRAND_EDITION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1015,
+      "offset": 1086,
       "length": 23,
       "value": "\"DEALLOC_ALERT_CLASSES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1200,
+      "offset": 1271,
       "length": 17,
       "value": "\"hotspots_enable\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1643,
+      "offset": 1714,
       "length": 32,
       "value": "\"CONFIG_RUN_TIME_UPDATE_ALLOWED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1774,
+      "offset": 1899,
       "length": 17,
       "value": "\"ENABLE_TOOLTIPS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1863,
+      "offset": 1988,
       "length": 35,
       "value": "\"USER_PERMISSION_REQUESTS_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1971,
+      "offset": 2096,
       "length": 35,
       "value": "\"UNCONDITIONAL_PREMIUM_ELIGIBILITY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2182,
+      "offset": 2307,
       "length": 24,
       "value": "\"radio_featured_enabled\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2254,
+      "offset": 2379,
       "length": 23,
       "value": "\"RADIO.FEATURED.LOCALE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2368,
+      "offset": 2493,
       "length": 24,
       "value": "\"auto_translation_flows\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2444,
+      "offset": 2569,
       "length": 27,
       "value": "\"AUTOTRANSLATE.PAIRS_LIMIT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2563,
+      "offset": 2688,
       "length": 25,
       "value": "\"REQUEST_SIMULATION.BASE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2632,
+      "offset": 2757,
       "length": 23,
       "value": "\"REQUEST_SIMULATION.DQ\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2777,
+      "offset": 2902,
       "length": 29,
       "value": "\"APP_MENU.CATALOG_PANEL_MODE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2860,
+      "offset": 2985,
       "length": 19,
       "value": "\"initial_app_panel\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2997,
+      "offset": 3122,
       "length": 22,
       "value": "\"ONBOARDING_SUPPORTED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3069,
+      "offset": 3194,
       "length": 21,
       "value": "\"ONBOARDING.DEFERRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3186,
+      "offset": 3311,
       "length": 24,
       "value": "\"HOME.DISPLAY_FAVORITES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3271,
+      "offset": 3396,
       "length": 28,
       "value": "\"HOME.SOURCES_VIEW_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3435,
+      "offset": 3560,
       "length": 22,
       "value": "\"HOME.FEED.NAVIGATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3589,
+      "offset": 3714,
       "length": 38,
       "value": "\"CATALOG.PRESSCATALOG.UPDATE_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3744,
+      "offset": 3869,
       "length": 22,
       "value": "\"PUBHUB_BANNERS_ORDER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3889,
+      "offset": 4014,
       "length": 20,
       "value": "\"DISABLE_FULLSCREEN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4027,
+      "offset": 4152,
       "length": 30,
       "value": "\"BUNDLE.SHOW_CUSTOMER_SUPPORT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4104,
+      "offset": 4229,
       "length": 23,
       "value": "\"SUPPORT_EMAIL_ADDRESS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4174,
+      "offset": 4299,
       "length": 22,
       "value": "\"SUPPORT_PHONE_NUMBER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4254,
+      "offset": 4379,
       "length": 20,
       "value": "\"PRIVACY_POLICY_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4329,
+      "offset": 4454,
       "length": 11,
       "value": "\"LEGAL_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4403,
+      "offset": 4528,
       "length": 25,
       "value": "\"MANAGE_SUBSCRIPTION_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4495,
+      "offset": 4620,
       "length": 41,
       "value": "\"CUSTOMER_SUPPORT.FEEDBACK_QUESTION.HIDE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4665,
+      "offset": 4790,
       "length": 23,
       "value": "\"FONT.ENABLE_SWIZZLING\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4741,
+      "offset": 4866,
       "length": 14,
       "value": "\"FONT.ARTICLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4805,
+      "offset": 4930,
       "length": 11,
       "value": "\"FONT.MAIN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4870,
+      "offset": 4995,
       "length": 16,
       "value": "\"FONT.MAIN_BOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4941,
+      "offset": 5066,
       "length": 16,
       "value": "\"FONT.SECONDARY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5016,
+      "offset": 5141,
       "length": 21,
       "value": "\"FONT.SECONDARY_BOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5156,
+      "offset": 5281,
       "length": 18,
       "value": "\"LOCAL_SERVER_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5258,
+      "offset": 5383,
       "length": 59,
       "value": "\"OFFLINE_MODE_CLEAN_DOWNLOADED_ITEMS_AFTER_DEAUTHORIZATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5488,
+      "offset": 5668,
       "length": 24,
       "value": "\"ANALYTICS.USER.ID_TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5703,
+      "offset": 5883,
       "length": 34,
       "value": "\"ANALYTICS.READING.FRAME.DEBOUNCE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5801,
+      "offset": 5981,
       "length": 44,
       "value": "\"ANALYTICS.READING.FRAME.DURATION_THRESHOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5974,
+      "offset": 6154,
       "length": 36,
       "value": "\"LIBRARY.BOOK.OFFLINE_ACCESS_PERIOD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6068,
+      "offset": 6248,
       "length": 28,
       "value": "\"LIBRARY.KEEP_EXPIRED_ITEMS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6159,
+      "offset": 6339,
       "length": 33,
       "value": "\"LIBRARY.RENEWABLE_ISSUE_LICENSE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6318,
-      "length": 33,
-      "value": "\"ANALYTICS.TREASURE_DATA.API_KEY\""
+      "offset": 6427,
+      "length": 24,
+      "value": "\"MIGRATION.BOOK.LIBRARY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6401,
+      "offset": 6577,
+      "length": 23,
+      "value": "\"TREASURE_DATA_API_KEY\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 6650,
+      "length": 29,
+      "value": "\"TREASURE_DATA_DATABASE_NAME\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 6726,
+      "length": 26,
+      "value": "\"TREASURE_DATA_TABLE_NAME\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 6877,
+      "length": 32,
+      "value": "\"ANALYTICS.FIREBASE.USER_ID_KEY\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 7152,
       "length": 34,
-      "value": "\"ANALYTICS.TREASURE_DATA.DATABASE\""
+      "value": "\"SPLASH_SCREEN.POWERED_BY.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6482,
-      "length": 31,
-      "value": "\"ANALYTICS.TREASURE_DATA.TABLE\""
+      "offset": 7247,
+      "length": 37,
+      "value": "\"SPLASH_SCREEN.ANIMATED_LOGO.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6742,
+      "offset": 7346,
+      "length": 38,
+      "value": "\"SPLASH_SCREEN.ANIMATED_LOGO.PROGRESS\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 7502,
       "length": 23,
       "value": "\"SEARCH.GLOBAL.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6813,
-      "length": 22,
-      "value": "\"SEARCH.GLOBAL.OPAQUE\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
-      "kind": "StringLiteral",
-      "offset": 7095,
+      "offset": 7785,
       "length": 52,
       "value": "\"ORDER.LOW_CREDITS_ALERT.REAPPEARANCE_TIME_INTERVAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7273,
+      "offset": 7963,
       "length": 31,
       "value": "\"CANCELLATION_ADVISORY.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7420,
+      "offset": 8110,
       "length": 20,
       "value": "\"AUTHORIZATION.TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7491,
+      "offset": 8181,
       "length": 25,
       "value": "\"AUTHORIZATION.FREQUENCY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7571,
+      "offset": 8261,
       "length": 30,
       "value": "\"AUTHORIZATION.FREQUENCY_DAYS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7730,
+      "offset": 8420,
       "length": 33,
       "value": "\"ARTICLE.PREVIEW.NUMBER_OF_LINES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7860,
+      "offset": 8558,
+      "length": 10,
+      "value": "\"ADS.TYPE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 8626,
+      "length": 34,
+      "value": "\"ADVERTISEMENT_DISPLAY_ENABLED_V2\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 8716,
+      "length": 18,
+      "value": "\"ADS.HTML.ENABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 8831,
       "length": 31,
       "value": "\"EXTERNAL_LINK_ACCOUNT.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7946,
+      "offset": 8917,
       "length": 38,
       "value": "\"EXTERNAL_LINK_ACCOUNT.DEVELOPER_NAME\""
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 9053,
+      "length": 32,
+      "value": "\"ATT.PERMISSION_REQUEST.ENABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/ExternalLinkAccountConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 407,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/ExternalLinkAccountConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 550,
+      "length": 13,
+      "value": "\"PressReader\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/ComScoreAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 366,
+      "length": 23,
+      "value": "\"COMSCORE_PUBLISHER_ID\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/SplashScreenConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 840,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/SplashScreenConfig.swift",
+      "kind": "FloatLiteral",
+      "offset": 844,
+      "length": 3,
+      "value": "0.5"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/RadioConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 448,
+      "length": 24,
+      "value": "\"enable_newspaper_radio\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/RadioConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 488,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/RadioConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 824,
+      "length": 5,
+      "value": "\"6.7\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/RadioConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 835,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/RadioConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1008,
+      "length": 4,
+      "value": "\"en\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 263,
@@ -18418,6 +20991,139 @@
       "offset": 274,
       "length": 10,
       "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 412,
+      "length": 26,
+      "value": "\"ARTICLE_SIMILARS_ENABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 657,
+      "length": 26,
+      "value": "\"ARTICLE_COMMENTS_ENABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 885,
+      "length": 15,
+      "value": "\"ARTICLE_SHARE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1027,
+      "length": 12,
+      "value": "\"PAGE_SHARE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1055,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1130,
+      "length": 19,
+      "value": "\"SHOW_ARTICLE_VOTE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1274,
+      "length": 41,
+      "value": "\"ARTICLE_AUTORIZATION_REQUIRED_TO_LISTEN\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1438,
+      "length": 40,
+      "value": "\"ARTICLE_AUTORIZATION_REQUIRED_TO_PRINT\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1604,
+      "length": 34,
+      "value": "\"ARTICLE.IMAGES.SELECT_BEST_FRONT\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1654,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1746,
+      "length": 30,
+      "value": "\"ARTICLE.HYPHENATION_DISABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1792,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1899,
+      "length": 28,
+      "value": "\"ARTICLE.POPUP_VIEW_ALLOWED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1943,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2060,
+      "length": 23,
+      "value": "\"enable_article_listen\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2099,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2195,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2291,
+      "length": 31,
+      "value": "\"NTF_ARTICLE_IMAGE_SCALE_LIMIT\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2424,
+      "length": 31,
+      "value": "\"NTF_ARTICLE_IMAGE_SCALE_LIMIT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
@@ -18432,6 +21138,62 @@
       "offset": 2710,
       "length": 3,
       "value": "2.4"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2880,
+      "length": 41,
+      "value": "\"ARTICLE.LARGE_PREVIEW_FOR_VIDEO_ALLOWED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 3231,
+      "length": 34,
+      "value": "\"ARTICLE.GALLERY.CAPTION_POSITION\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3570,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/ReadingAnalyticsConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 489,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/ReadingAnalyticsConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 703,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/HomeConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 387,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/HomeConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 521,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/HomeConfig.swift",
+      "kind": "Array",
+      "offset": 724,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/HomeConfig.swift",
@@ -18463,10 +21225,332 @@
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/HomeConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1622,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/HomeConfig.swift",
       "kind": "StringLiteral",
       "offset": 969,
       "length": 14,
       "value": "\"PRConfiguration.FeedNavigation\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRConfig+Presentation.swift",
+      "kind": "StringLiteral",
+      "offset": 362,
+      "length": 22,
+      "value": "\"PRUICONTAINER_LOADED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRConfig+Presentation.swift",
+      "kind": "StringLiteral",
+      "offset": 446,
+      "length": 22,
+      "value": "\"PRUICONTAINER_LOADED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/LocalServerConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 595,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig+DI.swift",
+      "kind": "BooleanLiteral",
+      "offset": 387,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig+DI.swift",
+      "kind": "BooleanLiteral",
+      "offset": 471,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig+DI.swift",
+      "kind": "BooleanLiteral",
+      "offset": 559,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/ProcessInfo+Environment.swift",
+      "kind": "StringLiteral",
+      "offset": 286,
+      "length": 29,
+      "value": "\"XCTestConfigurationFilePath\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 349,
+      "length": 41,
+      "value": "\"SHOW_FAVOURITES_ACTION_FOR_REPLICA_VIEW\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 765,
+      "length": 21,
+      "value": "\"TEXTVIEW_FLOW_ALLOW\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 802,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 884,
+      "length": 20,
+      "value": "\"PDFVIEW_HIDE_TITLE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 920,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1008,
+      "length": 28,
+      "value": "\"TEXTVIEW_ALLOW_SELECT_COPY\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1052,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1138,
+      "length": 33,
+      "value": "\"SF_NATIVE_SHARING_SELECTED_ONLY\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1187,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1264,
+      "length": 26,
+      "value": "\"SF_NATIVE_ENABLE_DROPCAP\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1306,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1390,
+      "length": 27,
+      "value": "\"READER.HIGHLIGHTS_ENABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1433,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1523,
+      "length": 27,
+      "value": "\"READER.SMART_ZOOM_ENABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1566,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1706,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1891,
+      "length": 26,
+      "value": "\"READER.BARS_HIDING_DELAY\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/ReaderConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1933,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfig+DI.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1235,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 364,
+      "length": 35,
+      "value": "\"ANALYTICS.MAIN_MENU.VALUE.FOR_YOU\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 465,
+      "length": 6,
+      "value": "\"Home\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 560,
+      "length": 34,
+      "value": "\"ANALYTICS.MAIN_MENU.VALUE.BROWSE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 660,
+      "length": 9,
+      "value": "\"Explore\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 762,
+      "length": 38,
+      "value": "\"ANALYTICS.MAIN_MENU.VALUE.MY_LIBRARY\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 866,
+      "length": 12,
+      "value": "\"My Library\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 969,
+      "length": 36,
+      "value": "\"ANALYTICS.MAIN_MENU.VALUE.ACCOUNTS\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1071,
+      "length": 9,
+      "value": "\"Account\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1170,
+      "length": 37,
+      "value": "\"ANALYTICS.MAIN_MENU.VALUE.ABOUNT_US\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/MainMenuAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1273,
+      "length": 7,
+      "value": "\"About\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 322,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 327,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 379,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 384,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 834,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 202,
+      "length": 7,
+      "value": "\"PRConfiguration.AdsType\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1080,
+      "length": 19,
+      "value": "\"SimulateGoogleAds\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1114,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AdConfig.swift",
+      "kind": "Array",
+      "offset": 1196,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig.swift",
@@ -18498,12 +21582,131 @@
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1795,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig.swift",
       "kind": "StringLiteral",
       "offset": 1119,
       "length": 15,
       "value": "\"PRConfiguration.AnalyticsUserId\""
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 306,
+      "length": 31,
+      "value": "\"EBOOK.READER.LOCATION_DIVIDER\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 353,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 437,
+      "length": 32,
+      "value": "\"EBOOK.READER.FONT.SIZE.DEFAULT\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 485,
+      "length": 3,
+      "value": "120"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 576,
+      "length": 36,
+      "value": "\"EBOOK.READER.COPY_BUTTON.AVAILABLE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 628,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 722,
+      "length": 37,
+      "value": "\"EBOOK.READER.TEXT_SPACING.AVAILABLE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/BookReaderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 775,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/TreasureDataAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 550,
+      "length": 16,
+      "value": "\"raw_mobile_app\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/TreasureDataAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 711,
+      "length": 21,
+      "value": "\"ios_pressreader_app\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/FirebaseAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 402,
+      "length": 17,
+      "value": "\"ENABLE_FIREBASE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/FirebaseAnalyticsConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 435,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/FirebaseAnalyticsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 546,
+      "length": 22,
+      "value": "\"ENABLE_FIREBASE_PUSH\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/FirebaseAnalyticsConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 584,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Extensions\/Bundle+ResponseSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 308,
+      "length": 11,
+      "value": "\"Responses\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Extensions\/Bundle+ResponseSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 336,
+      "length": 8,
+      "value": "\"bundle\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 319,
@@ -18520,16 +21723,9 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 319,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
-      "kind": "IntegerLiteral",
-      "offset": 334,
-      "length": 12,
-      "value": "1"
+      "offset": 360,
+      "length": 20,
+      "value": "2"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
@@ -18544,6 +21740,160 @@
       "offset": 334,
       "length": 12,
       "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 360,
+      "length": 20,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 319,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 334,
+      "length": 12,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 360,
+      "length": 20,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 517,
+      "length": 30,
+      "value": "\"IAP.SAVE_MONEY_TEXT_DISABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 681,
+      "length": 28,
+      "value": "\"PRIAP_LOCAL_DECODE_RECEIPT\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/IAPConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 950,
+      "length": 19,
+      "value": "\"IAP.SORTING_ORDER\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PROrderConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 634,
+      "length": 2,
+      "value": "24"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PROrderConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 639,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PROrderConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 644,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/LibraryConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 885,
+      "length": 7,
+      "value": "1209600"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/LibraryConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1028,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfig+Testing.swift",
+      "kind": "Array",
+      "offset": 459,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfig+Testing.swift",
+      "kind": "BooleanLiteral",
+      "offset": 620,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CustomerSupportConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 387,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CustomerSupportConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 533,
+      "length": 25,
+      "value": "\"support@pressreader.com\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CustomerSupportConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 725,
+      "length": 16,
+      "value": "\"(604) 278-4604\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CustomerSupportConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1143,
+      "length": 46,
+      "value": "\"https:\/\/apps.apple.com\/account\/subscriptions\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AppMenuConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 549,
+      "length": 24,
+      "value": "\"APP_MENU_ITEMS_ABSENCE\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AppMenuConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 589,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/CustomFontsConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 403,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/CustomFontsConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 554,
+      "length": 26,
+      "value": "\"Merriweather-Regular.otf\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
@@ -18569,6 +21919,55 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
       "kind": "StringLiteral",
+      "offset": 2506,
+      "length": 6,
+      "value": "\"base\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 2550,
+      "length": 4,
+      "value": "\"dq\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 3265,
+      "length": 35,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 3277,
+      "length": 1,
+      "value": "\"\/\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 3287,
+      "length": 1,
+      "value": "\"\/\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 3299,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
+      "kind": "StringLiteral",
+      "offset": 3583,
+      "length": 8,
+      "value": "\"\/index\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/RequestSimulation.swift",
+      "kind": "StringLiteral",
       "offset": 1460,
       "length": 17,
       "value": "\"PRConfiguration.RequestSimulation\""
@@ -18576,6 +21975,20 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRAuthorizationConfig+.swift",
       "kind": "IntegerLiteral",
+      "offset": 885,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRAuthorizationConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1091,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRAuthorizationConfig+.swift",
+      "kind": "IntegerLiteral",
       "offset": 1173,
       "length": 9,
       "value": "1"
@@ -18586,6 +21999,27 @@
       "offset": 1173,
       "length": 9,
       "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRAuthorizationConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1357,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRAuthorizationConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1424,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRAuthorizationConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1496,
+      "length": 1,
+      "value": "3"
     }
   ]
 }

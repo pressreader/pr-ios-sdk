@@ -173,11 +173,6 @@
 #define TWITTER_CALLBACK_URL    _PRCONFIG_STRING_(@"TWITTER_CALLBACK_URL", @"http://twitauthsuccess.pressdisplay.com")
 
 
-#pragma mark - Authorization view
-
-#define AUTHORIZE_WINDOW_TEXT   _PRCONFIG_STRING_(@"AUTHORIZE_WINDOW_TEXT", nil) 
-
-
 #pragma mark - Notifications
 
 #define notification_badge_visible              _PRCONFIG_BOOL_(@"notification_badge_visible", YES)

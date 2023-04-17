@@ -39,7 +39,8 @@ extern PRCatalogUpdateNotificationInfoKey const PRCatalogUpdateNotificationInfoK
 typedef NS_OPTIONS(NSInteger, PRCatalogUpdateNotificationReason) {
     PRCatalogUpdateNotificationReasonLatestIssueInfo = 1 << 0,
     PRCatalogUpdateNotificationReasonRecentlyRead = 1 << 1,
-    PRCatalogUpdateNotificationReasonFavorites = 1 << 2
+    PRCatalogUpdateNotificationReasonFavorites = 1 << 2,
+    PRCatalogUpdateNotificationReasonPreloadPublications = 1 << 3
 };
 
 extern NSNotificationName const PRCatalogCustomCatalogUpdateNotification;
@@ -67,7 +68,6 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 @property (nonatomic) PRCatalogMode mode;
 
 @property (nonatomic, readonly) NSUInteger sourcesCount;
-@property (nonatomic, readonly) BOOL isReady;
 @property (nonatomic, readonly) BOOL containsSingleCID;
 @property (nonatomic, readonly) BOOL containsSingleParentCID;
 
@@ -96,9 +96,6 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 
 @property (nullable, nonatomic, strong) NSArray *regions;
 @property (nullable, nonatomic, strong) NSArray *featuredSourcesCIDs;
-
-/// to synchronize search field value between store controllers
-@property (nullable, nonatomic, copy) NSString *globalSearchText;
 
 @end
 

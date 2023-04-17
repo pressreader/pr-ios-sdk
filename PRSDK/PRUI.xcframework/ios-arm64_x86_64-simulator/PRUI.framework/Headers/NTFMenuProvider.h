@@ -16,25 +16,24 @@ typedef NS_OPTIONS(NSUInteger, NTFMenuItemProviderOption) {
     NTFMenuItemProviderOptionHideIcon = 1 << 0
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol NTFMenuProvider <NSObject>
 
 - (void)getActionMenuItemsWithPresentingVC:(UIViewController *)vc
                                     sender:(id)sender
                                fullVersion:(BOOL)fullVersion
-                                completion:(void(^)(NSArray<PRMenuItem *> *items))completion;
+                                completion:(void(^)(NSArray<PRMenuItem *> *_Nullable items))completion;
 
 - (void)getHorizontalActionMenuItemsWithPresentingVC:(UIViewController *)vc
                                               sender:(id)sender
                                          fullVersion:(BOOL)fullVersion
-                                          completion:(void(^)(NSArray<PRMenuItem *> *items))completion;
+                                          completion:(void(^)(NSArray<PRMenuItem *> *_Nullable items))completion;
 
-- (void)preload:(void(^)(void))completion;
+- (void)preload:(void(^_Nullable)(void))completion;
 
-@property (nonatomic, copy, readonly) NSString *contextKey;
-- (void)registerCommands:(NSArray<PRCommand *> *)commands
-                 context:(NSDictionary *)context
-    presentingController:(UIViewController *)vc;
-
-- (PRMenuItem *)translateMenuItemWithOptions:(NTFMenuItemProviderOption)options;
+- (PRMenuItem * __nullable)translateMenuItemWithOptions:(NTFMenuItemProviderOption)options;
 
 @end
+
+NS_ASSUME_NONNULL_END

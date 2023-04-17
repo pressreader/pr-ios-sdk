@@ -21,12 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable PRAppPanel *)panelById:(PRPanelId)anId;
 
 - (void)didReceiveMemoryWarning;
-- (PRPromise *)preferredPanelPresented;
 
 - (PRPromise *)updateFirstPanelWhenReady;
 
 - (void)openPreferredPanel;
 - (void)openPreferredPanelForced:(BOOL)forced;
+- (void)setCurrentPanelId:(PRPanelId)current popToRootIfSame:(BOOL)popToRoot;
 
 @property (nonatomic) PRPanelId currentPanelId;
 @property (nonatomic) PRAppPanelID defaultPanelIdToOpenOnce;

@@ -41,7 +41,9 @@ typedef NS_OPTIONS(NSUInteger, PRCollectionOption) {
 
 @interface PRCollectionVC : PRVC <UICollectionViewDataSource, UICollectionViewDelegate, PRCollectionViewCellDelegate, PRCollectionVCDelegate, UICollectionViewDelegateFlowLayout, PRViewLayoutProtocol>
 
-- (id)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 - (void)setupCell:(PRSourceItemCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)setupSupplementaryView:(UICollectionReusableView *)supplementaryView

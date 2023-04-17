@@ -35,7 +35,8 @@ typedef NS_ENUM(NSInteger, PROrderAction) {
 typedef NS_ENUM(NSUInteger, PROrderDeliveryResult) {
     PROrderDeliveryResultNone = 0,
     PROrderDeliveryResultSuccess,
-    PROrderDeliveryResultFail
+    PROrderDeliveryResultFail,
+    PROrderDeliveryResultCancelled
 };
 
 typedef void(^DeliveryCompletionBlock)(PROrderDeliveryResult result,

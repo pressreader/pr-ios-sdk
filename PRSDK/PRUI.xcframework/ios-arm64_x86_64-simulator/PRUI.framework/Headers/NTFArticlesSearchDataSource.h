@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFeedID:(NSManagedObjectID *)feedId
                        service:(__kindof NTFDataService *)dataService
-                    searchText:(NSString *)searchText
                       useDelay:(BOOL)useDelay;
 
 @property (null_resettable, nonatomic, strong) NSString *searchText;

@@ -21,20 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRSourceCategoriesCollectionVC : PRCollectionVC
 
-+ (UIImage *)imageForCategory:(PRCountableValue *)category
-                         size:(CGSize)size
-            loadingCompletion:(void(^)(UIImage *image))completion;
-
-+ (CGSize)recommendedCellSize;
-
 - (instancetype)initWithSourceList:(nullable PRSourceList *)sourceList;
 - (instancetype)initWithSourceList:(nullable PRSourceList *)sourceList
                           delegate:(nullable id<PRSourceCategoriesCollectionDelegate>)delegate NS_DESIGNATED_INITIALIZER;
-
-- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil
-                         bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
-
-- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 @property (nullable, nonatomic, weak) id<PRSourceCategoriesCollectionDelegate> delegate;
 @property (null_resettable, nonatomic, strong) NSArray<PRCountableValue *> *dataProvider;

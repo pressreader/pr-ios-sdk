@@ -29,7 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)asTopDidHide;
 
 // App Menu
-- (void)showMenu:(BOOL)show animated:(BOOL)animated;
+- (void)showAppMenu:(BOOL)show animated:(BOOL)animated;
+- (void)toggleAppMenu:(BOOL)animated;
 
 // Scrolling
 - (void)willBeginDragging:(UIScrollView *)scrollView;

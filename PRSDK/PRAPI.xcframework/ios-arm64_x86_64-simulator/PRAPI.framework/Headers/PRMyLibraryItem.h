@@ -195,9 +195,9 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (void) pauseResumeDownload;
 
 - (void) RequestArticlesDynamicInfo:(NSString*)requestType completed:(void (^)(SPNode *))completionBlock;
-- (void) udateArticleData:(NSString *)artID
-                 language:(NSString *)language
-                completed:(void(^)(BOOL updated, NSError *error))completionBlock;
+- (void) updateArticleData:(NSString *)artID
+                  language:(NSString *)language
+                 completed:(void(^)(BOOL updated, NSError *error))completionBlock;
 - (void) SendVote:(NSInteger)userVote forArticle:(NSString *)artID;
 - (void) requestVoteForArticle:(NSString *)artID completed:(void(^)(NSError *error))completionBlock;
 - (void) getDirectLinkForArticle:(NSString *)artID

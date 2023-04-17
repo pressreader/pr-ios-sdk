@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSString *> *)urlsForBaseService:(NSString *)serviceName;
 
 @property (nonatomic, readonly) NSString *onlineUrl;
+@property (nonatomic, readonly) NSString *onlineHostUrl;
 @property (nonatomic, readonly) NSString *registerUrl;
 @property (nonatomic, readonly) NSString *instructionsUrl;
 @property (nonatomic, readonly) NSString *onlineServiceUrl;

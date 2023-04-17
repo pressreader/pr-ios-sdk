@@ -43,15 +43,15 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
 
 - (void)renewSubscription:(nullable PRSubscription *)subs;
 
-- (void)purchaseProductWithIdentifier:(NSString *)productIdentifier
-                         subscription:(PRSubscription *)subs
-                            completed:(CompletionBlock)completionBlock
-                            cancelled:(CancellationBlock)cancellationBlock;
+- (void)purchaseProductWithIdentifiers:(NSArray<NSString *> *)ids;
+
+- (void)purchaseProductWithIdentifiers:(NSArray<NSString *> *)ids
+                          subscription:(nullable PRSubscription *)subscription;
 
 - (void)purchaseProductWithIdentifiers:(NSArray<NSString *> *)productIdentifiers
-                          subscription:(PRSubscription *)subs
-                             completed:(CompletionBlock)completionBlock
-                             cancelled:(CancellationBlock)cancellationBlock;
+                          subscription:(nullable PRSubscription *)subs
+                             completed:(nullable CompletionBlock)completionBlock
+                             cancelled:(nullable CancellationBlock)cancellationBlock;
 
 - (void)purchaseProductBundleForCIDs:(nullable NSSet<NSString *> *)cids
                         subscription:(PRSubscription *)subs

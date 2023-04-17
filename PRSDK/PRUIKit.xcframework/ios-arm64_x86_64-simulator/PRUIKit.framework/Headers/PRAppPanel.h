@@ -41,11 +41,11 @@ typedef NS_ENUM(unsigned int, PRPanelId) {
 
 @interface PRAppPanel : NSObject
 
-- (instancetype)initWithId:(PRPanelId)anId content:(id) content;
+- (instancetype)initWithId:(PRPanelId)anId content:(UIViewController *)content;
 
 @property (nonatomic, readonly) PRPanelId panelId;
 @property (nonatomic) NSInteger menuId;
-@property (nonatomic, strong) id content;
+@property (nonatomic, strong) __kindof UIViewController *content;
 @property (nullable, nonatomic, readonly) UINavigationController *contentNavigationController;
 @property (nonatomic, copy) NSString *title;
 

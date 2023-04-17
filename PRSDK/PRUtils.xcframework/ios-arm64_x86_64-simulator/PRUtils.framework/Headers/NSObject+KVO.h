@@ -16,8 +16,16 @@ typedef void (^PRKVO)(id object, NSDictionary<NSKeyValueChangeKey,id> *_Nullable
 
 @interface NSObject (KVO)
 
+/// @param identifier Providing a unique identifier allows to set more than one block observer of the same `keyPath`
+- (void)setBlockObserverForKeyPath:(NSString *)keyPath
+                        identifier:(NSString *_Nullable)identifier
+                          observer:(PRKVO)observer;
+
 - (void)setBlockObserverForKeyPath:(NSString *)keyPath observer:(PRKVO)observer;
+
+- (void)removeBlockObserverForKeyPath:(NSString *)keyPath identifier:(NSString *_Nullable)identifier;
 - (void)removeBlockObserverForKeyPath:(NSString *)keyPath;
+
 - (void)removeAllBlockObservers;
 
 @end

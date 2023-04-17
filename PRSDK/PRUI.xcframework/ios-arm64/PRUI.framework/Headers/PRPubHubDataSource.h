@@ -111,7 +111,6 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 @protocol PRPubHubDataSourceDelegate <NSObject, PRSourceCollectionControllerDelegate, PRMessageBarDelegate>
 
 - (void)dataSourceDidUpdate:(PRPubHubDataSource *)dataSource;
-- (void)dataSource:(PRPubHubDataSource *)dataSource didUpdateSectionAtIndex:(NSInteger)index;
 - (void)dataSource:(PRPubHubDataSource *)dataSource didUpdateSectionAtIndex:(NSInteger)index headerUpdated:(BOOL)headerUpdated;
 - (void)dataSourceDidUpdateAdBanners:(PRPubHubDataSource *)dataSource;
 - (void)scrollToTop;

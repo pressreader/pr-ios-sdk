@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRPromiseKit
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRPromiseKit
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 @_exported import PRPromiseKit
 import Swift
@@ -14,7 +14,7 @@ extension PRPromiseKit.Promise {
   @discardableResult
   public func then<X, Y, Z, R>(_ action: @escaping (X, Y, Z) throws -> R) -> PRPromiseKit.Promise
   @discardableResult
-  public func fail<R>(_ action: @escaping (Swift.Error?) throws -> R) -> PRPromiseKit.Promise
+  public func fail<R>(_ action: @escaping ((any Swift.Error)?) throws -> R) -> PRPromiseKit.Promise
   @discardableResult
   public func finally(_ action: @escaping () -> ()) -> PRPromiseKit.Promise
   @discardableResult
@@ -24,7 +24,7 @@ extension PRPromiseKit.Promise {
   @discardableResult
   public func thenOn<X, Y, Z, R>(_ queue: Dispatch.DispatchQueue, _ action: @escaping (X, Y, Z) throws -> R) -> PRPromiseKit.Promise
   @discardableResult
-  public func failOn<R>(_ queue: Dispatch.DispatchQueue, _ action: @escaping (Swift.Error?) throws -> R) -> PRPromiseKit.Promise
+  public func failOn<R>(_ queue: Dispatch.DispatchQueue, _ action: @escaping ((any Swift.Error)?) throws -> R) -> PRPromiseKit.Promise
   @discardableResult
   public func finallyOn(_ queue: Dispatch.DispatchQueue, _ action: @escaping () -> ()) -> PRPromiseKit.Promise
 }

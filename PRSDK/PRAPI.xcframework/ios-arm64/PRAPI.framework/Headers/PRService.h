@@ -33,6 +33,10 @@
 + (NSString*)FormServerCommand:(NSString*)requestType additional:(NSString*)additional;
 + (NSString *)clientInfo;
 
++ (void)resetIfNeededRequestPromiseWithId:(NSString *)signature
+                                  options:(NSDictionary<PRServiceRequestOption, id> *)options;
+
+
 @property (nonatomic, class, readonly) NSDictionary *defaultServiceOptions;
 
 @end

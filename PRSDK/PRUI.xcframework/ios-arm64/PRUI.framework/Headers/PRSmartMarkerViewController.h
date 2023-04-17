@@ -11,6 +11,7 @@
 
 @protocol PRSmartMarkerControllerDelegate <NSObject, TouchViewControllerDelegate>
 - (void)tapOnSmartObject:(id)smartObject fromView:(UIView *)view;
+- (void)longPressOnSmartObject:(id)smartObject fromView:(UIView *)view;
 - (void)tapOnCommentCounter:(id)smartObject fromView:(UIView *)view;
 @end
 

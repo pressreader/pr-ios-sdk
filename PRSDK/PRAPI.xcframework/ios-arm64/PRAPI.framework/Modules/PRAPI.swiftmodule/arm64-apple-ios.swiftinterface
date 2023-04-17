@@ -1,7 +1,8 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAPI
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAPI
 // swift-module-flags-ignorable: -enable-bare-slash-regex
+import AppTrackingTransparency
 import AuthenticationServices
 import Combine
 import CommonCrypto
@@ -24,6 +25,7 @@ import PRPromiseKit
 import PRProtocols
 import PRSmart
 import PRSyntacticSugar
+import PRThumbnail
 import PRUtils
 import StoreKit
 import Swift
@@ -32,7 +34,7 @@ import _Concurrency
 import _StringProcessing
 @objc public protocol RichMediaAnalyticsProvider : PRAPI.AnalyticsProvider {
   @objc var mediaType: Swift.String { get }
-  @objc var issue: PRAPI.IssueAnalyticsProvider? { get }
+  @objc var issue: (any PRAPI.IssueAnalyticsProvider)? { get }
 }
 extension PRAPI.RichMediaAnalyticsProvider {
   public func trackRichMedia(action: Swift.String)
@@ -48,6 +50,45 @@ extension PRAPI.RichMediaAnalyticsProvider {
   @objc @discardableResult
   dynamic public func updateOnboardingStatus(_ status: PRAPI.PROnboardingStatus) -> PRPromiseKit.Promise
 }
+@objc extension CoreData.NSManagedObject {
+  @objc dynamic public var coreDataController: PRAPI.PRCoreDataController? {
+    @objc get
+  }
+  @objc override dynamic open func post(_ notificationName: Foundation.NSNotification.Name, userInfo: [Swift.AnyHashable : Any]? = nil)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class CatalogItemDownloadService : ObjectiveC.NSObject {
+  public enum LoadingError : Swift.Error {
+    case unexpected
+    case noContentInfo
+    case unsupportedFormat
+    public static func == (a: PRAPI.CatalogItemDownloadService.LoadingError, b: PRAPI.CatalogItemDownloadService.LoadingError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor public static let shared: PRAPI.CatalogItemDownloadService
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.CatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.CatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption, itemInfo: inout PRAPI.CatalogService.ItemInfo) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.Book, contentOptions: PRCatalogModel.CatalogItemContentOption, itemInfo: inout PRAPI.CatalogService.ItemInfo) async throws
+  #endif
+  @objc @_Concurrency.MainActor final public func cancelDownload(_ item: PRCatalogModel.CatalogItem)
+  #if compiler(>=5.3) && $AsyncAwait
+  @discardableResult
+  @objc @_Concurrency.MainActor final public func removeFromDownloads(_ items: [PRCatalogModel.CatalogItem]) async throws -> Swift.Bool
+  #endif
+  @objc deinit
+}
+extension PRAPI.BookService {
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func loadEntity<T>(id: Swift.String, type: T.Type, context: CoreData.NSManagedObjectContext) async throws -> T where T : PRCatalogModel.CatalogEntity
+  #endif
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AppleSignInStorage : ObjectiveC.NSObject {
   @objc final public class var storedCredential: AuthenticationServices.ASAuthorizationAppleIDCredential? {
     @objc get
@@ -57,9 +98,6 @@ extension PRAPI.RichMediaAnalyticsProvider {
   @objc final public class func validateStoredCredentials()
   @objc override dynamic public init()
   @objc deinit
-}
-extension PRCatalogModel.Document {
-  @objc dynamic public func onDownloadError(_ error: Swift.Error?)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class CatalogCoreDataController : PRAPI.PRCoreDataController {
   @objc override dynamic public var managedObjectModelName: Swift.String {
@@ -72,7 +110,7 @@ extension PRCatalogModel.Document {
     @objc get
   }
   public func getCatalog(context: CoreData.NSManagedObjectContext? = nil) -> PRCatalogModel.PressCatalog
-  public func getDownloads() -> PRCatalogModel.Downloads
+  public func getDownloads(context: CoreData.NSManagedObjectContext? = nil) -> PRCatalogModel.Downloads
   @objc deinit
 }
 @objc public enum ArticleTranslationState : Swift.Int {
@@ -88,6 +126,18 @@ extension PRCatalogModel.Document {
     @objc get
   }
 }
+public protocol LibraryService {
+  associatedtype Item
+  #if compiler(>=5.3) && $AsyncAwait
+  func updateLibrary(item: Self.Item) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  func removeItemFromLibrary(_ item: Self.Item) async throws
+  #endif
+}
+@objc extension PRAPI.PRCatalog {
+  @objc dynamic public func isReady() -> Swift.Bool
+}
 public enum FeaturedAudioAction : Swift.String {
   case swipe
   case play
@@ -101,7 +151,7 @@ public enum FeaturedAudioAction : Swift.String {
 public protocol FeaturedAudioAnalyticsProvider : PRAPI.AnalyticsProvider {
 }
 extension PRAPI.FeaturedAudioAnalyticsProvider {
-  public func trackFeaturedAudio(action: PRAPI.FeaturedAudioAction, article: PRAPI.NTFArticle?)
+  public func trackFeaturedAudio(action: PRAPI.FeaturedAudioAction, article: (any PRAPI.NTFArticle)?)
 }
 public enum RadioAction : Swift.String {
   case firstStart
@@ -115,7 +165,7 @@ public enum RadioAction : Swift.String {
 }
 @objc public protocol RadioAnalyticsProvider : PRAPI.AnalyticsProvider {
   @objc var libraryItem: PRAPI.PRMyLibraryItem? { get }
-  @objc var currentFeedArticle: PRAPI.NTFArticle? { get }
+  @objc var currentFeedArticle: (any PRAPI.NTFArticle)? { get }
 }
 extension PRAPI.RadioAnalyticsProvider {
   public func trackRadio(action: PRAPI.RadioAction)
@@ -132,7 +182,7 @@ extension PRAPI.NTFArticleItem {
   @objc dynamic public func updateAccessibility()
   public func updateAccessibility(saveToPersitentStore: Swift.Bool = false)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class BookUserService : PRAPI.BookSubservice {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class BookUserService : PRAPI.BookSubservice, PRAPI.Preloadable {
   override nonisolated public init?(bookService: PRAPI.BookService)
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor final public func loadBookReadingPosition(bookId: Swift.String) async throws -> PRAPI.BookReadingPosition?
@@ -140,7 +190,27 @@ extension PRAPI.NTFArticleItem {
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor final public func uploadBookReadingPosition(_ position: PRAPI.BookReadingPosition.Position, bookId: Swift.String) async throws
   #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func refreshBookLibrary() async throws -> Swift.Bool
+  #endif
+  @_Concurrency.MainActor final public var preloadTask: _Concurrency.Task<(), Swift.Never>? {
+    get
+    set
+  }
+  @_Concurrency.MainActor final public var preloadDate: Foundation.Date?
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func preload() async
+  #endif
   @objc deinit
+}
+extension PRAPI.BookUserService : PRAPI.LibraryService {
+  public typealias Item = PRCatalogModel.Book
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func updateLibrary(item: PRAPI.BookUserService.Item) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func removeItemFromLibrary(_ item: PRAPI.BookUserService.Item) async throws
+  #endif
 }
 extension PRCatalogModel.CatalogItem : PRAPI.PRCatalogItem {
   @objc dynamic public var sourceType: PRCatalogModel.PRSourceType {
@@ -165,7 +235,7 @@ extension PRAPI.NTFDataService {
   @objc dynamic public func waitForOtherDataSuppliers(_ completion: @escaping () -> ())
 }
 @objc extension PRAPI.PRAnalyticsService {
-  @objc dynamic public class func analyticsServices(application: UIKit.UIApplication?, launchOptions: [Swift.AnyHashable : Any]?) -> [PRAPI.PRAnalytics]
+  @objc dynamic public class func analyticsServices(application: UIKit.UIApplication?, launchOptions: [Swift.AnyHashable : Any]?) -> [any PRAPI.PRAnalytics]
 }
 extension PRCatalogModel.Books : PRAPI.PressCatalogable {
   final public var _service: PRAPI.CatalogService {
@@ -196,7 +266,7 @@ extension PRAPI.PublicationChannel {
   @objc dynamic public var isFollowed: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var mastheadProvider: PRAPI.PRMastheadProvider? {
+  @objc dynamic public var mastheadProvider: (any PRAPI.PRMastheadProvider)? {
     @objc get
   }
 }
@@ -224,18 +294,18 @@ extension PRAPI.NTFSession {
 }
 extension PRAPI.PRSourceItem {
   public func isAutoDeliverable() -> (hasSubscription: Swift.Bool, includingSupplements: Swift.Bool)
-  public func setAutodelivery(_ isOn: Swift.Bool, applyToSupplements: Swift.Bool = false, completion: ((Swift.Bool, Swift.Error?) -> Swift.Void)? = nil)
+  public func setAutodelivery(_ isOn: Swift.Bool, applyToSupplements: Swift.Bool = false, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)? = nil)
 }
 final public class BookLicenseProduct : Swift.Decodable, Swift.Hashable {
   public struct Term : Swift.Decodable {
     public let duration: Swift.Int?
     public let units: Swift.String?
-    public init(from decoder: Swift.Decoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
   public struct Sponsor : Swift.Decodable {
     public let id: Swift.String
     public let name: Swift.String
-    public init(from decoder: Swift.Decoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
   final public let id: Swift.String
   final public let title: Swift.String
@@ -263,7 +333,7 @@ final public class BookLicenseProduct : Swift.Decodable, Swift.Hashable {
   final public var hashValue: Swift.Int {
     get
   }
-  public init(from decoder: Swift.Decoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol ColoredEntity {
   var color: UIKit.UIColor { get }
@@ -331,15 +401,32 @@ extension Foundation.NSNotification.Name {
   @objc public static let catalogPreloaded: Foundation.Notification.Name
 }
 @objc @_Concurrency.MainActor public class CatalogService : ObjectiveC.NSObject, PRAPI.Preloadable {
+  public enum LoadingError : Swift.Error {
+    case noServiceUrlProvided
+    case unsupportedSection
+    case unexpectedResponse
+    case unexpectedError
+    case noContent
+    case busy
+    public static func == (a: PRAPI.CatalogService.LoadingError, b: PRAPI.CatalogService.LoadingError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct ItemInfo {
+    public var gracePeriodAddedMessage: Swift.String?
+    public init()
+  }
   nonisolated public var updateInterval: Foundation.TimeInterval {
     get
   }
-  @_Concurrency.MainActor public var catalog: PRAPI.PressCatalogable {
+  @_Concurrency.MainActor public var catalog: any PRAPI.PressCatalogable {
     get
   }
   @_Concurrency.MainActor final public let mainContext: CoreData.NSManagedObjectContext
   @_Concurrency.MainActor final public let privateContext: CoreData.NSManagedObjectContext
-  nonisolated public init(catalog: PRAPI.PressCatalogable)
+  nonisolated public init(catalog: any PRAPI.PressCatalogable)
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor public func updateCatalog(forced: Swift.Bool) async
   #endif
@@ -392,7 +479,7 @@ extension PRAPI.Interest {
   public class func getRecommendedInterests(with displayedInterests: [Swift.Int]?) -> PRPromiseKit.Promise
   @discardableResult
   public class func getRecommendedInterests(with displayedInterests: [Swift.Int]?, selectedInterests: [Swift.Int]?) -> PRPromiseKit.Promise
-  public class func searchForInterests(with query: Swift.String, offset: Swift.Int?, completion: @escaping ([PRAPI.Interest.ReturnType]?, Swift.Error?) -> ())
+  public class func searchForInterests(with query: Swift.String, offset: Swift.Int?, completion: @escaping ([PRAPI.Interest.ReturnType]?, (any Swift.Error)?) -> ())
   @discardableResult
   public class func getUserInterests(token: Swift.String? = nil) -> PRPromiseKit.Promise
   @discardableResult
@@ -421,13 +508,13 @@ public protocol LoadableModel : ObjectiveC.NSObjectProtocol {
   func finishLoading(_ result: PRUtils.VoidResult)
 }
 public protocol LoadableModelObserver : ObjectiveC.NSObjectProtocol {
-  func modelDidFinishLoading(model: PRAPI.ObservableModel, result: PRUtils.VoidResult)
+  func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
 }
 public protocol ObservableModel : PRAPI.LoadableModel, PRAPI.LoadableModelObserver {
   func load(_ completion: @escaping (PRUtils.VoidResult) -> ())
-  func addObserver(_ observer: PRAPI.LoadableModelObserver)
-  func removeObserver(_ observer: PRAPI.LoadableModelObserver?)
-  func triggerObservers(_ action: @escaping (PRAPI.LoadableModelObserver) -> ())
+  func addObserver(_ observer: any PRAPI.LoadableModelObserver)
+  func removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
+  func triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
 }
 public enum ObservableModelError : Swift.Error {
   case failLoading
@@ -442,13 +529,13 @@ extension PRAPI.ObservableModel {
     get
     set
   }
-  public func removeObserver(_ observer: PRAPI.LoadableModelObserver?)
-  public func addObserver(_ observer: PRAPI.LoadableModelObserver)
-  public func triggerObservers(_ action: @escaping (PRAPI.LoadableModelObserver) -> ())
-  public func forEachObserver(_ action: (PRAPI.LoadableModelObserver) -> Swift.Bool)
-  public func _triggerObservers(_ action: @escaping (PRAPI.LoadableModelObserver) -> ())
-  public func _removeObserver(_ observer: PRAPI.LoadableModelObserver?)
-  public func _addObserver(_ observer: PRAPI.LoadableModelObserver)
+  public func removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
+  public func addObserver(_ observer: any PRAPI.LoadableModelObserver)
+  public func triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
+  public func forEachObserver(_ action: (any PRAPI.LoadableModelObserver) -> Swift.Bool)
+  public func _triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
+  public func _removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
+  public func _addObserver(_ observer: any PRAPI.LoadableModelObserver)
 }
 extension PRAPI.ObservableModel {
   public var state: PRAPI.ModelState {
@@ -459,7 +546,10 @@ extension PRAPI.ObservableModel {
 }
 extension PRAPI.ObservableModel {
   public func load(_ completion: @escaping (PRUtils.VoidResult) -> ())
-  public func modelDidFinishLoading(model: PRAPI.ObservableModel, result: PRUtils.VoidResult)
+  #if compiler(>=5.3) && $AsyncAwait
+  public func load() async throws
+  #endif
+  public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
 }
 @objc extension PRAPI.PRAccountManager {
   @objc dynamic public var authorizationManager: PRAPI.AuthorizationManager {
@@ -530,14 +620,7 @@ extension PRAPI.SplashScreenAnalyticsProvider {
   @objc final public var needsUpdatedDetails: Swift.Bool {
     @objc get
   }
-  @objc override final public func updateDetailsIfNeeded() -> PRPromiseKit.Promise
-  #if compiler(>=5.3) && $AsyncAwait
-  @objc final public func updateDetailsIfNeeded() async throws
-  #endif
   @objc override final public func downloadState(options: PRCatalogModel.CatalogItemContentOption) -> PRAPI.PRTitleItemExemplarState
-  @objc override final public func download(options: PRCatalogModel.CatalogItemContentOption) -> PRPromiseKit.Promise
-  @objc final public func onDownloadError(_ error: Swift.Error?)
-  @objc final public func completeLicensePurchase(isFailed: Swift.Bool)
 }
 @objc public protocol DataSourceObserver {
   @objc optional func startDataLoading(_ source: Any)
@@ -545,7 +628,7 @@ extension PRAPI.SplashScreenAnalyticsProvider {
   @objc optional func dataSourceDidChange(_ source: Any)
 }
 @objc public protocol LoadableDataSource : ObjectiveC.NSObjectProtocol {
-  @objc var loadingError: Swift.Error? { get }
+  @objc var loadingError: (any Swift.Error)? { get }
   @objc var canLoadMore: Swift.Bool { get }
   @objc var isEmpty: Swift.Bool { get }
   @objc var isLoading: Swift.Bool { get }
@@ -554,8 +637,8 @@ extension PRAPI.SplashScreenAnalyticsProvider {
   func load() -> Swift.Bool
   @objc @discardableResult
   func loadMore() -> Swift.Bool
-  @objc func addObserver(_ observer: PRAPI.DataSourceObserver)
-  @objc func removeObserver(_ observer: PRAPI.DataSourceObserver)
+  @objc func addObserver(_ observer: any PRAPI.DataSourceObserver)
+  @objc func removeObserver(_ observer: any PRAPI.DataSourceObserver)
 }
 @objc public protocol SilentDataLoader : ObjectiveC.NSObjectProtocol {
   @objc var canLoadMoreSilently: Swift.Bool { get }
@@ -585,11 +668,11 @@ public enum DataSourceLoadingType {
     get
   }
 }
-@_inheritsConvenienceInitializers open class DataSource<AnItem> : PRAPI.PRObservableObject<PRAPI.DataSourceObserver>, PRAPI.LoadableDataSource, PRAPI.SectionalDataSource, PRAPI.SilentDataLoader {
+@_inheritsConvenienceInitializers open class DataSource<AnItem> : PRAPI.PRObservableObject<any PRAPI.DataSourceObserver>, PRAPI.LoadableDataSource, PRAPI.SectionalDataSource, PRAPI.SilentDataLoader {
   open var items: [Swift.Int : [AnItem]] {
     get
   }
-  @objc public var loadingError: Swift.Error? {
+  @objc public var loadingError: (any Swift.Error)? {
     get
   }
   @objc open var canLoadMore: Swift.Bool {
@@ -611,7 +694,7 @@ public enum DataSourceLoadingType {
     get
   }
   @objc required override dynamic public init()
-  public init(observer: PRAPI.DataSourceObserver? = nil)
+  public init(observer: (any PRAPI.DataSourceObserver)? = nil)
   public func item(at indexPath: Foundation.IndexPath) -> AnItem?
   open func indexPath(of item: AnItem) -> Foundation.IndexPath?
   @objc open func numberOfItems(in section: Swift.Int) -> Swift.Int
@@ -630,8 +713,8 @@ public enum DataSourceLoadingType {
   @objc open func loadMore() -> Swift.Bool
   public func allItems() -> [AnItem]
   open func startLoading()
-  public func completeLoading(result: [AnItem]?, error: Swift.Error?, notify: Swift.Bool = true)
-  public func completeLoading(sections: [Swift.Int : [AnItem]]?, error: Swift.Error?, notify: Swift.Bool = true)
+  public func completeLoading(result: [AnItem]?, error: (any Swift.Error)?, notify: Swift.Bool = true)
+  public func completeLoading(sections: [Swift.Int : [AnItem]]?, error: (any Swift.Error)?, notify: Swift.Bool = true)
   public func completeLoading(result: [AnItem]?, state: PRAPI.DataSourceState, notify: Swift.Bool = true)
   public func completeLoading(sections: [Swift.Int : [AnItem]]?, state: PRAPI.DataSourceState, notify: Swift.Bool = true)
   public func notifyOfChanges()
@@ -698,6 +781,18 @@ extension PRAPI.PRAccountItem {
   @objc dynamic public var options: PRAPI.PROptions {
     @objc get
   }
+  @objc dynamic public var thumbnailsManager: PRThumbnail.PRThumbnailsManager {
+    @objc get
+  }
+  @objc dynamic public var util: PRAPI.PRCoreUtil {
+    @objc get
+  }
+  @objc dynamic public var glob: PRAPI.PRCoreGlobal {
+    @objc get
+  }
+  @objc dynamic public var host: PRAPI.PRHost {
+    @objc get
+  }
 }
 public protocol BookAnalyticsProvider : PRAPI.AnalyticsProvider {
   var book: PRCatalogModel.Book { get }
@@ -711,7 +806,7 @@ extension PRAPI.NTFSession {
   public func updatePublicationChannels(_ completion: @escaping ([PRAPI.PublicationChannel]) -> Swift.Void)
 }
 public struct BookReadingEvent : Swift.Encodable {
-  public func encode(to encoder: Swift.Encoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 extension PRAPI.BookReadingEvent {
   public init(epub: PRAPI.EpubContent, contentLength: Swift.Int, frames: [PRAPI.BookReadingFrame])
@@ -722,11 +817,11 @@ extension PRAPI.PRCollectionsModel {
   @objc dynamic public func loadFromCache() -> [PRAPI.NTFCollectionItem]?
 }
 extension PRAPI.PRMyLibrary {
-  public var catalogItems: [PRAPI.PRCatalogItem] {
+  public var catalogItems: [any PRAPI.PRCatalogItem] {
     get
   }
-  @objc dynamic public func getCatalogItems(order: PRConfiguration.PRCatalogSortingOrder = .notDefined) -> [PRAPI.PRCatalogItem]
-  public func delete(_ item: PRAPI.PRCatalogItem)
+  @objc dynamic public func getCatalogItems(order: PRConfiguration.PRCatalogSortingOrder = .notDefined) -> [any PRAPI.PRCatalogItem]
+  public func delete(_ item: any PRAPI.PRCatalogItem)
   public func deleteAll()
 }
 extension PRAPI.PRMyLibrary : PRUtils.Observable {
@@ -777,7 +872,7 @@ extension PRAPI.PRMyLibrary : PRUtils.Observable {
   @objc dynamic public func processSmart()
 }
 public struct BookReadingFrame : Swift.Encodable {
-  public func encode(to encoder: Swift.Encoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 extension PRAPI.BookReadingFrame {
   public init(startTime: Foundation.Date, endTime: Foundation.Date, fragments: [PRAPI.BookReadingFragment])
@@ -860,14 +955,14 @@ public protocol AudioMetadataUpdatable {
   final public var isReady: Swift.Bool {
     get
   }
-  final public var data: [PRAPI.NTFArticle]? {
+  final public var data: [any PRAPI.NTFArticle]? {
     get
   }
   @objc override dynamic public init()
   @objc deinit
 }
 extension PRAPI.ListenHighlightsModel : CoreData.NSFetchedResultsControllerDelegate {
-  @objc final public func controllerDidChangeContent(_ controller: CoreData.NSFetchedResultsController<CoreData.NSFetchRequestResult>)
+  @objc final public func controllerDidChangeContent(_ controller: CoreData.NSFetchedResultsController<any CoreData.NSFetchRequestResult>)
 }
 extension PRCatalogModel.PressCatalog {
   final public class func getCatalog(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.PressCatalog
@@ -883,7 +978,7 @@ extension PRAPI.AccountAnalyticsProvider {
   public func trackDeleteAccount(_ success: Swift.Bool)
 }
 @objc extension PRAPI.PRSubscription {
-  @objc dynamic public func requestGoogleAdsConfig(_ completion: @escaping (PRUtils.SPNode?, Swift.Error?) -> ())
+  @objc dynamic public func requestGoogleAdsConfig(_ completion: @escaping (PRUtils.SPNode?, (any Swift.Error)?) -> ())
 }
 @objc extension PRAPI.PRModel : PRProtocols.Singleton {
   @objc public static func instance() -> Self
@@ -900,8 +995,11 @@ public protocol Serviceable {
 }
 @objc extension PRAPI.PRCatalog {
   @objc dynamic public func pressCatalog() -> PRCatalogModel.PressCatalog
-  @objc dynamic public func downloads() -> PRCatalogModel.Downloads
   @objc @_Concurrency.MainActor dynamic public func updatePressCatalogForced(_ forced: Swift.Bool)
+}
+extension PRAPI.PRCatalog {
+  public func pressCatalog(context: CoreData.NSManagedObjectContext? = nil) -> PRCatalogModel.PressCatalog
+  public func downloads(context: CoreData.NSManagedObjectContext? = nil) -> PRCatalogModel.Downloads
 }
 extension PRAPI.Channel {
   public var collectionsCount: Swift.Int {
@@ -917,7 +1015,7 @@ extension PRAPI.NTFCoreDataController {
   public func getOnlineSession(in context: CoreData.NSManagedObjectContext, completion: @escaping (PRAPI.NTFSession) -> Swift.Void)
 }
 extension PRAPI.PRCatalog {
-  public func item(cid: Swift.String, date: Foundation.Date? = nil) -> PRAPI.PRCatalogItem?
+  public func item(cid: Swift.String, date: Foundation.Date? = nil) -> (any PRAPI.PRCatalogItem)?
 }
 @_inheritsConvenienceInitializers @objc public class BookResponseHandler : ObjectiveC.NSObject {
   public typealias BookResourceDataProviderBlock = (Swift.String) -> Foundation.Data?
@@ -931,7 +1029,7 @@ extension PRAPI.PRCatalog {
 }
 @objc extension PRAPI.NTFPageSetItem : PRAPI.NTFItem {
   @discardableResult
-  @objc dynamic public func masthead(withHeight height: CoreFoundation.CGFloat, style: PRThumbnail.NTFMastheadStyle, options: PRThumbnail.NTFMastheadOption, completion: ((UIKit.UIImage?, Swift.Error?) -> Swift.Void)? = nil) -> Swift.Bool
+  @objc dynamic public func masthead(withHeight height: CoreFoundation.CGFloat, style: PRThumbnail.NTFMastheadStyle, options: PRThumbnail.NTFMastheadOption, completion: ((UIKit.UIImage?, (any Swift.Error)?) -> Swift.Void)? = nil) -> Swift.Bool
 }
 public protocol BannerAnalyticsProvider : PRAPI.AnalyticsProvider {
   var bannerType: PRAPI.PRAnalyticsBannerType { get }
@@ -951,13 +1049,6 @@ extension PRAPI.PRCatalog {
   public var bookService: PRAPI.BookService? {
     get
   }
-}
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class BookLibraryService : PRAPI.BookSubservice {
-  #if compiler(>=5.3) && $AsyncAwait
-  @_Concurrency.MainActor final public func refreshBooks() async throws -> Swift.Bool
-  #endif
-  override nonisolated public init?(bookService: PRAPI.BookService)
-  @objc deinit
 }
 extension PRAPI.Publication {
   public var titleItem: PRAPI.PRTitleItem? {
@@ -980,7 +1071,7 @@ extension PRAPI.Publication {
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor override final public func preload() async
   #endif
-  override nonisolated public init(catalog: PRAPI.PressCatalogable)
+  override nonisolated public init(catalog: any PRAPI.PressCatalogable)
   @objc deinit
 }
 extension PRCatalogModel.BookContent {
@@ -1018,10 +1109,12 @@ extension PRCatalogModel.CatalogItemContent : PRCoreDataUtils.IdentifiableMO {
       get
     }
   }
-  public func cleanUp() -> PRPromiseKit.Promise
+  #if compiler(>=5.3) && $AsyncAwait
+  public func cleanUp() async throws
+  #endif
 }
 @objc extension PRCatalogModel.CatalogItem {
-  @objc(isEqualToItem:) dynamic public func isEqual(to item: PRAPI.ReadingViewItem) -> Swift.Bool
+  @objc(isEqualToItem:) dynamic public func isEqual(to item: any PRAPI.ReadingViewItem) -> Swift.Bool
   @objc dynamic public var isPurchaseAdvise: Swift.Bool {
     @objc get
   }
@@ -1040,6 +1133,24 @@ extension PRCatalogModel.CatalogItemContent : PRCoreDataUtils.IdentifiableMO {
 extension PRAPI.ArticleLink {
   @objc dynamic public func update(with info: [Swift.String : Any])
 }
+@objc @objcMembers final public class TextLink : ObjectiveC.NSObject {
+  @objc final public let text: Swift.String
+  @objc final public let link: Swift.String?
+  @objc public init(text: Swift.String, link: Swift.String? = nil)
+  @objc final public class var termsOfUse: PRAPI.TextLink? {
+    @objc get
+  }
+  @objc final public class var privacyPolicy: PRAPI.TextLink? {
+    @objc get
+  }
+  @objc final public class var policies: [PRAPI.TextLink] {
+    @objc get
+  }
+  @objc final public class var signInPolicies: [PRAPI.TextLink] {
+    @objc get
+  }
+  @objc deinit
+}
 @objc extension PRAPI.PRAccountItem {
   @objc dynamic public func showDeleteConfirmationAlert(_ completion: @escaping (Swift.Bool) -> ())
 }
@@ -1047,7 +1158,8 @@ extension PRAPI.EpubContent {
   public enum LoadingError : PRUtils.DefaultLocalizedError {
     case contentHashDoesNotMatch
     case noManifestFound
-    case encryptionInfoParsingError(error: Swift.Error)
+    case encryptionInfoParsingError(error: any Swift.Error)
+    case unexpected
   }
   public class func load(license: PRAPI.EpubContent.BookLicense) -> PRPromiseKit.Promise
   public func checkHash() -> Swift.Bool
@@ -1123,14 +1235,16 @@ public protocol DownloadableItemContent {
   @discardableResult
   func download() -> PRPromiseKit.Promise
   func cancelDownload()
-  func cleanStorage() -> PRPromiseKit.Promise
+  #if compiler(>=5.3) && $AsyncAwait
+  func cleanStorage() async throws
+  #endif
 }
 public protocol SingleFileDownloadableItemContent : PRAPI.DownloadableItemContent {
   var filePath: Swift.String { get }
   var url: Foundation.URL? { get }
+  var contentPath: Swift.String { get }
   func prepareForDownload() -> PRPromiseKit.Promise
   func processAfterDownload() -> PRPromiseKit.Promise
-  func cleanSupplementalStorage() throws
 }
 extension PRAPI.SingleFileDownloadableItemContent where Self : PRCatalogModel.CatalogItemContent {
   public var isLicenseRequired: Swift.Bool {
@@ -1153,11 +1267,15 @@ extension PRAPI.SingleFileDownloadableItemContent where Self : PRCatalogModel.Ca
   public func validateStorageContent() -> Swift.Result<Swift.Bool, Foundation.FileManager.FileError>
   public func prepareForDownload() -> PRPromiseKit.Promise
   public func processAfterDownload() -> PRPromiseKit.Promise
-  public func cleanStorage() -> PRPromiseKit.Promise
-  public func cleanSupplementalStorage() throws
+  #if compiler(>=5.3) && $AsyncAwait
+  public func cleanStorage() async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func cleanContentStorage() async throws
+  #endif
 }
 @objc extension PRAPI.PRMyLibraryItem : PRAPI.LibraryItemProtocol {
-  @objc dynamic public var hotSpotInfo: PRAPI.HotSpotInfo? {
+  @objc dynamic public var hotSpotInfo: (any PRAPI.HotSpotInfo)? {
     @objc get
   }
   @objc dynamic public var isRadioSupported: Swift.Bool {
@@ -1176,14 +1294,14 @@ public struct BookReadingPosition : Swift.Codable {
     public let mediaType: Swift.String?
     public let deviceName: Swift.String?
     public init(href: Swift.String?, partialCfi: Swift.String?, position: Swift.Int, relativePosition: Swift.Int, mediaType: Swift.String?, deviceName: Swift.String?)
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
   public let bookId: Swift.Int
   public let readingPosition: PRAPI.BookReadingPosition.Position
   public let date: Foundation.Date
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc extension PRAPI.PRAccountItem {
   @objc dynamic public var isInitialTrialSubscription: Swift.Bool {
@@ -1238,7 +1356,6 @@ extension PRAPI.PRCatalog : PRAPI.ObservableModel {
   }
 }
 @objc extension PRAPI.PRCatalog {
-  @objc dynamic public func load(_ completion: @escaping () -> ())
   @objc dynamic public func load() -> PRPromiseKit.Promise
 }
 @available(*, unavailable)
@@ -1252,7 +1369,9 @@ extension PRCatalogModel.DocumentContent : PRAPI.SingleFileDownloadableItemConte
   final public var filePath: Swift.String {
     get
   }
-  final public func cleanSupplementalStorage() throws
+  final public var contentPath: Swift.String {
+    get
+  }
 }
 extension PRCatalogModel.DocumentContent {
   final public var smart: PRSmart.PRSmartObject? {
@@ -1272,38 +1391,23 @@ extension PRCatalogModel.DocumentContent {
     }
   }
   public typealias BookLicense = PRCatalogModel.ContentLicense
-  final public let license: PRAPI.EpubContent.BookLicense
   public var isDownloadedAndValid: Swift.Bool
   public var resourceEncryptedInfo: [Swift.String : PRAPI.EpubContent.ResourceEncryptionInfo]?
-  public var id: Swift.String {
-    get
-  }
-  public var title: Swift.String? {
-    get
-  }
-  public var authorName: Swift.String? {
-    get
-  }
-  public var encryptionKey: Foundation.Data? {
-    get
-    set
-  }
-  public var licenseId: Swift.String {
-    get
-  }
-  public var contentHash: Swift.String? {
-    get
-  }
-  public var userContext: Swift.String? {
-    get
-  }
-  public var filePath: Swift.String {
-    get
-  }
+  final public let id: Swift.String
+  final public let title: Swift.String?
+  final public let authorName: Swift.String?
+  final public let encryptionKey: Foundation.Data?
+  final public let licenseId: Swift.String
+  final public let contentHash: Swift.String?
+  final public let userContext: Swift.String?
+  final public let filePath: Swift.String
+  final public let isSample: Swift.Bool
+  final public let bookId: Swift.String
   public var book: PRCatalogModel.Book {
     get
   }
-  public init(license: PRAPI.EpubContent.BookLicense, resourceEncryptedInfo: [Swift.String : PRAPI.EpubContent.ResourceEncryptionInfo]? = nil)
+  public init?(license: PRAPI.EpubContent.BookLicense, resourceEncryptedInfo: [Swift.String : PRAPI.EpubContent.ResourceEncryptionInfo]? = nil)
+  public func content(context: CoreData.NSManagedObjectContext? = nil) -> PRCatalogModel.BookContent
   @objc deinit
 }
 @objc public protocol AnalyticsTracker {
@@ -1356,23 +1460,6 @@ extension PRAPI.ReadingViewAnalyticsTracker {
   public func trackPrintedPages(issue: PRAPI.TrackingIssue, isFullPage: Swift.Bool, pageNumbers: [Swift.Int])
   public func trackPrintedArticle(issue: PRAPI.TrackingIssue, article: PRAPI.TrackingArticle, inReplicaPresentation: Swift.Bool)
 }
-@objc extension PRCatalogModel.CatalogItem {
-  @objc dynamic public func addToDownloads()
-  #if compiler(>=5.3) && $AsyncAwait
-  @nonobjc @_Concurrency.MainActor public func removeFromDownloads() async throws
-  #endif
-  @objc dynamic public func removeFromDownloads()
-  @objc dynamic public func removeFromDownloads(_ completion: PRAPI.PRSimpleResult? = nil)
-}
-@objc public protocol DownloadableItem {
-  @objc var identifier: Swift.String { get }
-  @objc func downloadState(options: PRCatalogModel.CatalogItemContentOption) -> PRAPI.PRTitleItemExemplarState
-  @objc func downloadProgressObject(options: PRCatalogModel.CatalogItemContentOption) -> Foundation.Progress?
-  @objc func downloadProgress(options: PRCatalogModel.CatalogItemContentOption) -> Swift.Int
-  @objc @discardableResult
-  func download(options: PRCatalogModel.CatalogItemContentOption) -> PRPromiseKit.Promise
-  @objc func cancelDownload()
-}
 public enum AccessError : PRUtils.DefaultLocalizedError {
   case unexpected
   case restricted
@@ -1393,9 +1480,6 @@ public enum AccessError : PRUtils.DefaultLocalizedError {
   nonisolated final public var license: PRAPI.BookLicenseService? {
     get
   }
-  nonisolated final public var library: PRAPI.BookLibraryService? {
-    get
-  }
   nonisolated final public var user: PRAPI.BookUserService? {
     get
   }
@@ -1410,13 +1494,13 @@ public enum AccessError : PRUtils.DefaultLocalizedError {
   @_Concurrency.MainActor final public func loadBooks(ids: [Swift.String], context: CoreData.NSManagedObjectContext? = nil) async throws -> [PRCatalogModel.Book]
   #endif
   #if compiler(>=5.3) && $AsyncAwait
-  @_Concurrency.MainActor final public func purchaseBook(bookId: Swift.String, options: PRCatalogModel.CatalogItemContentOption) async throws
+  @_Concurrency.MainActor final public func purchaseBook(id: Swift.String, options: PRCatalogModel.CatalogItemContentOption, preloadDetails: Swift.Bool = false, itemInfo: inout PRAPI.CatalogService.ItemInfo) async throws
   #endif
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor override final public func preload() async
   #endif
   @_Concurrency.MainActor final public func cancelPreloading()
-  override nonisolated public init(catalog: PRAPI.PressCatalogable)
+  override nonisolated public init(catalog: any PRAPI.PressCatalogable)
   @objc deinit
 }
 extension PRCatalogModel.BookContent : PRAPI.SingleFileDownloadableItemContent {
@@ -1429,9 +1513,11 @@ extension PRCatalogModel.BookContent : PRAPI.SingleFileDownloadableItemContent {
   public var isLicenseRequired: Swift.Bool {
     get
   }
+  public var contentPath: Swift.String {
+    get
+  }
   @discardableResult
   public func prepareForDownload() -> PRPromiseKit.Promise
-  public func cleanSupplementalStorage() throws
 }
 @objc @objcMembers open class SignInResult : ObjectiveC.NSObject {
   @objc final public let userId: Swift.String?
@@ -1442,8 +1528,8 @@ extension PRCatalogModel.BookContent : PRAPI.SingleFileDownloadableItemContent {
   @objc final public let lastName: Swift.String?
   @objc final public let displayName: Swift.String?
   @objc final public let profileImageUrl: Swift.String?
-  @objc final public let error: Swift.Error?
-  @objc public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: Swift.Error?)
+  @objc final public let error: (any Swift.Error)?
+  @objc public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: (any Swift.Error)?)
   @objc deinit
 }
 extension StoreKit.SKProduct {
@@ -1464,20 +1550,11 @@ extension StoreKit.SKProduct {
     }
   }
   @objc dynamic public class func loadItem(id: Swift.String, catalog: PRCatalogModel.Catalog) -> PRPromiseKit.Promise
-  @objc dynamic public func updateDetailsIfNeeded() -> PRPromiseKit.Promise
 }
-@objc extension PRCatalogModel.CatalogItem : PRAPI.DownloadableItem {
-  @objc dynamic public var identifier: Swift.String {
-    @objc get
-  }
+@objc extension PRCatalogModel.CatalogItem {
   @objc dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption) -> PRAPI.PRTitleItemExemplarState
   @objc dynamic public func downloadProgress(options: PRCatalogModel.CatalogItemContentOption) -> Swift.Int
   @objc dynamic public func downloadProgressObject(options: PRCatalogModel.CatalogItemContentOption) -> Foundation.Progress?
-  @objc dynamic public func cancelDownload()
-}
-@objc extension PRCatalogModel.CatalogItem {
-  @discardableResult
-  @objc dynamic public func download(options: PRCatalogModel.CatalogItemContentOption) -> PRPromiseKit.Promise
 }
 public struct BookLicenseCheckoutResult : Swift.Decodable {
   public struct Details : Swift.Decodable {
@@ -1490,7 +1567,7 @@ public struct BookLicenseCheckoutResult : Swift.Decodable {
     public let total: Swift.Float?
     public let formattedTotal: Swift.String?
     public let products: [PRAPI.BookLicenseProduct]?
-    public init(from decoder: Swift.Decoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
   public let orderId: Swift.String
   public let status: Swift.String
@@ -1501,7 +1578,7 @@ public struct BookLicenseCheckoutResult : Swift.Decodable {
   public var isApproved: Swift.Bool {
     get
   }
-  public init(from decoder: Swift.Decoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension PRCatalogModel.BookLicense {
   public struct DTO : Swift.Decodable {
@@ -1509,7 +1586,7 @@ extension PRCatalogModel.BookLicense {
     public let bookId: Swift.String
     public let startDate: Foundation.Date
     public let endDate: Foundation.Date?
-    public init(from decoder: Swift.Decoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
   @discardableResult
   public class func instance(info: PRCatalogModel.BookLicense.DTO, context: CoreData.NSManagedObjectContext) -> Self?
@@ -1547,7 +1624,7 @@ extension PRCatalogModel.CatalogItem : PRAPI.LibraryItemProtocol {
     @objc get
     @objc set
   }
-  @objc dynamic public var hotSpotInfo: PRAPI.HotSpotInfo? {
+  @objc dynamic public var hotSpotInfo: (any PRAPI.HotSpotInfo)? {
     @objc get
   }
   @objc dynamic public var isDownloaded: Swift.Bool {
@@ -1576,7 +1653,7 @@ extension PRAPI.PRMyLibrary {
 extension PRAPI.NTFFeed {
   public func updateAccessibility()
 }
-public typealias AnalyticsAccountProvider = Combine.CurrentValueSubject<PRAPI.AnalyticsAccount?, Swift.Never>
+public typealias AnalyticsAccountProvider = Combine.CurrentValueSubject<(any PRAPI.AnalyticsAccount)?, Swift.Never>
 public protocol AnalyticsAccount {
   var accountNumber: Swift.Int { get }
   var internalRefNumber: Swift.String? { get }
@@ -1594,21 +1671,22 @@ public protocol AnalyticsAccount {
   var enablePromotional: Swift.Bool { get }
   var premiumProductId: Swift.String? { get }
   var isPremiumTrial: Swift.Bool { get }
+  var hasActivePaidSubscription: Swift.Bool { get }
   var isOnboardingStarted: Swift.Bool { get }
   var isOnboardingSkipped: Swift.Bool { get }
 }
 public protocol ObservableViewModel : PRAPI.ObservableModel {
 }
 extension PRAPI.ObservableViewModel {
-  public func triggerObservers(_ action: @escaping (PRAPI.LoadableModelObserver) -> ())
+  public func triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
 }
 extension PRAPI.PRSourceList : PRAPI.ObservableModel {
   public var state: PRAPI.ModelState {
     get
     set
   }
-  public func addObserver(_ observer: PRAPI.LoadableModelObserver)
-  public func removeObserver(_ observer: PRAPI.LoadableModelObserver?)
+  public func addObserver(_ observer: any PRAPI.LoadableModelObserver)
+  public func removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
 }
 @_inheritsConvenienceInitializers open class DataSourceSelectable<AnItem> : PRAPI.DataSource<AnItem> {
   open var hasSelectedItems: Swift.Bool {
@@ -1616,11 +1694,11 @@ extension PRAPI.PRSourceList : PRAPI.ObservableModel {
   }
   open func selectItem(_ item: AnItem, select: Swift.Bool)
   @objc required dynamic public init()
-  override public init(observer: PRAPI.DataSourceObserver? = nil)
+  override public init(observer: (any PRAPI.DataSourceObserver)? = nil)
   @objc deinit
 }
 extension PRAPI.PRSubscription {
-  public typealias Response = ([Swift.String : Any]?, Swift.Error?) -> ()
+  public typealias Response = ([Swift.String : Any]?, (any Swift.Error)?) -> ()
   public func requestArticleShortContent(articleIds: [Swift.String], language: Swift.String) -> PRPromiseKit.Promise
 }
 @objc extension PRCatalogModel.CatalogItem {
@@ -1672,7 +1750,7 @@ extension PRAPI.Preloadable {
   @objc deinit
 }
 extension PRCatalogModel.CatalogEntity {
-  final public var loadableCatalog: PRAPI.PressCatalogable? {
+  final public var loadableCatalog: (any PRAPI.PressCatalogable)? {
     get
   }
   final public var service: PRAPI.CatalogService? {
@@ -1730,12 +1808,12 @@ public struct BookLicenseRenewResult : Swift.Decodable {
     public var message: Swift.String {
       get
     }
-    public init(from decoder: Swift.Decoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
   public let status: PRAPI.BookLicenseRenewResult.Status
   public let message: PRAPI.BookLicenseRenewResult.Message?
   public let license: PRCatalogModel.BookLicense.DTO?
-  public init(from decoder: Swift.Decoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol LoadableCatalog {
   var updateInterval: Foundation.TimeInterval { get }
@@ -1820,7 +1898,7 @@ extension PRCatalogModel.ContentLicense : PRCoreDataUtils.UpdatableMO, PRCoreDat
   @objc final public func trackGAEvent(_ category: Swift.String, action: Swift.String, label: Swift.String?, value: Swift.Int)
   @objc final public func trackGATiming(withCategory category: Swift.String, variable: Swift.String, timeSpent: Swift.Int)
   @objc final public func tracker(_ trackerId: Swift.String, pageView pageUrl: Swift.String)
-  @objc public init(tracker: PRAPI.AnalyticsTracker)
+  @objc public init(tracker: any PRAPI.AnalyticsTracker)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers final public class AnalyticsValueProvider : ObjectiveC.NSObject {
@@ -1847,7 +1925,7 @@ public protocol UnitTestDIRegistrar {
   @objc final public var showAutoTranslateSettings: Swift.Bool {
     @objc get
   }
-  @objc override public init(languagesInfo: PRAPI.TranslationLanguagesInfo)
+  @objc override public init(languagesInfo: any PRAPI.TranslationLanguagesInfo)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AutoTranslateOptions : PRAPI.BaseTranslateOptions {
@@ -1873,7 +1951,7 @@ public protocol UnitTestDIRegistrar {
     @objc get
   }
   @objc final public func isAvailable(zone: PRAPI.AutoTranslationZone) -> Swift.Bool
-  @objc override public init(languagesInfo: PRAPI.TranslationLanguagesInfo)
+  @objc override public init(languagesInfo: any PRAPI.TranslationLanguagesInfo)
   @objc deinit
 }
 @objc @objcMembers public class BaseTranslateOptions : ObjectiveC.NSObject {
@@ -1884,7 +1962,7 @@ public protocol UnitTestDIRegistrar {
     @objc get
     @objc set
   }
-  @objc public init(languagesInfo: PRAPI.TranslationLanguagesInfo)
+  @objc public init(languagesInfo: any PRAPI.TranslationLanguagesInfo)
   @objc public func isLanguageSupported(isoCode: Swift.String) -> Swift.Bool
   @objc public func translationLanguageISOCodes(sourceLanguageISOCode isoCode: Swift.String) -> [Swift.String]?
   @objc public func languageName(isoCode: Swift.String) -> Swift.String?
@@ -1925,13 +2003,13 @@ extension Foundation.NSNotification.Name {
   @objc var isLocked: Swift.Bool { get }
   @objc var isMarkedToDeleteContent: Swift.Bool { get }
   @objc var isSelected: Swift.Bool { get set }
-  @objc var hotSpotInfo: PRAPI.HotSpotInfo? { get }
+  @objc var hotSpotInfo: (any PRAPI.HotSpotInfo)? { get }
   @objc var isRadioSupported: Swift.Bool { get }
   @objc func lock(_ locked: Swift.Bool)
 }
 @objc extension ObjectiveC.NSObject {
-  @objc dynamic public func observeLibraryNotifications(selector: ObjectiveC.Selector, object: PRAPI.LibraryItemProtocol? = nil)
-  @objc dynamic public func observeLibraryNotifications(selector: ObjectiveC.Selector, object: PRAPI.LibraryItemProtocol? = nil, observe: Swift.Bool)
+  @objc dynamic public func observeLibraryNotifications(selector: ObjectiveC.Selector, object: (any PRAPI.LibraryItemProtocol)? = nil)
+  @objc dynamic public func observeLibraryNotifications(selector: ObjectiveC.Selector, object: (any PRAPI.LibraryItemProtocol)? = nil, observe: Swift.Bool)
 }
 extension PRAPI.PRAccountItem : PRAPI.AnalyticsAccount {
   public var isOnboardingStarted: Swift.Bool {
@@ -1946,6 +2024,9 @@ extension PRAPI.PRAccountItem : PRAPI.AnalyticsAccount {
   public var linkedServices: [Swift.String] {
     get
   }
+  public var hasActivePaidSubscription: Swift.Bool {
+    get
+  }
 }
 extension PRCatalogModel.BookContent {
   public func highlight(id: Swift.String) -> PRCatalogModel.Highlight?
@@ -1955,7 +2036,7 @@ extension PRCatalogModel.BookContent {
 }
 public struct BookReadingFragment : Swift.Encodable {
   public init(filename: Swift.String, fragmentStartOffset: Swift.Int, fragmentEndOffset: Swift.Int, absoluteStartOffset: Swift.Int, absoluteEndOffset: Swift.Int)
-  public func encode(to encoder: Swift.Encoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 @objc extension PRAPI.PRMyLibraryItem : PRAPI.DeviceTimeTweakProtected {
 }
@@ -1977,8 +2058,8 @@ public struct BookReadingFragment : Swift.Encodable {
   @objc public init(sourceISOLanguage: Swift.String, destinationISOLanguage: Swift.String)
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 extension PRCatalogModel.TitleItem {
   @objc override dynamic public var sortingDate: Foundation.Date? {
@@ -1986,8 +2067,8 @@ extension PRCatalogModel.TitleItem {
   }
 }
 extension PRAPI.SearchHistoryItem {
-  public typealias SearchHistoryCompletion = ([PRAPI.SearchHistoryItem]?, Swift.Error?) -> ()
-  public typealias ClearSearchHistoryCompletion = (Swift.Bool, Swift.Error?) -> ()
+  public typealias SearchHistoryCompletion = ([PRAPI.SearchHistoryItem]?, (any Swift.Error)?) -> ()
+  public typealias ClearSearchHistoryCompletion = (Swift.Bool, (any Swift.Error)?) -> ()
   @objc final public class func getSearchHistory(pattern: Swift.String, searchArea: PRAPI.PRSmartSearchArea, rowsCount: Swift.Int, completion: @escaping PRAPI.SearchHistoryItem.SearchHistoryCompletion)
   @objc final public class func clearSearchHistory(searchArea: PRAPI.PRSmartSearchArea, completion: @escaping PRAPI.SearchHistoryItem.ClearSearchHistoryCompletion)
   @objc final public class func getSuggestions(pattern: Swift.String, completion: @escaping PRAPI.SearchHistoryItem.SearchHistoryCompletion)
@@ -2012,6 +2093,9 @@ extension PRCatalogModel.TitleItem {
     @objc get
   }
 }
+extension PRAPI.CatalogItemDownloadService : Swift.Sendable {}
+extension PRAPI.CatalogItemDownloadService.LoadingError : Swift.Equatable {}
+extension PRAPI.CatalogItemDownloadService.LoadingError : Swift.Hashable {}
 extension PRAPI.ArticleTranslationState : Swift.Equatable {}
 extension PRAPI.ArticleTranslationState : Swift.Hashable {}
 extension PRAPI.ArticleTranslationState : Swift.RawRepresentable {}
@@ -2022,6 +2106,8 @@ extension PRAPI.RadioAction : Swift.Equatable {}
 extension PRAPI.RadioAction : Swift.Hashable {}
 extension PRAPI.RadioAction : Swift.RawRepresentable {}
 extension PRAPI.CatalogService : Swift.Sendable {}
+extension PRAPI.CatalogService.LoadingError : Swift.Equatable {}
+extension PRAPI.CatalogService.LoadingError : Swift.Hashable {}
 extension PRAPI.BookSubservice : Swift.Sendable {}
 extension PRAPI.ObservableModelError : Swift.Equatable {}
 extension PRAPI.ObservableModelError : Swift.Hashable {}

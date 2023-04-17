@@ -200,8 +200,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 
 #import "PdfPrintRenderer.h"
 
-#import "UIAlertController+Common.h"
-
 #import "NTFFeedSectionItem.h"
 
 #import "NTFBannersItem.h"

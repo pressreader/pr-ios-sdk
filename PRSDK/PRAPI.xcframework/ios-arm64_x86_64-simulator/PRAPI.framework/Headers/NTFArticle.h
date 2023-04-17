@@ -83,8 +83,8 @@ typedef NS_ENUM(int16_t, NTFArticleItemPresentationType) {
 - (PRSmartImageRegion *)imageRegionAtIndex:(NSInteger)index;
 
 @property (nullable, nonatomic, strong) NSDictionary<NSString *, NSNumber *> *numImagesByScale;
-@property (nonatomic, readonly) NSArray<PRSmartImageRegion*>* imageRegions;
-@property (nonatomic, readonly) NSArray<PRSmartImageRegion*>* actualImageRegions;
+@property (nonatomic, readonly) NSArray<PRSmartImageRegion *> *imageRegions;
+@property (nonatomic, readonly) NSArray<PRSmartImageRegion *> *actualImageRegions;
 
 @end
 

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable UIImage *)getFlagImageWithISO:(NSString *)ISO
                                      size:(CGSize)size
                             renderingMode:(UIImageRenderingMode)renderingMode
-                          completionBlock:(void(^)(UIImage *image))completionBlock;
+                          completionBlock:(void(^)(UIImage * _Nullable image))completionBlock;
 
 @end
 

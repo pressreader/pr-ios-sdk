@@ -58,11 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)controllerWithSourceList:(PRSourceList *)sourceList;
 
-- (instancetype)init NS_DESIGNATED_INITIALIZER;
-- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
-- (instancetype)initWithNibName:(NSString *_Nullable)nibNameOrNil
-                         bundle:(NSBundle *_Nullable)nibBundleOrNil NS_UNAVAILABLE;
-
 /// dataProviderType: PRTitleItemsCollectionDataProviderTypeSourceList
 - (instancetype)initWithSourceList:(PRSourceList *)sourceList
                           delegate:(nullable id<PRSourceCollectionControllerDelegate>)delegate;
@@ -102,7 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 //use fillWithSourceList: method instead of setting sourceList property directly.
 @property (nullable, nonatomic, readonly) PRSourceList *sourceList;
-@property (nullable, nonatomic, strong) PRSourceList *searchSourceList;
 
 @property (nonatomic) BOOL prefersOpeningReaderView;
 

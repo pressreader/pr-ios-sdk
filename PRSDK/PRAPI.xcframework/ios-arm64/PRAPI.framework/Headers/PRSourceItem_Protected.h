@@ -18,7 +18,6 @@
 @property (nonatomic, retain, readwrite) NSString *parentName;
 @property (nonatomic, retain, readwrite) NSArray *parentCIDs;
 @property (nonatomic, retain, readwrite) NSString *supplementName;
-@property (nonatomic, retain, readwrite) NSDate *issueDate;
 @property (nonatomic, retain, readwrite) NSDate *orderDate;
 @property (nonatomic, assign, readwrite) PRSourceType sourceType;
 @property (nonatomic, retain, readwrite) UIColor *paperColor;

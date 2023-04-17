@@ -44,7 +44,7 @@
 - (void)switchToPage:(NSUInteger)page;
 - (NSUInteger)currentPageIndex;
 - (NSUInteger)numberOfPageViews;
-- (void)ShowTextView:(NSInteger)page aID:(NSString*)aID animated:(BOOL)animated;
+- (void)showTextView:(NSInteger)page aID:(NSString*)aID animated:(BOOL)animated;
 - (PRPDFScrollView *)dequeueRecycledPage;
 - (PRPDFScrollView *)pageViewForIndex:(NSUInteger)index;
 - (PRPDFScrollView *)currentPageView;

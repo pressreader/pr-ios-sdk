@@ -31,7 +31,7 @@ extern CGFloat const kPRMaxTextWidth;
 - (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer;
 - (void)pushFullDiscussionVC:(UIView *)sender;
 - (void)orderCurrentArticle:(void(^_Nullable)(void))completion;
-- (void)requestFullArticle:(void(^_Nullable)(BOOL success, NSError *_Nullable error))completion;
+- (void)requestFullArticle;
 - (void)dismiss;
 - (BOOL)showCommentsButton;
 - (void)reloadView;

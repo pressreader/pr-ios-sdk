@@ -19,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 #define DEFAULT_APP_PANEL                 _PRCONFIG_INT_(@"DEFAULT_APP_PANEL", APP_PANEL_NEWSFEED)
 
-#define BE_LIBRARY      _PRCONFIG_BOOL_(@"BE_LIBRARY", PRConfig.isBrandEdition)
-
 typedef NS_OPTIONS(NSUInteger, PRAppMenuItemAbsence) {
     PRAppMenuItemAbsenceHome = 1 << 0,
     PRAppMenuItemAbsenceCatalog = 1 << 1,
@@ -38,7 +36,7 @@ typedef NS_OPTIONS(NSUInteger, PRAppMenuItemAbsence) {
     PRAppMenuItemAbsenceWebView = 1 << 13
 };
 
-typedef NS_ENUM(uint8_t, PRAppPanelID) {
+typedef NS_ENUM(NSInteger, PRAppPanelID) {
     PRAppPanelUndefined = -1,
     PRAppPanelNewsfeed = APP_PANEL_NEWSFEED,
     PRAppPanelDownloaded = APP_PANEL_DOWNLOADED,
@@ -62,6 +60,7 @@ typedef NS_ENUM(uint8_t, PRCatalogPanelMode) {
 @property (class, nonatomic, assign) BOOL shouldReplaceDeaultAppPanel;
 
 @property (class, nonatomic, readonly) BOOL restrictOrderOpenOnCatalog;
+@property (class, nonatomic, readonly) BOOL isBELibrary;
 
 @property (class, nonatomic, readonly) PRAppPanelID appPanelForOfflineMode;
 

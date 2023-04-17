@@ -10,12 +10,11 @@
 
 @import PRAPI.PRSourceListFilter;
 @class CatalogFiltersCollectionVC;
-#import <PRUI/UINavigationItem+OptionTitle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// This class represents UI layer of SourcesVC. It provides full screen view for presenting sources.
-@interface PRBaseStoreCollectionVC : PRSourceCollectionVC<BarOptionTitleViewDelegate>
+@interface PRBaseStoreCollectionVC : PRSourceCollectionVC
 
 @property (nonatomic) PRSourceListFilterID selectedFilterID;
 

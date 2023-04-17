@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRiphoneAppDelegate : NSObject <UIApplicationDelegate>
+
+// Utils
+@property (nonatomic) BOOL onLaunch;
+
 @end
 
 NS_ASSUME_NONNULL_END

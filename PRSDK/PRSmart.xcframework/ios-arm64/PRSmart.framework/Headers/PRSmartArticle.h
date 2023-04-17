@@ -27,16 +27,16 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 
 @interface PRSmartArticle : PRSmartComplexRegion
 {
-    PRSmartArticleLink* nextArtLink;
-    PRSmartArticleLink* prevArtLink;
-    NSMutableArray<PRSmartImageRegion *>* imageRegions;
-    NSMutableArray<PRSmartImageRegion *>* onlineImageRegions;
-    NSMutableArray<PRSmartPageLink *>* pageLinks;
-    NSMutableArray<PRSmartHyperLink *>* hyperLinks;
-    NSMutableDictionary* metaInfo;
+    PRSmartArticleLink *nextArticleLink;
+    PRSmartArticleLink *previousArticleLink;
+    NSMutableArray<PRSmartImageRegion *> *imageRegions;
+    NSMutableArray<PRSmartImageRegion *> *onlineImageRegions;
+    NSMutableArray<PRSmartPageLink *> *pageLinks;
+    NSMutableArray<PRSmartHyperLink *> *hyperLinks;
+    NSMutableDictionary *metaInfo;
 @public
-    PRSmartArticle* pnextArticle;
-    PRSmartArticle* pprevArticle;
+    PRSmartArticle *pnextArticle;
+    PRSmartArticle *pprevArticle;
     int m_articleIndexOnPage;
 }
 
@@ -53,7 +53,7 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
                          parent:(PRSmartBaseObject *)parentObject
                  attributesDict:(NSDictionary *)dict;
 
-- (void) addSmartRegion:(PRSmartRegion*)region;
+- (void)addSmartRegion:(PRSmartRegion *)region;
 
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
 
@@ -62,11 +62,11 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 - (void)setLikeItVotes:(NSUInteger)likeItVotes;
 - (void)setHateItVotes:(NSUInteger)hateItVotes;
 - (void)setComments:(NSUInteger)comments;
-- (void) setBookmarkId:(NSString*)bookmarkId;
-- (void) setBookmarkUrl:(NSString*)bookmarkUrl;
-- (void) setDirectLinkUrl:(NSString*)directLinkUrl;
-- (void) setAssignedCollections:(NSArray<NSDictionary<NSString *, id> *> *)assignedCollections;
-- (void) setRate:(NSString *)rate;
+- (void)setBookmarkId:(NSString *)bookmarkId;
+- (void)setBookmarkUrl:(NSString *)bookmarkUrl;
+- (void)setDirectLinkUrl:(NSString *)directLinkUrl;
+- (void)setAssignedCollections:(NSArray<NSDictionary<NSString *, id> *> *)assignedCollections;
+- (void)setRate:(NSString *)rate;
 
 @property (nullable, nonatomic, readonly) NSString *articleId;
 @property (nullable, nonatomic, readonly) NSString *articleUid;
@@ -104,34 +104,34 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 
 - (NSString *)section;
 - (NSString *)pageName;
-- (NSUInteger) comments;
-- (NSString*) bookmarkId;
-- (NSString*) bookmarkUrl;
-- (NSString*) directLinkUrl;
-- (NSArray<NSDictionary<NSString *, id> *> *) assignedCollections;
+- (NSUInteger)comments;
+- (NSString *)bookmarkId;
+- (NSString *)bookmarkUrl;
+- (NSString *)directLinkUrl;
+- (NSArray<NSDictionary<NSString *, id> *> *)assignedCollections;
 - (BOOL)isAssignedToCollection:(NSString *)collectionName;
-- (NSUInteger) numOfAssignedCollections;
-- (NSArray<NSString *> *) assignedCollectionIds;
-- (NSDate *) collectionsAssignmentDate;
-- (NSUInteger) likeItVotes;
-- (NSUInteger) hateItVotes;
-- (NSInteger) currentVote;
-- (BOOL) isVoteUpdated;
+- (NSUInteger)numOfAssignedCollections;
+- (NSArray<NSString *> *)assignedCollectionIds;
+- (NSDate *)collectionsAssignmentDate;
+- (NSUInteger)likeItVotes;
+- (NSUInteger)hateItVotes;
+- (NSInteger)currentVote;
+- (BOOL)isVoteUpdated;
 - (NSUInteger)similarsCount;
 
 - (int)articleIndexOnPage;
 
-- (PRSmartRegion *) titleRegion;
-- (PRSmartArticleLink *) prevArtLink;
-- (PRSmartArticleLink *) nextArtLink;
+- (PRSmartRegion *)titleRegion;
+- (PRSmartArticleLink *)previousArticleLink;
+- (PRSmartArticleLink *)nextArticleLink;
 
-- (PRSmartArticle *) nextArticle;
-- (PRSmartArticle *) prevArticle;
+- (PRSmartArticle *)nextArticle;
+- (PRSmartArticle *)previousArticle;
 
-- (NSArray<PRSmartImageRegion *>*) imageRegions;
-- (NSArray<PRSmartImageRegion *>*) onlineImageRegions;
-- (NSArray<PRSmartPageLink *>*) pageLinks;
-- (NSArray<PRSmartHyperLink *>*) hyperLinks;
+- (NSArray<PRSmartImageRegion *> *)imageRegions;
+- (NSArray<PRSmartImageRegion *> *)onlineImageRegions;
+- (NSArray<PRSmartPageLink *> *)pageLinks;
+- (NSArray<PRSmartHyperLink *> *)hyperLinks;
 - (id)objectForKeyedSubscript:(id)key;
 
 - (BOOL)hasVisibleCollections;

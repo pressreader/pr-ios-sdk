@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAccessibility
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAccessibility
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
 @_exported import PRAccessibility
@@ -24,11 +24,17 @@ import _StringProcessing
   @objc public static let feed: PRAccessibility.FeedAccessibilityId
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class FeedAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let article: PRAccessibility.FeedArticleAccessibilityId
   @objc final public let view: PRAccessibility.AccessibilityId
-  @objc final public let article: PRAccessibility.AccessibilityId
   @objc final public let issueThumbnail: PRAccessibility.AccessibilityId
-  @objc final public let interestTag: PRAccessibility.AccessibilityId
   @objc final public let name: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class FeedArticleAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc final public let tags: PRAccessibility.AccessibilityId
+  @objc final public let tag: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
@@ -79,6 +85,18 @@ public struct AppMenuItemAccessibilityId {
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
+}
+public enum PRLaunchCommandParameter : Swift.String {
+  case cid
+  case forceDownload
+  case openAsSeparatePanel
+  case issueDate
+  case preferableServiceName
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let orderView: PRAccessibility.OrderAccessibilityId
@@ -192,6 +210,45 @@ public struct NavigationFilterAccessibilityId {
   public let collectionView: PRAccessibility.AccessibilityId
   public let free: PRAccessibility.AccessibilityId
 }
+public enum PRLaunchCommand : Swift.String {
+  case registerOfflineServer
+  case registerGiftedAccess
+  case activateGift
+  case open
+  case orderTitle
+  case signIn
+  case openPublications
+  case openBooks
+  case openDownloaded
+  case openHomeFeed
+  case openHotSpotsMap
+  case openUrl
+  case download
+  case notify
+  case giftCampaign
+  case premiumTrialDetails
+  case premiumTrialTry
+  case inAppPurchase
+  case search
+  case kymPurchase
+  public enum Parameter : Swift.String {
+    case `default`
+    case server
+    case gid
+    case launchInfo
+    case term
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum PRLaunchEnvironmentVar : Swift.String {
   case command
   case shortcut
@@ -205,9 +262,18 @@ public enum PRLaunchEnvironmentVar : Swift.String {
     get
   }
 }
+extension PRAccessibility.PRLaunchCommandParameter : Swift.Equatable {}
+extension PRAccessibility.PRLaunchCommandParameter : Swift.Hashable {}
+extension PRAccessibility.PRLaunchCommandParameter : Swift.RawRepresentable {}
 extension PRAccessibility.BEAppType : Swift.Equatable {}
 extension PRAccessibility.BEAppType : Swift.Hashable {}
 extension PRAccessibility.BEAppType : Swift.RawRepresentable {}
+extension PRAccessibility.PRLaunchCommand : Swift.Equatable {}
+extension PRAccessibility.PRLaunchCommand : Swift.Hashable {}
+extension PRAccessibility.PRLaunchCommand : Swift.RawRepresentable {}
+extension PRAccessibility.PRLaunchCommand.Parameter : Swift.Equatable {}
+extension PRAccessibility.PRLaunchCommand.Parameter : Swift.Hashable {}
+extension PRAccessibility.PRLaunchCommand.Parameter : Swift.RawRepresentable {}
 extension PRAccessibility.PRLaunchEnvironmentVar : Swift.Equatable {}
 extension PRAccessibility.PRLaunchEnvironmentVar : Swift.Hashable {}
 extension PRAccessibility.PRLaunchEnvironmentVar : Swift.RawRepresentable {}

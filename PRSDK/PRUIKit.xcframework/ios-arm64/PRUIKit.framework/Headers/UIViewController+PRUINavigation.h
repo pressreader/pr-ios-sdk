@@ -31,18 +31,11 @@ typedef NS_OPTIONS(uint8_t, PRNavigationBarRefreshOption) {
     PRNavigationBarRefreshOptionAll = PRNavigationBarRefreshOptionBarButtonItems | PRNavigationBarRefreshOptionTitle
 };
 
-typedef NS_ENUM(NSInteger, PRNavigationBarSearchItemStyle) {
-    PRNavigationBarSearchItemStyleNone = 0,
-    PRNavigationBarSearchItemStyleButton,
-    PRNavigationBarSearchItemStyleTextField
-};
-
-extern NSUInteger const PRUIViewControllerSearchButtonTag;
-
 @interface UIViewController (PRUINavigation)
 @property (nullable, nonatomic, readonly) NSArray<UIBarButtonItem *> *navigationBarLeftBarButtonItems;
 @property (nullable, nonatomic, readonly) NSArray<UIBarButtonItem *> *navigationBarRightBarButtonItems;
 
+@property (nonatomic, readonly) UIView *navigationItemTitleView;
 @property (nonatomic, readonly) CGFloat navigationItemTitleViewWidth;
 
 @property (nonatomic, readonly) CGFloat navigationBarItemInset;
@@ -62,8 +55,6 @@ extern NSUInteger const PRUIViewControllerSearchButtonTag;
 @property (nonatomic, readonly) BOOL isNavigationBarAppearanceManuallyAdjusted;
 @property (nonatomic, readonly) BOOL isStatusBarAppearanceManuallyAdjusted;
 @property (nonatomic, readonly) BOOL isNavigationBarShadowHidden;
-
-@property (nonatomic, readonly) PRNavigationBarSearchItemStyle searchItemStyle;
 
 /// set background color of status bar when hiding navigation bar to be the same
 @property (nonatomic, readonly) BOOL prefersStatusBarHaveColorOfHiddenNavigationBar;
@@ -86,11 +77,11 @@ extern NSUInteger const PRUIViewControllerSearchButtonTag;
 - (void)backButtonAction:(id)sender;
 - (void)setShowParams:(NSDictionary*)p;
 
-- (void)searchButtonAction:(id)sender;
-
 - (void)setLeftBarButtonItems:(nullable NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated;
 - (void)setRightBarButtonItems:(nullable NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
+#import "UIViewController+Search.h"
