@@ -975,6 +975,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "HTMLFormatter",
         "printedName": "HTMLFormatter",
@@ -6405,6 +6415,104 @@
           },
           {
             "kind": "Function",
+            "name": "ranges",
+            "printedName": "ranges(of:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Foundation.NSValue]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSValue",
+                    "printedName": "Foundation.NSValue",
+                    "usr": "c:objc(cs)NSValue"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSString(im)rangesOfPhrases:",
+            "mangledName": "$sSo8NSStringC7PRUtilsE6ranges2ofSaySo7NSValueCGSaySSG_tF",
+            "moduleName": "PRUtils",
+            "objc_name": "rangesOfPhrases:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "ranges",
+            "printedName": "ranges(of:options:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Foundation.NSValue]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSValue",
+                    "printedName": "Foundation.NSValue",
+                    "usr": "c:objc(cs)NSValue"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRStringSearchOption",
+                "printedName": "PRUtils.PRStringSearchOption",
+                "usr": "c:@E@PRStringSearchOption"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSString(im)rangesOfPhrases:options:",
+            "mangledName": "$sSo8NSStringC7PRUtilsE6ranges2of7optionsSaySo7NSValueCGSaySSG_So20PRStringSearchOptionVtF",
+            "moduleName": "PRUtils",
+            "objc_name": "rangesOfPhrases:options:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "url",
             "printedName": "url()",
             "children": [
@@ -6484,9 +6592,17 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "NSString",
-                "printedName": "Foundation.NSString",
-                "usr": "c:objc(cs)NSString"
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
               },
               {
                 "kind": "TypeNominal",
@@ -6496,10 +6612,10 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUtils@@objc(cs)NSString(im)sentenceShiftedToWords:maxBeginningCharactersCount:",
-            "mangledName": "$sSo8NSStringC7PRUtilsE8sentence9shiftedTo27maxBeginningCharactersCountA2B_SitF",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSString(im)sentenceShiftedToPhrases:maxBeginningCharactersCount:",
+            "mangledName": "$sSo8NSStringC7PRUtilsE8sentence9shiftedTo27maxBeginningCharactersCountABSaySSG_SitF",
             "moduleName": "PRUtils",
-            "objc_name": "sentenceShiftedToWords:maxBeginningCharactersCount:",
+            "objc_name": "sentenceShiftedToPhrases:maxBeginningCharactersCount:",
             "declAttributes": [
               "Dynamic",
               "ObjC",
@@ -8658,6 +8774,13 @@
       "value": "\"­\""
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Range.swift",
+      "kind": "Array",
+      "offset": 338,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/String+URL.swift",
       "kind": "StringLiteral",
       "offset": 469,
@@ -9129,56 +9252,56 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "IntegerLiteral",
-      "offset": 772,
+      "offset": 813,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "IntegerLiteral",
-      "offset": 959,
+      "offset": 998,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "IntegerLiteral",
-      "offset": 1131,
+      "offset": 1182,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "IntegerLiteral",
-      "offset": 1144,
+      "offset": 1195,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "BooleanLiteral",
-      "offset": 1179,
+      "offset": 1230,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "IntegerLiteral",
-      "offset": 1608,
+      "offset": 1683,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "StringLiteral",
-      "offset": 1613,
+      "offset": 1688,
       "length": 14,
       "value": "\"...\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSString\/NSString+Sentence.swift",
       "kind": "StringLiteral",
-      "offset": 1626,
+      "offset": 1701,
       "length": 24,
       "value": "\"\""
     }

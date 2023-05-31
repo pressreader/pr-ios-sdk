@@ -23,9 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIView *)greenSelectionBackgroundView;
 
-@property (class, nonatomic, readonly) NSString *articleFontName;
-@property (class, nonatomic, readonly) NSString *articleFontSource;
-
 @end
 
 @interface UISegmentedControl (PRAppStyle)<PRAppStyleProtocol>

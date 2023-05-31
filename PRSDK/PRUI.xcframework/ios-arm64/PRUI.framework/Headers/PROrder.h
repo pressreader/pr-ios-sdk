@@ -7,7 +7,7 @@
 //
 
 #import <PRThumbnail/PRThumbnail.h>
-#import "PROrderEnum.h"
+#import "PROrderDelivery.h"
 
 @class PRSubscription;
 @class PRTitleItem;
@@ -29,9 +29,12 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success);
                     thumbnailSizeType:(PRThumbnailSourceSizeType)thumbnailSizeType;
 
 - (void)orderIssue:(PROrderCompletion)orderCompletion;
-- (void)orderIssueUsingPremiumProduct:(BOOL)usePremiumProduct completetion:(PROrderCompletion)orderCompletion;
+- (void)orderIssueWithOptions:(PROrderDeliveryOption)deliveryOptions completion:(PROrderCompletion)orderCompletion;
+- (void)downloadIssue;
+- (void)downloadIssueWithOptions:(PROrderDeliveryOption)deliveryOptions;
 - (void)downloadIssue:(PROrderCompletion)downloadCompletion;
-- (void)downloadIssueUsingPremiumProduct:(BOOL)usePremiumProduct completetion:(PROrderCompletion)downloadCompletion;
+- (void)downloadIssueWithOptions:(PROrderDeliveryOption)deliveryOptions completion:(PROrderCompletion)downloadCompletion;
+
 - (void)downloadSupplementsIfNeeded;
 
 - (void)setupAutoDelivery:(BOOL)isAutoDelivery

@@ -148,6 +148,9 @@ extension PRUI.PRRadioManager : PRAPI.RadioAnalyticsProvider {
   @_Concurrency.MainActor(unsafe) public init(dataSource: PRUI.StoriesSearchDataSource)
   @objc deinit
 }
+@objc extension PRUI.NTFDataSource {
+  @objc dynamic public func createLayoutManager() -> any PRUI.PRFeedLayoutManager
+}
 @_inheritsConvenienceInitializers @objc final public class Regular4CFeedLayoutItem : PRUI.AbstractFeedLayoutItem {
   @objc required dynamic public init()
   @objc deinit
@@ -273,13 +276,6 @@ extension PRUI.VerticalTextFlowVC {
   @objc public func variant(indexPath: Foundation.IndexPath) -> any PRUI.CatalogFilterVariant
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class FlowLayoutManager : ObjectiveC.NSObject, PRUI.PRFeedLayoutManager {
-  @objc public var options: PRUI.NTFLayoutOption
-  @objc public func compileDataProvider(items: [CoreData.NSManagedObjectID], targetContext: CoreData.NSManagedObjectContext, moreFollow: Swift.Bool, completion: @escaping PRUI.PRUpdateLayoutHandler)
-  @objc public func compileDataProvider(items: [Any]) -> [Any]
-  @objc override dynamic public init()
-  @objc deinit
-}
 extension PRUIKit.PRSafariVC : PRUIKit.Reportable {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func report()
 }
@@ -307,6 +303,18 @@ extension PRUIKit.PRSafariVC : PRUIKit.Reportable {
 }
 @objc extension PRUI.PROrderDelivery {
   @objc dynamic public func subscriptionCancellationAdvisory(inferiorBundles: [PRAPI.PRUserBundle]) -> PRUI.SubscriptionCancellationAdvisory?
+}
+@objc @objcMembers final public class PurchaseConfirmation : ObjectiveC.NSObject {
+  @objc final public let title: Swift.String
+  @objc final public let footnote: Swift.String?
+  @objc final public let warning: Swift.String?
+  @objc final public let issue: PRAPI.PRTitleItemExemplar?
+  @objc final public let proceedButtonTitle: Swift.String?
+  @objc final public let cancelButtonTitle: Swift.String?
+  @objc final public let proceedHandler: (() -> ())?
+  @objc public init(title: Swift.String, footnote: Swift.String?, warning: Swift.String?, issue: PRAPI.PRTitleItemExemplar?, proceedButtonTitle: Swift.String?, cancelButtonTitle: Swift.String?, proceedHandler: (() -> ())? = nil)
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
 }
 extension PRCatalogModel.CatalogEntity : PRUI.CatalogFilterVariant {
   @objc dynamic public var categoryId: Swift.Int {
@@ -546,7 +554,7 @@ extension UIKit.UIViewController {
   final public var isRequiredSignIn: Swift.Bool {
     get
   }
-  final public var isAppProductAvailable: Swift.Bool {
+  final public var isAppStoreProductAvailable: Swift.Bool {
     get
   }
   final public var isSubscriptionForBundle: Swift.Bool {
@@ -663,6 +671,7 @@ public struct BookContentActionAccessActor {
   public typealias Item = PRCatalogModel.BookContent
 }
 extension PRUI.NTFFeedDataSource {
+  @objc override dynamic public func type(forItem item: Any) -> PRAPI.NTFDataItemType
   @objc dynamic public func registerSubscriptionObserver()
 }
 @objc final public class URLActivityItem : PRUI.PRActivityItem {
@@ -1156,12 +1165,14 @@ extension UIKit.UIAlertController {
   @objc @_Concurrency.MainActor(unsafe) public static func showNetworkNotReachableAlert()
   @_Concurrency.MainActor(unsafe) public static func showNoResultAlert()
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CommandOpenBookDetails : ObjectiveC.NSObject {
-  @objc final public class func execute(bookId: Swift.String)
-  @objc final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [])
-  @objc final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [], navigationController: UIKit.UINavigationController?)
-  @objc final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [], navigationController: UIKit.UINavigationController?, animated: Swift.Bool)
-  @objc override dynamic public init()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @objcMembers final public class CommandOpenBookDetails : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc @_Concurrency.MainActor final public class func execute(bookId: Swift.String) async
+  #endif
+  @objc @_Concurrency.MainActor final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [])
+  @objc @_Concurrency.MainActor final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [], navigationController: UIKit.UINavigationController?)
+  @objc @_Concurrency.MainActor final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [], navigationController: UIKit.UINavigationController?, animated: Swift.Bool)
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers final public class CommandManageInterests : PRUI.PROnlineValidator {
@@ -1429,6 +1440,16 @@ extension PRCatalogModel.CatalogEntity : PRUI.CatalogItemDataSourceProtocol, PRA
   @objc override final public func activityViewControllerPlaceholderItem(_ activityViewController: UIKit.UIActivityViewController) -> Any
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Auth0Manager : ObjectiveC.NSObject {
+  @objc public static var shared: PRUI.Auth0Manager {
+    @objc get
+  }
+  @objc public static var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public func signIn(_ completion: @escaping (Swift.Bool, (any Swift.Error)?) -> ())
+  @objc deinit
+}
 extension PRUI.PRSourceCollectionVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func showAutoDownloadSuggestion(_ issue: PRAPI.PRTitleItem) -> Swift.Bool
 }
@@ -1485,14 +1506,6 @@ extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
 @objc extension PRUI.PRPremiumBannerView {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func closeAction(_ sender: Any)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func proceedAction(_ sender: Any)
-}
-@objc @_inheritsConvenienceInitializers final public class DupleLayoutManager : PRUI.FlowLayoutManager {
-  @objc override final public var options: PRUI.NTFLayoutOption {
-    @objc get
-    @objc set
-  }
-  @objc override dynamic public init()
-  @objc deinit
 }
 @objc extension PRUI.VerticalTextFlowVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func updateContentInsets()
@@ -1946,14 +1959,6 @@ extension PRUI.PRErrorManager : PRProtocols.Singleton {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class TripleLayoutManager : PRUI.FlowLayoutManager {
-  @objc override final public var options: PRUI.NTFLayoutOption {
-    @objc get
-    @objc set
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
 extension PRUI.PRFacebookSignInManager : PRUI.SignInManagerProtocol {
   public typealias ResultType = PRUI.FacebookSignInResult
   public static var shared: Self {
@@ -2117,10 +2122,7 @@ extension PRAPI.PRCatalogItem {
   }
 }
 @_inheritsConvenienceInitializers @objc final public class RegularFeedLayoutItem : PRUI.AbstractFeedLayoutItem {
-  @objc final public func highlight()
-  @objc final public var isHighlighted: Swift.Bool {
-    @objc get
-  }
+  @objc final public var isHighlighted: Swift.Bool
   @objc required dynamic public init()
   @objc deinit
 }
@@ -2559,6 +2561,7 @@ final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.
 @objc @_inheritsConvenienceInitializers final public class CommandShowPurchaseConfirmation : ObjectiveC.NSObject {
   @objc final public class func execute(title: Swift.String)
   @objc final public class func execute(title: Swift.String, footnote: Swift.String?)
+  @objc final public class func execute(confirmation: PRUI.PurchaseConfirmation)
   @objc final public class func execute(title: Swift.String, footnote: Swift.String?, warning: Swift.String?, issue: PRAPI.PRTitleItemExemplar?, proceedButtonTitle: Swift.String?, cancelButtonTitle: Swift.String?, proceedHandler: (() -> ())?, cancelHandler: (() -> ())?)
   @objc override dynamic public init()
   @objc deinit
@@ -2663,6 +2666,7 @@ extension PRUI.PRAlertActionType : Swift.Equatable {}
 extension PRUI.PRAlertActionType : Swift.Hashable {}
 extension PRUI.PRAlertActionType : Swift.RawRepresentable {}
 extension PRUI.CommandNavigateBooks : Swift.Sendable {}
+extension PRUI.CommandOpenBookDetails : Swift.Sendable {}
 extension PRUI.PaymentOptionsMode : Swift.Equatable {}
 extension PRUI.PaymentOptionsMode : Swift.Hashable {}
 extension PRUI.PaymentOptionsMode : Swift.RawRepresentable {}

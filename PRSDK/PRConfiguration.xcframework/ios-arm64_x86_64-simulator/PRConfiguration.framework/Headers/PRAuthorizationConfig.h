@@ -18,7 +18,7 @@
 
 #define SHOW_ACCOUNT_FOR_DEVICE_ONLY    _PRCONFIG_BOOL_(@"SHOW_ACCOUNT_FOR_DEVICE_ONLY", NO)
 
-#define SUPPORTED_EXTERNAL_AUTH_PROVIDERS @[@"apple", @"facebook", @"google", @"twitter", @"email", @"library", @"piano", @"gigya"]
+#define SUPPORTED_EXTERNAL_AUTH_PROVIDERS @[@"apple", @"facebook", @"google", @"twitter", @"email", @"library", @"piano", @"gigya", @"auth0"]
 
 // #118035 Designated external auth provider to trigger sign-in immediately
 // without displaying external sign-in options

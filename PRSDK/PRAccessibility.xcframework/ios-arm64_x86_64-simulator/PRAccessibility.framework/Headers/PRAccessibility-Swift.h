@@ -296,6 +296,12 @@ SWIFT_CLASS("_TtC15PRAccessibility15AccessibilityId")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull premiumBanner;)
++ (AccessibilityId * _Nonnull)premiumBanner SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class ButtonAccessibilityId;
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
@@ -303,11 +309,40 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ButtonAccess
 + (ButtonAccessibilityId * _Nonnull)button SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class FeedAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedAccessibilityId * _Nonnull feed;)
++ (FeedAccessibilityId * _Nonnull)feed SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class ArticleAccessibilityId;
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ArticleAccessibilityId * _Nonnull article;)
 + (ArticleAccessibilityId * _Nonnull)article SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class ArticleDetailsAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ArticleDetailsAccessibilityId * _Nonnull articleDetails;)
++ (ArticleDetailsAccessibilityId * _Nonnull)articleDetails SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class PaymentOptionsAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PaymentOptionsAccessibilityId * _Nonnull paymentOptions;)
++ (PaymentOptionsAccessibilityId * _Nonnull)paymentOptions SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@class AccountAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccountAccessibilityId * _Nonnull account;)
++ (AccountAccessibilityId * _Nonnull)account SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class OrderAccessibilityId;
@@ -324,44 +359,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ReaderAccess
 + (ReaderAccessibilityId * _Nonnull)reader SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class AccountAccessibilityId;
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccountAccessibilityId * _Nonnull account;)
-+ (AccountAccessibilityId * _Nonnull)account SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@class FeedAccessibilityId;
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedAccessibilityId * _Nonnull feed;)
-+ (FeedAccessibilityId * _Nonnull)feed SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull premiumBanner;)
-+ (AccessibilityId * _Nonnull)premiumBanner SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class ArticleDetailsAccessibilityId;
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ArticleDetailsAccessibilityId * _Nonnull articleDetails;)
-+ (ArticleDetailsAccessibilityId * _Nonnull)articleDetails SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull tabPanel;)
++ (AccessibilityId * _Nonnull)tabPanel SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull recommendedCarousel;)
 + (AccessibilityId * _Nonnull)recommendedCarousel SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull tabPanel;)
-+ (AccessibilityId * _Nonnull)tabPanel SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -376,8 +383,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Accessibilit
 + (AccessibilityId * _Nonnull)splashView SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull networkErrorView;)
 + (AccessibilityId * _Nonnull)networkErrorView SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull paymentOptionView;)
-+ (AccessibilityId * _Nonnull)paymentOptionView SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull activityView;)
 + (AccessibilityId * _Nonnull)activityView SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull groupHeader;)
@@ -486,6 +491,14 @@ SWIFT_CLASS("_TtC15PRAccessibility24OrderCellAccessibilityId")
 @interface OrderCellAccessibilityId : NSObject
 @property (nonatomic, readonly, strong) AccessibilityId * _Nonnull date;
 @property (nonatomic, readonly, strong) AccessibilityId * _Nonnull autoDelivery;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRAccessibility29PaymentOptionsAccessibilityId")
+@interface PaymentOptionsAccessibilityId : NSObject
+@property (nonatomic, readonly, strong) AccessibilityId * _Nonnull productWithCIDsCell;
+@property (nonatomic, readonly, strong) AccessibilityId * _Nonnull view;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -802,6 +815,12 @@ SWIFT_CLASS("_TtC15PRAccessibility15AccessibilityId")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull premiumBanner;)
++ (AccessibilityId * _Nonnull)premiumBanner SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class ButtonAccessibilityId;
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
@@ -809,11 +828,40 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ButtonAccess
 + (ButtonAccessibilityId * _Nonnull)button SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class FeedAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedAccessibilityId * _Nonnull feed;)
++ (FeedAccessibilityId * _Nonnull)feed SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class ArticleAccessibilityId;
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ArticleAccessibilityId * _Nonnull article;)
 + (ArticleAccessibilityId * _Nonnull)article SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class ArticleDetailsAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ArticleDetailsAccessibilityId * _Nonnull articleDetails;)
++ (ArticleDetailsAccessibilityId * _Nonnull)articleDetails SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class PaymentOptionsAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PaymentOptionsAccessibilityId * _Nonnull paymentOptions;)
++ (PaymentOptionsAccessibilityId * _Nonnull)paymentOptions SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@class AccountAccessibilityId;
+
+@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccountAccessibilityId * _Nonnull account;)
++ (AccountAccessibilityId * _Nonnull)account SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class OrderAccessibilityId;
@@ -830,44 +878,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ReaderAccess
 + (ReaderAccessibilityId * _Nonnull)reader SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class AccountAccessibilityId;
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccountAccessibilityId * _Nonnull account;)
-+ (AccountAccessibilityId * _Nonnull)account SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@class FeedAccessibilityId;
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedAccessibilityId * _Nonnull feed;)
-+ (FeedAccessibilityId * _Nonnull)feed SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull premiumBanner;)
-+ (AccessibilityId * _Nonnull)premiumBanner SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class ArticleDetailsAccessibilityId;
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ArticleDetailsAccessibilityId * _Nonnull articleDetails;)
-+ (ArticleDetailsAccessibilityId * _Nonnull)articleDetails SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull tabPanel;)
++ (AccessibilityId * _Nonnull)tabPanel SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull recommendedCarousel;)
 + (AccessibilityId * _Nonnull)recommendedCarousel SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface AccessibilityId (SWIFT_EXTENSION(PRAccessibility))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull tabPanel;)
-+ (AccessibilityId * _Nonnull)tabPanel SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -882,8 +902,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Accessibilit
 + (AccessibilityId * _Nonnull)splashView SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull networkErrorView;)
 + (AccessibilityId * _Nonnull)networkErrorView SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull paymentOptionView;)
-+ (AccessibilityId * _Nonnull)paymentOptionView SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull activityView;)
 + (AccessibilityId * _Nonnull)activityView SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessibilityId * _Nonnull groupHeader;)
@@ -992,6 +1010,14 @@ SWIFT_CLASS("_TtC15PRAccessibility24OrderCellAccessibilityId")
 @interface OrderCellAccessibilityId : NSObject
 @property (nonatomic, readonly, strong) AccessibilityId * _Nonnull date;
 @property (nonatomic, readonly, strong) AccessibilityId * _Nonnull autoDelivery;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRAccessibility29PaymentOptionsAccessibilityId")
+@interface PaymentOptionsAccessibilityId : NSObject
+@property (nonatomic, readonly, strong) AccessibilityId * _Nonnull productWithCIDsCell;
+@property (nonatomic, readonly, strong) AccessibilityId * _Nonnull view;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

@@ -24,7 +24,7 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 @interface VerticalTextFlowArticleDetailsVC : PRVC <PRArticleContainer>
 
 - (instancetype)initWithArticleItem:(nullable id<PRFlowArticle>)articleItem;
-- (instancetype)initWithArticleItem:(nullable id<PRFlowArticle>)articleItem textToHighlight:(nullable NSArray<NSString *> *)textToHighlight;
+- (instancetype)initWithArticleItem:(nullable id<PRFlowArticle>)articleItem highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil
                          bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
@@ -56,7 +56,7 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 @property (nonatomic, assign) BOOL subscriptionRequiredToRead;
 
 @property (nonatomic, assign) CGFloat topContentOffset;
-@property (nullable, nonatomic, readonly) NSArray<NSString *> *textToHighlight;
+@property (nullable, nonatomic, readonly) NSArray<NSString *> *highlightedPhrases;
 
 @end
 

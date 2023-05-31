@@ -237,8 +237,7 @@ extension PRCatalogModel.Section {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(RootNavigation) public class RootNavigation : PRCatalogModel.CatalogNavigation {
-  convenience public init?(scope: PRCatalogModel.Catalog)
+@_inheritsConvenienceInitializers @objc(HubNavigation) public class HubNavigation : PRCatalogModel.CatalogNavigation {
   convenience public init(context: CoreData.NSManagedObjectContext, scope: PRCatalogModel.Catalog)
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
@@ -360,7 +359,7 @@ extension PRCatalogModel.Catalog {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var navigation: PRCatalogModel.RootNavigation? {
+  @objc @NSManaged dynamic public var navigation: PRCatalogModel.HubNavigation? {
     @objc get
     @objc set
   }
@@ -400,16 +399,14 @@ extension PRCatalogModel.Catalog {
 extension PRCatalogModel.Catalog : Swift.Identifiable {
   public typealias ID = Swift.String
 }
-@objc @objcMembers public class CatalogItemContentOption : ObjectiveC.NSObject, Swift.OptionSet {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogItemContentOption : PRSyntacticSugar.PROptionSet {
   @objc public static let regular: PRCatalogModel.CatalogItemContentOption
   @objc public static let sample: PRCatalogModel.CatalogItemContentOption
   @objc(newContent) public static let new: PRCatalogModel.CatalogItemContentOption
-  @objc final public let rawValue: Swift.Int16
-  @objc required public init(rawValue: Swift.Int16)
-  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc required public init(rawValue: Swift.Int)
   public typealias ArrayLiteralElement = PRCatalogModel.CatalogItemContentOption
   public typealias Element = PRCatalogModel.CatalogItemContentOption
-  public typealias RawValue = Swift.Int16
+  public typealias RawValue = Swift.Int
   @objc deinit
 }
 extension PRCatalogModel.CatalogItemContent {
@@ -515,8 +512,8 @@ extension PRCatalogModel.Issue {
     @objc set
   }
 }
-extension PRCatalogModel.RootNavigation {
-  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.RootNavigation>
+extension PRCatalogModel.HubNavigation {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.HubNavigation>
   @objc @NSManaged dynamic public var scope: PRCatalogModel.Catalog {
     @objc get
     @objc set
@@ -966,7 +963,6 @@ extension PRCatalogModel.CompoundNavigation {
   }
 }
 @_inheritsConvenienceInitializers @objc(CompoundNavigation) public class CompoundNavigation : PRCatalogModel.CatalogNavigation {
-  convenience public init?(scope: PRCatalogModel.CatalogEntity)
   convenience public init(context: CoreData.NSManagedObjectContext, scope: PRCatalogModel.CatalogEntity)
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit

@@ -67,7 +67,6 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
 
 - (nullable NSDictionary *)updateRequestParameters:(nullable NSDictionary *)parameters token:(NSString *)token;
 - (void)requestOnlineConfig;
-- (void) RequestPreloadData;
 - (void) SendReadingStatistics;
 - (void) changeSubscription:(PRSubscriptionItem *)si delete:(BOOL)doDelete includeSupplements:(BOOL)include keepParent:(BOOL)keep successBlock:(void(^)(void))successBlock failureBlock:(void(^)(NSError *))failureBlock;
 

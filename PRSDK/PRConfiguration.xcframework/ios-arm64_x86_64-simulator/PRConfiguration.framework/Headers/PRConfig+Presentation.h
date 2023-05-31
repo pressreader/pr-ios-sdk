@@ -18,7 +18,7 @@
 @class ReaderConfig;
 @class LibraryConfig;
 @class UserConsentConfig;
-@class CustomFontsConfig;
+@class FontConfig;
 @class SearchConfig;
 @class BookReaderConfig;
 @class IAPConfig;
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) LibraryConfig *libraryConfig NS_SWIFT_NAME(library);
 @property (class, nonatomic, readonly) HomeConfig *homeConfig NS_SWIFT_NAME(home);
 @property (class, nonatomic, readonly) UserConsentConfig *userConsentConfig NS_SWIFT_NAME(userConsent);
-@property (class, nonatomic, readonly) CustomFontsConfig *customFontsConfig NS_SWIFT_NAME(customFonts);
+@property (class, nonatomic, readonly) FontConfig *fontConfig NS_SWIFT_NAME(font);
 @property (class, nonatomic, readonly) SearchConfig *searchConfig  NS_SWIFT_NAME(search);
 @property (class, nonatomic, readonly) BookReaderConfig *bookReaderConfig  NS_SWIFT_NAME(bookReader);
 @property (class, nonatomic, readonly) IAPConfig *iapConfig  NS_SWIFT_NAME(iap);

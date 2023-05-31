@@ -325,6 +325,19 @@ SWIFT_CLASS("_TtC7PRUIKit14ActivityButton")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSString;
+
+SWIFT_CLASS("_TtC7PRUIKit11ArticleFont")
+@interface ArticleFont : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull subtitle;
+@property (nonatomic, readonly, copy) NSString * _Nullable byline;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
+@property (nonatomic, readonly, copy) NSString * _Nonnull bodyFileName;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 /// The purpose of this class is applying brand appearance to all its instances.
 SWIFT_CLASS("_TtC7PRUIKit11BrandButton")
@@ -352,7 +365,6 @@ SWIFT_CLASS("_TtC7PRUIKit17BrandGradientView")
 - (nonnull instancetype)initWithFrame:(CGRect)frame topColor:(UIColor * _Nonnull)topColor bottomColor:(UIColor * _Nonnull)bottomColor SWIFT_UNAVAILABLE;
 @end
 
-@class NSString;
 
 SWIFT_CLASS("_TtC7PRUIKit14CustomViewCell")
 @interface CustomViewCell : UITableViewCell
@@ -471,7 +483,7 @@ SWIFT_PROTOCOL("_TtP7PRUIKit23GlobalSearchSupportable_")
 
 SWIFT_PROTOCOL("_TtP7PRUIKit17HighlightableText_")
 @protocol HighlightableText
-- (void)highlightWords:(NSString * _Nonnull)words;
+- (void)highlightPhrases:(NSArray<NSString *> * _Nonnull)phrases;
 @end
 
 
@@ -569,6 +581,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 
 @interface PRActivityVC (SWIFT_EXTENSION(PRUIKit))
 - (void)setupAccessibility;
+@end
+
+
+@interface PRAppStyle (SWIFT_EXTENSION(PRUIKit))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ArticleFont * _Nonnull articleFont;)
++ (ArticleFont * _Nonnull)articleFont SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -700,6 +718,7 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, readonly, strong) UIColor * _Nonnull labelColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull secondaryLabelColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull tableViewSectionHeaderFooterBackgroundColor;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull articleDetailsViewBackgroundColor;
 @end
 
 
@@ -970,6 +989,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 + (UIColor * _Nonnull)tableViewHeaderBackgroundColor SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull popoverBackgroundColor;)
 + (UIColor * _Nonnull)popoverBackgroundColor SWIFT_WARN_UNUSED_RESULT;
++ (UIColor * _Nonnull)articleDetailsViewTitleColorForTheme:(PRTheme)theme SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -979,13 +999,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
-+ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style pointSizeCorrection:(CGFloat)pointSizeCorrection SWIFT_WARN_UNUSED_RESULT;
-+ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style scale:(CGFloat)scale SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) UIFontWeight weight;
 @end
 
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) UIFontWeight weight;
++ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style pointSizeCorrection:(CGFloat)pointSizeCorrection SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style scale:(CGFloat)scale SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1053,13 +1073,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIFont * _No
 
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit)) <HighlightableText>
-- (void)highlightWords:(NSString * _Nonnull)words;
-@end
-
-
-@interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+- (void)highlightPhrases:(NSArray<NSString *> * _Nonnull)phrases;
 @end
 
 
@@ -1068,6 +1082,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIFont * _No
 - (void)updateAppearanceOfLinksWith:(PRTheme)theme options:(PRAppearanceOption)options;
 @end
 
+
+
+@interface UILabel (SWIFT_EXTENSION(PRUIKit))
+- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+@end
 
 @class NSAttributedString;
 
@@ -1140,10 +1160,10 @@ SWIFT_CLASS("_TtC7PRUIKit14UILabelHidable")
 @end
 
 
-
 @interface UITableView (SWIFT_EXTENSION(PRUIKit))
 - (void)hideExtraRows;
 @end
+
 
 
 
@@ -1175,14 +1195,14 @@ SWIFT_CLASS("_TtC7PRUIKit14UILabelHidable")
 @end
 
 
-SWIFT_UNAVAILABLE
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
 @end
 
 
+SWIFT_UNAVAILABLE
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
+@property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
 

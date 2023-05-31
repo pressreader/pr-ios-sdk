@@ -27,16 +27,15 @@ typedef NS_ENUM(NSUInteger, PRCollectionViewCellImageScalingMode) {
 @end
 
 @interface PRCollectionViewCell : UICollectionViewCell <PRPickable>
-
-- (void)setImage:(nullable UIImage *)image scaling:(PRCollectionViewCellImageScalingMode)scaling;
-
 @property (nullable, nonatomic, strong) NSString *title;
 @property (nullable, nonatomic, strong) NSString *subTitle;
 @property (nonatomic) BOOL hasSupplements;
-@property (nullable, nonatomic, strong, readonly) UIImage *image;
+@property (nullable, nonatomic, strong) UIImage *image;
 @property (nullable, nonatomic, weak) id<PRCollectionViewCellDelegate> delegate;
 @property (nonatomic, getter=isDeletingMode) BOOL deletingMode;
 @property (nonatomic, getter=isDeleteAllowed) BOOL deleteAllowed;
+
+@property (nonatomic, readonly) PRCollectionViewCellImageScalingMode thumbnailScalingMode;
 
 @property (nullable, strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nullable, strong, nonatomic) IBOutlet UILabel *subTitleLabel;

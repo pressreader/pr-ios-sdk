@@ -256,6 +256,9 @@ extension PRUIKit.PRViewExtension : PRUIKit.Themeable {
   @objc(tableViewSectionHeaderFooterBackgroundColor) final public var objc_tableViewSectionHeaderFooterBackgroundColor: UIKit.UIColor {
     @objc get
   }
+  @objc(articleDetailsViewBackgroundColor) final public var objc_articleDetailsViewBackgroundColor: UIKit.UIColor {
+    @objc get
+  }
 }
 @objc extension UIKit.UIApplication {
   @objc @_Concurrency.MainActor(unsafe) dynamic public var isInBackground: Swift.Bool {
@@ -374,6 +377,9 @@ final public class TabItem : Swift.Hashable {
   final public func hash(into hasher: inout Swift.Hasher)
   public static func == (lhs: PRUIKit.TabItem, rhs: PRUIKit.TabItem) -> Swift.Bool
   @objc deinit
+}
+@objc extension PRUIKit.PRAppStyle {
+  @objc public static let articleFont: PRUIKit.ArticleFont
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class LargeTitleViewNavigationBar : PRUIKit.InsetableNavigationBar {
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
@@ -596,6 +602,9 @@ extension PRUIKit.Themeable {
   public var coverPlaceholderTintColor: UIKit.UIColor {
     get
   }
+  public var articleDetailsViewBackgroundColor: UIKit.UIColor {
+    get
+  }
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CustomViewCell : UIKit.UITableViewCell {
   @objc @_Concurrency.MainActor(unsafe) public var view: UIKit.UIView? {
@@ -645,6 +654,25 @@ public func activate(_ constraints: UIKit.NSLayoutConstraint...)
 public func deactivate(_ constraints: UIKit.NSLayoutConstraint...)
 extension UIKit.NSLayoutConstraint {
   @_Concurrency.MainActor(unsafe) public func activate(withConstant constant: CoreFoundation.CGFloat)
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleFont : ObjectiveC.NSObject {
+  @objc final public var title: Swift.String? {
+    @objc get
+  }
+  @objc final public var subtitle: Swift.String {
+    @objc get
+  }
+  @objc final public var byline: Swift.String? {
+    @objc get
+  }
+  @objc final public var body: Swift.String {
+    @objc get
+  }
+  @objc final public var bodyFileName: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class SubtitleTextCell : PRUIKit.CustomViewCell {
   @_Concurrency.MainActor(unsafe) final public var titleLabel: UIKit.UILabel {
@@ -722,6 +750,7 @@ extension UIKit.UIViewController {
   @objc(popoverBackgroundColor) public static var popoverBackground: UIKit.UIColor {
     @objc get
   }
+  @objc(articleDetailsViewTitleColorForTheme:) public static func articleDetailsViewTitleColor(theme: PRAccessibility.PRTheme) -> UIKit.UIColor
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class IssuesRemainingView : UIKit.UIView {
   @objc @_Concurrency.MainActor(unsafe) public var count: Swift.Int {
@@ -1051,7 +1080,7 @@ extension UIKit.UIContentSizeCategory {
   @objc deinit
 }
 extension UIKit.UILabel : PRUIKit.HighlightableText {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func highlight(words: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func highlight(phrases: [Swift.String])
 }
 @_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) public class InsetableNavigationBar : UIKit.UINavigationBar {
   @objc deinit
@@ -1339,7 +1368,7 @@ extension PRUIKit.PRViewExtension {
   @objc func restoreState()
 }
 @objc public protocol HighlightableText {
-  @objc(highlightWords:) func highlight(words: Swift.String)
+  @objc(highlightPhrases:) func highlight(phrases: [Swift.String])
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class SwitchView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) final public var action: ((UIKit.UISwitch) -> ())?

@@ -60,7 +60,6 @@ typedef void(^_Nullable PRServiceCompletion)(BOOL success, NSError *_Nullable er
 
 - (BOOL)isCIDAccessible:(NSString *)CID;
 // Online services
-- (void) UpdatePreloadData;
 - (void) AddReadingStatistics:(NSArray *)frames forViewType:(NSString *)view;
 - (void) addBookReadingStatisticsEvents:(NSArray<NSDictionary *> *)events NS_SWIFT_NAME(addBookReadingStatistics(events:));
 

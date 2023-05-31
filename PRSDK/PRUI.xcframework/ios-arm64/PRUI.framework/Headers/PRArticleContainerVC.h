@@ -29,7 +29,7 @@ typedef NS_OPTIONS(NSUInteger, PRArticleContainerOption) {
                         options:(PRArticleContainerOption)options NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, strong, readonly) id<PRFlowArticle> article;
-@property (nullable, nonatomic, strong) NSArray<NSString *> *textToHighlight;
+@property (nullable, nonatomic, strong) NSArray<NSString *> *highlightedPhrases;
 @property (nonatomic, readonly) PRArticleContainerOption options;
 
 @end

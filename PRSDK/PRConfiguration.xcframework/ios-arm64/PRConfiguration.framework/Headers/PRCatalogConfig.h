@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, PRCatalogSortingOrder) {
 @property (nonatomic, readonly) BOOL useOnlineServicesAPI;
 @property (nonatomic, readonly) BOOL customCatalog;
 @property (nonatomic, readonly) BOOL showImagesForCategories;
+@property (nonatomic, readonly) BOOL isThumbnailStretchingEnabled;
 @property (nonatomic, readonly) NSUInteger catalogSearchMinItemsCount;
 @property (nonatomic, readonly) PRCatalogSortingOrder catalogSortingOrder;
 @property (nonatomic, readonly) PRCatalogMode catalogMode;

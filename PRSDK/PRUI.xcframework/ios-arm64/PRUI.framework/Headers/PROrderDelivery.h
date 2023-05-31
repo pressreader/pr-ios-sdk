@@ -14,13 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^CompletionBlock)(PROrderDeliveryResult result);
 typedef void(^CancellationBlock)(void);
 
-@class PRSubscription, SKPayment, SKProduct, PRProduct;
+@class PRSubscription, SKPayment, SKProduct, PRProduct, PurchaseConfirmation;
 
 typedef NS_OPTIONS(NSUInteger, PROrderDeliveryOption) {
     PROrderDeliveryOptionSilent = 1 << 0,
     PROrderDeliveryOptionSkipDownload = 1 << 1,
     PROrderDeliveryOptionIncludeSupplements = 1 << 2,
-    PROrderDeliveryOptionRetrieveProductInfo = 1 << 3
+    PROrderDeliveryOptionRetrieveProductInfo = 1 << 3,
+    PROrderDeliveryOptionSkipReadingSuggestion = 1 << 4,
+    PROrderDeliveryOptionUsePremiumProduct = 1 << 5
 };
 
 extern NSNotificationName const PROrderDeliveryResultNotification;
@@ -87,5 +89,15 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
 @property (nullable, nonatomic, copy) CancellationBlock cancellationBlock;
 
 @end
+
+#ifdef TEST
+@interface PROrderDelivery ()
+- (void)presentConfirmationScreenWithSuccess:(BOOL)isSuccess
+                                   restoring:(BOOL)isRestoring
+                     unlimitedOrTrialUpdated:(BOOL)isUnlimitedOrTrialUpdated
+                         confirmationHandler:(void (^__nullable)(PurchaseConfirmation *))confirmationHandler;
+
+@end
+#endif
 
 NS_ASSUME_NONNULL_END

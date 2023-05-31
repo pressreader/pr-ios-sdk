@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
                   flowType:(NTFTextFlowType)flowType
                  presenter:(nullable UIViewController *)presenter
                    options:(PRArticleContainerOption)options
-           textToHighlight:(nullable NSArray<NSString *> *)textToHighlight;
+        highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
 
 + (void)executeWithArticleId:(NSString *)articleId;
 
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
                     flowType:(NTFTextFlowType)flowType
                    presenter:(nullable UIViewController *)presenter
                      options:(PRArticleContainerOption)options
-             textToHighlight:(nullable NSArray<NSString *> *)textToHighlight;
+          highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
 
 @property (class, nonatomic, weak, readonly) __kindof UIViewController *presentedController;
 

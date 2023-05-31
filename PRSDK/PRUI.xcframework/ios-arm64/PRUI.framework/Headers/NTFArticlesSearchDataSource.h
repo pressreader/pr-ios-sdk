@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (null_resettable, nonatomic, strong) NSString *searchText;
 @property (nonatomic) NTFSearchScope scope;
 @property (nonatomic) NTFSearchSortingOrder sortingOrder;
+@property (nonatomic, readonly, strong) NSArray<NSString *> *searchTokens;
 
 @end
 

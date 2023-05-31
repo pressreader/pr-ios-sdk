@@ -8,6 +8,8 @@
 
 #import "NTFDataService.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSInteger, NTFSearchScope) {
     NTFSearchScopeAll = 0,
     NTFSearchScopeArticles
@@ -18,22 +20,13 @@ typedef NS_ENUM(NSInteger, NTFSearchSortingOrder) {
     NTFSearchSortingOrderPublished
 };
 
-extern NSString * const kPRSearchTextKey;
-extern NSString * const kPRSearchInKey;
-extern NSString * const kPRSearchAuthorKey;
-extern NSString * const kPRSearchLanguagesKey;
-extern NSString * const kPRSearchNewspapersKey;
-extern NSString * const kPRSearchCountriesKey;
-extern NSString * const kPRSearchStartDateKey;
-extern NSString * const kPRSearchStopDateKey;
-extern NSString * const kPRSearchHideSimilarKey;
-extern NSString * const kPRSearchHideSnippetsKey;
-extern NSString * const kPRSearchOrderByKey;
-
 @interface NTFSearchDataService : NTFDataService
 
-@property (nonatomic, strong) NSString *searchText;
+@property (nullable, nonatomic, strong) NSString *searchText;
 @property (nonatomic) NTFSearchScope scope;
 @property (nonatomic) NTFSearchSortingOrder sortingOrder;
+@property (nonatomic, strong, readonly) NSSet<NSString *> *searchTokens;
 
 @end
+
+NS_ASSUME_NONNULL_END

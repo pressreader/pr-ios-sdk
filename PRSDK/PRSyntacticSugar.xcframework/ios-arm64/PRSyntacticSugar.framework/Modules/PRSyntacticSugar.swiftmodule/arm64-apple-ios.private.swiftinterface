@@ -27,6 +27,16 @@ public func lift<A, B, C>(_ a: A?, _ b: B?, _ c: C?) -> (A, B, C)?
 public func isSequenceLiftable(args: Any?...) -> Swift.Bool
 public func typeString<T>(_ type: T.Type) -> Swift.String
 public func typeString<T>(_ value: T) -> Swift.String
+public typealias PROptionSet = (PRSyntacticSugar._PROptionSet & Swift.OptionSet)
+@objc @objcMembers open class _PROptionSet : ObjectiveC.NSObject {
+  @objc final public let rawValue: Swift.Int
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc required public init(rawValue: Swift.Int)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
 extension Swift.SetAlgebra {
   public mutating func update(_ member: Self.Element, _ set: Swift.Bool)
 }

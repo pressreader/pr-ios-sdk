@@ -269,6 +269,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import PRDIContainer;
 @import PRProtocols;
 @import PRSmart;
+@import PRSyntacticSugar;
 @import PRThumbnail;
 @import StoreKit;
 @import UIKit;
@@ -439,8 +440,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI37AutoTranslationStateAnalyticsProvider_")
 @end
 
 
-SWIFT_CLASS("_TtC5PRAPI19AutoTranslationZone")
-@interface AutoTranslationZone : NSObject
+SWIFT_RESILIENT_CLASS("_TtC5PRAPI19AutoTranslationZone")
+@interface AutoTranslationZone : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AutoTranslationZone * _Nonnull downloadedFeed;)
 + (AutoTranslationZone * _Nonnull)downloadedFeed SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AutoTranslationZone * _Nonnull downloadedArticleDetails;)
@@ -449,12 +450,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AutoTranslat
 + (AutoTranslationZone * _Nonnull)feed SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AutoTranslationZone * _Nonnull articleDetails;)
 + (AutoTranslationZone * _Nonnull)articleDetails SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSInteger rawValue;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -470,12 +466,12 @@ SWIFT_PROTOCOL("_TtP5PRAPI23BEHomeAnalyticsProvider_")
 
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isNew;
+@property (nonatomic, readonly) PRSourceType sourceType;
 @end
 
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) PRSourceType sourceType;
+@property (nonatomic, readonly) BOOL isNew;
 @end
 
 
@@ -541,6 +537,8 @@ SWIFT_CLASS("_TtC5PRAPI11BookService")
 SWIFT_CLASS("_TtC5PRAPI15BookUserService")
 @interface BookUserService : BookSubservice
 @end
+
+
 
 
 
@@ -884,16 +882,16 @@ SWIFT_PROTOCOL("_TtP5PRAPI18LoadableDataSource_")
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-/// Notification’s userInfo contains book ids for which license was updated.
-/// userInfo: [String: BookLicenseUpdateStatus]
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
-+ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
++ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
-+ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
+/// Notification’s userInfo contains book ids for which license was updated.
+/// userInfo: [String: BookLicenseUpdateStatus]
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
++ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1018,11 +1016,10 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 
-SWIFT_UNAVAILABLE
-@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (void)_finishLoading;
+@interface PRBundle (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable realCIDs;
+- (BOOL)containsCIDs:(NSSet<NSString *> * _Nonnull)cids SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
@@ -1030,19 +1027,28 @@ SWIFT_UNAVAILABLE
 @end
 
 
-
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
-@class PressCatalog;
 
+SWIFT_UNAVAILABLE
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (PressCatalog * _Nonnull)pressCatalog SWIFT_WARN_UNUSED_RESULT;
-- (void)updatePressCatalogForced:(BOOL)forced;
+- (void)_finishLoading;
 @end
 
+
+
+@class PressCatalog;
+@class Downloads;
+
+@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) CatalogCoreDataController * _Nonnull dataController;
+- (void)updatePressCatalogForced:(BOOL)forced;
+- (PressCatalog * _Nonnull)pressCatalogWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+- (Downloads * _Nonnull)downloadsWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
@@ -1116,7 +1122,6 @@ SWIFT_UNAVAILABLE
 - (NSArray<id <PRCatalogItem>> * _Nonnull)getCatalogItemsWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class Downloads;
 
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, strong) Downloads * _Nonnull downloads;
@@ -1187,10 +1192,10 @@ SWIFT_UNAVAILABLE
 @end
 
 
+
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
 - (void)requestMastheadInfoWithCid:(NSString * _Nonnull)cid completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
 @end
-
 
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
@@ -1245,7 +1250,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI26RichMediaAnalyticsProvider_")
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
 @end
 
-@class PRBundle;
 
 @interface SKProduct (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, strong) PRBundle * _Nullable prBundle;

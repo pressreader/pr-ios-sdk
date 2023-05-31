@@ -159,6 +159,10 @@ extension Swift.String {
     @objc get
   }
 }
+@objc extension Foundation.NSString {
+  @objc(rangesOfPhrases:) dynamic public func ranges(of phrases: [Swift.String]) -> [Foundation.NSValue]
+  @objc(rangesOfPhrases:options:) dynamic public func ranges(of phrases: [Swift.String], options: PRUtils.PRStringSearchOption) -> [Foundation.NSValue]
+}
 extension Swift.String {
   public func url() -> Foundation.URL?
 }
@@ -253,7 +257,7 @@ extension Swift.Array where Element : Swift.Equatable {
   public func missingItems(from original: [Swift.Array<Element>.Element]) -> [Swift.Array<Element>.Element]?
 }
 @objc extension Foundation.NSString {
-  @objc(sentenceShiftedToWords:maxBeginningCharactersCount:) dynamic public func sentence(shiftedTo words: Foundation.NSString, maxBeginningCharactersCount: Swift.Int) -> Foundation.NSString
+  @objc(sentenceShiftedToPhrases:maxBeginningCharactersCount:) dynamic public func sentence(shiftedTo phrases: [Swift.String], maxBeginningCharactersCount: Swift.Int) -> Foundation.NSString
 }
 extension PRUtils.AuthPriority : Swift.Equatable {}
 extension PRUtils.AuthPriority : Swift.Hashable {}

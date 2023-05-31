@@ -263,6 +263,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
+@import PRSyntacticSugar;
 #endif
 
 #import <PRConfiguration/PRConfiguration.h>
@@ -313,18 +314,13 @@ SWIFT_CLASS("_TtC15PRConfiguration11AdConfigKey")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration7AdsType")
-@interface AdsType : NSObject
+SWIFT_RESILIENT_CLASS("_TtC15PRConfiguration7AdsType")
+@interface AdsType : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdsType * _Nonnull html;)
 + (AdsType * _Nonnull)html SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdsType * _Nonnull google;)
 + (AdsType * _Nonnull)google SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSInteger rawValue;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class AnalyticsUserId;
@@ -364,18 +360,13 @@ SWIFT_CLASS("_TtC15PRConfiguration18AnalyticsConfigKey")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration15AnalyticsUserId")
-@interface AnalyticsUserId : NSObject
+SWIFT_RESILIENT_CLASS("_TtC15PRConfiguration15AnalyticsUserId")
+@interface AnalyticsUserId : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AnalyticsUserId * _Nonnull accountNumber;)
 + (AnalyticsUserId * _Nonnull)accountNumber SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AnalyticsUserId * _Nonnull internalRefNumber;)
 + (AnalyticsUserId * _Nonnull)internalRefNumber SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSInteger rawValue;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -399,6 +390,19 @@ SWIFT_CLASS("_TtC15PRConfiguration16AppMenuConfigKey")
 SWIFT_CLASS("_TtC15PRConfiguration16ArticleConfigKey")
 @interface ArticleConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull numberOfLinesForPreview;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull detailsViewLightBackgroundColor;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull detailsViewLightTitleColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSString;
+
+SWIFT_CLASS("_TtC15PRConfiguration17ArticleFontConfig")
+@interface ArticleFontConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull subtitle;
+@property (nonatomic, readonly, copy) NSString * _Nullable byline;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -406,6 +410,12 @@ typedef SWIFT_ENUM(NSInteger, ArticleGalleryCaptionPosition, open) {
   ArticleGalleryCaptionPositionAutomatic = 0,
   ArticleGalleryCaptionPositionUnderImage = 1,
 };
+
+
+SWIFT_CLASS("_TtC15PRConfiguration11Auth0Config")
+@interface Auth0Config : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC15PRConfiguration22AuthorizationConfigKey")
@@ -450,10 +460,10 @@ SWIFT_CLASS("_TtC15PRConfiguration29CancellationAdvisoryConfigKey")
 SWIFT_CLASS("_TtC15PRConfiguration16CatalogConfigKey")
 @interface CatalogConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull presscatalogUpdateDisabled;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull thumbnailStretchingEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSString;
 
 SWIFT_CLASS("_TtC15PRConfiguration23ComScoreAnalyticsConfig")
 @interface ComScoreAnalyticsConfig : NSObject
@@ -469,34 +479,11 @@ SWIFT_CLASS("_TtC15PRConfiguration14CoreDataConfig")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration19CustomFontConfigKey")
-@interface CustomFontConfigKey : NSObject
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull fontSwizzlingEnabled;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull articleFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull mainFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull mainBoldFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull secondaryFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull secondaryBoldFont;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC15PRConfiguration17CustomFontsConfig")
-@interface CustomFontsConfig : NSObject
-@property (nonatomic, readonly) BOOL isFontSwizzlingEnabled;
-@property (nonatomic, readonly, copy) NSString * _Nonnull articleFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable mainFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable mainBoldFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable secondaryFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable secondaryBoldFont;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC15PRConfiguration21CustomerSupportConfig")
 @interface CustomerSupportConfig : NSObject
 @property (nonatomic, readonly) BOOL show;
 @property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable emails;
 @property (nonatomic, readonly, copy) NSString * _Nullable phone;
 @property (nonatomic, readonly, copy) NSString * _Nullable privacyPolicyURL;
 @property (nonatomic, readonly, copy) NSString * _Nullable termsOfUseURL;
@@ -510,6 +497,7 @@ SWIFT_CLASS("_TtC15PRConfiguration24CustomerSupportConfigKey")
 @interface CustomerSupportConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull show;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull email;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull emails;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull phone;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull privacyPolicyURL;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull termsOfUseURL;
@@ -533,18 +521,13 @@ SWIFT_CLASS("_TtC15PRConfiguration19FeaturedRadioConfig")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration14FeedNavigation")
-@interface FeedNavigation : NSObject
+SWIFT_RESILIENT_CLASS("_TtC15PRConfiguration14FeedNavigation")
+@interface FeedNavigation : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedNavigation * _Nonnull button;)
 + (FeedNavigation * _Nonnull)button SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedNavigation * _Nonnull tabs;)
 + (FeedNavigation * _Nonnull)tabs SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSInteger rawValue;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -561,6 +544,23 @@ SWIFT_CLASS("_TtC15PRConfiguration26FirebaseAnalyticsConfigKey")
 @interface FirebaseAnalyticsConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull userIdKey;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration10FontConfig")
+@interface FontConfig : NSObject
+@property (nonatomic, readonly) BOOL isFontSwizzlingEnabled;
+@property (nonatomic, readonly, strong) ArticleFontConfig * _Nonnull article;
+@property (nonatomic, readonly, copy) NSString * _Nullable mainFont;
+@property (nonatomic, readonly, copy) NSString * _Nullable mainBoldFont;
+@property (nonatomic, readonly, copy) NSString * _Nullable secondaryFont;
+@property (nonatomic, readonly, copy) NSString * _Nullable secondaryBoldFont;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface FontConfig (SWIFT_EXTENSION(PRConfiguration))
++ (void)registerDependencies;
 @end
 
 
@@ -599,6 +599,7 @@ SWIFT_CLASS("_TtC15PRConfiguration9IAPConfig")
 @interface IAPConfig : NSObject
 @property (nonatomic, readonly) BOOL isSaveMoneyTextEnabled;
 @property (nonatomic, readonly) BOOL decodeReceiptsLocaly;
+@property (nonatomic, readonly) BOOL isSelectProductEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -610,7 +611,6 @@ SWIFT_CLASS("_TtC15PRConfiguration13LibraryConfig")
 /// Number of seconds book content is available to read in offline mode AFTER it was opened offline first time.
 /// <code>Default value</code> : 2 weeks (1209600 seconds)
 @property (nonatomic, readonly) NSTimeInterval bookOfflineAccessPeriod;
-@property (nonatomic) BOOL booksMigrated;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -620,7 +620,6 @@ SWIFT_CLASS("_TtC15PRConfiguration16LibraryConfigKey")
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull bookOfflineAccessPeriod;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull keepExpiredItems;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull renewableIssueLicense;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull booksMigrated;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -666,6 +665,22 @@ SWIFT_CLASS("_TtC15PRConfiguration23MainMenuAnalyticsConfig")
 @end
 
 
+SWIFT_CLASS("_TtC15PRConfiguration15MigrationConfig")
+@interface MigrationConfig : NSObject
+@property (nonatomic) BOOL bookLibraryMigrated;
+@property (nonatomic) BOOL bookReadingPositionsMigrated;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration18MigrationConfigKey")
+@interface MigrationConfigKey : NSObject
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull bookLibrary;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull bookReadingPositions;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 SWIFT_CLASS("_TtC15PRConfiguration19OnboardingConfigKey")
 @interface OnboardingConfigKey : NSObject
@@ -703,7 +718,13 @@ SWIFT_CLASS("_TtC15PRConfiguration15PRArticleConfig")
 @property (nonatomic, readonly) BOOL isLargePreviewForVideoAllowed;
 @property (nonatomic, readonly) enum ArticleGalleryCaptionPosition galleryCaptionPosition;
 @property (nonatomic, readonly) NSInteger numberOfLinesForPreview;
+@property (nonatomic, readonly) NSUInteger detailsViewLightBackgroundColor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface PRAuthorizationConfig (SWIFT_EXTENSION(PRConfiguration))
++ (void)registerDependencies;
 @end
 
 
@@ -726,6 +747,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdConfig * _
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ExternalLinkAccountConfig * _Nonnull externalLinkAccountConfig;)
 + (ExternalLinkAccountConfig * _Nonnull)externalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfig * _Nonnull migrationConfig;)
++ (MigrationConfig * _Nonnull)migrationConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ATTConfig * _Nonnull attConfig;)
 + (ATTConfig * _Nonnull)attConfig SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -796,8 +819,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogConfi
 + (CatalogConfigKey * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CustomerSupportConfigKey * _Nonnull customerSupport;)
 + (CustomerSupportConfigKey * _Nonnull)customerSupport SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CustomFontConfigKey * _Nonnull customFont;)
-+ (CustomFontConfigKey * _Nonnull)customFont SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull deallocAlertClasses;)
 + (PRConfigKey * _Nonnull)deallocAlertClasses SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull hotspotAllowed;)
@@ -820,6 +841,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SearchConfig
 + (SearchConfigKey * _Nonnull)search SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SplashScreenConfigKey * _Nonnull splashScreen;)
 + (SplashScreenConfigKey * _Nonnull)splashScreen SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfigKey * _Nonnull migration;)
++ (MigrationConfigKey * _Nonnull)migration SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull tooltipsEnabled;)
 + (PRConfigKey * _Nonnull)tooltipsEnabled SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull userPermissionRequestsDisabled;)
@@ -830,12 +853,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 
 
 @interface PROrderConfig (SWIFT_EXTENSION(PRConfiguration))
-@property (nonatomic, readonly, strong) LowCreditsAlertConfig * _Nonnull lowCredits;
+@property (nonatomic, readonly) BOOL typeSpecificTextForDatePicker;
 @end
 
 
 @interface PROrderConfig (SWIFT_EXTENSION(PRConfiguration))
-@property (nonatomic, readonly) BOOL typeSpecificTextForDatePicker;
+@property (nonatomic, readonly, strong) LowCreditsAlertConfig * _Nonnull lowCredits;
 @end
 
 
@@ -1243,6 +1266,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
+@import PRSyntacticSugar;
 #endif
 
 #import <PRConfiguration/PRConfiguration.h>
@@ -1293,18 +1317,13 @@ SWIFT_CLASS("_TtC15PRConfiguration11AdConfigKey")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration7AdsType")
-@interface AdsType : NSObject
+SWIFT_RESILIENT_CLASS("_TtC15PRConfiguration7AdsType")
+@interface AdsType : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdsType * _Nonnull html;)
 + (AdsType * _Nonnull)html SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdsType * _Nonnull google;)
 + (AdsType * _Nonnull)google SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSInteger rawValue;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class AnalyticsUserId;
@@ -1344,18 +1363,13 @@ SWIFT_CLASS("_TtC15PRConfiguration18AnalyticsConfigKey")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration15AnalyticsUserId")
-@interface AnalyticsUserId : NSObject
+SWIFT_RESILIENT_CLASS("_TtC15PRConfiguration15AnalyticsUserId")
+@interface AnalyticsUserId : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AnalyticsUserId * _Nonnull accountNumber;)
 + (AnalyticsUserId * _Nonnull)accountNumber SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AnalyticsUserId * _Nonnull internalRefNumber;)
 + (AnalyticsUserId * _Nonnull)internalRefNumber SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSInteger rawValue;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1379,6 +1393,19 @@ SWIFT_CLASS("_TtC15PRConfiguration16AppMenuConfigKey")
 SWIFT_CLASS("_TtC15PRConfiguration16ArticleConfigKey")
 @interface ArticleConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull numberOfLinesForPreview;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull detailsViewLightBackgroundColor;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull detailsViewLightTitleColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSString;
+
+SWIFT_CLASS("_TtC15PRConfiguration17ArticleFontConfig")
+@interface ArticleFontConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull subtitle;
+@property (nonatomic, readonly, copy) NSString * _Nullable byline;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1386,6 +1413,12 @@ typedef SWIFT_ENUM(NSInteger, ArticleGalleryCaptionPosition, open) {
   ArticleGalleryCaptionPositionAutomatic = 0,
   ArticleGalleryCaptionPositionUnderImage = 1,
 };
+
+
+SWIFT_CLASS("_TtC15PRConfiguration11Auth0Config")
+@interface Auth0Config : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC15PRConfiguration22AuthorizationConfigKey")
@@ -1430,10 +1463,10 @@ SWIFT_CLASS("_TtC15PRConfiguration29CancellationAdvisoryConfigKey")
 SWIFT_CLASS("_TtC15PRConfiguration16CatalogConfigKey")
 @interface CatalogConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull presscatalogUpdateDisabled;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull thumbnailStretchingEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSString;
 
 SWIFT_CLASS("_TtC15PRConfiguration23ComScoreAnalyticsConfig")
 @interface ComScoreAnalyticsConfig : NSObject
@@ -1449,34 +1482,11 @@ SWIFT_CLASS("_TtC15PRConfiguration14CoreDataConfig")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration19CustomFontConfigKey")
-@interface CustomFontConfigKey : NSObject
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull fontSwizzlingEnabled;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull articleFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull mainFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull mainBoldFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull secondaryFont;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull secondaryBoldFont;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC15PRConfiguration17CustomFontsConfig")
-@interface CustomFontsConfig : NSObject
-@property (nonatomic, readonly) BOOL isFontSwizzlingEnabled;
-@property (nonatomic, readonly, copy) NSString * _Nonnull articleFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable mainFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable mainBoldFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable secondaryFont;
-@property (nonatomic, readonly, copy) NSString * _Nullable secondaryBoldFont;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC15PRConfiguration21CustomerSupportConfig")
 @interface CustomerSupportConfig : NSObject
 @property (nonatomic, readonly) BOOL show;
 @property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable emails;
 @property (nonatomic, readonly, copy) NSString * _Nullable phone;
 @property (nonatomic, readonly, copy) NSString * _Nullable privacyPolicyURL;
 @property (nonatomic, readonly, copy) NSString * _Nullable termsOfUseURL;
@@ -1490,6 +1500,7 @@ SWIFT_CLASS("_TtC15PRConfiguration24CustomerSupportConfigKey")
 @interface CustomerSupportConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull show;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull email;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull emails;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull phone;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull privacyPolicyURL;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull termsOfUseURL;
@@ -1513,18 +1524,13 @@ SWIFT_CLASS("_TtC15PRConfiguration19FeaturedRadioConfig")
 @end
 
 
-SWIFT_CLASS("_TtC15PRConfiguration14FeedNavigation")
-@interface FeedNavigation : NSObject
+SWIFT_RESILIENT_CLASS("_TtC15PRConfiguration14FeedNavigation")
+@interface FeedNavigation : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedNavigation * _Nonnull button;)
 + (FeedNavigation * _Nonnull)button SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedNavigation * _Nonnull tabs;)
 + (FeedNavigation * _Nonnull)tabs SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSInteger rawValue;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1541,6 +1547,23 @@ SWIFT_CLASS("_TtC15PRConfiguration26FirebaseAnalyticsConfigKey")
 @interface FirebaseAnalyticsConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull userIdKey;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration10FontConfig")
+@interface FontConfig : NSObject
+@property (nonatomic, readonly) BOOL isFontSwizzlingEnabled;
+@property (nonatomic, readonly, strong) ArticleFontConfig * _Nonnull article;
+@property (nonatomic, readonly, copy) NSString * _Nullable mainFont;
+@property (nonatomic, readonly, copy) NSString * _Nullable mainBoldFont;
+@property (nonatomic, readonly, copy) NSString * _Nullable secondaryFont;
+@property (nonatomic, readonly, copy) NSString * _Nullable secondaryBoldFont;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface FontConfig (SWIFT_EXTENSION(PRConfiguration))
++ (void)registerDependencies;
 @end
 
 
@@ -1579,6 +1602,7 @@ SWIFT_CLASS("_TtC15PRConfiguration9IAPConfig")
 @interface IAPConfig : NSObject
 @property (nonatomic, readonly) BOOL isSaveMoneyTextEnabled;
 @property (nonatomic, readonly) BOOL decodeReceiptsLocaly;
+@property (nonatomic, readonly) BOOL isSelectProductEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1590,7 +1614,6 @@ SWIFT_CLASS("_TtC15PRConfiguration13LibraryConfig")
 /// Number of seconds book content is available to read in offline mode AFTER it was opened offline first time.
 /// <code>Default value</code> : 2 weeks (1209600 seconds)
 @property (nonatomic, readonly) NSTimeInterval bookOfflineAccessPeriod;
-@property (nonatomic) BOOL booksMigrated;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1600,7 +1623,6 @@ SWIFT_CLASS("_TtC15PRConfiguration16LibraryConfigKey")
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull bookOfflineAccessPeriod;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull keepExpiredItems;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull renewableIssueLicense;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull booksMigrated;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1646,6 +1668,22 @@ SWIFT_CLASS("_TtC15PRConfiguration23MainMenuAnalyticsConfig")
 @end
 
 
+SWIFT_CLASS("_TtC15PRConfiguration15MigrationConfig")
+@interface MigrationConfig : NSObject
+@property (nonatomic) BOOL bookLibraryMigrated;
+@property (nonatomic) BOOL bookReadingPositionsMigrated;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration18MigrationConfigKey")
+@interface MigrationConfigKey : NSObject
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull bookLibrary;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull bookReadingPositions;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 SWIFT_CLASS("_TtC15PRConfiguration19OnboardingConfigKey")
 @interface OnboardingConfigKey : NSObject
@@ -1683,7 +1721,13 @@ SWIFT_CLASS("_TtC15PRConfiguration15PRArticleConfig")
 @property (nonatomic, readonly) BOOL isLargePreviewForVideoAllowed;
 @property (nonatomic, readonly) enum ArticleGalleryCaptionPosition galleryCaptionPosition;
 @property (nonatomic, readonly) NSInteger numberOfLinesForPreview;
+@property (nonatomic, readonly) NSUInteger detailsViewLightBackgroundColor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface PRAuthorizationConfig (SWIFT_EXTENSION(PRConfiguration))
++ (void)registerDependencies;
 @end
 
 
@@ -1706,6 +1750,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdConfig * _
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ExternalLinkAccountConfig * _Nonnull externalLinkAccountConfig;)
 + (ExternalLinkAccountConfig * _Nonnull)externalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfig * _Nonnull migrationConfig;)
++ (MigrationConfig * _Nonnull)migrationConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ATTConfig * _Nonnull attConfig;)
 + (ATTConfig * _Nonnull)attConfig SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -1776,8 +1822,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogConfi
 + (CatalogConfigKey * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CustomerSupportConfigKey * _Nonnull customerSupport;)
 + (CustomerSupportConfigKey * _Nonnull)customerSupport SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CustomFontConfigKey * _Nonnull customFont;)
-+ (CustomFontConfigKey * _Nonnull)customFont SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull deallocAlertClasses;)
 + (PRConfigKey * _Nonnull)deallocAlertClasses SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull hotspotAllowed;)
@@ -1800,6 +1844,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SearchConfig
 + (SearchConfigKey * _Nonnull)search SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SplashScreenConfigKey * _Nonnull splashScreen;)
 + (SplashScreenConfigKey * _Nonnull)splashScreen SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfigKey * _Nonnull migration;)
++ (MigrationConfigKey * _Nonnull)migration SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull tooltipsEnabled;)
 + (PRConfigKey * _Nonnull)tooltipsEnabled SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull userPermissionRequestsDisabled;)
@@ -1810,12 +1856,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 
 
 @interface PROrderConfig (SWIFT_EXTENSION(PRConfiguration))
-@property (nonatomic, readonly, strong) LowCreditsAlertConfig * _Nonnull lowCredits;
+@property (nonatomic, readonly) BOOL typeSpecificTextForDatePicker;
 @end
 
 
 @interface PROrderConfig (SWIFT_EXTENSION(PRConfiguration))
-@property (nonatomic, readonly) BOOL typeSpecificTextForDatePicker;
+@property (nonatomic, readonly, strong) LowCreditsAlertConfig * _Nonnull lowCredits;
 @end
 
 

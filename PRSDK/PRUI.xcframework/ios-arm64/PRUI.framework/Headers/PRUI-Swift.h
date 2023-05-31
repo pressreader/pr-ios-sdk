@@ -502,6 +502,18 @@ SWIFT_CLASS("_TtC4PRUI26AttributedBodyActivityItem")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+SWIFT_CLASS("_TtC4PRUI12Auth0Manager")
+@interface Auth0Manager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Auth0Manager * _Nonnull shared;)
++ (Auth0Manager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)signIn:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+@end
+
 @class AutoTranslateLanguagePair;
 
 SWIFT_CLASS("_TtC4PRUI21AutoTranslateMenuCell")
@@ -953,7 +965,7 @@ SWIFT_CLASS("_TtC4PRUI22CommandOpenBookCatalog")
 
 SWIFT_CLASS("_TtC4PRUI22CommandOpenBookDetails")
 @interface CommandOpenBookDetails : NSObject
-+ (void)executeWithBookId:(NSString * _Nonnull)bookId;
++ (void)executeWithBookId:(NSString * _Nonnull)bookId completionHandler:(void (^ _Nonnull)(void))completionHandler;
 + (void)executeWithBook:(Book * _Nonnull)book options:(PROrderOption)options;
 + (void)executeWithBook:(Book * _Nonnull)book options:(PROrderOption)options navigationController:(UINavigationController * _Nullable)navigationController;
 + (void)executeWithBook:(Book * _Nonnull)book options:(PROrderOption)options navigationController:(UINavigationController * _Nullable)navigationController animated:(BOOL)animated;
@@ -1063,11 +1075,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class PurchaseConfirmation;
 
 SWIFT_CLASS("_TtC4PRUI31CommandShowPurchaseConfirmation")
 @interface CommandShowPurchaseConfirmation : NSObject
 + (void)executeWithTitle:(NSString * _Nonnull)title;
 + (void)executeWithTitle:(NSString * _Nonnull)title footnote:(NSString * _Nullable)footnote;
++ (void)executeWithConfirmation:(PurchaseConfirmation * _Nonnull)confirmation;
 + (void)executeWithTitle:(NSString * _Nonnull)title footnote:(NSString * _Nullable)footnote warning:(NSString * _Nullable)warning issue:(PRTitleItemExemplar * _Nullable)issue proceedButtonTitle:(NSString * _Nullable)proceedButtonTitle cancelButtonTitle:(NSString * _Nullable)cancelButtonTitle proceedHandler:(void (^ _Nullable)(void))proceedHandler cancelHandler:(void (^ _Nullable)(void))cancelHandler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1132,22 +1146,6 @@ SWIFT_CLASS("_TtC4PRUI20ComplexLayoutManager")
 SWIFT_CLASS("_TtC4PRUI30ContentCardsPresentationConfig")
 @interface ContentCardsPresentationConfig : NSObject
 @property (nonatomic, readonly) NSNotificationName _Nullable updateNote;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC4PRUI17FlowLayoutManager")
-@interface FlowLayoutManager : NSObject <PRFeedLayoutManager>
-@property (nonatomic) NTFLayoutOption options;
-- (void)compileDataProviderWithItems:(NSArray<NSManagedObjectID *> * _Nonnull)items targetContext:(NSManagedObjectContext * _Nonnull)targetContext moreFollow:(BOOL)moreFollow сompletion:(PRUpdateLayoutHandler _Nonnull)completion;
-- (NSArray * _Nonnull)compileDataProviderWithItems:(NSArray * _Nonnull)items SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC4PRUI18DupleLayoutManager")
-@interface DupleLayoutManager : FlowLayoutManager
-@property (nonatomic) NTFLayoutOption options;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1231,7 +1229,6 @@ SWIFT_CLASS("_TtC4PRUI17FilteredCatalogVC")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 SWIFT_CLASS("_TtC4PRUI12GigyaManager")
@@ -1443,6 +1440,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIImage * _N
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@protocol PRFeedLayoutManager;
+
+@interface NTFDataSource (SWIFT_EXTENSION(PRUI))
+- (id <PRFeedLayoutManager> _Nonnull)createLayoutManager SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 SWIFT_CLASS("_TtC4PRUI23NTFEmptyRecommendedCell")
 @interface NTFEmptyRecommendedCell : VerticalTextFlowBaseCell
@@ -1454,6 +1457,7 @@ SWIFT_CLASS("_TtC4PRUI23NTFEmptyRecommendedCell")
 
 
 @interface NTFFeedDataSource (SWIFT_EXTENSION(PRUI))
+- (NTFDataItemType)typeForItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
 - (void)registerSubscriptionObserver;
 @end
 
@@ -2275,6 +2279,22 @@ SWIFT_CLASS("_TtC4PRUI30PublicationFiltersCollectionVC")
 @end
 
 
+SWIFT_CLASS("_TtC4PRUI20PurchaseConfirmation")
+@interface PurchaseConfirmation : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nullable footnote;
+@property (nonatomic, readonly, copy) NSString * _Nullable warning;
+@property (nonatomic, readonly, strong) PRTitleItemExemplar * _Nullable issue;
+@property (nonatomic, readonly, copy) NSString * _Nullable proceedButtonTitle;
+@property (nonatomic, readonly, copy) NSString * _Nullable cancelButtonTitle;
+@property (nonatomic, readonly, copy) void (^ _Nullable proceedHandler)(void);
+- (nonnull instancetype)initWithTitle:(NSString * _Nonnull)title footnote:(NSString * _Nullable)footnote warning:(NSString * _Nullable)warning issue:(PRTitleItemExemplar * _Nullable)issue proceedButtonTitle:(NSString * _Nullable)proceedButtonTitle cancelButtonTitle:(NSString * _Nullable)cancelButtonTitle proceedHandler:(void (^ _Nullable)(void))proceedHandler OBJC_DESIGNATED_INITIALIZER;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 
 SWIFT_CLASS("_TtC4PRUI9ReadingVC")
 @interface ReadingVC : UINavigationController
@@ -2306,8 +2326,7 @@ SWIFT_CLASS("_TtC4PRUI23Regular4CFeedLayoutItem")
 
 SWIFT_CLASS("_TtC4PRUI21RegularFeedLayoutItem")
 @interface RegularFeedLayoutItem : AbstractFeedLayoutItem
-- (void)highlight;
-@property (nonatomic, readonly) BOOL isHighlighted;
+@property (nonatomic) BOOL isHighlighted;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2415,13 +2434,6 @@ SWIFT_PROTOCOL("_TtP4PRUI30TransparencyOnScrollAdjustable_")
 @end
 
 
-SWIFT_CLASS("_TtC4PRUI19TripleLayoutManager")
-@interface TripleLayoutManager : FlowLayoutManager
-@property (nonatomic) NTFLayoutOption options;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC4PRUI17TwoTextFieldsView")
 @interface TwoTextFieldsView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -2508,13 +2520,13 @@ SWIFT_CLASS("_TtC4PRUI19UITextViewWithLinks")
 
 
 @interface UIViewController (SWIFT_EXTENSION(PRUI))
-/// Controller must conform InsertWrapable protocol to take advantage of insetWrapper
-@property (nonatomic, readonly, strong) UIViewController * _Nonnull insetWrapper;
+@property (nonatomic, readonly) BOOL isOffline;
 @end
 
 
 @interface UIViewController (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly) BOOL isOffline;
+/// Controller must conform InsertWrapable protocol to take advantage of insetWrapper
+@property (nonatomic, readonly, strong) UIViewController * _Nonnull insetWrapper;
 @end
 
 

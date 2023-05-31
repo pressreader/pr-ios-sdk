@@ -6697,6 +6697,23 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
+        "declKind": "Import",
+        "moduleName": "PRUIKit"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -10829,6 +10846,47 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "articleDetailsViewBackgroundColor",
+            "printedName": "articleDetailsViewBackgroundColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIColor",
+                "printedName": "UIKit.UIColor",
+                "usr": "c:objc(cs)UIColor"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUIKit9ThemeablePAAE33articleDetailsViewBackgroundColorSo7UIColorCvp",
+            "mangledName": "$s7PRUIKit9ThemeablePAAE33articleDetailsViewBackgroundColorSo7UIColorCvp",
+            "moduleName": "PRUIKit",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUIKit9ThemeablePAAE33articleDetailsViewBackgroundColorSo7UIColorCvg",
+                "mangledName": "$s7PRUIKit9ThemeablePAAE33articleDetailsViewBackgroundColorSo7UIColorCvg",
+                "moduleName": "PRUIKit",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRUIKit.Themeable>",
+                "sugared_genericSig": "<Self where Self : PRUIKit.Themeable>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Protocol",
@@ -11647,6 +11705,392 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
+        "declKind": "Import",
+        "moduleName": "PRUIKit"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ArticleFont",
+        "printedName": "ArticleFont",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "title",
+            "printedName": "title",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(py)title",
+            "mangledName": "$s7PRUIKit11ArticleFontC5titleSSSgvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(im)title",
+                "mangledName": "$s7PRUIKit11ArticleFontC5titleSSSgvg",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "subtitle",
+            "printedName": "subtitle",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(py)subtitle",
+            "mangledName": "$s7PRUIKit11ArticleFontC8subtitleSSvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(im)subtitle",
+                "mangledName": "$s7PRUIKit11ArticleFontC8subtitleSSvg",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "byline",
+            "printedName": "byline",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(py)byline",
+            "mangledName": "$s7PRUIKit11ArticleFontC6bylineSSSgvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(im)byline",
+                "mangledName": "$s7PRUIKit11ArticleFontC6bylineSSSgvg",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "body",
+            "printedName": "body",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(py)body",
+            "mangledName": "$s7PRUIKit11ArticleFontC4bodySSvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(im)body",
+                "mangledName": "$s7PRUIKit11ArticleFontC4bodySSvg",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "bodyFileName",
+            "printedName": "bodyFileName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(py)bodyFileName",
+            "mangledName": "$s7PRUIKit11ArticleFontC12bodyFileNameSSvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(im)bodyFileName",
+                "mangledName": "$s7PRUIKit11ArticleFontC12bodyFileNameSSvg",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ArticleFont",
+                "printedName": "PRUIKit.ArticleFont",
+                "usr": "c:@M@PRUIKit@objc(cs)ArticleFont"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUIKit@objc(cs)ArticleFont(im)init",
+            "mangledName": "$s7PRUIKit11ArticleFontCACycfc",
+            "moduleName": "PRUIKit",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRUIKit@objc(cs)ArticleFont",
+        "mangledName": "$s7PRUIKit11ArticleFontC",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -12033,6 +12477,13 @@
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PRUIKit"
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
         "declKind": "Import",
         "moduleName": "PRUIKit"
       },
@@ -23515,7 +23966,7 @@
           {
             "kind": "Function",
             "name": "highlight",
-            "printedName": "highlight(words:)",
+            "printedName": "highlight(phrases:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -23524,19 +23975,27 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@PRUIKit@objc(pl)HighlightableText(im)highlightWords:",
-            "mangledName": "$s7PRUIKit17HighlightableTextP9highlight5wordsySS_tF",
+            "usr": "c:@M@PRUIKit@objc(pl)HighlightableText(im)highlightPhrases:",
+            "mangledName": "$s7PRUIKit17HighlightableTextP9highlight7phrasesySaySSG_tF",
             "moduleName": "PRUIKit",
             "genericSig": "<τ_0_0 where τ_0_0 : PRUIKit.HighlightableText>",
             "sugared_genericSig": "<Self where Self : PRUIKit.HighlightableText>",
             "protocolReq": true,
-            "objc_name": "highlightWords:",
+            "objc_name": "highlightPhrases:",
             "declAttributes": [
               "ObjC"
             ],
@@ -26155,7 +26614,7 @@
           {
             "kind": "Function",
             "name": "highlight",
-            "printedName": "highlight(words:)",
+            "printedName": "highlight(phrases:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -26164,16 +26623,24 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUIKit@@objc(cs)UILabel(im)highlightWords:",
-            "mangledName": "$sSo7UILabelC7PRUIKitE9highlight5wordsySS_tF",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UILabel(im)highlightPhrases:",
+            "mangledName": "$sSo7UILabelC7PRUIKitE9highlight7phrasesySaySSG_tF",
             "moduleName": "PRUIKit",
-            "objc_name": "highlightWords:",
+            "objc_name": "highlightPhrases:",
             "declAttributes": [
               "Dynamic",
               "ObjC",
@@ -28404,6 +28871,37 @@
             ]
           },
           {
+            "kind": "Function",
+            "name": "articleDetailsViewTitleColor",
+            "printedName": "articleDetailsViewTitleColor(theme:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIColor",
+                "printedName": "UIKit.UIColor",
+                "usr": "c:objc(cs)UIColor"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRTheme",
+                "printedName": "PRAccessibility.PRTheme",
+                "usr": "c:@E@PRTheme"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UIColor(cm)articleDetailsViewTitleColorForTheme:",
+            "mangledName": "$sSo7UIColorC7PRUIKitE28articleDetailsViewTitleColor5themeABSo7PRThemeV_tFZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "objc_name": "articleDetailsViewTitleColorForTheme:",
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(startColor:endColor:location:)",
@@ -29623,6 +30121,355 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRAppStyle",
+        "printedName": "PRAppStyle",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "articleFont",
+            "printedName": "articleFont",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ArticleFont",
+                "printedName": "PRUIKit.ArticleFont",
+                "usr": "c:@M@PRUIKit@objc(cs)ArticleFont"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cpy)articleFont",
+            "mangledName": "$sSo10PRAppStyleC7PRUIKitE11articleFontAC07ArticleE0CvpZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArticleFont",
+                    "printedName": "PRUIKit.ArticleFont",
+                    "usr": "c:@M@PRUIKit@objc(cs)ArticleFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cm)articleFont",
+                "mangledName": "$sSo10PRAppStyleC7PRUIKitE11articleFontAC07ArticleE0CvgZ",
+                "moduleName": "PRUIKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "roundShadeImage",
+            "printedName": "roundShadeImage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cpy)roundShadeImage",
+            "mangledName": "$sSo10PRAppStyleC7PRUIKitE15roundShadeImageSo7UIImageCSgvpZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "UIKit.UIImage?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIImage",
+                        "printedName": "UIKit.UIImage",
+                        "usr": "c:objc(cs)UIImage"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cm)roundShadeImage",
+                "mangledName": "$sSo10PRAppStyleC7PRUIKitE15roundShadeImageSo7UIImageCSgvgZ",
+                "moduleName": "PRUIKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "roundSelectionImage",
+            "printedName": "roundSelectionImage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cpy)roundSelectionImage",
+            "mangledName": "$sSo10PRAppStyleC7PRUIKitE19roundSelectionImageSo7UIImageCSgvpZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "UIKit.UIImage?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIImage",
+                        "printedName": "UIKit.UIImage",
+                        "usr": "c:objc(cs)UIImage"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cm)roundSelectionImage",
+                "mangledName": "$sSo10PRAppStyleC7PRUIKitE19roundSelectionImageSo7UIImageCSgvgZ",
+                "moduleName": "PRUIKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "roundLightSelectionImage",
+            "printedName": "roundLightSelectionImage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cpy)roundLightSelectionImage",
+            "mangledName": "$sSo10PRAppStyleC7PRUIKitE24roundLightSelectionImageSo7UIImageCSgvpZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "UIKit.UIImage?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIImage",
+                        "printedName": "UIKit.UIImage",
+                        "usr": "c:objc(cs)UIImage"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cm)roundLightSelectionImage",
+                "mangledName": "$sSo10PRAppStyleC7PRUIKitE24roundLightSelectionImageSo7UIImageCSgvgZ",
+                "moduleName": "PRUIKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)PRAppStyle",
+        "moduleName": "PRUIKit",
+        "isOpen": true,
+        "objc_name": "PRAppStyle",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
           }
         ]
       },
@@ -32411,300 +33258,6 @@
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
           },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "PRAppStyle",
-        "printedName": "PRAppStyle",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "roundShadeImage",
-            "printedName": "roundShadeImage",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "UIKit.UIImage?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIImage",
-                    "printedName": "UIKit.UIImage",
-                    "usr": "c:objc(cs)UIImage"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cpy)roundShadeImage",
-            "mangledName": "$sSo10PRAppStyleC7PRUIKitE15roundShadeImageSo7UIImageCSgvpZ",
-            "moduleName": "PRUIKit",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "isFromExtension": true,
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "UIKit.UIImage?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UIImage",
-                        "printedName": "UIKit.UIImage",
-                        "usr": "c:objc(cs)UIImage"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cm)roundShadeImage",
-                "mangledName": "$sSo10PRAppStyleC7PRUIKitE15roundShadeImageSo7UIImageCSgvgZ",
-                "moduleName": "PRUIKit",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "roundSelectionImage",
-            "printedName": "roundSelectionImage",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "UIKit.UIImage?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIImage",
-                    "printedName": "UIKit.UIImage",
-                    "usr": "c:objc(cs)UIImage"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cpy)roundSelectionImage",
-            "mangledName": "$sSo10PRAppStyleC7PRUIKitE19roundSelectionImageSo7UIImageCSgvpZ",
-            "moduleName": "PRUIKit",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "UIKit.UIImage?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UIImage",
-                        "printedName": "UIKit.UIImage",
-                        "usr": "c:objc(cs)UIImage"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cm)roundSelectionImage",
-                "mangledName": "$sSo10PRAppStyleC7PRUIKitE19roundSelectionImageSo7UIImageCSgvgZ",
-                "moduleName": "PRUIKit",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "roundLightSelectionImage",
-            "printedName": "roundLightSelectionImage",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "UIKit.UIImage?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIImage",
-                    "printedName": "UIKit.UIImage",
-                    "usr": "c:objc(cs)UIImage"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cpy)roundLightSelectionImage",
-            "mangledName": "$sSo10PRAppStyleC7PRUIKitE24roundLightSelectionImageSo7UIImageCSgvpZ",
-            "moduleName": "PRUIKit",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "UIKit.UIImage?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UIImage",
-                        "printedName": "UIKit.UIImage",
-                        "usr": "c:objc(cs)UIImage"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUIKit@@objc(cs)PRAppStyle(cm)roundLightSelectionImage",
-                "mangledName": "$sSo10PRAppStyleC7PRUIKitE24roundLightSelectionImageSo7UIImageCSgvgZ",
-                "moduleName": "PRUIKit",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:objc(cs)PRAppStyle",
-        "moduleName": "PRUIKit",
-        "isOpen": true,
-        "objc_name": "PRAppStyle",
-        "declAttributes": [
-          "ObjC",
-          "Dynamic"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "isExternal": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -40237,6 +40790,20 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Style\/ArticleFont.swift",
+      "kind": "StringLiteral",
+      "offset": 969,
+      "length": 3,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Style\/ArticleFont.swift",
+      "kind": "IntegerLiteral",
+      "offset": 974,
+      "length": 1,
+      "value": "0"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/UITableViewCell\/CustomViewCell\/SubtitleTextCell.swift",
       "kind": "IntegerLiteral",
       "offset": 534,
@@ -40281,91 +40848,91 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "BooleanLiteral",
-      "offset": 2514,
+      "offset": 2537,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "BooleanLiteral",
-      "offset": 2679,
+      "offset": 2702,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 2984,
+      "offset": 3007,
       "length": 8,
       "value": "0x27282A"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 3001,
+      "offset": 3024,
       "length": 3,
       "value": "0.9"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3340,
+      "offset": 3627,
       "length": 2,
       "value": "78"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3343,
+      "offset": 3630,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3355,
+      "offset": 3642,
       "length": 2,
       "value": "79"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3358,
+      "offset": 3645,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3369,
+      "offset": 3656,
       "length": 2,
       "value": "81"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3372,
+      "offset": 3659,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3384,
+      "offset": 3671,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 3412,
+      "offset": 3699,
       "length": 4,
       "value": "0.94"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 3425,
+      "offset": 3712,
       "length": 1,
       "value": "1"
     },
@@ -41821,7 +42388,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UILabel\/UILabel+Highlighting.swift",
       "kind": "IntegerLiteral",
-      "offset": 463,
+      "offset": 360,
       "length": 1,
       "value": "0"
     },

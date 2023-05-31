@@ -104,6 +104,7 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 
 @property (nullable, nonatomic, readonly) PRAccountItem *defaultAccount;
 @property (nonatomic) CGSize contentSize;
+@property (nonatomic, readonly) PRCatalog *catalog;
 
 @end
 

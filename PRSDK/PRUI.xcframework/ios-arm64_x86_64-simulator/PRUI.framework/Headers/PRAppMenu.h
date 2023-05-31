@@ -34,7 +34,7 @@ extern PRAppMenuItemType const PRAppMenuItemTypeWebView;
 typedef NSString * PRAppMenuIcon NS_TYPED_ENUM;
 extern PRAppMenuIcon const PRAppMenuIconHome;
 extern PRAppMenuIcon const PRAppMenuIconForYou;
-extern PRAppMenuIcon const PRAppMenuIconCatalog;
+extern PRAppMenuIcon const PRAppMenuIconExplore;
 extern PRAppMenuIcon const PRAppMenuIconPublications;
 extern PRAppMenuIcon const PRAppMenuIconPrintEditions;
 extern PRAppMenuIcon const PRAppMenuIconLibrary;
@@ -57,6 +57,8 @@ extern PRAppMenuIcon const PRAppMenuIconObituaries;
 extern PRAppMenuIcon const PRAppMenuIconPodcasts;
 extern PRAppMenuIcon const PRAppMenuIconWeather;
 extern PRAppMenuIcon const PRAppMenuIconPuzzles;
+extern PRAppMenuIcon const PRAppMenuIconVideo;
+extern PRAppMenuIcon const PRAppMenuIconBrandedVideo;
 
 extern NSString *const PRAppMenuDidChangeNotification;
 

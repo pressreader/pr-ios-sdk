@@ -38,6 +38,15 @@ import _StringProcessing
   @objc override dynamic public init()
   @objc deinit
 }
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let paymentOptions: PRAccessibility.PaymentOptionsAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class PaymentOptionsAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let productWithCIDsCell: PRAccessibility.AccessibilityId
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
 extension PRAccessibility.AccessibilityId {
   public static let appMenu: PRAccessibility.AppMenuItemAccessibilityId
 }
@@ -92,6 +101,8 @@ public enum PRLaunchCommandParameter : Swift.String {
   case openAsSeparatePanel
   case issueDate
   case preferableServiceName
+  case inAppProductId
+  case inAppProductIds
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -121,7 +132,6 @@ public enum PRLaunchCommandParameter : Swift.String {
   @objc public static let issuesSectionHeader: PRAccessibility.AccessibilityId
   @objc public static let splashView: PRAccessibility.AccessibilityId
   @objc public static let networkErrorView: PRAccessibility.AccessibilityId
-  @objc public static let paymentOptionView: PRAccessibility.AccessibilityId
   @objc public static let activityView: PRAccessibility.AccessibilityId
   @objc public static let groupHeader: PRAccessibility.AccessibilityId
   @objc public static let publicationDetailsView: PRAccessibility.AccessibilityId

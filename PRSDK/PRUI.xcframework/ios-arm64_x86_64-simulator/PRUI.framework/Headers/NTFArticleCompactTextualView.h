@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSUInteger textLinesCount;
 
-@property (nullable, nonatomic, strong) NSString *textToHighlight;
+@property (nullable, nonatomic, strong) NSArray<NSString *> *highlightedPhrases;
 
 // UI Components
 @property (nonatomic, strong, readonly) MastheadView *mastheadView;

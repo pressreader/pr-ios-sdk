@@ -30,8 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 #define NOTIFY_ON_XML_UPDATE_DELIVERY           (NOTIFY_ON_XML_UPDATE_AVAILABLE_IN_DQ || _PRCONFIG_BOOL_(@"NOTIFY_ON_XML_UPDATE_DELIVERY", NO))
 #define NOTIFY_ON_ISSUE_DOWNLOAD_FINISHED     _PRCONFIG_BOOL_(@"NOTIFY_ON_ISSUE_DOWNLOAD_FINISHED", NO)
 
-#define APP_LOGO_DOWNLOAD_URL _PRCONFIG_OBJ_(@"APP_LOGO_DOWNLOAD_URL", nil)
-
 @interface PRConfig (Networking)
 @property (class, nonatomic, readonly) NSString *testServiceURL;
 @property (class, nonatomic, readonly) NSString *devServiceURL;

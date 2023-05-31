@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @import PRProtocols;
-#import "PROrderEnum.h"
+#import "PROrderDelivery.h"
 
 @class PRSubscription;
 @class PRMyLibraryItem;
@@ -38,13 +38,12 @@ preferableSubscription:(nullable PRSubscription *)subscription
 
 - (void)downloadExemplar:(PRTitleItemExemplar *)exemplar
   preferableSubscription:(nullable PRSubscription *)subscription
+         deliveryOptions:(PROrderDeliveryOption)deliveryOptions
          completionBlock:(nullable DeliveryCompletionBlock)completionBlock;
 
 - (void)orderExemplar:(PRTitleItemExemplar *)exemplar
 preferableSubscription:(nullable PRSubscription *)subscription
-   includeSupplements:(BOOL)includeSupplements
-             download:(BOOL)download
-    usePremiumProduct:(BOOL)usePremiumProduct
+      deliveryOptions:(PROrderDeliveryOption)deliveryOptions
       completionBlock:(nullable DeliveryCompletionBlock)completionBlock;
 
 - (void)stopWaitingForItemReadiness;

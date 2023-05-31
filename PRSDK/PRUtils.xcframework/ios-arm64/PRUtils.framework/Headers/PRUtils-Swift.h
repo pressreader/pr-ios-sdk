@@ -395,7 +395,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Returns substring with range starting with the first sentence containing given <code>words</code>.
 /// In case of the distance from <code>words</code> to the start of the sentence exceeds <code>maxBeginningCharactersCount</code>,
 /// the beginning of the sentence will be truncated.
-- (NSString * _Nonnull)sentenceShiftedToWords:(NSString * _Nonnull)words maxBeginningCharactersCount:(NSInteger)maxBeginningCharactersCount SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)sentenceShiftedToPhrases:(NSArray<NSString *> * _Nonnull)phrases maxBeginningCharactersCount:(NSInteger)maxBeginningCharactersCount SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NSValue;
+
+@interface NSString (SWIFT_EXTENSION(PRUtils))
+- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases options:(PRStringSearchOption)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

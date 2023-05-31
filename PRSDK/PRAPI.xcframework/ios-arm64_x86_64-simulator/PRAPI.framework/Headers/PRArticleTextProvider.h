@@ -20,8 +20,8 @@ typedef NSArray<NSAttributedString *> *_Nullable(^PRArticleBlockProcessor)(NSArr
 @interface PRArticleTextProvider : NSObject
 
 + (instancetype)providerWithArticle:(PRSmartArticle *)article
-                                cid:(NSString *)cid
-                               date:(NSDate *)date;
+                                cid:(nullable NSString *)cid
+                               date:(nullable NSDate *)date;
 
 - (nullable NSString *)text;
 - (nullable NSString *)textWithLanguage:(NSString *)language;

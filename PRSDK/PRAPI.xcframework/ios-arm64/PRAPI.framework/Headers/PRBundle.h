@@ -16,21 +16,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *productID;
 @property (nullable, nonatomic, strong) NSString *productType;
 @property (nonatomic, strong) NSString *productName;
-@property (nullable, nonatomic, strong) NSString *appProductID;
-@property (nullable, nonatomic, strong) SKProduct *appProduct;
+@property (nullable, nonatomic, strong) NSString *appStoreProductID;
+@property (nullable, nonatomic, strong) SKProduct *appStoreProduct;
 @property (nullable, nonatomic, strong) NSString *subscriptionFamily;
 @property (nullable, nonatomic, strong) NSString *revenueSource;
 @property (nonatomic, readonly) BOOL isAppStoreBundle;
+@property (nonatomic, readonly) NSString *appStoreOrBundleProductID;
 
 - (instancetype)initWithJSON:(NSDictionary *)json userBundle:(BOOL)userBundle;
 
 - (instancetype)initWithProductID:(NSString *)productID
                       productType:(nullable NSString *)productType
                       productName:(NSString *)productName
-                     appProductID:(NSString *)appProductID
+                appStoreProductID:(NSString *)appStoreProductID
                subscriptionFamily:(nullable NSString *)subscriptionFamily
-                    revenueSource:(nullable NSString *)revenueSource
-                 isAppStoreBundle:(BOOL)isAppStoreBundle NS_DESIGNATED_INITIALIZER;
+                    revenueSource:(nullable NSString *)revenueSource NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 @end
@@ -44,21 +44,30 @@ extern PRBundleProductType const PRPrepaidIssuesProductType;
 // Certain issues
 extern PRBundleProductType const PRPrepaidIssueDateListProductType;
 
+typedef NS_ENUM(NSInteger, PRBundleContentType) {
+    PRBundleContentTypeAll = 0,
+    PRBundleContentTypeNewspapers,
+    PRBundleContentTypeMagazines
+};
+
 @interface PRBundle : PRBaseBundle
 + (NSArray<PRBundle *> *)bundles:(NSArray<PRBundle *> *)bundles
                 filteredWithCIDs:(NSSet<NSString *> *)cids
                       bundleType:(PRBundleProductType)type;
-+ (NSArray<NSString *> *)appProductIDsFromBundles:(NSArray<PRBundle *> *)bundles
-                                         withCIDs:(NSSet<NSString *> *)cids
-                                       bundleType:(PRBundleProductType)type;
++ (NSArray<NSString *> *)appStoreProductIDsFromBundles:(NSArray<PRBundle *> *)bundles
+                                              withCIDs:(NSSet<NSString *> *)cids
+                                            bundleType:(PRBundleProductType)type;
 + (nullable PRBundle *)bundles:(NSArray<PRBundle *> *)bundles
          filteredWithProductID:(NSString *)productId;
 
+/// Contains CIDs or `all`. If you need CIDs only, check `realCIDs` property.
 @property (nullable, nonatomic, strong) NSArray<NSString *> *CIDs;
 @property (nullable, nonatomic, strong) NSSet<NSString *> *excludedCIDs;
 @property (nonatomic) BOOL isUnlimited;
 @property (nonatomic) BOOL isSubscription;
 @property (nonatomic) BOOL isRenewable;
+@property (nonatomic) BOOL isTrial;
+@property (nonatomic) PRBundleContentType contentType;
 
 @end
 
@@ -80,7 +89,7 @@ extern PRBundleProductType const PRPrepaidIssueDateListProductType;
 @property (nonatomic, assign) NSInteger balance;
 @end
 
-@interface PRSubscriptionBundle : PRUserBundle
+@interface PRSubscriptionBundle : PRConsumableBundle
 @property (nonatomic, strong) NSString *userProductID;
 @property (nullable, nonatomic, strong) NSDate *issueStartDate;
 @property (nullable, nonatomic, strong) NSDate *issueFinishDate;

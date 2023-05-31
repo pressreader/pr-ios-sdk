@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable id)itemAtIndex:(NSInteger)idx;
 - (nullable id)itemAtRow:(NSInteger)row;
+- (nullable id)unwrappedItemAtRow:(NSInteger)row;
 
 - (NSInteger)indexForItem:(id)item;
 - (NSInteger)rowForItem:(id)item;
@@ -146,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NTFDataSource (/*PROTECTED*/)
 
-- (NSArray<id<NTFArticle>> *)itemsInLayoutItem:(id)item;
+- (nullable NSArray<id<NTFItem>> *)itemsInLayoutItem:(id)item;
 - (id)unwrapLayoutItem:(id)item;
 - (void)resetItemsTranslation;
 

@@ -131,8 +131,6 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @property (nonatomic) NSUInteger downloadCounter;
 @property (nonatomic) NSTimeInterval repeatIntervalOnAccountStatusError;
 @property (nonatomic) PRAccountItemPriority priority;
-@property (nullable, nonatomic, strong) NSDictionary * preloadData;
-@property (nonatomic) BOOL preloadDataRequestCompleted;
 @property (nonatomic, strong) NSDate *catalogUpdateDate;
 @property (nullable, nonatomic, strong) NSDate *customCatalogUpdateDate;
 @property (nonatomic, copy) NSString *catalogLanguage;

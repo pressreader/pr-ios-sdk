@@ -41,7 +41,7 @@ extern CGFloat const kPRMaxTextWidth;
 
 @property (nonatomic, readonly) FeedItemAction *feedItemAction;
 @property (nonatomic, readonly) CGFloat topContentOffset;
-@property (nullable, nonatomic, readonly) NSArray<NSString *> *textToHighlight;
+@property (nullable, nonatomic, readonly) NSArray<NSString *> *highlightedPhrases;
 
 @end
 

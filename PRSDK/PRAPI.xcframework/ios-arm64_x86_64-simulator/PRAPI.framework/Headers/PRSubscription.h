@@ -124,8 +124,8 @@ typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
 @property (nullable, nonatomic, strong) NSArray<PRBundle *> *bundlesWithCIDs;
 - (NSArray<PRBundle *> *)bundlesWithCIDs:(NSSet<NSString *> *)cids
                               bundleType:(PRBundleProductType)type;
-- (NSArray<NSString *> *)appProductIDsFromBundlesWithCIDs:(nullable NSSet<NSString *> *)cids
-                                               bundleType:(PRBundleProductType)type;
+- (NSArray<NSString *> *)appStoreProductIDsFromBundlesWithCIDs:(nullable NSSet<NSString *> *)cids
+                                                    bundleType:(PRBundleProductType)type;
 
 + (NSString *)localizedSubscriptionResult:(nullable NSString *)resultCode
                        defaultErrorString:(nullable NSString *)defaultErrorString;

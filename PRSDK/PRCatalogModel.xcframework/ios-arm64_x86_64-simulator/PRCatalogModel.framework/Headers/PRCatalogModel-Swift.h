@@ -262,7 +262,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import CoreData;
 @import Foundation;
-@import ObjectiveC;
+@import PRSyntacticSugar;
 #endif
 
 #endif
@@ -465,14 +465,14 @@ SWIFT_CLASS_NAMED("Books")
 - (void)removeHubEntities:(NSOrderedSet * _Nonnull)values;
 @end
 
-@class RootNavigation;
+@class HubNavigation;
 
 @interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
 @property (nonatomic, copy) NSDate * _Nonnull created;
 @property (nonatomic, copy) NSString * _Nonnull id;
 @property (nonatomic) BOOL preloaded;
 @property (nonatomic, strong) NSSet * _Nullable entities;
-@property (nonatomic, strong) RootNavigation * _Nullable navigation;
+@property (nonatomic, strong) HubNavigation * _Nullable navigation;
 @property (nonatomic, strong) NSOrderedSet * _Nullable hubEntities;
 @property (nonatomic, strong) NSSet * _Nullable items;
 @end
@@ -670,19 +670,15 @@ SWIFT_CLASS_NAMED("CatalogFilter")
 @end
 
 
-SWIFT_CLASS("_TtC14PRCatalogModel24CatalogItemContentOption")
-@interface CatalogItemContentOption : NSObject
+SWIFT_RESILIENT_CLASS("_TtC14PRCatalogModel24CatalogItemContentOption")
+@interface CatalogItemContentOption : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogItemContentOption * _Nonnull regular;)
 + (CatalogItemContentOption * _Nonnull)regular SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogItemContentOption * _Nonnull sample;)
 + (CatalogItemContentOption * _Nonnull)sample SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogItemContentOption * _Nonnull newContent;)
 + (CatalogItemContentOption * _Nonnull)newContent SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) int16_t rawValue;
-- (nonnull instancetype)initWithRawValue:(int16_t)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -949,6 +945,17 @@ SWIFT_CLASS_NAMED("HotSpot")
 @end
 
 
+SWIFT_CLASS_NAMED("HubNavigation")
+@interface HubNavigation : CatalogNavigation
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface HubNavigation (SWIFT_EXTENSION(PRCatalogModel))
+@property (nonatomic, strong) Catalog * _Nonnull scope;
+@end
+
+
 SWIFT_CLASS_NAMED("TitleItem")
 @interface TitleItem : CatalogItem
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
@@ -1095,17 +1102,6 @@ SWIFT_CLASS_NAMED("Query")
 @interface RelationshipMetadata (SWIFT_EXTENSION(PRCatalogModel))
 @property (nonatomic, strong) CatalogEntity * _Nullable catalogEntity;
 @property (nonatomic, strong) CatalogItem * _Nullable catalogItem;
-@end
-
-
-SWIFT_CLASS_NAMED("RootNavigation")
-@interface RootNavigation : CatalogNavigation
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface RootNavigation (SWIFT_EXTENSION(PRCatalogModel))
-@property (nonatomic, strong) Catalog * _Nonnull scope;
 @end
 
 
@@ -1407,7 +1403,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import CoreData;
 @import Foundation;
-@import ObjectiveC;
+@import PRSyntacticSugar;
 #endif
 
 #endif
@@ -1610,14 +1606,14 @@ SWIFT_CLASS_NAMED("Books")
 - (void)removeHubEntities:(NSOrderedSet * _Nonnull)values;
 @end
 
-@class RootNavigation;
+@class HubNavigation;
 
 @interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
 @property (nonatomic, copy) NSDate * _Nonnull created;
 @property (nonatomic, copy) NSString * _Nonnull id;
 @property (nonatomic) BOOL preloaded;
 @property (nonatomic, strong) NSSet * _Nullable entities;
-@property (nonatomic, strong) RootNavigation * _Nullable navigation;
+@property (nonatomic, strong) HubNavigation * _Nullable navigation;
 @property (nonatomic, strong) NSOrderedSet * _Nullable hubEntities;
 @property (nonatomic, strong) NSSet * _Nullable items;
 @end
@@ -1815,19 +1811,15 @@ SWIFT_CLASS_NAMED("CatalogFilter")
 @end
 
 
-SWIFT_CLASS("_TtC14PRCatalogModel24CatalogItemContentOption")
-@interface CatalogItemContentOption : NSObject
+SWIFT_RESILIENT_CLASS("_TtC14PRCatalogModel24CatalogItemContentOption")
+@interface CatalogItemContentOption : _PROptionSet
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogItemContentOption * _Nonnull regular;)
 + (CatalogItemContentOption * _Nonnull)regular SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogItemContentOption * _Nonnull sample;)
 + (CatalogItemContentOption * _Nonnull)sample SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogItemContentOption * _Nonnull newContent;)
 + (CatalogItemContentOption * _Nonnull)newContent SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) int16_t rawValue;
-- (nonnull instancetype)initWithRawValue:(int16_t)rawValue OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -2094,6 +2086,17 @@ SWIFT_CLASS_NAMED("HotSpot")
 @end
 
 
+SWIFT_CLASS_NAMED("HubNavigation")
+@interface HubNavigation : CatalogNavigation
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface HubNavigation (SWIFT_EXTENSION(PRCatalogModel))
+@property (nonatomic, strong) Catalog * _Nonnull scope;
+@end
+
+
 SWIFT_CLASS_NAMED("TitleItem")
 @interface TitleItem : CatalogItem
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
@@ -2240,17 +2243,6 @@ SWIFT_CLASS_NAMED("Query")
 @interface RelationshipMetadata (SWIFT_EXTENSION(PRCatalogModel))
 @property (nonatomic, strong) CatalogEntity * _Nullable catalogEntity;
 @property (nonatomic, strong) CatalogItem * _Nullable catalogItem;
-@end
-
-
-SWIFT_CLASS_NAMED("RootNavigation")
-@interface RootNavigation : CatalogNavigation
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface RootNavigation (SWIFT_EXTENSION(PRCatalogModel))
-@property (nonatomic, strong) Catalog * _Nonnull scope;
 @end
 
 

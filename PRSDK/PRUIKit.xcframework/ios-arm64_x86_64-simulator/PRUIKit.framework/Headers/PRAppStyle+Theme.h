@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, class, readonly) PRTheme theme;
 @property(nonatomic, class, readonly) PRTheme feedTheme;
+/// This config parameter is in use for FT app only as a temporary solution until themes support is implemented.
+/// Should be removed ASAP.
+@property(nonatomic, class, readonly) PRTheme libraryItemFeedTheme;
 
 @property(nonatomic, class, readonly) CGFloat thumbnailCornerRadius;
 
