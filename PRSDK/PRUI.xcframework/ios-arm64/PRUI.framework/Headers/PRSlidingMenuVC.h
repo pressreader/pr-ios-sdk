@@ -31,6 +31,4 @@
 - (void)showMenuAnimated:(BOOL)animated;
 - (void)hideMenuAnimated:(BOOL)animated;
 
-- (BOOL)hasStatusBarBackground;
-
 @end

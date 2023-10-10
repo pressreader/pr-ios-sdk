@@ -41,8 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) BOOL offlineMode;
 
-@property (nonatomic, readonly) BOOL shouldBackgroundMatchNavigationBar;
-
 @property (nonatomic, readonly) CGFloat minPlaceholderHeight;
 @property (nullable, nonatomic, strong, readonly) TranslationView *translationView;
 @end

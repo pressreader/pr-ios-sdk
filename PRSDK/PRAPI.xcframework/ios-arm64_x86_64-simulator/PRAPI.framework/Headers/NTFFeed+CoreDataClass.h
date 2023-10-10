@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)feedWithName:(NSString *)name
                      context:(NSManagedObjectContext *)context;
 
+@property (nonatomic, readonly) NSFetchRequest *sortedItems;
+
 @end
 
 /// IMPORTANT. Accessing feed via methods of this category is preferrable.

@@ -11,9 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_OPTIONS(NSUInteger, PRAccountDeathorizationOption) {
-    PRAccountDeathorizationOptionAthorizeIfNeeded = 1 << 0,
-    PRAccountDeathorizationOptionDeleteAccount = 1 << 1
+typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
+    PRAccountDeauthorizationOptionAuthorizeIfNeeded = 1 << 0,
+    PRAccountDeauthorizationOptionDeleteAccount = 1 << 1,
+    PRAccountDeauthorizationOptionRequestless = 1 << 2
 };
 
 @class PRSignInOption;
@@ -31,8 +32,10 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeathorizationOption) {
 - (void)removeAccount:(PRAccountItem *)accountItem;
 
 - (void)authorize;
-- (void)registerDevice;
-- (void)registerDevice:(NSString*)serviceName;
+- (void)authorizeWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
+- (BOOL)registerDeviceWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
+- (BOOL)registerDevice:(NSString *)serviceName;
+- (BOOL)registerDevice:(NSString *)serviceName completion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
 
 - (void)AuthorizeUser:(NSString*)usr pwd:(NSString*)pwd devName:(nullable NSString*)devName serviceName:(NSString*)serviceName;
 - (void)authorizeUserWithSocialID:(NSString *)socialID;
@@ -45,7 +48,7 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeathorizationOption) {
 - (void)deauthorize:(PRAccountItem *)accountItem;
 - (void)deleteAccount:(PRAccountItem *)accountItem;
 - (void)deauthorize:(PRAccountItem *)accountItem
-            options:(PRAccountDeathorizationOption)options
+            options:(PRAccountDeauthorizationOption)options
          completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
 
 - (void)signUpUser:(NSString *)usr pwd:(NSString *)pwd firstName:(NSString *)firstName lastName:(NSString *)lastName completionBlock:(void (^)(BOOL success, NSError *error))completionBlock;

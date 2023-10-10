@@ -27,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) PRCatalog *catalog;
 
-@property (nonatomic, strong, readwrite) NSString *sortingOrderMainCountryISOCode;
-
 @property (nonatomic, strong) NSArray<NSString *> *services;
 
 @end

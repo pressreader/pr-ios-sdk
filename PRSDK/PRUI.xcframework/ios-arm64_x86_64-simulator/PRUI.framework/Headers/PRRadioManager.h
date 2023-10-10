@@ -8,11 +8,9 @@
 
 @import UIKit;
 
-#import <PRUI/PRRadioDataSource.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol NTFArticle;
+@protocol NTFArticle, PRRadioDataSource;
 @class PRSourceItem;
 @class PRSmartArticle;
 @class PRMyLibraryItem;
@@ -70,6 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playInDirection:(CGSize)direction;
 
 @property (nullable, nonatomic, weak) id<PRRadioManagerDelegate> delegate;
+@property (nonatomic, strong) id<PRRadioDataSource> dataSource;
 @property (nonatomic, strong) id<NTFArticle> beginningArticle;
 @property (nonatomic, strong) NSString *beginningArticleUid;
 
@@ -92,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *pageImageBaseUrl;
 
 @property (nonatomic) NSUInteger currentSectionIndex;
-@property (nonatomic) NSUInteger currentArticleIndex;
+@property (nonatomic) NSInteger currentArticleIndex;
 @property (nonatomic) NSUInteger currentPageNumber;
 @property (nullable, nonatomic, strong) UIImage *currentArticleImage;
 

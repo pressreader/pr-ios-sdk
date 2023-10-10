@@ -21,5 +21,6 @@ BOOL EqualArrays(NSArray *_Nullable object1, NSArray *_Nullable object2);
 #pragma mark - Core Graphics
 
 CGRect PRCGRectMake(CGPoint origin, CGSize size);
+BOOL PRCGSizeIsZero(CGSize size);
 
 NS_ASSUME_NONNULL_END

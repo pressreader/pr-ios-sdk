@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
                        square:(BOOL)square
                  issueVersion:(NSInteger)issueVersion
                expungeVersion:(NSString *)expungeVersion
-                       pageNo:(int)pageNo;
+                       pageNo:(NSInteger)pageNo;
 
 + (NSString *)buildKeyWithCID:(NSString *)CID
                     issueDate:(NSDate *)date
@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
               square:(BOOL)square
         issueVersion:(NSInteger)issueVersion
       expungeVersion:(NSString *)expungeVersion
-              pageNo:(int)pageNo;
+              pageNo:(NSInteger)pageNo;
 
 @end
 

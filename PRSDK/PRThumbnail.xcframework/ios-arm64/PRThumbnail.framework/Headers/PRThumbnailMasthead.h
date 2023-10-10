@@ -8,16 +8,6 @@
 
 #import "PRThumbnailObject.h"
 
-typedef NS_ENUM(uint8_t, NTFMastheadStyle) {
-    NTFMastheadStyleOriginal = 0,
-    NTFMastheadStyleTemplate
-};
-
-typedef NS_OPTIONS(uint8_t, NTFMastheadOption) {
-    NTFMastheadOptionNone = 0,
-    NTFMastheadOptionIgnoreClosestImageAsPlaceholder = 1 << 0
-};
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRThumbnailMasthead : PRThumbnailObject

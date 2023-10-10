@@ -23,7 +23,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRFeedbackController.h"
 
 #import "PRStylingTableVC.h"
-#import "UITableViewCell+CustomSeparator.h"
+#import "UIView+CustomSeparator.h"
 #import "UITableView+FullHeightWithResizableHeader.h"
 
 #import "PROrder.h"
@@ -39,6 +39,9 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRActivityProvider.h"
 
 #import "NTFCommentsDataSource.h"
+#import "PRCommentComposeVC.h"
+#import "PRCommentTableVC.h"
+#import "PRAttachmetsContainerView.h"
 
 #import "NTFBookmarksDataSource.h"
 #import "PRCurrentAccountBookmarkDataSource.h"
@@ -58,6 +61,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRSourceCollectionVC.h"
 #import "PRSourcesHorizontalCollectionVC.h"
 #import "PRSourceCategoriesCollectionVC.h"
+#import "PRGroupedExemplarsCollectionVC.h"
 
 #import "PRSourceItemCell.h"
 #import "PRSourceItemCellGrid.h"
@@ -67,6 +71,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "VerticalTextFlowVC+Statistics.h"
 #import "PRVerticalFeedVC.h"
 #import "VerticalTextFlowVC+ActionMenu.h"
+#import "CustomStyleableTextFlowVC.h"
 
 #import "LibraryItemFeedUtil.h"
 
@@ -95,6 +100,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRCommandAuthorizeAccount.h"
 #import "PRCommandOpenOrder.h"
 #import "PRCommandOpenHomeFeed.h"
+#import "PRCommandOpenReader.h"
 
 #import "UINavigationController+Presentation.h"
 #import "PRModalNavigationController.h"
@@ -111,8 +117,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "PRAppMenu.h"
 #import "PRAppMenuVC.h"
-
-#import "UINavigationController+Bars.h"
 
 #import "PRAuthorizeVC.h"
 
@@ -162,8 +166,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "PRBannersHubVC.h"
 
-#import "PRPubHubSchemeProvider.h"
-
 #import "PROnlineViewCtrl.h"
 
 #import "PRSourceItemManager.h"
@@ -202,18 +204,18 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "PRAlignedImageView.h"
 
-#import "PRRadioDataSource.h"
 #import "NTFFeedDataSource+Search.h"
 
 #import "PRCategoryCell.h"
 #import "PRRadioVC.h"
 #import "PRRadioManager.h"
+#import "PROrderVC.h"
+#import "PRSelectionPanelVC.h"
 
 // Protected API
 #import "PRVerticalFeedVC_Protected.h"
 #import "PREmbedablePubHubVC_Protected.h"
 #import "VerticalTextFlowVC_Protected.h"
-#import "UINavigationItem+Masthead.h"
 #import "ModalVideoPlayerVC.h"
 #import "PhotoGalleryVC.h"
 #import "PRAVPlayerActor.h"
@@ -226,3 +228,4 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRPubHubDataSource_Protected.h"
 #import "PRAppMenu_Protected.h"
 #import "PRUniversalMasterVC_Protected.h"
+#import "NTFSmartArticleDataItem.h"

@@ -9,22 +9,30 @@
 @import PRUIKit.PRVC;
 #import "VerticalTextFlowArticleDetailsView.h"
 
-@import PRAPI.NTFArticle;
-#import "PRFlowArticle.h"
+@import PRAPI;
 
 #import "PRArticleContainer.h"
 
 @class PRDismissOnSwipeActor;
 @class AdBannerPresentation;
+@class TextFlowActivityVC;
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(uint8_t, _PRNavigationBarState) {
+    _PRNavigationBarStateUndefined = 0,
+    _PRNavigationBarStateTransparent,
+    _PRNavigationBarStateSolid,
+    _PRNavigationBarStateSolidDecorated,
+    _PRNavigationBarStateTransitional
+};
 
 typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 
 @interface VerticalTextFlowArticleDetailsVC : PRVC <PRArticleContainer>
 
-- (instancetype)initWithArticleItem:(nullable id<PRFlowArticle>)articleItem;
-- (instancetype)initWithArticleItem:(nullable id<PRFlowArticle>)articleItem highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
+- (instancetype)initWithArticleItem:(nullable id<FlowArticle>)articleItem;
+- (instancetype)initWithArticleItem:(nullable id<FlowArticle>)articleItem highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil
                          bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
@@ -32,7 +40,7 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 - (void)setupDefaultNavigationBarAppearance;
 - (void)setupTransitionalNavigationBarAppearance;
 
-- (void)fillWithArticle:(nullable id<PRFlowArticle>)article;
+- (void)fillWithArticle:(nullable id<FlowArticle>)article;
 
 - (PRMenu *)horizontalActionMenu;
 
@@ -46,10 +54,9 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 @property (nonatomic, copy) void(^ _Nullable moveToPrevItem)(void);
 
 @property (nonatomic, assign) BOOL useParentNavigationItem;
-@property (nonatomic, assign) BOOL disableNavigationBarChanges;
 
 @property (nullable, nonatomic, readonly) UIImage *prefImage;
-@property (nullable, nonatomic, readonly) id<PRFlowArticle> articleItem;
+@property (nullable, nonatomic, readonly) id<FlowArticle> articleItem;
 
 @property (nonatomic, strong, readonly) PRDismissOnSwipeActor *dismissOnSwipeActor;
 
@@ -57,6 +64,17 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 
 @property (nonatomic, assign) CGFloat topContentOffset;
 @property (nullable, nonatomic, readonly) NSArray<NSString *> *highlightedPhrases;
+
+@end
+
+
+@interface VerticalTextFlowArticleDetailsVC (/*Protected*/)
+
+- (void)updateNavigationBarContent;
+
+@property (nullable, nonatomic, strong) TextFlowActivityVC *activityVC;
+@property (nonatomic, strong) UIImage *navigationBarBackgroundGradient;
+@property (nonatomic, strong) UIImage *navigationBarBackgroundSemiBlank;
 
 @end
 

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)applyActionStyle;
 - (void)applyWhiteStyle;
-- (void)applyClearActionStyle;
+- (void)applyClearActionStyleWithCornerStyle:(UIButtonConfigurationCornerStyle)cornerStyle;
 
 - (UIColor *)actionButtonColor;
 

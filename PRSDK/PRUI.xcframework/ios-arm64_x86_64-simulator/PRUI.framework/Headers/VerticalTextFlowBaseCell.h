@@ -46,9 +46,6 @@ typedef NS_ENUM(NSInteger, PRVerticalTextFlowSeparatorStyle) {
 @property (nonatomic, assign) PRVerticalTextFlowSeparatorStyle topSeparatorStyle;
 @property (nonatomic, assign) PRVerticalTextFlowSeparatorStyle bottomSeparatorStyle;
 
-@property (nullable, nonatomic, strong) UIColor *topSeparatorColor;
-@property (nullable, nonatomic, strong) UIColor *bottomSeparatorColor;
-
 @property (nonatomic) NSNumber *topPadding;
 @property (nonatomic) NSNumber *bottomPadding;
 

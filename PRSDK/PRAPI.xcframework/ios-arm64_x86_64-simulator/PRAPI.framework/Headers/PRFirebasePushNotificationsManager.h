@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRFirebasePushNotificationsManager : NSObject
 
-- (void)setup;
++ (void)setup;
++ (void)setAPNSToken:(NSData *)token;
 
 @end
 

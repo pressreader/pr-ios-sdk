@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(null_resettable, nonatomic,strong) UIView *view NS_UNAVAILABLE;
 
-@property (nonatomic, getter=isStatusBarTranslucent, readonly) BOOL statusBarTranslucent;
 @property (nonatomic, readonly) PRPromise *finishSplashAnimation;
 @property (nonatomic, readonly) BOOL isSplashScreenHidden;
 

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NSString * PRAppMenuItemType NS_TYPED_ENUM;
 extern PRAppMenuItemType const PRAppMenuItemTypeHome;
+extern PRAppMenuItemType const PRAppMenuItemTypeFavorites;
 extern PRAppMenuItemType const PRAppMenuItemTypeCatalog;
 extern PRAppMenuItemType const PRAppMenuItemTypeLibrary;
 extern PRAppMenuItemType const PRAppMenuItemTypeBookmarks;

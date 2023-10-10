@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAPI
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AppTrackingTransparency
@@ -69,13 +69,13 @@ extension PRAPI.RichMediaAnalyticsProvider {
   }
   @objc @_Concurrency.MainActor public static let shared: PRAPI.CatalogItemDownloadService
   #if compiler(>=5.3) && $AsyncAwait
-  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.CatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption) async throws
+  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.CatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption = []) async throws
   #endif
   #if compiler(>=5.3) && $AsyncAwait
-  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.CatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption, itemInfo: inout PRAPI.CatalogService.ItemInfo) async throws
+  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.CatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption = [], itemInfo: inout PRAPI.CatalogService.ItemInfo) async throws
   #endif
   #if compiler(>=5.3) && $AsyncAwait
-  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.Book, contentOptions: PRCatalogModel.CatalogItemContentOption, itemInfo: inout PRAPI.CatalogService.ItemInfo) async throws
+  @_Concurrency.MainActor final public func download(_ item: PRCatalogModel.Book, contentOptions: PRCatalogModel.CatalogItemContentOption = [], itemInfo: inout PRAPI.CatalogService.ItemInfo) async throws
   #endif
   @objc @_Concurrency.MainActor final public func cancelDownload(_ item: PRCatalogModel.CatalogItem)
   #if compiler(>=5.3) && $AsyncAwait
@@ -134,6 +134,22 @@ public protocol LibraryService {
   #if compiler(>=5.3) && $AsyncAwait
   func removeItemFromLibrary(_ item: Self.Item) async throws
   #endif
+}
+@objc public protocol MastheadProvider {
+  @objc var hasMasthead: Swift.Bool { get }
+  @objc func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
+}
+extension PRAPI.MastheadProvider {
+  public func mastheadTemplate(height: CoreFoundation.CGFloat, handler: @escaping PRThumbnail.PRThumbnailHandler)
+}
+public enum MastheadLoadingError : Swift.Error {
+  case unknown
+  case unavailable
+  public static func == (a: PRAPI.MastheadLoadingError, b: PRAPI.MastheadLoadingError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 @objc extension PRAPI.PRCatalog {
   @objc dynamic public func isReady() -> Swift.Bool
@@ -221,13 +237,32 @@ extension PRCatalogModel.CatalogItem : PRAPI.PRCatalogItem {
     @objc get
   }
 }
+extension PRAPI.NTFArticleItem : PRAPI.MastheadProvider {
+  @objc dynamic public var hasMasthead: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
+}
 extension PRAPI.Interest {
   public var interestFeed: PRAPI.NTFFeed {
     get
   }
 }
 extension PRAPI.NTFDataService {
-  @objc dynamic public func waitForOtherDataSuppliers(_ completion: @escaping () -> ())
+  public enum DataServiceError : Swift.Error {
+    case unknown
+    public static func == (a: PRAPI.NTFDataService.DataServiceError, b: PRAPI.NTFDataService.DataServiceError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc dynamic public func waitForOtherDataSuppliers() async
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func requestData() async throws
+  #endif
 }
 @objc extension PRAPI.PRAnalyticsService {
   @objc dynamic public class func analyticsServices(application: UIKit.UIApplication?, launchOptions: [Swift.AnyHashable : Any]?) -> [any PRAPI.PRAnalytics]
@@ -257,11 +292,18 @@ public struct MimeType {
   public init(path: Foundation.NSString)
   public init(url: Foundation.URL)
 }
-extension PRAPI.PublicationChannel {
+@objc public protocol NTFItem : ObjectiveC.NSObjectProtocol, PRAPI.MastheadProvider {
+}
+extension Swift.Array where Element == any PRAPI.NTFArticle {
+  public var ntfItems: [any PRAPI.NTFItem] {
+    get
+  }
+}
+@objc extension PRAPI.PublicationChannel {
   @objc dynamic public var isFollowed: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var mastheadProvider: (any PRAPI.PRMastheadProvider)? {
+  @objc dynamic public var mastheadProvider: (any PRAPI.MastheadProvider)? {
     @objc get
   }
 }
@@ -445,6 +487,11 @@ public protocol SearchHistoryAnalyticsProvider : PRAPI.AnalyticsProvider {
 extension PRAPI.SearchHistoryAnalyticsProvider {
   public func trackHistoryItemSelected()
 }
+extension PRAPI.NTFFeed {
+  public var isEmpty: Swift.Bool {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class ScreenViewAnalytics : PRAPI.Analytics {
   @objc deinit
 }
@@ -494,6 +541,12 @@ extension PRAPI.CatalogViewAnalyticsProvider {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public protocol NTFActionConfig {
+  @objc var generalActionConfig: [Swift.AnyHashable : Any] { get }
+  @objc var articleActionConfig: [Swift.AnyHashable : Any] { get }
+}
+@objc public protocol FlowArticle : PRAPI.NTFActionConfig, PRAPI.NTFArticle, PRAPI.NTFItem {
+}
 @objc @_Concurrency.MainActor public class BookSubservice : ObjectiveC.NSObject, PRAPI.Preloadable {
   nonisolated public init?(bookService: PRAPI.BookService)
   @_Concurrency.MainActor public var preloadTask: _Concurrency.Task<(), Swift.Never>?
@@ -510,7 +563,9 @@ public protocol LoadableModelObserver : ObjectiveC.NSObjectProtocol {
   func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
 }
 public protocol ObservableModel : PRAPI.LoadableModel, PRAPI.LoadableModelObserver {
-  func load(_ completion: @escaping (PRUtils.VoidResult) -> ())
+  #if compiler(>=5.3) && $AsyncAwait
+  func load() async throws
+  #endif
   func addObserver(_ observer: any PRAPI.LoadableModelObserver)
   func removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
   func triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
@@ -544,10 +599,11 @@ extension PRAPI.ObservableModel {
   public func finishLoading(_ result: PRUtils.VoidResult)
 }
 extension PRAPI.ObservableModel {
-  public func load(_ completion: @escaping (PRUtils.VoidResult) -> ())
   #if compiler(>=5.3) && $AsyncAwait
   public func load() async throws
   #endif
+}
+extension PRAPI.ObservableModel {
   public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
 }
 @objc extension PRAPI.PRAccountManager {
@@ -571,6 +627,8 @@ extension Foundation.FileManager {
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class EventAnalytics : PRAPI.Analytics {
   @objc deinit
+}
+extension PRAPI.NTFArticleItem : PRAPI.NTFItem {
 }
 extension PRAPI.NTFSession {
   public func publication(cid: Swift.String) -> PRAPI.Publication
@@ -619,7 +677,7 @@ extension PRAPI.SplashScreenAnalyticsProvider {
   @objc final public var needsUpdatedDetails: Swift.Bool {
     @objc get
   }
-  @objc override final public func downloadState(options: PRCatalogModel.CatalogItemContentOption) -> PRAPI.PRTitleItemExemplarState
+  @objc override final public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
 }
 @objc public protocol DataSourceObserver {
   @objc optional func startDataLoading(_ source: Any)
@@ -949,15 +1007,20 @@ extension PRCatalogModel.Issue {
 public protocol AudioMetadataUpdatable {
   func updateListenDuration()
 }
-@objc @_inheritsConvenienceInitializers final public class ListenHighlightsModel : ObjectiveC.NSObject, PRAPI.ObservableModel {
+@objc @_inheritsConvenienceInitializers final public class ListenHighlightsModel : ObjectiveC.NSObject {
   final public var isReady: Swift.Bool {
     get
   }
-  final public var data: [any PRAPI.NTFArticle]? {
+  final public var data: [PRAPI.NTFArticleItem]? {
     get
   }
   @objc override dynamic public init()
   @objc deinit
+}
+extension PRAPI.ListenHighlightsModel : PRAPI.ObservableModel {
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor final public func load() async throws
+  #endif
 }
 extension PRAPI.ListenHighlightsModel : CoreData.NSFetchedResultsControllerDelegate {
   @objc final public func controllerDidChangeContent(_ controller: CoreData.NSFetchedResultsController<any CoreData.NSFetchRequestResult>)
@@ -967,6 +1030,16 @@ extension PRCatalogModel.PressCatalog {
 }
 @objc extension PRCatalogModel.Document {
   @objc override dynamic public class func loadItem(id: Swift.String, catalog: PRCatalogModel.Catalog) -> PRPromiseKit.Promise
+}
+extension PRAPI.PRSourceItem {
+  @discardableResult
+  public func loadMastheadInfo() -> PRPromiseKit.Promise
+}
+extension PRAPI.PRSourceItem : PRAPI.MastheadProvider {
+  @objc dynamic public var hasMasthead: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
 }
 @objc public protocol AccountAnalyticsProvider : PRAPI.AnalyticsProvider {
   @objc var accountViewType: PRAPI.PRAnalyticsAccountView { get }
@@ -1011,6 +1084,7 @@ extension PRAPI.Channel {
 }
 extension PRAPI.NTFCoreDataController {
   public func getOnlineSession(in context: CoreData.NSManagedObjectContext, completion: @escaping (PRAPI.NTFSession) -> Swift.Void)
+  @objc dynamic public func processOnlineSessionHandlers()
 }
 extension PRAPI.PRCatalog {
   public func item(cid: Swift.String, date: Foundation.Date? = nil) -> (any PRAPI.PRCatalogItem)?
@@ -1026,8 +1100,10 @@ extension PRAPI.PRCatalog {
   @objc deinit
 }
 @objc extension PRAPI.NTFPageSetItem : PRAPI.NTFItem {
-  @discardableResult
-  @objc dynamic public func masthead(withHeight height: CoreFoundation.CGFloat, style: PRThumbnail.NTFMastheadStyle, options: PRThumbnail.NTFMastheadOption, completion: ((UIKit.UIImage?, (any Swift.Error)?) -> Swift.Void)? = nil) -> Swift.Bool
+  @objc dynamic public var hasMasthead: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
 }
 public protocol BannerAnalyticsProvider : PRAPI.AnalyticsProvider {
   var bannerType: PRAPI.PRAnalyticsBannerType { get }
@@ -1085,6 +1161,27 @@ extension PRCatalogModel.BookContent {
   @objc dynamic public var ntfContext: CoreData.NSManagedObjectContext {
     @objc get
   }
+}
+@objc public enum ATTrackingStatus : Swift.UInt {
+  case notDetermined = 0
+  case restricted
+  case denied
+  case authorized
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ATTManager : ObjectiveC.NSObject {
+  @objc public static var trackingAuthorizationStatus: PRAPI.ATTrackingStatus {
+    @objc get
+  }
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc public static func requestTrackingAuthorization() async -> PRAPI.ATTrackingStatus
+  #endif
+  @objc override dynamic public init()
+  @objc deinit
 }
 extension PRCatalogModel.CatalogItemContent : PRCoreDataUtils.IdentifiableMO {
   public enum Error : PRUtils.DefaultLocalizedError {
@@ -1556,9 +1653,9 @@ extension StoreKit.SKProduct {
   @objc dynamic public class func loadItem(id: Swift.String, catalog: PRCatalogModel.Catalog) -> PRPromiseKit.Promise
 }
 @objc extension PRCatalogModel.CatalogItem {
-  @objc dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption) -> PRAPI.PRTitleItemExemplarState
-  @objc dynamic public func downloadProgress(options: PRCatalogModel.CatalogItemContentOption) -> Swift.Int
-  @objc dynamic public func downloadProgressObject(options: PRCatalogModel.CatalogItemContentOption) -> Foundation.Progress?
+  @objc dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
+  @objc dynamic public func downloadProgress(options: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Int
+  @objc dynamic public func downloadProgressObject(options: PRCatalogModel.CatalogItemContentOption = []) -> Foundation.Progress?
 }
 public struct BookLicenseCheckoutResult : Swift.Decodable {
   public struct Details : Swift.Decodable {
@@ -1672,12 +1769,15 @@ public protocol AnalyticsAccount {
   var hotzoneIndustry: Swift.String? { get }
   var hotzoneId: Swift.String? { get }
   var isUnregistered: Swift.Bool { get }
-  var enablePromotional: Swift.Bool { get }
+  var enablePromotional: Swift.Bool? { get }
   var premiumProductId: Swift.String? { get }
   var isPremiumTrial: Swift.Bool { get }
   var hasActivePaidSubscription: Swift.Bool { get }
   var isOnboardingStarted: Swift.Bool { get }
   var isOnboardingSkipped: Swift.Bool { get }
+}
+extension PRThumbnail.PRThumbnailsManager {
+  public func thumbnail(mastheadOriginalId: Swift.String, mastheadTemplateId: Swift.String, height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle) -> PRThumbnail.PRThumbnailMasthead?
 }
 public protocol ObservableViewModel : PRAPI.ObservableModel {
 }
@@ -1738,6 +1838,7 @@ extension PRAPI.Preloadable {
     case PR_Catalog
     case PR_Search
     case PR_Download
+    case PR_Replica_Page
     public init?(rawValue: Swift.String)
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
@@ -1871,10 +1972,8 @@ extension PRAPI.SignInAnalyticsProvider {
   public func trackSocialSignInTap()
   public func trackAuthorizeOperation()
 }
-extension PRAPI.NTFFeedSectionItem {
-  public var articlesSorted: [PRAPI.NTFArticleItem]? {
-    get
-  }
+@objc extension PRAPI.PRTitleItemExemplar {
+  @objc dynamic public func thumbnail(size: CoreFoundation.CGSize, page: Swift.Int) -> PRThumbnail.PRThumbnailSource?
 }
 @objc extension PRCatalogModel.Book {
   @objc override final public var sourceType: PRCatalogModel.PRSourceType {
@@ -2012,6 +2111,9 @@ extension Foundation.NSNotification.Name {
   @objc dynamic public func observeLibraryNotifications(selector: ObjectiveC.Selector, object: (any PRAPI.LibraryItemProtocol)? = nil, observe: Swift.Bool)
 }
 extension PRAPI.PRAccountItem : PRAPI.AnalyticsAccount {
+  public var enablePromotional: Swift.Bool? {
+    get
+  }
   public var isOnboardingStarted: Swift.Bool {
     get
   }
@@ -2102,12 +2204,16 @@ extension PRAPI.CatalogItemDownloadService.LoadingError : Swift.Hashable {}
 extension PRAPI.ArticleTranslationState : Swift.Equatable {}
 extension PRAPI.ArticleTranslationState : Swift.Hashable {}
 extension PRAPI.ArticleTranslationState : Swift.RawRepresentable {}
+extension PRAPI.MastheadLoadingError : Swift.Equatable {}
+extension PRAPI.MastheadLoadingError : Swift.Hashable {}
 extension PRAPI.FeaturedAudioAction : Swift.Equatable {}
 extension PRAPI.FeaturedAudioAction : Swift.Hashable {}
 extension PRAPI.FeaturedAudioAction : Swift.RawRepresentable {}
 extension PRAPI.RadioAction : Swift.Equatable {}
 extension PRAPI.RadioAction : Swift.Hashable {}
 extension PRAPI.RadioAction : Swift.RawRepresentable {}
+extension PRAPI.NTFDataService.DataServiceError : Swift.Equatable {}
+extension PRAPI.NTFDataService.DataServiceError : Swift.Hashable {}
 extension PRAPI.CatalogService : Swift.Sendable {}
 extension PRAPI.CatalogService.LoadingError : Swift.Equatable {}
 extension PRAPI.CatalogService.LoadingError : Swift.Hashable {}
@@ -2123,6 +2229,9 @@ extension PRAPI.DataSourceLoadingType : Swift.Hashable {}
 extension PRAPI.BookLicenseUpdateStatus : Swift.Equatable {}
 extension PRAPI.BookLicenseUpdateStatus : Swift.Hashable {}
 extension PRAPI.BookLicenseUpdateStatus : Swift.RawRepresentable {}
+extension PRAPI.ATTrackingStatus : Swift.Equatable {}
+extension PRAPI.ATTrackingStatus : Swift.Hashable {}
+extension PRAPI.ATTrackingStatus : Swift.RawRepresentable {}
 extension PRCatalogModel.CatalogItemContent.Error : Swift.Equatable {}
 extension PRCatalogModel.CatalogItemContent.Error : Swift.Hashable {}
 extension PRCatalogModel.CatalogItemContent.DownloadingError : Swift.Equatable {}

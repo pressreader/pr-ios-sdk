@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) UIImage *collectionViewCellRoundShadow;
 @property (class, nonatomic, readonly) UIImage *collectionViewCellLargeTransparentShadow;
 @property (class, nonatomic, readonly) UIImage *collectionViewCellEnormousTransparentShadow;
-@property (class, nonatomic, readonly) UIImage *collectionViewCellEnormousLightTransparentShadow;
 
 @end
 

@@ -10,7 +10,6 @@
 @import PRAPI;
 @import PRUIKit;
 
-#import "PRFlowArticle.h"
 #import "NTFMenuProvider.h"
 
 @class PRMenuItem;
@@ -29,20 +28,20 @@ typedef NS_ENUM(NSInteger, NTFActionMenuMode) {
 - (instancetype)initWithPresentingViewController:(UIViewController *)presentingController
                                          context:(nullable NSDictionary *)context;
 
-- (nullable NSArray<PRMenuItem *> *)actionMenuItemsForArticle:(id<PRFlowArticle>)article
+- (nullable NSArray<PRMenuItem *> *)actionMenuItemsForArticle:(id<FlowArticle>)article
                                                   fullVersion:(BOOL)fullVersion
                                                        sender:(nullable id)sender;
 - (nullable NSArray<PRMenuItem *> *)actionMenuItemsWithContext:(NSDictionary *)context;
-- (nullable NSArray<PRMenuItem *> *)horizontalActionMenuItemsForArticle:(id<PRFlowArticle>)article
+- (nullable NSArray<PRMenuItem *> *)horizontalActionMenuItemsForArticle:(id<FlowArticle>)article
                                                             fullVersion:(BOOL)fullVersion
                                                                  sender:(nullable id)sender;
 
-- (nullable PRMenu *)actionMenuForArticle:(id<PRFlowArticle>)article
+- (nullable PRMenu *)actionMenuForArticle:(id<FlowArticle>)article
                               fullVersion:(BOOL)fullVersion
                                    sender:(nullable id)sender;
-- (void)presentCommentsViewForForArticle:(id<PRFlowArticle>)article sender:(nullable id)sender;
+- (void)presentCommentsViewForForArticle:(id<FlowArticle>)article sender:(nullable id)sender;
 
-- (nullable PRMenuItem *)translateMenuItemForArticle:(id<PRFlowArticle>)article options:(NTFMenuItemProviderOption)options;
+- (nullable PRMenuItem *)translateMenuItemForArticle:(id<FlowArticle>)article options:(NTFMenuItemProviderOption)options;
 
 @property (nonatomic) NTFActionMenuMode actionMenuMode;
 

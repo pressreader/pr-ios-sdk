@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRAccountManager (Service)
 
-- (void)sendRegisterDeviceRequest:(NSString*)serviceName;
+- (void)sendRegisterDeviceRequest:(NSString*)serviceName completion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
 - (void)SendAuthRequest:(NSString*)usr pwd:(NSString*)pwd devName:(NSString*)devName serviceName:(NSString*)serviceName;
 - (void)sendAuthRequestForSocialID:(NSString *)socialID;
 - (void)sendAuthRequestForSocialID:(NSString *)socialID
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendAuthorizeUserByExternalAuthTicketRequest:(NSString *)externalAuthTicket isNewUser:(BOOL)isNewUser onComplete:(void(^)(BOOL success, NSError *error))onCompleteBlock;
 
 - (void)deauthorizeAccount:(PRAccountItem *)ai
-                   options:(PRAccountDeathorizationOption)options
+                   options:(PRAccountDeauthorizationOption)options
                 completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
 
 - (void)sendSignUpRequestForUser:(NSString *)usr pwd:(NSString *)pwd firstName:(NSString *)firstName lastName:(NSString *)lastName success:(void (^)(void))success failure:(void (^)(NSError *error))failure;
@@ -90,7 +90,7 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
                             completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
 - (void)deleteRadiantHotSpotForAccount:(PRAccountItem *)accountItem;
 
-- (void)requestGiftedAccess;
+- (void)requestGiftedAccessWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
 - (void)requestGiftedAccessWithToken:(NSString *)token
                           completion:(void(^)(BOOL success, NSError *error))completion;
 - (void)requestDevicesWithAccount:(PRAccountItem *)account

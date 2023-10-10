@@ -11,8 +11,6 @@
 @import PRSmart;
 #import <PRThumbnail/PRThumbnail.h>
 
-#import <PRAPI/PRMastheadProvider.h>
-
 #import "NTFDataSourcable.h"
 #import "NTFAbstractArticle.h"
 
@@ -88,7 +86,7 @@ typedef NS_ENUM(int16_t, NTFArticleItemPresentationType) {
 
 @end
 
-@protocol NTFArticleInfo <NSObject, PRMastheadProvider>
+@protocol NTFArticleInfo <NSObject>
 
 - (NSString *)title;
 - (nullable NSString *)subtitle;
@@ -101,10 +99,7 @@ typedef NS_ENUM(int16_t, NTFArticleItemPresentationType) {
 
 @end
 
-@protocol NTFItem <NSObject, PRMastheadProvider>
-@end
-
-@protocol NTFArticle <NTFArticleInfo, NTFCommentHolder, NTFThumbnailHolder, NTFDataSourcable, NTFItem>
+@protocol NTFArticle <NTFArticleInfo, NTFCommentHolder, NTFThumbnailHolder, NTFDataSourcable>
 
 - (nullable NSString *)issueCID;
 

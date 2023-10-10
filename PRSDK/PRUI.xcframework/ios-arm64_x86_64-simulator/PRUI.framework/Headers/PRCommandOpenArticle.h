@@ -13,39 +13,46 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRCommandOpenArticle : PRCommand
-
-+ (void)executeWithArticle:(id<NTFArticle>)article;
+@interface PRCommandOpenArticle : NSObject
 
 + (void)executeWithArticle:(id<NTFArticle>)article
-                    parent:(nullable id<NTFArticle>)parent
-                  flowType:(NTFTextFlowType)flowType
-                 presenter:(nullable UIViewController *)presenter;
+                completion:(void(^_Nullable)(UIViewController *))completion;
 
 + (void)executeWithArticle:(id<NTFArticle>)article
                     parent:(nullable id<NTFArticle>)parent
                   flowType:(NTFTextFlowType)flowType
                  presenter:(nullable UIViewController *)presenter
-                   options:(PRArticleContainerOption)options;
+                completion:(void(^_Nullable)(UIViewController *))completion;
 
 + (void)executeWithArticle:(id<NTFArticle>)article
                     parent:(nullable id<NTFArticle>)parent
                   flowType:(NTFTextFlowType)flowType
                  presenter:(nullable UIViewController *)presenter
                    options:(PRArticleContainerOption)options
-        highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
+                completion:(void(^_Nullable)(UIViewController *))completion;
 
-+ (void)executeWithArticleId:(NSString *)articleId;
++ (void)executeWithArticle:(id<NTFArticle>)article
+                    parent:(nullable id<NTFArticle>)parent
+                  flowType:(NTFTextFlowType)flowType
+                 presenter:(nullable UIViewController *)presenter
+                   options:(PRArticleContainerOption)options
+        highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases
+                completion:(void(^_Nullable)(UIViewController *))completion;
+
++ (void)executeWithArticleId:(NSString *)articleId
+                  completion:(void(^_Nullable)(UIViewController *))completion;
 
 + (void)executeWithArticleId:(NSString *)articleId
                     flowType:(NTFTextFlowType)flowType
-                   presenter:(nullable UIViewController *)presenter;
+                   presenter:(nullable UIViewController *)presenter
+                  completion:(void(^_Nullable)(UIViewController *))completion;
 
 + (void)executeWithArticleId:(NSString *)articleId
                     flowType:(NTFTextFlowType)flowType
                    presenter:(nullable UIViewController *)presenter
                      options:(PRArticleContainerOption)options
-          highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
+          highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases
+                  completion:(void(^_Nullable)(UIViewController *))completion;
 
 @property (class, nonatomic, weak, readonly) __kindof UIViewController *presentedController;
 

@@ -31,7 +31,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import "PRAnalyticsProto.h"
 #import "SynthesizeSingleton.h"
 #import "PRSubscriptionCatalogProtocol.h"
-#import "PRMastheadProvider.h"
 #import "PRWebServerBookRegister.h"
 #import "PRAppUIReadyDelegate.h"
 #import "OpenedItem.h"
@@ -88,7 +87,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import "PRTitleObject.h"
 
 #import "PRSourceItem.h"
-#import "PRSourceItem+Masthead.h"
 
 #import "PRTitleItem.h"
 #import "PRTitleItem+Favorites.h"
@@ -123,9 +121,11 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import "PRLibraryProfile+Service.h"
 
 #import "NTFDataService.h"
+#import "NTFDataService+Filter.h"
 #import "NTFSearchDataService.h"
 #import "NTFCategoryFeedDataService.h"
 #import "NTFSimilarArticlesDataService.h"
+
 #import "NTFCoreDataController.h"
 
 #import "NTFFeed+Config.h"
@@ -139,6 +139,7 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 
 #import "NTFRelatedStoriesItem.h"
 #import "NTFMoreItem.h"
+#import "NTFAdBlockItem.h"
 #import "PRNavMenuFilter.h"
 
 #import "PRUserProfile.h"

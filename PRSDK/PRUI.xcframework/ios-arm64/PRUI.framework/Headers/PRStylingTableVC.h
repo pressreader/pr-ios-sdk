@@ -7,18 +7,14 @@
 //
 
 @import UIKit;
-@import PRUIKit.UIView_Theme;
+@import PRUIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRStylingTableVC : UITableViewController
-
-@property (nonatomic) BOOL autoUpdateNavigationBarOnScroll;
 @property (nonatomic) BOOL shouldUpdateTableViewAppearance;
 
-@property (nonatomic) PRAppearanceOption appearanceOptions;
-
-#pragma mark - override
+@property (nonatomic) AppearanceOption *appearanceOptions;
 
 - (void)updateAppearance;
 

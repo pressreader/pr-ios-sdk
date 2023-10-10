@@ -63,7 +63,6 @@ typedef NS_ENUM(NSUInteger, PRCollectionViewCellImageScalingMode) {
 @interface PRCollectionViewCell (/*Protected*/)
 
 - (void)setupDefaults;
-- (void)registerAsObserver;
 
 - (void)refreshSupplementsView;
 - (void)refreshShadowView;

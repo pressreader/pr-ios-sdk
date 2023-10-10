@@ -25,7 +25,6 @@ extern NSString *const PRNumberOfDownloadedIssuesToKeep;
 extern NSString *const PRDefaultAppPanel;
 
 extern NSString *const PRUpdatedConfigRequested;
-extern NSString *const PRShowAccordion;
 
 extern NSString *const PRRadioUseSpeechSynthesizer;
 extern NSString *const PRSpeechSynthesizerRate;

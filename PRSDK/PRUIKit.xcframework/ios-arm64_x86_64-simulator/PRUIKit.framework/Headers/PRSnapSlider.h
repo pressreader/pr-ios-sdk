@@ -6,10 +6,10 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <PRUIKit/PRSlider.h>
 
 // Immitate the snap to integral position slider similar to preferred font size in Apple's display settings
 
-@interface PRSnapSlider : UISlider
+@interface PRSnapSlider : PRSlider
 
 @end

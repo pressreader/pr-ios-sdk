@@ -13,7 +13,8 @@
 @class PRSourceList;
 @class PRCountableValue;
 @class PRBannerPresentationConfig;
-@class PRPubHubSchemeProvider;
+@class CatalogSchemeProvider;
+@class CatalogSectionScheme;
 
 @protocol PRPubHubDataSourceDelegate;
 @protocol CatalogItemDataSourceProtocol;
@@ -37,15 +38,15 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 + (instancetype)new NS_UNAVAILABLE;
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithSchemeProvider:(PRPubHubSchemeProvider *)schemeProvider;
+- (instancetype)initWithSchemeProvider:(CatalogSchemeProvider *)schemeProvider;
 
-- (BOOL)sectionFormedFromFavorites:(PRCatalogSectionType)section;
 - (void)resetSections;
 
 - (void)update;
 - (void)setNeedsUpdate;
 
-- (PRSourceList *)sourceListWithCategory:(PRCountableValue *)category;
+- (PRSourceList *)sourceListWithScheme:(CatalogSectionScheme *)scheme
+                              category:(PRCountableValue *)category;
 - (nullable PRCountableValue *)categoryAtIndexPath:(NSIndexPath *)indexPath;
 
 - (CGSize)adBannerSizeForCatalogSection:(PRCatalogSection *)section;
@@ -69,19 +70,19 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 
 - (void)updateContentSize;
 
-- (PRCatalogSection *)sectionWithType:(PRCatalogSectionType)sectionType NS_SWIFT_NAME(section(type:));
+- (PRCatalogSection *)sectionWithScheme:(CatalogSectionScheme *)scheme NS_SWIFT_NAME(section(scheme:));
 
-- (PRCatalogSection *)sectionWithType:(PRCatalogSectionType)sectionType
-                                title:(nullable NSString *)title
-                               prompt:(nullable NSString *)prompt
-                             subtitle:(nullable NSString *)subtitle
-                           dataSource:(nullable id)dataSource
-                            skipCache:(BOOL)skipCache NS_SWIFT_NAME(section(type:title:prompt:subtitle:dataSource:skipCache:));
+- (PRCatalogSection *)sectionWithScheme:(CatalogSectionScheme *)scheme
+                                  title:(nullable NSString *)title
+                                 prompt:(nullable NSString *)prompt
+                               subtitle:(nullable NSString *)subtitle
+                             dataSource:(nullable id)dataSource
+                              skipCache:(BOOL)skipCache NS_SWIFT_NAME(section(scheme:title:prompt:subtitle:dataSource:skipCache:));
 
-- (PRCatalogSection *)sectionWithType:(PRCatalogSectionType)sectionType
-                     titlePlaceholder:(nullable NSString *)titlePlaceholder
-                           dataSource:(nullable id)dataSource
-                                index:(NSInteger)index NS_SWIFT_NAME(section(type:title:dataSource:index:));
+- (PRCatalogSection *)sectionWithScheme:(CatalogSectionScheme *)scheme
+                       titlePlaceholder:(nullable NSString *)titlePlaceholder
+                             dataSource:(nullable id)dataSource
+                                  index:(NSInteger)index NS_SWIFT_NAME(section(scheme:title:dataSource:index:));
 
 
 - (nullable PRCatalogSection *)sectionOfType:(PRCatalogSectionType)sectionType;
@@ -97,7 +98,6 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 - (void)updateSection:(PRCatalogSection *)section source:(id<CatalogItemDataSourceProtocol>)source;
     
 @property (nullable, nonatomic, strong) NSArray<PRCatalogSection *> *sections;
-@property (nonatomic, readonly) NSArray<NSNumber *> *sectionsOrder;
 @property (nonatomic) PRPubHubDataSourceOption options;
 @property (nonatomic, readonly) BOOL isItemsSizeFixed;
 @property (nonatomic, readonly) BOOL isLocalServiceOn;

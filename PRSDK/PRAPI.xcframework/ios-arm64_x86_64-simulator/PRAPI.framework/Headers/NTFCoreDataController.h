@@ -21,6 +21,12 @@ extern NSNotificationName const NTFOnlineSessionDidStartNotification;
 
 @end
 
+#ifdef TEST
+@interface NTFCoreDataController ()
+- (void)startNewSessionWithName:(NSString *)sessionName;
+@end
+#endif
+
 NS_ASSUME_NONNULL_END
 
 #import "NTFCoreDataController+Session.h"

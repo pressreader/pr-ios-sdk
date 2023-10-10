@@ -12,9 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRUINavigationController : UINavigationController
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
-                               navBarClass:(nullable Class)navBarClass
-                              toolbarClass:(nullable Class)toolbarClass;
+- (instancetype)initWithViewControllers:(NSArray<UIViewController *> *)viewControllers;
 
 @end
 

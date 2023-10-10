@@ -16,6 +16,10 @@ typedef NS_ENUM(uint8_t, PROrderInfoBarStyle) {
 };
 
 @interface PROrderInfoBarView : UIView
+
++ (instancetype)view;
++ (instancetype)viewWithCID:(NSString *)cid;
+
 @property (nonatomic, strong) NSString *cid;
 
 @property (nonatomic, copy) NSString *titleText;
@@ -25,9 +29,14 @@ typedef NS_ENUM(uint8_t, PROrderInfoBarStyle) {
 
 @property (nonatomic) PROrderInfoBarStyle style;
 
-+ (instancetype)view;
-+ (instancetype)viewWithCID:(NSString *)cid;
+@end
 
+@interface PROrderInfoBarView (/*PROTECTED*/)
+@property (nonatomic, strong) IBOutlet UIImageView *mastheadImageView;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *mastheadHeight;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, strong) IBOutletCollection(NSLayoutConstraint) NSArray<NSLayoutConstraint *> *spaces;
 @end
 
 NS_ASSUME_NONNULL_END

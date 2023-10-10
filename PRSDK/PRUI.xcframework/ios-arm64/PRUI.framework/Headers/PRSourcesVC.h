@@ -53,4 +53,10 @@ typedef NS_ENUM (NSUInteger, PRSourcesListType) {
 @property (nonatomic, strong) PRTooltipDelegate *tooltipDelegate;
 @end
 
+#ifdef TEST
+@interface PRSourcesVC ()
+- (void)orderItemAtIndexPath:(NSIndexPath *)indexPath;
+@end
+#endif
+
 NS_ASSUME_NONNULL_END

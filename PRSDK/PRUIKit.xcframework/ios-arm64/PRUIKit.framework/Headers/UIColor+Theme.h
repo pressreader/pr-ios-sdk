@@ -7,65 +7,42 @@
 //
 
 #import <UIKit/UIKit.h>
-@import PRAccessibility;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (Theme)
 
-+ (nullable UIColor *)thumbnailBackgroundColorForTheme:(PRTheme)theme;
++ (UIColor *)menuBarTintColor:(BOOL)translucent;
++ (UIColor *)defaultUIControlSubtitleColor:(UIUserInterfaceStyle)theme;
 
-+ (UIColor *)navigationBarTintColorForTheme:(PRTheme)theme;
-+ (UIColor *)translucentNavigationBarTintColorForTheme:(PRTheme)theme;
+@property (class, nonatomic, readonly) UIColor *navigationBarTintColor;
+@property (class, nonatomic, readonly) UIColor *translucentNavigationBarTintColor;
 
-+ (UIColor *)navigationBarContentTintColorForTheme:(PRTheme)theme;
-+ (UIColor *)customNavigationBarContentTintColorForTheme:(PRTheme)theme;
+@property (class, nonatomic, readonly) UIColor *navigationBarContentTintColor;
 
-+ (UIColor *)searchBarBackgroundColorForTheme:(PRTheme)theme;
+@property (class, nonatomic, readonly) UIColor *textFieldPlaceholderColor;
+@property (class, nonatomic, readonly) UIColor *contentTintColor;
+@property (class, nonatomic, readonly) UIColor *menuContentTintColor;
+@property (class, nonatomic, readonly) UIColor *linkColor;
 
-+ (UIColor *)menuBarTintColorForTheme:(PRTheme)theme translucent:(BOOL)translucent;
+@property (class, nonatomic, readonly) UIColor *tableViewHeaderFooterTextColor;
+@property (class, nonatomic, readonly) UIColor *tableViewHighlightBackgroundColor;
+@property (class, nonatomic, readonly) UIColor *tableViewHighlightContentTintColor;
+@property (class, nonatomic, readonly) UIColor *tableViewBackgroundColor;
+@property (class, nonatomic, readonly) UIColor *tableViewCellBackgroundColor;
+@property (class, nonatomic, readonly) UIColor *tableViewHeaderBackgroundColor;
 
-+ (UIColor *)textColorForTheme:(PRTheme)theme;
-+ (UIColor *)detailsTextColorForTheme:(PRTheme)theme;
-+ (UIColor *)textFieldPlaceholderColorForTheme:(PRTheme)theme;
-+ (UIColor *)contentTintColorForTheme:(PRTheme)theme;
-+ (UIColor *)menuContentTintColorForTheme:(PRTheme)theme;
-+ (UIColor *)linkColorForTheme:(PRTheme)theme;
+@property (class, nonatomic, readonly) UIColor *tableViewInPopoverSelectedBackgroundColor NS_SWIFT_NAME(tableViewInPopoverSelectedBackground);
+@property (class, nonatomic, readonly) UIColor *tableViewInPopoverCellBackgroundColor NS_SWIFT_NAME(tableViewInPopoverCellBackground);
+@property (class, nonatomic, readonly) UIColor *tableViewInPopoverBackgroundColor NS_SWIFT_NAME(tableViewInPopoverBackground);
 
-+ (UIColor *)tableViewSeparatorColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewHeaderFooterTextColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewHighlightBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewHighlightContentTintColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewSelectedBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewSelectedContentTintColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewCellBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewHeaderBackgroundColorForTheme:(PRTheme)theme;
+@property (class, nonatomic, readonly) UIColor *popoverBackgroundColor;
 
-+ (UIColor *)tableViewInPopoverSelectedBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewInPopoverCellBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)tableViewInPopoverBackgroundColorForTheme:(PRTheme)theme;
+@property (class, nonatomic, readonly) UIColor *defaultUIControlBackgroundColor;
+@property (class, nonatomic, readonly) UIColor *defaultUIControlSubtitleColor;
+@property (class, nonatomic, readonly) UIColor *defaultUIControlTitleColor;
 
-+ (UIColor *)popoverBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)popoverSolidBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)menuPopoverBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)standardPopoverBackgroundColorForTheme:(PRTheme)theme;
-
-+ (UIColor *)defaultUIControlBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)defaultUIControlSubtitleColorForTheme:(PRTheme)theme;
-+ (UIColor *)defaultUIControlTitleColorForTheme:(PRTheme)theme;
-
-+ (UIColor *)defaultBackgroundColorForTheme:(PRTheme)theme;
-
-+ (UIColor *)standoutViewBackgroundColorForTheme:(PRTheme)theme;
-+ (UIColor *)standoutViewTextColorForTheme:(PRTheme)theme;
-+ (UIColor *)standoutViewHeaderColorForTheme:(PRTheme)theme;
-+ (UIColor *)standoutViewSeparatorColorForTheme:(PRTheme)theme;
-
-+ (UIColor *)defaultTextColorForTheme:(PRTheme)theme;
-
-+ (UIColor *)labelColorForTheme:(PRTheme)theme;
-+ (UIColor *)secondaryLabelColorForTheme:(PRTheme)theme;
+@property (class, nonatomic, readonly) UIColor *defaultBackgroundColor;
 
 @end
 

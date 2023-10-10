@@ -24,7 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) NSArray<PRCommandMenuItem *> *orderMenuItems;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *signInMenuItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *bookmarksMenuItem;
-@property (nullable, nonatomic, readonly) PRMenuItem *exitSDKMenuItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *catalogItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *beCatalogItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *favouritesItem;
@@ -32,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *myAccountItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *hotspotItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *settingsItem;
-@property (nullable, nonatomic, readonly) PRCommandMenuItem *aboutUsItem;
+@property (nullable, nonatomic, readonly) PRMenuItem *aboutUsItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *blogItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *helpCenterItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *sendFeedbackItem;

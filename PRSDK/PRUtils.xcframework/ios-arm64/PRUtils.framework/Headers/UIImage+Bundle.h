@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (Bundle)
 
++ (nullable UIImage *)bundledTemplateImageNamed:(NSString *)name NS_SWIFT_NAME(init(bundledTemplateWithName:));
 + (nullable UIImage *)bundledImageNamed:(NSString *)name NS_SWIFT_NAME(init(bundledWithName:));
 + (nullable UIImage *)bundledImageNamed:(NSString *)name
           compatibleWithTraitCollection:(nullable UITraitCollection *)traitCollection NS_SWIFT_NAME(init(bundledWithName:compatibleWith:));

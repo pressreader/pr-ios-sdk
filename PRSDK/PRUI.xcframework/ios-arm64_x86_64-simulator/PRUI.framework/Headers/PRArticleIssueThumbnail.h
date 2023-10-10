@@ -20,8 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateWithArticle:(nullable id<NTFArticle>)article animationStyle:(PRImageSwitcherAnimationStyle)style;
 
-@property (nullable, nonatomic, copy) void(^tapHandler)(__kindof PRImageSwitcher *) NS_UNAVAILABLE;
-@property (nullable, nonatomic, copy) void(^tapActionHandler)(PRSimpleBlock);
+@property (nullable, nonatomic, strong, readonly) id<NTFArticle> article;
 
 @end
 

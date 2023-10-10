@@ -119,4 +119,3 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "PRUINavigationController.h"
 #import "PRTableViewHeaderView.h"
-#import "PRTableViewHeaderView.h"

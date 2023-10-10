@@ -20,7 +20,7 @@ extern const NSInteger kNTFMyLibraryDataSourcePagesetIndexBase;
  @abstact NTFMylibraryItemDataSoure class is concrete implemetation of NDFDataSource protocol
           used for providing Native SmartFlow views with Smart Layout info of localy downloaded title
  */
-@interface NTFMyLibraryItemDataSource : NTFDataSource<PRMastheadProvider>
+@interface NTFMyLibraryItemDataSource : NTFDataSource
 
 /**
  @method initWithMli:

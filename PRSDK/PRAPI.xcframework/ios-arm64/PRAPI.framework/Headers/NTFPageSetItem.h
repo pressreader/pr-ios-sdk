@@ -14,16 +14,20 @@
 @class PRSmartPageset;
 @class PRMyLibraryItem;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NTFPageSetItem : NTFFeedItem
 @property (nonatomic, readonly) PRSmartPageset *pageSet;
-@property (nonatomic, readonly) PRMyLibraryItem *mli;
-@property (nonatomic, readonly) NSArray<NSValue *> *pageSizes;
-@property (nonatomic, readonly) NSArray<NSString *> *pageTickets;
-@property (nonatomic, readonly) NSNumber *firstPageNumber;
+@property (nullable, nonatomic, readonly) PRMyLibraryItem *mli;
+@property (nullable, nonatomic, readonly) NSArray<NSValue *> *pageSizes;
+@property (nullable, nonatomic, readonly) NSArray<NSString *> *pageTickets;
+@property (nullable, nonatomic, readonly) NSNumber *firstPageNumber;
 
 - (CGSize)pageSizeForPageNo:(NSNumber *)pageNumber;
 - (NSString *)pageTicketForPageNo:(NSInteger)pageNumber;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #import "NTFPageSetItem+CoreDataProperties.h"

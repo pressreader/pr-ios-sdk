@@ -20,9 +20,8 @@ typedef NS_ENUM(uint8_t, PRGradientDirection) {
 
 @interface PRGradientLayerView : UIView
 
-/// @param colors An array of CGColorRef objects.
 + (instancetype)viewWithFrame:(CGRect)frame
-                       colors:(NSArray *)colors
+                       colors:(NSArray<UIColor *> *)colors
                     locations:(nullable NSArray<NSNumber *> *)locations
             gradientDirection:(PRGradientDirection)direction;
 
@@ -30,9 +29,8 @@ typedef NS_ENUM(uint8_t, PRGradientDirection) {
                      topColor:(UIColor *)topColor
                   bottomColor:(UIColor *)bottomColor;
 
-/// @param colors An array of CGColorRef objects.
 - (instancetype)initWithFrame:(CGRect)frame
-                       colors:(NSArray *)colors
+                       colors:(NSArray<UIColor *> *)colors
                     locations:(nullable NSArray<NSNumber *> *)locations
             gradientDirection:(PRGradientDirection)direction;
 
@@ -40,8 +38,7 @@ typedef NS_ENUM(uint8_t, PRGradientDirection) {
                      topColor:(UIColor *)topColor
                   bottomColor:(UIColor *)bottomColor;
 
-/// @param colors An array of CGColorRef objects.
-- (void)setupGrardientWithColors:(NSArray *)colors
+- (void)setupGrardientWithColors:(NSArray<UIColor *> *)colors
                        locations:(nullable NSArray<NSNumber *> *)locations
                gradientDirection:(PRGradientDirection)direction;
 

@@ -6,15 +6,14 @@
 //  Copyright © 2017 NewspaperDirect. All rights reserved.
 //
 
-#import "VerticalTextFlowVC.h"
-
 #import "NTFFeedDataSource.h"
+#import "CustomStyleableTextFlowVC.h"
 
 @class PRMenuItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRVerticalFeedVC : VerticalTextFlowVC <NTFFeedDataSourceDelegate>
+@interface PRVerticalFeedVC : CustomStyleableTextFlowVC <NTFFeedDataSourceDelegate>
 
 + (instancetype)controllerFromStoryboardWithDataSource:(NTFFeedDataSource *)dataSource;
 
@@ -34,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRVerticalFeedVC (/*Protected*/)
 
-- (void)openFilterResultsWithFilter:(PRNavMenuFilter *)filter;
 - (NSArray<PRMenuItem *> *)mainMenuItems;
 
 @end

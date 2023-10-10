@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (float)maxSpeechRate;
 + (float)defaultSpeechRate;
 
+@property (class, nonatomic) float speechRate;
+
 @end
 
 NS_ASSUME_NONNULL_END

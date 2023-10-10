@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PRUniversalMasterVC : PRStylingTableVC <ViewRefreshable>
 
 - (void)pushDetailsVC:(UIViewController *)detailsVC animated:(BOOL)animated;
-// to override -- call super first
-- (void)updateAppearance;
 
 @property (nonatomic, readonly) NSIndexPath *initialIndexPath;
 

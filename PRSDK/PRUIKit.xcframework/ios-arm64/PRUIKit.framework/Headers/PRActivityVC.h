@@ -11,16 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSUInteger, PRActivityViewOption) {
-    PRActivityViewOptionVertical = 1 << 0,
-    PRActivityViewOptionWhite = 1 << 1
+    PRActivityViewOptionVertical = 1 << 0
 };
 
 @interface PRActivityVC : UIViewController
+
 + (instancetype)activityVCWithOptions:(PRActivityViewOption)options NS_SWIFT_NAME(init(options:));
 + (instancetype)activityVC NS_SWIFT_NAME(activityVC());
-+ (instancetype)activityVCWhite NS_SWIFT_NAME(activityVCWhite());
-
-- (void)whiteMe;
 
 - (void)showInView:(UIView *)view insets:(UIEdgeInsets)insets;
 - (void)showInView:(UIView *)view;

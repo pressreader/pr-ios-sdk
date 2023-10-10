@@ -9,7 +9,6 @@
 @import PRAPI;
 
 #import <PRUI/NTFCommentsDataSource.h>
-#import <PRUI/PRFlowArticle.h>
 #import <PRUI/PRFeedLayoutManager.h>
 
 @import PRConfiguration.PRFeedConfig;
@@ -45,8 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NTFDataItemType)typeForRow:(NSInteger)row;
 - (NTFDataItemType)typeForItem:(id)item;
 
-- (nullable id<PRFlowArticle>)articleAtIndex:(NSInteger)idx;
-- (nullable id<PRFlowArticle>)articleAtRow:(NSInteger)row;
+- (nullable id<FlowArticle>)articleAtIndex:(NSInteger)idx;
+- (nullable id<FlowArticle>)articleAtRow:(NSInteger)row;
 - (id<NTFArticle>)getCurrentArticle;
 - (void)getCurrentArticleWithCompletion:(void(^_Nullable)(id<NTFArticle> _Nullable))completion;
 - (nullable id<NTFArticle>)getCurrentArticleWithLoadingHandler:(void(^_Nullable)(id<NTFArticle>))completion;

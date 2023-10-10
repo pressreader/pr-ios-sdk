@@ -40,6 +40,7 @@ typedef NS_OPTIONS(NSUInteger, VerticalTextFlowVCPreference) {
 @class PRActionMenuVC;
 @class FeedItemAction;
 @class TranslationView;
+@class TextFlowActivityVC;
 
 @interface VerticalTextFlowVC () <UITableViewDelegate, UITableViewDataSource,
                                   UIPopoverPresentationControllerDelegate,
@@ -57,15 +58,12 @@ typedef NS_OPTIONS(NSUInteger, VerticalTextFlowVCPreference) {
 - (void)registerObservers;
 - (void)contentSizeCategoryChanged:(NSNotification *)notification;
 
-// Activity indicator
-- (void)showActivityIndicator;
-- (void)hideActivityIndicator;
-
 // Actions
 - (void)onRefreshControl:(UIRefreshControl *)sender;
 - (void)fontSliderValueChanged:(UISlider *)slider;
 
-- (void)presentDetailsVCForArticle:(id<NTFArticle>)item NS_SWIFT_NAME(presentDetailsVC(item:));
+- (void)presentDetailsVCForArticle:(id<NTFArticle>)item
+                        completion:(void(^_Nullable)(UIViewController *))completion NS_SWIFT_NAME(presentDetailsVC(article:completion:));
 
 - (void)refreshBottomBar;
 - (void)processSizeChange;
@@ -103,6 +101,7 @@ typedef NS_OPTIONS(NSUInteger, VerticalTextFlowVCPreference) {
 
 @property (nullable, nonatomic, strong) NSString *currentLanguageISOCode;
 @property (nullable, nonatomic, strong, readonly) TranslationView *translationView;
+@property (nullable, nonatomic, strong) TextFlowActivityVC *activityVC;
 
 @end
 

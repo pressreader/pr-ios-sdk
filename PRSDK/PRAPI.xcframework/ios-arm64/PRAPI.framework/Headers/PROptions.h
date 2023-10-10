@@ -10,7 +10,6 @@
 
 @import PRConfiguration;
 @import PRCatalogModel.PRSourceItem_Basics;
-@import PRAccessibility;
 
 @class PRSharedPreferences;
 @class TranslateOptions;
@@ -63,7 +62,8 @@ extern CGFloat const kIPhone_MaxZoomLevel;
 #define MAX_ZOOM_SCALE  (UIDevice.isUserIntefaceIdiomPad ? kIPad_MaxZoomLevel : kIPhone_MaxZoomLevel)
 
 typedef NS_ENUM(uint32_t, PRLayoutType) {
-    PRLayoutTypeCarousel = 0,
+    PRLayoutTypeNone = 0,
+    PRLayoutTypeCarousel,
     PRLayoutTypeGrid
 };
 
@@ -72,8 +72,7 @@ typedef NS_ENUM(NSInteger, PRPresentationStyle) {
     PRPresentationStyleList,
     PRPresentationStyleSmallGrid,
     PRPresentationStyleMicroGrid,
-    PRPresentationStyleGrid,
-    PRPresentationStyleNewsstand
+    PRPresentationStyleGrid
 };
 
 typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
@@ -197,8 +196,7 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 @property (nonatomic, assign) PRPresentationStyle downloadedPresentationStyle;
 @property (nonatomic) PRAppPanelID defaultAppPanel;
 @property (nonatomic, getter = isConfigRefreshedAfterAppUpdated) BOOL configRefreshedAfterAppUpdated;
-@property (nonatomic, assign) PRTheme appTheme;
-@property (nonatomic, getter=isBlackStatusBar) BOOL blackStatusBar;
+@property (nonatomic, assign) UIUserInterfaceStyle appTheme;
 
 @property (nonatomic, strong, readonly) PRSharedPreferences *sharedPreferences;
 

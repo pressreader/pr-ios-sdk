@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "PRCommentPostView.h"
-#import "PRFlowArticle.h"
 
-@import PRAPI.NTFArticle;
+@import PRAPI;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface PRCommentsView : UIView
-@property (nonatomic, strong) id<PRFlowArticle> article;
+@property (nonatomic, strong) id<FlowArticle> article;
 
 @property (nonatomic, readonly) UIStackView *stackView;
 

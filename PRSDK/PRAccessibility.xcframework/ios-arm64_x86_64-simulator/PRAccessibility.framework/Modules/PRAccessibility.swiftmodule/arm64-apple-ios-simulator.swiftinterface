@@ -1,16 +1,17 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAccessibility
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
 @_exported import PRAccessibility
 import Swift
+import UIKit
 import _Concurrency
 import _StringProcessing
 @objc @objcMembers final public class AccessibilityId : ObjectiveC.NSObject {
   @objc final public let rawValue: Swift.String
   @objc public init(rawValue: Swift.String)
-  @objc final public func id(with theme: PRAccessibility.PRTheme) -> Swift.String
+  @objc final public func id(with theme: UIKit.UIUserInterfaceStyle) -> Swift.String
   @objc override final public var hash: Swift.Int {
     @objc get
   }
@@ -65,16 +66,27 @@ public struct AppMenuItemAccessibilityId {
   public let sendFeedback: PRAccessibility.AccessibilityId
   public let customerSupport: PRAccessibility.AccessibilityId
   public let webView: PRAccessibility.AccessibilityId
+  public let exit: PRAccessibility.AccessibilityId
 }
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let account: PRAccessibility.AccountAccessibilityId
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AccountAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let hub: PRAccessibility.AccountHubAccessibilityId
+  @objc final public let view: PRAccessibility.AccessibilityId
   @objc final public let cell: PRAccessibility.AccountCellAccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountHubAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let view: PRAccessibility.AccessibilityId
+  @objc final public let defaultAccountCell: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AccountCellAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let signOut: PRAccessibility.AccessibilityId
+  @objc final public let reset: PRAccessibility.AccessibilityId
   @objc final public let delete: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
@@ -127,8 +139,6 @@ public enum PRLaunchCommandParameter : Swift.String {
   @objc deinit
 }
 @objc extension PRAccessibility.AccessibilityId {
-  @objc public static let skippableView: PRAccessibility.AccessibilityId
-  @objc public static let proceedableView: PRAccessibility.AccessibilityId
   @objc public static let issuesSectionHeader: PRAccessibility.AccessibilityId
   @objc public static let splashView: PRAccessibility.AccessibilityId
   @objc public static let networkErrorView: PRAccessibility.AccessibilityId
@@ -140,6 +150,21 @@ public enum PRLaunchCommandParameter : Swift.String {
   @objc public static let sourceView: PRAccessibility.AccessibilityId
   @objc public static let horizontalScroller: PRAccessibility.AccessibilityId
   @objc public static let searchField: PRAccessibility.AccessibilityId
+  @objc public static let auth: PRAccessibility.AuthAccessibilityId
+  @objc public static let textField: PRAccessibility.TextFieldAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AuthAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let options: PRAccessibility.AccessibilityId
+  @objc final public let web: PRAccessibility.AccessibilityId
+  @objc final public let email: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class TextFieldAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let username: PRAccessibility.AccessibilityId
+  @objc final public let password: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
 }
 public enum BEAppType : Swift.Int {
   case single

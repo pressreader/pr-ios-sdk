@@ -21,10 +21,8 @@ extern NSString *const kCellId;
 extern NSString *const kSectionHeaderId;
 extern NSString *const kSectionFooterId;
 
-extern NSString * const kPRCellGridIdentifier;
 extern NSString * const kPRCellGridCompactIdentifier;
 extern NSString * const kPRCellGridSmallIdentifier;
-extern NSString * const kPRCellNewsstandIdentifier;
 extern NSString * const kPRCellListIdentifier;
 extern NSString * const kPRCellListCompactIdentifier;
 
@@ -71,7 +69,6 @@ typedef NS_OPTIONS(NSUInteger, PRCollectionOption) {
 
 @property (nonatomic) PRSourceItemCellPresentationStyle cellPresentationStyle;
 
-@property (nonatomic) PRTheme theme;
 @property (nonatomic) NSString *identifier;
 
 @property (nonatomic) PRCollectionOption viewOptions;
@@ -104,7 +101,6 @@ typedef NS_OPTIONS(NSUInteger, PRCollectionOption) {
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForRegularList;
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForRegularSmallGrid;
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForRegularGrid;
-@property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForNewsstand;
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForCompactList;
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForCompactSmallGrid;
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForCompactGrid;

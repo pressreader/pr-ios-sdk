@@ -26,8 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
                              options:(NTFArticleCompactTextualViewOption)options;   
 
 - (instancetype)initWithStyle:(NTFArticleCompactViewStyle)style
-                      options:(NTFArticleCompactTextualViewOption)options
-                        theme:(PRTheme)theme;
+                      options:(NTFArticleCompactTextualViewOption)options;
 
 /// @param contentSize In most of the cases .height = 0 (if filling all content space with text is not a requirement).
 - (void)setupWithArticleItem:(nullable id<NTFArticle>)articleItem
@@ -40,8 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong, readonly) id<NTFArticle> articleItem;
 
 @property (nonatomic) NTFArticleCompactViewBylineStyle bylineStyle;
-@property (nonatomic) PRTheme theme;
-
 @property (nonatomic, assign, readonly) NTFArticleCompactTextualViewOption options;
 
 @property (nonatomic) BOOL offlineMode;

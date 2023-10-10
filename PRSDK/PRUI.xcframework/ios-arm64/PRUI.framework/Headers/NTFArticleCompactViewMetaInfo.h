@@ -22,14 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NTFArticleCompactViewMetaInfo : NSObject
 
-+ (UIColor *)bylineTextColorWithTheme:(PRTheme)theme;
-
 @property (nullable, nonatomic, strong) FeedItemAction *action;
 @property (nonatomic, strong) id<NTFArticle> articleItem;
 
 @property (nonatomic) BOOL offlineMode;
 
-@property (nonatomic) PRTheme theme;
 @property (nonatomic) NTFArticleCompactViewStyle style;
 @property (nonatomic) NTFArticleCompactViewBylineStyle bylineStyle;
 @property (nonatomic) NTFArticleCompactTextualViewOption options;

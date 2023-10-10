@@ -58,8 +58,8 @@ extern NSString *const kSourceType;
 
 @property (nonatomic, readonly) BOOL isSupplement;
 
-@property (nonatomic, strong) NSString *mastheadColour;
-@property (nonatomic, strong) NSString *mastheadTemplate;
+@property (nullable, nonatomic, strong) NSString *originalMasthead;
+@property (nullable, nonatomic, strong) NSString *templateMasthead;
 @property (nonatomic, getter=isMastheadRequested) BOOL mastheadRequested;
 
 @property (nullable, nonatomic, readonly) PRAccountItem *account;

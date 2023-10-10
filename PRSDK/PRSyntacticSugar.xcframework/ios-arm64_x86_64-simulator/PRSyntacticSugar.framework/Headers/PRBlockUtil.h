@@ -27,7 +27,7 @@ typedef void(^PRSimpleBlock)(void);
 + (void)cancelPreviousPerformBlockInMainThread:(id)aHandle;
 
 + (void)performBlockInMainThread:(PRSimpleBlock)aBlock NS_SWIFT_NAME(performInMainThread(_:));
-+ (void)performBlockInMainThread:(PRSimpleBlock)aBlock waitUntilDone:(BOOL)wait;
++ (void)performBlockInMainThreadAsync:(BOOL)async block:(PRSimpleBlock)block;
 
 + (void)performBlockInBackgroundThread:(PRSimpleBlock)block NS_SWIFT_NAME(performInBackgroundThread(_:));
 

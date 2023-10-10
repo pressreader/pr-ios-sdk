@@ -43,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)registerNotificationHandlers;
 - (void)commentsUpdated:(NSNotification *)notification;
 - (void)acrticleUpdated:(NSNotification *)notification;
-- (void)articleCollectionsUpdated:(NSNotification *)note;
 - (void)pagesetUpdated:(NSNotification *)notification;
 - (void)refreshDataByTriggerHandler:(nullable NSNotification *)note;
 

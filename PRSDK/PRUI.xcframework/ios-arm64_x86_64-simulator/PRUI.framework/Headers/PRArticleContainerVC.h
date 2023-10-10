@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@import PRAPI.NTFArticle;
-#import "PRFlowArticle.h"
+@import PRAPI;
 
 #import "PRArticleContainer.h"
+@class PRArticleIssueThumbnail;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,16 +21,17 @@ typedef NS_OPTIONS(NSUInteger, PRArticleContainerOption) {
 
 @interface PRArticleContainerVC : UIPageViewController <PRArticleContainer>
 
-- (instancetype)initWithArticle:(id<PRFlowArticle>)article
+- (instancetype)initWithArticle:(id<FlowArticle>)article
                          parent:(NTFArticleItem *_Nullable)parent;
 
-- (instancetype)initWithArticle:(id<PRFlowArticle>)article
+- (instancetype)initWithArticle:(id<FlowArticle>)article
                          parent:(NTFArticleItem *_Nullable)parent
                         options:(PRArticleContainerOption)options NS_DESIGNATED_INITIALIZER;
 
-@property (nonatomic, strong, readonly) id<PRFlowArticle> article;
+@property (nonatomic, strong, readonly) id<FlowArticle> article;
 @property (nullable, nonatomic, strong) NSArray<NSString *> *highlightedPhrases;
 @property (nonatomic, readonly) PRArticleContainerOption options;
+@property (nonatomic, strong, readonly) PRArticleIssueThumbnail *issueThumb;
 
 @end
 
@@ -58,5 +59,12 @@ typedef NS_OPTIONS(NSUInteger, PRArticleContainerOption) {
 @property (nullable, nonatomic, readonly) VerticalTextFlowArticleDetailsVC *visibleVC;
 
 @end
+
+
+#ifdef TEST
+@interface PRArticleContainerVC ()
+- (void)openReplicaWithCompletion:(PRSimpleBlock)completion;
+@end
+#endif
 
 NS_ASSUME_NONNULL_END

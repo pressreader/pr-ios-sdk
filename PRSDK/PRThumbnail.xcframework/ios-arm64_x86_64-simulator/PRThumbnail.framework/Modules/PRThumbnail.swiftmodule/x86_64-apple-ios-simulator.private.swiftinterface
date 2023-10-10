@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRThumbnail
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -11,19 +11,6 @@ import _Concurrency
 import _StringProcessing
 @objc @_hasMissingDesignatedInitializers final public class ContentCardThumbnail : PRThumbnail.PRThumbnailObject {
   @objc deinit
-}
-extension PRThumbnail.PRThumbnailObject {
-  public enum LoadingError : Swift.Error {
-    case unknown
-    public static func == (a: PRThumbnail.PRThumbnailObject.LoadingError, b: PRThumbnail.PRThumbnailObject.LoadingError) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  #if compiler(>=5.3) && $AsyncAwait
-  public func getImage() async throws -> UIKit.UIImage
-  #endif
 }
 extension PRThumbnail.PRThumbnailsManager {
   public func thumbnail(imageId: Swift.String, url: Swift.String) -> PRThumbnail.ContentCardThumbnail
@@ -40,5 +27,3 @@ extension PRThumbnail.PRThumbnailsManager {
 extension PRThumbnail.PRThumbnailsManager {
   public func thumbnail(imageId: Swift.String, size: CoreFoundation.CGSize) -> PRThumbnail.PRCatalogItemThumbnail
 }
-extension PRThumbnail.PRThumbnailObject.LoadingError : Swift.Equatable {}
-extension PRThumbnail.PRThumbnailObject.LoadingError : Swift.Hashable {}

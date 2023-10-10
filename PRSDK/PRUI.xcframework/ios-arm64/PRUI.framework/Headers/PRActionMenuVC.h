@@ -18,6 +18,7 @@ extern CGFloat const kAMHeaderHeight;
 @class PRScrollAnimationSynchronizer;
 
 @interface PRActionMenuVC: UIViewController<UITableViewDataSource, UITableViewDelegate, PRActionMenu>
+
 @property (nonatomic) CGSize estimatedPreferredContentSize;
 
 @property (nonatomic, strong, readonly) UITableView *tableView;
@@ -26,8 +27,6 @@ extern CGFloat const kAMHeaderHeight;
 @property (nullable, nonatomic, strong) NSIndexPath *initialMenuIndexPath;
 
 @property (nonatomic, strong) NSArray<UIBarButtonItem *> *toolbarItems;
-
-@property (nonatomic) PRTheme theme;
 
 @property (nullable, nonatomic, copy) void (^menuItemDidSelectBlock)(__kindof PRMenuItem *menuItem, void (^completionBlock)(void));
 @property (nullable, nonatomic, copy) void (^onMenuDidDismiss)(void);
@@ -40,6 +39,10 @@ extern CGFloat const kAMHeaderHeight;
 @property (nonatomic) CGFloat maximumWidth;
 
 @property (nonatomic, strong, nullable) UIView *navigationBarBootomView;
+
+@property (nonatomic, strong) UIColor *contentTintColor;
+@property (nonatomic, strong) UIColor *highlightedContentTintColor;
+@property (nonatomic, strong) UIColor *selectedContentTintColor;
 
 @end
 

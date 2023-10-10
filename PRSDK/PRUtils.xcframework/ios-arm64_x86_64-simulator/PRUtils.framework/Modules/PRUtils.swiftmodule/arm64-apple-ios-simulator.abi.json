@@ -1989,6 +1989,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "CryptoKit",
+        "printedName": "CryptoKit",
+        "declKind": "Import",
+        "moduleName": "PRUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Function",
         "name": "PRLocalizedString",
         "printedName": "PRLocalizedString(_:default:)",
@@ -2975,6 +2985,45 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "sha256Hash",
+            "printedName": "sha256Hash",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10Foundation4DataV7PRUtilsE10sha256HashSSvp",
+            "mangledName": "$s10Foundation4DataV7PRUtilsE10sha256HashSSvp",
+            "moduleName": "PRUtils",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10Foundation4DataV7PRUtilsE10sha256HashSSvg",
+                "mangledName": "$s10Foundation4DataV7PRUtilsE10sha256HashSSvg",
+                "moduleName": "PRUtils",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -5026,6 +5075,61 @@
           },
           {
             "kind": "Var",
+            "name": "sha256Hash",
+            "printedName": "sha256Hash",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:SS7PRUtilsE10sha256HashSSSgvp",
+            "mangledName": "$sSS7PRUtilsE10sha256HashSSSgvp",
+            "moduleName": "PRUtils",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SS7PRUtilsE10sha256HashSSSgvg",
+                "mangledName": "$sSS7PRUtilsE10sha256HashSSSgvg",
+                "moduleName": "PRUtils",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "canonicalDate",
             "printedName": "canonicalDate",
             "children": [
@@ -5208,6 +5312,40 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "htmlAttributed",
+            "printedName": "htmlAttributed(encoding:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSMutableAttributedString?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSMutableAttributedString",
+                    "printedName": "Foundation.NSMutableAttributedString",
+                    "usr": "c:objc(cs)NSMutableAttributedString"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoding",
+                "printedName": "Swift.String.Encoding",
+                "hasDefaultArg": true,
+                "usr": "s:SS10FoundationE8EncodingV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SS7PRUtilsE14htmlAttributed8encodingSo09NSMutableC6StringCSgSS10FoundationE8EncodingV_tF",
+            "mangledName": "$sSS7PRUtilsE14htmlAttributed8encodingSo09NSMutableC6StringCSgSS10FoundationE8EncodingV_tF",
+            "moduleName": "PRUtils",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Struct",
@@ -7934,6 +8072,70 @@
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRUtils@@objc(cs)UIApplication(im)firstKeyWindow",
                 "mangledName": "$sSo13UIApplicationC7PRUtilsE14firstKeyWindowSo8UIWindowCSgvg",
+                "moduleName": "PRUtils",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appWindows",
+            "printedName": "appWindows",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[UIKit.UIWindow]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIWindow",
+                    "printedName": "UIKit.UIWindow",
+                    "usr": "c:objc(cs)UIWindow"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUtils@@objc(cs)UIApplication(py)appWindows",
+            "mangledName": "$sSo13UIApplicationC7PRUtilsE10appWindowsSaySo8UIWindowCGvp",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "Dynamic",
+              "Custom",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[UIKit.UIWindow]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIWindow",
+                        "printedName": "UIKit.UIWindow",
+                        "usr": "c:objc(cs)UIWindow"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUtils@@objc(cs)UIApplication(im)appWindows",
+                "mangledName": "$sSo13UIApplicationC7PRUtilsE10appWindowsSaySo8UIWindowCGvg",
                 "moduleName": "PRUtils",
                 "declAttributes": [
                   "Dynamic",

@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)nameInitials;
 
 - (NSString *)substringToWidth:(CGFloat)width withFont:(UIFont *)font;
+- (NSString *)substringToLimit:(NSUInteger)limit;
+- (NSString *)substringToLimit:(NSUInteger)limit truncationSymbol:(NSString *)truncationSymbol;
 
 - (NSString *)pr_stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet;
 

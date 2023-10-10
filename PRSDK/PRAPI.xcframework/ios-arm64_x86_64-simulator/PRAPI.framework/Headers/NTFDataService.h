@@ -111,7 +111,6 @@ typedef NSArray<JSONDictionary> * JSONCollection;
 @property (nonatomic, readonly) NTFDataServiceState defaultState;
 
 @property (nonatomic, readonly) JSONDictionary articlesRequestParameters;
-@property (nonatomic, readonly) NSUInteger totalItems;
 @property (nonatomic, assign) NSUInteger batchSize;
 
 @property (nonatomic, strong) NSManagedObjectID *feedId;

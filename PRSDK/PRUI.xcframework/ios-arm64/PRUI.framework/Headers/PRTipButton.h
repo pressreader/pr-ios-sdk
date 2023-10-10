@@ -26,8 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRTipButton (/*PROTECTED*/)
 
-/// Default implementation does nothing. Place your appearance generation code based on count and font here.
-- (void)updateAppearance;
+/// Default implementation does nothing.
 - (void)setupAccessibility;
 
 @property (nonatomic, readonly) CGSize tipSize;

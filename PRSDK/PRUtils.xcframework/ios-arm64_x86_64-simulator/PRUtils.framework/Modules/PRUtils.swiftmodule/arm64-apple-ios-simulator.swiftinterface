@@ -1,8 +1,9 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUtils
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Compression
+import CryptoKit
 import Foundation
 import PRConfiguration
 @_exported import PRUtils
@@ -72,6 +73,9 @@ extension Swift.String {
     get
   }
   public var sdbmhash: Swift.Int {
+    get
+  }
+  public var sha256Hash: Swift.String? {
     get
   }
 }
@@ -227,6 +231,12 @@ extension Swift.String {
   public func ranges(of substring: Swift.String, options: Swift.String.CompareOptions = [], locale: Foundation.Locale? = nil) -> [Swift.Range<Swift.String.Index>]
   public func capitalizedFirstLetter() -> Swift.String
   public mutating func capitalizeFirstLetter()
+  public func htmlAttributed(encoding: Swift.String.Encoding = .utf8) -> Foundation.NSMutableAttributedString?
+}
+extension Foundation.Data {
+  public var sha256Hash: Swift.String {
+    get
+  }
 }
 public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -> Swift.String
 @objc extension UIKit.UIApplication {
@@ -235,6 +245,9 @@ public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -
     @objc get
   }
   @objc @_Concurrency.MainActor(unsafe) dynamic public var firstKeyWindow: UIKit.UIWindow? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var appWindows: [UIKit.UIWindow] {
     @objc get
   }
   @objc @_Concurrency.MainActor(unsafe) dynamic public var firstWindowSceneStatusBarFrame: CoreFoundation.CGRect {

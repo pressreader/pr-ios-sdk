@@ -6,12 +6,160 @@
     "children": [
       {
         "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "PRProtocols",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BrazeEntity",
+        "printedName": "BrazeEntity",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "extras",
+            "printedName": "extras",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.AnyHashable : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.AnyHashable : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AnyHashable",
+                        "printedName": "Swift.AnyHashable",
+                        "usr": "s:s11AnyHashableV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRProtocols@objc(pl)BrazeEntity(py)extras",
+            "mangledName": "$s11PRProtocols11BrazeEntityP6extrasSDys11AnyHashableVypGSgvp",
+            "moduleName": "PRProtocols",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.AnyHashable : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.AnyHashable : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AnyHashable",
+                            "printedName": "Swift.AnyHashable",
+                            "usr": "s:s11AnyHashableV"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRProtocols@objc(pl)BrazeEntity(im)extras",
+                "mangledName": "$s11PRProtocols11BrazeEntityP6extrasSDys11AnyHashableVypGSgvg",
+                "moduleName": "PRProtocols",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRProtocols.BrazeEntity>",
+                "sugared_genericSig": "<Self where Self : PRProtocols.BrazeEntity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isEligible",
+            "printedName": "isEligible",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRProtocols11BrazeEntityPAAE10isEligibleSbvp",
+            "mangledName": "$s11PRProtocols11BrazeEntityPAAE10isEligibleSbvp",
+            "moduleName": "PRProtocols",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRProtocols11BrazeEntityPAAE10isEligibleSbvg",
+                "mangledName": "$s11PRProtocols11BrazeEntityPAAE10isEligibleSbvg",
+                "moduleName": "PRProtocols",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRProtocols.BrazeEntity>",
+                "sugared_genericSig": "<Self where Self : PRProtocols.BrazeEntity>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@PRProtocols@objc(pl)BrazeEntity",
+        "mangledName": "$s11PRProtocols11BrazeEntityP",
+        "moduleName": "PRProtocols",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
         ]
       },
       {
@@ -352,11 +500,20 @@
         "usr": "c:@M@PRProtocols@objc(pl)ContentCard",
         "mangledName": "$s11PRProtocols11ContentCardP",
         "moduleName": "PRProtocols",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
+        "genericSig": "<τ_0_0 : PRProtocols.BrazeEntity>",
+        "sugared_genericSig": "<Self : PRProtocols.BrazeEntity>",
         "declAttributes": [
           "AccessControl",
           "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "BrazeEntity",
+            "printedName": "BrazeEntity",
+            "usr": "c:@M@PRProtocols@objc(pl)BrazeEntity",
+            "mangledName": "$s11PRProtocols11BrazeEntityP"
+          }
         ]
       },
       {
@@ -671,6 +828,27 @@
     "json_format_version": 8
   },
   "ConstValues": [
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRProtocols\/BrazeEntity.swift",
+      "kind": "StringLiteral",
+      "offset": 333,
+      "length": 17,
+      "value": "\"targeted_device\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRProtocols\/BrazeEntity.swift",
+      "kind": "StringLiteral",
+      "offset": 375,
+      "length": 5,
+      "value": "\"ios\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRProtocols\/BrazeEntity.swift",
+      "kind": "BooleanLiteral",
+      "offset": 570,
+      "length": 4,
+      "value": "true"
+    },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRProtocols\/Singleton.swift",
       "kind": "BooleanLiteral",

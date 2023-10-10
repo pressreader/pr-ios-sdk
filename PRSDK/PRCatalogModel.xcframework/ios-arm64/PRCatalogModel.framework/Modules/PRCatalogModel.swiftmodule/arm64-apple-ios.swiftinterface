@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRCatalogModel
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Combine
@@ -81,17 +81,17 @@ extension PRCatalogModel.CatalogItem {
   public var allContents: [PRCatalogModel.CatalogItemContent]? {
     get
   }
-  public func content<T>(options: PRCatalogModel.CatalogItemContentOption) -> T? where T : PRCatalogModel.CatalogItemContent
+  public func content<T>(options: PRCatalogModel.CatalogItemContentOption = []) -> T? where T : PRCatalogModel.CatalogItemContent
   @objc dynamic public func content(options: PRCatalogModel.CatalogItemContentOption) -> PRCatalogModel.CatalogItemContent?
-  public func setContent(_ content: PRCatalogModel.CatalogItemContent?, options: PRCatalogModel.CatalogItemContentOption = .regular)
+  public func setContent(_ content: PRCatalogModel.CatalogItemContent?, options: PRCatalogModel.CatalogItemContentOption = [])
   public func markContentLicenseExpired(_ isExpired: Swift.Bool, options: PRCatalogModel.CatalogItemContentOption)
-  @objc dynamic public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = .regular) -> Swift.Bool
+  @objc dynamic public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Bool
 }
 extension PRCatalogModel.Genre {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Genre>
 }
 extension PRCatalogModel.Book {
-  @objc override final public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = .regular) -> Swift.Bool
+  @objc override final public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Bool
 }
 extension PRCatalogModel.PageHyperlink {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PageHyperlink>
@@ -400,7 +400,8 @@ extension PRCatalogModel.Catalog : Swift.Identifiable {
   public typealias ID = Swift.String
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogItemContentOption : PRSyntacticSugar.PROptionSet {
-  @objc public static let regular: PRCatalogModel.CatalogItemContentOption
+  @objc @available(swift, obsoleted: 1.0)
+  public static let none: PRCatalogModel.CatalogItemContentOption
   @objc public static let sample: PRCatalogModel.CatalogItemContentOption
   @objc(newContent) public static let new: PRCatalogModel.CatalogItemContentOption
   @objc required public init(rawValue: Swift.Int)

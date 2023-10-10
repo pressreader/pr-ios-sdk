@@ -26,7 +26,6 @@ typedef NS_ENUM(NSInteger, PRCatalogSectionType) {
     PRCatalogSectionTypeFilters,
     PRCatalogSectionTypeListen,
     PRCatalogSectionTypeFavorites,
-    PRCatalogSectionTypeFavoritesExemplars,
     PRCatalogSectionTypeRecentlyRead,
     PRCatalogSectionTypeLinkedService,
     PRCatalogSectionTypeTopMagazines,

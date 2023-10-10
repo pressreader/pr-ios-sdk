@@ -50,6 +50,7 @@ typedef NS_ENUM(uint8_t, PROrderThumbnailInfoBarStyle) {
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *caption;
 
+@property (nonatomic, assign, getter = isThumbnailHidden) BOOL thumbnailHidden;
 @property (nonatomic, assign) BOOL hasScroll;
 @property (nonatomic, assign) BOOL hasShadow;
 @property (nonatomic, assign) BOOL useActityIndicator;

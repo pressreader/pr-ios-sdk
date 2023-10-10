@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRThumbnailsManager (AppLogo)
 
-- (nullable PRThumbnailAppLogo *)thumbnailForAppLogoWithStyle:(NTFMastheadStyle)style height:(CGFloat)height;
+- (nullable PRThumbnailAppLogo *)thumbnailForAppLogoWithStyle:(UIUserInterfaceStyle)style height:(CGFloat)height;
 - (void)deleteAppLogoCaches;
 
 @end

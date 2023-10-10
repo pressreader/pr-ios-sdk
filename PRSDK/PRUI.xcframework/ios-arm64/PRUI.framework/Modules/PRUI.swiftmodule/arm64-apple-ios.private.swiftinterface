@@ -1,8 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUI
 // swift-module-flags-ignorable: -enable-bare-slash-regex
-import AppTrackingTransparency
 import AuthenticationServices
 import Combine
 import CoreGraphics
@@ -16,6 +15,7 @@ import PRAccessibility
 import PRAds
 import PRAlertKit
 import PRCatalogModel
+import PRConfiguration
 import PRDIContainer
 import PRAPI.PRDictionaryKeys
 import PRLogKit.PRLog
@@ -29,6 +29,7 @@ import PRThumbnail
 import PRUIKit
 import PRUtils
 import SDWebImage
+import SafariServices
 import Swift
 import SwiftUI
 import UIKit
@@ -43,12 +44,11 @@ import _StringProcessing
   @_Concurrency.MainActor(unsafe) @objc final public var action: PRUI.FeedItemAction? {
     get
   }
-  @objc @_Concurrency.MainActor(unsafe) final public let theme: PRAccessibility.PRTheme
   @objc @_Concurrency.MainActor(unsafe) final public let options: PRUI.NTFArticleCompactViewOption
   @_Concurrency.MainActor(unsafe) @objc final public var feedItem: (any PRAPI.NTFItem)? {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) public init(theme: PRAccessibility.PRTheme, options: PRUI.NTFArticleCompactViewOption)
+  @objc @_Concurrency.MainActor(unsafe) public init(options: PRUI.NTFArticleCompactViewOption)
   @objc @_Concurrency.MainActor(unsafe) final public func setup(with pageSetItem: PRAPI.NTFPageSetItem?, action: PRUI.FeedItemAction?)
   @_Concurrency.MainActor(unsafe) @objc final public var textualView: PRUI.NTFArticleCompactTextualView? {
     @objc get
@@ -62,6 +62,9 @@ import _StringProcessing
   }
   @_Concurrency.MainActor(unsafe) @objc override final public func setup(withRow row: Swift.Int, dataSource: PRUI.NTFDataSource?, actionBlock: PRUI.TextFlowItemAction?, contentWidth: CoreFoundation.CGFloat)
   @objc deinit
+}
+extension UIKit.UINavigationBar {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateAppearance()
 }
 extension PRUI.AutoTranslationActor {
   #if compiler(>=5.3) && $AsyncAwait
@@ -101,6 +104,12 @@ extension Foundation.NSNotification.Name {
   }
   @objc final public func authorize(token: Swift.String, completion: @escaping (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
   @objc deinit
+}
+extension PRUI.NTFMyLibraryItemDataSource : PRAPI.MastheadProvider {
+  @objc dynamic public var hasMasthead: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
 }
 extension PRUI.PRRadioManager : PRAPI.RadioAnalyticsProvider {
 }
@@ -144,6 +153,30 @@ extension PRUI.PRRadioManager : PRAPI.RadioAnalyticsProvider {
   @objc override dynamic public init()
   @objc deinit
 }
+public protocol UIStyleOverridable : AnyObject {
+  var overrideUserInterfaceStyle: UIKit.UIUserInterfaceStyle { get set }
+}
+public protocol UIStyleOserver : AnyObject {
+  var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> { get }
+  func applyUIStyle()
+}
+extension PRUI.UIStyleOserver {
+  public var isUIStyleApplied: Swift.Bool {
+    get
+  }
+  public var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> {
+    get
+  }
+  public func registerUIStyleObserver()
+  public func unregisterUIStyleObserver()
+}
+extension PRUI.UIStyleOserver where Self : PRUI.UIStyleOverridable {
+  public func applyUIStyle()
+}
+extension UIKit.UIView : PRUI.UIStyleOverridable {
+}
+extension UIKit.UIViewController : PRUI.UIStyleOverridable {
+}
 @objc @_Concurrency.MainActor(unsafe) final public class StoriesTabSearchVC : PRUI.ArticleSearchVC {
   @_Concurrency.MainActor(unsafe) public init(dataSource: PRUI.StoriesSearchDataSource)
   @objc deinit
@@ -163,6 +196,12 @@ extension PRUI.PRBaseStoreCollectionVC : PRUI.PRSourceCategoriesCollectionDelega
 }
 @objc extension PRUI.PRBannerProvider {
   @objc dynamic public func getBannerSections() -> [PRAPI.PRCatalogSection]
+  @objc dynamic public func allBannersSection() -> PRAPI.PRCatalogSection?
+}
+@objc extension UIKit.UINavigationItem {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupTitleView(mastheadProvider: any PRAPI.MastheadProvider, title: Swift.String?, subtitle: Swift.String?, style: UIKit.UIUserInterfaceStyle, completion: PRThumbnail.PRThumbnailHandler? = nil)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupTitleView(mastheadProvider: any PRAPI.MastheadProvider, title: Swift.String?, subtitle: Swift.String?, completion: PRThumbnail.PRThumbnailHandler? = nil)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupTitleView(mastheadProvider: any PRAPI.MastheadProvider)
 }
 @objc extension PRUI.PROrder {
   @objc dynamic public var requireSubscription: Swift.Bool {
@@ -170,6 +209,9 @@ extension PRUI.PRBaseStoreCollectionVC : PRUI.PRSourceCategoriesCollectionDelega
   }
 }
 extension PRUI.NTFFeedDataSource : PRUI.PRRadioDataSource {
+  @objc dynamic public var isPremiumAudioAvailable: Swift.Bool {
+    @objc get
+  }
   @objc dynamic public var currentArticle: (any PRAPI.NTFArticle)? {
     @objc get
     @objc set
@@ -182,11 +224,11 @@ extension PRUI.NTFFeedDataSource : PRUI.PRRadioDataSource {
   #endif
   @objc dynamic public func index(for item: any PRAPI.NTFArticle) -> Swift.Int
   @objc dynamic public func article(for index: Swift.Int) -> (any PRAPI.NTFArticle)?
-  @objc dynamic public func article(withId itemId: Swift.String) -> (any PRAPI.NTFArticle)?
+  @objc dynamic public func article(id: Swift.String) -> (any PRAPI.NTFArticle)?
 }
-@objc extension PRUI.PRiphoneAppDelegate : PRUIKit.DeepLinkHandler {
-  @discardableResult
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func openDeepLink(_ url: Foundation.URL) -> Swift.Bool
+@objc extension PRUI.PRiphoneAppDelegate {
+  @objc @discardableResult
+  @_Concurrency.MainActor(unsafe) dynamic public func openDeepLink(_ url: Foundation.URL) -> Swift.Bool
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class EmptyFeedCell : UIKit.UITableViewCell {
   @objc @_Concurrency.MainActor(unsafe) final public var message: Swift.String {
@@ -207,25 +249,41 @@ extension PRUI.NTFFeedDataSource : PRUI.PRRadioDataSource {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class TextFlowUIStyleSelectorVC : PRUI.UIStyleSelectorVC {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableView.Style)
+  @objc deinit
+}
+extension UIKit.UIApplication : PRUI.UIStyleOserver {
+  @available(swift, obsoleted: 1.0)
+  @objc(registerUIStyleObserver) @_Concurrency.MainActor(unsafe) dynamic public func _registerUIStyleObserver()
+  @_Concurrency.MainActor(unsafe) public func applyUIStyle()
+}
 extension PRUI.PRRadioVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func openArticle()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func updateBottomBarShowingEffect(_ showEffect: Swift.Bool)
+}
+extension PRUI.PRRadioVC : PRUIKit.NavigationBarAppearanceProvider {
 }
 extension PRUI.PRSourceItemCellList {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func setupCell(item: any PRAPI.PRCatalogItem)
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class NTFCompactViewCommons : ObjectiveC.NSObject {
-  @objc public static var actionButtonTintColor: UIKit.UIColor {
+  @objc public static var secondaryTintColor: UIKit.UIColor {
     @objc get
   }
   @objc public static var menuButtonIcon: UIKit.UIImage? {
     @objc get
   }
-  @objc public static func bylineTextColor(theme: PRAccessibility.PRTheme) -> UIKit.UIColor
-  @objc public static func bodyTextColor(theme: PRAccessibility.PRTheme) -> UIKit.UIColor
+  @objc public static var bylineTextColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public static var bodyTextColor: UIKit.UIColor {
+    @objc get
+  }
   @objc public static func dateStyle(date: Foundation.Date?) -> PRUIKit.PRDatePresentationStyle
   @objc public static func menuButton(handler: @escaping (PRUIKit.PRSwitchButton) -> ()) -> PRUIKit.PRSwitchButton
-  @objc public static func bylineLabel(theme: PRAccessibility.PRTheme) -> PRUIKit.UILabelHidable
-  @objc public static func dateLabel(theme: PRAccessibility.PRTheme) -> PRUIKit.UILabelHidable
+  @objc public static func bylineLabel() -> PRUIKit.UILabelHidable
+  @objc public static func dateLabel() -> PRUIKit.UILabelHidable
   @objc override dynamic public init()
   @objc deinit
 }
@@ -278,14 +336,6 @@ extension PRUI.VerticalTextFlowVC {
 }
 extension PRUIKit.PRSafariVC : PRUIKit.Reportable {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func report()
-}
-@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) public class PRFilteredFeedView : PRUI.VerticalTextFlowView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var shouldBackgroundMatchNavigationBar: Swift.Bool {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 @objc extension PRUI.PRAppPanelsManager {
   @objc dynamic public func presentRequiredAlerts()
@@ -347,9 +397,11 @@ extension UIKit.UIViewController {
   }
 }
 extension UIKit.UIViewController : PRUIKit.GlobalSearchSupportable {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func showGlobalSearch(text: Swift.String?)
+  #if compiler(>=5.3) && $AsyncAwait
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func showGlobalSearch(text: Swift.String?) async -> UIKit.UIViewController?
+  #endif
 }
-@_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) final public class ArticlePopoverContainerVC : UIKit.UIViewController {
+@_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) final public class ArticlePopoverContainerVC : UIKit.UIViewController, UIKit.UINavigationControllerDelegate {
   @objc(ArticlePopoverContentAppearanceType) public enum AppearanceType : Swift.Int {
     case automatic = 0
     case popover
@@ -363,16 +415,30 @@ extension UIKit.UIViewController : PRUIKit.GlobalSearchSupportable {
   @objc @_Concurrency.MainActor(unsafe) public static var presentedInstance: PRUI.ArticlePopoverContainerVC? {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) final public class func containerStack(with rootController: UIKit.UIViewController, appearanceType: PRUI.ArticlePopoverContainerVC.AppearanceType = .automatic) -> UIKit.UINavigationController
+  @objc @_Concurrency.MainActor(unsafe) final public class func containerStack(content: UIKit.UIViewController, appearanceType: PRUI.ArticlePopoverContainerVC.AppearanceType = .automatic) -> UIKit.UINavigationController
   @objc(dismissIfPresentedAnimated:completion:) @_Concurrency.MainActor(unsafe) final public class func dismissIfPresented(animated: Swift.Bool, completion: (() -> ())?)
-  @objc @_Concurrency.MainActor(unsafe) public init(rootViewController: UIKit.UIViewController, appearanceType: PRUI.ArticlePopoverContainerVC.AppearanceType = .automatic)
+  @_Concurrency.MainActor(unsafe) @objc override final public var childForStatusBarStyle: UIKit.UIViewController? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var childForStatusBarHidden: UIKit.UIViewController? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(content: UIKit.UIViewController, appearanceType: PRUI.ArticlePopoverContainerVC.AppearanceType = .automatic)
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override final public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
-  @_Concurrency.MainActor(unsafe) @objc override final public var active: UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override final public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
     @objc get
   }
+  @_Concurrency.MainActor(unsafe) @objc override final public var preferredInterfaceOrientationForPresentation: UIKit.UIInterfaceOrientation {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc final public func navigationControllerSupportedInterfaceOrientations(_ navigationController: UIKit.UINavigationController) -> UIKit.UIInterfaceOrientationMask
+  @_Concurrency.MainActor(unsafe) @objc final public func navigationControllerPreferredInterfaceOrientationForPresentation(_ navigationController: UIKit.UINavigationController) -> UIKit.UIInterfaceOrientation
   @_Concurrency.MainActor(unsafe) @objc override final public var shouldPresentTanslationHUD: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var active: UIKit.UIViewController {
     @objc get
   }
   @objc deinit
@@ -395,17 +461,12 @@ extension UIKit.UINavigationController : PRUI.ViewRefreshable {
   @objc @_Concurrency.MainActor(unsafe) public class func bookmarksVC(profileId: Swift.String, dataSource: PRUI.NTFBookmarksDataSource) -> PRUI.PRVerticalBookmarksVC
   @objc @_Concurrency.MainActor(unsafe) convenience public init(profileId: Swift.String, collectionModel: PRAPI.PRCollectionsModel<PRAPI.NTFCollectionItem>?, collection: PRAPI.NTFCollectionItem?)
   @objc @_Concurrency.MainActor(unsafe) public init(profileId: Swift.String, dataSource: PRUI.NTFBookmarksDataSource)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc @_Concurrency.MainActor(unsafe) final public let profileId: Swift.String
   @objc @_Concurrency.MainActor(unsafe) public var bookmarksDataSource: PRUI.NTFBookmarksDataSource {
     @objc get
   }
   @_Concurrency.MainActor(unsafe) override public var firstRowTopInset: Foundation.NSNumber {
     get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var rootViewClass: Swift.AnyClass {
-    @objc get
-    @objc set
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var emptyFeedMessageCell: Swift.AnyClass {
     @objc get
@@ -493,6 +554,14 @@ public protocol Downloaded {
   @objc override dynamic public init()
   @objc deinit
 }
+public typealias PaymentInfoBlock = (PRUI.PROrderDeliveryResult, [Swift.String], Foundation.NSNumber?) -> ()
+extension PRAPI.PRTitleItemExemplar {
+  public static let delivery: PRSyntacticSugar.ObjectAssociationProxy<PRUI.PROrderDelivery>
+  @objc dynamic public func requestPaymentInfo(subscription: PRAPI.PRSubscription, completion: @escaping PRUI.PaymentInfoBlock)
+  @objc dynamic public func order(subscription: PRAPI.PRSubscription, options: PRUI.PROrderDeliveryOption, orderDescription: [Swift.String : Any]?, completion: PRUI.DeliveryCompletionBlock?)
+  @objc dynamic public func order(subscription: PRAPI.PRSubscription, options: PRUI.PROrderDeliveryOption, usePremiumProduct: Swift.Bool, orderDescription: [Swift.String : Any]?, completion: PRUI.DeliveryCompletionBlock?)
+  @objc dynamic public func order(subscription: PRAPI.PRSubscription, options: PRUI.PROrderDeliveryOption, purchaseProduct: Swift.String?, orderDescription: [Swift.String : Any]?, completion: PRUI.DeliveryCompletionBlock?, cancellation: PRUI.CancellationBlock?, purchaseInfoHandler: ((PRUI.PROrderDeliveryResult, [Swift.String]) -> ())?)
+}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class PRSlidePresentDismissActor : ObjectiveC.NSObject, UIKit.UIViewControllerAnimatedTransitioning {
   @objc @_Concurrency.MainActor(unsafe) public static let pushActor: PRUI.PRSlidePresentDismissActor
   @objc @_Concurrency.MainActor(unsafe) public static let popActor: PRUI.PRSlidePresentDismissActor
@@ -518,10 +587,6 @@ public protocol Downloaded {
   @_Concurrency.MainActor(unsafe) public func didSelectOpenTitle(cid: Swift.String)
   @_Concurrency.MainActor(unsafe) public func didSwitchAutodeliveryOn(isOn: Swift.Bool, cid: Swift.String)
   @_Concurrency.MainActor(unsafe) public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isNavigationBarTransparent: Swift.Bool {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @objc deinit
 }
 extension Swift.String {
@@ -535,6 +600,18 @@ extension UIKit.UIViewController {
 @objc extension Foundation.NSAttributedString {
   @objc dynamic public func maxLineNumbers(width: CoreFoundation.CGFloat, height: CoreFoundation.CGFloat = CGFloat(MAXFLOAT)) -> Swift.Int
   @objc dynamic public func lastTextLineRange(width: CoreFoundation.CGFloat, maxLineNumbers: Swift.Int) -> Foundation.NSRange
+}
+extension PRUI.NTFSmartArticleDataItem : PRAPI.NTFItem {
+}
+extension PRUI.NTFSmartArticleDataItem : PRAPI.NTFActionConfig {
+  @objc dynamic public var generalActionConfig: [Swift.AnyHashable : Any] {
+    @objc get
+  }
+  @objc dynamic public var articleActionConfig: [Swift.AnyHashable : Any] {
+    @objc get
+  }
+}
+extension PRUI.NTFSmartArticleDataItem : PRAPI.FlowArticle {
 }
 @objc extension PRUI.PRSourceItemCell {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func currentItemState() -> PRAPI.PRTitleItemExemplarState
@@ -611,21 +688,13 @@ extension PRUI.PRPubHubVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func scrollToTop(_ animated: Swift.Bool)
 }
 extension PRUI.PRPubHubDataSource {
-  @objc dynamic public func listenSection() -> PRAPI.PRCatalogSection?
+  @objc dynamic public func listenSection(scheme: PRUI.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
 }
 extension PRUI.PRPubHubDataSource : PRAPI.LoadableModelObserver {
   public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
 }
 @objc extension UIKit.UISplitViewController {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func refreshPrimaryView()
-}
-@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) final public class PRVerticalBookmarksView : PRUI.VerticalTextFlowView {
-  @_Concurrency.MainActor(unsafe) @objc override final public var shouldBackgroundMatchNavigationBar: Swift.Bool {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 @_hasMissingDesignatedInitializers final public class KeyboardLayoutGuide {
   final public let topGuide: UIKit.UILayoutGuide
@@ -639,6 +708,9 @@ extension PRUI.PRPubHubDataSource : PRAPI.LoadableModelObserver {
   @objc @_Concurrency.MainActor final public class func execute(title: Swift.String = PRLocalizedString("PR.iPad.Books"), animated: Swift.Bool = true)
   @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
+}
+@objc extension PRUI.PRAttachmetsContainerView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupBarStyle()
 }
 @objc extension PRUI.PRPubHubDataSource {
   @objc dynamic public func observeContentCards()
@@ -678,6 +750,19 @@ extension PRUI.NTFFeedDataSource {
   @objc public init(url: Foundation.URL, urlPreview: UIKit.UIImage?, urlTitle: Swift.String?)
   @objc override final public func item(forActivityType activityType: UIKit.UIActivity.ActivityType) -> Any?
   @objc override final public func activityViewControllerLinkMetadata(_ activityViewController: UIKit.UIActivityViewController) -> LinkPresentation.LPLinkMetadata?
+  @objc deinit
+}
+@objc @objcMembers final public class CatalogSectionScheme : ObjectiveC.NSObject {
+  @objc final public let type: PRAPI.PRCatalogSectionType
+  @objc final public let name: Swift.String
+  @objc final public let sortingOrder: PRConfiguration.PRCatalogSortingOrder
+  @objc final public let sortingOrderForSubsection: PRConfiguration.PRCatalogSortingOrder
+  @objc final public let layoutType: PRAPI.PRLayoutType
+  @objc final public let options: PRUI.CatalogSectionSchemeOption
+  @objc final public let customTitle: Swift.String?
+  @objc final public let cids: [Swift.String]?
+  @objc final public let categories: [Swift.String]?
+  @objc public init(name: Swift.String, sortingOrder: PRConfiguration.PRCatalogSortingOrder, sortingOrderForSubsection: PRConfiguration.PRCatalogSortingOrder, layoutType: PRAPI.PRLayoutType, options: PRUI.CatalogSectionSchemeOption, customTitle: Swift.String? = nil, cids: [Swift.String]? = nil, categories: [Swift.String]? = nil)
   @objc deinit
 }
 @objc extension PRUI.ModalVideoPlayerVC : PRAPI.RichMediaAnalyticsProvider {
@@ -772,6 +857,7 @@ public protocol Download {
   }
   @objc @_Concurrency.MainActor(unsafe) dynamic public func popoverContentSize() -> CoreFoundation.CGSize
   @objc @_Concurrency.MainActor(unsafe) dynamic public func popoverContentSize(height: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func signInPopoverContentSize() -> CoreFoundation.CGSize
 }
 @objc extension PRUI.PREmbedablePubHubVC {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public class func controller(with sourceList: PRAPI.PRSourceList) -> Self
@@ -795,6 +881,11 @@ public protocol Download {
   @objc final public class func execute(interest: PRAPI.Interest, presenter: UIKit.UINavigationController?)
   @objc final public class func execute(interest: PRAPI.Interest, presenter: UIKit.UINavigationController?, animated: Swift.Bool)
   @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UIStyleSelectorVC : PRUI.PRSelectionPanelVC {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableView.Style)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
   @objc deinit
 }
 extension PRAPI.NTFAbstractArticle : PRAPI.AudioMetadataUpdatable {
@@ -827,6 +918,39 @@ extension PRUI.PRAppPanelsManager : PRAPI.AppUIReady {
   #endif
   @objc dynamic public func getAppUIReady() -> PRPromiseKit.Promise
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class CatalogSchemeProvider : PRAPI.PRSchemeProvider {
+  @objc final public class var publications: PRUI.CatalogSchemeProvider {
+    @objc get
+  }
+  @objc final public class var home: PRUI.CatalogSchemeProvider {
+    @objc get
+  }
+  @objc final public class var library: PRUI.CatalogSchemeProvider {
+    @objc get
+  }
+  @objc final public class var favorites: PRUI.CatalogSchemeProvider {
+    @objc get
+  }
+  @objc final public class var latestIssues: PRUI.CatalogSchemeProvider {
+    @objc get
+  }
+  @objc final public class var book: PRUI.CatalogSchemeProvider {
+    @objc get
+  }
+  @objc final public var sections: [PRUI.CatalogSectionScheme]
+  @objc override dynamic public init()
+  @objc final public func firstScheme(type: PRAPI.PRCatalogSectionType) -> PRUI.CatalogSectionScheme?
+  @objc override final public func loadConfigurationJSON(_ names: [Swift.String])
+  @objc deinit
+}
+@objc extension PRUI.PROrderInfoBarView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func update()
+}
+extension PRUI.ReadingViewController : PRUIKit.NavigationBarAppearanceProvider {
+  @_Concurrency.MainActor(unsafe) public var standartNavigatioBarAppearanceType: UIKit.UINavigationBarAppearance.BackgroundType {
+    get
+  }
+}
 @objc @objcMembers final public class PubHubSectionPresentationInfo : ObjectiveC.NSObject {
   @objc final public let backgroundColor: UIKit.UIColor?
   @objc final public let headerBackgroundColor: UIKit.UIColor?
@@ -834,11 +958,15 @@ extension PRUI.PRAppPanelsManager : PRAPI.AppUIReady {
   @objc public init(backgroundColor: UIKit.UIColor? = nil, headerBackgroundColor: UIKit.UIColor? = nil, height: CoreFoundation.CGFloat = 0)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class CommandOpenNews : PRUI.PRCommandOpenHomeFeed {
-  @objc override final public func homeFeedVC() -> PRUI.PRVerticalFeedVC
-  @objc override dynamic public init(name: PRUIKit.PRCommandName)
-  @objc override dynamic public init()
-  @objc deinit
+extension PRUI.CustomStyleableTextFlowVC : PRUIKit.NavigationBarAppearanceProvider {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var scrollEdgeNavigatioBarAppearanceType: UIKit.UINavigationBarAppearance.BackgroundType {
+    @objc get
+  }
+}
+@objc extension PRUI.CustomStyleableTextFlowVC : PRUI.TextFlowUIStyleOserver {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupTextFlowUIStyle()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func resetTextFlowUIStyle()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func applyUIStyle()
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterViewModel : ObjectiveC.NSObject, Foundation.ObservableObject {
   @objc public static let defaultFont: UIKit.UIFont
@@ -875,9 +1003,6 @@ extension PRUI.PRAppPanelsManager : PRAPI.AppUIReady {
   @objc final public var contentInset: UIKit.NSDirectionalEdgeInsets {
     @objc get
   }
-  @objc final public let foregroundColor: UIKit.UIColor
-  @objc final public let backgroundColor: UIKit.UIColor
-  @objc final public let cornerRadius: CoreFoundation.CGFloat
   @objc @Combine.Published @_projectedValueProperty($font) final public var font: UIKit.UIFont {
     @objc get
     @objc set
@@ -1002,16 +1127,14 @@ extension PRUI.PRAppPanelsManager : PRAPI.AppUIReady {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var shouldHideBarsOnSwipe: Swift.Bool {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportsNavigationBarTransparencyChanges: Swift.Bool {
-    @objc get
-  }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var emptyFeedMessage: Swift.String? {
     @objc get
   }
   @_Concurrency.MainActor(unsafe) public init(dataSource: PRUI.NTFArticlesSearchDataSource)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func setupTextFlowUIStyle()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadMoreItemsToTheEnd(completion: (() -> ())? = nil)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func presentDetailsVC(item: any PRAPI.NTFArticle)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func presentDetailsVC(article item: any PRAPI.NTFArticle, completion: ((UIKit.UIViewController) -> Swift.Void)? = nil)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func refreshContent(with reason: PRUI.NTFFeedDataSourceRefreshReason)
@@ -1036,6 +1159,25 @@ extension PRCatalogModel.Book {
   @objc @_Concurrency.MainActor(unsafe) public static func homeHub() -> Self
   @objc @_Concurrency.MainActor(unsafe) public static func hub(hotspotManager: (any PRUI.PRHotspotStatusViewManagerProtocol)?) -> Self
   @objc @_Concurrency.MainActor(unsafe) public static func hub(hotspotManager: (any PRUI.PRHotspotStatusViewManagerProtocol)?, dataSource: PRUI.PRPubHubDataSource) -> Self
+}
+@objc @objcMembers public class CatalogSectionSchemeOption : ObjectiveC.NSObject, Swift.OptionSet {
+  @objc public static let showTitle: PRUI.CatalogSectionSchemeOption
+  @objc public static let showSeeAllButton: PRUI.CatalogSectionSchemeOption
+  @objc public static let standout: PRUI.CatalogSectionSchemeOption
+  @objc public static let newRibbon: PRUI.CatalogSectionSchemeOption
+  @objc public static let combine: PRUI.CatalogSectionSchemeOption
+  @objc public static let formFromFavorites: PRUI.CatalogSectionSchemeOption
+  @objc public static let promoteLocals: PRUI.CatalogSectionSchemeOption
+  @objc final public let rawValue: Swift.Int
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc required public init(rawValue: Swift.Int)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  public typealias ArrayLiteralElement = PRUI.CatalogSectionSchemeOption
+  public typealias Element = PRUI.CatalogSectionSchemeOption
+  public typealias RawValue = Swift.Int
+  @objc deinit
 }
 @objc public protocol CatalogFilterModel {
   @objc var title: Swift.String { get }
@@ -1112,9 +1254,25 @@ public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewD
   @objc deinit
 }
 @objc extension PRConfiguration.PRArticleConfig {
-  @objc dynamic public var shouldPresentArticleInPopover: Swift.Bool {
+  @objc final public var shouldPresentArticleInPopover: Swift.Bool {
     @objc get
   }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ExternalAuthURLManager : ObjectiveC.NSObject {
+  @objc public static var returnURL: Swift.String {
+    @objc get
+  }
+  @objc public static func url(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil, returnURLAction: Swift.String? = nil) -> Foundation.URL?
+  @objc public static func path(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil) -> Swift.String
+  @objc public static func path(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String, linkToCurrentAccount: Swift.Bool, command: Swift.String?, returnURLAction: Swift.String?) -> Swift.String
+  public static func info(url: Foundation.URL) -> (success: Swift.Bool, isNewUser: Swift.Bool, error: (any Swift.Error)?)
+  @objc public static func isReturnURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc public static func error(url: Foundation.URL) -> (any Swift.Error)?
+  @objc public static func error(params: [Swift.AnyHashable : Any]) -> (any Swift.Error)?
+  @objc public static func isNewUser(url: Foundation.URL) -> Swift.Bool
+  @objc public static func isNewUser(params: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
 }
 @_Concurrency.MainActor(unsafe) final public class GlobalSearchView : PRUIKit.BaseTabView<PRUI.GlobalSearchTopView> {
   @_Concurrency.MainActor(unsafe) weak final public var delegate: (any PRUI.GlobalSearchTopViewDelegate)? {
@@ -1127,6 +1285,11 @@ public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewD
   }
   @_Concurrency.MainActor(unsafe) override final public func setupSubviews()
   @objc deinit
+}
+@objc extension PRUI.VerticalTextFlowArticleDetailsView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var style: UIKit.UIUserInterfaceStyle {
+    @objc get
+  }
 }
 @objc public protocol UITextViewContainer : ObjectiveC.NSObjectProtocol {
   @objc func textViewWillDismissContainer(_ textView: PRUI.UITextViewWithLinks)
@@ -1155,7 +1318,6 @@ public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewD
     @objc set
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect = .zero, textContainer: UIKit.NSTextContainer?)
-  @_Concurrency.MainActor(unsafe) @objc override final public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
   @objc deinit
 }
 extension PRUI.UITextViewWithLinks : UIKit.UITextViewDelegate {
@@ -1187,6 +1349,10 @@ extension UIKit.UIAlertController {
   @objc final public class func execute()
   @objc override dynamic public init()
   @objc deinit
+}
+extension PRUIKit.PRUINavigationController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func update(viewController: UIKit.UIViewController, animated: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func updateAppearance(viewController: UIKit.UIViewController)
 }
 @objc @objcMembers final public class AppleSignInResult : PRAPI.SignInResult {
   @objc public init(nameComponent: Foundation.PersonNameComponents? = nil, email: Swift.String? = nil, user: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, error: (any Swift.Error)? = nil)
@@ -1366,6 +1532,9 @@ extension PRUI.PublicationDetailsView : PRUIKit.AccessibleView {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc extension PRUI.PRCommandOpenHomeFeed {
+  @objc dynamic public func homeFeedVC() -> PRUI.PRVerticalFeedVC
+}
 extension PRUI.PRHotSpotServicesBannerVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func bannerHeight(forWidth: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
 }
@@ -1388,13 +1557,6 @@ extension PRUI.PRCatalogFilter {
   public var catalogFilters: [PRAPI.PRCountableValue] {
     get
   }
-}
-@objc extension UIKit.UIViewController {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var supportsNavigationBarTransparencyChanges: Swift.Bool {
-    @objc get
-  }
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func navigationBarShouldBeTransparent(for scrollView: UIKit.UIScrollView) -> Swift.Bool
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func updateNavigationBarTransparency(with scrollView: UIKit.UIScrollView, force: Swift.Bool = false)
 }
 extension PRCatalogModel.CatalogEntity : PRUI.CatalogItemDataSourceProtocol, PRAPI.ObservableModel {
   @objc dynamic public var dataProvider: [[any PRAPI.PRCatalogItem]] {
@@ -1456,6 +1618,10 @@ extension PRUI.PRSourceCollectionVC {
 extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
   @_Concurrency.MainActor(unsafe) public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) final public class TextFlowActivityVC : PRUIKit.PRActivityVC, PRUI.TextFlowUIStyleOserver {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
+}
 @objc @objcMembers final public class LowCreditsAlertPresenter : ObjectiveC.NSObject {
   public typealias Action = PRSyntacticSugar.PRSimpleBlock
   @objc final public var canPresentAlert: Swift.Bool {
@@ -1466,12 +1632,24 @@ extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers final public class PRMyLibraryItemActionAccessActor : ObjectiveC.NSObject {
-  public typealias Item = PRAPI.PRMyLibraryItem
+  @objc public static func performAction(_ actionType: PRUI.ActionType, item: PRUI.PRMyLibraryItemActionAccessActor.Item, action: @escaping () -> ())
   @objc override dynamic public init()
   @objc deinit
 }
 @objc extension PRUI.PRMyLibraryItemActionAccessActor {
-  @objc public static func performAction(_ actionType: PRUI.ActionType, item: PRUI.PRMyLibraryItemActionAccessActor.Item, action: @escaping () -> ())
+  public typealias Item = PRAPI.PRMyLibraryItem
+}
+extension UIKit.UIUserInterfaceStyle {
+  public var title: Swift.String {
+    get
+  }
+  public var textFlowStyleTitle: Swift.String {
+    get
+  }
+}
+extension UIKit.UIUserInterfaceStyle : Swift.CaseIterable {
+  public static let allCases: [UIKit.UIUserInterfaceStyle]
+  public typealias AllCases = [UIKit.UIUserInterfaceStyle]
 }
 @_inheritsConvenienceInitializers @objc final public class Wide3CFeedLayoutItem : PRUI.AbstractFeedLayoutItem {
   @objc required dynamic public init()
@@ -1485,6 +1663,15 @@ extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
     @objc get
   }
   @objc final public func signIn(_ completion: ((Swift.Bool, (any Swift.Error)?) -> ())?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class CommandPresentBookWebPurchase : PRUIKit.PRCommand {
+  @objc override final public class var defaultCommandName: PRUIKit.PRCommandName {
+    @objc get
+  }
+  @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
+  @objc override dynamic public init(name: PRUIKit.PRCommandName)
+  @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers final public class ContentCardsPresentationConfig : ObjectiveC.NSObject {
@@ -1513,6 +1700,14 @@ extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func registerFeedLayoutItemCells()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func cellClass(layoutItem: PRUI.AbstractFeedLayoutItem) -> PRUI.NTFArticleSetCell.Type?
 }
+extension PRUI.VerticalTextFlowVC : PRUIKit.ActivityPresenter {
+  public typealias ActivityVC = PRUI.TextFlowActivityVC
+}
+@available(swift, obsoleted: 1.0)
+extension PRUI.VerticalTextFlowVC {
+  @objc(showActivityIndicator) @_Concurrency.MainActor(unsafe) dynamic public func _showActivityIndicator()
+  @objc(hideActivityIndicator) @_Concurrency.MainActor(unsafe) dynamic public func _hideActivityIndicator()
+}
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class EmailPermissionSettingsVC : PRUI.PRSettingsDetailsPanelVC {
   @objc @_Concurrency.MainActor(unsafe) final public var account: PRAPI.PRAccountItem? {
     @objc get
@@ -1525,6 +1720,9 @@ extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableView.Style)
   @objc deinit
 }
+extension UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setupNavigationItemTitleView(mastheadProvider: any PRAPI.MastheadProvider, title: Swift.String?, subtitle: Swift.String?)
+}
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class PRBottomBar : UIKit.UIView {
   @objc @_Concurrency.MainActor(unsafe) public var barSpacing: CoreFoundation.CGFloat {
     @objc get
@@ -1533,6 +1731,8 @@ extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
   @objc @_Concurrency.MainActor(unsafe) final public let barLayoutGuide: UIKit.UILayoutGuide
   @objc @_Concurrency.MainActor(unsafe) final public let bottomSafeAreaInsetGuide: UIKit.UILayoutGuide
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateConstraints()
   @objc deinit
 }
@@ -1546,9 +1746,6 @@ extension PRUI.PRBottomBar {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func insertAttachedSubview(_ subview: UIKit.UIView, hideShadow: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public func insertAttachedSubview(_ subview: UIKit.UIView, leadingInset: CoreFoundation.CGFloat? = 0, trailingInset: CoreFoundation.CGFloat? = 0)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func insertAttachedSubview(_ subview: UIKit.UIView, leadingInset: CoreFoundation.CGFloat, trailingInset: CoreFoundation.CGFloat)
-}
-extension PRUI.PRBottomBar {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
 }
 extension PRUI.PRBottomBar {
   @objc @_Concurrency.MainActor(unsafe) dynamic public var isBarHidden: Swift.Bool {
@@ -1607,6 +1804,13 @@ extension UIKit.UINavigationBar {
   @objc override final public func activityViewControllerPlaceholderItem(_ activityViewController: UIKit.UIActivityViewController) -> Any
   @objc deinit
 }
+@objc final public class WebAuthenticationSession : AuthenticationServices.ASWebAuthenticationSession {
+  @objc public init?(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, linkToCurrentAccount: Swift.Bool, completion: @escaping (_ success: Swift.Bool, _ isNewUser: Swift.Bool, (any Swift.Error)?) -> ())
+  @objc deinit
+}
+extension AuthenticationServices.ASWebAuthenticationSession : AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
+  @objc dynamic public func presentationAnchor(for session: AuthenticationServices.ASWebAuthenticationSession) -> AuthenticationServices.ASPresentationAnchor
+}
 @objc @_Concurrency.MainActor(unsafe) public class CatalogFiltersCollectionVC : PRUI.PRSourceCategoriesCollectionVC {
   @_Concurrency.MainActor(unsafe) required public init(filters: [PRAPI.PRCountableValue], delegate: (any PRUI.PRSourceCategoriesCollectionDelegate)?)
   @available(*, unavailable)
@@ -1626,7 +1830,6 @@ extension UIKit.UINavigationBar {
   @objc public static func latestIssuesDataSource(with titleItemExemplar: PRAPI.PRTitleItemExemplar, titleGroups: [PRUI.PRIssuesGroup]) -> any PRUI.CatalogItemDataSourceProtocol
   @objc public static func multipleLatestIssuesDataSource(withCIDs cids: [Swift.String]) -> any PRUI.CatalogItemDataSourceProtocol
   @objc public static func multipleLatestIssuesDataSource(withSourceList sourceList: PRAPI.PRLatestIssuesList) -> any PRUI.CatalogItemDataSourceProtocol
-  @objc public static func bannersVC(withSections sections: [PRAPI.PRCatalogSection]) -> UIKit.UIViewController
   @objc public static func presentUserConsentVC(withDismissCompletion completion: (() -> ())?)
   @objc public static func getDeviceManagementVC(withAccount account: PRAPI.PRAccountItem) -> UIKit.UIViewController
   @objc public static func getDeviceManagementVC(withDevices items: [PRAPI.DeviceActivation]) -> UIKit.UIViewController
@@ -1647,9 +1850,6 @@ extension UIKit.UINavigationBar {
   @_Concurrency.MainActor(unsafe) @objc override final public func prepareForReuse()
   @objc deinit
 }
-extension PRUI.LoadMoreReusableView {
-  @_Concurrency.MainActor(unsafe) @objc override final public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
-}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class BookHubVC : PRUI.PREmbedablePubHubVC {
   @_Concurrency.MainActor @objc override dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var isSearchAvailable: Swift.Bool {
@@ -1660,16 +1860,13 @@ extension PRUI.LoadMoreReusableView {
     @objc set
   }
   @_Concurrency.MainActor(unsafe) @objc final override public func setupFilterSection(cell: UIKit.UICollectionViewCell)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportsNavigationBarTransparencyChanges: Swift.Bool {
-    @objc get
-  }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var catalogPath: Swift.String {
     @objc get
   }
   @objc deinit
 }
 public typealias FeedItemActionSignal = (_ item: any PRAPI.NTFItem, _ sender: Any?, _ completionHandler: @escaping () -> ()) -> ()
-@objc final public class FeedItemAction : ObjectiveC.NSObject {
+@objc @objcMembers final public class FeedItemAction : ObjectiveC.NSObject {
   @objc final public var actions: PRConfiguration.PRFeedArticleAction
   @objc final public var handler: PRUI.FeedItemActionSignal
   @objc public init(with actions: PRConfiguration.PRFeedArticleAction, handler actionBlock: @escaping PRUI.FeedItemActionSignal)
@@ -1696,7 +1893,6 @@ public typealias FeedItemActionSignal = (_ item: any PRAPI.NTFItem, _ sender: An
   @objc @_Concurrency.MainActor(unsafe) public init(products: [PRAPI.PRProduct], delegate: any PRUI.PRPurchaseSelectorProtocol, CID: Swift.String?, date: Foundation.Date?, premiumProducts: [PRAPI.PRProduct]?)
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override final public func viewWillAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override final public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
   @_Concurrency.MainActor(unsafe) @objc override final public func viewSafeAreaInsetsDidChange()
@@ -1715,17 +1911,7 @@ public typealias FeedItemActionSignal = (_ item: any PRAPI.NTFItem, _ sender: An
   @_Concurrency.MainActor(unsafe) @objc override final public func tableView(_ tableView: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) @objc override final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) @objc override final public func tableView(_ tableView: UIKit.UITableView, willSelectRowAt indexPath: Foundation.IndexPath) -> Foundation.IndexPath?
-  @_Concurrency.MainActor(unsafe) @objc override final public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @_Concurrency.MainActor(unsafe) @objc final public func textViewWillDismissContainer(_ textView: PRUI.UITextViewWithLinks)
-  @_Concurrency.MainActor(unsafe) @objc override final public var navigationBarTheme: PRAccessibility.PRTheme {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override final public var barContentTintColor: UIKit.UIColor {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override final public var isNavigationBarTransparent: Swift.Bool {
-    @objc get
-  }
   @_Concurrency.MainActor(unsafe) @objc override final public var navigationBarRightBarButtonItems: [UIKit.UIBarButtonItem]? {
     @objc get
   }
@@ -1737,6 +1923,11 @@ public typealias FeedItemActionSignal = (_ item: any PRAPI.NTFItem, _ sender: An
   @objc @_Concurrency.MainActor(unsafe) dynamic public func singleArticle(fli: PRUI.AbstractFeedLayoutItem?) -> (any PRAPI.NTFItem)?
   @objc @_Concurrency.MainActor(unsafe) dynamic public func columnsCount(fli: PRUI.AbstractFeedLayoutItem?) -> Swift.Int
   @objc @_Concurrency.MainActor(unsafe) dynamic public func shouldHighlight(item: Any) -> Swift.Bool
+}
+extension PRUI.PROrderVC : PRUIKit.NavigationBarAppearanceProvider {
+  @_Concurrency.MainActor(unsafe) public var standartNavigatioBarAppearanceType: UIKit.UINavigationBarAppearance.BackgroundType {
+    get
+  }
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class AutoTranslateMenuCell : UIKit.UITableViewCell {
   @objc @_Concurrency.MainActor(unsafe) public var switchActionHandler: ((Swift.Bool) -> ())?
@@ -1809,9 +2000,16 @@ extension PRUI.PremiumBannerView {
   @objc final public func firstItem(type: PRUI.PRAppMenuItemType) -> PRUI.AppMenuItemInfo?
   @objc deinit
 }
+@objc @_Concurrency.MainActor(unsafe) final public class ExternalAuthSafariVC : SafariServices.SFSafariViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init?(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, linkToCurrentAccount: Swift.Bool, completion: @escaping (_ success: Swift.Bool, _ isNewUser: Swift.Bool, (any Swift.Error)?) -> ())
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @objc deinit
+}
+extension PRUI.ExternalAuthSafariVC : SafariServices.SFSafariViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func safariViewController(_ controller: SafariServices.SFSafariViewController, activityItemsFor URL: Foundation.URL, title: Swift.String?) -> [UIKit.UIActivity]
+}
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class CancellationPolicyCell : PRUIKit.TextCell {
   @_Concurrency.MainActor(unsafe) override final public func setupView()
-  @_Concurrency.MainActor(unsafe) @objc override final public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
@@ -1823,6 +2021,8 @@ extension PRUI.AutoTranslateSettingsVC : PRAPI.AutoTranslationStateAnalyticsProv
   @_Concurrency.MainActor(unsafe) @objc final public var isAutoTranslationOn: Swift.Bool {
     @objc get
   }
+}
+extension PRUI.PRCommentComposeVC : PRUIKit.NavigationBarAppearanceProvider {
 }
 @objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) final public class PRRoundedLabel : UIKit.UILabel {
   @objc @IBInspectable @_Concurrency.MainActor(unsafe) final public var horizontalPadding: CoreFoundation.CGFloat
@@ -1850,9 +2050,6 @@ extension PRAPI.PRSocialSignInManager {
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @objc deinit
-}
-extension PRUI.NetworkErrorView {
-  @_Concurrency.MainActor(unsafe) @objc override final public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
 }
 @objc extension PRUI.PRSourcesVC : PRAPI.CatalogViewAnalyticsProvider {
   @objc @_Concurrency.MainActor(unsafe) dynamic public var catalogPath: Swift.String {
@@ -1888,7 +2085,6 @@ extension PRUI.PRMainVC : PRProtocols.Singleton {
   @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreFoundation.CGFloat
   @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, willSelectRowAt indexPath: Foundation.IndexPath) -> Foundation.IndexPath?
   @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
-  @_Concurrency.MainActor(unsafe) @objc public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @objc deinit
 }
 extension PRUI.PressReader {
@@ -1927,7 +2123,7 @@ extension PRUI.SearchableDataSource {
 }
 @objc extension PRUI.PRBookmarkListVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func updateMasthead()
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func update(with presentationStyle: UIKit.UIModalPresentationStyle)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func update(presentationStyle: UIKit.UIModalPresentationStyle)
 }
 @objc public protocol ScrollableContentDelegate {
   @objc optional func scrollViewBeginScrolling(_ scrollView: UIKit.UIScrollView)
@@ -1948,16 +2144,12 @@ extension PRUI.PRErrorManager : PRProtocols.Singleton {
   public init()
   @objc deinit
 }
-@objc extension UIKit.UINavigationBar : PRUI.TransparencyOnScrollAdjustable {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public var isTransparent: Swift.Bool {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func shouldBeTransparent(for scrollView: UIKit.UIScrollView) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func updateTransparency(with scrollView: UIKit.UIScrollView, theme: PRAccessibility.PRTheme, force: Swift.Bool)
-}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class PlaceholderCell : UIKit.UITableViewCell {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @objc deinit
+}
+extension PRAPI.NTFArticleItem {
+  @objc dynamic public func preloadVisuals()
 }
 extension PRUI.PRFacebookSignInManager : PRUI.SignInManagerProtocol {
   public typealias ResultType = PRUI.FacebookSignInResult
@@ -1974,10 +2166,6 @@ extension PRUI.PRFacebookSignInManager : PRUI.SignInManagerProtocol {
   @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, titleForHeaderInSection section: Swift.Int) -> Swift.String?
   @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
-  @_Concurrency.MainActor(unsafe) @objc override final public var isNavigationBarTransparent: Swift.Bool {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc final public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @objc deinit
 }
 @objc final public class CatalogHubDataSource : PRUI.PRPubHubDataSource {
@@ -2036,6 +2224,26 @@ public protocol SignInManagerProtocol {
   @_Concurrency.MainActor(unsafe) public func horizontalPaddingsForLabels() -> CoreFoundation.CGFloat
   @_Concurrency.MainActor(unsafe) public func bannerHeight(forWidth width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
   @objc deinit
+}
+@objc public protocol PRRadioDataSource : ObjectiveC.NSObjectProtocol {
+  @objc var currentArticle: (any PRAPI.NTFArticle)? { get set }
+  @objc var hasMoreItemsAtTheBeginning: Swift.Bool { get }
+  @objc var hasMoreItemsAtTheEnd: Swift.Bool { get }
+  @objc var isReady: Swift.Bool { get }
+  @objc var itemsCount: Swift.Int { get }
+  @objc var dataState: PRUI.NTFDataState { get }
+  @objc var isPremiumAudioAvailable: Swift.Bool { get }
+  @objc(articleForIndex:) func article(for index: Swift.Int) -> (any PRAPI.NTFArticle)?
+  @objc(indexForArticle:) func index(for article: any PRAPI.NTFArticle) -> Swift.Int
+  @objc func getCurrentArticle(loadingHandler: ((any PRAPI.NTFArticle) -> ())?) -> (any PRAPI.NTFArticle)?
+  @objc func getCurrentArticle(completion: (((any PRAPI.NTFArticle)?) -> ())?)
+  @objc func article(id: Swift.String) -> (any PRAPI.NTFArticle)?
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func loadMoreToTheEnd() async
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func loadMoreAtTheBeginning() async
+  #endif
 }
 extension PRAPI.PRCatalog {
   public var downloaded: any PRUI.Downloaded {
@@ -2149,15 +2357,9 @@ extension PRUI.AppleSignInManager : PRUI.SignInManagerProtocol {
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override final public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override final public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
-  @_Concurrency.MainActor(unsafe) @objc override final public var navigationBarHairlineStyle: PRUIKit.PRNavigationBarHairlineStyle {
-    @objc get
-  }
   @objc deinit
 }
-@objc public protocol TransparencyOnScrollAdjustable {
-  @objc var isTransparent: Swift.Bool { get }
-  @objc func shouldBeTransparent(for scrollView: UIKit.UIScrollView) -> Swift.Bool
-  @objc func updateTransparency(with scrollView: UIKit.UIScrollView, theme: PRAccessibility.PRTheme, force: Swift.Bool)
+extension PRUI.PRCommentTableVC : PRUIKit.NavigationBarAppearanceProvider {
 }
 extension Foundation.NSNotification.Name {
   public static let translationStarted: Foundation.Notification.Name
@@ -2214,6 +2416,7 @@ extension UIKit.UIEdgeInsets {
     @objc get
     @objc set
   }
+  @_Concurrency.MainActor(unsafe) @objc override final public func awakeFromNib()
   @objc @_Concurrency.MainActor(unsafe) final public func fill(withTitle title: Swift.String, subtitle: Swift.String?, isDisabled: Swift.Bool)
   @available(iOS 3.0, *)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
@@ -2243,11 +2446,13 @@ extension PRAPI.PRMyLibraryItem : PRUI.ActionAccessControllable {
   @objc @_Concurrency.MainActor(unsafe) public static var height: CoreFoundation.CGFloat {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) final public let label: UIKit.UILabel
+  @objc @_Concurrency.MainActor(unsafe) final public var label: UIKit.UILabel {
+    @objc get
+    @objc set
+  }
   @objc @_Concurrency.MainActor(unsafe) final public let imageView: UIKit.UIImageView
-  @_Concurrency.MainActor(unsafe) @objc dynamic public init(theme: PRAccessibility.PRTheme)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @objc @_Concurrency.MainActor(unsafe) final public func update(image: UIKit.UIImage?, title: Swift.String?)
-  @_Concurrency.MainActor(unsafe) @objc override final public func updateAppearance(with theme: PRAccessibility.PRTheme, options: PRUIKit.PRAppearanceOption)
   @objc deinit
 }
 @objc final public class ComplexLayoutManager : PRUI.PRCompactLayoutManager {
@@ -2262,6 +2467,13 @@ extension PRAPI.PRMyLibraryItem : PRUI.ActionAccessControllable {
 @objc final public class ImageActivityItem : PRUI.PRActivityItem {
   @objc public init(image: UIKit.UIImage)
   @objc override final public func item(forActivityType activityType: UIKit.UIActivity.ActivityType) -> Any?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class PageSliderWrapperView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) public func show()
+  @objc @_Concurrency.MainActor(unsafe) public func hide()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TwoTextFieldsView : UIKit.UIView {
@@ -2287,12 +2499,23 @@ extension PRAPI.PRMyLibraryItem : PRUI.ActionAccessControllable {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
+@objc extension UIKit.UIScreen {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func contentWidth() -> CoreFoundation.CGFloat
+}
 extension PRUI.PRAppPanelsManager : PRProtocols.Singleton {
   @objc public static func instance() -> Self
   @objc public static func hasInstance() -> Swift.Bool
   @objc public static func dismiss()
 }
-@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) final public class LibraryItemFeedVC : PRUI.VerticalTextFlowVC {
+extension PRUI.PRArticleContainerVC : PRUIKit.NavigationBarAppearanceProvider {
+  @_Concurrency.MainActor(unsafe) public var standartNavigatioBarAppearanceType: UIKit.UINavigationBarAppearance.BackgroundType {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var scrollEdgeNavigatioBarAppearanceType: UIKit.UINavigationBarAppearance.BackgroundType {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) final public class LibraryItemFeedVC : PRUI.CustomStyleableTextFlowVC {
   @_Concurrency.MainActor(unsafe) @objc override final public class var layoutType: PRConfiguration.NTFLayoutType {
     @objc get
   }
@@ -2314,14 +2537,11 @@ extension PRUI.PRAppPanelsManager : PRProtocols.Singleton {
     @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor(unsafe) @objc override final public func setupDefaultValues()
   @_Concurrency.MainActor(unsafe) @objc override final public func processSizeChange()
   @_Concurrency.MainActor(unsafe) @objc override final public var navigationBarRightBarButtonItems: [UIKit.UIBarButtonItem]? {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override final public var isNavigationBarAppearanceManuallyAdjusted: Swift.Bool {
     @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override final public var isAppMenuAllowed: Swift.Bool {
@@ -2368,14 +2588,42 @@ extension PRUI.PRAppPanelsManager : PRProtocols.Singleton {
   @objc deinit
 }
 @objc extension PRUI.VerticalTextFlowArticleDetailsVC {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var navigationBarState: PRUI._PRNavigationBarState {
+    @objc get
+    @objc set
+  }
   @objc @_Concurrency.MainActor(unsafe) dynamic public var contentAds: [PRAds.AdBannerPresentation]? {
     @objc get
     @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
   }
   @objc @_Concurrency.MainActor(unsafe) dynamic public func updateReadAccess()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var shouldPresentTanslationHUD: Swift.Bool {
     @objc get
   }
+}
+extension PRUI.VerticalTextFlowArticleDetailsVC : PRUIKit.NavigationBarAppearanceProvider {
+  @_Concurrency.MainActor(unsafe) public var standartNavigatioBarAppearanceType: UIKit.UINavigationBarAppearance.BackgroundType {
+    get
+  }
+}
+extension PRUI.VerticalTextFlowArticleDetailsVC : PRUI.TextFlowUIStyleOserver {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func applyUIStyle()
+}
+@available(swift, obsoleted: 1.0)
+extension PRUI.VerticalTextFlowArticleDetailsVC {
+  @objc(registerUIStyleObserver) @_Concurrency.MainActor(unsafe) dynamic public func _registerUIStyleObserver()
+  @objc(unregisterUIStyleObserver) @_Concurrency.MainActor(unsafe) dynamic public func _unregisterUIStyleObserver()
+}
+extension PRUI.VerticalTextFlowArticleDetailsVC : PRUIKit.ActivityPresenter {
+  public typealias ActivityVC = PRUI.TextFlowActivityVC
+}
+@available(swift, obsoleted: 1.0)
+extension PRUI.VerticalTextFlowArticleDetailsVC {
+  @objc(showActivityIndicator) @_Concurrency.MainActor(unsafe) dynamic public func _showActivityIndicator()
+  @objc(hideActivityIndicator) @_Concurrency.MainActor(unsafe) dynamic public func _hideActivityIndicator()
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UniversalLayoutFeedVC : PRUI.PRVerticalFeedVC {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public class var layoutType: PRConfiguration.NTFLayoutType {
@@ -2434,7 +2682,7 @@ extension PRUI.PressReader {
   }
   @objc @_Concurrency.MainActor(unsafe) dynamic public func trackRichMediaEventPlaying(_ playing: Swift.Bool)
 }
-@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ReadingVC : UIKit.UINavigationController {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ReadingVC : PRUIKit.PRUINavigationController {
   @_Concurrency.MainActor(unsafe) public init?(_ item: any PRAPI.PRCatalogItem)
   @_Concurrency.MainActor(unsafe) @objc override final public var modalPresentationStyle: UIKit.UIModalPresentationStyle {
     @objc get
@@ -2498,6 +2746,7 @@ extension PRUI.PRBannerPresentationConfig {
   @objc dynamic public var itemsTypes: [[PRUI.PRAppMenuItemType]]? {
     @objc get
   }
+  @objc dynamic public func exitSDKMenuItem() -> PRUIKit.PRMenuItem?
   @objc dynamic public func appMenuItems(info: [PRUI.AppMenuItemInfo]) -> [PRUIKit.PRMenuItem]
   @objc dynamic public func defaultImageName(type: PRUI.PRAppMenuItemType) -> Swift.String?
   @objc dynamic public func imageName(icon: PRUI.PRAppMenuIcon) -> Swift.String?
@@ -2566,6 +2815,16 @@ final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.
   @objc override dynamic public init()
   @objc deinit
 }
+@objc extension PRConfiguration.UserInterfaceStyleConfig {
+  @objc @available(swift, obsoleted: 1.0)
+  final public var textFlowStyleTitle: Swift.String {
+    @objc get
+  }
+  @objc @available(swift, obsoleted: 1.0)
+  final public var preferredStyleTitle: Swift.String {
+    @objc get
+  }
+}
 @objc extension PRAPI.PRCatalogSection {
   @objc dynamic public var dataSource: (any PRUI.CatalogItemDataSourceProtocol)? {
     @objc get
@@ -2618,16 +2877,29 @@ extension PRCatalogModel.Query : PRUI.SearchableDataSource {
   final public func push(into nc: UIKit.UINavigationController)
   @objc deinit
 }
+extension PRUI.NTFSmartArticleDataItem : PRAPI.MastheadProvider {
+  @objc dynamic public var hasMasthead: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
+}
+public protocol TextFlowUIStyleOserver : PRUI.UIStyleOserver {
+}
+extension PRUI.TextFlowUIStyleOserver {
+  public var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> {
+    get
+  }
+}
 @objc public protocol SectionDataSourceProtocol {
   @objc var section: PRAPI.PRCatalogSectionType { get }
 }
 @objc extension PRUI.PRPubHubDataSource {
-  @objc dynamic public func catalogSectionDataSource(section: PRAPI.PRCatalogSectionType) -> (any PRUI.CatalogItemDataSourceProtocol & PRUI.SectionDataSourceProtocol)?
+  @objc dynamic public func catalogSectionDataSource(scheme: PRUI.CatalogSectionScheme) -> (any PRUI.CatalogItemDataSourceProtocol & PRUI.SectionDataSourceProtocol)?
   @objc dynamic public func updatePublicationCategoriesSectionContentWidth()
-  @objc dynamic public func contentCategoriesSection() -> PRAPI.PRCatalogSection
+  @objc dynamic public func contentCategoriesSection(scheme: PRUI.CatalogSectionScheme) -> PRAPI.PRCatalogSection
 }
 @objc extension PRUI.PRMenuBottomBar {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func addThumbToMenuBar(tapHandler: ((@escaping PRSyntacticSugar.PRSimpleBlock) -> ())? = nil) -> PRUI.PRArticleIssueThumbnail
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addThumbToMenuBar(tapHandler: @escaping (PRUI.PRArticleIssueThumbnail) -> ()) -> PRUI.PRArticleIssueThumbnail
 }
 @_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) final public class PRHiddenWhenEmptyImageView : UIKit.UIImageView {
   @_Concurrency.MainActor(unsafe) @objc override final public var image: UIKit.UIImage? {

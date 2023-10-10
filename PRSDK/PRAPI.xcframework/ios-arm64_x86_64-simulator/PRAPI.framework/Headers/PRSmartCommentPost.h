@@ -17,6 +17,12 @@ typedef NS_ENUM(unsigned int, PRSmartCommentPostType) {
     PRSmartCommentPostTypeHomeFeed
 };
 
+typedef NS_ENUM(NSInteger, PRSmartCommentPostVoteRating) {
+    PRSmartCommentPostVoteRatingNeutral = 0,
+    PRSmartCommentPostVoteRatingNegative,
+    PRSmartCommentPostVoteRatingPositive
+};
+
 @class PRSmartArticle, PRSmartArtifact;
 
 @interface PRSmartCommentPost : PRSmartBaseObject
@@ -33,6 +39,7 @@ typedef NS_ENUM(unsigned int, PRSmartCommentPostType) {
 @property (nonatomic) NSInteger currentVote;
 @property (nonatomic) NSInteger likeItVotes;
 @property (nonatomic) NSInteger hateItVotes;
+@property (readonly, nonatomic) PRSmartCommentPostVoteRating votesRating;
 @property (readonly, nonatomic) NSInteger authorVote;
 @property (readonly, nonatomic, nullable) NSString *commentKey;
 @property (readonly, nonatomic, nullable) NSString *subject;

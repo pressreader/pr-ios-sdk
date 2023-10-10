@@ -25,14 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_OPTIONS(NSUInteger, PRBookmarkListVCPreference) {
     PRBookmarkListVCPreferenceEditingAllowed = 1 << 0,
     PRBookmarkListVCPreferenceMarkPublicBookmarks = 1 << 1,
-    PRBookmarkListVCPreferenceNavigationBarTransparent = 1 << 2,
-    PRBookmarkListVCPreferenceDisplayAppLogo = 1 << 3,
-    PRBookmarkListVCPreferenceDisplayChannelMasthead = 1 << 4,
-    PRBookmarkListVCPreferenceShowDiscloseIndicators = 1 << 5,
-    PRBookmarkListVCPreferenceKeepCollectionsOrder = 1 << 6,
-    PRBookmarkListVCPreferenceHideAllCollection = 1 << 7,
-    PRBookmarkListVCPreferenceHideNavigationBar = 1 << 8,
-    PRBookmarkListVCPreferenceShowCollectionItemsCount = 1 << 9,
+    PRBookmarkListVCPreferenceDisplayAppLogo = 1 << 2,
+    PRBookmarkListVCPreferenceDisplayChannelMasthead = 1 << 3,
+    PRBookmarkListVCPreferenceShowDiscloseIndicators = 1 << 4,
+    PRBookmarkListVCPreferenceKeepCollectionsOrder = 1 << 5,
+    PRBookmarkListVCPreferenceHideAllCollection = 1 << 6,
+    PRBookmarkListVCPreferenceHideNavigationBar = 1 << 7,
+    PRBookmarkListVCPreferenceShowCollectionItemsCount = 1 << 8,
 };
 
 @interface PRBookmarkListVC : UIViewController

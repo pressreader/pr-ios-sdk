@@ -10,6 +10,9 @@
     	"see_all": true 
   	},
     {
+        "type": "hot_spot"
+    },
+    {
         "type": "listen",
         "show_title": true,
         "standout": true,
@@ -30,12 +33,21 @@
     	"see_all": true 
   	},
   	{
-  		"type": "top_magazines", 
+  		"type": "top_newspapers",
     	"mode": "list",
-    	"sort": "alpha",
+    	"sort": "rate",
     	"show_title": true,
-    	"see_all": true 
+    	"see_all": true,
+        "promote_locals": true
   	},
+    {
+        "type": "top_magazines",
+        "mode": "list",
+        "sort": "alpha",
+        "show_title": true,
+        "see_all": true,
+        "promote_locals": true
+    },
     {
         "type": "books",
         "mode": "list",
@@ -63,7 +75,7 @@
         "show_title": true,
         "see_all": true,
         "sub_config": {
-            "sort": "date"
+            "sort": "rate"
         }
     }
 ]

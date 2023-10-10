@@ -17,9 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PRFilterableCollectionVC : PRCollectionVC<UIPopoverPresentationControllerDelegate,
                                                      AdditionalContentInsetable>
 
-/// YES by default
-@property (nonatomic) BOOL adjustNavigationBarOnScroll;
-
 @property (nonatomic, readonly) NSString *viewTraits;
 
 /// View to show as a first section's header

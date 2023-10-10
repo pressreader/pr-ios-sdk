@@ -10,12 +10,12 @@
 
 #import <PRUI/ReadingMapFrame.h>
 #import <PRUI/NTFDataSource.h>
-#import <PRUI/PRRadioDataSource.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class PRMyLibraryItem;
 @class PRRadioManager;
+@protocol PRRadioDataSource;
 
 @interface PRRadioVC : UIViewController <ReadingMapOperations>
 
@@ -43,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSUInteger currentPageNumber;
 @property (nonatomic, strong, readonly) PRRadioManager *radioManager;
+@property (nonatomic, strong, readonly) UIView *bottomBar;
 
 @end
 

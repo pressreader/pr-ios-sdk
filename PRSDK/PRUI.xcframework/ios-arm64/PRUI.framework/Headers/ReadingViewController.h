@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
                    offset:(CGPoint)offset;
 - (PRPDFScrollView *)pdfScrollViewWithCurrentItem;
 
+@property (nonatomic, readonly) BOOL isFullScreenDisabled;
+
 @end
 
 NS_ASSUME_NONNULL_END

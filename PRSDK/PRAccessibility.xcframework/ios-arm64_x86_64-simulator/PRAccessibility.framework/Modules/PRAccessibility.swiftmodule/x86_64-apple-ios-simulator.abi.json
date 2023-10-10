@@ -15,6 +15,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PRAccessibility"
+      },
+      {
         "kind": "TypeDecl",
         "name": "AccessibilityId",
         "printedName": "AccessibilityId",
@@ -112,14 +119,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "PRTheme",
-                "printedName": "PRAccessibility.PRTheme",
-                "usr": "c:@E@PRTheme"
+                "name": "UIUserInterfaceStyle",
+                "printedName": "UIKit.UIUserInterfaceStyle",
+                "usr": "c:@E@UIUserInterfaceStyle"
               }
             ],
             "declKind": "Func",
             "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId(im)idWith:",
-            "mangledName": "$s15PRAccessibility15AccessibilityIdC2id4withSSSo7PRThemeV_tF",
+            "mangledName": "$s15PRAccessibility15AccessibilityIdC2id4withSSSo20UIUserInterfaceStyleV_tF",
             "moduleName": "PRAccessibility",
             "declAttributes": [
               "Final",
@@ -664,114 +671,6 @@
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cm)orderView",
                 "mangledName": "$s15PRAccessibility15AccessibilityIdC9orderViewAA05OrderbC0CvgZ",
-                "moduleName": "PRAccessibility",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "skippableView",
-            "printedName": "skippableView",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AccessibilityId",
-                "printedName": "PRAccessibility.AccessibilityId",
-                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cpy)skippableView",
-            "mangledName": "$s15PRAccessibility15AccessibilityIdC13skippableViewACvpZ",
-            "moduleName": "PRAccessibility",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AccessibilityId",
-                    "printedName": "PRAccessibility.AccessibilityId",
-                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cm)skippableView",
-                "mangledName": "$s15PRAccessibility15AccessibilityIdC13skippableViewACvgZ",
-                "moduleName": "PRAccessibility",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "proceedableView",
-            "printedName": "proceedableView",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AccessibilityId",
-                "printedName": "PRAccessibility.AccessibilityId",
-                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cpy)proceedableView",
-            "mangledName": "$s15PRAccessibility15AccessibilityIdC15proceedableViewACvpZ",
-            "moduleName": "PRAccessibility",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AccessibilityId",
-                    "printedName": "PRAccessibility.AccessibilityId",
-                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cm)proceedableView",
-                "mangledName": "$s15PRAccessibility15AccessibilityIdC15proceedableViewACvgZ",
                 "moduleName": "PRAccessibility",
                 "static": true,
                 "implicit": true,
@@ -1366,6 +1265,114 @@
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cm)searchField",
                 "mangledName": "$s15PRAccessibility15AccessibilityIdC11searchFieldACvgZ",
+                "moduleName": "PRAccessibility",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "auth",
+            "printedName": "auth",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AuthAccessibilityId",
+                "printedName": "PRAccessibility.AuthAccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cpy)auth",
+            "mangledName": "$s15PRAccessibility15AccessibilityIdC4authAA04AuthbC0CvpZ",
+            "moduleName": "PRAccessibility",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthAccessibilityId",
+                    "printedName": "PRAccessibility.AuthAccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cm)auth",
+                "mangledName": "$s15PRAccessibility15AccessibilityIdC4authAA04AuthbC0CvgZ",
+                "moduleName": "PRAccessibility",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "textField",
+            "printedName": "textField",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TextFieldAccessibilityId",
+                "printedName": "PRAccessibility.TextFieldAccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cpy)textField",
+            "mangledName": "$s15PRAccessibility15AccessibilityIdC9textFieldAA04TextebC0CvpZ",
+            "moduleName": "PRAccessibility",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TextFieldAccessibilityId",
+                    "printedName": "PRAccessibility.TextFieldAccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAccessibility@objc(cs)AccessibilityId(cm)textField",
+                "mangledName": "$s15PRAccessibility15AccessibilityIdC9textFieldAA04TextebC0CvgZ",
                 "moduleName": "PRAccessibility",
                 "static": true,
                 "implicit": true,
@@ -3195,6 +3202,51 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "exit",
+            "printedName": "exit",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15PRAccessibility26AppMenuItemAccessibilityIdV4exitAA0eF0Cvp",
+            "mangledName": "$s15PRAccessibility26AppMenuItemAccessibilityIdV4exitAA0eF0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRAccessibility26AppMenuItemAccessibilityIdV4exitAA0eF0Cvg",
+                "mangledName": "$s15PRAccessibility26AppMenuItemAccessibilityIdV4exitAA0eF0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -3210,6 +3262,108 @@
         "name": "AccountAccessibilityId",
         "printedName": "AccountAccessibilityId",
         "children": [
+          {
+            "kind": "Var",
+            "name": "hub",
+            "printedName": "hub",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccountHubAccessibilityId",
+                "printedName": "PRAccessibility.AccountHubAccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AccountAccessibilityId(py)hub",
+            "mangledName": "$s15PRAccessibility22AccountAccessibilityIdC3hubAA0b3HubcD0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccountHubAccessibilityId",
+                    "printedName": "PRAccessibility.AccountHubAccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountAccessibilityId(im)hub",
+                "mangledName": "$s15PRAccessibility22AccountAccessibilityIdC3hubAA0b3HubcD0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "view",
+            "printedName": "view",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AccountAccessibilityId(py)view",
+            "mangledName": "$s15PRAccessibility22AccountAccessibilityIdC4viewAA0cD0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountAccessibilityId(im)view",
+                "mangledName": "$s15PRAccessibility22AccountAccessibilityIdC4viewAA0cD0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
           {
             "kind": "Var",
             "name": "cell",
@@ -3357,9 +3511,312 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "AccountHubAccessibilityId",
+        "printedName": "AccountHubAccessibilityId",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "view",
+            "printedName": "view",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId(py)view",
+            "mangledName": "$s15PRAccessibility25AccountHubAccessibilityIdC4viewAA0dE0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId(im)view",
+                "mangledName": "$s15PRAccessibility25AccountHubAccessibilityIdC4viewAA0dE0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "defaultAccountCell",
+            "printedName": "defaultAccountCell",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId(py)defaultAccountCell",
+            "mangledName": "$s15PRAccessibility25AccountHubAccessibilityIdC07defaultB4CellAA0dE0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId(im)defaultAccountCell",
+                "mangledName": "$s15PRAccessibility25AccountHubAccessibilityIdC07defaultB4CellAA0dE0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccountHubAccessibilityId",
+                "printedName": "PRAccessibility.AccountHubAccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId(im)init",
+            "mangledName": "$s15PRAccessibility25AccountHubAccessibilityIdCACycfc",
+            "moduleName": "PRAccessibility",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRAccessibility@objc(cs)AccountHubAccessibilityId",
+        "mangledName": "$s15PRAccessibility25AccountHubAccessibilityIdC",
+        "moduleName": "PRAccessibility",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "AccountCellAccessibilityId",
         "printedName": "AccountCellAccessibilityId",
         "children": [
+          {
+            "kind": "Var",
+            "name": "signOut",
+            "printedName": "signOut",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AccountCellAccessibilityId(py)signOut",
+            "mangledName": "$s15PRAccessibility26AccountCellAccessibilityIdC7signOutAA0dE0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountCellAccessibilityId(im)signOut",
+                "mangledName": "$s15PRAccessibility26AccountCellAccessibilityIdC7signOutAA0dE0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "reset",
+            "printedName": "reset",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AccountCellAccessibilityId(py)reset",
+            "mangledName": "$s15PRAccessibility26AccountCellAccessibilityIdC5resetAA0dE0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccountCellAccessibilityId(im)reset",
+                "mangledName": "$s15PRAccessibility26AccountCellAccessibilityIdC5resetAA0dE0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
           {
             "kind": "Var",
             "name": "delete",
@@ -4669,6 +5126,459 @@
         "declKind": "Class",
         "usr": "c:@M@PRAccessibility@objc(cs)OrderCellAccessibilityId",
         "mangledName": "$s15PRAccessibility24OrderCellAccessibilityIdC",
+        "moduleName": "PRAccessibility",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AuthAccessibilityId",
+        "printedName": "AuthAccessibilityId",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "options",
+            "printedName": "options",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId(py)options",
+            "mangledName": "$s15PRAccessibility19AuthAccessibilityIdC7optionsAA0cD0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId(im)options",
+                "mangledName": "$s15PRAccessibility19AuthAccessibilityIdC7optionsAA0cD0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "web",
+            "printedName": "web",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId(py)web",
+            "mangledName": "$s15PRAccessibility19AuthAccessibilityIdC3webAA0cD0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId(im)web",
+                "mangledName": "$s15PRAccessibility19AuthAccessibilityIdC3webAA0cD0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "email",
+            "printedName": "email",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId(py)email",
+            "mangledName": "$s15PRAccessibility19AuthAccessibilityIdC5emailAA0cD0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId(im)email",
+                "mangledName": "$s15PRAccessibility19AuthAccessibilityIdC5emailAA0cD0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AuthAccessibilityId",
+                "printedName": "PRAccessibility.AuthAccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId(im)init",
+            "mangledName": "$s15PRAccessibility19AuthAccessibilityIdCACycfc",
+            "moduleName": "PRAccessibility",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRAccessibility@objc(cs)AuthAccessibilityId",
+        "mangledName": "$s15PRAccessibility19AuthAccessibilityIdC",
+        "moduleName": "PRAccessibility",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TextFieldAccessibilityId",
+        "printedName": "TextFieldAccessibilityId",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "username",
+            "printedName": "username",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId(py)username",
+            "mangledName": "$s15PRAccessibility24TextFieldAccessibilityIdC8usernameAA0dE0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId(im)username",
+                "mangledName": "$s15PRAccessibility24TextFieldAccessibilityIdC8usernameAA0dE0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "password",
+            "printedName": "password",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId(py)password",
+            "mangledName": "$s15PRAccessibility24TextFieldAccessibilityIdC8passwordAA0dE0Cvp",
+            "moduleName": "PRAccessibility",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityId",
+                    "printedName": "PRAccessibility.AccessibilityId",
+                    "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId(im)password",
+                "mangledName": "$s15PRAccessibility24TextFieldAccessibilityIdC8passwordAA0dE0Cvg",
+                "moduleName": "PRAccessibility",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TextFieldAccessibilityId",
+                "printedName": "PRAccessibility.TextFieldAccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId(im)init",
+            "mangledName": "$s15PRAccessibility24TextFieldAccessibilityIdCACycfc",
+            "moduleName": "PRAccessibility",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRAccessibility@objc(cs)TextFieldAccessibilityId",
+        "mangledName": "$s15PRAccessibility24TextFieldAccessibilityIdC",
         "moduleName": "PRAccessibility",
         "declAttributes": [
           "Final",
@@ -8733,35 +9643,35 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId.swift",
       "kind": "StringLiteral",
-      "offset": 541,
+      "offset": 567,
       "length": 35,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId.swift",
       "kind": "StringLiteral",
-      "offset": 558,
+      "offset": 584,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId.swift",
       "kind": "StringLiteral",
-      "offset": 575,
+      "offset": 601,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId.swift",
       "kind": "BooleanLiteral",
-      "offset": 831,
+      "offset": 857,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId.swift",
       "kind": "StringLiteral",
-      "offset": 203,
+      "offset": 216,
       "length": 15,
       "value": "\"PRAccessibility.AccessibilityId\""
     },
@@ -8927,9 +9837,51 @@
       "value": "\"appMenu.webView\""
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+AppMenu.swift",
+      "kind": "StringLiteral",
+      "offset": 1367,
+      "length": 14,
+      "value": "\"appMenu.exit\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+AccountView.swift",
       "kind": "StringLiteral",
-      "offset": 512,
+      "offset": 434,
+      "length": 14,
+      "value": "\"account.view\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+AccountView.swift",
+      "kind": "StringLiteral",
+      "offset": 622,
+      "length": 18,
+      "value": "\"account.hub.view\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+AccountView.swift",
+      "kind": "StringLiteral",
+      "offset": 704,
+      "length": 32,
+      "value": "\"account.hub.defaultAccountCell\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+AccountView.swift",
+      "kind": "StringLiteral",
+      "offset": 863,
+      "length": 22,
+      "value": "\"account.cell.signOut\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+AccountView.swift",
+      "kind": "StringLiteral",
+      "offset": 936,
+      "length": 20,
+      "value": "\"account.cell.reset\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+AccountView.swift",
+      "kind": "StringLiteral",
+      "offset": 1008,
       "length": 28,
       "value": "\"account.cell.deleteAccount\""
     },
@@ -9013,93 +9965,114 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 267,
-      "length": 15,
-      "value": "\"skippableView\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
-      "kind": "StringLiteral",
-      "offset": 343,
-      "length": 17,
-      "value": "\"proceedableView\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
-      "kind": "StringLiteral",
-      "offset": 430,
+      "offset": 273,
       "length": 21,
       "value": "\"issuesSectionHeader\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 507,
+      "offset": 350,
       "length": 12,
       "value": "\"splashView\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 581,
+      "offset": 424,
       "length": 18,
       "value": "\"networkErrorView\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 660,
+      "offset": 503,
       "length": 14,
       "value": "\"activityView\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 732,
+      "offset": 575,
       "length": 13,
       "value": "\"groupHeader\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 814,
+      "offset": 657,
       "length": 24,
       "value": "\"publicationDetailsView\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 897,
+      "offset": 740,
       "length": 14,
       "value": "\"moreMenuView\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 970,
+      "offset": 813,
       "length": 14,
       "value": "\"deallocAlert\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 1045,
+      "offset": 888,
       "length": 12,
       "value": "\"sourceView\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 1121,
+      "offset": 964,
       "length": 20,
       "value": "\"horizontalScroller\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
       "kind": "StringLiteral",
-      "offset": 1198,
+      "offset": 1041,
       "length": 13,
       "value": "\"searchField\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
+      "kind": "StringLiteral",
+      "offset": 1277,
+      "length": 14,
+      "value": "\"auth.options\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
+      "kind": "StringLiteral",
+      "offset": 1340,
+      "length": 10,
+      "value": "\"auth.web\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
+      "kind": "StringLiteral",
+      "offset": 1401,
+      "length": 12,
+      "value": "\"auth.email\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
+      "kind": "StringLiteral",
+      "offset": 1539,
+      "length": 20,
+      "value": "\"textField.username\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/AccessibilityId+View.swift",
+      "kind": "StringLiteral",
+      "offset": 1613,
+      "length": 20,
+      "value": "\"textField.password\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAccessibility\/BEAppType.swift",

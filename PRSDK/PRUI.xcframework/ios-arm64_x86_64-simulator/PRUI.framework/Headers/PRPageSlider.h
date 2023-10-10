@@ -17,25 +17,12 @@
 - (void) OnUpdate;
 @end
 
-
-//
-//
-//
 @class SectionLabel;
 @class SliderSpreadPlace;
 @class ThumbSpreadRenderTask;
 @class ThumbsSpread;
 @class SliderSpreadPlace;
-@class PRPageSliderWrapperView;
-
-//@interface SliderPage
-//{
-//	UILabel*		Name;
-//	UIImageView*	Image;
-//}
-//
-//@end
-
+@class PageSliderWrapperView;
 
 @protocol PRPagesSliderDelegate <NSObject>
 - (void)pageSliderWillAppear;
@@ -55,7 +42,7 @@
 @property (nonatomic, readonly) NSInteger leftFilledSpreadPlace;
 @property (nonatomic, readonly) NSInteger rightFilledSpreadPlace;
 @property (nonatomic) BOOL isPlaceholder;
-@property (nonatomic, weak) PRPageSliderWrapperView* wrapperView;
+@property (nonatomic, weak) PageSliderWrapperView *wrapperView;
 
 // init
 - (instancetype) initWithFrame:(CGRect)frame amli:(id)amli;
@@ -68,9 +55,4 @@
 // events
 - (void) OnSelectSpread:(id)sender;
 
-@end
-
-@interface PRPageSliderWrapperView : UIView
-- (void) show;
-- (void) hide;
 @end

@@ -25,6 +25,11 @@ typedef NSArray<__kindof NSManagedObject *> *_Nullable CDFetchResult;
 
 - (CDFetchResult)fetchItemsForEntity:(NSString *)entityName
                            predicate:(nullable NSPredicate *)predicate
+                     sortDescriptors:(nullable NSArray<NSSortDescriptor *> *)sortDescriptors
+                               limit:(NSUInteger)fetchLimit;
+
+- (CDFetchResult)fetchItemsForEntity:(NSString *)entityName
+                           predicate:(nullable NSPredicate *)predicate
                      sortDescriptors:(nullable NSArray<NSSortDescriptor *> *)sortDescriptors;
 
 - (CDFetchResult)fetchItemsForEntity:(NSString *)entityName

@@ -38,9 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
                             style:(NTFArticleCompactViewStyle)style
                      columnsCount:(NSUInteger)columnsCount;
 
-- (instancetype)initWithStyle:(NTFArticleCompactViewStyle)style
-                        theme:(PRTheme)theme;
-
+- (instancetype)initWithStyle:(NTFArticleCompactViewStyle)style;
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 - (void)setupWithArticleItem:(nullable id<NTFArticle>)articleItem

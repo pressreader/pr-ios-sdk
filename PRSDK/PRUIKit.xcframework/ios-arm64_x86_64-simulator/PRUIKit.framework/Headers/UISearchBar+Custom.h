@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)restoreTintColor;
 
 @property (nullable, nonatomic, readonly) UIButton *cancelButton;
-@property (nullable, nonatomic, readonly) UITextField *textField;
 @property (nullable, nonatomic, readonly) UIView *barBackground;
 
 @property (nonatomic) BOOL centersPlaceholder;

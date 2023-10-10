@@ -16,10 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString * _Nonnull const kPRAppLogoLocalResourceNameTemplate;
 extern NSString * _Nonnull const kPRAppLogoLocalResourceNameColor;
 
-+ (NSString *)keyWithStyle:(NTFMastheadStyle)style height:(CGFloat)height;
++ (NSString *)keyWithStyle:(UIUserInterfaceStyle)style height:(CGFloat)height;
 
 - (instancetype)initWithKey:(NSString *)key
-                      style:(NTFMastheadStyle)style
+                      style:(UIUserInterfaceStyle)style
                      height:(CGFloat)height
                        info:(PRThumbnailInfo *)info;
 

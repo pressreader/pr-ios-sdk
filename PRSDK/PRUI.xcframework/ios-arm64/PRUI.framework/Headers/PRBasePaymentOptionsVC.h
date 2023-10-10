@@ -1,6 +1,6 @@
 //
 //  PRBasePaymentOptionsVC.h
-//  PR-UI
+//  PRUI
 //
 //  Created by berec on 03/06/2019.
 //  Copyright © 2019 NewspaperDirect. All rights reserved.

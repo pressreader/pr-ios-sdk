@@ -14,15 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Controller for loading web content in app.
 @interface PRSafariVC : UIViewController <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
 
-- (instancetype)initWithURL:(nullable NSURL *)contentURL
-            scalesPageToFit:(BOOL)scalesToFit
-                     opaque:(BOOL)opaque
-            backgroundColor:(nullable UIColor *)backgroundColor;
-- (instancetype)initWithURL:(nullable NSURL *)contentURL
-                     opaque:(BOOL)opaque
-            backgroundColor:(nullable UIColor *)backgroundColor;
-- (instancetype)initWithURL:(nullable NSURL *)contentURL scalesPageToFit:(BOOL)scalesToFit;
 - (instancetype)initWithURL:(nullable NSURL *)contentURL;
+- (instancetype)initWithBundledNibName:(NSString *)nibNameOrNil NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 @property (nullable, nonatomic, readonly) WKWebView *webView;
 @property (nullable, nonatomic, readonly) UIScrollView *scrollView;

@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable PRThumbnailSource *)thumbnailWithSize:(CGSize)size;
 - (nullable PRThumbnailSource *)thumbnailWithSize:(CGSize)size useAvailable:(BOOL)useLatest;
-- (nullable PRThumbnailSource *)thumbnailWithSize:(CGSize)size page:(NSInteger)pageNo;
 
 @end
 

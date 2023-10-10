@@ -15,10 +15,3 @@ FOUNDATION_EXPORT double PRAccessibilityVersionNumber;
 FOUNDATION_EXPORT const unsigned char PRAccessibilityVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PRAccessibility/PublicHeader.h>
-
-typedef NS_ENUM(NSInteger, PRTheme) {
-    PRThemeUndefined = 0,
-    PRThemeLight,
-    PRThemeDark,
-    PRThemeDarkBrand
-};

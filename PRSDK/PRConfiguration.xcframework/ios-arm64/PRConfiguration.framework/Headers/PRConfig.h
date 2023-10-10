@@ -46,8 +46,6 @@
 
 #define SETTINGS_SHOW_INSTRUCTIONS		_PRCONFIG_BOOL_(@"SETTINGS_SHOW_INSTRUCTIONS", NO)
 
-#define SETTINGS_SHOW_ACCORDION_AUTOMATICALLY _PRCONFIG_BOOL_(PRShowAccordion, ([UIScreen screenDiagonale] >= 9))
-
 #define SETTINGS_SHOW_FORHOTSPOTSPONSORS _PRCONFIG_BOOL_(@"SETTINGS_SHOW_FORHOTSPOTSPONSORS", NO)
 #define SETTINGS_SHOW_BUNDLES           _PRCONFIG_BOOL_(@"SETTINGS_SHOW_BUNDLES", YES)
 #define SETTINGS_ORIGINAL_USER_NAME		_PRCONFIG_BOOL_(@"SETTINGS_ORIGINAL_USER_NAME", NO)
@@ -72,8 +70,6 @@
 #define enable_pageset_actions          _PRCONFIG_BOOL_(@"enable_pageset_actions", YES)
 
 #pragma mark - Store/Catalog
-
-#define CATALOG_HUB_SORTING_FIRST_ITEMS_FROM_ACCOUNT_COUNTRY _PRCONFIG_INT_ (@"CATALOG_HUB_SORTING_FIRST_ITEMS_FROM_ACCOUNT_COUNTRY", 6)
 
 #define THUMBCLICK_CATALOGITEM_OPENREAD                 _PRCONFIG_BOOL_(@"THUMBCLICK_CATALOGITEM_OPENREAD", NO)
 #define THUMBCLICK_ORDER_LATESTISSUESITEM_OPENREAD      _PRCONFIG_BOOL_(@"THUMBCLICK_ORDER_LATESTISSUESITEM_OPENREAD", NO)
@@ -282,6 +278,7 @@
 @class AppMenuConfig;
 @class CustomerSupportConfig;
 @class ContentAccessConfig;
+@class UserInterfaceStyleConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -320,6 +317,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) PRAuthorizationConfig *authConfig NS_SWIFT_NAME(auth);
 @property (class, nonatomic, readonly) AppMenuConfig *appMenuConfig NS_SWIFT_NAME(appMenu);
 @property (class, nonatomic, readonly) CustomerSupportConfig *customerSupportConfig NS_SWIFT_NAME(customerSupport);
+@property (class, nonatomic, readonly) UserInterfaceStyleConfig *userInterfaceStyleConfig NS_SWIFT_NAME(userInterfaceStyle);
 
 @property (class, nonatomic, readonly) BOOL deepLinkCommandUseHost;
 @property (class, nonatomic, readonly) BOOL areTooltipsEnabled;

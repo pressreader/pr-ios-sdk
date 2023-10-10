@@ -13,6 +13,7 @@
 
 @interface PRAppMenuVC : PRMenuVC
 @property (nonatomic, strong) UIImageView *logo;
+@property (nonatomic) BOOL showMenuItemIndicator;
 
 + (instancetype)controllerWithHotspotStatusViewManager:(id<PRHotspotStatusViewManagerProtocol>)manager;
 

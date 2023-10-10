@@ -18,8 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithConfig:(PRBannerPresentationConfig *)config;
 
-- (nullable PRCatalogSection *)allBannersSection;
-
 @property (nonatomic, strong, readonly) PRBannerPresentationConfig *presentationConfig;
 
 @end

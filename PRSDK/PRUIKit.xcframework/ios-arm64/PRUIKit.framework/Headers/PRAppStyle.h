@@ -21,8 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)titleTextAttributesIfBarIsLight:(BOOL)isBarLight;
 + (NSDictionary *)detailTitleTextAttributesIfBarIsLight:(BOOL)isBarLight;
 
-+ (UIView *)greenSelectionBackgroundView;
-
 @end
 
 @interface UISegmentedControl (PRAppStyle)<PRAppStyleProtocol>

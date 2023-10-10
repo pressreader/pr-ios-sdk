@@ -22,7 +22,11 @@ typedef NS_OPTIONS(NSUInteger, PROrderDeliveryOption) {
     PROrderDeliveryOptionIncludeSupplements = 1 << 2,
     PROrderDeliveryOptionRetrieveProductInfo = 1 << 3,
     PROrderDeliveryOptionSkipReadingSuggestion = 1 << 4,
-    PROrderDeliveryOptionUsePremiumProduct = 1 << 5
+    PROrderDeliveryOptionUsePremiumProduct = 1 << 5,
+    /// By default `PROrderDelivery` doesn't retrieve purchase information and doesn't try to buy an issue if there is a downloaded
+    /// library item. With this option we can force `PROrderDelivery` to ignore downloaded library item and proceed with a
+    /// purchase flow anyway.
+    PROrderDeliveryOptionIgnoreDownloadedItem = 1 << 6
 };
 
 extern NSNotificationName const PROrderDeliveryResultNotification;

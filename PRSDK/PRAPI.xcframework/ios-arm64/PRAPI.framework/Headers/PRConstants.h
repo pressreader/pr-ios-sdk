@@ -9,3 +9,4 @@
 #import <UIKit/UIKit.h>
 
 extern const NSInteger kPRMaxFontSizeAdj;
+extern const NSUInteger kPRMaxReadableIDLength;

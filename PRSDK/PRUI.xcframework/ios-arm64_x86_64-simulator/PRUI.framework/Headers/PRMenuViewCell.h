@@ -26,10 +26,12 @@ typedef NS_OPTIONS(uint8_t, PRMenuCellOptions) {
 @property (nonnull, nonatomic, readonly) UIView *contentView;
 
 @property (nullable, nonatomic, strong) UIView *selectedBackgroundView;
-@property (nullable, nonatomic, strong) UIColor *color;
+
+@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) UIColor *selectionColor;
+@property (nonatomic, strong) UIColor *highlightColor;
 @property (nullable, nonatomic, strong) UIColor *imageColor;
-@property (nullable, nonatomic, strong) UIColor *selectionColor;
-@property (nullable, nonatomic, strong) UIColor *backgroundHighlightColor;
+@property (nonatomic, strong) UIColor *backgroundHighlightColor;
 
 @property (nonatomic, getter=isEnabled) BOOL enabled;
 @property (nonatomic, getter=isSelected) BOOL selected;

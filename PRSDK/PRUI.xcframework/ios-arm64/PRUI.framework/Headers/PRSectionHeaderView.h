@@ -47,10 +47,6 @@ typedef NS_OPTIONS(NSUInteger, PRSectionHeaderViewOption) {
               options:(PRSectionHeaderViewOption)options;
 
 @property (nonatomic, weak) id<PRSectionHeaderViewDelegate> delegate;
-@property (nonatomic, readonly) PRSeeAllButton *seeAllButton;
-@property (nonatomic, readonly) NSLayoutConstraint *seeAllButtonWidth;
-@property (nonatomic, getter = isSeeAllButtonHidden) BOOL seeAllButtonHidden;
-
 @property (nonatomic) PRSectionHeaderViewOption options;
 
 @end

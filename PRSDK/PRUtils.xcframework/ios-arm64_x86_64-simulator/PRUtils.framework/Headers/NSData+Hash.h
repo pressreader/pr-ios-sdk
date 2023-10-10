@@ -11,9 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (Hash)
-@property(nonatomic, readonly) NSData *MD5Hash;
-@property(nonatomic, readonly) NSData *SHA256Hash;
+
 - (NSData *)HMACSHA256WithKey:(NSData *)key NS_SWIFT_NAME(hmacSHA256(key:));
+
+@property(nonatomic, readonly) NSData *MD5Hash;
+
 @end
 
 NS_ASSUME_NONNULL_END

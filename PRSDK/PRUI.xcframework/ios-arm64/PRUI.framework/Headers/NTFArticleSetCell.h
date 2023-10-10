@@ -11,6 +11,8 @@
 #import "NTFArticleCompactView.h"
 #import "NTFArticleCompactView_Constants.h"
 
+@import PRAPI;
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSArray<id<NTFItem>> * NTFItems;

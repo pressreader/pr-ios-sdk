@@ -9,19 +9,23 @@
 #ifndef PRPubHubDataSource_Protected_h
 #define PRPubHubDataSource_Protected_h
 
-#import "PRPubHubSchemeProvider.h"
 #import "PRBannerProvider.h"
 
 @class AdBannerPresentation;
+@class CatalogSchemeProvider;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface PRPubHubDataSource ()
 
-@property (nonatomic, strong) PRPubHubSchemeProvider *schemeProvider;
-@property (nonatomic, strong) PRBannerProvider *bannerProvider;
+@property (nonatomic, strong) CatalogSchemeProvider *schemeProvider;
+@property (nullable, nonatomic, strong) PRBannerProvider *bannerProvider;
 
-@property (nonatomic, strong) AdBannerPresentation *topScrollableAdBanner;
-@property (nonatomic, strong) AdBannerPresentation *inlineAdBanner;
+@property (nullable, nonatomic, strong) AdBannerPresentation *topScrollableAdBanner;
+@property (nullable, nonatomic, strong) AdBannerPresentation *inlineAdBanner;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* PRPubHubDataSource_Protected_h */

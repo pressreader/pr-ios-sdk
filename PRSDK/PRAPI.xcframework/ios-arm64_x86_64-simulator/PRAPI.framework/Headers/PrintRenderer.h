@@ -32,6 +32,8 @@
 @property (strong) NSString * header;
 @property (strong) NSString * footer;
 
+@property (class, nonatomic, readonly) NSString *defaultFooter;
+
 @end
 
 @interface UIPrintInteractionController (PRPresenting)

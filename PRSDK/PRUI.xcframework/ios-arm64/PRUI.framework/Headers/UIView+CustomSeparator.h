@@ -1,6 +1,6 @@
 //
-//  UITableViewCell+CustomSeparator.h
-//  PR-UI
+//  UIView+CustomSeparator.h
+//  PRUI
 //
 //  Created by Viacheslav Soroka on 6/18/19.
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
@@ -15,7 +15,7 @@ typedef NS_ENUM(uint8_t, PRSeparatorStyle) {
     PRSeparatorStyleThick
 };
 
-@interface UITableViewCell (CustomSeparator)
+@interface UIView (CustomSeparator)
 @property (nonatomic) BOOL useCustomSeparators;
 @property (nonatomic) PRSeparatorStyle customSeparatorStyle;
 

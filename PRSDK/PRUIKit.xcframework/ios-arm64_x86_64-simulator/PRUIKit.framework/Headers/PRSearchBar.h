@@ -13,17 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSUInteger, PRSearchBarOption) {
     PRSearchBarOptionNone = 0,
-    PRSearchBarOptionFitNavigationBar = 1 << 0,
-    PRSearchBarOptionCenterPlaceholder = 1 << 1,
-    PRSearchBarOptionDisableCursorAnimation = 1 << 2,
-    PRSearchBarOptionNarrowSearchField = 1 << 3,
-    PRSearchBarOptionBranded = 1 << 4,
+    PRSearchBarOptionCenterPlaceholder = 1 << 0,
+    PRSearchBarOptionDisableCursorAnimation = 1 << 1,
+    PRSearchBarOptionBranded = 1 << 2
 };
 
 @interface PRSearchBar : UISearchBar
 
-- (instancetype)initWithFrame:(CGRect)frame appearance:(PRTheme)appearance options:(PRSearchBarOption)options;
-- (instancetype)initWithAppearance:(PRTheme)appearance options:(PRSearchBarOption)options;
+- (instancetype)initWithFrame:(CGRect)frame options:(PRSearchBarOption)options;
 - (instancetype)initWithOptions:(PRSearchBarOption)options;
 
 ///Workaround: Disable show cancel button on UISearchController for IOS before 13

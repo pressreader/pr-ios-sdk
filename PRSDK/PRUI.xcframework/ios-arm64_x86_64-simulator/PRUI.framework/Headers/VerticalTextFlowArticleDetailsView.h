@@ -8,10 +8,10 @@
 
 @import UIKit;
 @import WebKit;
+@import PRAPI;
 
 #import "PRCommentsView.h"
 #import "PRPhotoCollage.h"
-#import <PRUI/PRFlowArticle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -76,11 +76,12 @@ extern CGFloat const kPRMaxTextWidth;
 - (void)toggleCommentPostButton;
 
 - (BOOL)navigationBarShouldBeTransparent;
-
+- (void)updateBylineMasthead;
 - (void)updateContentInsets;
 
 @property (nonatomic) BOOL prefersTransparentNavigationBar;
-@property (nullable, nonatomic, strong) id<PRFlowArticle> article;
+@property (nonatomic, readonly) BOOL isTopImagePresented;
+@property (nullable, nonatomic, strong) id<FlowArticle> article;
 @property (nullable, nonatomic, strong) NSArray<AdBannerPresentation *> *ads;
 
 @property (nullable, nonatomic, weak) UIViewController<VerticalTextFlowArticleDetailsViewDelegate> *delegate;

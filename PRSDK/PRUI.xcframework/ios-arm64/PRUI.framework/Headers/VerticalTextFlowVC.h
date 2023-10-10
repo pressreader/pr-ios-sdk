@@ -49,13 +49,11 @@ typedef NS_ENUM(uint8_t, NTFTextFlowType) {
 @property (class, nonatomic, readonly) NTFLayoutType layoutType;
 
 @property (nonatomic, readonly) UITableView *tableView;
-@property (nonatomic, readonly) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NTFDataSource *dataSource;
 
 @property (nonatomic) UIEdgeInsets contentInsets;
 
 @property (nonatomic) PRFeedArticleAction articleActions;
-@property (nonatomic) PRTheme theme;
 
 @property (nonatomic) BOOL embedded;
 @property (nonatomic, readonly) NTFTextFlowType textFlowType;

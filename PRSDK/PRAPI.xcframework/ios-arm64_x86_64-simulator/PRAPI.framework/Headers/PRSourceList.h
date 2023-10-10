@@ -139,7 +139,7 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 #pragma mark Sorting
 
 @property (nonatomic) PRCatalogSortingOrder order;
-@property (nullable, nonatomic, strong, readonly) NSString *sortingOrderMainCountryISOCode;
+@property (nullable, nonatomic, strong) NSString *sortingOrderMainCountryISOCode;
 
 @property (nonatomic) NSInteger tag;
 

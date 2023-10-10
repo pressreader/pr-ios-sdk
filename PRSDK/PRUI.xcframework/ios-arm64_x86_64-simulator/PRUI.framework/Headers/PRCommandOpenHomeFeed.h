@@ -10,11 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PRVerticalFeedVC;
-
 @interface PRCommandOpenHomeFeed : PROnlineCommand
-
-- (__kindof PRVerticalFeedVC *)homeFeedVC;
 
 @end
 
