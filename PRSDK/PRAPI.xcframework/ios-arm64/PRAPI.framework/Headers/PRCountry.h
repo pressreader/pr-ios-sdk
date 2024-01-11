@@ -10,6 +10,8 @@
 
 #define COUNTRY_ISO_INTERNATIONAL @"_i"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface PRCountry : NSObject
 @property (nonatomic, strong, readonly) NSString *ISO;
 @property (nonatomic, strong, readonly) NSString *name;
@@ -23,3 +25,5 @@
 
 - (instancetype)initWithISO:(NSString *)ISO Name:(NSString *)name;
 @end
+
+NS_ASSUME_NONNULL_END

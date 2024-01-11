@@ -1,16 +1,18 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUtils
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Compression
 import CryptoKit
 import Foundation
 import PRConfiguration
+import PRSyntacticSugar
 @_exported import PRUtils
 import Swift
 import UIKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 @objc extension ObjectiveC.NSObject {
   @objc dynamic public class var className: Swift.String {
     @objc get
@@ -31,6 +33,20 @@ extension Foundation.NSAttributedString {
 }
 extension Foundation.NSMutableAttributedString {
   @objc override dynamic public func trimmedEnd(set: Foundation.CharacterSet) -> Foundation.NSMutableAttributedString
+}
+@objc extension Foundation.NSAttributedString {
+  public enum InitError : Swift.Error {
+    case invalidHTML
+    public static func == (a: Foundation.NSAttributedString.InitError, b: Foundation.NSAttributedString.InitError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public typealias Options = [Foundation.NSAttributedString.DocumentReadingOptionKey : Any]
+  @objc @available(swift, obsoleted: 1.0)
+  dynamic public class func htmlAttributedString(_ html: Swift.String) -> Self?
+  @objc dynamic public class func htmlAttributedString(_ html: Swift.String, options: Foundation.NSAttributedString.Options = [:], documentAttributes: Swift.AutoreleasingUnsafeMutablePointer<Foundation.NSDictionary?>? = nil) throws -> Self
 }
 public protocol Observable {
   associatedtype Callback
@@ -79,8 +95,8 @@ extension Swift.String {
     get
   }
 }
-@objc extension Foundation.Bundle {
-  @objc dynamic public func appDisplayName() -> Swift.String?
+extension Foundation.JSONSerialization {
+  public static func item<T>(json: Any) throws -> T where T : Swift.Decodable
 }
 extension Swift.Dictionary where Key : Swift.RawRepresentable, Key.RawValue : Swift.Hashable {
   public func rawKeyRepresentation() -> [Swift.Dictionary<Key, Value>.Key.RawValue : Swift.Dictionary<Key, Value>.Value]
@@ -175,9 +191,9 @@ extension Swift.String {
   @objc dynamic public func urlParameters() -> [Swift.String : Swift.String]
 }
 @objc extension Foundation.Bundle {
-  @objc public static func containURLScheme(_ urlScheme: Swift.String?) -> Swift.Bool
-  @objc public static func containAssociatedBranchDomain(_ associatedBranchDomain: Swift.String?) -> Swift.Bool
-  @objc public static func canHandleURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc dynamic public func containsURLScheme(_ urlScheme: Swift.String?) -> Swift.Bool
+  @objc dynamic public func containsAssociatedBranchDomain(_ associatedBranchDomain: Swift.String?) -> Swift.Bool
+  @objc dynamic public func canHandleURL(_ url: Foundation.URL) -> Swift.Bool
 }
 extension Swift.Encodable {
   public var jsonObject: Any? {
@@ -212,6 +228,9 @@ extension Swift.Result where Success == () {
     get
   }
 }
+extension Foundation.UUID {
+  public init(number: Swift.Int64)
+}
 @objc @_hasMissingDesignatedInitializers public class Synchronizer : ObjectiveC.NSObject {
   @objc public func sync(_ block: @escaping () -> ())
   @objc public func async(_ block: @escaping () -> ())
@@ -231,7 +250,8 @@ extension Swift.String {
   public func ranges(of substring: Swift.String, options: Swift.String.CompareOptions = [], locale: Foundation.Locale? = nil) -> [Swift.Range<Swift.String.Index>]
   public func capitalizedFirstLetter() -> Swift.String
   public mutating func capitalizeFirstLetter()
-  public func htmlAttributed(encoding: Swift.String.Encoding = .utf8) -> Foundation.NSMutableAttributedString?
+  public func htmlAttributed() -> Foundation.NSMutableAttributedString?
+  public func dropPrefix(_ prefix: Swift.String) -> Swift.String
 }
 extension Foundation.Data {
   public var sha256Hash: Swift.String {
@@ -272,6 +292,8 @@ extension Swift.Array where Element : Swift.Equatable {
 @objc extension Foundation.NSString {
   @objc(sentenceShiftedToPhrases:maxBeginningCharactersCount:) dynamic public func sentence(shiftedTo phrases: [Swift.String], maxBeginningCharactersCount: Swift.Int) -> Foundation.NSString
 }
+extension Foundation.NSAttributedString.InitError : Swift.Equatable {}
+extension Foundation.NSAttributedString.InitError : Swift.Hashable {}
 extension PRUtils.AuthPriority : Swift.Equatable {}
 extension PRUtils.AuthPriority : Swift.Hashable {}
 extension PRUtils.AuthPriority : Swift.RawRepresentable {}

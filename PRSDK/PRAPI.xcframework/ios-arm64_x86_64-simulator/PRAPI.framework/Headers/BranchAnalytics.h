@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SKProduct, SKPaymentTransaction;
 
-@interface BranchAnalytics : NSObject<PRAnalytics>
+@interface BranchAnalytics : NSObject<PROptionalAnalytics>
 
 @end
 

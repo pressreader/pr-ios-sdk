@@ -179,9 +179,6 @@
 #pragma mark - Free issues
 
 #define free_issue_cids                 _PRCONFIG_STRING_(@"free_issue_cids", @"")
-#define SHOW_REMAINING_FREE_ISSUES_NOTICE   _PRCONFIG_BOOL_(@"SHOW_REMAINING_FREE_ISSUES_NOTICE", NO) 
-#define SHOW_FREE_INDICATOR             _PRCONFIG_BOOL_(@"SHOW_FREE_INDICATOR", YES)
-
 
 #pragma mark - Order View
 

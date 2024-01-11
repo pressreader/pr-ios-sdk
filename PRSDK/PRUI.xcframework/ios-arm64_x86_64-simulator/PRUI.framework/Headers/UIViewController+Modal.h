@@ -15,9 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)presentViewControllerModally:(UIViewController *)viewController;
 - (void)presentViewControllerModally:(UIViewController *)viewController
                   useNavigationStack:(BOOL)useNavigationStack;
+- (void)presentViewControllerModally:(UIViewController *)viewController
+                  useNavigationStack:(BOOL)useNavigationStack
+                   presentationStyle:(UIModalPresentationStyle)presentationStyle;
 
 - (void)presentModally;
 - (void)presentModallyUsingNavigationStack:(BOOL)useNavigationStack;
+- (void)presentModallyUsingNavigationStack:(BOOL)useNavigationStack
+                         presentationStyle:(UIModalPresentationStyle)presentationStyle;
 
 - (void)presentViewController:(UIViewController *)viewController animated:(BOOL)animated dismissPresented:(BOOL)dismissPresented completion:(nullable dispatch_block_t)completion;
 

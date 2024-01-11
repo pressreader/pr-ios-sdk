@@ -54,7 +54,9 @@ extern NSString *const kManagedExternalServicesKey;
 extern NSString *const kExternalSignInTemplateIdKey;
 extern NSString *const kAnonymousUserCategoriesKey;
 extern NSString *const kAnalyticsEventsConfigurationKey;
-
+extern NSString *const kAuthentificationAuth0SSOConfigurationKey;
+extern NSString *const kAuthentificationAuth0SSOScopeConfigurationKey;
+extern NSString *const kAuthentificationAuth0SSOAudienceConfigurationKey;
 
 extern CGFloat const kIPad_MaxZoomLevel;
 extern CGFloat const kIPhone_MaxZoomLevel;

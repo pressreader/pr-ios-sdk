@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRCoreDataUtils
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreData
@@ -8,6 +8,7 @@ import Foundation
 import Swift
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 extension CoreData.NSManagedObjectContext {
   public func performAndWaitAndSave<T>(_ block: () throws -> T) rethrows -> T
   #if compiler(>=5.3) && $AsyncAwait
@@ -21,6 +22,13 @@ extension CoreData.NSManagedObjectContext {
 }
 extension CoreData.NSManagedObjectContext {
   public func object(entityName: Swift.String, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil) -> CoreData.NSManagedObject?
+}
+extension Swift.Dictionary {
+  public func castInt<T>(_ key: Key, defaultValue: T = 0) -> T where T : Swift.FixedWidthInteger, T : Swift.SignedInteger
+  public func castInt<T>(_ keys: [Key], defaultValue: T = 0) -> T where T : Swift.FixedWidthInteger, T : Swift.SignedInteger
+}
+extension Swift.FixedWidthInteger {
+  public func cast<T>() -> T where T : Swift.FixedWidthInteger
 }
 @objc extension CoreData.NSManagedObject {
   @objc dynamic public class var entityName: Swift.String {
@@ -67,6 +75,19 @@ extension CoreData.NSManagedObjectContext {
   public func fetchItem<T>(predicate: Foundation.NSPredicate) -> T? where T : CoreData.NSManagedObject
   public func fetchAndDeleteItems<T>(request: CoreData.NSFetchRequest<T>) -> [T] where T : CoreData.NSManagedObject
   public func deleteItems<T>(request: CoreData.NSFetchRequest<T>) where T : CoreData.NSManagedObject
+}
+@propertyWrapper public struct RawRepresentableCDPrimitive<Value> where Value : Swift.RawRepresentable, Value.RawValue == Swift.Int {
+  public typealias Primitive = Swift.FixedWidthInteger
+  public static subscript<T>(_enclosingInstance instance: T, wrapped wrappedKeyPath: Swift.ReferenceWritableKeyPath<T, Value>, storage storageKeyPath: Swift.ReferenceWritableKeyPath<T, PRCoreDataUtils.RawRepresentableCDPrimitive<Value>>) -> Value where T : CoreData.NSManagedObject {
+    get
+    set
+  }
+  @available(*, unavailable)
+  public var wrappedValue: Value {
+    get
+    set
+  }
+  public init(key: Swift.String, primitiveType: any PRCoreDataUtils.RawRepresentableCDPrimitive<Value>.Primitive.Type)
 }
 public protocol IdentifiableMO : CoreData.NSManagedObject {
   static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self

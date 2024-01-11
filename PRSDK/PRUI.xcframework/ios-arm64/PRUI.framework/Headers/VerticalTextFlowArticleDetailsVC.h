@@ -64,6 +64,7 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 
 @property (nonatomic, assign) CGFloat topContentOffset;
 @property (nullable, nonatomic, readonly) NSArray<NSString *> *highlightedPhrases;
+@property (nonatomic, strong) NSArray<AdBannerPresentation *> *contentAds;
 
 @end
 

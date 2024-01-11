@@ -11,13 +11,14 @@
 
 @class PRSmartCommentPost;
 @class PRSmartArticle;
+@class NTFSocialInfoBookmark;
 
 @interface NTFSocialInfoItem : NSObject
 @property (nonatomic, readonly) NSArray<PRSmartCommentPost *> *allComments;
 @property (nonatomic, readonly) NSArray<PRSmartCommentPost *> *currentUserComments;
 @property (nonatomic, readonly) NSArray<PRSmartCommentPost *> *followedUsersComments;
 @property (nonatomic, readonly) NSArray<PRSmartCommentPost *> *otherComments;
-@property (nonatomic, readonly) NSArray<NSDictionary *> *bookmarks;
+@property (nonatomic, readonly) NSArray<NTFSocialInfoBookmark *> *bookmarks;
 @property (nonatomic, readonly) BOOL voted;
 @property (nonatomic, readonly) NSString *opinionId;
 @property (nonatomic, strong) NTFFeedSectionItem *feedSection;

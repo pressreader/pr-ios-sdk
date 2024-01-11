@@ -8,13 +8,15 @@
 
 #import "PRMenuVC.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface PRSlidingMenuVC : UIViewController<PRMenuVCDelegate>
 
 /// View controller that is presented above the other view controllers.
-@property (nonatomic, strong) UIViewController *topVC;
-@property (nonatomic, strong, readonly) UIView *contentView;
-@property (nonatomic, readonly) UIView *topView;
-@property (nonatomic, strong) PRMenuVC *menuVC;
+@property (nullable, nonatomic, strong) UIViewController *topVC;
+@property (nullable, nonatomic, strong, readonly) UIView *contentView;
+@property (nullable, nonatomic, readonly) UIView *topView;
+@property (nullable, nonatomic, strong) PRMenuVC *menuVC;
 @property (nonatomic, readonly) CGFloat menuSize;
 @property (nonatomic, readonly) CGFloat visibleMenuSize;
 @property (nonatomic, getter=isMenuMoving, readonly) BOOL menuMoving;
@@ -32,3 +34,5 @@
 - (void)hideMenuAnimated:(BOOL)animated;
 
 @end
+
+NS_ASSUME_NONNULL_END

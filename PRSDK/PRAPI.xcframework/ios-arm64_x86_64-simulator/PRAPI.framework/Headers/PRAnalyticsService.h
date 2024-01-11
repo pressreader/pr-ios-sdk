@@ -23,6 +23,7 @@ extern PRAnalyticsTrackName const PRAnalyticsTrackCatalogView; // parameter: Cat
 extern PRAnalyticsTrackName const PRAnalyticsTrackOrderView; // paramerters TitleItemExemplar, OrderViewAction
 extern PRAnalyticsTrackName const PRAnalyticsTrackTextFlowView; // parameters: TextFlowSource, TextFlowType, MyLibraryItem for Source .issue, SearchTerm for source .searchResults
 extern PRAnalyticsTrackName const PRAnalyticsTrackArticleView; // parameters: ArticleItem and TextFlowType
+extern PRAnalyticsTrackName const PRAnalyticsTrackArticleViewClose; // parameters: ArticleItem and TextFlowType
 extern PRAnalyticsTrackName const PRAnalyticsTrackCommentsView; // parameters: ArticleItem and TextFlowType, CommentsCount
 extern PRAnalyticsTrackName const PRAnalyticsTrackCommentPostView; // parameters: ArticleItem and TextFlowType, EditAction
 extern PRAnalyticsTrackName const PRAnalyticsTrackRadioView;
@@ -198,7 +199,6 @@ extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterBookAuthor; // S
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterBookTitle; // String
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterBookGenres; // String
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterBookSlug; //String
-
 
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterAction;
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterPublication;

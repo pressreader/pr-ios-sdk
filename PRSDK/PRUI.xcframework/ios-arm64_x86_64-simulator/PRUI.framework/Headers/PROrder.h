@@ -61,7 +61,7 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success);
 @property (nonatomic, strong, readonly) NSString *mainCID;
 @property (nonatomic, strong, readonly) PRTitleItem *titleItem;
 @property (nonatomic, strong, readonly) PRTitleItemExemplar *titleExemplar;
-@property (nonatomic, weak, readonly) PRMyLibraryItem *mli;
+@property (nullable, nonatomic, weak, readonly) PRMyLibraryItem *mli;
 @property (nullable, nonatomic, copy, readonly) NSArray<NSDate *> *availableDates;
 @property (nonatomic, copy, readonly) NSDictionary *availableVersions;
 @property (nonatomic, assign) BOOL dontVerifyDateWithAvailableDates;
@@ -100,11 +100,10 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success);
 
 @property (nonatomic, readonly) BOOL latestIssueDatesRequestInProgress;
 @property (nonatomic, readonly) BOOL mightShowPaymentOptions;
-@property (nonatomic, readonly) BOOL shouldRequestPaymentInfo;
 
 @property (nonatomic, readonly) BOOL hasRadio;
 
-@property (nullable, nonatomic, strong, readonly) NSNumber *balance;
+@property (nullable, nonatomic, strong, readonly) PRConsumableBundle *bundle;
 
 @end
 

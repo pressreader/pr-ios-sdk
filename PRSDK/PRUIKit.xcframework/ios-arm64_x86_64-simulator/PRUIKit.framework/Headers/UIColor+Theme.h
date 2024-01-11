@@ -15,9 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)menuBarTintColor:(BOOL)translucent;
 + (UIColor *)defaultUIControlSubtitleColor:(UIUserInterfaceStyle)theme;
 
-@property (class, nonatomic, readonly) UIColor *navigationBarTintColor;
-@property (class, nonatomic, readonly) UIColor *translucentNavigationBarTintColor;
-
 @property (class, nonatomic, readonly) UIColor *navigationBarContentTintColor;
 
 @property (class, nonatomic, readonly) UIColor *textFieldPlaceholderColor;
@@ -34,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, nonatomic, readonly) UIColor *tableViewInPopoverSelectedBackgroundColor NS_SWIFT_NAME(tableViewInPopoverSelectedBackground);
 @property (class, nonatomic, readonly) UIColor *tableViewInPopoverCellBackgroundColor NS_SWIFT_NAME(tableViewInPopoverCellBackground);
-@property (class, nonatomic, readonly) UIColor *tableViewInPopoverBackgroundColor NS_SWIFT_NAME(tableViewInPopoverBackground);
 
 @property (class, nonatomic, readonly) UIColor *popoverBackgroundColor;
 

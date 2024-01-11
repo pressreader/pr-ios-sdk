@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRBaseStoreCollectionVC (Filtering) <PRCatalogFilterPanelDelegate>
 
-- (void)openCatalogFilter:(id<CatalogFilterProtocol>)catalogFilterItem
+- (void)openCatalogFilter:(id<CatalogNavigation>)catalogFilterItem
                    sender:(nullable UIView *)view;
 
 @end

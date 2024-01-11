@@ -136,6 +136,8 @@
 #import <PRUtils/UIImage+FontIcons.h>
 #import <PRUtils/UIImageView+Alignment.h>
 
+#import <PRUtils/UIGraphics+.h>
+
 //! Project version number for PRUtils.
 FOUNDATION_EXPORT double PRUtilsVersionNumber;
 

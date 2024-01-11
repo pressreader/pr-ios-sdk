@@ -12,9 +12,9 @@
 
 @class PRTitleItem;
 @class PRTitleItemExemplar;
-@class PRSourceList;
 @class PressCatalog, Downloads, Books, Publications;
 @class PRAccountItem;
+@class PRCountableValue;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,24 +50,19 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 @interface PRCatalog : NSObject
 
 /// Reload catalog from server
-- (void)reloadCatalogSourcesForced:(BOOL)forced;
+- (void)reloadCatalog;
 - (void)reloadCustomCatalog;
 
 - (nullable PRTitleItem *)sourceByCid:(NSString *)cid NS_SWIFT_NAME(source(cid:));
 - (nullable NSArray *)supplementsByCID:(NSString *)cid;
-- (nullable NSArray *)regionalEditionsByCID:(NSString *)cid;
 - (nullable NSArray *)relatedPublicationsByCID:(NSString *)cid;
 
 - (void)updateStatus;
-
-@property (nonatomic, strong, readonly) PRSourceList *presenter;
-@property (nonatomic, strong, readonly) PRSourceList *favorites;
 
 @property (nonatomic, assign, readonly) PRCatalogStatus status;
 @property (nonatomic) PRCatalogPartitionState partitionState;
 @property (nonatomic) PRCatalogMode mode;
 
-@property (nonatomic, readonly) NSUInteger sourcesCount;
 @property (nonatomic, readonly) BOOL containsSingleCID;
 @property (nonatomic, readonly) BOOL containsSingleParentCID;
 
@@ -77,6 +72,7 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 */
 @property (nonatomic, readonly) BOOL isSingleTitleStyle;
 
+@property (nonatomic, readonly) PRAccountItem *defaultService;
 @property (nonatomic, readonly) NSArray<PRAccountItem *> *services;
 
 @property (nullable, nonatomic, strong) NSArray<PRTitleItem *> *sources;
@@ -86,16 +82,21 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 
 @property (nullable, nonatomic, strong) NSDictionary<NSString *, PRTitleItem *> *sourcesByCID;
 
-@property (nullable, nonatomic, strong) NSDictionary *groupsByName;
-@property (nullable, nonatomic, strong) NSDictionary *groupsByCID;
+@property (nullable, nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> *groupsByName;
+@property (nullable, nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> *groupsByCID;
 
 @property (nullable, nonatomic, strong) NSDictionary<NSString *, NSArray<PRTitleItem *> *> *supplementsByCID;
-@property (nullable, nonatomic, strong) NSDictionary<NSString *, NSArray<PRTitleItem *> *> *regionalEditionsByCID;
 
 @property (nullable, nonatomic, strong) NSDictionary *topCategoriesByName;
 
 @property (nullable, nonatomic, strong) NSArray *regions;
 @property (nullable, nonatomic, strong) NSArray *featuredSourcesCIDs;
+
+/**
+ Tells us whether we can already determine catalog mode and build UI according to its value. If this property returns `NO`, we should wait
+ for catalog.
+ */
+@property (nonatomic, readonly) BOOL isAppearanceDetermined;
 
 @end
 

@@ -14,12 +14,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PRAccountItem;
 @class PRPromise;
 
 @interface PRMainVC : PRSlidingMenuVC<PRTooltipVCProtocol>
-
-- (void)presentEditAccount:(PRAccountItem *)accountItem;
 
 @property(null_resettable, nonatomic,strong) UIView *view NS_UNAVAILABLE;
 
@@ -31,4 +28,3 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 #import "UIViewController+PRMainVC.h"
-#import "PRBaseMainVC+Size.h"

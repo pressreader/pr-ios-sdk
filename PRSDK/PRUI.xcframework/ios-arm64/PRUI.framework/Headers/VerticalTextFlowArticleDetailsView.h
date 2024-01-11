@@ -76,7 +76,7 @@ extern CGFloat const kPRMaxTextWidth;
 - (void)toggleCommentPostButton;
 
 - (BOOL)navigationBarShouldBeTransparent;
-- (void)updateBylineMasthead;
+- (void)setNeedsUpdateBylineMasthead;
 - (void)updateContentInsets;
 
 @property (nonatomic) BOOL prefersTransparentNavigationBar;

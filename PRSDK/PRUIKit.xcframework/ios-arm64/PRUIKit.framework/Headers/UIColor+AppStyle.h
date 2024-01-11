@@ -38,9 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, class, readonly) UIColor *darkTableViewHeaderFooterTextColor;
 
 @property(class, nonatomic, readonly) UIColor *defaultTextFieldBackgroundColor;
-
-@property(class, nonatomic, readonly) UIColor *darkPopoverBackgroundColor;
-
 @property(class, nonatomic, readonly) UIColor *masterPanelBackgroundColor;
 
 @property(class, nullable, nonatomic, readonly) UIColor *navigationBarBrandedBarTintColor;

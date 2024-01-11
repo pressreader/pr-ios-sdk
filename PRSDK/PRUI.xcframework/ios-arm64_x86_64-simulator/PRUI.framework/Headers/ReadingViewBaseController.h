@@ -10,11 +10,10 @@
 
 @class PRPDFScrollView;
 #import "PRPageSlider.h"
-@import PRUIKit.PRNavigationBarManagementProtocol;
-@import PRUIKit.PRVC;
+@import PRUIKit;
 
-#define SWITCH_TABBAR_HEIGHT 58
-#define SWITCH_TABBAR_HEIGHT_COMPACT 40
+#define SWITCH_TABBAR_HEIGHT 49
+#define SWITCH_TABBAR_HEIGHT_COMPACT 35
 #define SECTION_SLIDER_SHADOW_HEIGHT 5
 #define READING_VC_SWITCH_DOUBLE_PAGE_BARBUTTON_TAG 4
 #define HIDE_SMART_MARKERS_IN_FULLSCREEN_MODE NO
@@ -29,7 +28,7 @@
 @protocol ReadingViewItem, PRSmartLayoutItem;
 @protocol PRCatalogItem;
 
-@interface ReadingViewBaseController : PRVC <UIScrollViewDelegate, PRNavigationBarManagementProtocol>
+@interface ReadingViewBaseController : PRVC <UIScrollViewDelegate, NavigationBarDismissable>
 {
 	BOOL			m_pageChangeFromEvent;
 	BOOL			inAlert;
@@ -72,8 +71,8 @@
 @property (nonatomic, strong) NSArray<NSArray *> *sections;
 @property (nonatomic, strong) NSObject *sliderSyncronizator;
 @property (nonatomic, strong) PRSmartFlowPreview *textPreview;
-@property (nonatomic, getter=isViewVisible) BOOL viewVisible;
-@property (nonatomic, getter = areBarsHidden) BOOL barsHidden;
+@property (nonatomic, assign, readonly) BOOL isViewVisible;
+@property (nonatomic, assign, readonly) BOOL barsHidden;
 @property (nonatomic) BOOL hideBarsOnAppear;
 @property (nonatomic, strong, readonly) NTFMyLibraryItemDataSource *mliDataSource;
 @property (nonatomic) BOOL shouldDismissBarsImmediately;
@@ -86,26 +85,31 @@ typedef enum {
     ReadingViewTypeText
 } ReadingViewType;
 
-@interface ReadingViewBaseController (Slider) <PRPagesSliderDelegate>
+@interface ReadingViewBaseController (Slider) <PRPageSliderDelegate>
 
 - (void)InitSlider;
 - (void)deallocSlider;
 - (void)offscreenSlider:(BOOL)offscreen;
-- (void)displaySlider:(BOOL)makeVisible;
 - (void)updatePreviewPosition:(PRSmartFlowPreview *)preview;
+- (void)displaySlider:(BOOL)makeVisible;
 - (void)displaySlider:(BOOL)makeVisible animated:(BOOL)animated;
+- (void)displayPageSlider:(BOOL)makeVisible;
+- (void)displayPageSlider:(BOOL)makeVisible animated:(BOOL)animated;
 - (void)switchToView:(ReadingViewType)viewId showParameters:(NSDictionary *)showParameters;
 - (void)refreshBottomBar;
 
-@property (nonatomic) BOOL isSliderVisible;
-@property (nonatomic, readonly) UIView *bottomBar;
+@property (nonatomic, readonly) BOOL isSliderVisible;
 @property (nonatomic, readonly) PRMenuBottomBar *menuBottomBar;
+@property (nonatomic, readonly) PRPageSlider *pageSlider;
+@property (nonatomic, readonly) CGFloat bottomBarHeight;
 
 @end
 
 @interface ReadingViewBaseController (/*PROTECTED*/)
 
 - (void)reloadBottomMenuBar;
+- (void)cancelDelayedBarsHidding;
+- (void)setBarsHidden:(BOOL)hidden animated:(BOOL)animated onUserTap:(BOOL)onUserTap;
 
 @property (nonatomic, strong) UIButton *readingModeSwitchButton;
 

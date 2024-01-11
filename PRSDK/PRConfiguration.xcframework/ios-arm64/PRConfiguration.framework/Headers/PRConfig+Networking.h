@@ -10,9 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// When this parameter is YES, we show alert each time when user tries download some title via WWAN
-#define SHOW_ALERT_BEFORE_DOWNLOAD_VIA_WWAN     _PRCONFIG_BOOL_(@"SHOW_ALERT_BEFORE_DOWNLOAD_VIA_WWAN", NO)
-
 #define newsstand_download_inactivity_period _PRCONFIG_INT_(@"newsstand_download_inactivity_period", 3) //days
 
 #pragma mark - iOS 7 Background Download
@@ -37,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic) NSString *imageUploadURL;
 @property (class, nonatomic, readonly) NSString *manageAccountURL;
 @property (class, nonatomic) BOOL shouldDownloadOnWiFiOnly;
+/// When this parameter is YES, we show alert each time when user tries download some title via WWAN
+@property (class, nonatomic, readonly) BOOL shouldAlertBeforeDownloadViaWWAN;
 
 @end
 

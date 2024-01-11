@@ -12,15 +12,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PRSourceList;
+@protocol CatalogFacade;
 @class ContentCardsPresentationConfig;
 
 @interface PRBannerPresentationConfig : NSObject
 
-- (instancetype)initWithSourceList:(PRSourceList *)sourceList;
+- (instancetype)initWithSourceList:(id<CatalogFacade>)sourceList;
 
 @property (class, nonatomic, readonly) PRAppPanelID panelToShowBanners;
-@property (nonatomic, strong, readonly) PRSourceList *sourceList;
+@property (nonatomic, strong, readonly) id<CatalogFacade> sourceList;
 @property (nonatomic, strong, readonly) ContentCardsPresentationConfig *contentCards;
 
 @end

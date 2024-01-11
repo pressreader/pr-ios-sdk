@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "PRAnalyticsProto.h"
 
-@interface ConsoleAnalytics : NSObject<PRAnalytics> {
-}
+NS_ASSUME_NONNULL_BEGIN
+
+@interface ConsoleAnalytics : NSObject<PROptionalAnalytics>
 
 @end
+
+NS_ASSUME_NONNULL_END

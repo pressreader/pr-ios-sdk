@@ -17,30 +17,17 @@ extern NSString * const kFeedbackMailAttachmentData;
 @interface PRFeedbackController : MFMailComposeViewController<MFMailComposeViewControllerDelegate>
 
 + (void)presentFeedbackComposerForParent:(nullable UIViewController *)parent NS_SWIFT_NAME(presentFeedbackComposer(for:));
-+ (void)presentFeedbackComposerWithLogsAttachedForParent:(nullable UIViewController *)parent NS_SWIFT_NAME(presentFeedbackComposerWithLogsAttached(for:));
+
++ (void)presentFeedbackComposerForParent:(nullable UIViewController *)parent
+                                 subject:(nullable NSString *)subject
+                                    body:(nullable NSString *)body;
 
 /// attachments is array of dictionaries with mime type and file path or NSData
 + (void)presentFeedbackComposerForParent:(nullable UIViewController *)parent
                                  subject:(nullable NSString *)subject
                                     body:(nullable NSString *)body
-                             attachments:(nullable NSArray *)attachments;
-/// PRFeedbackController static method to customize ToRecipients
-+ (void)presentFeedbackComposerForParent:(nullable UIViewController *)parent
-                                 subject:(nullable NSString *)subject
-                                    body:(nullable NSString *)body
                               recipients:(nullable NSArray<NSString *> *)recipients
-                             attachments:(nullable NSArray *)attachments;
-
-- (nullable instancetype)initWithParent:(nullable UIViewController *)parent;
-- (nullable instancetype)initWithParent:(nullable UIViewController *)parent
-                                subject:(nullable NSString *)subject
-                                   body:(nullable NSString *)body
-                            attachments:(nullable NSArray *)attachments;
-- (nullable instancetype)initWithParent:(nullable UIViewController *)parent
-                                subject:(nullable NSString *)subject
-                                   body:(nullable NSString *)body
-                             recipients:(nullable NSArray<NSString *> *)recipients
-                            attachments:(nullable NSArray *)attachments;
+                             attachments:(nullable NSArray<NSDictionary *> *)attachments;
 
 @property (nullable, nonatomic, strong) NSArray *attachments;
 

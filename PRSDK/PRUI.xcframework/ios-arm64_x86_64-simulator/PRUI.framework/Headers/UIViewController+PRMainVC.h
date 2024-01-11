@@ -39,11 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)movedBy:(UIScrollView *)scrollView withCoefficient:(CGFloat)coefficient;
 - (void)movedBy:(UIScrollView *)scrollView withCoefficient:(CGFloat)coefficient forceMoveWhenSwipeUp:(BOOL)shouldMoveWhenSwipeUp;
 
-/// access to main PressReader view controller
-@property (nonatomic, readonly, class) PRMainVC *mainVC;
-@property (nonatomic, readonly) PRMainVC *mainVC;
-@property (nonatomic, readonly) NSUInteger menuId;
-
 @end
 
 NS_ASSUME_NONNULL_END

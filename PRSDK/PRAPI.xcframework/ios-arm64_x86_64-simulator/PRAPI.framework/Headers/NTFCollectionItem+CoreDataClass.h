@@ -44,6 +44,7 @@ extern NSString * const NTFCollectionIDAll;
 @property (nonatomic, readonly, getter=isEditable) BOOL editable;
 @property (nonatomic, readonly, getter=isRemoveable) BOOL removeable;
 @property (nonatomic, readonly, getter=isSystemAll) BOOL systemAll;
+@property (nonatomic, readonly, getter=isRoot) BOOL root;
 
 @end
 

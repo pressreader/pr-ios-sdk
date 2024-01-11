@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *registerUrl;
 @property (nonatomic, readonly) NSString *instructionsUrl;
 @property (nonatomic, readonly) NSString *onlineServiceUrl;
+@property (nonatomic, readonly) NSString *publicationCatalogServiceURL;
 @property (nullable, nonatomic, readonly) NSString *bookServiceURL;
 @property (nullable, nonatomic, readonly) NSString *bookCatalogServiceURL;
 @property (nullable, nonatomic, readonly) NSString *bookReadingCollectorServiceUrl;

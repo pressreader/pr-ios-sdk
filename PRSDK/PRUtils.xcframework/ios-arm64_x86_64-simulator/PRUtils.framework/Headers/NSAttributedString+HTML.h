@@ -8,11 +8,15 @@
 
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSAttributedString (HTML)
 
-+ (instancetype)attributedStringWithHTML:(NSString *)htmlString;
-+ (instancetype)attributedStringWithHTML:(NSString *)htmlString color:(UIColor *)color;
-+ (instancetype)attributedStringWithHTML:(NSString *)htmlString color:(UIColor *)color size:(CGFloat)size;
-+ (instancetype)attributedStringWithHTML:(NSString *)htmlString color:(UIColor *)color font:(UIFont *)font;
++ (nullable instancetype)attributedStringWithHTML:(NSString *)htmlString;
++ (nullable instancetype)attributedStringWithHTML:(NSString *)htmlString color:(nullable UIColor *)color;
++ (nullable instancetype)attributedStringWithHTML:(NSString *)htmlString color:(nullable UIColor *)color size:(CGFloat)size;
++ (nullable instancetype)attributedStringWithHTML:(NSString *)htmlString color:(nullable UIColor *)color font:(nullable UIFont *)font;
 
 @end
+
+NS_ASSUME_NONNULL_END

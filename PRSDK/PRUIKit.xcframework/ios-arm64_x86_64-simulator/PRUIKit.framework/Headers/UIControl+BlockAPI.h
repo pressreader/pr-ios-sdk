@@ -12,9 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^PRUIControlEventHandler)(void);
 
+/// DEPRECATED: use `UIAction` along with `addAction:forControlEvents` method instead.
 @interface UIControl (BlockAPI)
 
-- (void)addHandlerForEvent:(UIControlEvents)event handler:(PRUIControlEventHandler)eventHandler;
+- (void)addHandlerForEvent:(UIControlEvents)event handler:(nullable PRUIControlEventHandler)eventHandler;
 - (void)removeEventHandler;
 
 @end

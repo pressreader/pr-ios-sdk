@@ -10,7 +10,6 @@
 
 #import <PRUI/PRMessageBar.h>
 
-@class PRSourceList;
 @class PRCountableValue;
 @class PRBannerPresentationConfig;
 @class CatalogSchemeProvider;
@@ -21,8 +20,6 @@
 @protocol PRSourceCollectionControllerDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
-
-extern const NSInteger kPRNumberOfCategoriesInFeaturedSection;
 
 extern NSNotificationName const PRPubHubDataSourceDidUpdateNotification;
 
@@ -45,9 +42,7 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 - (void)update;
 - (void)setNeedsUpdate;
 
-- (PRSourceList *)sourceListWithScheme:(CatalogSectionScheme *)scheme
-                              category:(PRCountableValue *)category;
-- (nullable PRCountableValue *)categoryAtIndexPath:(NSIndexPath *)indexPath;
+- (nullable id<CatalogNavigation>)categoryAtIndexPath:(NSIndexPath *)indexPath;
 
 - (CGSize)adBannerSizeForCatalogSection:(PRCatalogSection *)section;
 
@@ -55,8 +50,8 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 - (void)stopSectionObservation:(PRCatalogSection *)section;
 
 @property (nullable, nonatomic, weak) UIViewController<PRPubHubDataSourceDelegate> *delegate;
-@property (nonatomic, strong, readonly) NSArray<PRCountableValue *> *catalogFilters;
-@property (nonatomic, strong) PRSourceList *sourceList;
+@property (nonatomic, readonly) NSArray<id<CatalogNavigation>> *catalogFilters;
+@property (nonatomic, strong) id<CatalogFacade> sourceList;
 
 @property (nonatomic, strong) PRBannerPresentationConfig *bannerConfig;
 
@@ -115,7 +110,7 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 - (void)dataSource:(PRPubHubDataSource *)dataSource didUpdateSectionAtIndex:(NSInteger)index headerUpdated:(BOOL)headerUpdated;
 - (void)dataSourceDidUpdateAdBanners:(PRPubHubDataSource *)dataSource;
 - (void)scrollToTop;
-- (void)discloseCategory:(PRCountableValue *)value;
+- (void)discloseCategory:(PRCountableDictionary *)value;
 
 @property (nonatomic, readonly) CGSize viewSize;
 

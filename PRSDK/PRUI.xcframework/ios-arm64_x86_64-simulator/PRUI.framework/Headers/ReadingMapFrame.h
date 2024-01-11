@@ -12,6 +12,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NSString * ReadingMapArticleFrameType NS_TYPED_ENUM;
+extern ReadingMapArticleFrameType const ReadingMapArticleFrameTypeArticle;
+extern ReadingMapArticleFrameType const ReadingMapArticleFrameTypeRadio;
+
+typedef NSString * ReadingMapPageFrameType NS_TYPED_ENUM;
+extern ReadingMapPageFrameType const ReadingMapPageFrameTypeIssue;
+extern ReadingMapPageFrameType const ReadingMapPageFrameTypeDocument;
+
+
+typedef NSString * ReadingMapFrameItemType NS_TYPED_ENUM;
+extern ReadingMapFrameItemType const ReadingMapFrameItemTypePages;
+extern ReadingMapFrameItemType const ReadingMapFrameItemTypeItems;
+
 @protocol ReadingMapOperations <NSObject>
 
 // Reading map support
@@ -29,10 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (nullable instancetype) initWithType:(NSString *)type;
-+ (nullable instancetype) readingMapFrameWithType:(NSString *)type;
-
-- (void) addItem:(NSDictionary *)item forItemType:(NSString *)type;
+- (void) addItem:(NSDictionary *)item forItemType:(ReadingMapFrameItemType)type;
 
 - (void) suspendReadingWithAction:(nullable NSString *)actionType target:(nullable NSString *)targetId;
 - (nullable NSString *)currentActionType;
@@ -44,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ReadingMapPageFrame : ReadingMapFrame
 
-+ (instancetype) readingMapPageFrameWithIssueId:(NSString *)issueId;
-- (instancetype) initWithIssueId:(NSString *)issueId;
++ (instancetype)readingMapFrameWithType:(ReadingMapPageFrameType)type issueId:(NSString *)issueId;
+- (instancetype)initWithType:(ReadingMapPageFrameType)type issueId:(NSString *)issueId;
 
 - (void) addPage:(NSUInteger)pageNo
             left:(float)left
@@ -62,8 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ReadingMapArticleFrame : ReadingMapFrame
 
-+ (instancetype) readingMapArticleFrameWithType:(NSString *)type;
-+ (instancetype) readingMapArticleFrame;
++ (instancetype)readingMapFrameWithType:(ReadingMapArticleFrameType)type;
+- (instancetype)initWithType:(ReadingMapArticleFrameType)type;
 
 - (void) addArticle:(NSString *)articleID
            expanded:(BOOL)expanded

@@ -1,6 +1,6 @@
 //
 //  PREmbedablePubHubVC_Protected.h
-//  PR-UI
+//  PRUI
 //
 //  Created by Artem Serbin on 29.06.2021.
 //  Copyright © 2021 NewspaperDirect. All rights reserved.
@@ -26,8 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (CGFloat)itemSizeMultiplierForSection:(PRCatalogSection *)section;
 - (CGSize)itemSizeForSection:(PRCatalogSection *)section;
-
-- (void)setupFilterSectionWithCell:(UICollectionViewCell *)cell NS_SWIFT_NAME(setupFilterSection(cell:));
 
 - (PRCatalogSection *)sectionForIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)showSeeAllButtonForSection:(NSInteger)section;

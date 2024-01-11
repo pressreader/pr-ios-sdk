@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PREPubReaderLinker : NSObject
 
-@property (class, readonly) BOOL isEPubReaderAvailable;
+@property (class, readonly) Class bookReaderClass;
 
 + (PRPromise *) getEPubReader:(EpubContent *)epub
                    httpServer:(id<PRWebServerBookRegister>) httpServer

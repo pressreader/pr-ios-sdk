@@ -23,21 +23,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRMyLibrary : NSObject {
-@public
 	NSMutableDictionary<NSString *, PRMyLibraryItem *>*	m_mibymid;
-    NSMutableDictionary*    m_mibytitle;
-    NSMutableArray*         m_mibydate;
-	NSMutableArray*			m_sortedTitles;
-	NSArray*				mliSortDescriptors;
-	NSArray*				mliIssueSortDescriptors;
 	
 	BOOL                    m_loaded;
     BOOL                    m_isNetworkChanedAlertShown;
 	
 	NSOperationQueue*		m_pdfRenderingQueue;
-	
-	id						drawSem;
-	NSUInteger				dnlCounter;
 }
 
 - (void)initMyLibrary;
@@ -51,36 +42,35 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray*) GetSortedMIDs:(BOOL)descending filteredByTitle:(NSString *)titleContains;
 - (NSUInteger) numberOfOpenedItems;
 
-- (BOOL)deleteItemFromLibrary:(NSString*)MID;
+- (void)deleteItem:(PRMyLibraryItem *)mli;
 - (void)deleteLibraryItem:(id<LibraryItemProtocol>)item;
 - (void) PauseItem:(NSString*)MID;
 - (void) ResumeItem:(NSString*)MID;
 - (void) PauseResumeItem:(NSString*)MID;
 
 - (void) ShowNetworkChangedAlert: (BOOL)isWifiEnabled;
-- (id) drawSem;
 //proto end
 
-- (BOOL)addItem:(PRMyLibraryItem*)mli doMerge:(BOOL)doMerge;
-- (BOOL)updateItem:(PRMyLibraryItem*)mli;
-- (void)insertItem:(PRMyLibraryItem*)mli;
-- (void)removeItem:(NSString*)MID;
+- (BOOL)addItem:(PRMyLibraryItem *)mli doMerge:(BOOL)doMerge;
+- (BOOL)updateItem:(PRMyLibraryItem *)mli;
+- (void)insertItem:(PRMyLibraryItem *)mli;
 - (nullable NSArray<PRCatalogItem> *)libraryItemsByCID:(NSString *)cid;
-- (nullable PRSourceItem *)purchaseAdviceByCID:(NSString *)cid;
+- (nullable id<PRCatalogItem>)purchaseAdviceByCID:(NSString *)cid;
 
-- (nullable PRMyLibraryItem*)findIssueItemEqualTo:(PRMyLibraryItem*)mli;
-- (BOOL)isLatestForTitleItem:(PRMyLibraryItem*)mli;
-- (BOOL)isLatestOrNewerTitleItem:(PRMyLibraryItem*)mli;
+- (nullable PRMyLibraryItem *)findIssueItemEqualTo:(PRMyLibraryItem *)mli;
 
+- (void)getReady;
 - (void)refresh;
 - (void)refreshAfterDelay:(NSTimeInterval)delay;
 - (void)update;
 - (void)deleteExpiredItemsIfNeeded;
-- (void)UpdateDownloads;
+- (void)updateDownloadsIfReady;
+- (void)updateDownloads;
 - (void)updateNewItemsBadgeNumber;
 - (void)DidDownloadMli:(PRMyLibraryItem *)mli;
 
-- (NSArray *)sortedItemsIncludingPurchaseAdvises:(BOOL)includeAdvises;
+- (void)decDnlCounter;
+- (void)incDnlCounter;
 
 @property (nonatomic, readonly) NSArray *allMids;
 @property (nonatomic, readonly) NSUInteger downloadedUnreadItemsCount;
@@ -93,20 +83,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property BOOL bgAppRefreshTaskResult;
 @property (nonatomic) BOOL deleteContentOnInit;
 @property (nonatomic) BOOL updateWithContentPush;
-@property (nonatomic) NSUInteger decDnlCounter;
-@property (nonatomic) NSUInteger incDnlCounter;
 @property (nonatomic, readonly) NSArray<PRMyLibraryItem *> *mliItems;
 @property (nonatomic, readonly) NSArray<id<LibraryItemProtocol>> *downloadedItems;
 @property (nonatomic, strong, readonly) NSDictionary *aggregatedLibraryItemsByCID;
-@property (nonatomic, copy, readonly) NSDictionary *purchaseAdvicesByCID;
+@property (nonatomic, copy, readonly) NSDictionary<NSString *, id<PRCatalogItem>> *purchaseAdvicesByCID;
 @property (nonatomic, strong, readonly) NSArray *aggregatedLibraryItems;
-@property (nonatomic, getter=arePurchaseAdvicesTakenInAccount) BOOL purchaseAdvicesTakenInAccount;
-@property (nonatomic, strong) NSMutableArray *orderedItems;
+@property (nonatomic) BOOL purchaseAdvicesTakenInAccount;
+@property (nonatomic, strong) NSMutableArray<NSDictionary<NSString *, id> *> *orderedItems;
 
 @end
 
 @interface PRMyLibrary (/*PROTECTED*/)
 - (void)releaseAggregatedCollections;
+@property (nonatomic, readonly) NSArray<id<LibraryItemProtocol>> *libItems;
 @end
 
 NS_ASSUME_NONNULL_END

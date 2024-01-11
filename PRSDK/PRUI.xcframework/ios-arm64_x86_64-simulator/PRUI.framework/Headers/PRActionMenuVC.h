@@ -7,15 +7,15 @@
 //
 
 @import PRUIKit.PRCommand;
-@import PRUIKit.PRAppStyle_Theme;
-
-NS_ASSUME_NONNULL_BEGIN
-
-extern CGFloat const kAMHeaderHeight;
+@import PRUIKit.PRActionMenuActorProtocol;
 
 @class PRMenu;
 @class PRMenuItem;
 @class PRScrollAnimationSynchronizer;
+
+NS_ASSUME_NONNULL_BEGIN
+
+extern CGFloat const kAMHeaderHeight;
 
 @interface PRActionMenuVC: UIViewController<UITableViewDataSource, UITableViewDelegate, PRActionMenu>
 

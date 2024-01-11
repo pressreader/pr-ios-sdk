@@ -69,7 +69,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (BOOL)isPurchaseAdvise;
 - (BOOL)isAutoDelivery;
 - (BOOL)isEqualToMLI:(PRMyLibraryItem *)mli;
-- (BOOL)isIssueEqualToMLI:(PRMyLibraryItem *)mli;
 - (BOOL)inProcess;
 - (BOOL)inThumbProcess;
 - (BOOL)requestingLicense;

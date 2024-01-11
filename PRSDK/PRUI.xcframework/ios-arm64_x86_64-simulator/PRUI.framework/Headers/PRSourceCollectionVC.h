@@ -11,7 +11,6 @@
 @import PRAPI.PROptions;
 @import PRUIKit;
 
-@class PRSourceList;
 @class PRSourceCollectionVC;
 @class PRIssuesGroup;
 @class PRTitleItemExemplar;
@@ -56,12 +55,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRSourceCollectionVC : PRFilterableCollectionVC <DataSourceObserver>
 
-+ (instancetype)controllerWithSourceList:(PRSourceList *)sourceList;
-
 /// dataProviderType: PRTitleItemsCollectionDataProviderTypeSourceList
-- (instancetype)initWithSourceList:(PRSourceList *)sourceList
+- (instancetype)initWithSourceList:(id<CatalogFacade>)sourceList
                           delegate:(nullable id<PRSourceCollectionControllerDelegate>)delegate;
-- (instancetype)initWithSourceList:(PRSourceList *)sourceList;
+- (instancetype)initWithSourceList:(id<CatalogFacade>)sourceList;
 
 /// dataProviderType: PRTitleItemsCollectionDataProviderTypeExemplars
 - (instancetype)initWithExemplars:(NSArray<PRTitleItemExemplar *> *)tExemplars
@@ -82,21 +79,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSUInteger)groupCountForItem:(id)item;
 - (NSString *)accessoryTextForItem:(id)item;
 
-- (void)fillWithTitleItemExemplars:(NSArray<PRTitleItemExemplar *> *)tExemplars;
-- (void)fillWithSourceList:(PRSourceList *)list;
-- (void)fillWithDataSource:(id<CatalogItemDataSourceProtocol>)dataSource;
+- (void)fillWithTitleItemExemplars:(NSArray<PRTitleItemExemplar *> *)tExemplars NS_SWIFT_NAME(fill(with:));
+- (void)fillWithSourceList:(id<CatalogFacade>)list NS_SWIFT_NAME(fill(with:));
+- (void)fillWithDataSource:(id<CatalogItemDataSourceProtocol>)dataSource NS_SWIFT_NAME(fill(with:));
 
 - (void)setNeedsReloadDataAndScrollToCid:(NSString *)cid date:(NSDate *)date;
 - (void)loadAndScrollToTarget;
-
-- (BOOL)representsTitleItemExemplars;
 
 - (void)completeDataLoading:(id)source;
 
 @property (nonatomic, readonly) PRTitleItemsCollectionDataProviderType dataProviderType;
 
-//use fillWithSourceList: method instead of setting sourceList property directly.
-@property (nullable, nonatomic, readonly) PRSourceList *sourceList;
+@property (nullable, nonatomic, strong, readonly) id<CatalogFacade> sourceList;
 
 @property (nonatomic) BOOL prefersOpeningReaderView;
 

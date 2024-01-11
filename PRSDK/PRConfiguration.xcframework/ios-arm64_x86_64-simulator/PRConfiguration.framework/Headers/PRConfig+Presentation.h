@@ -20,7 +20,6 @@
 @class UserConsentConfig;
 @class FontConfig;
 @class SearchConfig;
-@class BookReaderConfig;
 @class IAPConfig;
 @class HomeConfig;
 @class RadioConfig;
@@ -41,7 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) UserConsentConfig *userConsentConfig NS_SWIFT_NAME(userConsent);
 @property (class, nonatomic, readonly) FontConfig *fontConfig NS_SWIFT_NAME(font);
 @property (class, nonatomic, readonly) SearchConfig *searchConfig  NS_SWIFT_NAME(search);
-@property (class, nonatomic, readonly) BookReaderConfig *bookReaderConfig  NS_SWIFT_NAME(bookReader);
 @property (class, nonatomic, readonly) IAPConfig *iapConfig  NS_SWIFT_NAME(iap);
 
 @property (class, nonatomic, readonly) BOOL showBookmarksOnLibrary;

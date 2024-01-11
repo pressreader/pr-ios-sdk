@@ -31,6 +31,7 @@ extern NSString *const kPRCustomCatalogTitle;
 @class PRSubscription;
 @class PRAccountItem;
 @class PRTitleItemExemplar;
+@class PRCountry;
 
 typedef NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, id> *> * PRTitleItemServiceSpecificProperties;
 
@@ -79,7 +80,7 @@ typedef NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, id> *> *
 
 @property (nonatomic, strong) NSDate *activationTime;
 
-@property (nonatomic, strong, readonly) NSArray *countries;
+@property (nonatomic, strong, readonly) NSArray<PRCountry *> *countries;
 @property (nonatomic, strong, readonly) NSDictionary *countryRegions;
 @property (nonatomic, copy, readonly) NSArray *categories;
 @property (nonatomic, copy, readonly) NSArray *sections;

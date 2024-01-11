@@ -8,33 +8,27 @@
 
 #import "PRSourceList.h"
 
-//@import PRAPI.PRCountableValue;
-//@import PRAPI.PRCountableCountry;
-//@import PRAPI.PRCountableDictionary;
-//@import PRAPI.PRCountableNumber;
-//@import PRAPI.PRCountableString;
-//@import PRAPI.PRCountry;
-
-#import "PRCountableValue.h"
-#import "PRCountableCountry.h"
-#import "PRCountableDictionary.h"
-#import "PRCountableNumber.h"
-#import "PRCountableString.h"
-#import "PRCountry.h"
+#import <PRAPI/PRCountableValue.h>
+#import <PRAPI/PRCountableCountry.h>
+#import <PRAPI/PRCountableDictionary.h>
+#import <PRAPI/PRCountableNumber.h>
+#import <PRAPI/PRCountableString.h>
+#import <PRAPI/PRCountry.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRSourceList (Info)
 
-- (NSArray<PRCountableDictionary *> *)categoriesInListSortingByAlpha:(BOOL)isSorting;
+- (NSArray<PRCountableDictionary *> *)categoriesSortedByAlpha:(BOOL)isSorting;
 - (NSArray<PRCountableDictionary *> *)sectionsSortedBy:(PRCatalogSortingOrder)order;
 
-@property (nonatomic, readonly) NSArray<PRCountableNumber *> *typesInList;
-@property (nonatomic, readonly) NSArray<PRCountableDictionary *> *categoriesInList;
-@property (nonatomic, readonly) NSArray<PRCountableDictionary *> *sectionsInList;
-@property (nonatomic, readonly) NSArray<PRCountableString *> *languagesInList;
-@property (nonatomic, readonly) NSArray<PRCountableCountry *> *countriesInList;
-@property (nullable, nonatomic, readonly) NSArray<PRCountableDictionary *> *countryRegionsInList;
+- (void)enumerateThroughTitleItems:(BOOL(^)(PRTitleItem *item))block;
+
+@property (nonatomic, readonly) NSArray<PRCountableDictionary *> *categories;
+@property (nonatomic, readonly) NSArray<PRCountableDictionary *> *sections;
+@property (nonatomic, readonly) NSArray<PRCountableString *> *languages;
+@property (nonatomic, readonly) NSArray<PRCountableCountry *> *countries;
+@property (nullable, nonatomic, readonly) NSArray<PRCountableDictionary *> *countryRegions;
 
 @end
 

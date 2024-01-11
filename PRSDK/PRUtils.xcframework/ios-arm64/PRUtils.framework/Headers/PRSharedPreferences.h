@@ -18,9 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (id)valueForKey:(NSString *)key service:(NSString *)serviceName;
 - (void)setValue:(id)value forKey:(NSString *)key service:(NSString *)serviceName;
 
-- (NSString *)selectedCountryForService:(NSString*)serviceName;
-- (void)setSelectedCountry:(NSString *)value forService:(NSString*)serviceName;
-
 // subscripting support
 - (id)objectForKeyedSubscript:(NSString *)key;
 - (void)setObject:(nullable id)object forKeyedSubscript:(NSString *)key;

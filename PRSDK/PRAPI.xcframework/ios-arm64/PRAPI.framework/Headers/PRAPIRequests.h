@@ -23,6 +23,7 @@ extern PRAPIRequest const PRAPIRequestGetTitles;
 extern PRAPIRequest const PRAPIRequestGetCustomCatalog;
 extern PRAPIRequest const PRAPIRequestGetLatestIssueInfo;
 extern PRAPIRequest const PRAPIRequestRenewDownloadLicense;
+extern PRAPIRequest const PRAPIRequestManageFavorites;
 
 extern PRAPIRequest const PRAPIRequestGetSubscriptionStatus;
 extern PRAPIRequest const PRAPIRequestGetBundles;

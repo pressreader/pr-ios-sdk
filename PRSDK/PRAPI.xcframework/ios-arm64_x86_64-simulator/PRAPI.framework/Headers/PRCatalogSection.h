@@ -10,7 +10,7 @@
 #import <PRAPI/PROptions.h>
 
 @class PRAccountItem;
-@class PRSourceList;
+@protocol CatalogFacade;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -97,7 +97,7 @@ typedef NS_OPTIONS(NSUInteger, PRCatalogSectionOption) {
 /// For PRCatalogDetailsSectionTypeLinkedService
 @property (nonatomic, strong) PRAccountItem *account;
 
-@property (nullable, nonatomic, strong) PRSourceList *sourceList;
+@property (nullable, nonatomic, strong) id<CatalogFacade> sourceList;
 @property (nonatomic, strong) id data;
 @property (nonatomic, strong) UIButton *discloseButton;
 

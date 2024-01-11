@@ -29,17 +29,7 @@ typedef NS_ENUM (NSUInteger, PRSourcesListType) {
 /// All content rendering logic contains in parent class PRBaseStoreCollectionVC.
 @interface PRSourcesVC : PRBaseStoreCollectionVC
 
-+ (NSArray *)controllersWithSourceList:(PRSourceList *)sourceList andPath:(NSArray *)path;
-
-- (void)setupAllSources;
-- (void)setupAllSourcesWithFilter:(nullable NSString *)filterText;
-- (void)setupFavorites;
-- (void)setupSourceWithSupplementsForTitleItem:(PRTitleItem *)titleItem;
-- (void)setupSourcesInCountry:(PRCountableValue *)country;
-- (void)setupSourcesInRegion:(PRCountableValue *)region inCountry:(PRCountableValue *)country;
-- (void)setupSourcesForSubscriptions:(NSArray *)subscriptions;
-- (void)setupSourcesForCIDs:(NSArray *)cids;
-- (void)savePublicationPath;
++ (NSArray *)controllersWithSourceList:(id<CatalogFacade>)sourceList andPath:(NSArray *)path;
 
 @property (nonatomic, readonly) NSArray<NSDictionary *> *publicationPath;
 @property (nullable, nonatomic, strong) NSString *listName;

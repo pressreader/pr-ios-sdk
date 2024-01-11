@@ -46,8 +46,6 @@ typedef NS_ENUM(NSUInteger, PRCollectionViewCellImageScalingMode) {
 @property (nullable, strong, nonatomic) IBOutlet UIImageView *selectionView;
 @property (nullable, strong, nonatomic) IBOutlet UIView *thumbnailView;
 @property (nullable, strong, nonatomic) IBOutlet UIView *logoView;
-@property (nullable, strong, nonatomic) IBOutlet UIImageView *ribbonView;
-@property (nullable, strong, nonatomic) IBOutlet UILabel *ribbonLabel;
 @property (nullable, strong, nonatomic) IBOutlet NSLayoutConstraint *imageConstraint;
 @property (nullable, strong, nonatomic) IBOutlet NSLayoutConstraint *imageCentreYConstraint;
 @property (nullable, strong, nonatomic) IBOutlet UIView *infoBar;

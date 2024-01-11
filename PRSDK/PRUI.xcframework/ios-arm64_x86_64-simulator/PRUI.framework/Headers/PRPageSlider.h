@@ -8,23 +8,21 @@
 
 @import UIKit;
 
-#import "SliderControlProto.h"
-
-
-@protocol PRPagesSliderProto
-- (void) OnPageSelect:(int)index;
-@optional
-- (void) OnUpdate;
-@end
-
 @class SectionLabel;
 @class SliderSpreadPlace;
 @class ThumbSpreadRenderTask;
 @class ThumbsSpread;
 @class SliderSpreadPlace;
 @class PageSliderWrapperView;
+@class PRMyLibraryItem;
 
-@protocol PRPagesSliderDelegate <NSObject>
+extern NSNotificationName const PRPageChangeNotification;
+
+extern NSNotificationName const PRPageSliderPageChangeNotification;
+extern NSNotificationName const PRPageSliderActivityStartNotification;
+extern NSNotificationName const PRPageSliderContentDidScrollNotification;
+
+@protocol PRPageSliderDelegate <NSObject>
 - (void)pageSliderWillAppear;
 - (void)pageSliderWillDisappear;
 @optional
@@ -32,27 +30,26 @@
 - (void)pageSliderDidDisappear;
 @end
 
-@interface PRPagesSlider : UIScrollView<UIScrollViewDelegate, SliderControlProto>
+@interface PRPageSlider : UIScrollView<UIScrollViewDelegate>
 
-@property (nonatomic, weak) id<PRPagesSliderDelegate> slideDelegate;
+- (instancetype)initWithFrame:(CGRect)frame mli:(PRMyLibraryItem *)mli;
+
+- (BOOL)changePage:(int)page;
+- (void)cancelCurrentDecelerationIfAny;
+
+- (void)activate:(BOOL)activate animated:(BOOL)animated;
+- (BOOL)showPanelAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
+- (BOOL)hidePanelAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
+
+@property (nonatomic) CGFloat scrollOffset;
+@property (nonatomic, weak) id<PRPageSliderDelegate> slideDelegate;
 @property (nonatomic, assign) NSInteger curPage;
-@property (nonatomic, readonly) CGRect desiredFrame;
-@property (nonatomic, readonly) CGRect zeroFrame;
 @property (nonatomic, assign) BOOL rightToLeft;
 @property (nonatomic, readonly) NSInteger leftFilledSpreadPlace;
 @property (nonatomic, readonly) NSInteger rightFilledSpreadPlace;
 @property (nonatomic) BOOL isPlaceholder;
 @property (nonatomic, weak) PageSliderWrapperView *wrapperView;
-
-// init
-- (instancetype) initWithFrame:(CGRect)frame amli:(id)amli;
-- (void)setupFrames:(CGRect)frame;
-
-- (CGFloat) fullHeight;
-- (BOOL)showPanelAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
-- (BOOL)hidePanelAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
-
-// events
-- (void) OnSelectSpread:(id)sender;
+@property (nonatomic, assign, readonly) BOOL isActive;
+@property (nonatomic, readonly) CGFloat fullHeight;
 
 @end

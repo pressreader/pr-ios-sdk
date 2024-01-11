@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "PRAnalyticsProto.h"
 
-@interface GoogleAnalytics  : NSObject<PRAnalytics>
+NS_ASSUME_NONNULL_BEGIN
+
+@interface GoogleAnalytics  : NSObject<PROptionalAnalytics>
 
 - (void) setSessionScopeCustomVariables;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -36,6 +36,13 @@
       },
       {
         "kind": "Import",
+        "name": "PRSyntacticSugar",
+        "printedName": "PRSyntacticSugar",
+        "declKind": "Import",
+        "moduleName": "PRUtils"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -1482,6 +1489,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Synchronizer",
         "printedName": "Synchronizer",
@@ -2481,9 +2498,15 @@
           },
           {
             "kind": "Function",
-            "name": "appDisplayName",
-            "printedName": "appDisplayName()",
+            "name": "containsURLScheme",
+            "printedName": "containsURLScheme(_:)",
             "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
@@ -2500,8 +2523,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUtils@@objc(cs)NSBundle(im)appDisplayName",
-            "mangledName": "$sSo8NSBundleC7PRUtilsE14appDisplayNameSSSgyF",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSBundle(im)containsURLScheme:",
+            "mangledName": "$sSo8NSBundleC7PRUtilsE17containsURLSchemeySbSSSgF",
             "moduleName": "PRUtils",
             "declAttributes": [
               "Dynamic",
@@ -2512,8 +2535,8 @@
           },
           {
             "kind": "Function",
-            "name": "containURLScheme",
-            "printedName": "containURLScheme(_:)",
+            "name": "containsAssociatedBranchDomain",
+            "printedName": "containsAssociatedBranchDomain(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2537,50 +2560,11 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUtils@@objc(cs)NSBundle(cm)containURLScheme:",
-            "mangledName": "$sSo8NSBundleC7PRUtilsE16containURLSchemeySbSSSgFZ",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSBundle(im)containsAssociatedBranchDomain:",
+            "mangledName": "$sSo8NSBundleC7PRUtilsE30containsAssociatedBranchDomainySbSSSgF",
             "moduleName": "PRUtils",
-            "static": true,
             "declAttributes": [
-              "Final",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "containAssociatedBranchDomain",
-            "printedName": "containAssociatedBranchDomain(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRUtils@@objc(cs)NSBundle(cm)containAssociatedBranchDomain:",
-            "mangledName": "$sSo8NSBundleC7PRUtilsE29containAssociatedBranchDomainySbSSSgFZ",
-            "moduleName": "PRUtils",
-            "static": true,
-            "declAttributes": [
-              "Final",
+              "Dynamic",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -2605,12 +2589,11 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUtils@@objc(cs)NSBundle(cm)canHandleURL:",
-            "mangledName": "$sSo8NSBundleC7PRUtilsE12canHandleURLySb10Foundation0E0VFZ",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSBundle(im)canHandleURL:",
+            "mangledName": "$sSo8NSBundleC7PRUtilsE12canHandleURLySb10Foundation0E0VF",
             "moduleName": "PRUtils",
-            "static": true,
             "declAttributes": [
-              "Final",
+              "Dynamic",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -2624,7 +2607,9 @@
         "objc_name": "NSBundle",
         "declAttributes": [
           "ObjC",
+          "SynthesizedProtocol",
           "NonSendable",
+          "Sendable",
           "Dynamic"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
@@ -2634,6 +2619,13 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2755,6 +2747,265 @@
               "ObjC"
             ],
             "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "InitError",
+            "printedName": "InitError",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "invalidHTML",
+                "printedName": "invalidHTML",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.NSAttributedString.InitError.Type) -> Foundation.NSAttributedString.InitError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InitError",
+                        "printedName": "Foundation.NSAttributedString.InitError",
+                        "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "Foundation.NSAttributedString.InitError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "InitError",
+                            "printedName": "Foundation.NSAttributedString.InitError",
+                            "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO11invalidHTMLyA2EmF",
+                "mangledName": "$sSo18NSAttributedStringC7PRUtilsE9InitErrorO11invalidHTMLyA2EmF",
+                "moduleName": "PRUtils"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InitError",
+                    "printedName": "Foundation.NSAttributedString.InitError",
+                    "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InitError",
+                    "printedName": "Foundation.NSAttributedString.InitError",
+                    "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO2eeoiySbAE_AEtFZ",
+                "mangledName": "$sSo18NSAttributedStringC7PRUtilsE9InitErrorO2eeoiySbAE_AEtFZ",
+                "moduleName": "PRUtils",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO9hashValueSivp",
+                "mangledName": "$sSo18NSAttributedStringC7PRUtilsE9InitErrorO9hashValueSivp",
+                "moduleName": "PRUtils",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO9hashValueSivg",
+                    "mangledName": "$sSo18NSAttributedStringC7PRUtilsE9InitErrorO9hashValueSivg",
+                    "moduleName": "PRUtils",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO4hash4intoys6HasherVz_tF",
+                "mangledName": "$sSo18NSAttributedStringC7PRUtilsE9InitErrorO4hash4intoys6HasherVz_tF",
+                "moduleName": "PRUtils",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:So18NSAttributedStringC7PRUtilsE9InitErrorO",
+            "mangledName": "$sSo18NSAttributedStringC7PRUtilsE9InitErrorO",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Error",
+                "printedName": "Error",
+                "usr": "s:s5ErrorP",
+                "mangledName": "$ss5ErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "htmlAttributedString",
+            "printedName": "htmlAttributedString(_:options:documentAttributes:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DynamicSelf",
+                "printedName": "Self"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Foundation.NSAttributedString.DocumentReadingOptionKey : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DocumentReadingOptionKey",
+                    "printedName": "Foundation.NSAttributedString.DocumentReadingOptionKey",
+                    "usr": "c:@T@NSAttributedStringDocumentReadingOptionKey"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.AutoreleasingUnsafeMutablePointer<Foundation.NSDictionary?>?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AutoreleasingUnsafeMutablePointer",
+                    "printedName": "Swift.AutoreleasingUnsafeMutablePointer<Foundation.NSDictionary?>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSDictionary?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSDictionary",
+                            "printedName": "Foundation.NSDictionary",
+                            "usr": "c:objc(cs)NSDictionary"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "usr": "s:SA"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSAttributedString(cm)htmlAttributedString:options:documentAttributes:error:",
+            "mangledName": "$sSo18NSAttributedStringC7PRUtilsE014htmlAttributedB0_7options18documentAttributesABXDSS_SDySo0aB24DocumentReadingOptionKeyaypGSAySo12NSDictionaryCSgGSgtKFZ",
+            "moduleName": "PRUtils",
+            "static": true,
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -3030,33 +3281,19 @@
         "usr": "s:10Foundation4DataV",
         "mangledName": "$s10Foundation4DataV",
         "moduleName": "Foundation",
+        "intro_Macosx": "10.10",
+        "intro_iOS": "8.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
         "declAttributes": [
-          "Frozen"
+          "Frozen",
+          "Available",
+          "Available",
+          "Available",
+          "Available"
         ],
         "isExternal": true,
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "ReferenceConvertible",
-            "printedName": "ReferenceConvertible",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ReferenceType",
-                "printedName": "ReferenceType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSData",
-                    "printedName": "Foundation.NSData",
-                    "usr": "c:objc(cs)NSData"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:10Foundation20ReferenceConvertibleP",
-            "mangledName": "$s10Foundation20ReferenceConvertibleP"
-          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3449,24 +3686,25 @@
           },
           {
             "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomReflectable",
-            "printedName": "CustomReflectable",
-            "usr": "s:s17CustomReflectableP",
-            "mangledName": "$ss17CustomReflectableP"
+            "name": "ReferenceConvertible",
+            "printedName": "ReferenceConvertible",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ReferenceType",
+                "printedName": "ReferenceType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSData",
+                    "printedName": "Foundation.NSData",
+                    "usr": "c:objc(cs)NSData"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:10Foundation20ReferenceConvertibleP",
+            "mangledName": "$s10Foundation20ReferenceConvertibleP"
           },
           {
             "kind": "Conformance",
@@ -3489,6 +3727,27 @@
             ],
             "usr": "s:s21_ObjectiveCBridgeableP",
             "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
           },
           {
             "kind": "Conformance",
@@ -4692,48 +4951,39 @@
           },
           {
             "kind": "Conformance",
-            "name": "DataProtocol",
-            "printedName": "DataProtocol",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
             "children": [
               {
                 "kind": "TypeWitness",
-                "name": "Regions",
-                "printedName": "Regions",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "CollectionOfOne",
-                    "printedName": "Swift.CollectionOfOne<[Swift.UInt8]>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Array",
-                        "printedName": "[Swift.UInt8]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "UInt8",
-                            "printedName": "Swift.UInt8",
-                            "usr": "s:s5UInt8V"
-                          }
-                        ],
-                        "usr": "s:Sa"
-                      }
-                    ],
-                    "usr": "s:s15CollectionOfOneV"
+                    "name": "NSArray",
+                    "printedName": "Foundation.NSArray",
+                    "usr": "c:objc(cs)NSArray"
                   }
                 ]
               }
             ],
-            "usr": "s:10Foundation12DataProtocolP",
-            "mangledName": "$s10Foundation12DataProtocolP"
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
           },
           {
             "kind": "Conformance",
-            "name": "MutableDataProtocol",
-            "printedName": "MutableDataProtocol",
-            "usr": "s:10Foundation19MutableDataProtocolP",
-            "mangledName": "$s10Foundation19MutableDataProtocolP"
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ContiguousBytes",
+            "printedName": "ContiguousBytes",
+            "usr": "s:10Foundation15ContiguousBytesP",
+            "mangledName": "$s10Foundation15ContiguousBytesP"
           },
           {
             "kind": "Conformance",
@@ -4779,39 +5029,48 @@
           },
           {
             "kind": "Conformance",
-            "name": "_ObjectiveCBridgeable",
-            "printedName": "_ObjectiveCBridgeable",
+            "name": "DataProtocol",
+            "printedName": "DataProtocol",
             "children": [
               {
                 "kind": "TypeWitness",
-                "name": "_ObjectiveCType",
-                "printedName": "_ObjectiveCType",
+                "name": "Regions",
+                "printedName": "Regions",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NSArray",
-                    "printedName": "Foundation.NSArray",
-                    "usr": "c:objc(cs)NSArray"
+                    "name": "CollectionOfOne",
+                    "printedName": "Swift.CollectionOfOne<[Swift.UInt8]>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.UInt8]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UInt8",
+                            "printedName": "Swift.UInt8",
+                            "usr": "s:s5UInt8V"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:s15CollectionOfOneV"
                   }
                 ]
               }
             ],
-            "usr": "s:s21_ObjectiveCBridgeableP",
-            "mangledName": "$ss21_ObjectiveCBridgeableP"
+            "usr": "s:10Foundation12DataProtocolP",
+            "mangledName": "$s10Foundation12DataProtocolP"
           },
           {
             "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ContiguousBytes",
-            "printedName": "ContiguousBytes",
-            "usr": "s:10Foundation15ContiguousBytesP",
-            "mangledName": "$s10Foundation15ContiguousBytesP"
+            "name": "MutableDataProtocol",
+            "printedName": "MutableDataProtocol",
+            "usr": "s:10Foundation19MutableDataProtocolP",
+            "mangledName": "$s10Foundation19MutableDataProtocolP"
           }
         ]
       },
@@ -5316,7 +5575,7 @@
           {
             "kind": "Function",
             "name": "htmlAttributed",
-            "printedName": "htmlAttributed(encoding:)",
+            "printedName": "htmlAttributed()",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -5331,18 +5590,36 @@
                   }
                 ],
                 "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Encoding",
-                "printedName": "Swift.String.Encoding",
-                "hasDefaultArg": true,
-                "usr": "s:SS10FoundationE8EncodingV"
               }
             ],
             "declKind": "Func",
-            "usr": "s:SS7PRUtilsE14htmlAttributed8encodingSo09NSMutableC6StringCSgSS10FoundationE8EncodingV_tF",
-            "mangledName": "$sSS7PRUtilsE14htmlAttributed8encodingSo09NSMutableC6StringCSgSS10FoundationE8EncodingV_tF",
+            "usr": "s:SS7PRUtilsE14htmlAttributedSo09NSMutableC6StringCSgyF",
+            "mangledName": "$sSS7PRUtilsE14htmlAttributedSo09NSMutableC6StringCSgyF",
+            "moduleName": "PRUtils",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dropPrefix",
+            "printedName": "dropPrefix(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SS7PRUtilsE10dropPrefixyS2SF",
+            "mangledName": "$sSS7PRUtilsE10dropPrefixyS2SF",
             "moduleName": "PRUtils",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -5880,6 +6157,119 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "JSONSerialization",
+        "printedName": "JSONSerialization",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "item",
+            "printedName": "item(json:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So19NSJSONSerializationC7PRUtilsE4item4jsonxyp_tKSeRzlFZ",
+            "mangledName": "$sSo19NSJSONSerializationC7PRUtilsE4item4jsonxyp_tKSeRzlFZ",
+            "moduleName": "PRUtils",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
+            "sugared_genericSig": "<T where T : Swift.Decodable>",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSJSONSerialization",
+        "moduleName": "Foundation",
+        "isOpen": true,
+        "intro_iOS": "5.0",
+        "objc_name": "NSJSONSerialization",
+        "declAttributes": [
+          "Available",
+          "ObjC",
+          "NonSendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "Dictionary",
         "printedName": "Dictionary",
         "children": [
@@ -5928,6 +6318,13 @@
         ],
         "isExternal": true,
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
           {
             "kind": "Conformance",
             "name": "Encodable",
@@ -6145,13 +6542,6 @@
             ],
             "usr": "s:s30ExpressibleByDictionaryLiteralP",
             "mangledName": "$ss30ExpressibleByDictionaryLiteralP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
           },
           {
             "kind": "Conformance",
@@ -7069,6 +7459,16 @@
         "usr": "s:10Foundation3URLV",
         "mangledName": "$s10Foundation3URLV",
         "moduleName": "Foundation",
+        "intro_Macosx": "10.10",
+        "intro_iOS": "8.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
+        "declAttributes": [
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
         "isExternal": true,
         "conformances": [
           {
@@ -7229,36 +7629,31 @@
         "usr": "s:10Foundation4DateV",
         "mangledName": "$s10Foundation4DateV",
         "moduleName": "Foundation",
+        "intro_Macosx": "10.10",
+        "intro_iOS": "8.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
+        "declAttributes": [
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
         "isExternal": true,
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "ReferenceConvertible",
-            "printedName": "ReferenceConvertible",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ReferenceType",
-                "printedName": "ReferenceType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSDate",
-                    "printedName": "Foundation.NSDate",
-                    "usr": "c:objc(cs)NSDate"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:10Foundation20ReferenceConvertibleP",
-            "mangledName": "$s10Foundation20ReferenceConvertibleP"
-          },
           {
             "kind": "Conformance",
             "name": "Comparable",
             "printedName": "Comparable",
             "usr": "s:SL",
             "mangledName": "$sSL"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           },
           {
             "kind": "Conformance",
@@ -7273,35 +7668,6 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Strideable",
-            "printedName": "Strideable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Stride",
-                "printedName": "Stride",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Double",
-                    "printedName": "Swift.Double",
-                    "usr": "s:Sd"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:Sx",
-            "mangledName": "$sSx"
           },
           {
             "kind": "Conformance",
@@ -7323,6 +7689,42 @@
             "printedName": "CustomReflectable",
             "usr": "s:s17CustomReflectableP",
             "mangledName": "$ss17CustomReflectableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ReferenceConvertible",
+            "printedName": "ReferenceConvertible",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ReferenceType",
+                "printedName": "ReferenceType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDate",
+                    "printedName": "Foundation.NSDate",
+                    "usr": "c:objc(cs)NSDate"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:10Foundation20ReferenceConvertibleP",
+            "mangledName": "$s10Foundation20ReferenceConvertibleP"
           },
           {
             "kind": "Conformance",
@@ -7355,17 +7757,25 @@
           },
           {
             "kind": "Conformance",
-            "name": "Decodable",
-            "printedName": "Decodable",
-            "usr": "s:Se",
-            "mangledName": "$sSe"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Encodable",
-            "printedName": "Encodable",
-            "usr": "s:SE",
-            "mangledName": "$sSE"
+            "name": "Strideable",
+            "printedName": "Strideable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Stride",
+                "printedName": "Stride",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:Sx",
+            "mangledName": "$sSx"
           }
         ]
       },
@@ -7506,17 +7916,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "_CustomPlaygroundQuickLookable",
-            "printedName": "_CustomPlaygroundQuickLookable",
-            "usr": "s:s30_CustomPlaygroundQuickLookableP",
-            "mangledName": "$ss30_CustomPlaygroundQuickLookableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "_HasCustomAnyHashableRepresentation",
             "printedName": "_HasCustomAnyHashableRepresentation",
             "usr": "s:s35_HasCustomAnyHashableRepresentationP",
             "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_CustomPlaygroundQuickLookable",
+            "printedName": "_CustomPlaygroundQuickLookable",
+            "usr": "s:s30_CustomPlaygroundQuickLookableP",
+            "mangledName": "$ss30_CustomPlaygroundQuickLookableP"
           }
         ]
       },
@@ -7861,6 +8271,162 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UUID",
+        "printedName": "UUID",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(number:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10Foundation4UUIDV7PRUtilsE6numberACs5Int64V_tcfc",
+            "mangledName": "$s10Foundation4UUIDV7PRUtilsE6numberACs5Int64V_tcfc",
+            "moduleName": "PRUtils",
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:10Foundation4UUIDV",
+        "mangledName": "$s10Foundation4UUIDV",
+        "moduleName": "Foundation",
+        "intro_Macosx": "10.8",
+        "intro_iOS": "6.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
+        "declAttributes": [
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Comparable",
+            "printedName": "Comparable",
+            "usr": "s:SL",
+            "mangledName": "$sSL"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ReferenceConvertible",
+            "printedName": "ReferenceConvertible",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ReferenceType",
+                "printedName": "ReferenceType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSUUID",
+                    "printedName": "Foundation.NSUUID",
+                    "usr": "c:objc(cs)NSUUID"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:10Foundation20ReferenceConvertibleP",
+            "mangledName": "$s10Foundation20ReferenceConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSUUID",
+                    "printedName": "Foundation.NSUUID",
+                    "usr": "c:objc(cs)NSUUID"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
           }
         ]
       },
@@ -8545,6 +9111,16 @@
         "usr": "s:10Foundation6LocaleV",
         "mangledName": "$s10Foundation6LocaleV",
         "moduleName": "Foundation",
+        "intro_Macosx": "10.10",
+        "intro_iOS": "8.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
+        "declAttributes": [
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
         "isExternal": true,
         "conformances": [
           {
@@ -8560,6 +9136,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           },
           {
             "kind": "Conformance",
@@ -8585,10 +9168,25 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSLocale",
+                    "printedName": "Foundation.NSLocale",
+                    "usr": "c:objc(cs)NSLocale"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
           },
           {
             "kind": "Conformance",
@@ -8610,28 +9208,6 @@
             "printedName": "CustomReflectable",
             "usr": "s:s17CustomReflectableP",
             "mangledName": "$ss17CustomReflectableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_ObjectiveCBridgeable",
-            "printedName": "_ObjectiveCBridgeable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "_ObjectiveCType",
-                "printedName": "_ObjectiveCType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSLocale",
-                    "printedName": "Foundation.NSLocale",
-                    "usr": "c:objc(cs)NSLocale"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s21_ObjectiveCBridgeableP",
-            "mangledName": "$ss21_ObjectiveCBridgeableP"
           },
           {
             "kind": "Conformance",
@@ -8663,23 +9239,23 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSAttributedString\/NSAttributedString+.swift",
       "kind": "IntegerLiteral",
-      "offset": 1038,
+      "offset": 1062,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSAttributedString\/NSAttributedString+.swift",
       "kind": "IntegerLiteral",
-      "offset": 1117,
+      "offset": 1141,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/Observer\/Observable.swift",
-      "kind": "StringLiteral",
-      "offset": 681,
-      "length": 11,
-      "value": "\"observers\""
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSAttributedString\/NSAttributedString+.swift",
+      "kind": "Dictionary",
+      "offset": 2024,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/Data+Compression.swift",
@@ -8712,21 +9288,21 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/Array\/Collection+Safety.swift",
       "kind": "IntegerLiteral",
-      "offset": 274,
+      "offset": 278,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/Array\/Collection+Safety.swift",
       "kind": "IntegerLiteral",
-      "offset": 558,
+      "offset": 562,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/Array\/Collection+Safety.swift",
       "kind": "IntegerLiteral",
-      "offset": 735,
+      "offset": 743,
       "length": 1,
       "value": "0"
     },
@@ -8764,13 +9340,6 @@
       "offset": 562,
       "length": 2,
       "value": "16"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSBundle+AppName.swift",
-      "kind": "StringLiteral",
-      "offset": 293,
-      "length": 21,
-      "value": "\"CFBundleDisplayName\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSDictionary\/Dictionary+KeyRawRepresentable.swift",
@@ -9013,49 +9582,49 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Bundle+DeepLinks.swift",
       "kind": "StringLiteral",
-      "offset": 366,
+      "offset": 361,
       "length": 18,
       "value": "\"CFBundleURLTypes\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Bundle+DeepLinks.swift",
       "kind": "BooleanLiteral",
-      "offset": 432,
+      "offset": 427,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Bundle+DeepLinks.swift",
       "kind": "StringLiteral",
-      "offset": 546,
+      "offset": 541,
       "length": 20,
       "value": "\"CFBundleURLSchemes\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Bundle+DeepLinks.swift",
       "kind": "BooleanLiteral",
-      "offset": 724,
+      "offset": 719,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Bundle+DeepLinks.swift",
       "kind": "BooleanLiteral",
-      "offset": 769,
+      "offset": 764,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Bundle+DeepLinks.swift",
       "kind": "StringLiteral",
-      "offset": 1005,
+      "offset": 994,
       "length": 31,
       "value": "\"branch_universal_link_domains\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Bundle+DeepLinks.swift",
       "kind": "BooleanLiteral",
-      "offset": 1077,
+      "offset": 1066,
       "length": 5,
       "value": "false"
     },
@@ -9345,6 +9914,118 @@
       "offset": 1911,
       "length": 1,
       "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 415,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 418,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 421,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 424,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 427,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 430,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 433,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 436,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 474,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 484,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 494,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 504,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 543,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 553,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 563,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/UUID+Int64.swift",
+      "kind": "IntegerLiteral",
+      "offset": 573,
+      "length": 1,
+      "value": "7"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Synchronizer\/Synchronizer.swift",

@@ -112,6 +112,9 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 
 #import "PRLatestIssuesList.h"
 
+#import "PRCatalogFilter.h"
+#import "PRCatalogFilterItem.h"
+
 #import "PRModel.h"
 #import "PRModel+Settings.h"
 

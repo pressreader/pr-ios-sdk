@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong, readonly) NSString *title;
 @property (nonatomic, strong, readonly) id value;
 @property (nullable, nonatomic, strong) id extraData;
-@property (nonatomic) NSUInteger count;
+@property (nonatomic) NSInteger count;
 
 @end
 

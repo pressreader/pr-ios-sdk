@@ -6,7 +6,7 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-#import "PRAppStyle+Theme.h"
+@import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,8 +33,6 @@ typedef NS_OPTIONS(uint8_t, PRNavigationBarRefreshOption) {
 @property (nonatomic, readonly) CGFloat navigationItemTitleViewWidth;
 
 @property (nonatomic, readonly) BOOL isNavigationBarHidden;
-@property (nonatomic, readonly) BOOL postponeNavigationBarHiddenUpdateUntilNavigationCompleted;
-
 @property (nonatomic, readonly) BOOL isStatusBarAppearanceManuallyAdjusted;
 
 /// Displays close button in navigation bar when controller is modally presented.

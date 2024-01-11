@@ -32,8 +32,8 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
 - (void)removeAccount:(PRAccountItem *)accountItem;
 
 - (void)authorize;
-- (void)authorizeWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
-- (BOOL)registerDeviceWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
+- (void)authorizeWithCompletion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
+- (BOOL)registerDeviceWithCompletion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
 - (BOOL)registerDevice:(NSString *)serviceName;
 - (BOOL)registerDevice:(NSString *)serviceName completion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
 
@@ -84,6 +84,7 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
 @property (nullable, nonatomic, readonly) PRAccountItem *firstRegisteredNondefaultServiceAccount;
 @property (nullable, nonatomic, readonly) PRAccountItem *defaultAccount;
 @property (nullable, nonatomic, readonly) PRAccountItem *localServiceAccount;
+@property (nonatomic, readonly) BOOL isLocalServiceOn;
 
 @property (nonatomic, readonly) NSArray<PRAccountItem *> *allAccounts;
 @property (nonatomic, readonly) NSArray<PRAccountItem *> *enabledAccounts;

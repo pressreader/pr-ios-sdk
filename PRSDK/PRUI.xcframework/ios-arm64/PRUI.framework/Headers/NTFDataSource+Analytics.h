@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)finalizeReadingFrame;
 
 - (void)reportArticle:(id<NTFArticle>)article viewType:(PRAnalyticsTextFlowType)viewType;
+- (void)reportArticleClose:(id<NTFArticle>)article viewType:(PRAnalyticsTextFlowType)viewType;
 - (void)reportCurrentArticleWithTextFlowType:(PRAnalyticsTextFlowType)viewType;
 
 @end

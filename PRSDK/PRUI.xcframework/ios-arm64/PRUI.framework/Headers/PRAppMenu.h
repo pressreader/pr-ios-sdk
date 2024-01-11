@@ -12,6 +12,8 @@
 @import PRUIKit.PRMenu;
 @import PRProtocols;
 
+@protocol CatalogFacade;
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSString * PRAppMenuItemType NS_TYPED_ENUM;
@@ -81,10 +83,8 @@ extern NSString *const PRAppMenuDidChangeNotification;
 @end
 
 
-@class PRSourceList;
-
 @interface PRAppMenu (/*PROTECTED*/)
-@property (nonatomic, strong) PRSourceList *favoritesSourceList;
+@property (nonatomic, strong) id<CatalogFacade> favoritesSourceList;
 @property (nonatomic, readonly) BOOL isBrandEdition;
 
 @end

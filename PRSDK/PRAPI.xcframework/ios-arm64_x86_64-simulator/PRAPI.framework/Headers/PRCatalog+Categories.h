@@ -10,7 +10,6 @@
 
 @interface PRCatalog (Categories)
 
-- (BOOL)category:(NSDictionary *)category complyWithFilterCategory:(NSDictionary *)filterCategory;
 - (NSDictionary *)categoryByName:(NSString *)categoryName;
 
 /// @param ceilingCategory Limits degree of generalization. To get the toppest level category set nil.

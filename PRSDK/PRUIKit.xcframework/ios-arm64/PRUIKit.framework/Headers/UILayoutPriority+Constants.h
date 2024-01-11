@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// The highest priority that can be changed
 extern const UILayoutPriority UILayoutPriorityRequiredEditable;
+extern const UILayoutPriority UILayoutPriorityMiddle;
 
 /// The lowest priority
 extern const UILayoutPriority UILayoutPriorityLowest;

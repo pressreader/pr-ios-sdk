@@ -13,8 +13,6 @@
 #import <PRUI/PRHotspotStatusViewManagerProtocol.h>
 #import <PRUI/PRPubHubDataSource.h>
 
-@class PRSourceCategoriesCollectionVC;
-
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PRCatalogHeightWasChanged;
@@ -28,6 +26,8 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubOption) {
 
 - (instancetype)initWithDataSource:(PRPubHubDataSource *)dataSource;
 - (instancetype)initWithSourceList:(PRSourceList *)sourceList NS_UNAVAILABLE;
+
+@property (nullable, nonatomic, strong) id<CatalogFacade> sourceList NS_UNAVAILABLE;
 
 @property (nonatomic) PRCatalogSectionType sectionToDisclose;
 

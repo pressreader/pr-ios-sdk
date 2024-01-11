@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRPubHubDataSource ()
 
+- (void)subscribeToNotifications;
+
 @property (nonatomic, strong) CatalogSchemeProvider *schemeProvider;
 @property (nullable, nonatomic, strong) PRBannerProvider *bannerProvider;
 

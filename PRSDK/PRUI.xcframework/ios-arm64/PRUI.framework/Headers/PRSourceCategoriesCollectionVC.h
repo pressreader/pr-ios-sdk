@@ -8,33 +8,22 @@
 
 #import "PRCollectionVC.h"
 
-@import PRAPI.PRCountableValue;
-
-@class PRSourceList;
-@class PRSourceCategoriesCollectionVC;
+@protocol CatalogNavigation;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol PRSourceCategoriesCollectionDelegate <NSObject>
-- (void)discloseCategory:(PRCountableValue *)value sender:(nullable UIView *)view;
+- (void)discloseCategory:(id<CatalogNavigation>)value sender:(nullable UIView *)sender;
 @end
 
+/// The abstract controller not to be used directly.
 @interface PRSourceCategoriesCollectionVC : PRCollectionVC
 
-- (instancetype)initWithSourceList:(nullable PRSourceList *)sourceList;
-- (instancetype)initWithSourceList:(nullable PRSourceList *)sourceList
-                          delegate:(nullable id<PRSourceCategoriesCollectionDelegate>)delegate NS_DESIGNATED_INITIALIZER;
-
 @property (nullable, nonatomic, weak) id<PRSourceCategoriesCollectionDelegate> delegate;
-@property (null_resettable, nonatomic, strong) NSArray<PRCountableValue *> *dataProvider;
+@property (null_resettable, nonatomic, strong) NSArray<id<CatalogNavigation>> *dataProvider;
 
 @property (nonatomic) UIEdgeInsets sectionInsets;
 
-@end
-
-
-@interface PRSourceCategoriesCollectionVC (/*PROTECTED*/)
-- (NSArray<PRCountableValue *> *)getCategories;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -12,15 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class PRTitleItem;
 @class PRCountry;
+@protocol CatalogNavigation;
 
 @interface PRSourceList (Factory)
 
 + (instancetype)supplementSourceListForTitleItem:(PRTitleItem *)titleItem;
 + (instancetype)supplementSourceListForTitleItemAndWithoutIt:(PRTitleItem *)titleItem;
-
-+ (PRSourceList *)favouriteSourceListWithOrder:(PRCatalogSortingOrder)order;
-
-- (PRSourceList *)filteredSourceList:(PRSourceListFilter *)filter;
 
 - (void)applyMinRateFilter;
 - (void)applyFreeFilter;
@@ -30,18 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)applySourceTypeFilter:(PRSourceType)sourceType;
 - (void)applyCategoryFilter:(PRCountableValue *)value;
 - (void)applySectionFilter:(PRCountableValue *)value;
-- (void)applyCountryFilter:(PRCountableValue *)value;
+- (void)applyCountryFilter:(id<CatalogNavigation>)value;
 - (void)applyLanguageFilter:(PRCountableValue *)value;
 - (void)applyGroupFilter:(NSString *)name title:(NSString *)title;
 - (void)applyCIDsFilter:(NSArray<NSString *> *)cids title:(nullable NSString *)title;
 - (void)applySubscriptionFilter:(PRSubscription *)subscription;
-- (void)applyNominalFilterWithTitle:(NSString *)title;
-
-- (PRSourceList *)favouriteSourceListWithOrder:(PRCatalogSortingOrder)order;
-- (PRSourceList *)customCatalogTitleSourceList;
-
-/// Makes copy of source list with deactivated groupping and includes supplemenets
-@property (nonatomic, readonly) PRSourceList *semiplainSourceList;
+- (void)applyNominalFilterWithTitle:(NSString *)title NS_SWIFT_NAME(applyNominalFilter(title:));
 
 @end
 

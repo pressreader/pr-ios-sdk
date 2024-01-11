@@ -53,4 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface NTFArticleCompactTextualView (/*PROTECTED*/)
+- (void)updateIssueName;
+@end
+
 NS_ASSUME_NONNULL_END

@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUIKit
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Combine
@@ -20,6 +20,7 @@ import SwiftUI
 import UIKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 @objc extension UIKit.UIView {
   @objc @_Concurrency.MainActor(unsafe) dynamic public var hasBlurEffect: Swift.Bool {
     @objc get
@@ -33,13 +34,13 @@ import _StringProcessing
   @_Concurrency.MainActor(unsafe) dynamic open func addBlurSubview(blurFrame: CoreFoundation.CGRect, style: UIKit.UIBlurEffect.Style, intensity: CoreFoundation.CGFloat) -> UIKit.UIVisualEffectView
   @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect(style: UIKit.UIBlurEffect.Style, intensity: CoreFoundation.CGFloat)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect(style: UIKit.UIBlurEffect.Style)
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect(_ effect: UIKit.UIBlurEffect)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect(_ effect: UIKit.UIBlurEffect, color: UIKit.UIColor? = nil)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func reloadBlurEffect()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func addBlurEffect()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func removeBlurEffect()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func blurImage(_ blurRadius: CoreFoundation.CGFloat) -> UIKit.UIImage?
   @objc @discardableResult
-  @_Concurrency.MainActor(unsafe) dynamic open func addBlurSubview(blurFrame: CoreFoundation.CGRect, style: UIKit.UIBlurEffect.Style, createBlur: () -> UIKit.UIVisualEffectView) -> UIKit.UIVisualEffectView
+  @_Concurrency.MainActor(unsafe) dynamic open func addBlurSubview(blurFrame: CoreFoundation.CGRect, style: UIKit.UIBlurEffect.Style, color: UIKit.UIColor? = nil, createBlur: () -> UIKit.UIVisualEffectView) -> UIKit.UIVisualEffectView
 }
 extension PRUIKit.PRSafariVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func handleInitialPresentation(_ url: Foundation.URL, components: Foundation.URLComponents) -> Swift.Bool
@@ -171,6 +172,12 @@ public func colorWith(r: Swift.Int, g: Swift.Int, b: Swift.Int, a: CoreFoundatio
   @objc dynamic public func rgbaString() -> Swift.String?
 }
 extension UIKit.UIViewController {
+  @objc(topMostController) @_Concurrency.MainActor(unsafe) final public var topMost: UIKit.UIViewController {
+    @objc get
+  }
+  @objc(topMostFullScreenController) @_Concurrency.MainActor(unsafe) final public var topMostFullScreen: UIKit.UIViewController {
+    @objc get
+  }
   @_Concurrency.MainActor(unsafe) public func topMost<T>(ignoreAlerts: Swift.Bool = false) -> T? where T : UIKit.UIViewController
   @objc @_Concurrency.MainActor(unsafe) dynamic public func dismiss(keepTopAlert: Swift.Bool, animated: Swift.Bool = true, completion: (() -> ())? = nil)
 }
@@ -185,18 +192,40 @@ extension UIKit.UIView {
   }
   @objc(includeIntoCenterOfContainer:) @_Concurrency.MainActor(unsafe) dynamic public func includeIntoCenter(of container: UIKit.UIView)
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func include(into container: UIKit.UIView, at index: Swift.Int? = nil, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
-  @discardableResult
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func include(into container: UIKit.UIView, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func include(into container: UIKit.UIView, at index: Swift.Int? = nil, insets: UIKit.UIEdgeInsets = .zero, useSafeArea: Swift.Bool = false) -> [UIKit.NSLayoutConstraint]
   @discardableResult
   @_Concurrency.MainActor(unsafe) public func include(into container: UIKit.UIView, at index: Swift.Int? = nil, top: CoreFoundation.CGFloat? = nil, left: CoreFoundation.CGFloat? = nil, bottom: CoreFoundation.CGFloat? = nil, right: CoreFoundation.CGFloat? = nil) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func attach(to anchor: UIKit.UIView, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func attach(to anchor: any PRUIKit.LayoutGuidable, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
   @objc @_Concurrency.MainActor(unsafe) dynamic public func updateInclusionConstraints(_ insets: UIKit.UIEdgeInsets)
+}
+@objc extension UIKit.UIView {
+  @objc @discardableResult
+  @_Concurrency.MainActor(unsafe) dynamic public func include(into container: UIKit.UIView, insets: UIKit.UIEdgeInsets = .zero, useSafeArea: Swift.Bool) -> [UIKit.NSLayoutConstraint]
+  @objc @discardableResult
+  @_Concurrency.MainActor(unsafe) dynamic public func include(into container: UIKit.UIView, insets: UIKit.UIEdgeInsets = .zero) -> [UIKit.NSLayoutConstraint]
+  @objc @discardableResult
+  @_Concurrency.MainActor(unsafe) dynamic public func include(into container: UIKit.UIView) -> [UIKit.NSLayoutConstraint]
 }
 @objc extension UIKit.UIView {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func sizeConstraints(size: CoreFoundation.CGSize, priority: UIKit.UILayoutPriority) -> [UIKit.NSLayoutConstraint]
   @objc @_Concurrency.MainActor(unsafe) dynamic public func sizeConstraints(size: CoreFoundation.CGSize) -> [UIKit.NSLayoutConstraint]
+}
+@objc public protocol LayoutGuidable {
+  @objc var leadingAnchor: UIKit.NSLayoutXAxisAnchor { get }
+  @objc var trailingAnchor: UIKit.NSLayoutXAxisAnchor { get }
+  @objc var leftAnchor: UIKit.NSLayoutXAxisAnchor { get }
+  @objc var rightAnchor: UIKit.NSLayoutXAxisAnchor { get }
+  @objc var topAnchor: UIKit.NSLayoutYAxisAnchor { get }
+  @objc var bottomAnchor: UIKit.NSLayoutYAxisAnchor { get }
+  @objc var widthAnchor: UIKit.NSLayoutDimension { get }
+  @objc var heightAnchor: UIKit.NSLayoutDimension { get }
+  @objc var centerXAnchor: UIKit.NSLayoutXAxisAnchor { get }
+  @objc var centerYAnchor: UIKit.NSLayoutYAxisAnchor { get }
+}
+extension UIKit.UILayoutGuide : PRUIKit.LayoutGuidable {
+}
+extension UIKit.UIView : PRUIKit.LayoutGuidable {
 }
 @objc extension UIKit.UIActivityIndicatorView {
   @objc @_Concurrency.MainActor(unsafe) public static func styledActivityIndicator(style: UIKit.UIActivityIndicatorView.Style) -> Self
@@ -437,6 +466,11 @@ public protocol AnimatableView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) final public func insert(into view: UIKit.UIView)
   @objc deinit
 }
+extension UIKit.UITableViewCell {
+  @_Concurrency.MainActor(unsafe) public func switchView() -> UIKit.UISwitch
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func switchView(subject: Combine.CurrentValueSubject<Swift.Bool, Swift.Never>) -> UIKit.UISwitch
+}
 @objc extension PRUIKit.PRActivityVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func setupAccessibility()
 }
@@ -451,6 +485,10 @@ extension PRUIKit.PRViewExtension {
     @objc get
     @objc set
   }
+}
+extension UIKit.UISwitch {
+  @_Concurrency.MainActor(unsafe) convenience public init(subject: Combine.CurrentValueSubject<Swift.Bool, Swift.Never>)
+  @_Concurrency.MainActor(unsafe) public func attachSubject(_ subject: Combine.CurrentValueSubject<Swift.Bool, Swift.Never>, isReversed: Swift.Bool = false)
 }
 @objc @_hasMissingDesignatedInitializers final public class PRViewExtension : ObjectiveC.NSObject {
   @objc final public var appearanceOptions: PRUIKit.AppearanceOption {
@@ -533,6 +571,9 @@ public protocol SelectionActionMenuItem {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @objc deinit
 }
+@objc extension PRUIKit.PRUINavigationController : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class InfiniteActivityView : UIKit.UIActivityIndicatorView {
   @_Concurrency.MainActor(unsafe) @objc override final public func stopAnimating()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UIActivityIndicatorView.Style)
@@ -564,6 +605,14 @@ public protocol SelectionActionMenuItem {
   @_Concurrency.MainActor(unsafe) open func setupView()
   @objc deinit
 }
+@objc public protocol NavigationBarDismissable {
+  @objc(showBarsAnimated:) func showBars(animated: Swift.Bool)
+  @objc(dismissBarsAnimated:delayed:) func dismissBars(animated: Swift.Bool, delayed: Swift.Bool)
+}
+extension UIKit.UIViewController : PRUIKit.NavigationBarDismissable {
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func showBars(animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func dismissBars(animated: Swift.Bool, delayed: Swift.Bool)
+}
 @objc extension UIKit.UIFont {
   @objc dynamic public class func preferredFont(forTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat) -> UIKit.UIFont
   @objc dynamic public class func preferredFont(forTextStyle style: UIKit.UIFont.TextStyle, scale: CoreFoundation.CGFloat) -> UIKit.UIFont
@@ -577,6 +626,31 @@ public protocol SelectionActionMenuItem {
 }
 @objc extension UIKit.UIFont {
   @objc dynamic public class func customFont(name: Swift.String, sizeOfTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat = 0) -> UIKit.UIFont?
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class RibbonView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) final public var text: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var textColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var fontSize: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var backgroundColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var ribbonHeight: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) final public class DynamicImageView : UIKit.UIImageView {
   @objc @_Concurrency.MainActor(unsafe) final public var dynamicImageProvider: (UIKit.UITraitCollection) -> UIKit.UIImage {
@@ -645,6 +719,9 @@ extension UIKit.UIViewController {
     @objc get
   }
   @objc(barTintColor) public static var barTint: UIKit.UIColor {
+    @objc get
+  }
+  @objc public static var customBarTint: UIKit.UIColor? {
     @objc get
   }
   @objc public static var searchBarBackground: UIKit.UIColor {
@@ -949,6 +1026,10 @@ extension CoreFoundation.CGSize {
 @objc extension UIKit.UIView {
   @objc @_Concurrency.MainActor(unsafe) convenience dynamic public init(backgroundColor: UIKit.UIColor?)
 }
+extension SwiftUI.Text {
+  public init?(optional key: Swift.String?)
+  public init(_ attributedString: Foundation.NSAttributedString)
+}
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class PRRoundedButton : PRUIKit.EasyTapButton {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc required override dynamic public init(frame: CoreFoundation.CGRect)
@@ -988,13 +1069,14 @@ extension CoreFoundation.CGSize {
   @objc public static var maxGridCellSize: CoreFoundation.CGSize {
     @objc get
   }
-  @objc public static let actionMenuContentSideInset: CoreFoundation.CGFloat
+  @objc public static let popoverContentSideInset: CoreFoundation.CGFloat
   @objc public static var featuredCatalogSectionMultiplier: CoreFoundation.CGFloat {
     @objc get
   }
   @objc public static let catalogThumbnailRatio: CoreFoundation.CGFloat
   @objc public static let actionButtonHeight: CoreFoundation.CGFloat
   @objc public static let separatorWidth: CoreFoundation.CGFloat
+  @objc public static let thumbnailCornerRadius: CoreFoundation.CGFloat
   @objc public static func gridCellSize(with multiplier: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
   @objc override dynamic public init()
   @objc deinit
@@ -1124,6 +1206,9 @@ extension UIKit.UICollectionView {
   @objc(sampleContentTintColor) public static var sampleContentTint: UIKit.UIColor {
     @objc get
   }
+  @objc(freeRibbonColor) public static var freeRibbon: UIKit.UIColor {
+    @objc get
+  }
   @objc(globalBlueColor) public static var globalBlue: UIKit.UIColor {
     @objc get
   }
@@ -1181,6 +1266,11 @@ extension Swift.Array where Element : UIKit.UIView {
 }
 @objc extension UIKit.UIView {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func rightToLeftAllSubviews()
+}
+extension UIKit.UIGestureRecognizer {
+  @_Concurrency.MainActor(unsafe) public var isActive: Swift.Bool {
+    get
+  }
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SwiftView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)

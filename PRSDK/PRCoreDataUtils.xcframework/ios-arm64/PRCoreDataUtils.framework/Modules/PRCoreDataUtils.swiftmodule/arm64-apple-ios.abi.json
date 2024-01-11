@@ -26,6 +26,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRCoreDataUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "CoreData",
         "printedName": "CoreData",
         "declKind": "Import",
@@ -521,6 +531,369 @@
         "printedName": "CoreData",
         "declKind": "Import",
         "moduleName": "PRCoreDataUtils"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "PRCoreDataUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RawRepresentableCDPrimitive",
+        "printedName": "RawRepresentableCDPrimitive",
+        "children": [
+          {
+            "kind": "Subscript",
+            "name": "subscript",
+            "printedName": "subscript(_enclosingInstance:wrapped:storage:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ReferenceWritableKeyPath",
+                "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:s24ReferenceWritableKeyPathC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ReferenceWritableKeyPath",
+                "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RawRepresentableCDPrimitive",
+                    "printedName": "PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV"
+                  }
+                ],
+                "usr": "s:s24ReferenceWritableKeyPathC"
+              }
+            ],
+            "declKind": "Subscript",
+            "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luipZ",
+            "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luipZ",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : Swift.RawRepresentable, τ_1_0 : CoreData.NSManagedObject, τ_0_0.RawValue == Swift.Int>",
+            "sugared_genericSig": "<Value, T where Value : Swift.RawRepresentable, T : CoreData.NSManagedObject, Value.RawValue == Swift.Int>",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReferenceWritableKeyPath",
+                    "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, τ_0_0>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:s24ReferenceWritableKeyPathC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReferenceWritableKeyPath",
+                    "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RawRepresentableCDPrimitive",
+                        "printedName": "PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_0"
+                          }
+                        ],
+                        "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV"
+                      }
+                    ],
+                    "usr": "s:s24ReferenceWritableKeyPathC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luigZ",
+                "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luigZ",
+                "moduleName": "PRCoreDataUtils",
+                "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : Swift.RawRepresentable, τ_1_0 : CoreData.NSManagedObject, τ_0_0.RawValue == Swift.Int>",
+                "sugared_genericSig": "<Value, T where Value : Swift.RawRepresentable, T : CoreData.NSManagedObject, Value.RawValue == Swift.Int>",
+                "static": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReferenceWritableKeyPath",
+                    "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, τ_0_0>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:s24ReferenceWritableKeyPathC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReferenceWritableKeyPath",
+                    "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RawRepresentableCDPrimitive",
+                        "printedName": "PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_0"
+                          }
+                        ],
+                        "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV"
+                      }
+                    ],
+                    "usr": "s:s24ReferenceWritableKeyPathC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luisZ",
+                "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luisZ",
+                "moduleName": "PRCoreDataUtils",
+                "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : Swift.RawRepresentable, τ_1_0 : CoreData.NSManagedObject, τ_0_0.RawValue == Swift.Int>",
+                "sugared_genericSig": "<Value, T where Value : Swift.RawRepresentable, T : CoreData.NSManagedObject, Value.RawValue == Swift.Int>",
+                "static": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReferenceWritableKeyPath",
+                    "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, τ_0_0>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:s24ReferenceWritableKeyPathC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReferenceWritableKeyPath",
+                    "printedName": "Swift.ReferenceWritableKeyPath<τ_1_0, PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RawRepresentableCDPrimitive",
+                        "printedName": "PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_0"
+                          }
+                        ],
+                        "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV"
+                      }
+                    ],
+                    "usr": "s:s24ReferenceWritableKeyPathC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luiMZ",
+                "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV18_enclosingInstance7wrapped7storagexqd___s24ReferenceWritableKeyPathCyqd__xGAHyqd__ACyxGGtcSo15NSManagedObjectCRbd__luiMZ",
+                "moduleName": "PRCoreDataUtils",
+                "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : Swift.RawRepresentable, τ_1_0 : CoreData.NSManagedObject, τ_0_0.RawValue == Swift.Int>",
+                "sugared_genericSig": "<Value, T where Value : Swift.RawRepresentable, T : CoreData.NSManagedObject, Value.RawValue == Swift.Int>",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(key:primitiveType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RawRepresentableCDPrimitive",
+                "printedName": "PRCoreDataUtils.RawRepresentableCDPrimitive<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ExistentialMetatype",
+                "printedName": "Swift.FixedWidthInteger.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FixedWidthInteger",
+                    "printedName": "Swift.FixedWidthInteger",
+                    "usr": "s:s17FixedWidthIntegerP"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV3key13primitiveTypeACyxGSS_s17FixedWidthInteger_pXptcfc",
+            "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV3key13primitiveTypeACyxGSS_s17FixedWidthInteger_pXptcfc",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.Int>",
+            "sugared_genericSig": "<Value where Value : Swift.RawRepresentable, Value.RawValue == Swift.Int>",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV",
+        "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV",
+        "moduleName": "PRCoreDataUtils",
+        "genericSig": "<τ_0_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.Int>",
+        "sugared_genericSig": "<Value where Value : Swift.RawRepresentable, Value.RawValue == Swift.Int>",
+        "declAttributes": [
+          "AccessControl",
+          "PropertyWrapper"
+        ]
       },
       {
         "kind": "Import",
@@ -1259,6 +1632,497 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "Dictionary",
+        "printedName": "Dictionary",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "castInt",
+            "printedName": "castInt(_:defaultValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0",
+                "hasDefaultArg": true
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD15PRCoreDataUtilsE7castInt_12defaultValueqd__x_qd__ts17FixedWidthIntegerRd__SZRd__lF",
+            "mangledName": "$sSD15PRCoreDataUtilsE7castInt_12defaultValueqd__x_qd__ts17FixedWidthIntegerRd__SZRd__lF",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0, τ_0_1, τ_1_0 where τ_0_0 : Swift.Hashable, τ_1_0 : Swift.FixedWidthInteger, τ_1_0 : Swift.SignedInteger>",
+            "sugared_genericSig": "<Key, Value, T where Key : Swift.Hashable, T : Swift.FixedWidthInteger, T : Swift.SignedInteger>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "castInt",
+            "printedName": "castInt(_:defaultValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0",
+                "hasDefaultArg": true
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD15PRCoreDataUtilsE7castInt_12defaultValueqd__SayxG_qd__ts17FixedWidthIntegerRd__SZRd__lF",
+            "mangledName": "$sSD15PRCoreDataUtilsE7castInt_12defaultValueqd__SayxG_qd__ts17FixedWidthIntegerRd__SZRd__lF",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0, τ_0_1, τ_1_0 where τ_0_0 : Swift.Hashable, τ_1_0 : Swift.FixedWidthInteger, τ_1_0 : Swift.SignedInteger>",
+            "sugared_genericSig": "<Key, Value, T where Key : Swift.Hashable, T : Swift.FixedWidthInteger, T : Swift.SignedInteger>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:SD",
+        "mangledName": "$sSD",
+        "moduleName": "Swift",
+        "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
+        "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
+        "declAttributes": [
+          "Frozen"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sequence",
+            "printedName": "Sequence",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(key: τ_0_0, value: τ_0_1)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Iterator",
+                "printedName": "Iterator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Iterator",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.Iterator",
+                    "usr": "s:SD8IteratorV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:ST",
+            "mangledName": "$sST"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Collection",
+            "printedName": "Collection",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(key: τ_0_0, value: τ_0_1)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Index",
+                "printedName": "Index",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Index",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.Index",
+                    "usr": "s:SD5IndexV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Iterator",
+                "printedName": "Iterator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Iterator",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.Iterator",
+                    "usr": "s:SD8IteratorV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "SubSequence",
+                "printedName": "SubSequence",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Slice",
+                    "printedName": "Swift.Slice<[τ_0_0 : τ_0_1]>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[τ_0_0 : τ_0_1]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_0"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_1"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:s5SliceV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Indices",
+                "printedName": "Indices",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefaultIndices",
+                    "printedName": "Swift.DefaultIndices<[τ_0_0 : τ_0_1]>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[τ_0_0 : τ_0_1]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_0"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_1"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:SI"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:Sl",
+            "mangledName": "$sSl"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByDictionaryLiteral",
+            "printedName": "ExpressibleByDictionaryLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Key",
+                "printedName": "Key",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Value",
+                "printedName": "Value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_1"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s30ExpressibleByDictionaryLiteralP",
+            "mangledName": "$ss30ExpressibleByDictionaryLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_HasCustomAnyHashableRepresentation",
+            "printedName": "_HasCustomAnyHashableRepresentation",
+            "usr": "s:s35_HasCustomAnyHashableRepresentationP",
+            "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FixedWidthInteger",
+        "printedName": "FixedWidthInteger",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "cast",
+            "printedName": "cast()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:s17FixedWidthIntegerP15PRCoreDataUtilsE4castqd__ysAARd__lF",
+            "mangledName": "$ss17FixedWidthIntegerP15PRCoreDataUtilsE4castqd__ysAARd__lF",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : Swift.FixedWidthInteger, τ_1_0 : Swift.FixedWidthInteger>",
+            "sugared_genericSig": "<Self, T where Self : Swift.FixedWidthInteger, T : Swift.FixedWidthInteger>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:s17FixedWidthIntegerP",
+        "mangledName": "$ss17FixedWidthIntegerP",
+        "moduleName": "Swift",
+        "genericSig": "<τ_0_0 : Swift.BinaryInteger, τ_0_0 : Swift.LosslessStringConvertible, τ_0_0.Magnitude : Swift.FixedWidthInteger, τ_0_0.Magnitude : Swift.UnsignedInteger, τ_0_0.Stride : Swift.FixedWidthInteger, τ_0_0.Stride : Swift.SignedInteger>",
+        "sugared_genericSig": "<Self : Swift.BinaryInteger, Self : Swift.LosslessStringConvertible, Self.Magnitude : Swift.FixedWidthInteger, Self.Magnitude : Swift.UnsignedInteger, Self.Stride : Swift.FixedWidthInteger, Self.Stride : Swift.SignedInteger>",
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "LosslessStringConvertible",
+            "printedName": "LosslessStringConvertible",
+            "usr": "s:s25LosslessStringConvertibleP",
+            "mangledName": "$ss25LosslessStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "BinaryInteger",
+            "printedName": "BinaryInteger",
+            "usr": "s:Sz",
+            "mangledName": "$sSz"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Strideable",
+            "printedName": "Strideable",
+            "usr": "s:Sx",
+            "mangledName": "$sSx"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Comparable",
+            "printedName": "Comparable",
+            "usr": "s:SL",
+            "mangledName": "$sSL"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Numeric",
+            "printedName": "Numeric",
+            "usr": "s:Sj",
+            "mangledName": "$sSj"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByIntegerLiteral",
+            "printedName": "ExpressibleByIntegerLiteral",
+            "usr": "s:s27ExpressibleByIntegerLiteralP",
+            "mangledName": "$ss27ExpressibleByIntegerLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AdditiveArithmetic",
+            "printedName": "AdditiveArithmetic",
+            "usr": "s:s18AdditiveArithmeticP",
+            "mangledName": "$ss18AdditiveArithmeticP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "NSManagedObject",
         "printedName": "NSManagedObject",
         "children": [
@@ -1648,6 +2512,20 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/Dictionary+Int.swift",
+      "kind": "IntegerLiteral",
+      "offset": 292,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/Dictionary+Int.swift",
+      "kind": "IntegerLiteral",
+      "offset": 457,
+      "length": 1,
+      "value": "0"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObject+Utils.swift",
       "kind": "IntegerLiteral",
       "offset": 715,
@@ -1695,6 +2573,13 @@
       "offset": 1831,
       "length": 20,
       "value": "\"CD deleteItems: %@\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/RawRepresentableCDPrimitive.swift",
+      "kind": "IntegerLiteral",
+      "offset": 945,
+      "length": 1,
+      "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/NSManagedObject+Identifiable.swift",

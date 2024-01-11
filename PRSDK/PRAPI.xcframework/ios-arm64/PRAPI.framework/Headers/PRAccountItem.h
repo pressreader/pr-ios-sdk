@@ -120,8 +120,8 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @property (nonatomic, readonly) BOOL enablePromotional;
 @property (nonatomic, readonly) BOOL enableNewsDigest;
 @property (nonatomic, strong) NSString* profilePhotoURL;
-@property (nonatomic, readonly) NSString *userRegisteredCountry;
-@property (nonatomic, readonly) NSString *currentCountry;
+@property (nullable, nonatomic, readonly) NSString *userRegisteredCountry;
+@property (nullable, nonatomic, readonly) NSString *currentCountry;
 @property (nonatomic, copy) NSString* activationNumber;
 @property (nullable, nonatomic, strong) NSArray<PRUserBundle *> *userBundles;
 @property (nonatomic, readonly) NSString *behaviourProfileId;
@@ -158,8 +158,6 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @property (nullable, nonatomic, readonly) NSString *subscriptionType;
 @property (nonatomic, readonly) NSDate*	expirationDate;
 @property (nonatomic, readonly) NSDate* startDate;
-@property (nonatomic, readonly) NSInteger remainingFreeCredits;
-@property (nonatomic, readonly) BOOL remainingFreeCreditsSufficient;
 @property (nonatomic, readonly) PRSubscriptionStatus subscriptionStatus;
 
 // CARD INFO PROPERTIES

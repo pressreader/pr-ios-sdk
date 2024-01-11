@@ -26,7 +26,8 @@ typedef NS_OPTIONS(NSUInteger, PROrderDeliveryOption) {
     /// By default `PROrderDelivery` doesn't retrieve purchase information and doesn't try to buy an issue if there is a downloaded
     /// library item. With this option we can force `PROrderDelivery` to ignore downloaded library item and proceed with a
     /// purchase flow anyway.
-    PROrderDeliveryOptionIgnoreDownloadedItem = 1 << 6
+    PROrderDeliveryOptionIgnoreDownloadedItem = 1 << 6,
+    PROrderDeliveryOptionOrderConfirmed = 1 << 7
 };
 
 extern NSNotificationName const PROrderDeliveryResultNotification;
@@ -85,13 +86,18 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
 @property (nullable, nonatomic, strong) NSDictionary *orderDescription;
 @property (nonatomic, strong) NSDictionary *productsInfo;
 @property (nonatomic, strong, readonly) NSArray<NSString *> *productIDList;
-@property (nullable, nonatomic, strong, readonly) NSNumber *balance;
+@property (nullable, nonatomic, strong, readonly) PRConsumableBundle *bundle;
 @property (nonatomic, readonly) PROrderDeliveryResult deliveryResult;
 
 @property (nullable, nonatomic, copy) CompletionBlock completionBlock;
 @property (nullable, nonatomic, copy) DeliveryCompletionBlock deliveryCompletionBlock;
 @property (nullable, nonatomic, copy) CancellationBlock cancellationBlock;
 
+@end
+
+@interface PROrderDelivery (/*PROTECTED*/)
+- (void)cancelOrderDelivery;
+- (void)requestBackIssue;
 @end
 
 #ifdef TEST

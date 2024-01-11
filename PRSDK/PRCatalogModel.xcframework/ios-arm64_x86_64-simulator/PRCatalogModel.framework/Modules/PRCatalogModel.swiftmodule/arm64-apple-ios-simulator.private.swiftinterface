@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRCatalogModel
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Combine
@@ -13,6 +13,7 @@ import PRSyntacticSugar
 import Swift
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 @_inheritsConvenienceInitializers @objc(PressCatalog) final public class PressCatalog : CoreData.NSManagedObject {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
@@ -160,6 +161,35 @@ extension PRCatalogModel.PageArea {
 extension PRCatalogModel.PageArea : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
+public enum CatalogNavigationScope : Swift.String, Swift.CaseIterable {
+  case type
+  case country
+  case language
+  case category
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [PRCatalogModel.CatalogNavigationScope]
+  public typealias RawValue = Swift.String
+  public static var allCases: [PRCatalogModel.CatalogNavigationScope] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct CatalogNavigationDTO {
+  public let id: Swift.String
+  public let displayName: Swift.String
+  public let name: Swift.String
+  public let publicationsCount: Swift.Int32?
+  public let categories: [PRCatalogModel.CatalogNavigationDTO]?
+  public let iso: Swift.String?
+  public var entityType: PRCatalogModel.CatalogEntity.Type? {
+    get
+  }
+}
+extension PRCatalogModel.CatalogNavigationDTO : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
 extension PRCatalogModel.PressCatalog {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PressCatalog>
   @objc @NSManaged dynamic final public var books: PRCatalogModel.Books? {
@@ -238,9 +268,14 @@ extension PRCatalogModel.Section {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(HubNavigation) public class HubNavigation : PRCatalogModel.CatalogNavigation {
-  convenience public init(context: CoreData.NSManagedObjectContext, scope: PRCatalogModel.Catalog)
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
+}
+extension PRCatalogModel.HubNavigation : PRCatalogModel.ScopeNavigation {
+  public typealias Scope = PRCatalogModel.Catalog
+}
+extension PRCatalogModel.Catalog : PRCatalogModel.NavigatableScope {
+  public typealias Navigation = PRCatalogModel.HubNavigation
 }
 extension PRCatalogModel.CatalogItem {
   public struct State : Swift.OptionSet {
@@ -250,9 +285,8 @@ extension PRCatalogModel.CatalogItem {
     public static let markedToDeleteContent: PRCatalogModel.CatalogItem.State
     public static let opened: PRCatalogModel.CatalogItem.State
     public static let selected: PRCatalogModel.CatalogItem.State
-    public static let owned: PRCatalogModel.CatalogItem.State
-    public static let licensePurchaseFailed: PRCatalogModel.CatalogItem.State
-    public static let licensePurchasing: PRCatalogModel.CatalogItem.State
+    public static let free: PRCatalogModel.CatalogItem.State
+    public static let sponsored: PRCatalogModel.CatalogItem.State
     public typealias ArrayLiteralElement = PRCatalogModel.CatalogItem.State
     public typealias Element = PRCatalogModel.CatalogItem.State
     public typealias RawValue = Swift.Int32
@@ -261,7 +295,6 @@ extension PRCatalogModel.CatalogItem {
     get
     set
   }
-  public func updateLicensePurchaseResult(isFailed: Swift.Bool)
 }
 extension PRCatalogModel.Books {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Books>
@@ -439,6 +472,9 @@ extension PRCatalogModel.Book {
     @objc set
   }
 }
+extension PRCatalogModel.Country {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Country>
+}
 @_inheritsConvenienceInitializers @objc(ItemSeriesMetadata) public class ItemSeriesMetadata : PRCatalogModel.RelationshipMetadata {
   public struct DTO {
   }
@@ -473,6 +509,7 @@ extension PRCatalogModel.CatalogEntity : PRCatalogModel.CatalogableMO {
 }
 extension PRCatalogModel.CatalogEntity : PRCoreDataUtils.IdentifiableMO {
   public static func item(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) throws -> Self
+  public static func item(info: PRCatalogModel.CatalogNavigationDTO, catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) -> Self
   public func metadata<T>(catalogItem: PRCatalogModel.CatalogItem) -> T? where T : PRCatalogModel.RelationshipMetadata
   @discardableResult
   public func processLoadedItems(info: [Swift.String : Any]) -> [PRCatalogModel.CatalogItem]?
@@ -501,6 +538,17 @@ extension PRCatalogModel.CatalogEntity : PRCoreDataUtils.IdentifiableMO {
   }
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
+}
+public protocol ScopeNavigation : CoreData.NSManagedObject {
+  associatedtype Scope : PRCatalogModel.NavigatableScope
+  var scope: Self.Scope { get set }
+}
+extension PRCatalogModel.ScopeNavigation {
+  public init(context: CoreData.NSManagedObjectContext, scope: Self.Scope)
+}
+public protocol NavigatableScope : CoreData.NSManagedObject {
+  associatedtype Navigation : PRCatalogModel.CatalogNavigation
+  var navigation: Self.Navigation? { get }
 }
 extension PRCatalogModel.Issue {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Issue>
@@ -816,10 +864,6 @@ extension PRCatalogModel.CatalogItem {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var orderDate: Foundation.Date? {
-    @objc get
-    @objc set
-  }
   @objc @NSManaged dynamic public var pageCount: Swift.Int32 {
     @objc get
     @objc set
@@ -828,15 +872,19 @@ extension PRCatalogModel.CatalogItem {
     @objc get
     @objc set
   }
+  @objc @NSManaged dynamic public var slug: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var state: Swift.Int32 {
+    @objc get
+    @objc set
+  }
   @objc @NSManaged dynamic public var thumbnailId: Swift.String? {
     @objc get
     @objc set
   }
   @objc @NSManaged dynamic public var title: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic public var state: Swift.Int32 {
     @objc get
     @objc set
   }
@@ -868,7 +916,7 @@ extension PRCatalogModel.CatalogItem {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var slug: Swift.String {
+  @objc @NSManaged dynamic public var purchaseInfo: PRCatalogModel.PurchaseInfo? {
     @objc get
     @objc set
   }
@@ -956,6 +1004,40 @@ extension PRCatalogModel.Query {
     @objc set
   }
 }
+@_inheritsConvenienceInitializers @objc(PurchaseInfo) public class PurchaseInfo : CoreData.NSManagedObject {
+  public enum State : Swift.Int {
+    case `default`, inProgress, failed
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @discardableResult
+  public static func item(catalogItem: PRCatalogModel.CatalogItem, context: CoreData.NSManagedObjectContext) -> PRCatalogModel.PurchaseInfo
+  @PRCoreDataUtils.RawRepresentableCDPrimitive public var state: PRCatalogModel.PurchaseInfo.State {
+    get
+    set
+    _modify
+  }
+  @PRCoreDataUtils.RawRepresentableCDPrimitive public var contentOptions: PRCatalogModel.CatalogItemContentOption {
+    get
+    set
+    _modify
+  }
+  required convenience public init(catalogItem: PRCatalogModel.CatalogItem, context: CoreData.NSManagedObjectContext)
+  @objc override dynamic public func awakeFromInsert()
+  @discardableResult
+  public func update(info: PRCatalogModel.BookLibraryItem) -> Swift.Bool
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+public struct BookLibraryItem : Swift.Decodable {
+  public let bookId: Swift.String
+  public let addingDate: Foundation.Date
+  public let isSample: Swift.Bool
+  public init(from decoder: any Swift.Decoder) throws
+}
 extension PRCatalogModel.CompoundNavigation {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CompoundNavigation>
   @objc @NSManaged dynamic public var scope: PRCatalogModel.CatalogEntity {
@@ -964,9 +1046,14 @@ extension PRCatalogModel.CompoundNavigation {
   }
 }
 @_inheritsConvenienceInitializers @objc(CompoundNavigation) public class CompoundNavigation : PRCatalogModel.CatalogNavigation {
-  convenience public init(context: CoreData.NSManagedObjectContext, scope: PRCatalogModel.CatalogEntity)
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
+}
+extension PRCatalogModel.CompoundNavigation : PRCatalogModel.ScopeNavigation {
+  public typealias Scope = PRCatalogModel.CatalogEntity
+}
+extension PRCatalogModel.CatalogEntity : PRCatalogModel.NavigatableScope {
+  public typealias Navigation = PRCatalogModel.CompoundNavigation
 }
 public protocol CatalogableMO : CoreData.NSManagedObject {
   static func item(id: Swift.String, catalog: PRCatalogModel.Catalog) -> Self
@@ -1000,6 +1087,13 @@ extension PRCatalogModel.CatalogItem {
   }
 }
 @_inheritsConvenienceInitializers @objc(Language) final public class Language : PRCatalogModel.CatalogEntity {
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(Country) public class Country : PRCatalogModel.CatalogEntity {
+  public var iso: Swift.String? {
+    get
+  }
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
@@ -1200,6 +1294,9 @@ extension PRCatalogModel.CatalogItem : PRCoreDataUtils.IdentifiableMO {
   public class func item(id: Swift.String, catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], forceUpdate: Swift.Bool = false) -> Self?
   public class func item(catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], forceUpdate: Swift.Bool = false) -> Self?
 }
+extension PRCatalogModel.PublicationType {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PublicationType>
+}
 @_inheritsConvenienceInitializers @objc(Issue) final public class Issue : PRCatalogModel.TitleItem {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
@@ -1247,6 +1344,8 @@ extension PRCatalogModel.Author {
     case publisherId
     case query
     case ids
+    case root
+    case path
     public init?(rawValue: Swift.String)
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
@@ -1336,12 +1435,33 @@ extension PRCatalogModel.TitleItem {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc(PublicationType) public class PublicationType : PRCatalogModel.CatalogEntity {
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+extension PRCatalogModel.PurchaseInfo {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PurchaseInfo>
+  @objc @NSManaged dynamic public var date: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var catalogItem: PRCatalogModel.CatalogItem {
+    @objc get
+    @objc set
+  }
+}
+extension PRCatalogModel.PurchaseInfo : Swift.Identifiable {
+  public typealias ID = Swift.ObjectIdentifier
+}
 extension PRCatalogModel.Language {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Language>
 }
 @_inheritsConvenienceInitializers @objc(FragmentEndLocator) public class FragmentEndLocator : PRCatalogModel.EPubLocator {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
+}
+extension Swift.KeyedDecodingContainer {
+  public func decodeToString(key: Swift.KeyedDecodingContainer<K>.Key) throws -> Swift.String
 }
 extension PRCatalogModel.Publications {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Publications>
@@ -1390,9 +1510,15 @@ extension PRCatalogModel.BookLicense : PRCoreDataUtils.IdentifiableMO {
 extension PRCatalogModel.Section.Id : Swift.Equatable {}
 extension PRCatalogModel.Section.Id : Swift.Hashable {}
 extension PRCatalogModel.Section.Id : Swift.RawRepresentable {}
+extension PRCatalogModel.CatalogNavigationScope : Swift.Equatable {}
+extension PRCatalogModel.CatalogNavigationScope : Swift.Hashable {}
+extension PRCatalogModel.CatalogNavigationScope : Swift.RawRepresentable {}
 extension PRCatalogModel.CatalogLoading.State : Swift.Equatable {}
 extension PRCatalogModel.CatalogLoading.State : Swift.Hashable {}
 extension PRCatalogModel.CatalogLoading.State : Swift.RawRepresentable {}
+extension PRCatalogModel.PurchaseInfo.State : Swift.Equatable {}
+extension PRCatalogModel.PurchaseInfo.State : Swift.Hashable {}
+extension PRCatalogModel.PurchaseInfo.State : Swift.RawRepresentable {}
 extension PRCatalogModel.CatalogItemContent.ContentType : Swift.Equatable {}
 extension PRCatalogModel.CatalogItemContent.ContentType : Swift.Hashable {}
 extension PRCatalogModel.CatalogItemContent.ContentType : Swift.RawRepresentable {}

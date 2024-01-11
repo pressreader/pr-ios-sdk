@@ -1,6 +1,6 @@
 //
 //  PRThumbnailAppLogo.h
-//  PR-UI
+//  PRThumbnail
 //
 //  Created by Viacheslav Soroka on 3/7/19.
 //  Copyright © 2019 NewspaperDirect. All rights reserved.

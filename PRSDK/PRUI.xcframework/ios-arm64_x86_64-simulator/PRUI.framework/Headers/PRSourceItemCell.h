@@ -11,6 +11,7 @@
 @class PRTitleItemExemplar;
 @class PRThumbnailObject;
 @class PRTitleItem;
+@class RibbonView;
 @protocol PRCatalogItem;
 
 typedef NS_ENUM(NSUInteger, PRRibbonStyle) {
@@ -18,7 +19,8 @@ typedef NS_ENUM(NSUInteger, PRRibbonStyle) {
     PRRibbonStyleNew  = 1 << 0,
     PRRibbonStyleFree = 1 << 1,
     PRRibbonStyleLatest = 1 << 2,
-    PRRibbonStyleSample = 1 << 3
+    PRRibbonStyleSample = 1 << 3,
+    PRRibbonStyleSponsored = 1 << 4
 };
 
 typedef NS_OPTIONS(NSUInteger, PRRibbonStyleMask) {
@@ -27,7 +29,12 @@ typedef NS_OPTIONS(NSUInteger, PRRibbonStyleMask) {
     PRRibbonStyleMaskFree = PRRibbonStyleFree,
     PRRibbonStyleMaskLatest = PRRibbonStyleLatest,
     PRRibbonStyleMaskSample = PRRibbonStyleSample,
-    PRRibbonStyleMaskAll  = (PRRibbonStyleMaskNew | PRRibbonStyleMaskFree | PRRibbonStyleMaskLatest | PRRibbonStyleMaskSample )
+    PRRibbonStyleMaskSponsored = PRRibbonStyleSponsored,
+    PRRibbonStyleMaskAll  = (PRRibbonStyleMaskNew
+                             | PRRibbonStyleMaskFree
+                             | PRRibbonStyleMaskLatest
+                             | PRRibbonStyleMaskSample
+                             | PRRibbonStyleMaskSponsored)
 };
 
 typedef NS_ENUM(NSInteger, PRCellActionButtonState) {
@@ -87,7 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setupCellWithTitleExemplar:(PRTitleItemExemplar *)exemplar
                   thumbnailOptions:(PRSourceThumbnailOption)thumbnailOptions;
 
-- (void)updateRibbonLabel;
 - (void)updateListenButtonState;
 - (void)setupInfoBarWithStyle:(PRCellInfoBarStyle)style;
 
@@ -106,10 +112,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, getter=isDimmed) BOOL dimmed;
 @property (nonatomic, getter=isLocked) BOOL locked;
 @property (nonatomic) NSUInteger downloadProgress;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *ribbonToBackgroundRightConstraint;
-
 @property (nonatomic) BOOL smartXMLExist;
 @property (nonatomic) BOOL smartXMLReady;
+
+@property (nullable, strong, nonatomic) IBOutlet NSLayoutConstraint *ribbonToBackgroundRightConstraint;
+@property (nullable, strong, nonatomic) IBOutlet RibbonView *ribbon;
 
 @end
 

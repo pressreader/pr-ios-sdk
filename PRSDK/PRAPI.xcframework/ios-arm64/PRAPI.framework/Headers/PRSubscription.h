@@ -31,6 +31,8 @@ extern NSNotificationName const PRUserPostUpdatedNotification;
 extern NSNotificationName const PRUserPostDeletedNotification;
 extern NSNotificationName const PRFollowUpdatedNotification;
 
+extern NSString *const PRSubscriptionUserBundle;
+
 typedef NS_OPTIONS(uint32_t, PRSubscriptionSourcesStatus) {
     PRSubscriptionSourcesStatusInitialized = 1 << 0,
     PRSubscriptionSourcesStatusRestoredFromCache = 1 << 1,
@@ -107,7 +109,7 @@ typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
 @property (nonatomic, readonly) BOOL isDefaultOnline;
 
 @property (nullable, nonatomic, strong) NSArray *contentCategories;
-@property (nullable, nonatomic, strong) NSArray *groups;
+@property (nullable, nonatomic, strong) NSArray<NSDictionary<NSString *, id> *> *groups;
 @property (nullable, nonatomic, strong) NSArray *contentRegions;
 @property (nullable, nonatomic, strong) NSArray *featuredTitles;
 
@@ -122,8 +124,8 @@ typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
 @property (nullable, nonatomic, strong) NSCache *sourcesSearchResults;
 
 @property (nullable, nonatomic, strong) NSArray<PRBundle *> *bundlesWithCIDs;
-- (NSArray<PRBundle *> *)bundlesWithCIDs:(NSSet<NSString *> *)cids
-                              bundleType:(PRBundleProductType)type;
+
+- (NSArray<PRBundle *> *)bundlesWithCID:(NSString *)cid NS_SWIFT_NAME(bundles(cid:)); 
 - (NSArray<NSString *> *)appStoreProductIDsFromBundlesWithCIDs:(nullable NSSet<NSString *> *)cids
                                                     bundleType:(PRBundleProductType)type;
 

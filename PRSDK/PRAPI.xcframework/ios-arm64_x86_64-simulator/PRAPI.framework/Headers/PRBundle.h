@@ -74,8 +74,8 @@ typedef NS_ENUM(NSInteger, PRBundleContentType) {
 @interface PRUserBundle: PRBaseBundle
 @property (nonatomic) BOOL isTrial;
 
-@property (nullable, nonatomic, strong, readonly) NSDate *startDate;
-@property (nullable, nonatomic, strong, readonly) NSDate *finishDate;
+@property (nullable, nonatomic, strong) NSDate *startDate;
+@property (nullable, nonatomic, strong) NSDate *finishDate;
 
 @property (nonatomic, readonly) BOOL isActive;
 @property (nonatomic, readonly) BOOL isExpired;
@@ -93,8 +93,8 @@ typedef NS_ENUM(NSInteger, PRBundleContentType) {
 @property (nonatomic, strong) NSString *userProductID;
 @property (nullable, nonatomic, strong) NSDate *issueStartDate;
 @property (nullable, nonatomic, strong) NSDate *issueFinishDate;
-@property (nonatomic, readonly) NSDate *startDate;
-@property (nonatomic, readonly) NSDate *finishDate;
+@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *finishDate;
 @property (nonatomic, readonly) NSUInteger backIssueDays;
 
 @property (nonatomic, readonly) NSString *localizedExpirationDate;

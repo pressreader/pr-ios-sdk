@@ -61,4 +61,10 @@ typedef NS_OPTIONS(NSUInteger, PRAnalyticsTrackOptions) {
 
 @end
 
+@protocol PROptionalAnalytics <PRAnalytics>
+
+- (instancetype)init;
+
+@end
+
 NS_ASSUME_NONNULL_END

@@ -20,14 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)resetComputedLists;
 
-- (void)notifyAboutDataChange;
+- (void)addFilter:(PRSourceListFilter *)filter;
 
 - (NSArray<id<PRTitleObject>> *)refilter;
 - (NSArray<id<PRTitleObject>> *)sort:(NSArray *)sourceList byOrder:(PRCatalogSortingOrder)order;
 
-@property (nonatomic, weak) PRCatalog *catalog;
-
+@property (nonatomic, unsafe_unretained) PRCatalog *catalog;
 @property (nonatomic, strong) NSArray<NSString *> *services;
+@property (nonatomic, readonly) BOOL customDataSet;
 
 @end
 

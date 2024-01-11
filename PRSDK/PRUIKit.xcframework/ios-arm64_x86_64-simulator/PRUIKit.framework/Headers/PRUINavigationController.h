@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL popGestureDisabled;
 @property (nonatomic, assign) BOOL pushAnimationInProgress;
-@property (nonatomic, assign) BOOL isInteractivePopGestureInProgress;
 @property (nonatomic, weak) UIViewController *willShowViewController;
 
 @end

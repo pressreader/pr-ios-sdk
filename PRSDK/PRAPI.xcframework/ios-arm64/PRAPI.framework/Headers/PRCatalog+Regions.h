@@ -10,8 +10,6 @@
 
 @interface PRCatalog (Regions)
 
-- (NSDictionary *)regionByName:(NSString *)regionName;
-
 /**
  Returns top level region that corresponds to region with given name.
  @param regionName Name of searching region

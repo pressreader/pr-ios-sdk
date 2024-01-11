@@ -61,7 +61,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "UIColor+AppStyle.h"
 
 #import "PRAppStyle.h"
-#import "PRAppStyle+Theme.h"
 #import "PRAppStyle+Shadow.h"
 
 #import "PRContext.h"
@@ -77,7 +76,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "UINavigationBar+PRExtensions.h"
 #import "UINavigationItem+Title.h"
 
-#import "PRNavigationBarManagementProtocol.h"
 #import "PRSlidingMenuContentHolderProtocol.h"
 #import "PRActionMenuItemPresenter.h"
 #import "PRActionMenuActorProtocol.h"

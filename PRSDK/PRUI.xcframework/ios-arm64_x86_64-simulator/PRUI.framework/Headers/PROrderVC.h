@@ -10,6 +10,7 @@
 
 @class PROrder;
 @class PRGroupedExemplarsCollectionVC;
+@class PROrderModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithOrder:(PROrder *)order;
 
 @property (nonatomic, strong) PROrder *order;
-
+@property (nonatomic, strong, readonly) PROrderModel *model;
 @property (nonatomic, strong, readonly) PRGroupedExemplarsCollectionVC *otherIssuesVC;
 
 @end

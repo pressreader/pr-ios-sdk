@@ -6,32 +6,30 @@
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-//@import PRAPI.PRSourceListFilter;
-//@import PRAPI.PROptions;
-
 #import "PRSourceListFilter.h"
 #import "PROptions.h"
-
-@class PRCatalog;
+#import <PRAPI/PRCatalog.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+extern NSInteger const kPRNumberOfCategoriesInFeaturedSection;
 
 extern NSString *const PRSourcesListDidChangeNotification;
 extern NSString *const PRSourcesListDidSortingNotification;
 extern NSString *const PRSourcesListDidFilterNotification;
 
 @class PRCountableValue;
-@class PRSourceList;
 @class PRSubscription;
 
 @protocol PRTitleObject;
 @protocol PRCatalogItem;
+@protocol CatalogFacade;
 
 @protocol PRSourceListDelegate <NSObject>
-- (void)sourceListDidChange:(PRSourceList *)sourceList;
+- (void)sourceListDidChange:(id<CatalogFacade>)sourceList;
 @optional
-- (void)sourceListDidFilter:(PRSourceList *)sourceList;
-- (void)sourceListDidSort:(PRSourceList *)sourceList;
+- (void)sourceListDidFilter:(id<CatalogFacade>)sourceList;
+- (void)sourceListDidSort:(id<CatalogFacade>)sourceList;
 @end
 
 typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
@@ -48,7 +46,6 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 + (instancetype)listWithDelegate:(nullable id<PRSourceListDelegate>)delegate;
 + (instancetype)listWithCatalog:(PRCatalog *)catalog;
 
-+ (instancetype)listWithSourceList:(PRSourceList *)sourceList;
 - (instancetype)initWithSourceList:(PRSourceList *)sourceList;
 
 + (instancetype)listWithList:(NSArray<id<PRCatalogItem>> *)list;
@@ -66,9 +63,6 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 /// If `checkContent` is true then .PRSourcesListDidChange note won't be sent if content stays the same after reload.
 - (void)reloadListCheckingContent:(BOOL)checkContent;
 
-- (void)filterList;
-- (void)sortList;
-
 /// Deactivate groupping and include supplemenets (if not presented by parent)
 - (void)turnSemiplainMode;
 - (void)turnPlainMode;
@@ -82,7 +76,6 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 
 /// SourceList's content
 @property (nonatomic, strong, readonly) NSArray<__kindof id<PRCatalogItem>> *list;
-@property (nonatomic, strong, readonly) NSArray<__kindof NSObject<PRCatalogItem> *> *objectiveList;
 
 @property (nonatomic) PRSourceListOption options;
 
@@ -95,24 +88,15 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 
 #pragma mark Auxiliary
 
-/// Checks all items in `list` for conforming to `PRTitleObject` protocol
-@property (nonatomic, strong, readonly) NSArray<id<PRTitleObject>> *titleObjects;
-
 /// Disables initWithSourceList:. Default is YES.
 @property (nonatomic, readonly) BOOL isCopyingEnabled;
 
-/// Shows if this list represents concrete issues.
-/// If the value is `NO`, then this list should be treated as a list of publications.
-@property (nonatomic) BOOL representsTitleItemExemplars;
-@property (nonatomic) BOOL prefersOpeningReaderView;
-
 #pragma mark Filtering
 
-- (void)addFilter:(PRSourceListFilter *)filter;
-- (void)removeFilterWithID:(PRSourceListFilterID)filterId;
-- (nullable PRSourceListFilter *)filterByID:(PRSourceListFilterID)filterId;
+- (void)applyFilters:(NSArray<PRSourceListFilter *> *)filters;
+- (void)applyFilters:(NSArray<PRSourceListFilter *> *)filters checkingContent:(BOOL)checkingContent;
 
-@property (nonatomic, strong, readonly) NSArray<PRSourceListFilter *> *filters;
+@property (nonatomic, strong) NSArray<PRSourceListFilter *> *filters;
 
 @property (nonatomic) NSUInteger limit;
 @property (nonatomic, readonly, getter = isLimitReached) BOOL limitReached;
@@ -128,13 +112,12 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 @property (nonatomic, strong, readonly) PRCountableValue *minRate;
 @property (nonatomic, strong, readonly) NSString *group;
 @property (nonatomic, strong, readonly) NSArray<NSString *> *cids;
-@property (nonatomic, copy, readonly) NSArray<PRSubscription *> *subscriptions;
-@property (nonatomic, strong, readonly) NSArray<NSDictionary *> *categories;
-@property (nonatomic, strong, readonly) NSArray<NSDictionary *> *sections;
-@property (nonatomic, strong, readonly) NSArray<NSDictionary *> *regions;
+@property (nonatomic, copy, readonly) NSArray<PRSubscription *> *subscriptionFilters;
+@property (nonatomic, strong, readonly) NSArray<NSDictionary<NSString *, id> *> *categoryFilters;
+@property (nonatomic, strong, readonly) NSArray<NSDictionary<NSString *, id> *> *regionFilters;
 
 // filters not included into filter stack
-@property (nonatomic, copy) NSString *text;
+@property (nullable, nonatomic, copy) NSString *text;
 
 #pragma mark Sorting
 
