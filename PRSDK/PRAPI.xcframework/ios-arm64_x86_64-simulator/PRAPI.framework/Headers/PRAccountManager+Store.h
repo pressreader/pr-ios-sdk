@@ -10,8 +10,7 @@
 
 @interface PRAccountManager (Store)
 
-- (void) Load;
-- (void) saveAccounts;
-+ (void) DeleteAllContent;
 + (void)deleteAllContentExceptAccount:(BOOL)exceptAccount;
++ (void)deleteAllContent;
+
 @end

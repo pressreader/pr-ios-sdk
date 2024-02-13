@@ -48,6 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) NSString *gigyaScreenSet;
 @property (nullable, nonatomic, readonly) NSString *gigyaStartScreen;
 
+@property (nullable, nonatomic, readonly) NSString *twitterConsumerKey;
+@property (nullable, nonatomic, readonly) NSString *twitterConsumerSecret;
+@property (nonatomic, readonly) NSTimeInterval twitterExpirationInterval;
+
 @end
 
 NS_ASSUME_NONNULL_END

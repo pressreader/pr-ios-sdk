@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PRAPI/PRAnalyticsProto.h>
+#import <PRAnalytics/PRAnalytics.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class SKProduct, SKPaymentTransaction;
 
-@interface BranchAnalytics : NSObject<PROptionalAnalytics>
+@interface BranchAnalytics : NSObject<LegacyAnalyticsService>
 
 @end
 

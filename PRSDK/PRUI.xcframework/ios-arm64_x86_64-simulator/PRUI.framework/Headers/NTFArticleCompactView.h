@@ -27,7 +27,8 @@ typedef NS_OPTIONS(NSUInteger, NTFArticleCompactViewOption) {
     /// disables additional top padding when `firstInSection` is true
     NTFArticleCompactViewOptionDisableFirstInSectionTopPadding = 1 << 6,
     NTFArticleCompactViewOptionHideDate = 1 << 7,
-    NTFArticleCompactViewOptionShowImagePlaceholder = 1 << 8
+    NTFArticleCompactViewOptionShowImagePlaceholder = 1 << 8,
+    NTFArticleCompactViewOptionDiscardContentCheckOnSetup = 1 << 9
 };
 
 NS_ASSUME_NONNULL_BEGIN

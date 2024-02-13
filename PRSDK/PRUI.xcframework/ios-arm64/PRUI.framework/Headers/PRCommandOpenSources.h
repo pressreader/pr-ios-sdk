@@ -6,7 +6,7 @@
 //  Copyright © 2020 NewspaperDirect. All rights reserved.
 //
 
-@import PRUIKit.PRCommand;
+@import PRCommands.PRCommand;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -42,15 +42,12 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 - (void)update;
 - (void)setNeedsUpdate;
 
-- (nullable id<CatalogNavigation>)categoryAtIndexPath:(NSIndexPath *)indexPath;
-
 - (CGSize)adBannerSizeForCatalogSection:(PRCatalogSection *)section;
 
 - (void)startSectionObservation:(PRCatalogSection *)section;
 - (void)stopSectionObservation:(PRCatalogSection *)section;
 
 @property (nullable, nonatomic, weak) UIViewController<PRPubHubDataSourceDelegate> *delegate;
-@property (nonatomic, readonly) NSArray<id<CatalogNavigation>> *catalogFilters;
 @property (nonatomic, strong) id<CatalogFacade> sourceList;
 
 @property (nonatomic, strong) PRBannerPresentationConfig *bannerConfig;

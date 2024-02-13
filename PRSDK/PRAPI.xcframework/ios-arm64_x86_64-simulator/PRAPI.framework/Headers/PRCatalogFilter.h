@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol CatalogFacade;
+@class PRSourceList;
 @class PRCatalogFilterItem;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -19,16 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRCatalogFilter : NSObject
 
-- (instancetype)initWithSourceList:(id<CatalogFacade>)sourceList;
+- (instancetype)initWithSourceList:(PRSourceList *)sourceList;
 - (instancetype)init NS_UNAVAILABLE;
 
 - (void)updateFilters;
 
-@property (nonatomic, strong, readonly) id<CatalogFacade> sourceList;
+@property (nonatomic, strong, readonly) PRSourceList *sourceList;
 @property (nonatomic, weak) id<PRCatalogFilterDelegate> delegate;
-
-@property (nonatomic) BOOL allowAll;
-@property (nonatomic) BOOL allowTypes;
 
 @property (nonatomic) BOOL ignoreSourceListFiltration;
 

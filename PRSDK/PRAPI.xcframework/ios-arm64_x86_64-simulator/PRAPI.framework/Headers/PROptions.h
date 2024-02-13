@@ -144,10 +144,10 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 - (NSDictionary *) languageISOCodesByNames;
 
 // titles preferences
-- (id) defaultValueForKey:(NSString*)key CID:(NSString*)CID;
-- (void) setDefaultValue:(id)value forKey:(NSString*)key CID:(NSString*)CID;
-- (id)defaultValueForKey:(NSString*)key issue:(NSString*)issueKey;
-- (void)setDefaultValue:(id)value forKey:(NSString*)key issue:(NSString*)issueKey;
+- (nullable id)defaultValueForKey:(NSString*)key CID:(NSString*)CID;
+- (void)setDefaultValue:(nullable id)value forKey:(NSString*)key CID:(NSString*)CID;
+- (nullable id)defaultValueForKey:(NSString*)key issue:(NSString*)issueKey;
+- (void)setDefaultValue:(nullable id)value forKey:(NSString*)key issue:(NSString*)issueKey;
 
 - (CGFloat) defaultZoom;
 - (void) setDefaultZoom:(CGFloat)zoom;
@@ -162,7 +162,6 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 
 - (nullable NSArray *)publicationPath;
 - (void)setPublicationPath:(nullable NSArray *)value;
-- (NSString*) GetRandomElement:(NSString*) arrayName;
 
 // base service urls and vesions
 - (void) updateBaseServices:(NSDictionary *)baseInfo;

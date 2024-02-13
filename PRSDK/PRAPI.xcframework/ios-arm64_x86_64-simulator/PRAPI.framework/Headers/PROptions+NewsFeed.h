@@ -31,6 +31,7 @@ typedef NS_ENUM(uint8_t, PRNewsFeedAPI) {
 @property (nonatomic, readonly) NSString *newsFeedChannelSecret;
 @property (nullable, nonatomic, readonly) NSString *newsFeedCollection;
 @property (nonatomic, readonly) PRNewsFeedAPI newsFeedServiceAPI;
+@property (nonatomic, readonly) NSString *newsFeedViewType;
 
 @property (nonatomic, readonly) BOOL isSingleChannelApp;
 

@@ -50,6 +50,9 @@ public struct AutoTranslationConfigKey {
   public let zones: PRConfiguration.PRConfigKey
   public let pairsLimit: PRConfiguration.PRConfigKey
 }
+@_hasMissingDesignatedInitializers final public class MarfeelAnalyticsConfigKey {
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers public class ExternalLinkAccountConfig : ObjectiveC.NSObject {
   @objc public var isEnabled: Swift.Bool {
     @objc get
@@ -76,6 +79,9 @@ public struct AutoTranslationConfigKey {
   @objc dynamic public var showTrialSubscriptionIntro: Swift.Bool {
     @objc get
   }
+  @objc dynamic public var isSignInDisabled: Swift.Bool {
+    @objc get
+  }
 }
 @objc @_inheritsConvenienceInitializers final public class BookConfig : ObjectiveC.NSObject {
   final public var isEnabled: Swift.Bool {
@@ -97,6 +103,18 @@ public struct AutoTranslationConfigKey {
   @objc final public var animatedLogoProgress: CoreFoundation.CGFloat {
     @objc get
   }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class MarfeelAnalyticsConfig : ObjectiveC.NSObject {
+  @objc @_inheritsConvenienceInitializers final public class UserType : ObjectiveC.NSObject {
+    final public var userAccess4Bundle: Swift.Int {
+      get
+    }
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  final public let userType: PRConfiguration.MarfeelAnalyticsConfig.UserType
   @objc override dynamic public init()
   @objc deinit
 }
@@ -320,6 +338,7 @@ public struct PRUbiquitousKeyValueStore {
   @objc final public var navigation: PRConfiguration.FeedNavigation {
     @objc get
   }
+  @objc final public let relatedArticles: PRConfiguration.RelatedArticlesConfig
   @objc override dynamic public init()
   @objc deinit
 }
@@ -330,6 +349,13 @@ public struct PRUbiquitousKeyValueStore {
   public typealias ArrayLiteralElement = PRConfiguration.FeedNavigation
   public typealias Element = PRConfiguration.FeedNavigation
   public typealias RawValue = Swift.Int
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class RelatedArticlesConfig : ObjectiveC.NSObject {
+  @objc final public var thumbnailsEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
   @objc deinit
 }
 extension PRConfiguration.PRConfig {
@@ -393,6 +419,48 @@ extension PRConfiguration.PRConfig {
 @objc extension PRConfiguration.AnalyticsConfig {
   @objc public static func registerDependencies()
 }
+@objc @_inheritsConvenienceInitializers @objcMembers public class GlobalPrintConfig : ObjectiveC.NSObject {
+  @objc public var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class PagePrintConfig : PRConfiguration.GlobalPrintConfig {
+  @objc override final public var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public var limitPerIssue: Swift.Int {
+    @objc get
+  }
+  @objc final public var useBitmap: Swift.Bool {
+    @objc get
+  }
+  @objc final public var bitmapScale: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc final public var isUnlimited: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticlePrintConfig : PRConfiguration.GlobalPrintConfig {
+  @objc override final public var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public var isGraphicsEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class PrintConfig : PRConfiguration.GlobalPrintConfig {
+  @objc final public let page: PRConfiguration.PagePrintConfig
+  @objc final public let article: PRConfiguration.ArticlePrintConfig
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers final public class Auth0Config : ObjectiveC.NSObject {
   final public var clientId: Swift.String? {
     get
@@ -411,6 +479,9 @@ extension PRConfiguration.PRConfig {
     @objc get
   }
   @objc(attConfig) @PRDIContainer.Inject public static var att: PRConfiguration.ATTConfig {
+    @objc get
+  }
+  @objc(printConfig) @PRDIContainer.Inject public static var print: PRConfiguration.PrintConfig {
     @objc get
   }
 }
@@ -544,6 +615,9 @@ extension PRConfiguration.PRConfig {
   @objc final public var treasureData: PRConfiguration.TreasureDataAnalyticsConfig {
     @objc get
   }
+  @objc final public var marfeel: PRConfiguration.MarfeelAnalyticsConfig {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -627,6 +701,9 @@ extension PRConfiguration.PRConfig {
   @objc final public var isSelectProductEnabled: Swift.Bool {
     @objc get
   }
+  @objc final public var isAccountRequired: Swift.Bool {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -635,6 +712,9 @@ extension PRConfiguration.PRConfig {
     @objc get
   }
   @objc dynamic public var isFollowEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var hidePremiumButton: Swift.Bool {
     @objc get
   }
 }

@@ -42,7 +42,8 @@ typedef NS_OPTIONS(unsigned int, NTFArticleCompactTextualViewOption) {
     /// Fixes corrupted article body text due to insufficient height in complex multi-column layout.
     NTFArticleCompactTextualViewOptionJoinTitleAndBodyInSingleLabel = 1 << 7,
     NTFArticleCompactTextualViewOptionHideDate = 1 << 8,
-    NTFArticleCompactTextualViewOptionTitleFontSemibold = 1 << 9
+    NTFArticleCompactTextualViewOptionTitleFontSemibold = 1 << 9,
+    NTFArticleCompactTextualViewOptionDiscardContentCheckOnSetup = 1 << 10
 };
 
 #endif /* NTFArticleCompactView_Constants_h */

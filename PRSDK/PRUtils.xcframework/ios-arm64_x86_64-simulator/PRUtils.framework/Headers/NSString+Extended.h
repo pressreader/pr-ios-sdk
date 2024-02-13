@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)capitalizedFirstLetter;
 
+- (NSString *)composedCharacterSubstringToIndex:(NSInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END

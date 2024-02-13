@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@import PRUIKit.PRAppPanel;
+#import <PRUI/PRAppPanel.h>
 @import PRUIKit.PRMenu;
 @import PRProtocols;
 

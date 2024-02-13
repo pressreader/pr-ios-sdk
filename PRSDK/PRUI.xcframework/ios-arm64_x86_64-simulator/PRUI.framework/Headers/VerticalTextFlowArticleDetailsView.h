@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class Interest;
 @class AdBannerPresentation;
 @class TranslationView;
+@class PRRelatedArticlesView;
 
 extern CGFloat const kPRArticleSidePadding;
 extern CGFloat const kPRMaxTextWidth;
@@ -139,6 +140,7 @@ extern CGFloat const kPRMaxTextWidth;
 @property (nonatomic) CGFloat textWidth;
 @property (nonatomic) CGFloat bodyImageWidth;
 @property (nonatomic, weak) PRTextViewWithViewAttachment *bodyTextView;
+@property (nonatomic, weak) PRRelatedArticlesView *relatedStoriesView;
 
 @property (nonatomic, readonly) CGPoint offscreenOrigin;
 

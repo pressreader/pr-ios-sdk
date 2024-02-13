@@ -47,6 +47,7 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
                        orderDescription:(nullable NSDictionary *)orderDescription
                         completionBlock:(nullable DeliveryCompletionBlock)completionBlock
                       cancellationBlock:(nullable CancellationBlock)cancellationBlock;
+- (void)requestBackIssueWithPurchaseConfirmationStatus:(BOOL)purchaseConfirmedByUser;
 
 - (void)renewSubscription:(nullable PRSubscription *)subs;
 
@@ -109,5 +110,11 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
 
 @end
 #endif
+
+@interface PROrderDelivery (/*PRIVATE*/)
+- (void)processProducts:(NSSet *)productIDs
+           descriptions:(NSObject *)descriptions
+                   info:(NSDictionary *)info;
+@end
 
 NS_ASSUME_NONNULL_END

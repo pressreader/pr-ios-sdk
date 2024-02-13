@@ -61,6 +61,8 @@ typedef NS_ENUM(NSInteger, PRSmartArticleIncludeOptions) {
 - (NSInteger)sectionIndexByPage:(NSInteger)page;
 - (NSString *)pageTag:(NSString *)tagName forPage:(NSUInteger)pageNo;
 - (NSString *)sectionNameForPage:(NSUInteger)pageNo;
+- (NSString *)pageNameWithPageNumber:(NSUInteger)pageNo;
+- (NSString *)pageFullNameWithPageNumber:(NSUInteger)pageNo NS_SWIFT_NAME(pageFullName(pageNumber:));
 - (NSArray<NSDictionary *> *)sectionsWithArticlesHavingMinimumTextLength:(NSInteger)minLength
                                                           includeOptions:(PRSmartArticleIncludeOptions)includeOptions;
 

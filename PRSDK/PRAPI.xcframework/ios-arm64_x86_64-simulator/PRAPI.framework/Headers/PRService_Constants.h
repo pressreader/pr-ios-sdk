@@ -57,6 +57,7 @@ extern PRServiceRequestOption const PRServiceRequestOptionUseServerError;
 extern PRServiceRequestOption const PRServiceRequestOptionIgnoreCommandReloadCatalog;
 /// BOOL - default NO : don't register promise object allowing several identical request at the same time
 extern PRServiceRequestOption const PRServiceRequestOptionNoCoalescing;
+extern PRServiceRequestOption const PRServiceRequestOptionDisablePathEncoding;
 
 #pragma mark - Parameters Keys
 

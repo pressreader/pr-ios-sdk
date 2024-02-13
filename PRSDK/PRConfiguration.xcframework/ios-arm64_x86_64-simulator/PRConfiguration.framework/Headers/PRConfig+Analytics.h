@@ -29,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRConfig (Analytics)
 
-@property (class, nonatomic, readonly) BOOL isFlurrySessionPropertiesUseEventParameters;
 @property (class, nonatomic, readonly) BOOL isAnalyticsEnabled;
 @property (class, nonatomic, readonly) BOOL useAnalyticRemoteConfig;
 

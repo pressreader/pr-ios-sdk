@@ -1,0 +1,1462 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnalyticsService",
+        "printedName": "AnalyticsService",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isEnabled",
+            "printedName": "isEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService(cpy)isEnabled",
+            "mangledName": "$s11PRAnalytics16AnalyticsServiceP9isEnabledSbvpZ",
+            "moduleName": "PRAnalytics",
+            "static": true,
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService(cm)isEnabled",
+                "mangledName": "$s11PRAnalytics16AnalyticsServiceP9isEnabledSbvgZ",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsService>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsService>",
+                "static": true,
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track(_:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsTrackName",
+                "printedName": "PRAnalytics.PRAnalyticsTrackName",
+                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRAnalyticsTrackParameter",
+                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService(im)track:parameters:",
+            "mangledName": "$s11PRAnalytics16AnalyticsServiceP5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsService>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsService>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService",
+        "mangledName": "$s11PRAnalytics16AnalyticsServiceP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : ObjectiveC.NSObjectProtocol>",
+        "sugared_genericSig": "<Self : ObjectiveC.NSObjectProtocol>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LegacyAnalyticsService",
+        "printedName": "LegacyAnalyticsService",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRAnalytics@objc(pl)LegacyAnalyticsService(im)init",
+            "mangledName": "$s11PRAnalytics22LegacyAnalyticsServicePxycfc",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.LegacyAnalyticsService>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.LegacyAnalyticsService>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "()?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRAnalytics22LegacyAnalyticsServicePAAEyxSgytSgcfc",
+            "mangledName": "$s11PRAnalytics22LegacyAnalyticsServicePAAEyxSgytSgcfc",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.LegacyAnalyticsService>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.LegacyAnalyticsService>",
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@PRAnalytics@objc(pl)LegacyAnalyticsService",
+        "mangledName": "$s11PRAnalytics22LegacyAnalyticsServiceP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : PRAnalytics.AnalyticsService>",
+        "sugared_genericSig": "<Self : PRAnalytics.AnalyticsService>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "AnalyticsService",
+            "printedName": "AnalyticsService",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService",
+            "mangledName": "$s11PRAnalytics16AnalyticsServiceP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRDIContainer",
+        "printedName": "PRDIContainer",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnalyticsProvider",
+        "printedName": "AnalyticsProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "service",
+            "printedName": "service",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnalyticsService",
+                "printedName": "PRAnalytics.AnalyticsService",
+                "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvp",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnalyticsService",
+                    "printedName": "PRAnalytics.AnalyticsService",
+                    "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvg",
+                "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsProvider>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsProvider>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track(_:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsTrackName",
+                "printedName": "PRAnalytics.PRAnalyticsTrackName",
+                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRAnalyticsTrackParameter",
+                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics17AnalyticsProviderPAAE5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsProvider>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+        "mangledName": "$s11PRAnalytics17AnalyticsProviderP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnalyticsAccount",
+        "printedName": "AnalyticsAccount",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "accountNumber",
+            "printedName": "accountNumber",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP13accountNumberSivp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP13accountNumberSivp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP13accountNumberSivg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP13accountNumberSivg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "internalRefNumber",
+            "printedName": "internalRefNumber",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP17internalRefNumberSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP17internalRefNumberSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP17internalRefNumberSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP17internalRefNumberSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "activationNumber",
+            "printedName": "activationNumber",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP16activationNumberSSvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP16activationNumberSSvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP16activationNumberSSvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP16activationNumberSSvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "serviceName",
+            "printedName": "serviceName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP11serviceNameSSvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP11serviceNameSSvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP11serviceNameSSvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP11serviceNameSSvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "linkedServices",
+            "printedName": "linkedServices",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP14linkedServicesSaySSGvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP14linkedServicesSaySSGvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP14linkedServicesSaySSGvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP14linkedServicesSaySSGvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "email",
+            "printedName": "email",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP5emailSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP5emailSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP5emailSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP5emailSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "firstName",
+            "printedName": "firstName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP9firstNameSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP9firstNameSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP9firstNameSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP9firstNameSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "lastName",
+            "printedName": "lastName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP8lastNameSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP8lastNameSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP8lastNameSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP8lastNameSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "subscriptionId",
+            "printedName": "subscriptionId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP14subscriptionIdSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP14subscriptionIdSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP14subscriptionIdSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP14subscriptionIdSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "subscriptionType",
+            "printedName": "subscriptionType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP16subscriptionTypeSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP16subscriptionTypeSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP16subscriptionTypeSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP16subscriptionTypeSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isSubscriptionForBundle",
+            "printedName": "isSubscriptionForBundle",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP23isSubscriptionForBundleSbvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP23isSubscriptionForBundleSbvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP23isSubscriptionForBundleSbvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP23isSubscriptionForBundleSbvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sponsorshipStatus",
+            "printedName": "sponsorshipStatus",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hotzoneIndustry",
+            "printedName": "hotzoneIndustry",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hotzoneId",
+            "printedName": "hotzoneId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isUnregistered",
+            "printedName": "isUnregistered",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP14isUnregisteredSbvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP14isUnregisteredSbvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP14isUnregisteredSbvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP14isUnregisteredSbvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "enablePromotional",
+            "printedName": "enablePromotional",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP17enablePromotionalSbSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP17enablePromotionalSbSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP17enablePromotionalSbSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP17enablePromotionalSbSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "premiumProductId",
+            "printedName": "premiumProductId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP16premiumProductIdSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP16premiumProductIdSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP16premiumProductIdSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP16premiumProductIdSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isPremiumTrial",
+            "printedName": "isPremiumTrial",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP14isPremiumTrialSbvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP14isPremiumTrialSbvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP14isPremiumTrialSbvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP14isPremiumTrialSbvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hasActivePaidSubscription",
+            "printedName": "hasActivePaidSubscription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP25hasActivePaidSubscriptionSbvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP25hasActivePaidSubscriptionSbvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP25hasActivePaidSubscriptionSbvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP25hasActivePaidSubscriptionSbvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isOnboardingStarted",
+            "printedName": "isOnboardingStarted",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP19isOnboardingStartedSbvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP19isOnboardingStartedSbvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP19isOnboardingStartedSbvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP19isOnboardingStartedSbvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isOnboardingSkipped",
+            "printedName": "isOnboardingSkipped",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP19isOnboardingSkippedSbvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP19isOnboardingSkippedSbvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP19isOnboardingSkippedSbvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP19isOnboardingSkippedSbvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11PRAnalytics16AnalyticsAccountP",
+        "mangledName": "$s11PRAnalytics16AnalyticsAccountP",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

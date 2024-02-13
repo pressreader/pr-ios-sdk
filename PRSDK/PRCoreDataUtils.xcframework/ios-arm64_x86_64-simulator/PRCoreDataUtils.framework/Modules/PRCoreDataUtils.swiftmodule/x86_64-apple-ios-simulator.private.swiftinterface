@@ -70,6 +70,10 @@ extension PRCoreDataUtils.UpdatableMO where Self : PRCoreDataUtils.IdentifiableM
   public static func object(info: [Swift.String : Any], context: CoreData.NSManagedObjectContext) -> Self?
   public static func object(payload: Self.Payload, context: CoreData.NSManagedObjectContext) -> Self
 }
+extension Swift.Dictionary {
+  public func string(_ key: Key) -> Swift.String?
+  public func string(_ keys: [Key]) -> Swift.String?
+}
 extension CoreData.NSManagedObjectContext {
   public func fetchItems<T>(predicate: Foundation.NSPredicate? = nil, sortDecriptors: [Foundation.NSSortDescriptor]? = nil, limit: Swift.UInt = .max) -> [T]? where T : CoreData.NSManagedObject
   public func fetchItem<T>(predicate: Foundation.NSPredicate) -> T? where T : CoreData.NSManagedObject

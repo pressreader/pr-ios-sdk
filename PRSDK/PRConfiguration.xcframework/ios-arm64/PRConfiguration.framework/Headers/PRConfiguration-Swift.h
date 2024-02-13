@@ -346,6 +346,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdsType * _N
 @class ReadingAnalyticsConfig;
 @class ComScoreAnalyticsConfig;
 @class TreasureDataAnalyticsConfig;
+@class MarfeelAnalyticsConfig;
 
 SWIFT_CLASS("_TtC15PRConfiguration15AnalyticsConfig")
 @interface AnalyticsConfig : NSObject
@@ -356,6 +357,7 @@ SWIFT_CLASS("_TtC15PRConfiguration15AnalyticsConfig")
 @property (nonatomic, readonly, strong) ReadingAnalyticsConfig * _Nonnull readingConfig;
 @property (nonatomic, readonly, strong) ComScoreAnalyticsConfig * _Nonnull comScore;
 @property (nonatomic, readonly, strong) TreasureDataAnalyticsConfig * _Nonnull treasureData;
+@property (nonatomic, readonly, strong) MarfeelAnalyticsConfig * _Nonnull marfeel;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -434,6 +436,21 @@ typedef SWIFT_ENUM(NSInteger, ArticleGalleryCaptionPosition, open) {
   ArticleGalleryCaptionPositionAutomatic = 0,
   ArticleGalleryCaptionPositionUnderImage = 1,
 };
+
+
+SWIFT_CLASS("_TtC15PRConfiguration17GlobalPrintConfig")
+@interface GlobalPrintConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration18ArticlePrintConfig")
+@interface ArticlePrintConfig : GlobalPrintConfig
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) BOOL isGraphicsEnabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC15PRConfiguration17ArticleTagsConfig")
@@ -636,6 +653,7 @@ SWIFT_CLASS("_TtC15PRConfiguration10FontConfig")
 @end
 
 
+
 SWIFT_CLASS("_TtC15PRConfiguration18GlobalSearchConfig")
 @interface GlobalSearchConfig : NSObject
 @property (nonatomic, readonly) BOOL isEnabled;
@@ -661,10 +679,12 @@ SWIFT_CLASS("_TtC15PRConfiguration10HomeConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class RelatedArticlesConfig;
 
 SWIFT_CLASS("_TtC15PRConfiguration14HomeFeedConfig")
 @interface HomeFeedConfig : NSObject
 @property (nonatomic, readonly, strong) FeedNavigation * _Nonnull navigation;
+@property (nonatomic, readonly, strong) RelatedArticlesConfig * _Nonnull relatedArticles;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -683,6 +703,7 @@ SWIFT_CLASS("_TtC15PRConfiguration9IAPConfig")
 @property (nonatomic, readonly) BOOL isSaveMoneyTextEnabled;
 @property (nonatomic, readonly) BOOL decodeReceiptsLocaly;
 @property (nonatomic, readonly) BOOL isSelectProductEnabled;
+@property (nonatomic, readonly) BOOL isAccountRequired;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -751,6 +772,12 @@ SWIFT_CLASS("_TtC15PRConfiguration23MainMenuAnalyticsConfig")
 @end
 
 
+SWIFT_CLASS("_TtC15PRConfiguration22MarfeelAnalyticsConfig")
+@interface MarfeelAnalyticsConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC15PRConfiguration15MigrationConfig")
 @interface MigrationConfig : NSObject
 @property (nonatomic) BOOL bookLibraryMigrated;
@@ -773,6 +800,7 @@ SWIFT_CLASS("_TtC15PRConfiguration19OnboardingConfigKey")
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull supported;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull deferred;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull showTrialSubscriptionIntro;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull signInDisabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -781,6 +809,7 @@ SWIFT_CLASS("_TtC15PRConfiguration14OrderConfigKey")
 @interface OrderConfigKey : NSObject
 @property (nonatomic, readonly, strong) LowCreditsConfigKey * _Nonnull lowCredits;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull followDisabled;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull hidePrimiumButton;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -845,7 +874,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSURL * _Nulla
 + (void)registerDependencies;
 @end
 
-
 @class ShareConfig;
 
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
@@ -854,6 +882,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdConfig * _
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ShareConfig * _Nonnull shareConfig;)
 + (ShareConfig * _Nonnull)shareConfig SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 @class RadioConfig;
 @class SplashScreenConfig;
@@ -872,16 +901,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) BookReaderCo
 + (BookReaderConfig * _Nonnull)bookReaderConfig SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ExternalLinkAccountConfig * _Nonnull externalLinkAccountConfig;)
-+ (ExternalLinkAccountConfig * _Nonnull)externalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfig * _Nonnull migrationConfig;)
-+ (MigrationConfig * _Nonnull)migrationConfig SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ATTConfig * _Nonnull attConfig;)
-+ (ATTConfig * _Nonnull)attConfig SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class RequestSimulation;
 
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
@@ -897,6 +916,19 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RequestSimul
 + (RequestSimulation * _Nonnull)baseRequestSimulation SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL requestCachesDisabled;)
 + (BOOL)requestCachesDisabled SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class PrintConfig;
+
+@interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ExternalLinkAccountConfig * _Nonnull externalLinkAccountConfig;)
++ (ExternalLinkAccountConfig * _Nonnull)externalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfig * _Nonnull migrationConfig;)
++ (MigrationConfig * _Nonnull)migrationConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ATTConfig * _Nonnull attConfig;)
++ (ATTConfig * _Nonnull)attConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PrintConfig * _Nonnull printConfig;)
++ (PrintConfig * _Nonnull)printConfig SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -970,6 +1002,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 
 @interface PROnboardingConfig (SWIFT_EXTENSION(PRConfiguration))
 @property (nonatomic, readonly) BOOL showTrialSubscriptionIntro;
+@property (nonatomic, readonly) BOOL isSignInDisabled;
 @end
 
 
@@ -981,6 +1014,26 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 @interface PROrderConfig (SWIFT_EXTENSION(PRConfiguration))
 @property (nonatomic, readonly, strong) LowCreditsConfig * _Nonnull lowCredits;
 @property (nonatomic, readonly) BOOL isFollowEnabled;
+@property (nonatomic, readonly) BOOL hidePremiumButton;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration15PagePrintConfig")
+@interface PagePrintConfig : GlobalPrintConfig
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) NSInteger limitPerIssue;
+@property (nonatomic, readonly) BOOL useBitmap;
+@property (nonatomic, readonly) CGFloat bitmapScale;
+@property (nonatomic, readonly) BOOL isUnlimited;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration11PrintConfig")
+@interface PrintConfig : GlobalPrintConfig
+@property (nonatomic, readonly, strong) PagePrintConfig * _Nonnull page;
+@property (nonatomic, readonly, strong) ArticlePrintConfig * _Nonnull article;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1043,6 +1096,13 @@ SWIFT_CLASS("_TtC15PRConfiguration25ReadingAnalyticsConfigKey")
 @interface ReadingAnalyticsConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull frameDebounce;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull frameDurationThreshold;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration21RelatedArticlesConfig")
+@interface RelatedArticlesConfig : NSObject
+@property (nonatomic, readonly) BOOL thumbnailsEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

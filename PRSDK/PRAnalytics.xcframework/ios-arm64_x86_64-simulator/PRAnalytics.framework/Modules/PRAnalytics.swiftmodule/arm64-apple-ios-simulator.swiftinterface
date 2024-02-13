@@ -1,0 +1,55 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAnalytics
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Combine
+import Foundation
+@_exported import PRAnalytics
+import PRDIContainer
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc public protocol AnalyticsService : ObjectiveC.NSObjectProtocol {
+  @objc static var isEnabled: Swift.Bool { get }
+  @objc func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+}
+@objc public protocol LegacyAnalyticsService : PRAnalytics.AnalyticsService {
+  @objc init()
+}
+extension PRAnalytics.LegacyAnalyticsService {
+  public init?(_: Swift.Void? = nil)
+}
+public typealias AnalyticsParameters = [PRAnalytics.PRAnalyticsTrackParameter : Any]
+@objc public protocol AnalyticsProvider {
+}
+extension PRAnalytics.AnalyticsProvider {
+  public var service: any PRAnalytics.AnalyticsService {
+    get
+  }
+  public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters? = nil)
+}
+public typealias AnalyticsAccountProvider = Combine.CurrentValueSubject<(any PRAnalytics.AnalyticsAccount)?, Swift.Never>
+public protocol AnalyticsAccount {
+  var accountNumber: Swift.Int { get }
+  var internalRefNumber: Swift.String? { get }
+  var activationNumber: Swift.String { get }
+  var serviceName: Swift.String { get }
+  var linkedServices: [Swift.String] { get }
+  var email: Swift.String? { get }
+  var firstName: Swift.String? { get }
+  var lastName: Swift.String? { get }
+  var subscriptionId: Swift.String? { get }
+  var subscriptionType: Swift.String? { get }
+  var isSubscriptionForBundle: Swift.Bool { get }
+  var sponsorshipStatus: Swift.Int { get }
+  var hotzoneIndustry: Swift.String? { get }
+  var hotzoneId: Swift.String? { get }
+  var isUnregistered: Swift.Bool { get }
+  var enablePromotional: Swift.Bool? { get }
+  var premiumProductId: Swift.String? { get }
+  var isPremiumTrial: Swift.Bool { get }
+  var hasActivePaidSubscription: Swift.Bool { get }
+  var isOnboardingStarted: Swift.Bool { get }
+  var isOnboardingSkipped: Swift.Bool { get }
+}

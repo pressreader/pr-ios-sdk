@@ -7,6 +7,7 @@
 //
 
 @import PRUIKit;
+#import <PRUI/PRAppPanel.h>
 
 @class PRAccountItem;
 

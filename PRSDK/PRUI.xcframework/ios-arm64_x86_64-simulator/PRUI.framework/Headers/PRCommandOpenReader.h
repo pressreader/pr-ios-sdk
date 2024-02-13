@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-@import PRUIKit.PRCommand;
+@import PRCommands.PRCommand;
 @import PRAPI.NTFArticle;
 @import PRUtils;
 

@@ -135,6 +135,7 @@
 #import <PRUtils/UIImage+Text.h>
 #import <PRUtils/UIImage+FontIcons.h>
 #import <PRUtils/UIImageView+Alignment.h>
+#import <PRUtils/NSString+RC4Crypt.h>
 
 #import <PRUtils/UIGraphics+.h>
 

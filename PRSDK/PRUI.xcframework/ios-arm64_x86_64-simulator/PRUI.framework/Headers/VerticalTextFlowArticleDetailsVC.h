@@ -40,8 +40,6 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 - (void)setupDefaultNavigationBarAppearance;
 - (void)setupTransitionalNavigationBarAppearance;
 
-- (void)fillWithArticle:(nullable id<FlowArticle>)article;
-
 - (PRMenu *)horizontalActionMenu;
 
 @property (nullable, nonatomic, readonly) VerticalTextFlowArticleDetailsView *rootView;

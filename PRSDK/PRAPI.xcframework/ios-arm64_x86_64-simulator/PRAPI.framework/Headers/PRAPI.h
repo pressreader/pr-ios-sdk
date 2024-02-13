@@ -135,7 +135,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 
 #import "NTFSmartDataItem.h"
 #import "NTFArticleItem.h"
-#import "NTFArticleItem+Service.h"
 #import "NTFPageSetItem.h"
 #import "NTFPageSetItem+CoreDataProperties.h"
 #import "NTFPageSetItem+Images.h"
@@ -216,7 +215,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 
 #import "PRBrazeAnalytics.h"
 #import "PRFirebaseAnalytics.h"
-#import "PRFlurryAnalytics.h"
 #import "BranchAnalytics.h"
 
 #import "NSArray+TitleObject.h"
@@ -242,3 +240,4 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import "PRSchemeProvider.h"
 #import "ConsoleAnalytics.h"
 #import "GoogleAnalytics.h"
+#import "PRAnalyticsService.h"

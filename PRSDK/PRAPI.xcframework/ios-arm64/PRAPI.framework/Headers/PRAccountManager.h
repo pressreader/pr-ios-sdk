@@ -7,7 +7,7 @@
 //
 
 @import PRUtils.PRNotification;
-#import "PRAccountItem.h"
+#import <PRAPI/PRAccountItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +23,8 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
 @interface PRAccountManager : PRNotification
 
 + (NSError *)noDefaultAccountError;
+
+- (void)saveAccounts;
 
 - (NSUInteger)accountIdxByName:(NSString*)accountName;
 - (void)addAccount:(PRAccountItem *)account;
@@ -70,9 +72,6 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
 - (BOOL) isAuthorizationRequired;
 - (BOOL) isUserAuthorizationRequired;
 - (BOOL) isDeviceRegistered;
-
-//- (void) showDefaultAccountErrorAlert;
-//- (void) showFullResetAlert;
 
 - (PRPromise *)onboardingStateUpdated;
 

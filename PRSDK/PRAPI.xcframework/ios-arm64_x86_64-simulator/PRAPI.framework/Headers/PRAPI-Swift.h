@@ -281,6 +281,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
+@import PRAnalytics;
 @import PRCatalogModel;
 @import PRConfiguration;
 @import PRDIContainer;
@@ -330,33 +331,23 @@ typedef SWIFT_ENUM(NSUInteger, ATTrackingStatus, open) {
 };
 
 
-SWIFT_PROTOCOL("_TtP5PRAPI17AnalyticsProvider_")
-@protocol AnalyticsProvider
-@end
-
-
 SWIFT_PROTOCOL("_TtP5PRAPI24AccountAnalyticsProvider_")
 @protocol AccountAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly) PRAnalyticsAccountView _Nonnull accountViewType;
 @end
 
-@class NSString;
 
 /// An abstract class with common tracking code. Do not subclass this class directly, use <code>ScreenViewAnalytics</code>
 /// or <code>EventAnalytics</code> instead.
 SWIFT_CLASS("_TtC5PRAPI9Analytics")
-@interface Analytics : NSObject <PRAnalytics>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
-- (void)trackGAPageView:(NSString * _Nonnull)pageURL;
-- (void)trackGAEvent:(NSString * _Nonnull)category action:(NSString * _Nonnull)action label:(NSString * _Nullable)label value:(NSInteger)value;
-- (void)trackGATimingWithCategory:(NSString * _Nonnull)category variable:(NSString * _Nonnull)variable timeSpent:(NSInteger)timeSpent;
-- (void)tracker:(NSString * _Nonnull)trackerId pageView:(NSString * _Nonnull)pageUrl;
+@interface Analytics : NSObject <AnalyticsService>
+/// Enabled explicitly by subclasses. Permanently off here.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 SWIFT_PROTOCOL("_TtP5PRAPI16AnalyticsTracker_")
@@ -365,19 +356,20 @@ SWIFT_PROTOCOL("_TtP5PRAPI16AnalyticsTracker_")
 
 
 SWIFT_CLASS("_TtC5PRAPI23AnalyticsTrackerAdapter")
-@interface AnalyticsTrackerAdapter : NSObject <PRAnalytics>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
-- (void)trackGAPageView:(NSString * _Nonnull)pageURL;
-- (void)trackGAEvent:(NSString * _Nonnull)category action:(NSString * _Nonnull)action label:(NSString * _Nullable)label value:(NSInteger)value;
-- (void)trackGATimingWithCategory:(NSString * _Nonnull)category variable:(NSString * _Nonnull)variable timeSpent:(NSInteger)timeSpent;
-- (void)tracker:(NSString * _Nonnull)trackerId pageView:(NSString * _Nonnull)pageUrl;
+@interface AnalyticsTrackerAdapter : NSObject
 - (nonnull instancetype)initWithTracker:(id <AnalyticsTracker> _Nonnull)tracker OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+@interface AnalyticsTrackerAdapter (SWIFT_EXTENSION(PRAPI)) <AnalyticsService>
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
+@end
+
+@class NSString;
 
 SWIFT_CLASS("_TtC5PRAPI22AnalyticsValueProvider")
 @interface AnalyticsValueProvider : NSObject
@@ -400,6 +392,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ASAuthorizat
 
 @interface ArticleLink (SWIFT_EXTENSION(PRAPI))
 - (void)updateWith:(NSDictionary<NSString *, id> * _Nonnull)info;
+@end
+
+@class NTFContentRestrictions;
+
+SWIFT_PROTOCOL("_TtP5PRAPI14ArticleService_")
+@protocol ArticleService
+- (void)contentRestrictionsWithCompletionHandler:(void (^ _Nonnull)(NTFContentRestrictions * _Nullable))completionHandler;
+- (void)updateRelatedArticlesWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
+- (void)loadFullContentWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
 @end
 
 typedef SWIFT_ENUM(NSInteger, ArticleTranslationState, open) {
@@ -553,26 +554,10 @@ SWIFT_CLASS("_TtC5PRAPI19BookResponseHandler")
 @end
 
 
-SWIFT_CLASS("_TtC5PRAPI14CatalogService")
-@interface CatalogService : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC5PRAPI11BookService")
-@interface BookService : CatalogService
-@end
-
-
-
-
-
 
 SWIFT_CLASS("_TtC5PRAPI15BookUserService")
 @interface BookUserService : BookSubservice
 @end
-
 
 
 
@@ -587,8 +572,8 @@ SWIFT_CLASS("_TtC5PRAPI14EventAnalytics")
 
 SWIFT_CLASS("_TtC5PRAPI14BrazeAnalytics")
 @interface BrazeAnalytics : EventAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -690,7 +675,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @protocol PRSourceListDelegate;
 @protocol CatalogNavigation;
 @class PRCountableDictionary;
-@class PRCountableString;
 @class PRCountableCountry;
 @class CatalogPresentationOption;
 @class PRSourceListFilter;
@@ -711,12 +695,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 /// IMPORTANT: Supplements are not included into the list if it contains their parent.
 @property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 @property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull sections;
-@property (nonatomic, readonly, copy) NSArray<PRCountableString *> * _Nonnull languages;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nullable countryRegions;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
 @property (nonatomic) PRCatalogSortingOrder order;
 @property (nonatomic, readonly) BOOL isReady;
@@ -739,7 +719,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 - (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
 - (void)filterList;
 - (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applyNominalFilterWithTitle:(NSString * _Nonnull)title;
 - (void)applySourceTypeFilter:(PRSourceType)sourceType;
 - (void)applyFreeFilter;
 - (void)applyFavoriteFilter;
@@ -757,6 +736,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 
 @class CatalogNavigationSection;
 enum CatalogNavigationType : NSInteger;
+enum CatalogType : NSInteger;
 
 SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @protocol CatalogNavigation <NSObject>
@@ -764,6 +744,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @property (nonatomic, readonly, copy) NSArray<CatalogNavigationSection *> * _Nonnull options;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 @end
 
 
@@ -772,6 +753,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 @end
 
 @class Catalog;
@@ -881,7 +863,9 @@ typedef SWIFT_ENUM(NSInteger, CatalogNavigationType, open) {
   CatalogNavigationTypeMagazine = 2,
   CatalogNavigationTypeBook = 3,
   CatalogNavigationTypeFree = 4,
+/// presents country navigation options
   CatalogNavigationTypeCountry = 5,
+/// direct navigation to a specific country
   CatalogNavigationTypeACountry = 6,
   CatalogNavigationTypeLanguage = 7,
   CatalogNavigationTypeAll = 8,
@@ -925,12 +909,8 @@ SWIFT_CLASS("_TtC5PRAPI16CatalogPresenter")
 @property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull plainList;
 @property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 @property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull sections;
-@property (nonatomic, readonly, copy) NSArray<PRCountableString *> * _Nonnull languages;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nullable countryRegions;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
 @property (nonatomic) PRCatalogSortingOrder order;
 @property (nonatomic, readonly) BOOL isReady;
@@ -952,7 +932,6 @@ SWIFT_CLASS("_TtC5PRAPI16CatalogPresenter")
 - (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
 - (void)filterList;
 - (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applyNominalFilterWithTitle:(NSString * _Nonnull)title;
 - (void)applySourceTypeFilter:(PRSourceType)sourceType;
 - (void)applyFreeFilter;
 - (void)applyFavoriteFilter;
@@ -1031,7 +1010,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSecti
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
+typedef SWIFT_ENUM(NSInteger, CatalogType, open) {
+  CatalogTypeUnknown = 0,
+  CatalogTypePublication = 1,
+  CatalogTypeBook = 2,
+};
 
 
 
@@ -1049,8 +1032,8 @@ SWIFT_CLASS("_TtC5PRAPI19DictionaryAnalytics")
 
 SWIFT_CLASS("_TtC5PRAPI17ComScoreAnalytics")
 @interface ComScoreAnalytics : DictionaryAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1060,6 +1043,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
 - (void)removeAppDependencies;
 - (void)registerAppDependencies;
 @end
+
+
+SWIFT_UNAVAILABLE
+@interface DIContainer (SWIFT_EXTENSION(PRAPI))
+- (id _Nullable)twitterAuth SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)hasTwitterAuth SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 
 
@@ -1110,26 +1101,30 @@ SWIFT_CLASS("_TtC5PRAPI16DeviceActivation")
 - (void)processSmart;
 @end
 
+@protocol PrintableItem;
+
+SWIFT_PROTOCOL("_TtP5PRAPI15ReadingViewItem_")
+@protocol ReadingViewItem <_ReadingViewItem>
+@property (nonatomic, readonly, strong) id <PrintableItem> _Nullable printing;
+- (BOOL)isEqualToItem:(id <ReadingViewItem> _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class PRPage;
 @class PDFDoc;
 @class UIColor;
 @class UIImage;
 
 @interface Document (SWIFT_EXTENSION(PRAPI)) <ReadingViewItem>
+@property (nonatomic, readonly, strong) id <PrintableItem> _Nullable printing;
 - (BOOL)done SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)pdnDone SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)pdnDownloadedForPage:(NSUInteger)pageNumber SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)printingDisabled SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)pagePrintingDisabled SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)issuePrintingEnabled SWIFT_WARN_UNUSED_RESULT;
 - (PRPage * _Nullable)getPage:(NSUInteger)pageNumber SWIFT_WARN_UNUSED_RESULT;
 - (void)saveToPersistentStore;
 - (NSString * _Nonnull)encryptionKey SWIFT_WARN_UNUSED_RESULT;
 - (NSProgress * _Nullable)progress SWIFT_WARN_UNUSED_RESULT;
 - (NSProgress * _Nullable)pdnProgress SWIFT_WARN_UNUSED_RESULT;
 - (NSProgress * _Nullable)pdnProgressForPage:(NSUInteger)page SWIFT_WARN_UNUSED_RESULT;
-- (void)recordIssuePrint;
-- (void)recordPagePrint:(NSUInteger)numberOfPages;
 - (PDFDoc * _Nullable)pdfDoc SWIFT_WARN_UNUSED_RESULT;
 - (PDFDoc * _Nullable)pdfDocForPage:(NSUInteger)pageNo SWIFT_WARN_UNUSED_RESULT;
 - (PDFDoc * _Nullable)pdfDocForPage:(NSUInteger)pageNo loadPdfIfNotAvailable:(BOOL)loadPdfIfNotAvailable error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
@@ -1159,8 +1154,8 @@ SWIFT_CLASS("_TtC5PRAPI11EpubContent")
 
 SWIFT_CLASS("_TtC5PRAPI17FirebaseAnalytics")
 @interface FirebaseAnalytics : ScreenViewAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1188,13 +1183,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI11FlowArticle_")
 @end
 
 
-SWIFT_CLASS("_TtC5PRAPI15FlurryAnalytics")
-@interface FlurryAnalytics : EventAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 SWIFT_PROTOCOL("_TtP5PRAPI11HotSpotInfo_")
 @protocol HotSpotInfo
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
@@ -1219,24 +1207,20 @@ SWIFT_PROTOCOL("_TtP5PRAPI11HotSpotInfo_")
 
 
 
-
 SWIFT_PROTOCOL("_TtP5PRAPI22IssueAnalyticsProvider_")
 @protocol IssueAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly, copy) NSDate * _Nonnull issueDate;
 @property (nonatomic, readonly) NSInteger page;
+@property (nonatomic, readonly, copy) NSString * _Nullable pageName;
 @end
 
 
 SWIFT_CLASS("_TtC5PRAPI12KYMAnalytics")
-@interface KYMAnalytics : NSObject <PROptionalAnalytics>
+@interface KYMAnalytics : NSObject <LegacyAnalyticsService>
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
-- (void)trackGAPageView:(NSString * _Nonnull)pageURL;
-- (void)trackGAEvent:(NSString * _Nonnull)category action:(NSString * _Nonnull)action label:(NSString * _Nullable)label value:(NSInteger)value;
-- (void)trackGATimingWithCategory:(NSString * _Nonnull)category variable:(NSString * _Nonnull)variable timeSpent:(NSInteger)timeSpent;
-- (void)tracker:(NSString * _Nonnull)trackerId pageView:(NSString * _Nonnull)pageUrl;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
 @end
 
 
@@ -1267,6 +1251,34 @@ SWIFT_CLASS("_TtC5PRAPI21ListenHighlightsModel")
 
 
 
+
+SWIFT_PROTOCOL("_TtP5PRAPI13PrintableItem_")
+@protocol PrintableItem
+@property (nonatomic, readonly) BOOL isPrintingEnabled;
+@property (nonatomic, readonly) BOOL isPagePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintInGraphicEnabled;
+@property (nonatomic, readonly) BOOL isIssuePrintingEnabled;
+@property (nonatomic, copy) NSSet<NSNumber *> * _Nonnull printedPages;
+- (BOOL)isPrintingAllowedForPage:(NSInteger)page SWIFT_WARN_UNUSED_RESULT;
+- (void)recordIssuePrinted;
+@end
+
+
+SWIFT_CLASS("_TtC5PRAPI23MyLibraryItemPrintActor")
+@interface MyLibraryItemPrintActor : NSObject <PrintableItem>
+@property (nonatomic, readonly) BOOL isPrintingEnabled;
+@property (nonatomic, readonly) BOOL isPagePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintInGraphicEnabled;
+@property (nonatomic, readonly) BOOL isIssuePrintingEnabled;
+@property (nonatomic, copy) NSSet<NSNumber *> * _Nonnull printedPages;
+- (BOOL)isPrintingAllowedForPage:(NSInteger)page SWIFT_WARN_UNUSED_RESULT;
+- (void)recordIssuePrinted;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSManagedObjectContext;
 
 @interface NSManagedObject (SWIFT_EXTENSION(PRAPI))
@@ -1281,16 +1293,16 @@ SWIFT_CLASS("_TtC5PRAPI21ListenHighlightsModel")
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-/// Notification’s userInfo contains book ids for which license was updated.
-/// userInfo: [String: BookLicenseUpdateStatus]
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
-+ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
++ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
-+ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
+/// Notification’s userInfo contains book ids for which license was updated.
+/// userInfo: [String: BookLicenseUpdateStatus]
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
++ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1314,16 +1326,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 
+@interface NSObject (SWIFT_EXTENSION(PRAPI))
+- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object;
+- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object observe:(BOOL)observe;
+@end
+
+
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
 - (void)_startServiceReachabilityObservation;
 - (void)_stopServiceReachabilityObservation;
-@end
-
-
-@interface NSObject (SWIFT_EXTENSION(PRAPI))
-- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object;
-- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object observe:(BOOL)observe;
 @end
 
 
@@ -1348,6 +1360,11 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) id <ArticleService> _Nonnull service;
+@end
+
+
 @interface NTFArticleItem (SWIFT_EXTENSION(PRAPI)) <MastheadProvider>
 @property (nonatomic, readonly) BOOL hasMasthead;
 - (void)mastheadWithHeight:(CGFloat)height style:(UIUserInterfaceStyle)style handler:(PRThumbnailHandler _Nonnull)handler;
@@ -1367,6 +1384,7 @@ SWIFT_UNAVAILABLE
 
 
 @interface NTFDataService (SWIFT_EXTENSION(PRAPI))
++ (void)requestArticlesJSONWithArticleIds:(NSString * _Nonnull)articleIds viewType:(NSString * _Nonnull)viewType parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters completionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)waitForOtherDataSuppliersWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
 @end
 
@@ -1435,7 +1453,6 @@ SWIFT_CLASS("_TtC5PRAPI25NTFSocialInfoBookmarkUser")
 @end
 
 
-/// PDV stands for Publication Details View
 SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @protocol PDVAnalyticsProvider <AnalyticsProvider>
 @end
@@ -1481,7 +1498,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @class UIApplication;
 
 @interface PRAnalyticsService (SWIFT_EXTENSION(PRAPI))
-+ (NSArray<id <PRAnalytics>> * _Nonnull)analyticsServicesWithApplication:(UIApplication * _Nullable)application launchOptions:(NSDictionary * _Nullable)launchOptions SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<id <AnalyticsService>> * _Nonnull)analyticsServicesWithApplication:(UIApplication * _Nullable)application launchOptions:(NSDictionary * _Nullable)launchOptions SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1501,21 +1518,21 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 
+
+
+@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
+- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_UNAVAILABLE
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (void)_finishLoading;
 @end
 
 
-
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1535,7 +1552,6 @@ SWIFT_UNAVAILABLE
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, strong) id <CatalogFacade> _Nonnull presenter;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull favoriteCountries;
-@property (nonatomic, copy) NSArray<id <CatalogNavigation>> * _Null_unspecified filters;
 @end
 
 
@@ -1556,6 +1572,7 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 @end
 
 
@@ -1642,10 +1659,10 @@ SWIFT_UNAVAILABLE
 
 
 
+
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
 - (void)observeItems;
 @end
-
 
 
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
@@ -1664,8 +1681,19 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI)) <ReadingViewItem>
+- (BOOL)isEqualToItem:(id <ReadingViewItem> _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isExpired;
+@end
+
+
+
+@interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) id <PrintableItem> _Nullable printing;
 @end
 
 
@@ -1725,10 +1753,10 @@ SWIFT_UNAVAILABLE
 @end
 
 
-
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 @end
+
 
 
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
@@ -1811,11 +1839,12 @@ SWIFT_CLASS("_TtC5PRAPI20PressReaderAnalytics")
 @interface PressReaderAnalytics : DictionaryAnalytics
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull sessionId;)
 + (NSString * _Nonnull)sessionId SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDictionary<NSString *, id> * _Nonnull environmentInfo;)
 + (NSDictionary<NSString *, id> * _Nonnull)environmentInfo SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
@@ -1833,26 +1862,28 @@ SWIFT_CLASS("_TtC5PRAPI24PublicationChannelsModel")
 @end
 
 
-SWIFT_CLASS("_TtC5PRAPI18PublicationService")
-@interface PublicationService : CatalogService
-@end
-
-
-
-
-
 
 SWIFT_PROTOCOL("_TtP5PRAPI22RadioAnalyticsProvider_")
 @protocol RadioAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly, strong) PRMyLibraryItem * _Nullable libraryItem;
+@property (nonatomic, readonly, strong) PRSmartArticle * _Nonnull currentSmartArticle;
 @property (nonatomic, readonly, strong) id <NTFArticle> _Nullable currentFeedArticle;
 @end
+
 
 
 SWIFT_PROTOCOL("_TtP5PRAPI26RichMediaAnalyticsProvider_")
 @protocol RichMediaAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
+@property (nonatomic, readonly, copy) NSString * _Nullable mediaTitle;
+@end
+
+
+SWIFT_PROTOCOL("_TtP5PRAPI31RichMediaPhotoAnalyticsProvider_")
+@protocol RichMediaPhotoAnalyticsProvider <RichMediaAnalyticsProvider>
+@property (nonatomic, readonly) NSInteger photosCount;
+@property (nonatomic, readonly) NSInteger photoIndex;
 @end
 
 
@@ -1925,9 +1956,9 @@ SWIFT_PROTOCOL("_TtP5PRAPI29SplashScreenAnalyticsProvider_")
 
 SWIFT_CLASS("_TtC5PRAPI14SpoorAnalytics")
 @interface SpoorAnalytics : EventAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
 @end
 
 
@@ -1965,11 +1996,13 @@ SWIFT_CLASS("_TtC5PRAPI26TransientCatalogNavigation")
 @property (nonatomic, readonly, copy) NSArray<CatalogNavigationSection *> * _Nonnull options;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 - (nonnull instancetype)initWithName:(NSString * _Nonnull)name type:(enum CatalogNavigationType)type value:(id _Nullable)value OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class PRCountableString;
 
 @interface TransientCatalogNavigation (SWIFT_EXTENSION(PRAPI))
 - (nonnull instancetype)initWithCountry:(PRCountableCountry * _Nonnull)country;
@@ -1997,8 +2030,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI24TranslationLanguagesInfo_")
 
 SWIFT_CLASS("_TtC5PRAPI21TreasureDataAnalytics")
 @interface TreasureDataAnalytics : DictionaryAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2321,6 +2354,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
+@import PRAnalytics;
 @import PRCatalogModel;
 @import PRConfiguration;
 @import PRDIContainer;
@@ -2370,33 +2404,23 @@ typedef SWIFT_ENUM(NSUInteger, ATTrackingStatus, open) {
 };
 
 
-SWIFT_PROTOCOL("_TtP5PRAPI17AnalyticsProvider_")
-@protocol AnalyticsProvider
-@end
-
-
 SWIFT_PROTOCOL("_TtP5PRAPI24AccountAnalyticsProvider_")
 @protocol AccountAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly) PRAnalyticsAccountView _Nonnull accountViewType;
 @end
 
-@class NSString;
 
 /// An abstract class with common tracking code. Do not subclass this class directly, use <code>ScreenViewAnalytics</code>
 /// or <code>EventAnalytics</code> instead.
 SWIFT_CLASS("_TtC5PRAPI9Analytics")
-@interface Analytics : NSObject <PRAnalytics>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
-- (void)trackGAPageView:(NSString * _Nonnull)pageURL;
-- (void)trackGAEvent:(NSString * _Nonnull)category action:(NSString * _Nonnull)action label:(NSString * _Nullable)label value:(NSInteger)value;
-- (void)trackGATimingWithCategory:(NSString * _Nonnull)category variable:(NSString * _Nonnull)variable timeSpent:(NSInteger)timeSpent;
-- (void)tracker:(NSString * _Nonnull)trackerId pageView:(NSString * _Nonnull)pageUrl;
+@interface Analytics : NSObject <AnalyticsService>
+/// Enabled explicitly by subclasses. Permanently off here.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 SWIFT_PROTOCOL("_TtP5PRAPI16AnalyticsTracker_")
@@ -2405,19 +2429,20 @@ SWIFT_PROTOCOL("_TtP5PRAPI16AnalyticsTracker_")
 
 
 SWIFT_CLASS("_TtC5PRAPI23AnalyticsTrackerAdapter")
-@interface AnalyticsTrackerAdapter : NSObject <PRAnalytics>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
-- (void)trackGAPageView:(NSString * _Nonnull)pageURL;
-- (void)trackGAEvent:(NSString * _Nonnull)category action:(NSString * _Nonnull)action label:(NSString * _Nullable)label value:(NSInteger)value;
-- (void)trackGATimingWithCategory:(NSString * _Nonnull)category variable:(NSString * _Nonnull)variable timeSpent:(NSInteger)timeSpent;
-- (void)tracker:(NSString * _Nonnull)trackerId pageView:(NSString * _Nonnull)pageUrl;
+@interface AnalyticsTrackerAdapter : NSObject
 - (nonnull instancetype)initWithTracker:(id <AnalyticsTracker> _Nonnull)tracker OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+@interface AnalyticsTrackerAdapter (SWIFT_EXTENSION(PRAPI)) <AnalyticsService>
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
+@end
+
+@class NSString;
 
 SWIFT_CLASS("_TtC5PRAPI22AnalyticsValueProvider")
 @interface AnalyticsValueProvider : NSObject
@@ -2440,6 +2465,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ASAuthorizat
 
 @interface ArticleLink (SWIFT_EXTENSION(PRAPI))
 - (void)updateWith:(NSDictionary<NSString *, id> * _Nonnull)info;
+@end
+
+@class NTFContentRestrictions;
+
+SWIFT_PROTOCOL("_TtP5PRAPI14ArticleService_")
+@protocol ArticleService
+- (void)contentRestrictionsWithCompletionHandler:(void (^ _Nonnull)(NTFContentRestrictions * _Nullable))completionHandler;
+- (void)updateRelatedArticlesWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
+- (void)loadFullContentWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
 @end
 
 typedef SWIFT_ENUM(NSInteger, ArticleTranslationState, open) {
@@ -2593,26 +2627,10 @@ SWIFT_CLASS("_TtC5PRAPI19BookResponseHandler")
 @end
 
 
-SWIFT_CLASS("_TtC5PRAPI14CatalogService")
-@interface CatalogService : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC5PRAPI11BookService")
-@interface BookService : CatalogService
-@end
-
-
-
-
-
 
 SWIFT_CLASS("_TtC5PRAPI15BookUserService")
 @interface BookUserService : BookSubservice
 @end
-
 
 
 
@@ -2627,8 +2645,8 @@ SWIFT_CLASS("_TtC5PRAPI14EventAnalytics")
 
 SWIFT_CLASS("_TtC5PRAPI14BrazeAnalytics")
 @interface BrazeAnalytics : EventAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2730,7 +2748,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @protocol PRSourceListDelegate;
 @protocol CatalogNavigation;
 @class PRCountableDictionary;
-@class PRCountableString;
 @class PRCountableCountry;
 @class CatalogPresentationOption;
 @class PRSourceListFilter;
@@ -2751,12 +2768,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 /// IMPORTANT: Supplements are not included into the list if it contains their parent.
 @property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 @property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull sections;
-@property (nonatomic, readonly, copy) NSArray<PRCountableString *> * _Nonnull languages;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nullable countryRegions;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
 @property (nonatomic) PRCatalogSortingOrder order;
 @property (nonatomic, readonly) BOOL isReady;
@@ -2779,7 +2792,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 - (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
 - (void)filterList;
 - (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applyNominalFilterWithTitle:(NSString * _Nonnull)title;
 - (void)applySourceTypeFilter:(PRSourceType)sourceType;
 - (void)applyFreeFilter;
 - (void)applyFavoriteFilter;
@@ -2797,6 +2809,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 
 @class CatalogNavigationSection;
 enum CatalogNavigationType : NSInteger;
+enum CatalogType : NSInteger;
 
 SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @protocol CatalogNavigation <NSObject>
@@ -2804,6 +2817,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @property (nonatomic, readonly, copy) NSArray<CatalogNavigationSection *> * _Nonnull options;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 @end
 
 
@@ -2812,6 +2826,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 @end
 
 @class Catalog;
@@ -2921,7 +2936,9 @@ typedef SWIFT_ENUM(NSInteger, CatalogNavigationType, open) {
   CatalogNavigationTypeMagazine = 2,
   CatalogNavigationTypeBook = 3,
   CatalogNavigationTypeFree = 4,
+/// presents country navigation options
   CatalogNavigationTypeCountry = 5,
+/// direct navigation to a specific country
   CatalogNavigationTypeACountry = 6,
   CatalogNavigationTypeLanguage = 7,
   CatalogNavigationTypeAll = 8,
@@ -2965,12 +2982,8 @@ SWIFT_CLASS("_TtC5PRAPI16CatalogPresenter")
 @property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull plainList;
 @property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 @property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull sections;
-@property (nonatomic, readonly, copy) NSArray<PRCountableString *> * _Nonnull languages;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nullable countryRegions;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
 @property (nonatomic) PRCatalogSortingOrder order;
 @property (nonatomic, readonly) BOOL isReady;
@@ -2992,7 +3005,6 @@ SWIFT_CLASS("_TtC5PRAPI16CatalogPresenter")
 - (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
 - (void)filterList;
 - (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applyNominalFilterWithTitle:(NSString * _Nonnull)title;
 - (void)applySourceTypeFilter:(PRSourceType)sourceType;
 - (void)applyFreeFilter;
 - (void)applyFavoriteFilter;
@@ -3071,7 +3083,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSecti
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
+typedef SWIFT_ENUM(NSInteger, CatalogType, open) {
+  CatalogTypeUnknown = 0,
+  CatalogTypePublication = 1,
+  CatalogTypeBook = 2,
+};
 
 
 
@@ -3089,8 +3105,8 @@ SWIFT_CLASS("_TtC5PRAPI19DictionaryAnalytics")
 
 SWIFT_CLASS("_TtC5PRAPI17ComScoreAnalytics")
 @interface ComScoreAnalytics : DictionaryAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3100,6 +3116,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
 - (void)removeAppDependencies;
 - (void)registerAppDependencies;
 @end
+
+
+SWIFT_UNAVAILABLE
+@interface DIContainer (SWIFT_EXTENSION(PRAPI))
+- (id _Nullable)twitterAuth SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)hasTwitterAuth SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 
 
@@ -3150,26 +3174,30 @@ SWIFT_CLASS("_TtC5PRAPI16DeviceActivation")
 - (void)processSmart;
 @end
 
+@protocol PrintableItem;
+
+SWIFT_PROTOCOL("_TtP5PRAPI15ReadingViewItem_")
+@protocol ReadingViewItem <_ReadingViewItem>
+@property (nonatomic, readonly, strong) id <PrintableItem> _Nullable printing;
+- (BOOL)isEqualToItem:(id <ReadingViewItem> _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class PRPage;
 @class PDFDoc;
 @class UIColor;
 @class UIImage;
 
 @interface Document (SWIFT_EXTENSION(PRAPI)) <ReadingViewItem>
+@property (nonatomic, readonly, strong) id <PrintableItem> _Nullable printing;
 - (BOOL)done SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)pdnDone SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)pdnDownloadedForPage:(NSUInteger)pageNumber SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)printingDisabled SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)pagePrintingDisabled SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)issuePrintingEnabled SWIFT_WARN_UNUSED_RESULT;
 - (PRPage * _Nullable)getPage:(NSUInteger)pageNumber SWIFT_WARN_UNUSED_RESULT;
 - (void)saveToPersistentStore;
 - (NSString * _Nonnull)encryptionKey SWIFT_WARN_UNUSED_RESULT;
 - (NSProgress * _Nullable)progress SWIFT_WARN_UNUSED_RESULT;
 - (NSProgress * _Nullable)pdnProgress SWIFT_WARN_UNUSED_RESULT;
 - (NSProgress * _Nullable)pdnProgressForPage:(NSUInteger)page SWIFT_WARN_UNUSED_RESULT;
-- (void)recordIssuePrint;
-- (void)recordPagePrint:(NSUInteger)numberOfPages;
 - (PDFDoc * _Nullable)pdfDoc SWIFT_WARN_UNUSED_RESULT;
 - (PDFDoc * _Nullable)pdfDocForPage:(NSUInteger)pageNo SWIFT_WARN_UNUSED_RESULT;
 - (PDFDoc * _Nullable)pdfDocForPage:(NSUInteger)pageNo loadPdfIfNotAvailable:(BOOL)loadPdfIfNotAvailable error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
@@ -3199,8 +3227,8 @@ SWIFT_CLASS("_TtC5PRAPI11EpubContent")
 
 SWIFT_CLASS("_TtC5PRAPI17FirebaseAnalytics")
 @interface FirebaseAnalytics : ScreenViewAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3228,13 +3256,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI11FlowArticle_")
 @end
 
 
-SWIFT_CLASS("_TtC5PRAPI15FlurryAnalytics")
-@interface FlurryAnalytics : EventAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 SWIFT_PROTOCOL("_TtP5PRAPI11HotSpotInfo_")
 @protocol HotSpotInfo
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
@@ -3259,24 +3280,20 @@ SWIFT_PROTOCOL("_TtP5PRAPI11HotSpotInfo_")
 
 
 
-
 SWIFT_PROTOCOL("_TtP5PRAPI22IssueAnalyticsProvider_")
 @protocol IssueAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly, copy) NSDate * _Nonnull issueDate;
 @property (nonatomic, readonly) NSInteger page;
+@property (nonatomic, readonly, copy) NSString * _Nullable pageName;
 @end
 
 
 SWIFT_CLASS("_TtC5PRAPI12KYMAnalytics")
-@interface KYMAnalytics : NSObject <PROptionalAnalytics>
+@interface KYMAnalytics : NSObject <LegacyAnalyticsService>
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
-- (void)trackGAPageView:(NSString * _Nonnull)pageURL;
-- (void)trackGAEvent:(NSString * _Nonnull)category action:(NSString * _Nonnull)action label:(NSString * _Nullable)label value:(NSInteger)value;
-- (void)trackGATimingWithCategory:(NSString * _Nonnull)category variable:(NSString * _Nonnull)variable timeSpent:(NSInteger)timeSpent;
-- (void)tracker:(NSString * _Nonnull)trackerId pageView:(NSString * _Nonnull)pageUrl;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
 @end
 
 
@@ -3307,6 +3324,34 @@ SWIFT_CLASS("_TtC5PRAPI21ListenHighlightsModel")
 
 
 
+
+SWIFT_PROTOCOL("_TtP5PRAPI13PrintableItem_")
+@protocol PrintableItem
+@property (nonatomic, readonly) BOOL isPrintingEnabled;
+@property (nonatomic, readonly) BOOL isPagePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintInGraphicEnabled;
+@property (nonatomic, readonly) BOOL isIssuePrintingEnabled;
+@property (nonatomic, copy) NSSet<NSNumber *> * _Nonnull printedPages;
+- (BOOL)isPrintingAllowedForPage:(NSInteger)page SWIFT_WARN_UNUSED_RESULT;
+- (void)recordIssuePrinted;
+@end
+
+
+SWIFT_CLASS("_TtC5PRAPI23MyLibraryItemPrintActor")
+@interface MyLibraryItemPrintActor : NSObject <PrintableItem>
+@property (nonatomic, readonly) BOOL isPrintingEnabled;
+@property (nonatomic, readonly) BOOL isPagePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintingEnabled;
+@property (nonatomic, readonly) BOOL isArticlePrintInGraphicEnabled;
+@property (nonatomic, readonly) BOOL isIssuePrintingEnabled;
+@property (nonatomic, copy) NSSet<NSNumber *> * _Nonnull printedPages;
+- (BOOL)isPrintingAllowedForPage:(NSInteger)page SWIFT_WARN_UNUSED_RESULT;
+- (void)recordIssuePrinted;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSManagedObjectContext;
 
 @interface NSManagedObject (SWIFT_EXTENSION(PRAPI))
@@ -3321,16 +3366,16 @@ SWIFT_CLASS("_TtC5PRAPI21ListenHighlightsModel")
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-/// Notification’s userInfo contains book ids for which license was updated.
-/// userInfo: [String: BookLicenseUpdateStatus]
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
-+ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
++ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
-+ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
+/// Notification’s userInfo contains book ids for which license was updated.
+/// userInfo: [String: BookLicenseUpdateStatus]
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
++ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3354,16 +3399,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 
+@interface NSObject (SWIFT_EXTENSION(PRAPI))
+- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object;
+- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object observe:(BOOL)observe;
+@end
+
+
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
 - (void)_startServiceReachabilityObservation;
 - (void)_stopServiceReachabilityObservation;
-@end
-
-
-@interface NSObject (SWIFT_EXTENSION(PRAPI))
-- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object;
-- (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object observe:(BOOL)observe;
 @end
 
 
@@ -3388,6 +3433,11 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) id <ArticleService> _Nonnull service;
+@end
+
+
 @interface NTFArticleItem (SWIFT_EXTENSION(PRAPI)) <MastheadProvider>
 @property (nonatomic, readonly) BOOL hasMasthead;
 - (void)mastheadWithHeight:(CGFloat)height style:(UIUserInterfaceStyle)style handler:(PRThumbnailHandler _Nonnull)handler;
@@ -3407,6 +3457,7 @@ SWIFT_UNAVAILABLE
 
 
 @interface NTFDataService (SWIFT_EXTENSION(PRAPI))
++ (void)requestArticlesJSONWithArticleIds:(NSString * _Nonnull)articleIds viewType:(NSString * _Nonnull)viewType parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters completionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)waitForOtherDataSuppliersWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
 @end
 
@@ -3475,7 +3526,6 @@ SWIFT_CLASS("_TtC5PRAPI25NTFSocialInfoBookmarkUser")
 @end
 
 
-/// PDV stands for Publication Details View
 SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @protocol PDVAnalyticsProvider <AnalyticsProvider>
 @end
@@ -3521,7 +3571,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @class UIApplication;
 
 @interface PRAnalyticsService (SWIFT_EXTENSION(PRAPI))
-+ (NSArray<id <PRAnalytics>> * _Nonnull)analyticsServicesWithApplication:(UIApplication * _Nullable)application launchOptions:(NSDictionary * _Nullable)launchOptions SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<id <AnalyticsService>> * _Nonnull)analyticsServicesWithApplication:(UIApplication * _Nullable)application launchOptions:(NSDictionary * _Nullable)launchOptions SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3541,21 +3591,21 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 
+
+
+@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
+- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_UNAVAILABLE
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (void)_finishLoading;
 @end
 
 
-
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3575,7 +3625,6 @@ SWIFT_UNAVAILABLE
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, strong) id <CatalogFacade> _Nonnull presenter;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull favoriteCountries;
-@property (nonatomic, copy) NSArray<id <CatalogNavigation>> * _Null_unspecified filters;
 @end
 
 
@@ -3596,6 +3645,7 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 @end
 
 
@@ -3682,10 +3732,10 @@ SWIFT_UNAVAILABLE
 
 
 
+
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
 - (void)observeItems;
 @end
-
 
 
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
@@ -3704,8 +3754,19 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI)) <ReadingViewItem>
+- (BOOL)isEqualToItem:(id <ReadingViewItem> _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isExpired;
+@end
+
+
+
+@interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) id <PrintableItem> _Nullable printing;
 @end
 
 
@@ -3765,10 +3826,10 @@ SWIFT_UNAVAILABLE
 @end
 
 
-
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 @end
+
 
 
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
@@ -3851,11 +3912,12 @@ SWIFT_CLASS("_TtC5PRAPI20PressReaderAnalytics")
 @interface PressReaderAnalytics : DictionaryAnalytics
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull sessionId;)
 + (NSString * _Nonnull)sessionId SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDictionary<NSString *, id> * _Nonnull environmentInfo;)
 + (NSDictionary<NSString *, id> * _Nonnull)environmentInfo SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
@@ -3873,26 +3935,28 @@ SWIFT_CLASS("_TtC5PRAPI24PublicationChannelsModel")
 @end
 
 
-SWIFT_CLASS("_TtC5PRAPI18PublicationService")
-@interface PublicationService : CatalogService
-@end
-
-
-
-
-
 
 SWIFT_PROTOCOL("_TtP5PRAPI22RadioAnalyticsProvider_")
 @protocol RadioAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly, strong) PRMyLibraryItem * _Nullable libraryItem;
+@property (nonatomic, readonly, strong) PRSmartArticle * _Nonnull currentSmartArticle;
 @property (nonatomic, readonly, strong) id <NTFArticle> _Nullable currentFeedArticle;
 @end
+
 
 
 SWIFT_PROTOCOL("_TtP5PRAPI26RichMediaAnalyticsProvider_")
 @protocol RichMediaAnalyticsProvider <AnalyticsProvider>
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
+@property (nonatomic, readonly, copy) NSString * _Nullable mediaTitle;
+@end
+
+
+SWIFT_PROTOCOL("_TtP5PRAPI31RichMediaPhotoAnalyticsProvider_")
+@protocol RichMediaPhotoAnalyticsProvider <RichMediaAnalyticsProvider>
+@property (nonatomic, readonly) NSInteger photosCount;
+@property (nonatomic, readonly) NSInteger photoIndex;
 @end
 
 
@@ -3965,9 +4029,9 @@ SWIFT_PROTOCOL("_TtP5PRAPI29SplashScreenAnalyticsProvider_")
 
 SWIFT_CLASS("_TtC5PRAPI14SpoorAnalytics")
 @interface SpoorAnalytics : EventAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters options:(PRAnalyticsTrackOptions)options;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
+- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
 @end
 
 
@@ -4005,11 +4069,13 @@ SWIFT_CLASS("_TtC5PRAPI26TransientCatalogNavigation")
 @property (nonatomic, readonly, copy) NSArray<CatalogNavigationSection *> * _Nonnull options;
 @property (nonatomic, readonly) enum CatalogNavigationType type;
 @property (nonatomic, readonly) id _Nullable value;
+@property (nonatomic, readonly) enum CatalogType catalogType;
 - (nonnull instancetype)initWithName:(NSString * _Nonnull)name type:(enum CatalogNavigationType)type value:(id _Nullable)value OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class PRCountableString;
 
 @interface TransientCatalogNavigation (SWIFT_EXTENSION(PRAPI))
 - (nonnull instancetype)initWithCountry:(PRCountableCountry * _Nonnull)country;
@@ -4037,8 +4103,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI24TranslationLanguagesInfo_")
 
 SWIFT_CLASS("_TtC5PRAPI21TreasureDataAnalytics")
 @interface TreasureDataAnalytics : DictionaryAnalytics
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL enabled;)
-+ (BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

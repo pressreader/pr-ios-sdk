@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setupThumbnail:(nullable PRThumbnailObject *)thumbnail cell:(PRCatalogFilterTableCell *)cell;
 
 @property (nonatomic, readonly) CGSize imageSize;
-@property (nonatomic, readonly) BOOL useLargeCellsWithImage;
+@property (nonatomic) BOOL useLargeCellsWithImage;
 
 @end
 

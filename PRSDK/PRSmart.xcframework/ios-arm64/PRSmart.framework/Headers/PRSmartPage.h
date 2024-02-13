@@ -19,6 +19,7 @@
 extern PRSmartObjectAttribute const PRSmartObjectAttributePageName;
 extern PRSmartObjectAttribute const PRSmartObjectAttributePageNumber;
 extern PRSmartObjectAttribute const PRSmartObjectAttributePageRect;
+extern PRSmartObjectAttribute const PRSmartObjectAttributePageSection;
 
 @interface PRSmartPage: PRSmartBaseObject
 

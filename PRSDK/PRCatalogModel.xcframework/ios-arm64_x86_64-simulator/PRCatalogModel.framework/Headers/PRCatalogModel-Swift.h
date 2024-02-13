@@ -442,18 +442,18 @@ SWIFT_CLASS_NAMED("Books")
 
 
 @interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
-- (void)addItemsObject:(CatalogItem * _Nonnull)value;
-- (void)removeItemsObject:(CatalogItem * _Nonnull)value;
-- (void)addItems:(NSSet * _Nonnull)values;
-- (void)removeItems:(NSSet * _Nonnull)values;
-@end
-
-
-@interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
 - (void)addEntitiesObject:(CatalogEntity * _Nonnull)value;
 - (void)removeEntitiesObject:(CatalogEntity * _Nonnull)value;
 - (void)addEntities:(NSSet * _Nonnull)values;
 - (void)removeEntities:(NSSet * _Nonnull)values;
+@end
+
+
+@interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
+- (void)addItemsObject:(CatalogItem * _Nonnull)value;
+- (void)removeItemsObject:(CatalogItem * _Nonnull)value;
+- (void)addItems:(NSSet * _Nonnull)values;
+- (void)removeItems:(NSSet * _Nonnull)values;
 @end
 
 
@@ -499,15 +499,6 @@ SWIFT_CLASS_NAMED("Books")
 
 
 
-@class RelationshipMetadata;
-
-@interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
-- (void)addItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)removeItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)addItemsMetadata:(NSSet * _Nonnull)values;
-- (void)removeItemsMetadata:(NSSet * _Nonnull)values;
-@end
-
 
 @interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
 - (void)addItemsObject:(CatalogItem * _Nonnull)value;
@@ -524,18 +515,13 @@ SWIFT_CLASS_NAMED("Books")
 - (void)removeSubEntities:(NSSet * _Nonnull)values;
 @end
 
+@class RelationshipMetadata;
 
 @interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
-- (void)insertObject:(CatalogEntity * _Nonnull)value inSuperEntitiesAtIndex:(NSInteger)idx;
-- (void)removeObjectFromSuperEntitiesAtIndex:(NSInteger)idx;
-- (void)insertSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values atIndexes:(NSIndexSet * _Nonnull)indexes;
-- (void)removeSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes;
-- (void)replaceObjectInSuperEntitiesAtIndex:(NSInteger)idx withObject:(CatalogEntity * _Nonnull)value;
-- (void)replaceSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes withSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values;
-- (void)addSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
-- (void)removeSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
-- (void)addSuperEntities:(NSOrderedSet * _Nonnull)values;
-- (void)removeSuperEntities:(NSOrderedSet * _Nonnull)values;
+- (void)addItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)removeItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)addItemsMetadata:(NSSet * _Nonnull)values;
+- (void)removeItemsMetadata:(NSSet * _Nonnull)values;
 @end
 
 
@@ -550,6 +536,20 @@ SWIFT_CLASS_NAMED("Books")
 - (void)removeLoadedItemsObject:(CatalogItem * _Nonnull)value;
 - (void)addLoadedItems:(NSOrderedSet * _Nonnull)values;
 - (void)removeLoadedItems:(NSOrderedSet * _Nonnull)values;
+@end
+
+
+@interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
+- (void)insertObject:(CatalogEntity * _Nonnull)value inSuperEntitiesAtIndex:(NSInteger)idx;
+- (void)removeObjectFromSuperEntitiesAtIndex:(NSInteger)idx;
+- (void)insertSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values atIndexes:(NSIndexSet * _Nonnull)indexes;
+- (void)removeSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes;
+- (void)replaceObjectInSuperEntitiesAtIndex:(NSInteger)idx withObject:(CatalogEntity * _Nonnull)value;
+- (void)replaceSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes withSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values;
+- (void)addSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
+- (void)removeSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
+- (void)addSuperEntities:(NSOrderedSet * _Nonnull)values;
+- (void)removeSuperEntities:(NSOrderedSet * _Nonnull)values;
 @end
 
 
@@ -616,18 +616,18 @@ SWIFT_CLASS_NAMED("CatalogFilter")
 
 
 @interface CatalogItem (SWIFT_EXTENSION(PRCatalogModel))
-- (void)addEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)removeEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)addEntitiesMetadata:(NSSet * _Nonnull)values;
-- (void)removeEntitiesMetadata:(NSSet * _Nonnull)values;
-@end
-
-
-@interface CatalogItem (SWIFT_EXTENSION(PRCatalogModel))
 - (void)addContentsObject:(CatalogItemContent * _Nonnull)value;
 - (void)removeContentsObject:(CatalogItemContent * _Nonnull)value;
 - (void)addContents:(NSSet * _Nonnull)values;
 - (void)removeContents:(NSSet * _Nonnull)values;
+@end
+
+
+@interface CatalogItem (SWIFT_EXTENSION(PRCatalogModel))
+- (void)addEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)removeEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)addEntitiesMetadata:(NSSet * _Nonnull)values;
+- (void)removeEntitiesMetadata:(NSSet * _Nonnull)values;
 @end
 
 
@@ -985,24 +985,6 @@ SWIFT_CLASS_NAMED("HubNavigation")
 @end
 
 
-SWIFT_CLASS_NAMED("TitleItem")
-@interface TitleItem : CatalogItem
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("Issue")
-@interface Issue : TitleItem
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface Issue (SWIFT_EXTENSION(PRCatalogModel))
-@property (nonatomic, copy) NSDate * _Nonnull issueDate;
-@property (nonatomic, strong) TitleItem * _Nullable publication;
-@end
-
-
 SWIFT_CLASS_NAMED("RelationshipMetadata")
 @interface RelationshipMetadata : NSManagedObject
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
@@ -1023,6 +1005,26 @@ SWIFT_CLASS_NAMED("ItemSeriesMetadata")
 
 SWIFT_CLASS_NAMED("Language")
 @interface Language : CatalogEntity
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_CLASS_NAMED("TitleItem")
+@interface TitleItem : CatalogItem
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("Magazine")
+@interface Magazine : TitleItem
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_CLASS_NAMED("Newspaper")
+@interface Newspaper : TitleItem
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1177,10 +1179,6 @@ SWIFT_CLASS_NAMED("Supplier")
 
 
 
-
-@interface TitleItem (SWIFT_EXTENSION(PRCatalogModel))
-@property (nonatomic, strong) NSSet * _Nullable issues;
-@end
 
 #endif
 #if __has_attribute(external_source_symbol)
@@ -1634,18 +1632,18 @@ SWIFT_CLASS_NAMED("Books")
 
 
 @interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
-- (void)addItemsObject:(CatalogItem * _Nonnull)value;
-- (void)removeItemsObject:(CatalogItem * _Nonnull)value;
-- (void)addItems:(NSSet * _Nonnull)values;
-- (void)removeItems:(NSSet * _Nonnull)values;
-@end
-
-
-@interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
 - (void)addEntitiesObject:(CatalogEntity * _Nonnull)value;
 - (void)removeEntitiesObject:(CatalogEntity * _Nonnull)value;
 - (void)addEntities:(NSSet * _Nonnull)values;
 - (void)removeEntities:(NSSet * _Nonnull)values;
+@end
+
+
+@interface Catalog (SWIFT_EXTENSION(PRCatalogModel))
+- (void)addItemsObject:(CatalogItem * _Nonnull)value;
+- (void)removeItemsObject:(CatalogItem * _Nonnull)value;
+- (void)addItems:(NSSet * _Nonnull)values;
+- (void)removeItems:(NSSet * _Nonnull)values;
 @end
 
 
@@ -1691,15 +1689,6 @@ SWIFT_CLASS_NAMED("Books")
 
 
 
-@class RelationshipMetadata;
-
-@interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
-- (void)addItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)removeItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)addItemsMetadata:(NSSet * _Nonnull)values;
-- (void)removeItemsMetadata:(NSSet * _Nonnull)values;
-@end
-
 
 @interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
 - (void)addItemsObject:(CatalogItem * _Nonnull)value;
@@ -1716,18 +1705,13 @@ SWIFT_CLASS_NAMED("Books")
 - (void)removeSubEntities:(NSSet * _Nonnull)values;
 @end
 
+@class RelationshipMetadata;
 
 @interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
-- (void)insertObject:(CatalogEntity * _Nonnull)value inSuperEntitiesAtIndex:(NSInteger)idx;
-- (void)removeObjectFromSuperEntitiesAtIndex:(NSInteger)idx;
-- (void)insertSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values atIndexes:(NSIndexSet * _Nonnull)indexes;
-- (void)removeSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes;
-- (void)replaceObjectInSuperEntitiesAtIndex:(NSInteger)idx withObject:(CatalogEntity * _Nonnull)value;
-- (void)replaceSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes withSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values;
-- (void)addSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
-- (void)removeSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
-- (void)addSuperEntities:(NSOrderedSet * _Nonnull)values;
-- (void)removeSuperEntities:(NSOrderedSet * _Nonnull)values;
+- (void)addItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)removeItemsMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)addItemsMetadata:(NSSet * _Nonnull)values;
+- (void)removeItemsMetadata:(NSSet * _Nonnull)values;
 @end
 
 
@@ -1742,6 +1726,20 @@ SWIFT_CLASS_NAMED("Books")
 - (void)removeLoadedItemsObject:(CatalogItem * _Nonnull)value;
 - (void)addLoadedItems:(NSOrderedSet * _Nonnull)values;
 - (void)removeLoadedItems:(NSOrderedSet * _Nonnull)values;
+@end
+
+
+@interface CatalogEntity (SWIFT_EXTENSION(PRCatalogModel))
+- (void)insertObject:(CatalogEntity * _Nonnull)value inSuperEntitiesAtIndex:(NSInteger)idx;
+- (void)removeObjectFromSuperEntitiesAtIndex:(NSInteger)idx;
+- (void)insertSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values atIndexes:(NSIndexSet * _Nonnull)indexes;
+- (void)removeSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes;
+- (void)replaceObjectInSuperEntitiesAtIndex:(NSInteger)idx withObject:(CatalogEntity * _Nonnull)value;
+- (void)replaceSuperEntitiesAtIndexes:(NSIndexSet * _Nonnull)indexes withSuperEntities:(NSArray<CatalogEntity *> * _Nonnull)values;
+- (void)addSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
+- (void)removeSuperEntitiesObject:(CatalogEntity * _Nonnull)value;
+- (void)addSuperEntities:(NSOrderedSet * _Nonnull)values;
+- (void)removeSuperEntities:(NSOrderedSet * _Nonnull)values;
 @end
 
 
@@ -1808,18 +1806,18 @@ SWIFT_CLASS_NAMED("CatalogFilter")
 
 
 @interface CatalogItem (SWIFT_EXTENSION(PRCatalogModel))
-- (void)addEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)removeEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
-- (void)addEntitiesMetadata:(NSSet * _Nonnull)values;
-- (void)removeEntitiesMetadata:(NSSet * _Nonnull)values;
-@end
-
-
-@interface CatalogItem (SWIFT_EXTENSION(PRCatalogModel))
 - (void)addContentsObject:(CatalogItemContent * _Nonnull)value;
 - (void)removeContentsObject:(CatalogItemContent * _Nonnull)value;
 - (void)addContents:(NSSet * _Nonnull)values;
 - (void)removeContents:(NSSet * _Nonnull)values;
+@end
+
+
+@interface CatalogItem (SWIFT_EXTENSION(PRCatalogModel))
+- (void)addEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)removeEntitiesMetadataObject:(RelationshipMetadata * _Nonnull)value;
+- (void)addEntitiesMetadata:(NSSet * _Nonnull)values;
+- (void)removeEntitiesMetadata:(NSSet * _Nonnull)values;
 @end
 
 
@@ -2177,24 +2175,6 @@ SWIFT_CLASS_NAMED("HubNavigation")
 @end
 
 
-SWIFT_CLASS_NAMED("TitleItem")
-@interface TitleItem : CatalogItem
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS_NAMED("Issue")
-@interface Issue : TitleItem
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface Issue (SWIFT_EXTENSION(PRCatalogModel))
-@property (nonatomic, copy) NSDate * _Nonnull issueDate;
-@property (nonatomic, strong) TitleItem * _Nullable publication;
-@end
-
-
 SWIFT_CLASS_NAMED("RelationshipMetadata")
 @interface RelationshipMetadata : NSManagedObject
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
@@ -2215,6 +2195,26 @@ SWIFT_CLASS_NAMED("ItemSeriesMetadata")
 
 SWIFT_CLASS_NAMED("Language")
 @interface Language : CatalogEntity
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_CLASS_NAMED("TitleItem")
+@interface TitleItem : CatalogItem
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("Magazine")
+@interface Magazine : TitleItem
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_CLASS_NAMED("Newspaper")
+@interface Newspaper : TitleItem
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2369,10 +2369,6 @@ SWIFT_CLASS_NAMED("Supplier")
 
 
 
-
-@interface TitleItem (SWIFT_EXTENSION(PRCatalogModel))
-@property (nonatomic, strong) NSSet * _Nullable issues;
-@end
 
 #endif
 #if __has_attribute(external_source_symbol)

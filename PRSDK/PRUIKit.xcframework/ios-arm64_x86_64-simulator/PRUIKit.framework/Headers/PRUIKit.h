@@ -63,13 +63,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRAppStyle.h"
 #import "PRAppStyle+Shadow.h"
 
-#import "PRContext.h"
-#import "PRCommand.h"
-#import "PRCommandManager.h"
-#import "PRCommandNames.h"
-
-#import "PRAppPanel.h"
-
 #import "PRPopoverBackgroundView.h"
 #import "PRDropdownView.h"
 

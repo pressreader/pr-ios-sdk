@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-@import PRUIKit.PRCommand;
+@import PRCommands.PRCommand;
 
 @class PRAccountItem;
 
@@ -29,6 +29,7 @@ extern PRCommandAuthorizeAccountOption const PRCommandAuthorizeAccountOptionAuth
 extern PRCommandAuthorizeAccountOption const PRCommandAuthorizeAccountOptionAuthNetwork_;
 extern PRCommandAuthorizeAccountOption const PRCommandAuthorizeAccountOptionOnSuccessCommand;
 extern PRCommandAuthorizeAccountOption const PRCommandAuthorizeAccountOptionOnSuccessCommandParameters;
+extern PRCommandAuthorizeAccountOption const PRCommandAuthorizeAccountOptionIgnoreExternalAuthProvider;
 
 typedef NSDictionary<PRCommandAuthorizeAccountOption, id> *_Nullable SignInOptions;
 

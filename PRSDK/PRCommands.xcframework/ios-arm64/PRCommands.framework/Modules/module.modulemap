@@ -1,0 +1,11 @@
+framework module PRCommands {
+  umbrella header "PRCommands.h"
+  export *
+
+  module * { export * }
+}
+
+module PRCommands.Swift {
+  header "PRCommands-Swift.h"
+  requires objc
+}

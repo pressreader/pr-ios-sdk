@@ -302,6 +302,243 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "ArrayActor",
+        "printedName": "ArrayActor",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "items",
+            "printedName": "items",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUtils10ArrayActorC5itemsSayxGvp",
+            "mangledName": "$s7PRUtils10ArrayActorC5itemsSayxGvp",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[τ_0_0]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUtils10ArrayActorC5itemsSayxGvg",
+                "mangledName": "$s7PRUtils10ArrayActorC5itemsSayxGvg",
+                "moduleName": "PRUtils",
+                "genericSig": "<τ_0_0>",
+                "sugared_genericSig": "<T>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ArrayActor",
+                "printedName": "PRUtils.ArrayActor<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:7PRUtils10ArrayActorC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7PRUtils10ArrayActorCyACyxGSayxGcfc",
+            "mangledName": "$s7PRUtils10ArrayActorCyACyxGSayxGcfc",
+            "moduleName": "PRUtils",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "append",
+            "printedName": "append(contentsOf:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7PRUtils10ArrayActorC6append10contentsOfyqd___t7ElementQyd__RszSTRd__lF",
+            "mangledName": "$s7PRUtils10ArrayActorC6append10contentsOfyqd___t7ElementQyd__RszSTRd__lF",
+            "moduleName": "PRUtils",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 == τ_1_0.Element, τ_1_0 : Swift.Sequence>",
+            "sugared_genericSig": "<T, S where T == S.Element, S : Swift.Sequence>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "unownedExecutor",
+            "printedName": "unownedExecutor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnownedSerialExecutor",
+                "printedName": "_Concurrency.UnownedSerialExecutor",
+                "usr": "s:Sce"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUtils10ArrayActorC15unownedExecutorScevp",
+            "mangledName": "$s7PRUtils10ArrayActorC15unownedExecutorScevp",
+            "moduleName": "PRUtils",
+            "implicit": true,
+            "intro_Macosx": "10.15",
+            "intro_iOS": "13.0",
+            "intro_tvOS": "13.0",
+            "intro_watchOS": "6.0",
+            "declAttributes": [
+              "Available",
+              "Available",
+              "Available",
+              "Available",
+              "Final",
+              "Nonisolated",
+              "Semantics"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnownedSerialExecutor",
+                    "printedName": "_Concurrency.UnownedSerialExecutor",
+                    "usr": "s:Sce"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUtils10ArrayActorC15unownedExecutorScevg",
+                "mangledName": "$s7PRUtils10ArrayActorC15unownedExecutorScevg",
+                "moduleName": "PRUtils",
+                "genericSig": "<τ_0_0>",
+                "sugared_genericSig": "<T>",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:7PRUtils10ArrayActorC",
+        "mangledName": "$s7PRUtils10ArrayActorC",
+        "moduleName": "PRUtils",
+        "genericSig": "<τ_0_0>",
+        "sugared_genericSig": "<T>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Actor",
+            "printedName": "Actor",
+            "usr": "s:ScA",
+            "mangledName": "$sScA"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnyActor",
+            "printedName": "AnyActor",
+            "usr": "s:12_Concurrency8AnyActorP",
+            "mangledName": "$ss8AnyActorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Compression",
         "printedName": "Compression",
@@ -2058,6 +2295,538 @@
         "moduleName": "PRUtils",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRSyntacticSugar",
+        "printedName": "PRSyntacticSugar",
+        "declKind": "Import",
+        "moduleName": "PRUtils",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SecureStorage",
+        "printedName": "SecureStorage",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "CryptoStorageError",
+            "printedName": "CryptoStorageError",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "unexpected",
+                "printedName": "unexpected",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRUtils.SecureStorage.CryptoStorageError.Type) -> PRUtils.SecureStorage.CryptoStorageError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CryptoStorageError",
+                        "printedName": "PRUtils.SecureStorage.CryptoStorageError",
+                        "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRUtils.SecureStorage.CryptoStorageError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CryptoStorageError",
+                            "printedName": "PRUtils.SecureStorage.CryptoStorageError",
+                            "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO10unexpectedyA2EmF",
+                "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO10unexpectedyA2EmF",
+                "moduleName": "PRUtils",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "fixedbinaryorder": 0
+              },
+              {
+                "kind": "Var",
+                "name": "fileNotFound",
+                "printedName": "fileNotFound",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRUtils.SecureStorage.CryptoStorageError.Type) -> PRUtils.SecureStorage.CryptoStorageError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CryptoStorageError",
+                        "printedName": "PRUtils.SecureStorage.CryptoStorageError",
+                        "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRUtils.SecureStorage.CryptoStorageError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CryptoStorageError",
+                            "printedName": "PRUtils.SecureStorage.CryptoStorageError",
+                            "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO12fileNotFoundyA2EmF",
+                "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO12fileNotFoundyA2EmF",
+                "moduleName": "PRUtils",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "fixedbinaryorder": 1
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRUtils.SecureStorage.CryptoStorageError?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CryptoStorageError",
+                        "printedName": "PRUtils.SecureStorage.CryptoStorageError",
+                        "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO8rawValueAESgSi_tcfc",
+                "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO8rawValueAESgSi_tcfc",
+                "moduleName": "PRUtils",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "rawValue",
+                "printedName": "rawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO8rawValueSivp",
+                "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO8rawValueSivp",
+                "moduleName": "PRUtils",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO8rawValueSivg",
+                    "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO8rawValueSivg",
+                    "moduleName": "PRUtils",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "_nsErrorDomain",
+                "printedName": "_nsErrorDomain",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO03_nsE6DomainSSvpZ",
+                "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO03_nsE6DomainSSvpZ",
+                "moduleName": "PRUtils",
+                "static": true,
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO03_nsE6DomainSSvgZ",
+                    "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO03_nsE6DomainSSvgZ",
+                    "moduleName": "PRUtils",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:7PRUtils13SecureStorageC06CryptoC5ErrorO",
+            "mangledName": "$s7PRUtils13SecureStorageC06CryptoC5ErrorO",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "enumRawTypeName": "Int",
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "RawRepresentable",
+                "printedName": "RawRepresentable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "RawValue",
+                    "printedName": "RawValue",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:SY",
+                "mangledName": "$sSY"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Error",
+                "printedName": "Error",
+                "usr": "s:s5ErrorP",
+                "mangledName": "$ss5ErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_BridgedNSError",
+                "printedName": "_BridgedNSError",
+                "usr": "s:10Foundation15_BridgedNSErrorP",
+                "mangledName": "$s10Foundation15_BridgedNSErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_ObjectiveCBridgeableError",
+                "printedName": "_ObjectiveCBridgeableError",
+                "usr": "s:10Foundation26_ObjectiveCBridgeableErrorP",
+                "mangledName": "$s10Foundation26_ObjectiveCBridgeableErrorP"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(path:key:unencryptedFileExtension:encryptedEnvironment:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRUtils.SecureStorage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SecureStorage",
+                    "printedName": "PRUtils.SecureStorage",
+                    "usr": "c:@M@PRUtils@objc(cs)SecureStorage"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRRuntimeEnvironmentType",
+                "printedName": "PRSyntacticSugar.PRRuntimeEnvironmentType",
+                "hasDefaultArg": true,
+                "usr": "c:@E@PRRuntimeEnvironmentType"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUtils@objc(cs)SecureStorage(im)initWithPath:key:unencryptedFileExtension:encryptedEnvironment:",
+            "mangledName": "$s7PRUtils13SecureStorageC4path3key24unencryptedFileExtension20encryptedEnvironmentACSgSS_S2SSo09PRRuntimeJ4TypeVtcfc",
+            "moduleName": "PRUtils",
+            "objc_name": "initWithPath:key:unencryptedFileExtension:encryptedEnvironment:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUtils@objc(cs)SecureStorage(im)loadWithError:",
+            "mangledName": "$s7PRUtils13SecureStorageC4load10Foundation4DataVyKF",
+            "moduleName": "PRUtils",
+            "objc_name": "loadWithError:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "store",
+            "printedName": "store(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUtils@objc(cs)SecureStorage(im)store:error:",
+            "mangledName": "$s7PRUtils13SecureStorageC5storeyy10Foundation4DataVKF",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7PRUtils13SecureStorageC4load10Foundation4DataVyYaKF",
+            "mangledName": "$s7PRUtils13SecureStorageC4load10Foundation4DataVyYaKF",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "store",
+            "printedName": "store(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7PRUtils13SecureStorageC5storeyy10Foundation4DataVYaKF",
+            "mangledName": "$s7PRUtils13SecureStorageC5storeyy10Foundation4DataVYaKF",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRUtils@objc(cs)SecureStorage",
+        "mangledName": "$s7PRUtils13SecureStorageC",
+        "moduleName": "PRUtils",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
         ]
       },
       {
@@ -9258,6 +10027,13 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Synchronizer\/ArrayActor.swift",
+      "kind": "Array",
+      "offset": 269,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/Data+Compression.swift",
       "kind": "IntegerLiteral",
       "offset": 707,
@@ -10082,6 +10858,69 @@
       "offset": 307,
       "length": 10,
       "value": "\"PRMainVC\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "IntegerLiteral",
+      "offset": 351,
+      "length": 12,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "IntegerLiteral",
+      "offset": 351,
+      "length": 12,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "StringLiteral",
+      "offset": 636,
+      "length": 51,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "StringLiteral",
+      "offset": 653,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "StringLiteral",
+      "offset": 686,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "StringLiteral",
+      "offset": 1040,
+      "length": 13,
+      "value": "\"unencrypted\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "Array",
+      "offset": 1121,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1672,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Crypt\/SecureStorage.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1874,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSLocale+Language.swift",

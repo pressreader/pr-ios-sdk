@@ -9,19 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <PRAPI/PRSourceListFilter.h>
 
-@protocol CatalogFacade;
+@class PRSourceList;
 @class PRCountableValue;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRCatalogFilterItem : NSObject
 
-+ (nullable instancetype)categoryFilterItemWithSourceList:(id<CatalogFacade>)list;
++ (nullable instancetype)categoryFilterItemWithSourceList:(PRSourceList *)list;
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSArray<PRCountableValue *> *filterValues;
 @property (nonatomic, getter=isActivated) BOOL activated;
-@property (nonatomic, strong, readonly) id<CatalogFacade> sourceList;
+@property (nonatomic, strong, readonly) PRSourceList *sourceList;
 
 @end
 

@@ -1,0 +1,11 @@
+framework module PRAnalytics {
+  umbrella header "PRAnalytics.h"
+  export *
+
+  module * { export * }
+}
+
+module PRAnalytics.Swift {
+  header "PRAnalytics-Swift.h"
+  requires objc
+}

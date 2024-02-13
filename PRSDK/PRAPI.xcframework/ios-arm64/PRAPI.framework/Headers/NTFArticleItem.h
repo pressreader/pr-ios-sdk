@@ -21,16 +21,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_OPTIONS(int32_t, NTFArticleItemState) {
+    NTFArticleItemStateLoaded = 1 << 0,
+    NTFArticleItemStateRead = 1 << 1,
+    NTFArticleItemStateAccessible = 1 << 2
+};
+
 extern NSString * const kPRPopularArticlesKey;
 
 @interface NTFArticleItem : NTFFeedItem <NTFArticle>
 
-+ (instancetype)itemWithJSON:(NSDictionary *)json isoLanguage:(nullable NSString *)language section:(NTFFeedSectionItem *)feedSection;
-
++ (instancetype)itemWithJSON:(NSDictionary *)json
+                 isoLanguage:(nullable NSString *)language
+                        feed:(NTFFeed *)feed NS_UNAVAILABLE;
++ (instancetype)itemWithJSON:(NSDictionary *)json
+                 isoLanguage:(nullable NSString *)language
+                        feed:(NTFFeed *)feed
+                   completed:(BOOL)completed;
 @property (nonatomic, readonly) NSString *text;
 @property (nullable, nonatomic, readonly) NSString *bylineForDisplay;
 @property (nullable, nonatomic, readonly) NSString *bylineForDisplayWithLineBreak;
-
+@property (nullable, nonatomic, readonly) NSArray<NTFArticleItem *> *relatedStories;
 // computed
 @property (nonatomic, readonly) PRSmartArticle *smartArticle;
 @property (nullable, nonatomic, readonly) PRMyLibraryItem *mli;
@@ -55,6 +66,7 @@ extern NSString * const kPRPopularArticlesKey;
 - (void)updateWithSocialInfo:(NTFSocialInfoItem *)socialInfo;
 - (BOOL)updateSocialInfoWithAccountNumber:(NSInteger)accountNumber;
 - (void)reportAnalyticsExpanded:(BOOL)expanded;
+- (void)updateWithJSON:(NSDictionary *)json completed:(BOOL)completed;
 
 - (nullable NSString *)channelCollectionNameWithPreferredCollectionId:(nullable NSString *)preferredCollectionId;
 

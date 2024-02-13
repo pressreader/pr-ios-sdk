@@ -18,12 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) CatalogNavigationType selectedFilterID;
 
-/// Store collection can use its own source list, in this case inherited source list
-/// should be passed to globalSourceList property.
-/// This list is used for correct presentation of filter path view (bread crumb) and
-/// for dimming titles which are not comply with current source list.
-@property (nonatomic, strong) id<CatalogFacade> globalSourceList;
-
 @end
 
 

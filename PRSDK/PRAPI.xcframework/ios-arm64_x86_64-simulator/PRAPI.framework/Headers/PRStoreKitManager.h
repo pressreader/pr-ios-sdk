@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) resetAppReceipt;
 //+ (nullable NSArray<SKProduct *> *) eligibleTrialOrIntroductorySubscriptions:(nullable NSArray<SKProduct *> *)introPricedSubscriptions;
 
+@property (nullable, nonatomic, readonly) SKStorefront *storefront;
+
 - (nullable SKProduct *) productWithProductIdentifier:(NSString *)productIdentifier;
 - (void) requestStoreProductsInfoWithIdentifiers:(NSSet<NSString *> *)productIdentifiers
                                        completed:(void(^)(NSArray<SKProduct *> *products,

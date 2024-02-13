@@ -43,7 +43,6 @@ typedef NS_OPTIONS (NSInteger, PRSlideShowStatus) {
 	UIBarButtonItem *nextBarButton;
 	UIBarButtonItem *playBarButton;
 	
-	NSInteger currentPageIndex;
 	BOOL playSlideShow;
 
 	NSMutableArray *images;
@@ -99,6 +98,7 @@ typedef NS_OPTIONS (NSInteger, PRSlideShowStatus) {
 @property (nonatomic, strong) UIBarButtonItem *playBarButton;
 @property (nonatomic, strong) PRImageDetailsCaptionView *captionView;
 @property (nonatomic, strong) NSTimer *slideShowTimer;
+@property (nonatomic, readonly) NSInteger currentPageIndex;
 
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) NSArray *imageURLs;

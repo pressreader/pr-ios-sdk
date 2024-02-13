@@ -65,6 +65,20 @@ extension PRUtils.Observable {
   }
   public func _observe(_ callback: Self.Callback) -> Swift.AnyObject
 }
+#if compiler(>=5.3) && $Actors
+public actor ArrayActor<T> {
+  public var items: [T] {
+    get
+  }
+  public init(_ items: [T] = [])
+  public func append<S>(contentsOf newElements: S) where T == S.Element, S : Swift.Sequence
+  @objc deinit
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  @_semantics("defaultActor") nonisolated final public var unownedExecutor: _Concurrency.UnownedSerialExecutor {
+    get
+  }
+}
+#endif
 extension Foundation.Data {
   public func inflated() -> Foundation.Data?
 }
@@ -277,6 +291,32 @@ public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -
     @objc get
   }
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class SecureStorage : ObjectiveC.NSObject {
+  @objc public enum CryptoStorageError : Swift.Int, Swift.Error {
+    case unexpected
+    case fileNotFound
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public static var _nsErrorDomain: Swift.String {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public init?(path: Swift.String, key: Swift.String, unencryptedFileExtension: Swift.String = "unencrypted", encryptedEnvironment: PRSyntacticSugar.PRRuntimeEnvironmentType = [])
+  @objc(loadWithError:) final public func load() throws -> Foundation.Data
+  @objc final public func store(_ data: Foundation.Data) throws
+  @objc deinit
+}
+extension PRUtils.SecureStorage {
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func load() async throws -> Foundation.Data
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func store(_ data: Foundation.Data) async throws
+  #endif
+}
 @objc extension Foundation.NSLocale {
   @objc public static func localizeLanguage(_ language: Swift.String) -> Swift.String
   @objc dynamic public func languageName(isoCode: Swift.String) -> Swift.String?
@@ -297,3 +337,6 @@ extension Foundation.NSAttributedString.InitError : Swift.Hashable {}
 extension PRUtils.AuthPriority : Swift.Equatable {}
 extension PRUtils.AuthPriority : Swift.Hashable {}
 extension PRUtils.AuthPriority : Swift.RawRepresentable {}
+extension PRUtils.SecureStorage.CryptoStorageError : Swift.Equatable {}
+extension PRUtils.SecureStorage.CryptoStorageError : Swift.Hashable {}
+extension PRUtils.SecureStorage.CryptoStorageError : Swift.RawRepresentable {}

@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
                     fromBarButtonItem:(nullable UIBarButtonItem *)barButtonItem;
 - (nullable NSString *)printFooterStringIncludingDeviceAccount:(BOOL)include;
 @property (nonatomic, readonly) NSInteger maxNumberOfPagesToPrint;
-@property (nonatomic, readonly) NSInteger numberOfPrintedPages;
 
 @end
 

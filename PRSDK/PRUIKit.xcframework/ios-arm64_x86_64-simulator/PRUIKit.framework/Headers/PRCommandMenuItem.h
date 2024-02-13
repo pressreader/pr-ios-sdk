@@ -7,7 +7,7 @@
 //
 
 #import "PRMenuItem.h"
-#import <PRUIKit/PRCommandNames.h>
+#import <PRCommands/PRCommands.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

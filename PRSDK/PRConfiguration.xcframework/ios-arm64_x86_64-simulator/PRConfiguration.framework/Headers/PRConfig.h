@@ -63,10 +63,6 @@
 #define ALWAYS_USE_DOUBLE_PAGE_VIEW		_PRCONFIG_BOOL_(@"ALWAYS_USE_DOUBLE_PAGE_VIEW", NO)
 //This enables small advertisement view in the bottom of PDFveiw
 #define SHOW_ADVERTISEMENT_IN_READINGVIEW _PRCONFIG_BOOL_(@"SHOW_ADVERTISEMENT_IN_READINGVIEW", NO)
-#define enable_printing					_PRCONFIG_BOOL_(@"enable_printing", YES)
-#define enable_page_printing			(_PRCONFIG_BOOL_(@"enable_page_printing", YES) && _PRCONFIG_BOOL_(@"enable_printing", YES))
-#define enable_article_printing			(_PRCONFIG_BOOL_(@"enable_article_printing", YES) && _PRCONFIG_BOOL_(@"enable_printing", YES))
-#define enable_article_print_in_graphics			(_PRCONFIG_BOOL_(@"enable_article_print_in_graphics", YES) && _PRCONFIG_BOOL_(@"enable_article_printing", NO))
 #define enable_pageset_actions          _PRCONFIG_BOOL_(@"enable_pageset_actions", YES)
 
 #pragma mark - Store/Catalog

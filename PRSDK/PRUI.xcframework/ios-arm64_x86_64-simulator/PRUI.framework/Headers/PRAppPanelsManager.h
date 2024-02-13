@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import PRUIKit.PRAppPanel;
+#import <PRUI/PRAppPanel.h>
 @import PRAPI.PROptions;
 
 NS_ASSUME_NONNULL_BEGIN

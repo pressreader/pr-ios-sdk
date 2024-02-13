@@ -6,8 +6,8 @@
     "children": [
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRSyntacticSugar",
+        "printedName": "PRSyntacticSugar",
         "declKind": "Import",
         "moduleName": "PRLogKit",
         "declAttributes": [
@@ -83,9 +83,6 @@
             "mangledName": "$sSo5PRLogC0A3KitE10LogVerbose_7context3tag4file8function4lineySS_SiypSgS2SSutFZ",
             "moduleName": "PRLogKit",
             "static": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -127,7 +124,6 @@
             "static": true,
             "declAttributes": [
               "Dynamic",
-              "AccessControl",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -197,9 +193,6 @@
             "mangledName": "$sSo5PRLogC0A3KitE8LogDebug_7context3tag4file8function4lineySS_SiypSgS2SSutFZ",
             "moduleName": "PRLogKit",
             "static": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -267,9 +260,6 @@
             "mangledName": "$sSo5PRLogC0A3KitE8LogTrace_7context3tag4file8function4lineySS_SiypSgS2SSutFZ",
             "moduleName": "PRLogKit",
             "static": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -337,9 +327,6 @@
             "mangledName": "$sSo5PRLogC0A3KitE7LogInfo_7context3tag4file8function4lineySS_SiypSgS2SSutFZ",
             "moduleName": "PRLogKit",
             "static": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -407,9 +394,6 @@
             "mangledName": "$sSo5PRLogC0A3KitE10LogWarning_7context3tag4file8function4lineySS_SiypSgS2SSutFZ",
             "moduleName": "PRLogKit",
             "static": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -477,8 +461,81 @@
             "mangledName": "$sSo5PRLogC0A3KitE8LogError_7context3tag4file8function4lineySS_SiypSgS2SSutFZ",
             "moduleName": "PRLogKit",
             "static": true,
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isInDebugger",
+            "printedName": "isInDebugger()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRLogKit@@objc(cs)PRLog(cm)isInDebugger",
+            "mangledName": "$sSo5PRLogC0A3KitE12isInDebuggerSbyFZ",
+            "moduleName": "PRLogKit",
+            "static": true,
             "declAttributes": [
-              "AccessControl"
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "debugCrash",
+            "printedName": "debugCrash(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRLogKit@@objc(cs)PRLog(cm)debugCrash:",
+            "mangledName": "$sSo5PRLogC0A3KitE10debugCrashyySSFZ",
+            "moduleName": "PRLogKit",
+            "static": true,
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "productionDebugCrash",
+            "printedName": "productionDebugCrash()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRLogKit@@objc(cs)PRLog(cm)productionDebugCrash",
+            "mangledName": "$sSo5PRLogC0A3KitE20productionDebugCrashyyFZ",
+            "moduleName": "PRLogKit",
+            "static": true,
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -558,44 +615,51 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRLogKit\/PRLog.swift",
       "kind": "IntegerLiteral",
-      "offset": 281,
+      "offset": 276,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRLogKit\/PRLog.swift",
       "kind": "IntegerLiteral",
-      "offset": 864,
+      "offset": 818,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRLogKit\/PRLog.swift",
       "kind": "IntegerLiteral",
-      "offset": 1321,
+      "offset": 1237,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRLogKit\/PRLog.swift",
       "kind": "IntegerLiteral",
-      "offset": 1776,
+      "offset": 1654,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRLogKit\/PRLog.swift",
       "kind": "IntegerLiteral",
-      "offset": 2232,
+      "offset": 2072,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRLogKit\/PRLog.swift",
       "kind": "IntegerLiteral",
-      "offset": 2699,
+      "offset": 2501,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/ExternalSources\/PRLogKit\/PRLog.swift",
+      "kind": "StringLiteral",
+      "offset": 3330,
+      "length": 2,
+      "value": "\"\""
     }
   ]
 }

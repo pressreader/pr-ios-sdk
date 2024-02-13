@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class PDFDoc;
 @class PdfPrintRendererPage;
 
-@protocol ReadingViewItem <PRCatalogItem, OpenedItem>
+@protocol _ReadingViewItem <PRCatalogItem, OpenedItem>
 @property NSUInteger viewerPage;
 
 @property (readonly) NSUInteger numberOfPages;
@@ -27,16 +27,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly) BOOL isPurchaseAdvise;
 @property (readonly) BOOL isMarkedToDeleteContent;
 
-- (BOOL) isEqualToItem:(NSObject<ReadingViewItem> *)mli NS_SWIFT_NAME(isEqual(to:));
 
 - (BOOL)done;
 - (BOOL)pdnDone;
 
 - (BOOL)pdnDownloadedForPage:(NSUInteger)pageNumber;
-- (BOOL)printingDisabled;
-- (BOOL)pagePrintingDisabled;
-- (BOOL)issuePrintingEnabled;
-
 - (nullable PRPage*)getPage:(NSUInteger) pageNumber;
 
 - (void)saveToPersistentStore;
@@ -46,9 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSProgress *) progress;
 - (nullable NSProgress *) pdnProgress;
 - (nullable NSProgress *) pdnProgressForPage:(NSUInteger)page;
-
-- (void) recordIssuePrint;
-- (void) recordPagePrint:(NSUInteger)numberOfPages;
 
 - (nullable PDFDoc *)pdfDoc;
 - (nullable PDFDoc *)pdfDocForPage:(NSUInteger)pageNo;

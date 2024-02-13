@@ -280,6 +280,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
+@import PRSyntacticSugar;
 @import UIKit;
 #endif
 
@@ -417,16 +418,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nonnull)sentenceShiftedToPhrases:(NSArray<NSString *> * _Nonnull)phrases maxBeginningCharactersCount:(NSInteger)maxBeginningCharactersCount SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface NSString (SWIFT_EXTENSION(PRUtils))
+@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
+@end
+
 @class NSValue;
 
 @interface NSString (SWIFT_EXTENSION(PRUtils))
 - (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases options:(PRStringSearchOption)options SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface NSString (SWIFT_EXTENSION(PRUtils))
-@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
 @end
 
 
@@ -452,6 +453,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @interface PRSignInOption (SWIFT_EXTENSION(PRUtils))
 @property (nonatomic, readonly) enum AuthPriority priority;
 @end
+
+@class NSData;
+
+SWIFT_CLASS("_TtC7PRUtils13SecureStorage")
+@interface SecureStorage : NSObject
+/// \param path storage file path
+///
+/// \param encryptedEnvironment runtime environment that encryption takes an effect in,
+/// considered <code>everywhere</code> if not specified.
+///
+- (nullable instancetype)initWithPath:(NSString * _Nonnull)path key:(NSString * _Nonnull)key unencryptedFileExtension:(NSString * _Nonnull)unencryptedFileExtension encryptedEnvironment:(PRRuntimeEnvironmentType)encryptedEnvironment OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (NSData * _Nullable)loadWithError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)store:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
+@end
+
+typedef SWIFT_ENUM(NSInteger, CryptoStorageError, open) {
+  CryptoStorageErrorUnexpected = 0,
+  CryptoStorageErrorFileNotFound = 1,
+};
+static NSString * _Nonnull const CryptoStorageErrorDomain = @"PRUtils.SecureStorage.CryptoStorageError";
+
 
 
 SWIFT_CLASS("_TtC7PRUtils18SerialSynchronizer")
@@ -764,6 +788,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
+@import PRSyntacticSugar;
 @import UIKit;
 #endif
 
@@ -901,16 +926,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nonnull)sentenceShiftedToPhrases:(NSArray<NSString *> * _Nonnull)phrases maxBeginningCharactersCount:(NSInteger)maxBeginningCharactersCount SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface NSString (SWIFT_EXTENSION(PRUtils))
+@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
+@end
+
 @class NSValue;
 
 @interface NSString (SWIFT_EXTENSION(PRUtils))
 - (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases options:(PRStringSearchOption)options SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface NSString (SWIFT_EXTENSION(PRUtils))
-@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
 @end
 
 
@@ -936,6 +961,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @interface PRSignInOption (SWIFT_EXTENSION(PRUtils))
 @property (nonatomic, readonly) enum AuthPriority priority;
 @end
+
+@class NSData;
+
+SWIFT_CLASS("_TtC7PRUtils13SecureStorage")
+@interface SecureStorage : NSObject
+/// \param path storage file path
+///
+/// \param encryptedEnvironment runtime environment that encryption takes an effect in,
+/// considered <code>everywhere</code> if not specified.
+///
+- (nullable instancetype)initWithPath:(NSString * _Nonnull)path key:(NSString * _Nonnull)key unencryptedFileExtension:(NSString * _Nonnull)unencryptedFileExtension encryptedEnvironment:(PRRuntimeEnvironmentType)encryptedEnvironment OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (NSData * _Nullable)loadWithError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)store:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
+@end
+
+typedef SWIFT_ENUM(NSInteger, CryptoStorageError, open) {
+  CryptoStorageErrorUnexpected = 0,
+  CryptoStorageErrorFileNotFound = 1,
+};
+static NSString * _Nonnull const CryptoStorageErrorDomain = @"PRUtils.SecureStorage.CryptoStorageError";
+
 
 
 SWIFT_CLASS("_TtC7PRUtils18SerialSynchronizer")

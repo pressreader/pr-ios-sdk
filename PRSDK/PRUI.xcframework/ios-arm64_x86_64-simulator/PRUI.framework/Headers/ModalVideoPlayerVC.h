@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, weak) id<IssueAnalyticsProvider> analyticsProvider;
 @property (nonatomic, strong, readonly) PRMediaDetailsCaptionView *captionView;
+@property (nonatomic, strong, readonly) NSDictionary *metadata;
 
 @end
 

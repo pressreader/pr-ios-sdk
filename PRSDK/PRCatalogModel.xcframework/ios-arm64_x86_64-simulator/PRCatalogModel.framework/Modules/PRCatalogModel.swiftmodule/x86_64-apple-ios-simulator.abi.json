@@ -1274,8 +1274,8 @@
         "children": [
           {
             "kind": "Var",
-            "name": "type",
-            "printedName": "type",
+            "name": "category",
+            "printedName": "category",
             "children": [
               {
                 "kind": "TypeFunc",
@@ -1305,8 +1305,8 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:14PRCatalogModel22CatalogNavigationScopeO4typeyA2CmF",
-            "mangledName": "$s14PRCatalogModel22CatalogNavigationScopeO4typeyA2CmF",
+            "usr": "s:14PRCatalogModel22CatalogNavigationScopeO8categoryyA2CmF",
+            "mangledName": "$s14PRCatalogModel22CatalogNavigationScopeO8categoryyA2CmF",
             "moduleName": "PRCatalogModel"
           },
           {
@@ -1385,8 +1385,8 @@
           },
           {
             "kind": "Var",
-            "name": "category",
-            "printedName": "category",
+            "name": "type",
+            "printedName": "type",
             "children": [
               {
                 "kind": "TypeFunc",
@@ -1416,9 +1416,63 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:14PRCatalogModel22CatalogNavigationScopeO8categoryyA2CmF",
-            "mangledName": "$s14PRCatalogModel22CatalogNavigationScopeO8categoryyA2CmF",
+            "usr": "s:14PRCatalogModel22CatalogNavigationScopeO4typeyA2CmF",
+            "mangledName": "$s14PRCatalogModel22CatalogNavigationScopeO4typeyA2CmF",
             "moduleName": "PRCatalogModel"
+          },
+          {
+            "kind": "Var",
+            "name": "entityType",
+            "printedName": "entityType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "PRCatalogModel.CatalogEntity.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CatalogEntity",
+                    "printedName": "PRCatalogModel.CatalogEntity",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel22CatalogNavigationScopeO10entityTypeAA0C6EntityCmvp",
+            "mangledName": "$s14PRCatalogModel22CatalogNavigationScopeO10entityTypeAA0C6EntityCmvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRCatalogModel.CatalogEntity.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CatalogEntity",
+                        "printedName": "PRCatalogModel.CatalogEntity",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel22CatalogNavigationScopeO10entityTypeAA0C6EntityCmvg",
+                "mangledName": "$s14PRCatalogModel22CatalogNavigationScopeO10entityTypeAA0C6EntityCmvg",
+                "moduleName": "PRCatalogModel",
+                "accessorKind": "get"
+              }
+            ]
           },
           {
             "kind": "Constructor",
@@ -7686,16 +7740,6 @@
       },
       {
         "kind": "Import",
-        "name": "CoreData",
-        "printedName": "CoreData",
-        "declKind": "Import",
-        "moduleName": "PRCatalogModel",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -9268,6 +9312,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRLogKit",
+        "printedName": "PRLogKit",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
       },
       {
         "kind": "TypeDecl",
@@ -20136,6 +20187,23 @@
         "moduleName": "PRCatalogModel"
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
         "kind": "TypeDecl",
         "name": "CompoundNavigation",
         "printedName": "CompoundNavigation",
@@ -20675,6 +20743,23 @@
         "moduleName": "PRCatalogModel"
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
         "kind": "TypeDecl",
         "name": "Language",
         "printedName": "Language",
@@ -20905,6 +20990,234 @@
             ],
             "usr": "s:s12IdentifiableP",
             "mangledName": "$ss12IdentifiableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Newspaper",
+        "printedName": "Newspaper",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(entity:insertInto:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Newspaper",
+                "printedName": "PRCatalogModel.Newspaper",
+                "usr": "c:@M@PRCatalogModel@objc(cs)Newspaper"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSEntityDescription",
+                "printedName": "CoreData.NSEntityDescription",
+                "usr": "c:objc(cs)NSEntityDescription"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreData.NSManagedObjectContext?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRCatalogModel@objc(cs)Newspaper(im)initWithEntity:insertIntoManagedObjectContext:",
+            "mangledName": "$s14PRCatalogModel9NewspaperC6entity10insertIntoACSo19NSEntityDescriptionC_So22NSManagedObjectContextCSgtcfc",
+            "moduleName": "PRCatalogModel",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithEntity:insertIntoManagedObjectContext:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "fetchRequest",
+            "printedName": "fetchRequest()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSFetchRequest",
+                "printedName": "CoreData.NSFetchRequest<PRCatalogModel.Newspaper>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Newspaper",
+                    "printedName": "PRCatalogModel.Newspaper",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)Newspaper"
+                  }
+                ],
+                "usr": "c:objc(cs)NSFetchRequest"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14PRCatalogModel9NewspaperC12fetchRequestSo07NSFetchE0CyACGyFZ",
+            "mangledName": "$s14PRCatalogModel9NewspaperC12fetchRequestSo07NSFetchE0CyACGyFZ",
+            "moduleName": "PRCatalogModel",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "NonObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRCatalogModel@objc(cs)Newspaper",
+        "mangledName": "$s14PRCatalogModel9NewspaperC",
+        "moduleName": "PRCatalogModel",
+        "objc_name": "Newspaper",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@PRCatalogModel@objc(cs)TitleItem",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "PRCatalogModel.TitleItem",
+          "PRCatalogModel.CatalogItem",
+          "CoreData.NSManagedObject",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CatalogableMO",
+            "printedName": "CatalogableMO",
+            "usr": "s:14PRCatalogModel13CatalogableMOP",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
           }
         ]
       },
@@ -24253,6 +24566,63 @@
         "name": "CatalogItem",
         "printedName": "CatalogItem",
         "children": [
+          {
+            "kind": "Var",
+            "name": "authorsShortList",
+            "printedName": "authorsShortList",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel11CatalogItemC16authorsShortListSSSgvp",
+            "mangledName": "$s14PRCatalogModel11CatalogItemC16authorsShortListSSSgvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel11CatalogItemC16authorsShortListSSSgvg",
+                "mangledName": "$s14PRCatalogModel11CatalogItemC16authorsShortListSSSgvg",
+                "moduleName": "PRCatalogModel",
+                "accessorKind": "get"
+              }
+            ]
+          },
           {
             "kind": "Function",
             "name": "prepareForDeletion",
@@ -28190,417 +28560,6 @@
       },
       {
         "kind": "Import",
-        "name": "CoreData",
-        "printedName": "CoreData",
-        "declKind": "Import",
-        "moduleName": "PRCatalogModel",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "Issue",
-        "printedName": "Issue",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(entity:insertInto:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Issue",
-                "printedName": "PRCatalogModel.Issue",
-                "usr": "c:@M@PRCatalogModel@objc(cs)Issue"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSEntityDescription",
-                "printedName": "CoreData.NSEntityDescription",
-                "usr": "c:objc(cs)NSEntityDescription"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "CoreData.NSManagedObjectContext?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSManagedObjectContext",
-                    "printedName": "CoreData.NSManagedObjectContext",
-                    "usr": "c:objc(cs)NSManagedObjectContext"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRCatalogModel@objc(cs)Issue(im)initWithEntity:insertIntoManagedObjectContext:",
-            "mangledName": "$s14PRCatalogModel5IssueC6entity10insertIntoACSo19NSEntityDescriptionC_So22NSManagedObjectContextCSgtcfc",
-            "moduleName": "PRCatalogModel",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithEntity:insertIntoManagedObjectContext:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "fetchRequest",
-            "printedName": "fetchRequest()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "NSFetchRequest",
-                "printedName": "CoreData.NSFetchRequest<PRCatalogModel.Issue>",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Issue",
-                    "printedName": "PRCatalogModel.Issue",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)Issue"
-                  }
-                ],
-                "usr": "c:objc(cs)NSFetchRequest"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:14PRCatalogModel5IssueC12fetchRequestSo07NSFetchE0CyACGyFZ",
-            "mangledName": "$s14PRCatalogModel5IssueC12fetchRequestSo07NSFetchE0CyACGyFZ",
-            "moduleName": "PRCatalogModel",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "NonObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "issueDate",
-            "printedName": "issueDate",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Date",
-                "printedName": "Foundation.Date",
-                "usr": "s:10Foundation4DateV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Issue(py)issueDate",
-            "mangledName": "$s14PRCatalogModel5IssueC9issueDate10Foundation0E0Vvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Date",
-                    "printedName": "Foundation.Date",
-                    "usr": "s:10Foundation4DateV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)Issue(im)issueDate",
-                "mangledName": "$s14PRCatalogModel5IssueC9issueDate10Foundation0E0Vvg",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Date",
-                    "printedName": "Foundation.Date",
-                    "usr": "s:10Foundation4DateV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)Issue(im)setIssueDate:",
-                "mangledName": "$s14PRCatalogModel5IssueC9issueDate10Foundation0E0Vvs",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "publication",
-            "printedName": "publication",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "PRCatalogModel.TitleItem?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "TitleItem",
-                    "printedName": "PRCatalogModel.TitleItem",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)TitleItem"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Issue(py)publication",
-            "mangledName": "$s14PRCatalogModel5IssueC11publicationAA9TitleItemCSgvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "PRCatalogModel.TitleItem?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "TitleItem",
-                        "printedName": "PRCatalogModel.TitleItem",
-                        "usr": "c:@M@PRCatalogModel@objc(cs)TitleItem"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)Issue(im)publication",
-                "mangledName": "$s14PRCatalogModel5IssueC11publicationAA9TitleItemCSgvg",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "PRCatalogModel.TitleItem?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "TitleItem",
-                        "printedName": "PRCatalogModel.TitleItem",
-                        "usr": "c:@M@PRCatalogModel@objc(cs)TitleItem"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)Issue(im)setPublication:",
-                "mangledName": "$s14PRCatalogModel5IssueC11publicationAA9TitleItemCSgvs",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "set"
-              }
-            ]
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@PRCatalogModel@objc(cs)Issue",
-        "mangledName": "$s14PRCatalogModel5IssueC",
-        "moduleName": "PRCatalogModel",
-        "objc_name": "Issue",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "ObjC"
-        ],
-        "superclassUsr": "c:@M@PRCatalogModel@objc(cs)TitleItem",
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "PRCatalogModel.TitleItem",
-          "PRCatalogModel.CatalogItem",
-          "CoreData.NSManagedObject",
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CatalogableMO",
-            "printedName": "CatalogableMO",
-            "usr": "s:14PRCatalogModel13CatalogableMOP",
-            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "IdentifiableMO",
-            "printedName": "IdentifiableMO",
-            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
-            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -29291,8 +29250,8 @@
               },
               {
                 "kind": "Var",
-                "name": "path",
-                "printedName": "path",
+                "name": "orderBy",
+                "printedName": "orderBy",
                 "children": [
                   {
                     "kind": "TypeFunc",
@@ -29322,8 +29281,119 @@
                   }
                 ],
                 "declKind": "EnumElement",
-                "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO4pathyA2EmF",
-                "mangledName": "$s14PRCatalogModel13CatalogEntityC16LoadingParameterO4pathyA2EmF",
+                "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO7orderByyA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC16LoadingParameterO7orderByyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
+                "name": "supplement",
+                "printedName": "supplement",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.CatalogEntity.LoadingParameter.Type) -> PRCatalogModel.CatalogEntity.LoadingParameter",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingParameter",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LoadingParameter",
+                            "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                            "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO10supplementyA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC16LoadingParameterO10supplementyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
+                "name": "cre",
+                "printedName": "cre",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.CatalogEntity.LoadingParameter.Type) -> PRCatalogModel.CatalogEntity.LoadingParameter",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingParameter",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LoadingParameter",
+                            "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                            "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO3creyA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC16LoadingParameterO3creyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
+                "name": "limit",
+                "printedName": "limit",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.CatalogEntity.LoadingParameter.Type) -> PRCatalogModel.CatalogEntity.LoadingParameter",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingParameter",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LoadingParameter",
+                            "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                            "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO5limityA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC16LoadingParameterO5limityA2EmF",
                 "moduleName": "PRCatalogModel"
               },
               {
@@ -30262,6 +30332,66 @@
                 "declKind": "Accessor",
                 "usr": "s:14PRCatalogModel13CatalogEntityC18superEntitiesArraySayACGSgvg",
                 "mangledName": "$s14PRCatalogModel13CatalogEntityC18superEntitiesArraySayACGSgvg",
+                "moduleName": "PRCatalogModel",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "navigationPath",
+            "printedName": "navigationPath",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[PRCatalogModel.CatalogEntity]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CatalogEntity",
+                    "printedName": "PRCatalogModel.CatalogEntity",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel13CatalogEntityC14navigationPathSayACGvp",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC14navigationPathSayACGvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRCatalogModel.CatalogEntity]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CatalogEntity",
+                        "printedName": "PRCatalogModel.CatalogEntity",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel13CatalogEntityC14navigationPathSayACGvg",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC14navigationPathSayACGvg",
                 "moduleName": "PRCatalogModel",
                 "declAttributes": [
                   "Final"
@@ -33938,6 +34068,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
         "kind": "TypeDecl",
         "name": "TitleItem",
         "printedName": "TitleItem",
@@ -34061,109 +34198,6 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "issues",
-            "printedName": "issues",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.NSSet?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSSet",
-                    "printedName": "Foundation.NSSet",
-                    "usr": "c:objc(cs)NSSet"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)TitleItem(py)issues",
-            "mangledName": "$s14PRCatalogModel9TitleItemC6issuesSo5NSSetCSgvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)TitleItem(im)issues",
-                "mangledName": "$s14PRCatalogModel9TitleItemC6issuesSo5NSSetCSgvg",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)TitleItem(im)setIssues:",
-                "mangledName": "$s14PRCatalogModel9TitleItemC6issuesSo5NSSetCSgvs",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "set"
-              }
-            ]
           }
         ],
         "declKind": "Class",
@@ -35073,6 +35107,234 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Magazine",
+        "printedName": "Magazine",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(entity:insertInto:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Magazine",
+                "printedName": "PRCatalogModel.Magazine",
+                "usr": "c:@M@PRCatalogModel@objc(cs)Magazine"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSEntityDescription",
+                "printedName": "CoreData.NSEntityDescription",
+                "usr": "c:objc(cs)NSEntityDescription"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreData.NSManagedObjectContext?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRCatalogModel@objc(cs)Magazine(im)initWithEntity:insertIntoManagedObjectContext:",
+            "mangledName": "$s14PRCatalogModel8MagazineC6entity10insertIntoACSo19NSEntityDescriptionC_So22NSManagedObjectContextCSgtcfc",
+            "moduleName": "PRCatalogModel",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithEntity:insertIntoManagedObjectContext:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "fetchRequest",
+            "printedName": "fetchRequest()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSFetchRequest",
+                "printedName": "CoreData.NSFetchRequest<PRCatalogModel.Magazine>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Magazine",
+                    "printedName": "PRCatalogModel.Magazine",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)Magazine"
+                  }
+                ],
+                "usr": "c:objc(cs)NSFetchRequest"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14PRCatalogModel8MagazineC12fetchRequestSo07NSFetchE0CyACGyFZ",
+            "mangledName": "$s14PRCatalogModel8MagazineC12fetchRequestSo07NSFetchE0CyACGyFZ",
+            "moduleName": "PRCatalogModel",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "NonObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRCatalogModel@objc(cs)Magazine",
+        "mangledName": "$s14PRCatalogModel8MagazineC",
+        "moduleName": "PRCatalogModel",
+        "objc_name": "Magazine",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@PRCatalogModel@objc(cs)TitleItem",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "PRCatalogModel.TitleItem",
+          "PRCatalogModel.CatalogItem",
+          "CoreData.NSManagedObject",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CatalogableMO",
+            "printedName": "CatalogableMO",
+            "usr": "s:14PRCatalogModel13CatalogableMOP",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
           }
         ]
       },
@@ -37887,58 +38149,58 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
       "kind": "StringLiteral",
-      "offset": 257,
-      "length": 18,
-      "value": "\"PublicationTypes\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 295,
-      "length": 11,
-      "value": "\"Countries\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 327,
-      "length": 11,
-      "value": "\"Languages\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 359,
+      "offset": 261,
       "length": 20,
       "value": "\"BaseContentCatalog\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
       "kind": "StringLiteral",
-      "offset": 257,
-      "length": 18,
-      "value": "\"PublicationTypes\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 295,
+      "offset": 301,
       "length": 11,
       "value": "\"Countries\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
       "kind": "StringLiteral",
-      "offset": 327,
+      "offset": 333,
       "length": 11,
       "value": "\"Languages\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
       "kind": "StringLiteral",
-      "offset": 359,
+      "offset": 361,
+      "length": 18,
+      "value": "\"PublicationTypes\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
+      "kind": "StringLiteral",
+      "offset": 261,
       "length": 20,
       "value": "\"BaseContentCatalog\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
+      "kind": "StringLiteral",
+      "offset": 301,
+      "length": 11,
+      "value": "\"Countries\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
+      "kind": "StringLiteral",
+      "offset": 333,
+      "length": 11,
+      "value": "\"Languages\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
+      "kind": "StringLiteral",
+      "offset": 361,
+      "length": 18,
+      "value": "\"PublicationTypes\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/PressCatalog+CoreDataProperties.swift",
@@ -37946,6 +38208,13 @@
       "offset": 359,
       "length": 14,
       "value": "\"PressCatalog\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Genre+CoreDataClass.swift",
+      "kind": "Dictionary",
+      "offset": 396,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Books\/ContentLicense+CoreDataProperties.swift",
@@ -38188,37 +38457,23 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "BooleanLiteral",
-      "offset": 1380,
+      "offset": 1356,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 2086,
+      "offset": 2131,
       "length": 90,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 2099,
+      "offset": 2144,
       "length": 2,
       "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
-      "kind": "StringLiteral",
-      "offset": 2102,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
-      "kind": "StringLiteral",
-      "offset": 2131,
-      "length": 1,
-      "value": "\"=\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
@@ -38230,91 +38485,91 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 2175,
+      "offset": 2176,
+      "length": 1,
+      "value": "\"=\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
+      "kind": "StringLiteral",
+      "offset": 2192,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 2331,
-      "length": 4,
-      "value": "\"id\""
+      "offset": 2220,
+      "length": 1,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
-      "kind": "StringLiteral",
-      "offset": 2345,
-      "length": 6,
-      "value": "\"code\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
-      "kind": "StringLiteral",
-      "offset": 2361,
-      "length": 5,
-      "value": "\"key\""
+      "kind": "Array",
+      "offset": 2380,
+      "length": 21,
+      "value": "[\"id\", \"code\", \"key\"]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "BooleanLiteral",
-      "offset": 3160,
+      "offset": 3080,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 3386,
+      "offset": 3306,
       "length": 7,
       "value": "\"items\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 3811,
+      "offset": 3731,
       "length": 6,
       "value": "\"meta\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "IntegerLiteral",
-      "offset": 3900,
+      "offset": 3820,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "Array",
-      "offset": 3951,
+      "offset": 3871,
       "length": 23,
       "value": "[\"totalCount\", \"total\"]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 4051,
+      "offset": 3971,
       "length": 7,
       "value": "\"limit\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "BooleanLiteral",
-      "offset": 4338,
+      "offset": 4258,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "StringLiteral",
-      "offset": 4458,
+      "offset": 4378,
       "length": 19,
       "value": "\"continuationToken\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "BooleanLiteral",
-      "offset": 4743,
+      "offset": 4663,
       "length": 4,
       "value": "true"
     },
@@ -38328,112 +38583,91 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 541,
-      "length": 6,
-      "value": "\"data\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 601,
+      "offset": 544,
       "length": 9,
       "value": "\"formats\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 696,
+      "offset": 651,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 774,
+      "offset": 737,
       "length": 13,
       "value": "\"contentType\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1038,
+      "offset": 1001,
       "length": 11,
       "value": "\"\/document\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1226,
-      "length": 6,
-      "value": "\"data\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 1303,
+      "offset": 1185,
       "length": 7,
       "value": "\"title\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1359,
+      "offset": 1241,
       "length": 9,
       "value": "\"ownerId\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1412,
+      "offset": 1294,
       "length": 11,
       "value": "\"thumbnail\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1485,
+      "offset": 1367,
       "length": 9,
       "value": "\"imageId\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1538,
+      "offset": 1420,
       "length": 9,
       "value": "\"formats\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "IntegerLiteral",
-      "offset": 1723,
+      "offset": 1605,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1755,
-      "length": 10,
-      "value": "\"language\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 1811,
+      "offset": 1694,
       "length": 18,
       "value": "\"readingDirection\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1846,
+      "offset": 1729,
       "length": 5,
       "value": "\"RTL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/Document+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1993,
+      "offset": 1876,
       "length": 11,
       "value": "\"contentId\""
     },
@@ -38443,13 +38677,6 @@
       "offset": 377,
       "length": 2,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/Issue+CoreDataProperties.swift",
-      "kind": "StringLiteral",
-      "offset": 317,
-      "length": 7,
-      "value": "\"Issue\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/HubNavigation+CoreDataProperties.swift",
@@ -38545,65 +38772,79 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 332,
+      "offset": 348,
       "length": 15,
       "value": "\"\/publications\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 518,
+      "offset": 528,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 593,
+      "offset": 592,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 627,
+      "offset": 706,
+      "length": 5,
+      "value": "\"cid\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 770,
       "length": 10,
       "value": "\"Document\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 674,
+      "offset": 817,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 729,
+      "offset": 872,
       "length": 7,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 735,
+      "offset": 878,
       "length": 23,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 886,
-      "length": 13,
-      "value": "\"Publication\""
+      "offset": 1029,
+      "length": 10,
+      "value": "\"Magazine\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 933,
-      "length": 5,
-      "value": "\"cid\""
+      "offset": 1169,
+      "length": 11,
+      "value": "\"Newspaper\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publications+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 1344,
+      "length": 26,
+      "value": "\"unknown publication type\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/DocumentContent+CoreDataProperties.swift",
@@ -39215,6 +39456,13 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/Magazine+CoreDataProperties.swift",
+      "kind": "StringLiteral",
+      "offset": 350,
+      "length": 10,
+      "value": "\"Magazine\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CompoundNavigation+CoreDataProperties.swift",
       "kind": "StringLiteral",
       "offset": 390,
@@ -39250,9 +39498,23 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/Newspaper+CoreDataProperties.swift",
+      "kind": "StringLiteral",
+      "offset": 354,
+      "length": 11,
+      "value": "\"Newspaper\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Language+CoreDataClass.swift",
+      "kind": "Dictionary",
+      "offset": 423,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Language+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 602,
+      "offset": 632,
       "length": 8,
       "value": "\"alpha2\""
     },
@@ -39413,168 +39675,175 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 522,
+      "offset": 654,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 671,
+      "offset": 803,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 843,
+      "offset": 975,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1099,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 1143,
+      "length": 4,
+      "value": "\", \""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "Array",
-      "offset": 1462,
+      "offset": 1765,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 1775,
+      "offset": 2078,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2080,
-      "length": 6,
-      "value": "\"slug\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 2200,
+      "offset": 2504,
       "length": 3,
       "value": "\"\/\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2287,
+      "offset": 2591,
       "length": 3,
       "value": "\"-\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2298,
+      "offset": 2602,
       "length": 7,
       "value": "\"title\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2322,
+      "offset": 2626,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2364,
+      "offset": 2668,
       "length": 3,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2375,
+      "offset": 2679,
       "length": 3,
       "value": "\"-\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2714,
+      "offset": 3135,
       "length": 37,
       "value": "\"id = \"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 2727,
+      "offset": 3148,
       "length": 1,
       "value": "\"\" AND downloads != nil\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 3478,
+      "offset": 3899,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 3564,
+      "offset": 3985,
       "length": 73,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 3583,
+      "offset": 4004,
       "length": 3,
       "value": "\" can't be created with info: \""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 3636,
+      "offset": 4057,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 4021,
+      "offset": 4442,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 4119,
+      "offset": 4540,
       "length": 50,
       "value": "\"CatalogItem Factory Error: `id` is not specified\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 4862,
+      "offset": 5283,
       "length": 7,
       "value": "\"roles\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 4915,
+      "offset": 5336,
       "length": 5,
       "value": "\"A01\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 6279,
+      "offset": 6700,
       "length": 17,
       "value": "\"id == \"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 6293,
+      "offset": 6714,
       "length": 1,
       "value": "\"\"\""
     },
@@ -39602,112 +39871,119 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 840,
+      "offset": 903,
       "length": 13,
       "value": "\"newreleases\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 883,
+      "offset": 946,
       "length": 11,
       "value": "\"justadded\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 840,
+      "offset": 903,
       "length": 13,
       "value": "\"newreleases\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 883,
+      "offset": 946,
       "length": 11,
       "value": "\"justadded\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1043,
+      "offset": 1106,
       "length": 3,
       "value": "\"\/\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "IntegerLiteral",
-      "offset": 1363,
+      "offset": 1426,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1469,
+      "offset": 1532,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1668,
+      "offset": 1731,
       "length": 3,
       "value": "\".\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1752,
+      "offset": 1815,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1841,
+      "offset": 1904,
       "length": 3,
       "value": "\"\/\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1918,
+      "offset": 1981,
       "length": 3,
       "value": "\"\/\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "Array",
+      "offset": 3441,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 4279,
+      "offset": 4453,
       "length": 6,
       "value": "\"name\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 4296,
+      "offset": 4470,
       "length": 6,
       "value": "\"name\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 4375,
+      "offset": 4549,
       "length": 7,
       "value": "\"count\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 4684,
+      "offset": 4858,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 4911,
+      "offset": 5085,
       "length": 4,
       "value": "true"
     },
@@ -39749,84 +40025,42 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataProperties.swift",
       "kind": "StringLiteral",
-      "offset": 333,
+      "offset": 342,
       "length": 11,
       "value": "\"TitleItem\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 325,
+      "offset": 357,
       "length": 14,
       "value": "\"\/publication\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 516,
-      "length": 6,
-      "value": "\"data\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 593,
-      "length": 13,
-      "value": "\"displayName\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 648,
-      "length": 10,
-      "value": "\"language\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 779,
-      "length": 6,
-      "value": "\"data\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 857,
-      "length": 13,
-      "value": "\"displayName\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 887,
+      "offset": 753,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 904,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 939,
+      "offset": 788,
       "length": 3,
       "value": "\"-\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 982,
+      "offset": 831,
       "length": 3,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 993,
+      "offset": 842,
       "length": 3,
       "value": "\"-\""
     },

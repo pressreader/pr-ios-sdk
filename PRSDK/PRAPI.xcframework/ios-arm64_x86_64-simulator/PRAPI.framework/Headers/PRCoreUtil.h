@@ -33,9 +33,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 - (instancetype)initWithOptions:(PROptions *)options;
 - (instancetype)init NS_UNAVAILABLE;
 
-- (NSString*)secureEncode:(NSString*)src key:(NSString*)key;
-- (NSString*)secureDecode:(NSString*)src key:(NSString*)key;
-
 - (nullable NSString*)saveCrashReport;
 - (void)zipLogsWithCompletionHandler:(CompletionHandlerBlockType)handler;
 - (void)zipAndUploadLogsWithCompletionHandler:(CompletionHandlerBlockType)handler;
@@ -66,8 +63,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 - (PRNetworkStatus)networkStatus;
 
 - (nullable id) unsupportedJSONClass:(id)unsupported;
-
-- (BOOL) inDebugger;
 
 - (void) setDebugLevel:(NSInteger) debugLevel;
 - (void) setDebugId:(NSInteger) debugId;

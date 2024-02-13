@@ -17,16 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// Associated with PRSmartArticle.articleId
 @property (nullable, nonatomic, copy) NSString *articleUUID;
 @property (nullable, nonatomic, copy) NSDate *creationDate;
-@property (nonatomic) BOOL finished;
 @property (nullable, nonatomic, copy) NSString *issueId;
 @property (nullable, nonatomic, copy) NSString *issueUid;
 @property (nullable, nonatomic, copy) NSString *issueCID;
 @property (nullable, nonatomic, copy) NSString *issueMastheadColour;
 @property (nullable, nonatomic, copy) NSString *issueMastheadTemplate;
 @property (nullable, nonatomic, copy) NSString *issueTitle;
-@property (nonatomic) BOOL isAccessible;
 @property (nonatomic) int16_t prefImageIndex;
 @property (nonatomic) int16_t listenDuration;
+@property (nonatomic) NTFArticleItemState state;
 @property (nonatomic) NTFArticleItemPresentationType presentationType;
 @property (nullable, nonatomic, copy) NSString *textSnippet;
 @property (nullable, nonatomic, retain) NTFFeedSectionItem *feedSection;

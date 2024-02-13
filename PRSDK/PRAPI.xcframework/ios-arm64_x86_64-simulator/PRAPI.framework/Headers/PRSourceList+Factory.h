@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)applyGroupFilter:(NSString *)name title:(NSString *)title;
 - (void)applyCIDsFilter:(NSArray<NSString *> *)cids title:(nullable NSString *)title;
 - (void)applySubscriptionFilter:(PRSubscription *)subscription;
-- (void)applyNominalFilterWithTitle:(NSString *)title NS_SWIFT_NAME(applyNominalFilter(title:));
 
 @end
 

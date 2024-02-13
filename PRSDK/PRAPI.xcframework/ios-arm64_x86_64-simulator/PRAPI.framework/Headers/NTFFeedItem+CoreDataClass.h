@@ -32,8 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Looks for an item with a given id in a given feed
 + (nullable instancetype)getItemWithId:(NSString *)itemId feed:(NTFFeed *)feed;
++ (nullable instancetype)getItemWithId:(NSString *)itemId feed:(NTFFeed *)feed predicate:(nullable NSPredicate *)predicate;
 /// Looks for an item with an id extracted from provided info in a feed
 + (nullable instancetype)getItemWithJSON:(NSDictionary *)json feed:(NTFFeed *)feed;
++ (nullable instancetype)getItemWithJSON:(NSDictionary *)json feed:(NTFFeed *)feed predicate:(nullable NSPredicate *)predicate;
 
 @end
 

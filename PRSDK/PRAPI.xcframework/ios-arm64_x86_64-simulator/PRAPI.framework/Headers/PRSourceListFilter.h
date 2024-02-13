@@ -21,8 +21,6 @@ extern CGSize const kCountryImageSize;
 @property (nonatomic, readonly) NSString *path;
 @property (nonatomic, readonly) NSString *urlComplientPath;
 
-@property (nonatomic, assign) BOOL rootFilter;
-
 @end
 
 NS_ASSUME_NONNULL_END

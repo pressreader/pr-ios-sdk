@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PRAnalyticsProto.h"
+#import <PRAPI/PRAnalyticsProto.h>
+#import <PRAnalytics/PRAnalytics.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GoogleAnalytics  : NSObject<PROptionalAnalytics>
+@interface GoogleAnalytics  : NSObject<LegacyAnalyticsService, PRPageViewTracker, PRGATracker>
 
 - (void) setSessionScopeCustomVariables;
 

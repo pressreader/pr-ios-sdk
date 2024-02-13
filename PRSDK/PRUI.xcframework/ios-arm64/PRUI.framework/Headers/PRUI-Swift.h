@@ -283,7 +283,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import ObjectiveC;
 @import PRAPI;
 @import PRAds;
+@import PRAnalytics;
 @import PRCatalogModel;
+@import PRCommands;
 @import PRConfiguration;
 @import PRProtocols;
 @import PRSyntacticSugar;
@@ -291,6 +293,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import PRUIKit;
 @import SafariServices;
 @import UIKit;
+@import WKYTPlayerView;
 @import WebKit;
 #endif
 
@@ -354,10 +357,20 @@ typedef SWIFT_ENUM(NSInteger, State, open) {
 };
 
 enum ActionType : NSInteger;
+@class ActionAccessParameters;
 
 SWIFT_PROTOCOL("_TtP4PRUI24ActionAccessControllable_")
 @protocol ActionAccessControllable
-- (BOOL)isActionAllowed:(enum ActionType)actionType SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isActionAllowed:(enum ActionType)actionType parameters:(ActionAccessParameters * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI22ActionAccessParameters")
+@interface ActionAccessParameters : NSObject
+@property (nonatomic) NSInteger pageNo;
+@property (nonatomic) BOOL isSingleArticle;
+@property (nonatomic) BOOL isPDF;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM(NSInteger, ActionType, open) {
@@ -708,7 +721,7 @@ SWIFT_CLASS("_TtC4PRUI16BodyActivityItem")
 
 
 @interface BookContent (SWIFT_EXTENSION(PRUI)) <ActionAccessControllable>
-- (BOOL)isActionAllowed:(enum ActionType)actionType SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isActionAllowed:(enum ActionType)actionType parameters:(ActionAccessParameters * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIColor;
@@ -732,8 +745,8 @@ SWIFT_CLASS("_TtC4PRUI24BookCoverPlaceholderView")
 
 SWIFT_CLASS("_TtC4PRUI9BookHubVC")
 @interface BookHubVC : PREmbedablePubHubVC
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) BOOL isSearchAvailable;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)setupFilterSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
 @property (nonatomic, readonly, copy) NSString * _Nonnull catalogPath;
 - (nonnull instancetype)initWithDataSource:(PRPubHubDataSource * _Nonnull)dataSource SWIFT_UNAVAILABLE;
@@ -1356,7 +1369,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat height;)
 @interface ModalVideoPlayerVC (SWIFT_EXTENSION(PRUI)) <RichMediaAnalyticsProvider>
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
-- (void)_trackRichMediaWithAction:(NSString * _Nonnull)action SWIFT_UNAVAILABLE;
+@property (nonatomic, readonly, copy) NSString * _Nullable mediaTitle;
+- (void)_trackRichMediaWithAction:(RMTAction _Nonnull)action SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1396,6 +1410,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 + (NSNotificationName _Nonnull)translationUpdated SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+
+SWIFT_PROTOCOL("_TtP4PRUI14NTFArticleCell_")
+@protocol NTFArticleCell
+- (void)setupWithArticle:(NTFArticleItem * _Nullable)article contentWidth:(CGFloat)contentWidth action:(FeedItemAction * _Nullable)action;
+@end
 
 
 @interface NTFArticleItem (SWIFT_EXTENSION(PRUI))
@@ -1506,11 +1526,22 @@ SWIFT_CLASS("_TtC4PRUI21NTFPageSetCompactView")
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
+SWIFT_CLASS("_TtC4PRUI34NTFRelatedArticleWithThumbnailCell")
+@interface NTFRelatedArticleWithThumbnailCell : NTFRelatedArticleCell <NTFArticleCell>
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat anchorHeight;)
++ (CGFloat)anchorHeight SWIFT_WARN_UNUSED_RESULT;
+- (void)setupSubviews;
+- (void)setupWithArticle:(NTFArticleItem * _Nullable)article contentWidth:(CGFloat)contentWidth action:(FeedItemAction * _Nullable)action;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
 @interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
+@end
+
+
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
 @end
 
 
@@ -1524,6 +1555,15 @@ SWIFT_CLASS("_TtC4PRUI21NTFPageSetCompactView")
 @interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFActionConfig>
 @property (nonatomic, readonly, copy) NSDictionary * _Nonnull generalActionConfig;
 @property (nonatomic, readonly, copy) NSDictionary * _Nonnull articleActionConfig;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI28NTFTextualRelatedArticleCell")
+@interface NTFTextualRelatedArticleCell : NTFRelatedArticleCell <NTFArticleCell>
+- (void)setupSubviews;
+- (void)setupWithArticle:(NTFArticleItem * _Nullable)article contentWidth:(CGFloat)contentWidth action:(FeedItemAction * _Nullable)action;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1569,7 +1609,8 @@ SWIFT_CLASS("_TtC4PRUI17OrderCalendarCell")
 @interface PRAVPlayerActor (SWIFT_EXTENSION(PRUI)) <RichMediaAnalyticsProvider>
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
-- (void)_trackRichMediaEventWithAction:(NSString * _Nonnull)action SWIFT_UNAVAILABLE;
+@property (nonatomic, readonly, copy) NSString * _Nullable mediaTitle;
+- (void)_trackRichMediaEventWithAction:(RMTAction _Nonnull)action SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1882,6 +1923,7 @@ SWIFT_CLASS("_TtC4PRUI13PRIssuesGroup")
 @interface PRLibraryItemsCollectionVC (SWIFT_EXTENSION(PRUI))
 - (void)refreshBooks;
 - (void)downloadItem:(CatalogItem * _Nonnull)item;
+- (void)onCatalogPreloaded:(NSNotification * _Nonnull)notification;
 @end
 
 
@@ -1944,13 +1986,14 @@ SWIFT_CLASS_NAMED("PRMenuBottomBar")
 
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRUI)) <ActionAccessControllable>
-- (BOOL)isActionAllowed:(enum ActionType)actionType SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isActionAllowed:(enum ActionType)actionType parameters:(ActionAccessParameters * _Nullable)parameters SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @interface PRMyLibraryItemActionAccessActor : NSObject
 + (void)performAction:(enum ActionType)actionType item:(PRMyLibraryItem * _Nonnull)item action:(void (^ _Nonnull)(void))action;
++ (void)performAction:(enum ActionType)actionType item:(PRMyLibraryItem * _Nonnull)item parameters:(ActionAccessParameters * _Nullable)parameters action:(void (^ _Nonnull)(void))action;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1963,6 +2006,11 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (BOOL)askOrderConfirmationWithOptions:(PROrderDeliveryOption)options completion:(PROrderCompletion _Nullable)completion SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+@end
+
 @class PRUserBundle;
 @class SubscriptionCancellationAdvisory;
 
@@ -1971,10 +2019,10 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 
-
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 @interface PROrderInfoBarView (SWIFT_EXTENSION(PRUI))
@@ -2228,12 +2276,12 @@ SWIFT_CLASS("_TtC4PRUI21PRVerticalBookmarksVC")
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)openOrderViewWithCid:(NSString * _Nullable)cid date:(NSDate * _Nullable)date preferableServiceName:(NSString * _Nullable)preferableServiceName asSeparatePanel:(BOOL)asSeparatePanel forceDownload:(BOOL)forceDownload SWIFT_WARN_UNUSED_RESULT;
+- (void)processLaunchEnvironment;
 @end
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)processLaunchEnvironment;
+- (BOOL)openOrderViewWithCid:(NSString * _Nullable)cid date:(NSDate * _Nullable)date preferableServiceName:(NSString * _Nullable)preferableServiceName asSeparatePanel:(BOOL)asSeparatePanel forceDownload:(BOOL)forceDownload SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2296,9 +2344,13 @@ SWIFT_CLASS("_TtC4PRUI16PaymentOptionsVC")
 @end
 
 
-@interface PhotoGalleryVC (SWIFT_EXTENSION(PRUI)) <RichMediaAnalyticsProvider>
+@interface PhotoGalleryVC (SWIFT_EXTENSION(PRUI)) <RichMediaPhotoAnalyticsProvider>
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
+@property (nonatomic, readonly, copy) NSString * _Nullable mediaTitle;
+@property (nonatomic, readonly) NSInteger photoIndex;
+@property (nonatomic, readonly) NSInteger photosCount;
+- (void)_trackRichMediaWithAction:(RMTAction _Nonnull)action SWIFT_UNAVAILABLE;
 - (void)trackRichMediaEventPlaying:(BOOL)playing;
 @end
 
@@ -2334,11 +2386,15 @@ SWIFT_CLASS("_TtC4PRUI17PremiumBannerView")
 @end
 
 
-
 @interface PressReader (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, readonly, strong) Account * _Nonnull account;
 @end
 
+
+
+@interface PressReader (SWIFT_EXTENSION(PRUI))
+- (void)getLogsWithCompletionHandler:(void (^ _Nonnull)(NSURL * _Nullable, NSError * _Nullable))completionHandler;
+@end
 
 
 @interface PressReader (SWIFT_EXTENSION(PRUI)) <Singleton>
@@ -2593,13 +2649,13 @@ SWIFT_CLASS("_TtC4PRUI17TwoTextFieldsView")
 
 
 
-
 @interface UINavigationItem (SWIFT_EXTENSION(PRUI))
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle style:(UIUserInterfaceStyle)style;
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle style:(UIUserInterfaceStyle)style completion:(PRThumbnailHandler _Nullable)completion;
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle completion:(PRThumbnailHandler _Nullable)completion;
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider;
 @end
+
 
 
 @interface UINavigationItem (SWIFT_EXTENSION(PRUI))
@@ -2736,12 +2792,14 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 @property (nonatomic) _PRNavigationBarState navigationBarState;
 @property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
 - (void)updateReadAccess;
+- (void)updateRelatedArticles;
 @property (nonatomic, readonly) BOOL shouldPresentTanslationHUD;
 @end
 
 
 @interface VerticalTextFlowArticleDetailsView (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, readonly) UIUserInterfaceStyle style;
+- (void)reloadRelatedStories;
 @end
 
 
@@ -2801,6 +2859,11 @@ SWIFT_CLASS("_TtC4PRUI24WebAuthenticationSession")
 SWIFT_CLASS("_TtC4PRUI20Wide3CFeedLayoutItem")
 @interface Wide3CFeedLayoutItem : AbstractFeedLayoutItem
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface YTPlayerView (SWIFT_EXTENSION(PRUI))
+- (void)metadataWithCompletion:(void (^ _Nullable)(id _Nullable, NSError * _Nullable))completion;
 @end
 
 #endif

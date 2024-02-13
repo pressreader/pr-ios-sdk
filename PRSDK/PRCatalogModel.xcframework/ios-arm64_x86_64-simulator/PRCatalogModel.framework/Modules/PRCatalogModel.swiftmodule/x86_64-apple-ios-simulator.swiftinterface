@@ -162,10 +162,13 @@ extension PRCatalogModel.PageArea : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
 public enum CatalogNavigationScope : Swift.String, Swift.CaseIterable {
-  case type
+  case category
   case country
   case language
-  case category
+  case type
+  public var entityType: PRCatalogModel.CatalogEntity.Type {
+    get
+  }
   public init?(rawValue: Swift.String)
   public typealias AllCases = [PRCatalogModel.CatalogNavigationScope]
   public typealias RawValue = Swift.String
@@ -549,17 +552,6 @@ extension PRCatalogModel.ScopeNavigation {
 public protocol NavigatableScope : CoreData.NSManagedObject {
   associatedtype Navigation : PRCatalogModel.CatalogNavigation
   var navigation: Self.Navigation? { get }
-}
-extension PRCatalogModel.Issue {
-  @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Issue>
-  @objc @NSManaged dynamic final public var issueDate: Foundation.Date {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic final public var publication: PRCatalogModel.TitleItem? {
-    @objc get
-    @objc set
-  }
 }
 extension PRCatalogModel.HubNavigation {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.HubNavigation>
@@ -1038,6 +1030,9 @@ public struct BookLibraryItem : Swift.Decodable {
   public let isSample: Swift.Bool
   public init(from decoder: any Swift.Decoder) throws
 }
+extension PRCatalogModel.Magazine {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Magazine>
+}
 extension PRCatalogModel.CompoundNavigation {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CompoundNavigation>
   @objc @NSManaged dynamic public var scope: PRCatalogModel.CatalogEntity {
@@ -1086,7 +1081,14 @@ extension PRCatalogModel.CatalogItem {
     get
   }
 }
+extension PRCatalogModel.Newspaper {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Newspaper>
+}
 @_inheritsConvenienceInitializers @objc(Language) final public class Language : PRCatalogModel.CatalogEntity {
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(Newspaper) public class Newspaper : PRCatalogModel.TitleItem {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
@@ -1282,6 +1284,9 @@ extension PRCatalogModel.RelationshipMetadata : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
 @_inheritsConvenienceInitializers @objc(CatalogItem) public class CatalogItem : CoreData.NSManagedObject {
+  public var authorsShortList: Swift.String? {
+    get
+  }
   @objc override dynamic public func prepareForDeletion()
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
@@ -1296,10 +1301,6 @@ extension PRCatalogModel.CatalogItem : PRCoreDataUtils.IdentifiableMO {
 }
 extension PRCatalogModel.PublicationType {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PublicationType>
-}
-@_inheritsConvenienceInitializers @objc(Issue) final public class Issue : PRCatalogModel.TitleItem {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
-  @objc deinit
 }
 extension PRCatalogModel.Downloads {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Downloads>
@@ -1345,7 +1346,10 @@ extension PRCatalogModel.Author {
     case query
     case ids
     case root
-    case path
+    case orderBy
+    case supplement
+    case cre
+    case limit
     public init?(rawValue: Swift.String)
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
@@ -1393,6 +1397,9 @@ extension PRCatalogModel.Author {
   final public var superEntitiesArray: [PRCatalogModel.CatalogEntity]? {
     get
   }
+  final public var navigationPath: [PRCatalogModel.CatalogEntity] {
+    get
+  }
   @objc override dynamic public func prepareForDeletion()
   final public func resetLoading()
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
@@ -1407,10 +1414,6 @@ extension PRCatalogModel.Author {
 }
 extension PRCatalogModel.TitleItem {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.TitleItem>
-  @objc @NSManaged dynamic public var issues: Foundation.NSSet? {
-    @objc get
-    @objc set
-  }
 }
 @_inheritsConvenienceInitializers @objc(TitleItem) public class TitleItem : PRCatalogModel.CatalogItem {
   public func update(info: [Swift.String : Any])
@@ -1428,6 +1431,10 @@ extension PRCatalogModel.TitleItem {
     get
   }
   override public func update(info: [Swift.String : Any])
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(Magazine) public class Magazine : PRCatalogModel.TitleItem {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }

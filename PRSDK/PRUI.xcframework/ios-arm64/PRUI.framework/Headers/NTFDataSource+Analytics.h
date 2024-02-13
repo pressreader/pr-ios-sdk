@@ -6,7 +6,6 @@
 //  Copyright © 2021 NewspaperDirect. All rights reserved.
 //
 
-@import PRAPI.PRAnalyticsService;
 #import <PRUI/NTFDataSource.h>
 
 NS_ASSUME_NONNULL_BEGIN

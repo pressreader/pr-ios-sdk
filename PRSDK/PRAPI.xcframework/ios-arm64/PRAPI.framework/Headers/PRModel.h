@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "PRAccountManager.h"
-#import "PRAnalyticsService.h"
 
 #import "PRHost.h"
 #import "PRMyLibrary.h"

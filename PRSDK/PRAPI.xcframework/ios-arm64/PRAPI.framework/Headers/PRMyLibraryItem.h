@@ -32,7 +32,7 @@ extern NSNotificationName const PRLibraryItemWiFiDownloadNotAvailableNotificatio
 extern NSNotificationName const PRLibraryItemCurrentArticleDidChange;
 extern NSNotificationName const PRLibraryItemGotoPage;
 
-@interface PRMyLibraryItem : PRSourceItem <PRTitleObject, ReadingViewItem, PRSmartLayoutItem>
+@interface PRMyLibraryItem : PRSourceItem <PRTitleObject, _ReadingViewItem, PRSmartLayoutItem>
 
 + (NSString *)cidFromIssueId:(NSString *)issueId;
 + (NSString *)issueDateStringFromIssueId:(NSString *)issueId;
@@ -47,7 +47,7 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (void)removeItemParameter:(NSString*)name;
 
 // searches for parameter in both parameters and itemParameters dictionaries
-- (id)findParameter:(NSString*)pname;
+- (nullable id)findParameter:(NSString*)pname;
 
 @property (nonatomic, readonly) PRTitleItemExemplar *exemplar;
 @property (nonatomic, readonly) NSDate *expirationDateAndTime;
@@ -121,10 +121,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (BOOL)wordpressSharingDisabled;
 - (BOOL)sharingDisabled;
 - (BOOL)copyToPasteboardDisabled;
-- (BOOL)articlePrintingDisabled;
-- (BOOL)pagePrintingDisabled;
-- (BOOL)issuePrintingEnabled;
-- (BOOL)printingDisabled;
 - (BOOL)printingAsBitmap;
 - (NSString *)licenseStatus;
 
@@ -158,8 +154,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (NSInteger)sectionIndexByPage:(NSInteger)pageNumber;
 - (int) maxPageHeight;
 - (BOOL) isOpen;
-- (void) recordIssuePrint;
-- (void)recordPagePrint:(NSUInteger)numberOfPages;
 - (NSString *) currentArtIdToListen;
 - (void) setCurrentArtIdToListen:(NSString *)artID;
 
@@ -261,7 +255,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (NSString*) pathToPdn;
 - (NSString*) pdnFolderPath;
 - (NSString*) pathToPdnInPageRange:(NSRange)pageRange;
-- (SPXML *)Certificate;
 
 - (BOOL) stateDone:(NSString*)stateName;
 - (NSString *) stateNameForAsset:(NSString *)assetName;
