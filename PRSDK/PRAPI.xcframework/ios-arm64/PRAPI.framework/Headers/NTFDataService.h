@@ -92,8 +92,6 @@ typedef NSArray<JSONDictionary> * JSONCollection;
 - (PRPromise *)promiseMapJSONIntoFlowData:(NSArray<NSDictionary *> *)items;
 - (NSArray<NSManagedObjectID *> *)mapJSONIntoFlowData:(NSArray<NSDictionary *> *)items;
 
-- (PRPromise *)refreshFeedSettings;
-
 - (void)resetDataService;
 - (void)resetAtEndStatus;
 

@@ -100,6 +100,8 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
                  clientNumber:(NSString *)clientNumber
               completionBlock:(void(^)(BOOL success, NSError *_Nullable error))completionBlock;
 
+- (PRPromise *)getFavoriteCIDs;
+
 @end
 
 NS_ASSUME_NONNULL_END

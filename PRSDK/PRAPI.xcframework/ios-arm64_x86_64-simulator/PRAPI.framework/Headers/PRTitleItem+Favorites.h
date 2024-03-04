@@ -16,9 +16,6 @@ extern NSNotificationName const PRTitleItemFavoriteChangedNotification;
 
 @interface PRTitleItem (Favorites)
 
-+ (PRPromise *)getFavoriteCIDs;
-+ (PRPromise *)mergeFavorites;
-
 - (BOOL)isFavoriteForService:(NSString *)serviceName;
 - (void)setFavorite:(BOOL)favorite forService:(PRAccountItem *)service;
 - (void)setFavorite:(BOOL)favorite forService:(PRAccountItem *)service saveAndNotify:(BOOL)needSaveAndNotifiy;
