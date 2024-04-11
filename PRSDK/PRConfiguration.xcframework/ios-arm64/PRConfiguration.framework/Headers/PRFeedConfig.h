@@ -46,6 +46,7 @@ typedef NS_ENUM(uint8_t, NTFLayoutType) {
 @property (nonatomic, readonly) BOOL enableFeedAccessForActiveTrial;
 
 @property (nonatomic, readonly) NSString *defaultFeedLanguage;
+@property (nonatomic, readonly) NSString *defaultFeedCountry;
 
 @property (nonatomic, readonly) BOOL ignoreRadioRestrictions;
 

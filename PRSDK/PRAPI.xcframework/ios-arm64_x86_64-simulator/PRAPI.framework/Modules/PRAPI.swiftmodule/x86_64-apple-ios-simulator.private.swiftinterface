@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRAPI
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRAPI
 import AppTrackingTransparency
 import AuthenticationServices
 import Combine
@@ -35,6 +34,13 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@objc final public class WebAuthenticationSession : AuthenticationServices.ASWebAuthenticationSession {
+  @objc public init?(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, linkToCurrentAccount: Swift.Bool, completion: @escaping (_ success: Swift.Bool, _ isNewUser: Swift.Bool, (any Swift.Error)?) -> ())
+  @objc deinit
+}
+extension AuthenticationServices.ASWebAuthenticationSession : AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
+  @objc dynamic public func presentationAnchor(for session: AuthenticationServices.ASWebAuthenticationSession) -> AuthenticationServices.ASPresentationAnchor
+}
 @objc public protocol RichMediaAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   @objc var mediaType: Swift.String { get }
   @objc var issue: (any PRAPI.IssueAnalyticsProvider)? { get }
@@ -66,6 +72,12 @@ extension PRAPI.RichMediaPhotoAnalyticsProvider {
     @objc get
   }
   override public init?(entity: PRCatalogModel.CatalogEntity)
+  @objc deinit
+}
+@objc @objcMembers final public class FacebookSignInResult : PRAPI.SignInResult {
+  @objc final public let isNewUser: Swift.Bool
+  @objc final public let isSuccess: Swift.Bool
+  @objc public init(isNewUser: Swift.Bool, isSuccess: Swift.Bool, accessToken: Swift.String? = nil, error: (any Swift.Error)? = nil)
   @objc deinit
 }
 @objc extension CoreData.NSManagedObject {
@@ -233,6 +245,18 @@ public protocol BookReadingAnalyticsProvider : PRAPI.BookAnalyticsProvider {
 extension PRAPI.BookReadingAnalyticsProvider {
   public func trackBookReaderOpen()
 }
+@_inheritsConvenienceInitializers @objc final public class AppleSignInManager : PRAPI._PRSocialManager, AuthenticationServices.ASAuthorizationControllerDelegate, AuthenticationServices.ASAuthorizationControllerPresentationContextProviding {
+  @objc final public func authorizationController(controller: AuthenticationServices.ASAuthorizationController, didCompleteWithAuthorization authorization: AuthenticationServices.ASAuthorization)
+  @objc final public func authorizationController(controller: AuthenticationServices.ASAuthorizationController, didCompleteWithError error: any Swift.Error)
+  @objc final public func presentationAnchor(for controller: AuthenticationServices.ASAuthorizationController) -> AuthenticationServices.ASPresentationAnchor
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension PRAPI.AppleSignInManager : PRAPI.SignInManagerProtocol {
+  public typealias ResultType = PRAPI.AppleSignInResult
+  @objc public static let shared: PRAPI.AppleSignInManager
+  @objc final public func signIn(_ handler: @escaping (PRAPI.AppleSignInResult) -> ())
+}
 extension PRAPI.NTFArticleItem {
   @objc dynamic public func updateAccessibility()
   public func updateAccessibility(saveToPersitentStore: Swift.Bool = false)
@@ -307,6 +331,24 @@ extension PRCatalogModel.CatalogFilter : PRAPI.CatalogNavigation {
     @objc get
   }
 }
+@_inheritsConvenienceInitializers @objc(PRPianoManager) @objcMembers final public class PianoManager : ObjectiveC.NSObject {
+  public typealias SignInCompletion = (Swift.Bool, (any Swift.Error)?) -> ()
+  public typealias SignOutCompletion = ((any Swift.Error)?) -> ()
+  @objc public static let shared: PRAPI.PianoManager?
+  @objc public static var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc public static var urlPrefix: Swift.String {
+    @objc get
+  }
+  @objc final public func signIn(_ completion: @escaping PRAPI.PianoManager.SignInCompletion)
+  @objc final public func signOut(_ completion: @escaping PRAPI.PianoManager.SignOutCompletion)
+  @objc final public func application(_ application: UIKit.UIApplication, open url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any]) -> Swift.Bool
+  @objc @discardableResult
+  final public func application(_ application: UIKit.UIApplication, didFinishLaunchingWithOptions launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]?) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
 extension PRAPI.NTFArticleItem : PRAPI.MastheadProvider {
   @objc dynamic public var hasMasthead: Swift.Bool {
     @objc get
@@ -350,6 +392,14 @@ extension PRAPI.NTFDataService {
   override final public func startLoading()
   @objc deinit
 }
+extension PRAPI.PRAccountManager {
+  public var isDefaultAccountUnregistered: Swift.Bool {
+    get
+  }
+  public var isDefaultAccountAuthorizationNeeded: Swift.Bool {
+    get
+  }
+}
 extension UIKit.UIAlertController {
   @objc @_Concurrency.MainActor(unsafe) public static func showNetworkNotReachableAlert()
   @_Concurrency.MainActor(unsafe) public static func showNoResultAlert()
@@ -374,6 +424,14 @@ extension PRCatalogModel.Books : PRAPI.PressCatalogable {
     @objc get
   }
   @objc dynamic public func deleteDocuments() throws
+}
+@objc extension PRAPI.PRTitleItem {
+  @objc dynamic public func issueVersion(date: Foundation.Date) -> Swift.Int
+  @objc dynamic public func expungeVersion(date: Foundation.Date) -> Swift.String
+}
+extension PRAPI.PRSocialSignInManager {
+  @objc dynamic public func appleLogin(_ handler: @escaping PRAPI.SignInCompletion)
+  @objc dynamic public func appleRequestPublishPermission(_ ai: PRAPI.PRAccountItem, linkToCurrentAccount: Swift.Bool, completion handler: @escaping PRAPI.ExternalAuthCompletion)
 }
 public struct MimeType {
   public var value: Swift.String {
@@ -426,6 +484,10 @@ extension StoreKit.SKProduct : PRAnalytics.AnalyticsProvider {
 extension PRAPI.PRSourceItem {
   public func isAutoDeliverable() -> (hasSubscription: Swift.Bool, includingSupplements: Swift.Bool)
   public func setAutodelivery(_ isOn: Swift.Bool, applyToSupplements: Swift.Bool = false, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)? = nil)
+}
+@objc @_inheritsConvenienceInitializers final public class GoogleSignInResult : PRAPI.SignInResult {
+  @objc override public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: (any Swift.Error)? = nil)
+  @objc deinit
 }
 final public class BookLicenseProduct : Swift.Decodable, Swift.Hashable {
   public struct Term : Swift.Decodable {
@@ -631,6 +693,12 @@ extension PRAPI.NTFPersonalizationItem {
 extension PRAPI.Interest {
   public class func interest(with json: [Swift.String : Any], session: PRAPI.NTFSession) -> PRAPI.Interest?
   public class func interest(with id: Swift.Int, name: Swift.String, subtitle: Swift.String? = nil, imageId: Swift.String? = nil, selected: Swift.Bool = false, session: PRAPI.NTFSession) -> PRAPI.Interest
+}
+extension PRAPI.PRGoogleSignInManager : PRAPI.SignInManagerProtocol {
+  public typealias ResultType = PRAPI.GoogleSignInResult
+  public static var shared: Self {
+    get
+  }
 }
 @objc extension PRAPI.PRSourceList {
   @objc dynamic public var types: [any PRAPI.CatalogNavigation] {
@@ -960,6 +1028,21 @@ extension PRAPI.CatalogPresenter : PRAPI.ObservableCatalogFacade {
   @objc final public func applySubscriptionFilter(_ subscription: PRAPI.PRSubscription)
   @objc final public func applyFilters(_ filters: [PRAPI.PRSourceListFilter])
 }
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ExternalAuthURLManager : ObjectiveC.NSObject {
+  @objc public static var returnURL: Swift.String {
+    @objc get
+  }
+  @objc public static func url(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil) -> Foundation.URL?
+  @objc public static func url(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil, returnURLAction: Swift.String? = nil) -> Foundation.URL?
+  public static func info(url: Foundation.URL) -> (success: Swift.Bool, isNewUser: Swift.Bool, error: (any Swift.Error)?)
+  @objc public static func isReturnURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc public static func error(url: Foundation.URL) -> (any Swift.Error)?
+  @objc public static func error(params: [Swift.AnyHashable : Any]) -> (any Swift.Error)?
+  @objc public static func isNewUser(url: Foundation.URL) -> Swift.Bool
+  @objc public static func isNewUser(params: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public protocol DataSourceObserver {
   @objc optional func startDataLoading(_ source: Any)
   @objc func completeDataLoading(_ source: Any)
@@ -1191,6 +1274,16 @@ public struct BookReadingEvent : Swift.Encodable {
 extension PRAPI.BookReadingEvent {
   public init(epub: PRAPI.EpubContent, contentLength: Swift.Int, frames: [PRAPI.BookReadingFrame])
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Auth0Manager : ObjectiveC.NSObject {
+  @objc public static var shared: PRAPI.Auth0Manager {
+    @objc get
+  }
+  @objc public static var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public func signIn(_ completion: @escaping (Swift.Bool, (any Swift.Error)?) -> ())
+  @objc deinit
+}
 @objc extension PRCatalogModel.BookContent : PRAPI.DeviceTimeTweakProtected {
 }
 extension PRAPI.PRCollectionsModel {
@@ -1373,6 +1466,12 @@ extension PRAPI.ListenHighlightsModel : CoreData.NSFetchedResultsControllerDeleg
 }
 @objc extension PRAPI.PRCatalogFilter {
   @objc dynamic public func filter(id: PRAPI.CatalogNavigationType) -> PRAPI.PRSourceListFilter?
+}
+extension PRAPI.PRFacebookSignInManager : PRAPI.SignInManagerProtocol {
+  public typealias ResultType = PRAPI.FacebookSignInResult
+  public static var shared: Self {
+    get
+  }
 }
 extension PRCatalogModel.PressCatalog {
   final public class func getCatalog(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.PressCatalog
@@ -1868,6 +1967,16 @@ public struct BookReadingPosition : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PRGoogleManager) @objcMembers final public class GoogleManager : ObjectiveC.NSObject {
+  @objc public static let shared: PRAPI.GoogleManager?
+  @objc public static var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public func setup()
+  @objc final public func handleURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc(signInWithPresenter:completion:) final public func signIn(presenter: UIKit.UIViewController?, completion: @escaping (PRAPI.GoogleSignInResult) -> ())
+  @objc deinit
+}
 @objc extension PRAPI.PRAccountItem {
   @objc dynamic public var isInitialTrialSubscription: Swift.Bool {
     @objc get
@@ -2011,6 +2120,10 @@ extension PRCatalogModel.Language {
   public init?(entity: PRCatalogModel.CatalogEntity)
   convenience public init?(sectionType: PRAPI.PRCatalogSectionType)
   override public func startLoading()
+  @objc deinit
+}
+@objc @objcMembers final public class AppleSignInResult : PRAPI.SignInResult {
+  @objc public init(nameComponent: Foundation.PersonNameComponents? = nil, email: Swift.String? = nil, user: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, error: (any Swift.Error)? = nil)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers final public class MyLibraryItemPrintActor : ObjectiveC.NSObject, PRAPI.PrintableItem {
@@ -2159,7 +2272,7 @@ extension PRCatalogModel.BookContent : PRAPI.SingleFileDownloadableItemContent {
   @objc final public let displayName: Swift.String?
   @objc final public let profileImageUrl: Swift.String?
   @objc final public let error: (any Swift.Error)?
-  @objc public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: (any Swift.Error)?)
+  @objc public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: (any Swift.Error)? = nil)
   @objc deinit
 }
 extension StoreKit.SKProduct {
@@ -2409,6 +2522,11 @@ extension PRAPI.PRSubscription {
   @objc dynamic public func requestMastheadInfo(cid: Swift.String, completion: @escaping PRAPI.PRSubscription.Response)
   public func requestOwnerInfo(cid: Swift.String, completion: @escaping PRAPI.PRSubscription.Response)
 }
+public protocol SignInManagerProtocol {
+  associatedtype ResultType : PRAPI.SignInResult
+  static var shared: Self { get }
+  func signIn(_ handler: @escaping (Self.ResultType) -> ())
+}
 extension PRCatalogModel.Book {
   @objc override final public var isNew: Swift.Bool {
     @objc get
@@ -2465,6 +2583,27 @@ extension Foundation.NSNotification.Name {
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor public func load(sectionId: PRCatalogModel.Section.Id) async throws -> [PRCatalogModel.CatalogItem]
   #endif
+}
+@objc(PRFacebookSharingDelegate) public protocol FacebookSharingDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func facebookSharingDidComplete(results: [Swift.String : Any])
+  @objc func facebookSharingDidFail(error: any Swift.Error)
+  @objc func facebookSharingDidCancel()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PRFacebookManager) @objcMembers final public class FacebookManager : ObjectiveC.NSObject {
+  @objc public static let shared: PRAPI.FacebookManager?
+  @objc public static var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public var isAdvertiserTrackingEnabled: Swift.Bool
+  @objc final public func application(_ application: UIKit.UIApplication, open url: Foundation.URL, sourceApplication: Swift.String?, annotation: Any?) -> Swift.Bool
+  @objc final public func setup()
+  @objc @discardableResult
+  final public func application(_ application: UIKit.UIApplication, didFinishLaunchingWithOptions launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]? = nil) -> Swift.Bool
+  @objc final public func resetCurrentTokenAndProfile()
+  @objc final public func requestAccessToAccount(permissions: [Swift.String], presenter: UIKit.UIViewController?, completion: @escaping (_ accessToken: Swift.String?, _ tokenRefreshed: Swift.Bool, _ error: (any Swift.Error)?) -> ())
+  @objc final public func logOut()
+  @objc final public func share(url: Swift.String, text: Swift.String?, presenter: UIKit.UIViewController?, delegate: any PRAPI.FacebookSharingDelegate)
+  @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AutoTranslationZone : PRSyntacticSugar.PROptionSet {
   @objc public static let downloadedFeed: PRAPI.AutoTranslationZone

@@ -189,9 +189,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "NTFArticleCompactViewMetaInfo.h"
 #import "PRCommandOpenArticle.h"
 
-#import "_PRSocialManager.h"
-#import "PRFacebookSignInManager.h"
-#import "PRGoogleSignInManager.h"
 #import "PRProgressButton.h"
 #import "ViewRefreshable.h"
 

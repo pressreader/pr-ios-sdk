@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark Device Info Extensions
 
 /*
@@ -38,13 +40,14 @@ typedef struct {
 - (NSString *)platform;
 - (NSString *)platformString;
 - (NSString *)UDID;
-- (NSString *)appSpecificUDID;
+- (nullable NSString *)appSpecificUDID;
 - (void)resetUDIDPersistentCache;
 - (NSString *)macAddr;
 
 @property (class, nonatomic, readonly) BOOL isPhone;
+@property (nullable, nonatomic, strong) NSString *advertisingIdentifier;
 
 @end
 
-
+NS_ASSUME_NONNULL_END
 

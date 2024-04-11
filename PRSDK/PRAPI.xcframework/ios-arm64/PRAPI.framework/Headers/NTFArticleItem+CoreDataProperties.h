@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *issueMastheadColour;
 @property (nullable, nonatomic, copy) NSString *issueMastheadTemplate;
 @property (nullable, nonatomic, copy) NSString *issueTitle;
+@property (nullable, nonatomic, copy) NSString *issueCountryCode;
 @property (nonatomic) int16_t prefImageIndex;
 @property (nonatomic) int16_t listenDuration;
 @property (nonatomic) NTFArticleItemState state;

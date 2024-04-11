@@ -17,4 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface PRAccountVC (/*Protected*/)
+- (void)presentDeleteAccountLoadingIndicator:(BOOL)present;
+@end
+
 NS_ASSUME_NONNULL_END

@@ -240,8 +240,8 @@
             "mangledName": "$s5PRAds10GoogleAdVCC8adUnitIdSSvp",
             "moduleName": "PRAds",
             "declAttributes": [
-              "Custom",
               "HasStorage",
+              "Custom",
               "SetterAccess",
               "AccessControl",
               "RawDocComment"
@@ -296,9 +296,9 @@
             "mangledName": "$s5PRAds10GoogleAdVCC9adManagerSo08PRGooglecF0CSgvp",
             "moduleName": "PRAds",
             "declAttributes": [
-              "Custom",
               "HasInitialValue",
               "HasStorage",
+              "Custom",
               "SetterAccess",
               "AccessControl"
             ],
@@ -1027,6 +1027,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "UITraitChangeObservable",
             "printedName": "UITraitChangeObservable",
             "usr": "s:5UIKit23UITraitChangeObservableP",
@@ -1067,13 +1074,6 @@
             "printedName": "LayoutGuidable",
             "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
             "mangledName": "$s7PRUIKit14LayoutGuidableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -1276,6 +1276,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "UITraitChangeObservable",
             "printedName": "UITraitChangeObservable",
             "usr": "s:5UIKit23UITraitChangeObservableP",
@@ -1316,13 +1323,6 @@
             "printedName": "LayoutGuidable",
             "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
             "mangledName": "$s7PRUIKit14LayoutGuidableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -3028,7 +3028,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "WeakStorage",
-                "printedName": "PRAds.AdDataSourceDelegate?"
+                "printedName": "(any PRAds.AdDataSourceDelegate)?"
               }
             ],
             "declKind": "Var",
@@ -3053,12 +3053,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "PRAds.AdDataSourceDelegate?",
+                    "printedName": "(any PRAds.AdDataSourceDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "AdDataSourceDelegate",
-                        "printedName": "PRAds.AdDataSourceDelegate",
+                        "printedName": "any PRAds.AdDataSourceDelegate",
                         "usr": "c:@M@PRAds@objc(pl)AdDataSourceDelegate"
                       }
                     ],
@@ -3085,12 +3085,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "PRAds.AdDataSourceDelegate?",
+                    "printedName": "(any PRAds.AdDataSourceDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "AdDataSourceDelegate",
-                        "printedName": "PRAds.AdDataSourceDelegate",
+                        "printedName": "any PRAds.AdDataSourceDelegate",
                         "usr": "c:@M@PRAds@objc(pl)AdDataSourceDelegate"
                       }
                     ],
@@ -3380,18 +3380,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "AdsService",
-                "printedName": "PRAds.AdsService",
+                "printedName": "any PRAds.AdsService",
                 "usr": "c:@M@PRAds@objc(pl)AdsService"
               },
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "PRAds.AdDataSourceDelegate?",
+                "printedName": "(any PRAds.AdDataSourceDelegate)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "AdDataSourceDelegate",
-                    "printedName": "PRAds.AdDataSourceDelegate",
+                    "printedName": "any PRAds.AdDataSourceDelegate",
                     "usr": "c:@M@PRAds@objc(pl)AdDataSourceDelegate"
                   }
                 ],
@@ -4056,7 +4056,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(PRUtils.SPNode?, Swift.Error?) -> ()",
+                "printedName": "(PRUtils.SPNode?, (any Swift.Error)?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -4066,7 +4066,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "(PRUtils.SPNode?, Swift.Error?)",
+                    "printedName": "(PRUtils.SPNode?, (any Swift.Error)?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -4085,12 +4085,12 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "Swift.Error?",
+                        "printedName": "(any Swift.Error)?",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "Error",
-                            "printedName": "Swift.Error",
+                            "printedName": "any Swift.Error",
                             "usr": "s:s5ErrorP"
                           }
                         ],
@@ -4131,109 +4131,11 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentation.swift",
-      "kind": "StringLiteral",
-      "offset": 718,
-      "length": 21,
-      "value": "\"init is unavailable\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/GoogleAdVC.swift",
-      "kind": "StringLiteral",
-      "offset": 820,
-      "length": 22,
-      "value": "\"GoogleMobileAdsProxy\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/GoogleAdVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 915,
-      "length": 5,
-      "value": "false"
-    },
-    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/GoogleAdVC.swift",
       "kind": "StringLiteral",
       "offset": 262,
       "length": 10,
       "value": "\"PRAds.GoogleAdVC\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 480,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 627,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 633,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 677,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 695,
-      "length": 3,
-      "value": "100"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 972,
-      "length": 33,
-      "value": "\"Ad loading completed: \""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1004,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1102,
-      "length": 27,
-      "value": "\"Ad frame: \""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1128,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1204,
-      "length": 46,
-      "value": "\"Ad loading error: \""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Banner\/GoogleAdBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1249,
-      "length": 2,
-      "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
@@ -4391,402 +4293,17 @@
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2338,
-      "length": 57,
-      "value": "\"https:\/\/www.kioskoymas.com\/apphtml\/htmlview\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2394,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2463,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2485,
-      "length": 12,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2496,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2625,
-      "length": 4,
-      "value": "\"\/0\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2744,
-      "length": 19,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2762,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2872,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2895,
-      "length": 11,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2905,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 2936,
-      "length": 70,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3005,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3098,
-      "length": 22,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3119,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3251,
-      "length": 10,
-      "value": "\"YYYYMMdd\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3285,
-      "length": 40,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3324,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3416,
-      "length": 56,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3471,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3501,
-      "length": 19,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3519,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3744,
-      "length": 41,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3764,
-      "length": 1,
-      "value": "\"x\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3784,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3922,
-      "length": 9,
-      "value": "\"explore\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 3964,
-      "length": 11,
-      "value": "\"favorites\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 4006,
-      "length": 9,
-      "value": "\"library\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 4044,
-      "length": 7,
-      "value": "\"order\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 4080,
-      "length": 7,
-      "value": "\"page0\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 4121,
-      "length": 7,
-      "value": "\"pageN\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 4178,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 4452,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4279,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4691,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4515,
+      "offset": 4750,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
       "kind": "StringLiteral",
-      "offset": 5126,
+      "offset": 4844,
       "length": 2,
       "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5425,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 6151,
-      "length": 3,
-      "value": "0.3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7377,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7480,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7565,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7666,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 7760,
-      "length": 3,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7799,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7822,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7877,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7881,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 7936,
-      "length": 3,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7941,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7945,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 8105,
-      "length": 8,
-      "value": "\"height\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 8246,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 8285,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9065,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 9243,
-      "length": 5,
-      "value": "\"cmd\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "StringLiteral",
-      "offset": 9953,
-      "length": 66,
-      "value": "\"document.body.style.margin='0';document.body.style.padding = '0'\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/InterstitialAdBannerInfo.swift",
@@ -4798,240 +4315,23 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 420,
+      "offset": 827,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 425,
+      "offset": 832,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 430,
+      "offset": 837,
       "length": 2,
       "value": "60"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1979,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2089,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2205,
-      "length": 4,
-      "value": "\"\\\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2217,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2612,
-      "length": 3,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2647,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2719,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2723,
-      "length": 1,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2744,
-      "length": 3,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2962,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3052,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3254,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3530,
-      "length": 23,
-      "value": "\"cache dir isn't found\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3928,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4264,
-      "length": 64,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4311,
-      "length": 3,
-      "value": "\"\/\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4322,
-      "length": 3,
-      "value": "\"_\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4327,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4650,
-      "length": 8,
-      "value": "\"height\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4755,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4843,
-      "length": 7,
-      "value": "\"admob\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4928,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4943,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 5079,
-      "length": 11,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 5086,
-      "length": 1,
-      "value": "\"\":\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 5521,
-      "length": 3,
-      "value": "\",\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 5608,
-      "length": 3,
-      "value": "\"}\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6068,
-      "length": 11,
-      "value": "\"html\":\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6201,
-      "length": 4,
-      "value": "\"\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "Array",
-      "offset": 6253,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6632,
-      "length": 77,
-      "value": "\"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\/>\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
@@ -5109,181 +4409,6 @@
       "offset": 1445,
       "length": 2,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1659,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2134,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2231,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2330,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2420,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2512,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 3493,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3947,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4326,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 4701,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 4804,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4945,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "StringLiteral",
-      "offset": 4990,
-      "length": 23,
-      "value": "\"PR.iPad.Advertisement\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 5123,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 5135,
-      "length": 3,
-      "value": "0.6"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "StringLiteral",
-      "offset": 5499,
-      "length": 13,
-      "value": "\"i-close.png\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5593,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 5933,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 5946,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 6377,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
-      "kind": "FloatLiteral",
-      "offset": 6410,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/AdBannerCollectionViewCell.swift",
-      "kind": "IntegerLiteral",
-      "offset": 516,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/AdBannerCollectionViewCell.swift",
-      "kind": "IntegerLiteral",
-      "offset": 525,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/AdBannerCollectionViewCell.swift",
-      "kind": "IntegerLiteral",
-      "offset": 536,
-      "length": 2,
-      "value": "29"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/AdBannerCollectionViewCell.swift",
-      "kind": "IntegerLiteral",
-      "offset": 547,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
@@ -5457,8 +4582,8 @@
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
       "kind": "BooleanLiteral",
       "offset": 1190,
-      "length": 4,
-      "value": "true"
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
@@ -5475,305 +4600,11 @@
       "value": "\"PRAds.CombinedBannerProvider\""
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1477,
-      "length": 21,
-      "value": "\"init is unavailable\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2718,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "Array",
-      "offset": 2814,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3306,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3311,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "Array",
-      "offset": 3887,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "Array",
-      "offset": 4271,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5033,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5405,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7125,
-      "length": 2,
-      "value": "20"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8272,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdBannerPresentationsProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9395,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1144,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1193,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1426,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1475,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2971,
-      "length": 3,
-      "value": "728"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2984,
-      "length": 2,
-      "value": "90"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3016,
-      "length": 3,
-      "value": "320"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3029,
-      "length": 2,
-      "value": "50"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3221,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4245,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4331,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4335,
-      "length": 1,
-      "value": "0"
-    },
-    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
       "kind": "StringLiteral",
       "offset": 681,
       "length": 12,
       "value": "\"PRAds.AdDataSource\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1086,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1354,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1535,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1643,
-      "length": 6,
-      "value": "\"test\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1967,
-      "length": 6,
-      "value": "\"test\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2214,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2379,
-      "length": 3,
-      "value": "0.7"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2387,
-      "length": 3,
-      "value": "0.7"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2429,
-      "length": 4,
-      "value": "0.25"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2512,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2520,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2550,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2687,
-      "length": 4,
-      "value": "0.25"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2775,
-      "length": 3,
-      "value": "0.7"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 2783,
-      "length": 3,
-      "value": "0.7"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2813,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 3306,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADVC.swift",
-      "kind": "FloatLiteral",
-      "offset": 3329,
-      "length": 3,
-      "value": "1.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
@@ -5783,501 +4614,11 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 887,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1101,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1110,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1120,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1306,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1317,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1327,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1476,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1764,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 599,
-      "length": 6,
-      "value": "\"home\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 633,
-      "length": 9,
-      "value": "\"explore\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 673,
-      "length": 12,
-      "value": "\"downloaded\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 716,
-      "length": 9,
-      "value": "\"article\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 763,
-      "length": 7,
-      "value": "\"order\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 799,
-      "length": 7,
-      "value": "\"page0\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 835,
-      "length": 12,
-      "value": "\"pagenplus1\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1055,
-      "length": 5,
-      "value": "\"top\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1097,
-      "length": 10,
-      "value": "\"topfixed\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1134,
-      "length": 8,
-      "value": "\"inline\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1172,
-      "length": 8,
-      "value": "\"bottom\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1210,
-      "length": 14,
-      "value": "\"interstitial\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1479,
-      "length": 3,
-      "value": "\",\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1585,
-      "length": 3,
-      "value": "\"x\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1648,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1752,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1775,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2197,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "Array",
-      "offset": 2423,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 2552,
-      "length": 11,
-      "value": "\"googleAds\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "Array",
-      "offset": 2590,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 2723,
-      "length": 8,
-      "value": "\"unitId\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 2792,
-      "length": 11,
-      "value": "\"placement\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 2866,
-      "length": 10,
-      "value": "\"position\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3257,
-      "length": 16,
-      "value": "\"inlinePosition\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3278,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3577,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3710,
-      "length": 19,
-      "value": "\"interstitialFirst\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3734,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3807,
-      "length": 21,
-      "value": "\"interstitialBetween\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3833,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3901,
-      "length": 24,
-      "value": "\"interstitialPerSession\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 3930,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 4011,
-      "length": 19,
-      "value": "\"interstitialSizes\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 4035,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "StringLiteral",
       "offset": 211,
       "length": 21,
       "value": "\"PRAds.GoogleBannersProvider\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 4827,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5027,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 5058,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5251,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 5282,
-      "length": 50,
-      "value": "\"\/89799359\/app_sltrib\/eedition\/app_footer_section\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5485,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 5576,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5779,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 5810,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6006,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 6037,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6233,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 6324,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6517,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 6548,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6744,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 6775,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6971,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 7062,
-      "length": 50,
-      "value": "\"\/89799359\/app_sltrib\/eedition\/app_footer_section\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7275,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 7305,
-      "length": 50,
-      "value": "\"\/89799359\/app_sltrib\/eedition\/app_within_article\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7518,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 7548,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2435281174\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7751,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 7781,
-      "length": 40,
-      "value": "\"ca-app-pub-3940256099942544\/2934735716\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7984,
-      "length": 1,
-      "value": "6"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
@@ -6334,13 +4675,6 @@
       "offset": 206,
       "length": 12,
       "value": "\"PRAds.CombinedAdVC\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/OnlineBanners\/OnlineBannersProvider.swift",
-      "kind": "IntegerLiteral",
-      "offset": 909,
-      "length": 2,
-      "value": "-1"
     }
   ]
 }

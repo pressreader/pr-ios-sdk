@@ -27,7 +27,6 @@ FOUNDATION_EXPORT const unsigned char PRConfigurationVersionString[];
 #import <PRConfiguration/PRConfig+Settings.h>
 #import <PRConfiguration/PRConfig+AutoDelivery.h>
 #import <PRConfiguration/PRConfig+ScreenshotProtection.h>
-#import <PRConfiguration/PRConfig+MyAccount.h>
 #import <PRConfiguration/PRConfig+KYM.h>
 #import <PRConfiguration/PRConfig+AppMode.h>
 

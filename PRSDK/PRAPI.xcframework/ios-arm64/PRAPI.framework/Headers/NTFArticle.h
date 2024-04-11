@@ -112,6 +112,7 @@ typedef NS_ENUM(int16_t, NTFArticleItemPresentationType) {
 
 - (nullable NSString *)issueId;
 - (nullable NSDate *)issueDate;
+- (nullable NSString *)issueCountryCode;
 - (nullable NSString *)byline;
 - (nullable NSString *)bylineWithLineBreak:(BOOL)lineBreak;
 - (nullable NSString *)shortByline;

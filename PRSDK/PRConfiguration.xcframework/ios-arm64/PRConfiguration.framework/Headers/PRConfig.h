@@ -136,12 +136,6 @@
 
 #pragma mark - External API Keys
 
-// Google Sign In
-#define GOOGLE_APP_ID               _PRCONFIG_STRING_(@"GOOGLE_APP_ID", nil)
-
-// Facebook App Id (used PressReader key by default)
-#define FACEBOOK_APP_ID             _PRCONFIG_STRING_(@"FACEBOOK_APP_ID", nil)
-
 // Twitter Consumer Key
 #define TWITTER_CONSUMER_KEY    _PRCONFIG_STRING_(@"TWITTER_CONSUMER_KEY", @"MiQSaDwkC0Ykr56GQ4el4w")
 // Twitter Consumer Secret

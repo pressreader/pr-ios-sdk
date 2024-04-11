@@ -72,7 +72,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (BOOL)inProcess;
 - (BOOL)inThumbProcess;
 - (BOOL)requestingLicense;
-- (BOOL)isSuspended;
 - (BOOL)isForced;
 - (BOOL)isWordIndexAvailable;
 - (BOOL)isSampleIssue;
@@ -247,7 +246,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 
 
 - (instancetype) initFromFile:(NSString*)filePath;
-- (void) setSuspended:(BOOL)val;
 - (void) markForDeletion;
 - (BOOL) iOS7BackgroundDownload;
 
@@ -273,6 +271,7 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 
 - (nullable NSDateComponents *)licenseDurationInUnits:(NSCalendarUnit)unit;
 
+@property (nonatomic, getter=isSuspended) BOOL suspended;
 @property (nonatomic, assign, readonly) NSString *IssueIdDate;
 @property (nonatomic, readonly) NSInteger issueVersion;
 @property (nonatomic, readonly) NSInteger smartVersion;

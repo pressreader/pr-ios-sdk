@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUtils
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUtils
 import Compression
 import CryptoKit
 import Foundation
@@ -123,6 +122,9 @@ extension Swift.Dictionary where Key : Swift.RawRepresentable, Key.RawValue : Sw
     @objc get
   }
   @objc dynamic public func character(at index: Swift.Int) -> Swift.String?
+}
+extension ObjectiveC.NSObject {
+  @objc(unsubscribeFromNotification:) dynamic public func unsubscribe(notification: Foundation.NSNotification)
 }
 public protocol DefaultLocalizedError : Foundation.LocalizedError {
 }
@@ -318,8 +320,19 @@ extension PRUtils.SecureStorage {
   #endif
 }
 @objc extension Foundation.NSLocale {
-  @objc public static func localizeLanguage(_ language: Swift.String) -> Swift.String
   @objc dynamic public func languageName(isoCode: Swift.String) -> Swift.String?
+  @objc public static func hasCountry(forLocaleIdentifier localeIdentifier: Swift.String) -> Swift.Bool
+  @objc public static func languageAndScript(fromLocaleIdentifier localeIdentifier: Swift.String) -> Swift.String
+  @objc public static func canonicalValidatedLanguageIdentifier(fromComponents components: [Swift.String : Swift.String]) -> Swift.String
+  @objc public static func canonicalValidatedLanguageIdentifier(from localeIdentifier: Swift.String) -> Swift.String
+  @objc public static func validatedCurrentLanguageIdentifier() -> Swift.String
+  @objc public static func currentLanguageAndScriptIdentifier() -> Swift.String
+  @objc public static func validatedPreferredLanguageIdentifiers() -> [Swift.String]
+  @objc public static func validatedPreferredLanguageIdentifier(matching languageIdentifier: Swift.String) -> Swift.String?
+  @objc public static func validatedLanguageIdentifier(languageCode: Swift.String, countryCode: Swift.String?) -> Swift.String
+  @objc dynamic public var validatedLanguageIdentifier: Swift.String {
+    @objc get
+  }
 }
 extension Foundation.Locale {
   public func languageName(isoCode: Swift.String) -> Swift.String?

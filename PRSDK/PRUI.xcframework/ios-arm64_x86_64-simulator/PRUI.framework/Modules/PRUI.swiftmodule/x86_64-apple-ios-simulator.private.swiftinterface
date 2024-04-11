@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRUI
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUI
 import AuthenticationServices
 import Combine
 import CoreGraphics
@@ -186,6 +185,16 @@ extension UIKit.UIViewController : PRUI.UIStyleOverridable {
   @objc required dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GigyaManager : ObjectiveC.NSObject {
+  @objc public static var shared: PRUI.GigyaManager? {
+    @objc get
+  }
+  @objc public static var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public func signIn(_ completion: ((Swift.Bool, (any Swift.Error)?) -> ())?)
+  @objc deinit
+}
 @objc extension WebKit.WKWebView {
   @objc @_Concurrency.MainActor(unsafe) convenience dynamic public init(frame: CoreFoundation.CGRect = .zero, configuration: WebKit.WKWebViewConfiguration? = nil, css: Swift.String)
 }
@@ -298,12 +307,6 @@ extension PRUI.PRSourceItemCellList {
   @objc public static func bylineLabel() -> PRUIKit.UILabelHidable
   @objc public static func dateLabel() -> PRUIKit.UILabelHidable
   @objc override dynamic public init()
-  @objc deinit
-}
-@objc @objcMembers final public class FacebookSignInResult : PRAPI.SignInResult {
-  @objc final public let isNewUser: Swift.Bool
-  @objc final public let isSuccess: Swift.Bool
-  @objc public init(isNewUser: Swift.Bool, isSuccess: Swift.Bool, accessToken: Swift.String? = nil, error: (any Swift.Error)? = nil)
   @objc deinit
 }
 extension PRUI.VerticalTextFlowVC {
@@ -533,6 +536,7 @@ extension UIKit.UINavigationItem {
 public typealias PaymentInfoBlock = (PRUI.PROrderDeliveryResult, [Swift.String], PRAPI.PRConsumableBundle?) -> ()
 extension PRAPI.PRTitleItemExemplar {
   public static let delivery: PRSyntacticSugar.ObjectAssociationProxy<PRUI.PROrderDelivery>
+  public static let paymentInfoDelivery: PRSyntacticSugar.ObjectAssociationProxy<PRUI.PROrderDelivery>
   @objc dynamic public func requestPaymentInfo(subscription: PRAPI.PRSubscription, completion: @escaping PRUI.PaymentInfoBlock)
   @objc dynamic public func order(subscription: PRAPI.PRSubscription, options: PRUI.PROrderDeliveryOption, orderDescription: [Swift.String : Any]?, completion: PRUI.DeliveryCompletionBlock?)
   @objc dynamic public func order(subscription: PRAPI.PRSubscription, options: PRUI.PROrderDeliveryOption, usePremiumProduct: Swift.Bool, orderDescription: [Swift.String : Any]?, completion: PRUI.DeliveryCompletionBlock?)
@@ -828,6 +832,7 @@ public protocol Download {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func popoverContentSize() -> CoreFoundation.CGSize
   @objc @_Concurrency.MainActor(unsafe) dynamic public func popoverContentSize(height: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
   @objc @_Concurrency.MainActor(unsafe) dynamic public func signInPopoverContentSize() -> CoreFoundation.CGSize
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func isInPopoverWithArrow() -> Swift.Bool
 }
 extension PRAPI.BannerAnalyticsProvider {
   public var bannerContext: PRAPI.PRAnalyticsBannerContext {
@@ -1206,22 +1211,6 @@ public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewD
     @objc get
   }
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class ExternalAuthURLManager : ObjectiveC.NSObject {
-  @objc public static var returnURL: Swift.String {
-    @objc get
-  }
-  @objc public static func url(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil, returnURLAction: Swift.String? = nil) -> Foundation.URL?
-  @objc public static func path(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil) -> Swift.String
-  @objc public static func path(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String, linkToCurrentAccount: Swift.Bool, command: Swift.String?, returnURLAction: Swift.String?) -> Swift.String
-  public static func info(url: Foundation.URL) -> (success: Swift.Bool, isNewUser: Swift.Bool, error: (any Swift.Error)?)
-  @objc public static func isReturnURL(_ url: Foundation.URL) -> Swift.Bool
-  @objc public static func error(url: Foundation.URL) -> (any Swift.Error)?
-  @objc public static func error(params: [Swift.AnyHashable : Any]) -> (any Swift.Error)?
-  @objc public static func isNewUser(url: Foundation.URL) -> Swift.Bool
-  @objc public static func isNewUser(params: [Swift.AnyHashable : Any]) -> Swift.Bool
-  @objc override dynamic public init()
-  @objc deinit
-}
 @_Concurrency.MainActor(unsafe) final public class GlobalSearchView : PRUIKit.BaseTabView<PRUI.GlobalSearchTopView> {
   @_Concurrency.MainActor(unsafe) weak final public var delegate: (any PRUI.GlobalSearchTopViewDelegate)? {
     get
@@ -1304,10 +1293,6 @@ extension PRUIKit.PRUINavigationController {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func update(viewController: UIKit.UIViewController, animated: Swift.Bool)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func updateAppearance(viewController: UIKit.UIViewController)
-}
-@objc @objcMembers final public class AppleSignInResult : PRAPI.SignInResult {
-  @objc public init(nameComponent: Foundation.PersonNameComponents? = nil, email: Swift.String? = nil, user: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, error: (any Swift.Error)? = nil)
-  @objc deinit
 }
 public protocol ScrollUpdater : AnyObject {
   var scrollViewStartScrolling: ((UIKit.UIScrollView) -> ())? { get set }
@@ -1517,16 +1502,6 @@ extension PRUI.PRHotSpotServicesBannerVC {
   @objc override final public func activityViewControllerPlaceholderItem(_ activityViewController: UIKit.UIActivityViewController) -> Any
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Auth0Manager : ObjectiveC.NSObject {
-  @objc public static var shared: PRUI.Auth0Manager {
-    @objc get
-  }
-  @objc public static var isEnabled: Swift.Bool {
-    @objc get
-  }
-  @objc final public func signIn(_ completion: @escaping (Swift.Bool, (any Swift.Error)?) -> ())
-  @objc deinit
-}
 @objc extension PRUI.PRSourceCollectionVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public var representsTitleItemExemplars: Swift.Bool {
     @objc get
@@ -1575,16 +1550,6 @@ extension UIKit.UIUserInterfaceStyle : Swift.CaseIterable {
 }
 @_inheritsConvenienceInitializers @objc final public class Wide3CFeedLayoutItem : PRUI.AbstractFeedLayoutItem {
   @objc required dynamic public init()
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GigyaManager : ObjectiveC.NSObject {
-  @objc public static var shared: PRUI.GigyaManager? {
-    @objc get
-  }
-  @objc public static var isEnabled: Swift.Bool {
-    @objc get
-  }
-  @objc final public func signIn(_ completion: ((Swift.Bool, (any Swift.Error)?) -> ())?)
   @objc deinit
 }
 @objc extension PRUI.PRSourceItemCell {
@@ -1728,13 +1693,6 @@ extension UIKit.UINavigationBar {
   @objc override final public func item(forActivityType activityType: UIKit.UIActivity.ActivityType) -> Any?
   @objc override final public func activityViewControllerPlaceholderItem(_ activityViewController: UIKit.UIActivityViewController) -> Any
   @objc deinit
-}
-@objc final public class WebAuthenticationSession : AuthenticationServices.ASWebAuthenticationSession {
-  @objc public init?(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, linkToCurrentAccount: Swift.Bool, completion: @escaping (_ success: Swift.Bool, _ isNewUser: Swift.Bool, (any Swift.Error)?) -> ())
-  @objc deinit
-}
-extension AuthenticationServices.ASWebAuthenticationSession : AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
-  @objc dynamic public func presentationAnchor(for session: AuthenticationServices.ASWebAuthenticationSession) -> AuthenticationServices.ASPresentationAnchor
 }
 @objc extension PRCatalogModel.CatalogItem {
   @objc dynamic public func thumbnail(size: CoreFoundation.CGSize) -> PRThumbnail.PRCatalogItemThumbnail?
@@ -1978,10 +1936,6 @@ extension PRUI.PRCommentComposeVC : PRUIKit.NavigationBarAppearanceProvider {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension PRAPI.PRSocialSignInManager {
-  @objc dynamic public func appleLogin(_ handler: @escaping PRAPI.SignInCompletion)
-  @objc dynamic public func appleRequestPublishPermission(_ ai: PRAPI.PRAccountItem, linkToCurrentAccount: Swift.Bool, completion handler: @escaping PRAPI.ExternalAuthCompletion)
-}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class NetworkErrorView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) final public class func height(for width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
   @objc @_Concurrency.MainActor(unsafe) final public var onTryAgain: (() -> ())?
@@ -1998,12 +1952,6 @@ extension PRAPI.PRSocialSignInManager {
   }
   @objc @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) dynamic public func _trackCatalogView()
-}
-extension PRUI.PRGoogleSignInManager : PRUI.SignInManagerProtocol {
-  public typealias ResultType = PRUI.GoogleSignInResult
-  public static var shared: Self {
-    get
-  }
 }
 extension PRUI.PRMainVC {
   @objc @_Concurrency.MainActor(unsafe) weak public static var currentInstance: PRUI.PRMainVC?
@@ -2096,12 +2044,6 @@ extension PRUI.PRErrorManager : PRProtocols.Singleton {
 extension PRAPI.NTFArticleItem {
   @objc dynamic public func preloadVisuals()
 }
-extension PRUI.PRFacebookSignInManager : PRUI.SignInManagerProtocol {
-  public typealias ResultType = PRUI.FacebookSignInResult
-  public static var shared: Self {
-    get
-  }
-}
 @_Concurrency.MainActor(unsafe) final public class CustomerSupportVC : PRUIKit.SwiftVC<PRUI.MySubscriptionsView, PRUI.MySubscriptionsModel>, UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
   @_Concurrency.MainActor(unsafe) public init(account: PRAPI.PRAccountItem)
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
@@ -2148,11 +2090,6 @@ public struct NewsChannelsModel {
 }
 @objc extension PRUI.PaymentOptionsVC {
   @objc @_Concurrency.MainActor(unsafe) final public func setupAccessibility()
-}
-public protocol SignInManagerProtocol {
-  associatedtype ResultType : PRAPI.SignInResult
-  static var shared: Self { get }
-  func signIn(_ handler: @escaping (Self.ResultType) -> ())
 }
 @objc public protocol NTFArticleCell {
   @objc func setup(article: PRAPI.NTFArticleItem?, contentWidth: CoreFoundation.CGFloat, action: PRUI.FeedItemAction?)
@@ -2256,6 +2193,13 @@ extension PRUI.PremiumBannerView {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc extension PRUI.PRAccountVC {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func sendDeleteAccountEmailRequest(_ recepientEmail: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func deleteAccount()
+}
+extension PRUI.PRAccountVC : MessageUI.MFMailComposeViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func mailComposeController(_ controller: MessageUI.MFMailComposeViewController, didFinishWith result: MessageUI.MFMailComposeResult, error: (any Swift.Error)?)
+}
 extension PRAPI.PRCatalogItem {
   public var download: (any PRUI.Download)? {
     get
@@ -2272,18 +2216,6 @@ extension PRAPI.PRCatalogItem {
   @objc final public var isHighlighted: Swift.Bool
   @objc required dynamic public init()
   @objc deinit
-}
-@_inheritsConvenienceInitializers @objc final public class AppleSignInManager : PRUI._PRSocialManager, AuthenticationServices.ASAuthorizationControllerDelegate, AuthenticationServices.ASAuthorizationControllerPresentationContextProviding {
-  @objc final public func authorizationController(controller: AuthenticationServices.ASAuthorizationController, didCompleteWithAuthorization authorization: AuthenticationServices.ASAuthorization)
-  @objc final public func authorizationController(controller: AuthenticationServices.ASAuthorizationController, didCompleteWithError error: any Swift.Error)
-  @objc final public func presentationAnchor(for controller: AuthenticationServices.ASAuthorizationController) -> AuthenticationServices.ASPresentationAnchor
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension PRUI.AppleSignInManager : PRUI.SignInManagerProtocol {
-  public typealias ResultType = PRUI.AppleSignInResult
-  @objc public static let shared: PRUI.AppleSignInManager
-  @objc final public func signIn(_ handler: @escaping (PRUI.AppleSignInResult) -> ())
 }
 @objc @_Concurrency.MainActor(unsafe) final public class InterestFeedVC : PRUI.PRVerticalFeedVC {
   @_Concurrency.MainActor(unsafe) @objc override final public var shouldHideBarsOnSwipe: Swift.Bool {
@@ -2525,10 +2457,6 @@ extension PRUI.PRArticleContainerVC : PRUIKit.NavigationBarAppearanceProvider {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers final public class GoogleSignInResult : PRAPI.SignInResult {
-  @objc override public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: (any Swift.Error)?)
   @objc deinit
 }
 @objc extension PRUI.VerticalTextFlowArticleDetailsVC {

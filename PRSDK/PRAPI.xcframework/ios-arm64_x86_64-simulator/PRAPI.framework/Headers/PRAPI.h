@@ -178,6 +178,10 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import "PROperationController.h"
 
 #import "PRSocialSignInManager.h"
+#import "PRSocialSignInManager+Providers.h"
+#import "_PRSocialManager.h"
+#import "PRFacebookSignInManager.h"
+#import "PRGoogleSignInManager.h"
 
 #import "PRAccountManager.h"
 #import "PRAccountManager+ExternalAuth.h"

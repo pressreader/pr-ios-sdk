@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PRConfiguration
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRConfiguration
 import Combine
 import CoreData
 import Foundation
@@ -52,6 +51,8 @@ public struct AutoTranslationConfigKey {
 }
 @_hasMissingDesignatedInitializers final public class MarfeelAnalyticsConfigKey {
   @objc deinit
+}
+public struct AccountConfigKey {
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class ExternalLinkAccountConfig : ObjectiveC.NSObject {
   @objc public var isEnabled: Swift.Bool {
@@ -315,6 +316,36 @@ public struct PRUbiquitousKeyValueStore {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountConfig : ObjectiveC.NSObject {
+  @objc final public var showAccountVCEditBarButton: Swift.Bool {
+    @objc get
+  }
+  @objc final public var showAccountChangeEmailPermissionSection: Swift.Bool {
+    @objc get
+  }
+  @objc final public var showAccountProductSection: Swift.Bool {
+    @objc get
+  }
+  @objc final public var showAccountDetailSection: Swift.Bool {
+    @objc get
+  }
+  @objc final public var showAccountVCNicknameRow: Swift.Bool {
+    @objc get
+  }
+  @objc final public var showAccountVCServiceName: Swift.Bool {
+    @objc get
+  }
+  @objc final public let delete: PRConfiguration.AccountDeleteConfig
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountDeleteConfig : ObjectiveC.NSObject {
+  @objc final public var recipientEmail: Swift.String? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class HomeConfig : ObjectiveC.NSObject {
   @objc final public let sources: PRConfiguration.HomeSourcesConfig
   @objc final public let feed: PRConfiguration.HomeFeedConfig
@@ -484,6 +515,9 @@ extension PRConfiguration.PRConfig {
   @objc(printConfig) @PRDIContainer.Inject public static var print: PRConfiguration.PrintConfig {
     @objc get
   }
+  @objc(accountConfig) dynamic public class var account: PRConfiguration.AccountConfig {
+    @objc get
+  }
 }
 extension PRConfiguration.PRConfig {
   public static func bool(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Bool) -> Swift.Bool
@@ -590,6 +624,16 @@ extension PRConfiguration.PRConfig {
   }
   @objc final public var type: PRConfiguration.AdsType {
     @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class FacebookConfig : ObjectiveC.NSObject {
+  final public var appId: Swift.String? {
+    get
+  }
+  final public var clientToken: Swift.String? {
+    get
   }
   @objc override dynamic public init()
   @objc deinit
@@ -717,6 +761,9 @@ extension PRConfiguration.PRConfig {
   @objc dynamic public var hidePremiumButton: Swift.Bool {
     @objc get
   }
+  @objc dynamic public var shouldSendAnalyticsEventForPremiumAvailable: Swift.Bool {
+    @objc get
+  }
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers final public class LowCreditsConfig : PRConfiguration.Config {
   @objc final public var alertReappearanceTimeInterval: Foundation.TimeInterval {
@@ -728,6 +775,13 @@ extension PRConfiguration.PRConfig {
   @objc final public var isAdviceEnabled: Swift.Bool {
     @objc get
   }
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class GoogleConfig : ObjectiveC.NSObject {
+  final public var appId: Swift.String? {
+    get
+  }
+  @objc override dynamic public init()
   @objc deinit
 }
 @objc extension PRConfiguration.PRConfig {
@@ -888,6 +942,12 @@ extension PRConfiguration.PRAuthorizationConfig {
     get
   }
   public var auth0: PRConfiguration.Auth0Config {
+    get
+  }
+  public var facebook: PRConfiguration.FacebookConfig {
+    get
+  }
+  public var google: PRConfiguration.GoogleConfig {
     get
   }
   @objc dynamic public var cleanWebView: Swift.Bool {
