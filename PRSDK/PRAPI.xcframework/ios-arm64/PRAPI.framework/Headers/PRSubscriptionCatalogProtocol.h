@@ -29,7 +29,6 @@ typedef void(^_Nullable PRServiceCompletion)(BOOL success, NSError *_Nullable er
 - (void)setCurrentArtIDtoListen:(NSString *)artID CID:(NSString *)CID issueDate:(NSDate *)issueDate;
 
 #pragma mark - Catalog management
-- (void)restoreFromCache;
 - (void)UpdateSubscriptions;
 - (void)restartStatistics;
 - (BOOL)isSubscriptionsUpdated;

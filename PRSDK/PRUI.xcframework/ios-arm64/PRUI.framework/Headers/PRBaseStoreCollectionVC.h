@@ -29,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, getter=isWaitingForCatalog) BOOL waitingForCatalog;
 @property (nonatomic, readonly) BOOL isSearchAvailable;
 @property (nullable, nonatomic, strong) CatalogFiltersCollectionVC *filtersVC;
-@property (nonatomic, readonly) BOOL presentsFiltersInHeader;
 
 @end
 

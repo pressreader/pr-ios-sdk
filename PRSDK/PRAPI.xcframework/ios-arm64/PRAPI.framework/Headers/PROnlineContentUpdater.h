@@ -26,7 +26,6 @@ typedef enum { updsNone, updsInprogress, updsVersion, updsDone, updsError } PRUp
 - (instancetype) initWithParams:(NSDictionary*)params;
 
 - (NSString*) path;
-- (void) download;
 - (NSString *) version;
 - (NSString *) versionInUse;
 

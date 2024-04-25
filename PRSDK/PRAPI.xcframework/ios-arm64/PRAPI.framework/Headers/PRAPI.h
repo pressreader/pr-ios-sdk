@@ -17,231 +17,244 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <PRAPI/PublicHeader.h>
 
 #pragma mark - PressFeed
-#import "NTFSession+CoreDataClass.h"
-#import "NTFFeedItem+CoreDataClass.h"
-#import "NTFFeed+CoreDataClass.h"
-#import "NTFDataItem+CoreDataClass.h"
-#import "NTFContact+CoreDataClass.h"
-#import "Interest+CoreDataClass.h"
-#import "ArticleLink+CoreDataClass.h"
-#import "NTFGiftedIssueItem+CoreDataClass.h"
-#import "NTFGiftedIssueItem+Service.h"
+#import <PRAPI/NTFSession+CoreDataClass.h>
+#import <PRAPI/NTFFeedItem+CoreDataClass.h>
+#import <PRAPI/NTFFeed+CoreDataClass.h>
+#import <PRAPI/NTFDataItem+CoreDataClass.h>
+#import <PRAPI/NTFContact+CoreDataClass.h>
+#import <PRAPI/Interest+CoreDataClass.h>
+#import <PRAPI/ArticleLink+CoreDataClass.h>
+#import <PRAPI/NTFGiftedIssueItem+CoreDataClass.h>
+#import <PRAPI/NTFGiftedIssueItem+Service.h>
 
 #pragma mark - Protocols
-#import "PRAnalyticsProto.h"
-#import "SynthesizeSingleton.h"
-#import "PRSubscriptionCatalogProtocol.h"
-#import "PRWebServerBookRegister.h"
-#import "PRAppUIReadyDelegate.h"
-#import "OpenedItem.h"
+#import <PRAPI/PRAnalyticsProto.h>
+#import <PRAPI/SynthesizeSingleton.h>
+#import <PRAPI/PRSubscriptionCatalogProtocol.h>
+#import <PRAPI/PRWebServerBookRegister.h>
+#import <PRAPI/PRAppUIReadyDelegate.h>
+#import <PRAPI/OpenedItem.h>
 
 #pragma mark - Consts
-#import "PRAPIRequests.h"
-#import "PRDictionaryKeys.h"
-#import "PRNotifications.h"
-#import "PRUserDefaultsKeys.h"
-#import "PRConstants.h"
-#import "PRAccountNotifications.h"
-#import "PRTitleItemNestedTypes.h"
-#import "PRService_Constants.h"
+#import <PRAPI/PRAPIRequests.h>
+#import <PRAPI/PRDictionaryKeys.h>
+#import <PRAPI/PRNotifications.h>
+#import <PRAPI/PRUserDefaultsKeys.h>
+#import <PRAPI/PRConstants.h>
+#import <PRAPI/PRAccountNotifications.h>
+#import <PRAPI/PRTitleItemNestedTypes.h>
+#import <PRAPI/PRService_Constants.h>
 
 #pragma mark - Model
 
-#import "PRLinkedServicesProvider.h"
-#import "PRLinkedServiceInfo.h"
+#import <PRAPI/PRLinkedServicesProvider.h>
+#import <PRAPI/PRLinkedServiceInfo.h>
 
-#import "PRAccountItemNestedTypes.h"
-#import "PRSubscriptionItem.h"
+#import <PRAPI/PRAccountItemNestedTypes.h>
+#import <PRAPI/PRSubscriptionItem.h>
 
-#import "PROptions.h"
-#import "PROptions+Speech.h"
-#import "PROptions+Downloaded.h"
-#import "PROptions+NewsFeed.h"
-#import "PROptions+UserDefaults.h"
+#import <PRAPI/PROptions.h>
+#import <PRAPI/PROptions+Speech.h>
+#import <PRAPI/PROptions+Downloaded.h>
+#import <PRAPI/PROptions+NewsFeed.h>
+#import <PRAPI/PROptions+UserDefaults.h>
 
-#import "PRCountry.h"
+#import <PRAPI/PRCountry.h>
 
-#import "PRCountableValue.h"
-#import "PRCountableDictionary.h"
-#import "PRCountableCountry.h"
-#import "PRCountableString.h"
-#import "PRCountableNumber.h"
+#import <PRAPI/PRCountableValue.h>
+#import <PRAPI/PRCountableDictionary.h>
+#import <PRAPI/PRCountableCountry.h>
+#import <PRAPI/PRCountableString.h>
+#import <PRAPI/PRCountableNumber.h>
 
-#import "PRSourceListFilter.h"
+#import <PRAPI/PRSourceListFilter.h>
 
-#import "NTFCollectionItem+CoreDataProperties.h"
-#import "Channel+CoreDataProperties.h"
-#import "PublicationChannel+CoreDataClass.h"
-#import "Publication+CoreDataClass.h"
+#import <PRAPI/NTFCollectionItem+CoreDataProperties.h>
+#import <PRAPI/Channel+CoreDataProperties.h>
+#import <PRAPI/PublicationChannel+CoreDataClass.h>
+#import <PRAPI/Publication+CoreDataClass.h>
 
-#import "PRBundle.h"
+#import <PRAPI/PRBundle.h>
 
-#import "PRObservableObject.h"
-#import "PRObservableObject_Protected.h"
-#import "PRArrayModel.h"
-#import "PRWeakLink.h"
-#import "PRLink.h"
+#import <PRAPI/PRObservableObject.h>
+#import <PRAPI/PRObservableObject_Protected.h>
+#import <PRAPI/PRArrayModel.h>
+#import <PRAPI/PRWeakLink.h>
+#import <PRAPI/PRLink.h>
 
-#import "PRCollectionsModel.h"
+#import <PRAPI/PRCollectionsModel.h>
 
-#import "PRTitleObject.h"
+#import <PRAPI/PRTitleObject.h>
 
-#import "PRSourceItem.h"
+#import <PRAPI/PRSourceItem.h>
 
-#import "PRTitleItem.h"
-#import "PRTitleItem+Favorites.h"
-#import "NSDate+TitleItem.h"
+#import <PRAPI/PRTitleItem.h>
+#import <PRAPI/PRTitleItem+Favorites.h>
+#import <PRAPI/NSDate+TitleItem.h>
 
-#import "PRTitleItemExemplar.h"
-#import "PRTitleGroup.h"
+#import <PRAPI/PRTitleItemExemplar.h>
+#import <PRAPI/PRTitleGroup.h>
 
-#import "PRSubscription.h"
-#import "PRSubscription+Back2ObjC.h"
-#import "PRSubscription+Service.h"
-#import "PRSubscription+Error.h"
-#import "PRSubscription+Store.h"
+#import <PRAPI/PRSubscription.h>
+#import <PRAPI/PRSubscription+Back2ObjC.h>
+#import <PRAPI/PRSubscription+Service.h>
+#import <PRAPI/PRSubscription+Error.h>
+#import <PRAPI/PRSubscription+Store.h>
 
-#import "PRAccountItem.h"
-#import "PRAccountItem+Service.h"
-#import "PRAccountItem+KYM.h"
+#import <PRAPI/PRAccountItem.h>
+#import <PRAPI/PRAccountItem+Service.h>
+#import <PRAPI/PRAccountItem+KYM.h>
 
-#import "PRSourceList.h"
-#import "PRSourceList_Protected.h"
-#import "PRSourceList+Equality.h"
-#import "PRSourceList+Info.h"
+#import <PRAPI/PRSourceList.h>
+#import <PRAPI/PRSourceList_Protected.h>
+#import <PRAPI/PRSourceList+Equality.h>
+#import <PRAPI/PRSourceList+Info.h>
 
-#import "PRLatestIssuesList.h"
+#import <PRAPI/PRLatestIssuesList.h>
 
-#import "PRCatalogFilter.h"
-#import "PRCatalogFilterItem.h"
+#import <PRAPI/PRCatalogFilter.h>
+#import <PRAPI/PRCatalogFilterItem.h>
 
-#import "PRModel.h"
-#import "PRModel+Settings.h"
+#import <PRAPI/PRModel.h>
+#import <PRAPI/PRModel+Settings.h>
 
-#import "PRHost+Service.h"
+#import <PRAPI/PRHost+Service.h>
 
-#import "PRLibraryProfile.h"
-#import "PRLibraryProfile+Service.h"
+#import <PRAPI/PRLibraryProfile.h>
+#import <PRAPI/PRLibraryProfile+Service.h>
 
-#import "NTFDataService.h"
-#import "NTFDataService+Filter.h"
-#import "NTFSearchDataService.h"
-#import "NTFCategoryFeedDataService.h"
-#import "NTFSimilarArticlesDataService.h"
+#import <PRAPI/NTFDataService.h>
+#import <PRAPI/NTFDataService+Filter.h>
+#import <PRAPI/NTFSearchDataService.h>
+#import <PRAPI/NTFCategoryFeedDataService.h>
+#import <PRAPI/NTFSimilarArticlesDataService.h>
 
-#import "NTFCoreDataController.h"
+#import <PRAPI/NTFCoreDataController.h>
 
-#import "NTFFeed+Config.h"
+#import <PRAPI/NTFFeed+Config.h>
 
-#import "NTFSmartDataItem.h"
-#import "NTFArticleItem.h"
-#import "NTFPageSetItem.h"
-#import "NTFPageSetItem+CoreDataProperties.h"
-#import "NTFPageSetItem+Images.h"
+#import <PRAPI/NTFSmartDataItem.h>
+#import <PRAPI/NTFArticleItem.h>
+#import <PRAPI/NTFPageSetItem.h>
+#import <PRAPI/NTFPageSetItem+CoreDataProperties.h>
+#import <PRAPI/NTFPageSetItem+Images.h>
 
-#import "NTFRelatedStoriesItem.h"
-#import "NTFMoreItem.h"
-#import "NTFAdBlockItem.h"
-#import "PRNavMenuFilter.h"
+#import <PRAPI/NTFRelatedStoriesItem.h>
+#import <PRAPI/NTFMoreItem.h>
+#import <PRAPI/NTFAdBlockItem.h>
+#import <PRAPI/PRNavMenuFilter.h>
 
-#import "PRUserProfile.h"
-#import "PRUserProfile+Service.h"
-#import "NTFUserItem.h"
+#import <PRAPI/PRUserProfile.h>
+#import <PRAPI/PRUserProfile+Service.h>
+#import <PRAPI/NTFUserItem.h>
 
-#import "PRMyLibraryItem.h"
-#import "PRMyLibrary+Store.h"
-#import "PRMyLibrary+Notification.h"
-#import "PRMyLibraryItem+Service.h"
-#import "PRMyLibrary+Sorting.h"
-#import "PRAggregatedLibraryItem.h"
+#import <PRAPI/PRMyLibraryItem.h>
+#import <PRAPI/PRMyLibrary+Store.h>
+#import <PRAPI/PRMyLibrary+Notification.h>
+#import <PRAPI/PRMyLibraryItem+Service.h>
+#import <PRAPI/PRMyLibrary+Sorting.h>
+#import <PRAPI/PRAggregatedLibraryItem.h>
 
-#import "PRSmartArticle+Bookmarks.h"
-#import "PRSmartArticle+NTF.h"
-#import "PRSmartArticle+Service.h"
+#import <PRAPI/PRSmartArticle+Bookmarks.h>
+#import <PRAPI/PRSmartArticle+NTF.h>
+#import <PRAPI/PRSmartArticle+Service.h>
 
-#import "PRProduct.h"
+#import <PRAPI/PRProduct.h>
 
-#import "PRExpunge.h"
+#import <PRAPI/PRExpunge.h>
 
-#import "PRPage.h"
+#import <PRAPI/PRPage.h>
 
-#import "PRHotSpotAnnotation.h"
-#import "MapKitUtil.h"
+#import <PRAPI/PRHotSpotAnnotation.h>
+#import <PRAPI/MapKitUtil.h>
 
-#import "PRCatalogSection.h"
+#import <PRAPI/PRCatalogSection.h>
 
-#import "PDFDoc.h"
+#import <PRAPI/PDFDoc.h>
 
 #pragma mark - Controllers / Managers
 
-#import "PRCoreDataController.h"
-#import "PROperationController.h"
+#import <PRAPI/PRCoreDataController.h>
+#import <PRAPI/PROperationController.h>
 
-#import "PRSocialSignInManager.h"
-#import "PRSocialSignInManager+Providers.h"
-#import "_PRSocialManager.h"
-#import "PRFacebookSignInManager.h"
-#import "PRGoogleSignInManager.h"
+#import <PRAPI/PRSocialSignInManager.h>
+#import <PRAPI/PRSocialSignInManager+Providers.h>
+#import <PRAPI/_PRSocialManager.h>
+#import <PRAPI/PRFacebookSignInManager.h>
+#import <PRAPI/PRGoogleSignInManager.h>
 
-#import "PRAccountManager.h"
-#import "PRAccountManager+ExternalAuth.h"
-#import "PRAccountManager+Service.h"
-#import "PRAccountManager+Error.h"
+#import <PRAPI/PRAccountManager.h>
+#import <PRAPI/PRAccountManager+ExternalAuth.h>
+#import <PRAPI/PRAccountManager+Service.h>
+#import <PRAPI/PRAccountManager+Error.h>
 
-#import "PRStoreKitManager.h"
-#import "PRPushNotificationsManager.h"
+#import <PRAPI/PRStoreKitManager.h>
+#import <PRAPI/PRPushNotificationsManager.h>
 
-#import "PRBackgroundDownloadManager.h"
+#import <PRAPI/PRBackgroundDownloadManager.h>
 
 #pragma mark - Utils
 
-#import "PRPromise+Service.h"
-#import "NSURL+Service.h"
+#import <PRAPI/PRPromise+Service.h>
+#import <PRAPI/NSURL+Service.h>
 
-#import "PRGeneralUIInfo.h"
+#import <PRAPI/PRGeneralUIInfo.h>
 
-#import "PRArticleImageGenerator.h"
-#import "PRGenerateImageForPDFOperation.h"
+#import <PRAPI/PRArticleImageGenerator.h>
+#import <PRAPI/PRGenerateImageForPDFOperation.h>
 
-#import "PRLNS.h"
+#import <PRAPI/PRLNS.h>
 
-#import "PdfPrintRenderer.h"
+#import <PRAPI/PdfPrintRenderer.h>
 
-#import "NTFFeedSectionItem.h"
+#import <PRAPI/NTFFeedSectionItem.h>
 
-#import "NTFBannersItem.h"
+#import <PRAPI/NTFBannersItem.h>
 
-#import "NTFSocialInfoItem.h"
+#import <PRAPI/NTFSocialInfoItem.h>
 
-#import "PRDownloadedSourceList.h"
+#import <PRAPI/PRDownloadedSourceList.h>
 
-#import "PRAskReviewUtil.h"
+#import <PRAPI/PRAskReviewUtil.h>
 
-#import "PRBrazeAnalytics.h"
-#import "PRFirebaseAnalytics.h"
-#import "BranchAnalytics.h"
+#import <PRAPI/PRBrazeAnalytics.h>
+#import <PRAPI/PRFirebaseAnalytics.h>
+#import <PRAPI/BranchAnalytics.h>
 
-#import "NSArray+TitleObject.h"
+#import <PRAPI/NSArray+TitleObject.h>
 
-#import "PRCoreUtil+ClassExtending.h"
-#import "NSObject+PRAPINotifications.h"
-#import "NTFArticleUtil.h"
+#import <PRAPI/NSObject+PRAPINotifications.h>
+#import <PRAPI/NTFArticleUtil.h>
 
-#import "NTFContentRestrictions.h"
-#import "NTFContentRestrictionsCache.h"
+#import <PRAPI/NTFContentRestrictions.h>
+#import <PRAPI/NTFContentRestrictionsCache.h>
 
-#import "PRSmartCommentPost.h"
+#import <PRAPI/PRSmartCommentPost.h>
 
-#import "UIViewController+AppSingletons.h"
-#import "PRArticleTextProvider.h"
-#import "PRFirebasePushNotificationsManager.h"
+#import <PRAPI/PRArticleTextProvider.h>
+#import <PRAPI/PRFirebasePushNotificationsManager.h>
+
+#import <PRAPI/PRHost.h>
+#import <PRAPI/PRMyLibrary.h>
+#import <PRAPI/PRCatalog.h>
+#import <PRAPI/PROptions.h>
+#import <PRAPI/PROptions+NewsFeed.h>
+#import <PRAPI/PROnlineContentUpdater.h>
+#import <PRAPI/PRCoreUtil.h>
+
+#import <PRAPI/PRTitleItemsManager.h>
+#import <PRAPI/PRCoreGlobalImpl.h>
+#import <PRAPI/PRWebServer.h>
+#import <PRAPI/PRSocialSignInManager.h>
+#import <PRAPI/PRHotSpotManager.h>
+#import <PRAPI/PRSuggestionsManager.h>
 
 #pragma mark - PROTECTED
 
-#import "PRService.h"
-#import "PRNSBundle+Updatable.h"
-#import "PRAnalyticsProfileManager.h"
-#import "PRSchemeProvider.h"
-#import "ConsoleAnalytics.h"
-#import "GoogleAnalytics.h"
-#import "PRAnalyticsService.h"
+#import <PRAPI/PRService.h>
+#import <PRAPI/PRNSBundle+Updatable.h>
+#import <PRAPI/PRAnalyticsProfileManager.h>
+#import <PRAPI/PRSchemeProvider.h>
+#import <PRAPI/ConsoleAnalytics.h>
+#import <PRAPI/GoogleAnalytics.h>
+#import <PRAPI/PRAnalyticsService.h>

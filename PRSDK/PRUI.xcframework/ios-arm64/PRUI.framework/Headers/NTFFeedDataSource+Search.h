@@ -1,6 +1,6 @@
 //
 //  NTFFeedDataSource+Search.h
-//  PR-UI
+//  PRUI
 //
 //  Created by berec on 08/05/2019.
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
@@ -17,14 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
  * @param filters dictionary of attribute and values
  */
 - (nullable __kindof NTFFeedItem *)feedItemWithAttributesAndValues:(nullable NSDictionary<NSString *, id> *)filters;
-- (__kindof NTFFeedItem *)feedItemOfEntity:(NSString *)feedItemEntity
-                       attributesAndValues:(NSDictionary<NSString *, id> *)filters;
-
-- (NSArray<__kindof NTFFeedItem *> *)feedItemsWithAttributesAndValues:(NSDictionary<NSString *, id> *)filters;
-- (nullable NSArray<__kindof NTFFeedItem *> *)feedItemsOfEntity:(NSString *)feedItemEntity
-                                            attributesAndValues:(nullable NSDictionary<NSString *, id> *)filters
-                                                     fetchLimit:(NSUInteger)fetchLimit;
-
 - (nullable __kindof NTFFeedItem *)feedItemWithId:(NSString *)itemId;
 
 @end

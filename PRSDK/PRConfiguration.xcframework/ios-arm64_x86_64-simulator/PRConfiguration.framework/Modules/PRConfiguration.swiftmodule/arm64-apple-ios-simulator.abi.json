@@ -262,7 +262,7 @@
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment",
+              "Custom",
               "ObjC"
             ],
             "accessors": [
@@ -282,6 +282,7 @@
                 "usr": "c:@M@PRConfiguration@objc(cs)SearchConfig(im)global",
                 "mangledName": "$s15PRConfiguration12SearchConfigC6globalAA06GlobalbC0Cvg",
                 "moduleName": "PRConfiguration",
+                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -878,18 +879,6 @@
         "hasMissingDesignatedInitializers": true
       },
       {
-        "kind": "TypeDecl",
-        "name": "AccountConfigKey",
-        "printedName": "AccountConfigKey",
-        "declKind": "Struct",
-        "usr": "s:15PRConfiguration16AccountConfigKeyV",
-        "mangledName": "$s15PRConfiguration16AccountConfigKeyV",
-        "moduleName": "PRConfiguration",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -1267,6 +1256,489 @@
             "usr": "s:13PRDIContainer18DependencyResolverP",
             "mangledName": "$s13PRDIContainer18DependencyResolverP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoBrandingConfig",
+        "printedName": "CoBrandingConfig",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "Area",
+            "printedName": "Area",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "catalog",
+                "printedName": "catalog",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Area",
+                    "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV7catalogAEvpZ",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV7catalogAEvpZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV7catalogAEvgZ",
+                    "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV7catalogAEvgZ",
+                    "moduleName": "PRConfiguration",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "issueDetails",
+                "printedName": "issueDetails",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Area",
+                    "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV12issueDetailsAEvpZ",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV12issueDetailsAEvpZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV12issueDetailsAEvgZ",
+                    "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV12issueDetailsAEvgZ",
+                    "moduleName": "PRConfiguration",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "bookDetails",
+                "printedName": "bookDetails",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Area",
+                    "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV11bookDetailsAEvpZ",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV11bookDetailsAEvpZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV11bookDetailsAEvgZ",
+                    "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV11bookDetailsAEvgZ",
+                    "moduleName": "PRConfiguration",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "textFlow",
+                "printedName": "textFlow",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Area",
+                    "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV8textFlowAEvpZ",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV8textFlowAEvpZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV8textFlowAEvgZ",
+                    "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV8textFlowAEvgZ",
+                    "moduleName": "PRConfiguration",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "article",
+                "printedName": "article",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Area",
+                    "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV7articleAEvpZ",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV7articleAEvpZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV7articleAEvgZ",
+                    "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV7articleAEvgZ",
+                    "moduleName": "PRConfiguration",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "rawValue",
+                "printedName": "rawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV8rawValueSivp",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV8rawValueSivp",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV8rawValueSivg",
+                    "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV8rawValueSivg",
+                    "moduleName": "PRConfiguration",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Area",
+                    "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV8rawValueAESi_tcfc",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV8rawValueAESi_tcfc",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV",
+            "mangledName": "$s15PRConfiguration16CoBrandingConfigV4AreaV",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "OptionSet",
+                "printedName": "OptionSet",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "Element",
+                    "printedName": "Element",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:s9OptionSetP",
+                "mangledName": "$ss9OptionSetP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "RawRepresentable",
+                "printedName": "RawRepresentable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "RawValue",
+                    "printedName": "RawValue",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:SY",
+                "mangledName": "$sSY"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SetAlgebra",
+                "printedName": "SetAlgebra",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "Element",
+                    "printedName": "Element",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:s10SetAlgebraP",
+                "mangledName": "$ss10SetAlgebraP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "ExpressibleByArrayLiteral",
+                "printedName": "ExpressibleByArrayLiteral",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "ArrayLiteralElement",
+                    "printedName": "ArrayLiteralElement",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Area",
+                        "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                        "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:s25ExpressibleByArrayLiteralP",
+                "mangledName": "$ss25ExpressibleByArrayLiteralP"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "area",
+            "printedName": "area",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Area",
+                "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15PRConfiguration16CoBrandingConfigV4areaAC4AreaVvp",
+            "mangledName": "$s15PRConfiguration16CoBrandingConfigV4areaAC4AreaVvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Area",
+                    "printedName": "PRConfiguration.CoBrandingConfig.Area",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV4AreaV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV4areaAC4AreaVvg",
+                "mangledName": "$s15PRConfiguration16CoBrandingConfigV4areaAC4AreaVvg",
+                "moduleName": "PRConfiguration",
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15PRConfiguration16CoBrandingConfigV",
+        "mangledName": "$s15PRConfiguration16CoBrandingConfigV",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "AccessControl"
         ]
       },
       {
@@ -2078,6 +2550,1532 @@
         "moduleName": "PRConfiguration",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRCatalogSectionType",
+        "printedName": "PRCatalogSectionType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "begin",
+            "printedName": "begin",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBegin",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO5beginyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeNone",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO4noneyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "featured",
+            "printedName": "featured",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeFeatured",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO8featuredyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "filters",
+            "printedName": "filters",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeFilters",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO7filtersyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "listen",
+            "printedName": "listen",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeListen",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO6listenyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "favorites",
+            "printedName": "favorites",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeFavorites",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO9favoritesyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Var",
+            "name": "recentlyRead",
+            "printedName": "recentlyRead",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeRecentlyRead",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO12recentlyReadyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 6
+          },
+          {
+            "kind": "Var",
+            "name": "linkedService",
+            "printedName": "linkedService",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeLinkedService",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO13linkedServiceyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 7
+          },
+          {
+            "kind": "Var",
+            "name": "topMagazines",
+            "printedName": "topMagazines",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeTopMagazines",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO12topMagazinesyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 8
+          },
+          {
+            "kind": "Var",
+            "name": "topNewspapers",
+            "printedName": "topNewspapers",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeTopNewspapers",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO13topNewspapersyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 9
+          },
+          {
+            "kind": "Var",
+            "name": "books",
+            "printedName": "books",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBooks",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO5booksyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 10
+          },
+          {
+            "kind": "Var",
+            "name": "justAdded",
+            "printedName": "justAdded",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeJustAdded",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO9justAddedyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 11
+          },
+          {
+            "kind": "Var",
+            "name": "newReleases",
+            "printedName": "newReleases",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeNewReleases",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO11newReleasesyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 12
+          },
+          {
+            "kind": "Var",
+            "name": "topFree",
+            "printedName": "topFree",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeTopFree",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO7topFreeyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 13
+          },
+          {
+            "kind": "Var",
+            "name": "downloaded",
+            "printedName": "downloaded",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeDownloaded",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO10downloadedyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 14
+          },
+          {
+            "kind": "Var",
+            "name": "latestIssues",
+            "printedName": "latestIssues",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeLatestIssues",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO12latestIssuesyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 15
+          },
+          {
+            "kind": "Var",
+            "name": "bannerBegin",
+            "printedName": "bannerBegin",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerBegin",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO11bannerBeginyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 16
+          },
+          {
+            "kind": "Var",
+            "name": "bannerHotspotServices",
+            "printedName": "bannerHotspotServices",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerHotspotServices",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO21bannerHotspotServicesyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 17
+          },
+          {
+            "kind": "Var",
+            "name": "bannerPremiumSubscription",
+            "printedName": "bannerPremiumSubscription",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerPremiumSubscription",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO25bannerPremiumSubscriptionyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 18
+          },
+          {
+            "kind": "Var",
+            "name": "bannerImproveExperience",
+            "printedName": "bannerImproveExperience",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerImproveExperience",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO23bannerImproveExperienceyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 19
+          },
+          {
+            "kind": "Var",
+            "name": "bannerPersonalizationCompleted",
+            "printedName": "bannerPersonalizationCompleted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerPersonalizationCompleted",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO30bannerPersonalizationCompletedyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 20
+          },
+          {
+            "kind": "Var",
+            "name": "bannerBooks",
+            "printedName": "bannerBooks",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerBooks",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO11bannerBooksyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 21
+          },
+          {
+            "kind": "Var",
+            "name": "bannerBrazeContentCard",
+            "printedName": "bannerBrazeContentCard",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerBrazeContentCard",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO22bannerBrazeContentCardyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 22
+          },
+          {
+            "kind": "Var",
+            "name": "bannerAll",
+            "printedName": "bannerAll",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerAll",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO9bannerAllyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 23
+          },
+          {
+            "kind": "Var",
+            "name": "bannerEnd",
+            "printedName": "bannerEnd",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeBannerEnd",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO9bannerEndyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 24
+          },
+          {
+            "kind": "Var",
+            "name": "categories",
+            "printedName": "categories",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeCategories",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO10categoriesyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 25
+          },
+          {
+            "kind": "Var",
+            "name": "fullCatalog",
+            "printedName": "fullCatalog",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeFullCatalog",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO11fullCatalogyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 26
+          },
+          {
+            "kind": "Var",
+            "name": "categoryContent",
+            "printedName": "categoryContent",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeCategoryContent",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO15categoryContentyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 27
+          },
+          {
+            "kind": "Var",
+            "name": "sections",
+            "printedName": "sections",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeSections",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO8sectionsyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 28
+          },
+          {
+            "kind": "Var",
+            "name": "hotSpot",
+            "printedName": "hotSpot",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeHotSpot",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO7hotSpotyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 29
+          },
+          {
+            "kind": "Var",
+            "name": "topAdBanner",
+            "printedName": "topAdBanner",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeTopAdBanner",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO11topAdBanneryA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 30
+          },
+          {
+            "kind": "Var",
+            "name": "inlineAdBanner",
+            "printedName": "inlineAdBanner",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeInlineAdBanner",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO14inlineAdBanneryA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 31
+          },
+          {
+            "kind": "Var",
+            "name": "coBrandingBanner",
+            "printedName": "coBrandingBanner",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeCoBrandingBanner",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO16coBrandingBanneryA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 32
+          },
+          {
+            "kind": "Var",
+            "name": "end",
+            "printedName": "end",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRConfiguration.PRCatalogSectionType.Type) -> PRConfiguration.PRCatalogSectionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRConfiguration.PRCatalogSectionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogSectionType",
+                        "printedName": "PRConfiguration.PRCatalogSectionType",
+                        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType@PRCatalogSectionTypeEnd",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO3endyA2CmF",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 33
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRConfiguration.PRCatalogSectionType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogSectionType",
+                    "printedName": "PRConfiguration.PRCatalogSectionType",
+                    "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15PRConfiguration20PRCatalogSectionTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "PRConfiguration",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15PRConfiguration20PRCatalogSectionTypeO8rawValueSivp",
+            "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO8rawValueSivp",
+            "moduleName": "PRConfiguration",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration20PRCatalogSectionTypeO8rawValueSivg",
+                "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO8rawValueSivg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType",
+        "mangledName": "$s15PRConfiguration20PRCatalogSectionTypeO",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
         ]
       },
       {
@@ -11457,52 +13455,6 @@
           },
           {
             "kind": "Var",
-            "name": "firebase",
-            "printedName": "firebase",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "FirebaseAnalyticsConfig",
-                "printedName": "PRConfiguration.FirebaseAnalyticsConfig",
-                "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfig"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfig(py)firebase",
-            "mangledName": "$s15PRConfiguration15AnalyticsConfigC8firebaseAA08FirebasebC0Cvp",
-            "moduleName": "PRConfiguration",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "FirebaseAnalyticsConfig",
-                    "printedName": "PRConfiguration.FirebaseAnalyticsConfig",
-                    "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfig"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfig(im)firebase",
-                "mangledName": "$s15PRConfiguration15AnalyticsConfigC8firebaseAA08FirebasebC0Cvg",
-                "moduleName": "PRConfiguration",
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "reading",
             "printedName": "reading",
             "children": [
@@ -11555,6 +13507,54 @@
           },
           {
             "kind": "Var",
+            "name": "firebase",
+            "printedName": "firebase",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseAnalyticsConfig",
+                "printedName": "PRConfiguration.FirebaseAnalyticsConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfig(py)firebase",
+            "mangledName": "$s15PRConfiguration15AnalyticsConfigC8firebaseAA08FirebasebC0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Custom",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FirebaseAnalyticsConfig",
+                    "printedName": "PRConfiguration.FirebaseAnalyticsConfig",
+                    "usr": "c:@M@PRConfiguration@objc(cs)FirebaseAnalyticsConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfig(im)firebase",
+                "mangledName": "$s15PRConfiguration15AnalyticsConfigC8firebaseAA08FirebasebC0Cvg",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "comScore",
             "printedName": "comScore",
             "children": [
@@ -11572,6 +13572,7 @@
             "declAttributes": [
               "Final",
               "AccessControl",
+              "Custom",
               "ObjC"
             ],
             "accessors": [
@@ -11591,6 +13592,7 @@
                 "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfig(im)comScore",
                 "mangledName": "$s15PRConfiguration15AnalyticsConfigC8comScoreAA03ComebC0Cvg",
                 "moduleName": "PRConfiguration",
+                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -11618,6 +13620,7 @@
             "declAttributes": [
               "Final",
               "AccessControl",
+              "Custom",
               "ObjC"
             ],
             "accessors": [
@@ -11637,6 +13640,7 @@
                 "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfig(im)treasureData",
                 "mangledName": "$s15PRConfiguration15AnalyticsConfigC12treasureDataAA08TreasureebC0Cvg",
                 "moduleName": "PRConfiguration",
+                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -11664,6 +13668,7 @@
             "declAttributes": [
               "Final",
               "AccessControl",
+              "Custom",
               "ObjC"
             ],
             "accessors": [
@@ -11683,6 +13688,7 @@
                 "usr": "c:@M@PRConfiguration@objc(cs)AnalyticsConfig(im)marfeel",
                 "mangledName": "$s15PRConfiguration15AnalyticsConfigC7marfeelAA07MarfeelbC0Cvg",
                 "moduleName": "PRConfiguration",
+                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -18254,6 +20260,54 @@
         "children": [
           {
             "kind": "Var",
+            "name": "books",
+            "printedName": "books",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BookConfig",
+                "printedName": "PRConfiguration.BookConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)BookConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@@objc(cs)PRCatalogConfig(py)books",
+            "mangledName": "$sSo15PRCatalogConfigC15PRConfigurationE5booksAC04BookB0Cvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BookConfig",
+                    "printedName": "PRConfiguration.BookConfig",
+                    "usr": "c:@M@PRConfiguration@objc(cs)BookConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@@objc(cs)PRCatalogConfig(im)books",
+                "mangledName": "$sSo15PRCatalogConfigC15PRConfigurationE5booksAC04BookB0Cvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "localPromotionsCount",
             "printedName": "localPromotionsCount",
             "children": [
@@ -18347,51 +20401,32 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "books",
-            "printedName": "books",
+            "kind": "Function",
+            "name": "isModernAPISupported",
+            "printedName": "isModernAPISupported(by:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "BookConfig",
-                "printedName": "PRConfiguration.BookConfig",
-                "usr": "c:@M@PRConfiguration@objc(cs)BookConfig"
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRCatalogSectionType",
+                "printedName": "PRConfiguration.PRCatalogSectionType",
+                "usr": "c:@M@PRConfiguration@E@PRCatalogSectionType"
               }
             ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRConfiguration@@objc(cs)PRCatalogConfig(py)books",
-            "mangledName": "$sSo15PRCatalogConfigC15PRConfigurationE5booksAC04BookB0Cvp",
+            "declKind": "Func",
+            "usr": "s:So15PRCatalogConfigC15PRConfigurationE20isModernAPISupported2bySbAC0A11SectionTypeO_tF",
+            "mangledName": "$sSo15PRCatalogConfigC15PRConfigurationE20isModernAPISupported2bySbAC0A11SectionTypeO_tF",
             "moduleName": "PRConfiguration",
             "declAttributes": [
-              "Dynamic",
-              "ObjC"
+              "RawDocComment"
             ],
             "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "BookConfig",
-                    "printedName": "PRConfiguration.BookConfig",
-                    "usr": "c:@M@PRConfiguration@objc(cs)BookConfig"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRConfiguration@@objc(cs)PRCatalogConfig(im)books",
-                "mangledName": "$sSo15PRCatalogConfigC15PRConfigurationE5booksAC04BookB0Cvg",
-                "moduleName": "PRConfiguration",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -19218,7 +21253,8 @@
             "static": true,
             "objc_name": "accountConfig",
             "declAttributes": [
-              "Dynamic",
+              "Final",
+              "Custom",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -19240,9 +21276,62 @@
                 "mangledName": "$sSo8PRConfigC15PRConfigurationE7accountAC13AccountConfigCvgZ",
                 "moduleName": "PRConfiguration",
                 "static": true,
+                "implicit": true,
                 "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "coBranding",
+            "printedName": "coBranding",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoBrandingConfig",
+                "printedName": "PRConfiguration.CoBrandingConfig",
+                "usr": "s:15PRConfiguration16CoBrandingConfigV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So8PRConfigC15PRConfigurationE10coBrandingAC02CoD6ConfigVvpZ",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE10coBrandingAC02CoD6ConfigVvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoBrandingConfig",
+                    "printedName": "PRConfiguration.CoBrandingConfig",
+                    "usr": "s:15PRConfiguration16CoBrandingConfigV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So8PRConfigC15PRConfigurationE10coBrandingAC02CoD6ConfigVvgZ",
+                "mangledName": "$sSo8PRConfigC15PRConfigurationE10coBrandingAC02CoD6ConfigVvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
                 ],
                 "isFromExtension": true,
                 "accessorKind": "get"
@@ -20854,947 +22943,1507 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1060,
+      "offset": 1110,
       "length": 23,
       "value": "\"DEALLOC_ALERT_CLASSES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1283,
+      "offset": 1333,
       "length": 17,
       "value": "\"hotspots_enable\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1762,
+      "offset": 1812,
       "length": 32,
       "value": "\"CONFIG_RUN_TIME_UPDATE_ALLOWED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 1995,
+      "offset": 2045,
       "length": 17,
       "value": "\"ENABLE_TOOLTIPS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2084,
+      "offset": 2134,
       "length": 35,
       "value": "\"USER_PERMISSION_REQUESTS_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2192,
+      "offset": 2242,
       "length": 35,
       "value": "\"UNCONDITIONAL_PREMIUM_ELIGIBILITY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2294,
+      "offset": 2344,
       "length": 30,
       "value": "\"SERVICE_ERROR.ALERT.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2667,
+      "offset": 2717,
       "length": 24,
       "value": "\"radio_featured_enabled\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2732,
+      "offset": 2782,
       "length": 23,
       "value": "\"RADIO.FEATURED.LOCALE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2802,
+      "offset": 2852,
       "length": 30,
       "value": "\"RADIO.FEATURED.ARTICLE_COUNT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2885,
+      "offset": 2935,
       "length": 37,
       "value": "\"RADIO.FEATURED.ARTICLE_SEARCH_DEPTH\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2969,
+      "offset": 3019,
       "length": 30,
       "value": "\"RADIO.FEATURED.SHOW_DURATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3090,
+      "offset": 3140,
       "length": 24,
       "value": "\"auto_translation_flows\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3166,
+      "offset": 3216,
       "length": 27,
       "value": "\"AUTOTRANSLATE.PAIRS_LIMIT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3271,
+      "offset": 3321,
       "length": 25,
       "value": "\"REQUEST_SIMULATION.BASE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3333,
+      "offset": 3383,
       "length": 23,
       "value": "\"REQUEST_SIMULATION.DQ\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3464,
+      "offset": 3514,
       "length": 29,
       "value": "\"APP_MENU.CATALOG_PANEL_MODE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3540,
+      "offset": 3590,
       "length": 19,
       "value": "\"initial_app_panel\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3663,
+      "offset": 3713,
       "length": 22,
       "value": "\"ONBOARDING_SUPPORTED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3728,
+      "offset": 3778,
       "length": 21,
       "value": "\"ONBOARDING.DEFERRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3810,
+      "offset": 3860,
       "length": 45,
       "value": "\"ONBOARDING.TRIAL_SUBSCRIPTION_INTRO.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3904,
+      "offset": 3954,
       "length": 29,
       "value": "\"ONBOARDING.SIGN_IN.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4124,
+      "offset": 4174,
       "length": 24,
       "value": "\"HOME.DISPLAY_FAVORITES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4191,
+      "offset": 4241,
       "length": 28,
       "value": "\"HOME.SOURCES_VIEW_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4265,
+      "offset": 4315,
       "length": 43,
       "value": "\"BE_HOME_FEED_AMOUNT_OF_ISSUES_IN_SCROLLER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4383,
+      "offset": 4433,
       "length": 22,
       "value": "\"HOME.FEED.NAVIGATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4542,
+      "offset": 4592,
       "length": 45,
       "value": "\"HOME.FEED.RELATED_ARTICLES.THUMBNAIL.ENABLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4702,
+      "offset": 4792,
       "length": 38,
       "value": "\"CATALOG.PRESSCATALOG.UPDATE_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4811,
+      "offset": 4902,
       "length": 38,
       "value": "\"CATALOG.THUMBNAIL.STRETCHING.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4904,
+      "offset": 4996,
       "length": 21,
       "value": "\"SHOW_FREE_INDICATOR\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5039,
+      "offset": 5078,
+      "length": 39,
+      "value": "\"CATALOG.MODERN_API.SUPPORTED_SECTIONS\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 5192,
       "length": 23,
       "value": "\"CATALOG.BOOKS.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5165,
+      "offset": 5318,
       "length": 22,
       "value": "\"PUBHUB_BANNERS_ORDER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5296,
+      "offset": 5449,
       "length": 20,
       "value": "\"DISABLE_FULLSCREEN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5420,
+      "offset": 5573,
       "length": 30,
       "value": "\"BUNDLE.SHOW_CUSTOMER_SUPPORT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5490,
+      "offset": 5643,
       "length": 23,
       "value": "\"SUPPORT_EMAIL_ADDRESS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5554,
+      "offset": 5707,
       "length": 16,
       "value": "\"support_emails\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5610,
+      "offset": 5763,
       "length": 22,
       "value": "\"SUPPORT_PHONE_NUMBER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5683,
+      "offset": 5836,
       "length": 20,
       "value": "\"PRIVACY_POLICY_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5751,
+      "offset": 5904,
       "length": 11,
       "value": "\"LEGAL_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5818,
+      "offset": 5971,
       "length": 25,
       "value": "\"MANAGE_SUBSCRIPTION_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5903,
+      "offset": 6056,
       "length": 41,
       "value": "\"CUSTOMER_SUPPORT.FEEDBACK_QUESTION.HIDE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6053,
+      "offset": 6206,
       "length": 23,
       "value": "\"FONT.ENABLE_SWIZZLING\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6119,
+      "offset": 6272,
       "length": 11,
       "value": "\"FONT.MAIN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6177,
+      "offset": 6330,
       "length": 16,
       "value": "\"FONT.MAIN_BOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6241,
+      "offset": 6394,
       "length": 16,
       "value": "\"FONT.SECONDARY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6309,
+      "offset": 6462,
       "length": 21,
       "value": "\"FONT.SECONDARY_BOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6389,
+      "offset": 6542,
       "length": 25,
       "value": "\"FONT.ARTICLE.TITLE.NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6464,
+      "offset": 6617,
       "length": 36,
       "value": "\"FONT.ARTICLE.TITLE.SIZE_CORRECTION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6536,
+      "offset": 6689,
       "length": 28,
       "value": "\"FONT.ARTICLE.SUBTITLE.NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6617,
+      "offset": 6770,
       "length": 39,
       "value": "\"FONT.ARTICLE.SUBTITLE.SIZE_CORRECTION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6690,
+      "offset": 6843,
       "length": 26,
       "value": "\"FONT.ARTICLE.BYLINE.NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6767,
+      "offset": 6920,
       "length": 37,
       "value": "\"FONT.ARTICLE.BYLINE.SIZE_CORRECTION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6836,
+      "offset": 6989,
       "length": 24,
       "value": "\"FONT.ARTICLE.BODY.NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6909,
+      "offset": 7062,
       "length": 35,
       "value": "\"FONT.ARTICLE.BODY.SIZE_CORRECTION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6979,
+      "offset": 7132,
       "length": 27,
       "value": "\"FONT.ARTICLE.PREVIEW.NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7058,
+      "offset": 7211,
       "length": 38,
       "value": "\"FONT.ARTICLE.PREVIEW.SIZE_CORRECTION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7514,
+      "offset": 7667,
       "length": 18,
       "value": "\"LOCAL_SERVER_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7609,
+      "offset": 7762,
       "length": 59,
       "value": "\"OFFLINE_MODE_CLEAN_DOWNLOADED_ITEMS_AFTER_DEAUTHORIZATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7866,
+      "offset": 8019,
       "length": 24,
       "value": "\"ANALYTICS.USER.ID_TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8008,
+      "offset": 8161,
       "length": 33,
       "value": "\"ANALYTICS.REPLICA_PAGE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8250,
+      "offset": 8403,
       "length": 34,
       "value": "\"ANALYTICS.READING.FRAME.DEBOUNCE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8341,
+      "offset": 8494,
       "length": 44,
       "value": "\"ANALYTICS.READING.FRAME.DURATION_THRESHOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8500,
+      "offset": 8653,
       "length": 36,
       "value": "\"LIBRARY.BOOK.OFFLINE_ACCESS_PERIOD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8587,
+      "offset": 8740,
       "length": 28,
       "value": "\"LIBRARY.KEEP_EXPIRED_ITEMS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8671,
+      "offset": 8824,
       "length": 33,
       "value": "\"LIBRARY.RENEWABLE_ISSUE_LICENSE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8809,
+      "offset": 8962,
       "length": 24,
       "value": "\"MIGRATION.BOOK.LIBRARY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8888,
+      "offset": 9041,
       "length": 34,
       "value": "\"MIGRATION.BOOK.READING_POSITIONS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9033,
+      "offset": 9186,
       "length": 23,
       "value": "\"TREASURE_DATA_API_KEY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9099,
+      "offset": 9252,
       "length": 29,
       "value": "\"TREASURE_DATA_DATABASE_NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9168,
+      "offset": 9321,
       "length": 26,
       "value": "\"TREASURE_DATA_TABLE_NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9305,
+      "offset": 9458,
       "length": 32,
       "value": "\"ANALYTICS.FIREBASE.USER_ID_KEY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9443,
+      "offset": 9596,
       "length": 33,
       "value": "\"ANALYTICS.SPOOR.SERVER.BASE_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9620,
+      "offset": 9773,
       "length": 50,
       "value": "\"ANALYTICS.MARFEEL.USER_TYPE.USER_ACCESS_4_BUNDLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9935,
+      "offset": 10088,
       "length": 34,
       "value": "\"SPLASH_SCREEN.POWERED_BY.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10023,
+      "offset": 10176,
       "length": 37,
       "value": "\"SPLASH_SCREEN.ANIMATED_LOGO.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10115,
+      "offset": 10268,
       "length": 38,
       "value": "\"SPLASH_SCREEN.ANIMATED_LOGO.PROGRESS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10257,
+      "offset": 10410,
       "length": 23,
       "value": "\"SEARCH.GLOBAL.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10344,
+      "offset": 10497,
       "length": 46,
       "value": "\"SEARCH.GLOBAL.STORIES.ONGOING_SEARCH.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10537,
+      "offset": 10690,
       "length": 23,
       "value": "\"ORDER.FOLLOW.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10612,
-      "length": 31,
-      "value": "\"ORDER.PREMIUM_BUTTON.DISABLED\""
+      "offset": 10765,
+      "length": 39,
+      "value": "\"ORDER_READWITHPREMIUM_BUTTON_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10721,
+      "offset": 10882,
       "length": 54,
-      "value": "\"ORDER.READWITHPREMIUM_BUTTON_PRESENTED_EVENT.ENABLED\""
+      "value": "\"ORDER_READWITHPREMIUM_BUTTON_PRESENTED_EVENT_ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10899,
+      "offset": 11060,
       "length": 52,
       "value": "\"ORDER.LOW_CREDITS_ALERT.REAPPEARANCE_TIME_INTERVAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10999,
+      "offset": 11160,
       "length": 35,
       "value": "\"SHOW_REMAINING_FREE_ISSUES_NOTICE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11082,
+      "offset": 11243,
       "length": 34,
       "value": "\"ORDER.LOW_CREDITS.ADVICE.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11228,
+      "offset": 11389,
       "length": 31,
       "value": "\"CANCELLATION_ADVISORY.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11361,
+      "offset": 11522,
       "length": 20,
       "value": "\"AUTHORIZATION.TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11425,
+      "offset": 11586,
       "length": 25,
       "value": "\"AUTHORIZATION.FREQUENCY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11498,
+      "offset": 11659,
       "length": 30,
       "value": "\"AUTHORIZATION.FREQUENCY_DAYS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11575,
+      "offset": 11736,
       "length": 30,
       "value": "\"AUTHORIZATION.WEB_VIEW.CLEAN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11656,
+      "offset": 11817,
       "length": 34,
       "value": "\"AUTHORIZATION.EXTERNAL_AUTH.TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11877,
+      "offset": 12038,
       "length": 31,
       "value": "\"AUTHORIZATION.AUTH0.CLIENT_ID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11953,
+      "offset": 12114,
       "length": 28,
       "value": "\"AUTHORIZATION.AUTH0.DOMAIN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12067,
+      "offset": 12228,
       "length": 17,
       "value": "\"FACEBOOK_APP_ID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12134,
+      "offset": 12295,
       "length": 23,
       "value": "\"FACEBOOK_CLIENT_TOKEN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12241,
+      "offset": 12402,
       "length": 15,
       "value": "\"GOOGLE_APP_ID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12377,
+      "offset": 12538,
       "length": 33,
       "value": "\"ARTICLE.PREVIEW.NUMBER_OF_LINES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12476,
+      "offset": 12637,
       "length": 40,
       "value": "\"ARTICLE.DETAILS.BACKGROUND_COLOR.LIGHT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12577,
+      "offset": 12738,
       "length": 35,
       "value": "\"ARTICLE.DETAILS.TITLE_COLOR.LIGHT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12667,
+      "offset": 12828,
       "length": 33,
       "value": "\"ARTICLE.PREVIEW.TEXT.COLOR.DARK\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12757,
+      "offset": 12918,
       "length": 35,
       "value": "\"ARTICLE.PREVIEW.BYLINE.COLOR.DARK\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12901,
+      "offset": 13062,
       "length": 22,
       "value": "\"ARTICLE.TAGS.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13020,
+      "offset": 13181,
       "length": 10,
       "value": "\"ADS.TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13081,
+      "offset": 13242,
       "length": 34,
       "value": "\"ADVERTISEMENT_DISPLAY_ENABLED_V2\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13164,
+      "offset": 13325,
       "length": 18,
       "value": "\"ADS.HTML.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13265,
+      "offset": 13414,
+      "length": 17,
+      "value": "\"COBRANDING.AREA\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 13514,
       "length": 31,
       "value": "\"EXTERNAL_LINK_ACCOUNT.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13344,
+      "offset": 13593,
       "length": 38,
       "value": "\"EXTERNAL_LINK_ACCOUNT.DEVELOPER_NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13463,
+      "offset": 13712,
       "length": 30,
       "value": "\"IAP.SAVE_MONEY_TEXT_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13548,
+      "offset": 13797,
       "length": 28,
       "value": "\"PRIAP_LOCAL_DECODE_RECEIPT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13623,
+      "offset": 13872,
       "length": 19,
       "value": "\"IAP.SORTING_ORDER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13697,
+      "offset": 13946,
       "length": 28,
       "value": "\"IAP.SELECT_PRODUCT.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13775,
+      "offset": 14024,
       "length": 22,
       "value": "\"IAP.ACCOUNT.REQUIRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13882,
+      "offset": 14131,
       "length": 33,
       "value": "\"ATT.PERMISSION_REQUEST.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13985,
+      "offset": 14234,
       "length": 16,
       "value": "\"SHARE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14051,
+      "offset": 14300,
       "length": 24,
       "value": "\"SHARE.ARTICLE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14122,
+      "offset": 14371,
       "length": 21,
       "value": "\"SHARE.PAGE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14252,
+      "offset": 14501,
       "length": 31,
       "value": "\"UI_STYLE.LOGO.ALWAYS_ORIGINAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14338,
+      "offset": 14587,
       "length": 20,
       "value": "\"UI_STYLE.PREFERRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14401,
+      "offset": 14650,
       "length": 20,
       "value": "\"UI_STYLE.TEXT_FLOW\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14470,
+      "offset": 14719,
       "length": 26,
       "value": "\"UI_STYLE.ARTICLE_DETAILS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14547,
+      "offset": 14796,
       "length": 28,
       "value": "\"UI_STYLE.SELECTION.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14634,
+      "offset": 14883,
       "length": 38,
       "value": "\"UI_STYLE.TEXT_FLOW.SELECTION.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14864,
+      "offset": 15113,
       "length": 56,
       "value": "\"EBOOK.READER.PURCHASE_SUGGESTION.TRIGGER_PAGE_FROM_END\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14994,
+      "offset": 15243,
       "length": 31,
       "value": "\"EBOOK.READER.LOCATION_DIVIDER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15079,
+      "offset": 15328,
       "length": 32,
       "value": "\"EBOOK.READER.FONT.SIZE.DEFAULT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15171,
+      "offset": 15420,
       "length": 36,
       "value": "\"EBOOK.READER.COPY_BUTTON.AVAILABLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15268,
+      "offset": 15517,
       "length": 37,
       "value": "\"EBOOK.READER.TEXT_SPACING.AVAILABLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15507,
+      "offset": 15756,
       "length": 22,
       "value": "\"enable_page_printing\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15581,
+      "offset": 15830,
       "length": 28,
       "value": "\"PRINT.PAGE.LIMIT_PER_ISSUE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15657,
+      "offset": 15906,
       "length": 23,
       "value": "\"PRINT.PAGE.USE_BITMAP\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15730,
+      "offset": 15979,
       "length": 25,
       "value": "\"PRINT.PAGE.BITMAP_SCALE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15835,
+      "offset": 16084,
       "length": 25,
       "value": "\"enable_article_printing\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15916,
+      "offset": 16165,
       "length": 34,
       "value": "\"enable_article_print_in_graphics\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16005,
+      "offset": 16254,
       "length": 17,
       "value": "\"enable_printing\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16190,
+      "offset": 16432,
       "length": 32,
       "value": "\"ACCOUNT.DELETE.RECIPIENT_EMAIL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16278,
+      "offset": 16520,
       "length": 33,
       "value": "\"SHOW_ACCOUNT_VC_EDIT_BAR_BUTTON\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 330,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 335,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 394,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 399,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 457,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 462,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 517,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 522,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 576,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/CoBrandingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 581,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 242,
+      "length": 2,
+      "value": "-2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 259,
+      "length": 4,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 273,
+      "length": 8,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 295,
+      "length": 7,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 312,
+      "length": 6,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 328,
+      "length": 9,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 351,
+      "length": 12,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 373,
+      "length": 13,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 396,
+      "length": 12,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 422,
+      "length": 13,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 445,
+      "length": 5,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 460,
+      "length": 9,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 479,
+      "length": 11,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 500,
+      "length": 7,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 517,
+      "length": 10,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 537,
+      "length": 12,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 564,
+      "length": 11,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 592,
+      "length": 21,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 623,
+      "length": 25,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 658,
+      "length": 23,
+      "value": "17"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 691,
+      "length": 30,
+      "value": "18"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 731,
+      "length": 11,
+      "value": "19"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 752,
+      "length": 22,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 784,
+      "length": 9,
+      "value": "21"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 810,
+      "length": 9,
+      "value": "22"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 830,
+      "length": 10,
+      "value": "23"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 850,
+      "length": 11,
+      "value": "24"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 871,
+      "length": 15,
+      "value": "25"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 977,
+      "length": 8,
+      "value": "26"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 995,
+      "length": 7,
+      "value": "27"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1017,
+      "length": 11,
+      "value": "28"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1038,
+      "length": 14,
+      "value": "29"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1062,
+      "length": 16,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1089,
+      "length": 3,
+      "value": "31"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 242,
+      "length": 1,
+      "value": "-2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 259,
+      "length": 4,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 273,
+      "length": 8,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 295,
+      "length": 7,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 312,
+      "length": 6,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 328,
+      "length": 9,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 351,
+      "length": 12,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 373,
+      "length": 13,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 396,
+      "length": 12,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 422,
+      "length": 13,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 445,
+      "length": 5,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 460,
+      "length": 9,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 479,
+      "length": 11,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 500,
+      "length": 7,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 517,
+      "length": 10,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 537,
+      "length": 12,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 564,
+      "length": 11,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 592,
+      "length": 21,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 623,
+      "length": 25,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 658,
+      "length": 23,
+      "value": "17"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 691,
+      "length": 30,
+      "value": "18"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 731,
+      "length": 11,
+      "value": "19"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 752,
+      "length": 22,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 784,
+      "length": 9,
+      "value": "21"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 810,
+      "length": 9,
+      "value": "22"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 830,
+      "length": 10,
+      "value": "23"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 850,
+      "length": 11,
+      "value": "24"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 871,
+      "length": 15,
+      "value": "25"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 977,
+      "length": 8,
+      "value": "26"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 995,
+      "length": 7,
+      "value": "27"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1017,
+      "length": 11,
+      "value": "28"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1038,
+      "length": 14,
+      "value": "29"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1062,
+      "length": 16,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRCatalogConfig+.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1089,
+      "length": 3,
+      "value": "31"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/PRArticleConfig.swift",
@@ -21904,28 +24553,28 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1514,
+      "offset": 1322,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1519,
+      "offset": 1327,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1590,
+      "offset": 1398,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/AnalyticsConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1595,
+      "offset": 1403,
       "length": 1,
       "value": "1"
     },

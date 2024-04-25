@@ -7,23 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "PRAccountManager.h"
-
-#import "PRHost.h"
-#import "PRMyLibrary.h"
-#import "PRCatalog.h"
-#import "PROptions.h"
-#import "PROptions+NewsFeed.h"
-#import "PROnlineContentUpdater.h"
-#import "PRCoreUtil.h"
-
-#import "PRTitleItemsManager.h"
-#import "PRCoreGlobalImpl.h"
-#import "PRWebServer.h"
-#import "PRSocialSignInManager.h"
-#import "PRHotSpotManager.h"
-#import "PRSuggestionsManager.h"
+#import <CoreLocation/CoreLocation.h>
 
 @import PRUtils.PRNSBundle;
 
@@ -68,8 +52,6 @@ extern NSNotificationName const PRModelDismissNotification;
 - (void)stop;
 
 @property (nonatomic, strong, nullable, readonly) NSDictionary<UIApplicationLaunchOptionsKey, id> *launchOptions;
-@property (nonatomic, readonly) PRSharedPreferences *sharedPreferences;
-@property (nonatomic, readonly) NSOperationQueue *queue;
 
 @property (nonatomic, getter = isLibraryInitRequested) BOOL libraryInitRequested;;
 @property (nonatomic, strong) CLLocation *currentLocation;

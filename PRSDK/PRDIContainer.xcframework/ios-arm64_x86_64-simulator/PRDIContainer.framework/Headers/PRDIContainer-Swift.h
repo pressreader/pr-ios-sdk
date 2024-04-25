@@ -316,8 +316,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DIContainer 
 
 SWIFT_UNAVAILABLE
 @interface DIContainer (SWIFT_EXTENSION(PRDIContainer))
-- (id _Nullable)resolveForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-- (id _Nullable)resolveForType:(Class _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+- (id _Nonnull)resolveForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (id _Nonnull)resolveForType:(Class _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -665,8 +665,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DIContainer 
 
 SWIFT_UNAVAILABLE
 @interface DIContainer (SWIFT_EXTENSION(PRDIContainer))
-- (id _Nullable)resolveForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-- (id _Nullable)resolveForType:(Class _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+- (id _Nonnull)resolveForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (id _Nonnull)resolveForType:(Class _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

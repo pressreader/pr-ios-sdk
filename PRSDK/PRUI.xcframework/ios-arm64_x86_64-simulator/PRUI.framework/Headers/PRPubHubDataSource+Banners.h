@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRPubHubDataSource (Banners)
 
-- (BOOL)isBanner:(PRCatalogSectionType)type;
+- (BOOL)isHorizontallyScrollableBanner:(PRCatalogSectionType)type;
 
 - (nullable PRCatalogSection *)allBannersSection;
 

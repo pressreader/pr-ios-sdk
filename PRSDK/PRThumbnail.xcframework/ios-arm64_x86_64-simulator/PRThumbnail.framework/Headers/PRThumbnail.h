@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PRThumbnailsManager.h"
+#import <PRThumbnail/PRThumbnailsManager.h>
 
-#import "PRThumbnailObject.h"
-#import "PRArticleThumbnailInfo.h"
+#import <PRThumbnail/PRThumbnailObject.h>
+#import <PRThumbnail/PRArticleThumbnailInfo.h>
 
-#import "PRThumbnailFlag.h"
-#import "PRThumbnailArticle.h"
-#import "PRThumbnailMasthead.h"
-#import "PRThumbnailCategory.h"
-#import "PRThumbnailAppLogo.h"
-#import "PRThumbnailSource.h"
+#import <PRThumbnail/PRThumbnailFlag.h>
+#import <PRThumbnail/PRThumbnailArticle.h>
+#import <PRThumbnail/PRThumbnailMasthead.h>
+#import <PRThumbnail/PRThumbnailCategory.h>
+#import <PRThumbnail/PRThumbnailAppLogo.h>
+#import <PRThumbnail/PRThumbnailSource.h>
 
 
 //! Project version number for PRThumbnail.

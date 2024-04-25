@@ -31,21 +31,21 @@ typedef struct {
 
 @interface UIDevice (Info)
 
-+ (NSDictionary *)currentWifiInfo;
-+ (NSString *)currentWifiSSID;
 + (UInt64)currentWifiBSSID;
 + (PRDeviceVersion)deviceVersion;
-+ (NSString *)rawSystemInfoString;
 
-- (NSString *)platform;
-- (NSString *)platformString;
-- (NSString *)UDID;
-- (nullable NSString *)appSpecificUDID;
 - (void)resetUDIDPersistentCache;
-- (NSString *)macAddr;
 
 @property (class, nonatomic, readonly) BOOL isPhone;
-@property (nullable, nonatomic, strong) NSString *advertisingIdentifier;
+@property (class, nullable, nonatomic, readonly) NSDictionary *currentWifiInfo;
+@property (class, nullable, nonatomic, readonly) NSString *currentWifiSSID;
+@property (class, nullable, nonatomic, readonly) NSString *rawSystemInfoString;
+@property (nullable, nonatomic, readonly) NSString *appSpecificUDID;
+@property (nullable, nonatomic, readonly) NSString *platform;
+@property (nullable, nonatomic, readonly) NSString *platformString;
+@property (nullable, nonatomic, readonly) NSString *UDID;
+@property (nullable, nonatomic, readonly) NSString *advertisingIdentifier;
+@property (nonatomic, readonly) NSString *macAddr;
 
 @end
 

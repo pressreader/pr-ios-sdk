@@ -37,8 +37,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 - (void)zipLogsWithCompletionHandler:(CompletionHandlerBlockType)handler;
 - (void)zipAndUploadLogsWithCompletionHandler:(CompletionHandlerBlockType)handler;
 
-- (void)alertSimpleAction:(nullable NSString*)message;
-- (void)alertSimpleAction:(nullable NSString*)title message:(nullable NSString*)message;
 - (void)alertSimpleAction:(nullable NSString*)title message:(nullable NSString*)message presentationContext:(PRAlertControllerPresentationContext)presentationContext;
 - (void)alertSimpleAction:(nullable NSString*)title message:(nullable NSString*)message controller:(nullable UIViewController *)controller handler:(void (^_Nullable)(BOOL okPressed))handler;
 - (void)alertSimpleActionYesNo:(nullable NSString*)title message:(nullable NSString*)message controller:(nullable UIViewController *)controller handler:(void (^_Nullable)(BOOL yesPressed))handler;

@@ -39,7 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestNotificationSettings:(nullable void(^)(id _Nullable responseObject, NSError * _Nullable error))completionBlock;
 - (void)updateNotificationSettings:(NSDictionary *)properties completion:(nullable void(^)(id _Nullable responseObject, NSError * _Nullable error))completionBlock;
 - (void)requestUserProfile:(nullable void(^)(BOOL success, NSError * _Nullable error))completionBlock;
-- (void)requestHotZoneInfo:(nullable void(^)(BOOL success, SPNode * _Nullable response))completionBlock;
 - (void) requestPremiumTrialEligibility;
 
 @end

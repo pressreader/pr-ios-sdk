@@ -1,6 +1,6 @@
 //
 //  PRTitleObject.h
-//  PR-API
+//  PRAPI
 //
 //  Created by KeithC on 2019-03-27.
 //  Copyright © 2019 NewspaperDirect. All rights reserved.

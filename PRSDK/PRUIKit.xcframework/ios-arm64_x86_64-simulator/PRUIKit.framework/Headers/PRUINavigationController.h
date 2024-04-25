@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PRUINavigationController (/*PROTECTED*/)
 
 + (NSArray *)updateLeftBarButtonItems:(NSArray *)items
-                    withHotZoneStatus:(NSInteger)hotZoneStatus
+                              hotzone:(BOOL)hotzone
                               enabled:(BOOL)enabled
                     reachableAndValid:(BOOL)reachableAndValid;
 

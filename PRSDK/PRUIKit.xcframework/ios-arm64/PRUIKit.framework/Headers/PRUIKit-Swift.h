@@ -454,6 +454,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat separatorWid
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat thumbnailCornerRadius;)
 + (CGFloat)thumbnailCornerRadius SWIFT_WARN_UNUSED_RESULT;
 + (CGSize)gridCellSizeWith:(CGFloat)multiplier SWIFT_WARN_UNUSED_RESULT;
++ (CGFloat)coBrandingBannerHeightWithHorizontalSize:(UIUserInterfaceSizeClass)horizontalSize SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -481,6 +482,7 @@ SWIFT_CLASS("_TtC7PRUIKit16FollowHeaderView")
 @property (nonatomic, readonly, weak) IBOutlet UILabel * _Nullable label;
 @property (nonatomic, readonly, weak) IBOutlet UIImageView * _Nullable imageView;
 @property (nonatomic, readonly, weak) IBOutlet PRFollowButton * _Nullable button;
+@property (nonatomic) CGFloat sideInset;
 - (void)awakeFromNib;
 - (void)layoutSubviews;
 - (void)setImage:(UIImage * _Nullable)image animated:(BOOL)animated;
@@ -631,10 +633,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 
+
 @interface NSObject (SWIFT_EXTENSION(PRUIKit))
 - (void)logDealloc;
 @end
-
 
 
 @interface NSURL (SWIFT_EXTENSION(PRUIKit))
@@ -748,18 +750,16 @@ SWIFT_CLASS("_TtC7PRUIKit11PRTextField")
 @end
 
 
-SWIFT_CLASS("_TtC7PRUIKit25PRViewControllerExtension")
-@interface PRViewControllerExtension : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
 SWIFT_CLASS("_TtC7PRUIKit15PRViewExtension")
 @interface PRViewExtension : NSObject
 @property (nonatomic, strong) AppearanceOption * _Nonnull appearanceOptions;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface PRViewExtension (SWIFT_EXTENSION(PRUIKit))
+- (void)removeAllSubviews;
 @end
 
 
@@ -978,10 +978,6 @@ SWIFT_UNAVAILABLE
 @end
 
 
-@interface UIButton (SWIFT_EXTENSION(PRUIKit))
-- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 @class UIButtonConfiguration;
 
@@ -990,6 +986,10 @@ SWIFT_UNAVAILABLE
 + (UIButtonConfiguration * _Nonnull)prDefaultConfiguration SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface UIButton (SWIFT_EXTENSION(PRUIKit))
+- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
@@ -1006,23 +1006,23 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIButton * _
 
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
+- (NSString * _Nullable)rgbaString SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface UIColor (SWIFT_EXTENSION(PRUIKit))
 - (nonnull instancetype)initWithStartColor:(UIColor * _Nonnull)startColor endColor:(UIColor * _Nonnull)endColor location:(CGFloat)location;
 @end
 
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-- (NSString * _Nullable)rgbaString SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
 @end
 
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull selectionColor;)
 + (UIColor * _Nonnull)selectionColor SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface UIColor (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
 @end
 
 
@@ -1095,13 +1095,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) UIFontWeight weight;
++ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style pointSizeCorrection:(CGFloat)pointSizeCorrection SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style scale:(CGFloat)scale SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
-+ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style pointSizeCorrection:(CGFloat)pointSizeCorrection SWIFT_WARN_UNUSED_RESULT;
-+ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style scale:(CGFloat)scale SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) UIFontWeight weight;
 @end
 
 
@@ -1193,16 +1193,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIFont * _Nu
 
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
+- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+@end
+
+
+@interface UILabel (SWIFT_EXTENSION(PRUIKit))
 - (void)updateAppearance;
 - (void)updateAppearanceOfLinks;
 @end
 
-
-
-@interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
-@end
 
 @class NSAttributedString;
 
@@ -1266,11 +1266,11 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 
+
 @interface UINavigationItem (SWIFT_EXTENSION(PRUIKit))
 - (void)setLeftBarButtonItems:(NSArray<UIBarButtonItem *> * _Nullable)items animated:(BOOL)animated startInset:(CGFloat)startInset endInset:(CGFloat)endInset;
 - (void)setRightBarButtonItems:(NSArray<UIBarButtonItem *> * _Nullable)items animated:(BOOL)animated startInset:(CGFloat)startInset endInset:(CGFloat)endInset;
 @end
-
 
 
 @interface UIStackView (SWIFT_EXTENSION(PRUIKit))
@@ -1279,6 +1279,7 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 
 
 @interface UIStackView (SWIFT_EXTENSION(PRUIKit))
+- (void)forceRemoveArrangedSubview:(UIView * _Nonnull)view;
 - (void)removeArrangedSubviews;
 - (void)addArrangedFlexibleSpace;
 - (void)insertArrangedFlexibleSpaceAfter:(UIView * _Nonnull)view;
@@ -1322,20 +1323,23 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithBackgroundColor:(UIColor * _Nullable)backgroundColor;
-@end
-
-
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
 - (void)rightToLeftAllSubviews;
 @end
 
 
-
-
-SWIFT_UNAVAILABLE
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
+- (nonnull instancetype)initWithBackgroundColor:(UIColor * _Nullable)backgroundColor;
+@end
+
+
+
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
+@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
+@end
+
+
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
+- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1347,14 +1351,12 @@ SWIFT_UNAVAILABLE
 @end
 
 
+
+SWIFT_UNAVAILABLE
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
-
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
-@end
 
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
@@ -1362,7 +1364,6 @@ SWIFT_UNAVAILABLE
 - (NSArray<NSLayoutConstraint *> * _Nonnull)includeInto:(UIView * _Nonnull)container insets:(UIEdgeInsets)insets;
 - (NSArray<NSLayoutConstraint *> * _Nonnull)includeInto:(UIView * _Nonnull)container;
 @end
-
 
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
@@ -1435,11 +1436,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit)) <NavigationBarDismissable>
 - (void)showBarsAnimated:(BOOL)animated;
 - (void)dismissBarsAnimated:(BOOL)animated delayed:(BOOL)delayed;
-@end
-
-
-@interface UIViewController (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, strong) PRViewControllerExtension * _Nonnull pr;
 @end
 
 

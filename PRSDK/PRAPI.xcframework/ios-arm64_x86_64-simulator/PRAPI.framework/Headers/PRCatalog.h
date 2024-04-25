@@ -61,16 +61,7 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 
 @property (nonatomic, assign, readonly) PRCatalogStatus status;
 @property (nonatomic) PRCatalogPartitionState partitionState;
-@property (nonatomic) PRCatalogMode mode;
-
 @property (nonatomic, readonly) BOOL containsSingleCID;
-@property (nonatomic, readonly) BOOL containsSingleParentCID;
-
-/**
- Catalog presentation style. This value is configurable, you should use it whenever it's possible, because some publishers with one main CID
- and supplements want to have multi-title style, and some of them - single-title.
-*/
-@property (nonatomic, readonly) BOOL isSingleTitleStyle;
 
 @property (nonatomic, readonly) PRAccountItem *defaultService;
 @property (nonatomic, readonly) NSArray<PRAccountItem *> *services;
@@ -91,12 +82,6 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 
 @property (nullable, nonatomic, strong) NSArray *regions;
 @property (nullable, nonatomic, strong) NSArray *featuredSourcesCIDs;
-
-/**
- Tells us whether we can already determine catalog mode and build UI according to its value. If this property returns `NO`, we should wait
- for catalog.
- */
-@property (nonatomic, readonly) BOOL isAppearanceDetermined;
 
 @end
 

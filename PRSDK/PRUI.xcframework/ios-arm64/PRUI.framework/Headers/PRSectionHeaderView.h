@@ -27,7 +27,8 @@ extern CGFloat const kSeeAllButtonWidth;
 typedef NS_OPTIONS(NSUInteger, PRSectionHeaderViewOption) {
     PRSectionHeaderViewOptionShowSeeAllButton = 1 << 0,
     PRSectionHeaderViewOptionShowTopHairline = 1 << 1,
-    PRSectionHeaderViewOptionShowNewIndicator = 1 << 2
+    PRSectionHeaderViewOptionShowNewIndicator = 1 << 2,
+    PRSectionHeaderViewOptionPromptOnTop = 1 << 3
 };
 
 @interface PRSectionHeaderView : UIView

@@ -692,7 +692,7 @@ SWIFT_CLASS("_TtC4PRUI24BookCoverPlaceholderView")
 
 @class UICollectionViewCell;
 @class PRCatalogSection;
-@protocol CatalogFacade;
+@class PRSourceList;
 @protocol PRSourceCollectionControllerDelegate;
 @class PRTitleItemExemplar;
 @class PRIssuesGroup;
@@ -706,7 +706,7 @@ SWIFT_CLASS("_TtC4PRUI9BookHubVC")
 - (void)setupFilterSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
 @property (nonatomic, readonly, copy) NSString * _Nonnull catalogPath;
 - (nonnull instancetype)initWithDataSource:(PRPubHubDataSource * _Nonnull)dataSource SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithExemplars:(NSArray<PRTitleItemExemplar *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithGroups:(NSArray<PRIssuesGroup *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithItems:(NSArray<id <PRCatalogItem>> * _Nonnull)items delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
@@ -757,18 +757,10 @@ SWIFT_PROTOCOL("_TtP4PRUI25CatalogFilterCellDelegate_")
 - (void)catalogFilterCell:(CatalogFilterCell * _Nonnull)cell action:(NSString * _Nonnull)action;
 @end
 
-
-SWIFT_PROTOCOL("_TtP4PRUI18CatalogFilterModel_")
-@protocol CatalogFilterModel
-@property (nonatomic, readonly, copy) NSString * _Nonnull title;
-@property (nonatomic, readonly) enum CatalogNavigationType filterType;
-- (void)getIconWithSize:(CGSize)size completionHandler:(void (^ _Nonnull)(UIImage * _Nullable))completionHandler;
-@end
-
 @protocol CatalogNavigation;
 
 SWIFT_CLASS("_TtC4PRUI21CatalogFilterModelImp")
-@interface CatalogFilterModelImp : NSObject <CatalogFilterModel>
+@interface CatalogFilterModelImp : NSObject
 @property (nonatomic, readonly) enum CatalogNavigationType filterType;
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
 - (nonnull instancetype)initWithFilter:(id <CatalogNavigation> _Nonnull)filter OBJC_DESIGNATED_INITIALIZER;
@@ -801,7 +793,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGSize recommendedSi
 + (CGFloat)iconPaddingWithFilterType:(enum CatalogNavigationType)filterType SWIFT_WARN_UNUSED_RESULT;
 + (NSDirectionalEdgeInsets)contentInsetWithFilterType:(enum CatalogNavigationType)filterType SWIFT_WARN_UNUSED_RESULT;
 + (CGFloat)iconWidthWithFilterType:(enum CatalogNavigationType)filterType SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, strong) id <CatalogFilterModel> _Nullable model;
 @property (nonatomic) BOOL isTitleUppercased;
 @property (nonatomic) CGSize iconSize;
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
@@ -1157,8 +1148,8 @@ SWIFT_CLASS("_TtC4PRUI17FilteredCatalogVC")
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (void)completeDataLoading:(id _Nonnull)source;
 @property (nonatomic, readonly, copy) NSString * _Nonnull catalogPath;
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithExemplars:(NSArray<PRTitleItemExemplar *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithGroups:(NSArray<PRIssuesGroup *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithItems:(NSArray<id <PRCatalogItem>> * _Nonnull)items delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
@@ -1462,11 +1453,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat anchorHeight
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
 @end
 
 
@@ -1688,6 +1679,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRBannersHub
 @end
 
 
+@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly) BOOL isCoBrandingEnabled;
+@property (nonatomic, readonly) CGFloat partnerBannerHeight;
+- (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRBookmarkListVC (SWIFT_EXTENSION(PRUI))
 - (void)updateMasthead;
 - (void)updateWithPresentationStyle:(UIModalPresentationStyle)presentationStyle;
@@ -1795,11 +1793,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @class PubHubSectionPresentationInfo;
 
 @interface PREmbedablePubHubVC (SWIFT_EXTENSION(PRUI))
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList;
 - (PubHubSectionPresentationInfo * _Nonnull)sectionPresentationInfo:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (PRSourceItemCellPresentationStyle)cellPresentationStyleWithSection:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (void)setupListenHighlightsSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
 - (void)setupFilterSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
+- (void)setupCoBrandingSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
 - (PRSourcesVC * _Nonnull)sourceVCWithSection:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)bannerHeightWithWidth:(CGFloat)width section:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (void)_registerReusableCells;
@@ -1941,12 +1940,6 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (BOOL)askOrderConfirmationWithOptions:(PROrderDeliveryOption)options completion:(PROrderCompletion _Nullable)completion SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 @class PRUserBundle;
 @class SubscriptionCancellationAdvisory;
 
@@ -1955,8 +1948,14 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 
+
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+@end
+
+
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1972,6 +1971,13 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 
 
 
+@interface PROrderView (SWIFT_EXTENSION(PRUI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBannerHeight;)
++ (CGFloat)partnerBannerHeight SWIFT_WARN_UNUSED_RESULT;
++ (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRPremiumBannerView (SWIFT_EXTENSION(PRUI))
 - (void)closeAction:(id _Nonnull)sender;
 - (void)proceedAction:(id _Nonnull)sender;
@@ -1985,7 +1991,6 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 
-
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
 - (void)toggleBannerWithType:(PRBannerType)type;
 - (void)showBannerWithType:(PRBannerType)type;
@@ -1993,20 +1998,24 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 @class CatalogSectionScheme;
-@protocol SectionDataSourceProtocol;
-@class PRSourceListFilter;
-
-@interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
-- (id <CatalogItemDataSourceProtocol, SectionDataSourceProtocol> _Nullable)catalogSectionDataSourceWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
-- (void)updatePublicationCategoriesSectionContentWidth;
-- (PRCatalogSection * _Nonnull)contentCategoriesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
-- (PRCatalogSection * _Nonnull)recentlyReadSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme list:(NSArray<PRTitleItemExemplar *> * _Nonnull)list index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
-- (PRSourceListFilter * _Nullable)filterWithId:(enum CatalogNavigationType)id SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
 - (PRCatalogSection * _Nullable)listenSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class PRAccountManager;
+@protocol SectionDataSourceProtocol;
+
+@interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly, strong) PRAccountManager * _Nonnull accountManager;
+@property (nonatomic, readonly, strong) PRAccountItem * _Nullable defaultAccount;
+@property (nonatomic, readonly) BOOL isLocalServiceOn;
+- (id <CatalogItemDataSourceProtocol, SectionDataSourceProtocol> _Nullable)catalogSectionDataSourceWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
+- (id <CatalogItemDataSourceProtocol, SectionDataSourceProtocol> _Nullable)catalogSectionDataSourceWithEntityId:(NSString * _Nonnull)entityId SWIFT_WARN_UNUSED_RESULT;
+- (void)updatePublicationCategoriesSectionContentWidth;
+- (PRCatalogSection * _Nullable)contentCategoriesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
+- (PRCatalogSection * _Nonnull)recentlyReadSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme list:(NSArray<PRTitleItemExemplar *> * _Nonnull)list index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (PRCatalogSection * _Nullable)coBrandingSection SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2088,6 +2097,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 @interface PRSourceCategoriesCollectionVC (SWIFT_EXTENSION(PRUI))
+- (void)setupCategoryCell:(CatalogFilterCell * _Nonnull)cell indexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface PRSourceCategoriesCollectionVC (SWIFT_EXTENSION(PRUI))
 - (void)setupAccessibility;
 - (void)setupAccessibilityWithView:(UICollectionViewCell * _Nonnull)view filter:(id <CatalogNavigation> _Nonnull)filter;
 @end
@@ -2107,13 +2121,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
-- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
+- (void)updateActionState;
 @end
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (void)updateActionState;
+- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
+- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
 @end
 
 
@@ -2126,6 +2140,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 @interface PRSourceItemCellList (SWIFT_EXTENSION(PRUI))
 - (void)setupCellWithItem:(id <PRCatalogItem> _Nonnull)item;
 @end
+
 
 
 @interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
@@ -2227,6 +2242,13 @@ SWIFT_CLASS("_TtC4PRUI21PageSliderWrapperView")
 - (void)show;
 - (void)hide;
 @end
+
+
+SWIFT_CLASS("_TtC4PRUI24PartnerBannerViewAdapter")
+@interface PartnerBannerViewAdapter : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 typedef SWIFT_ENUM(NSInteger, PaymentOptionsMode, open) {
   PaymentOptionsModeAllPaymentOptions = 0,
@@ -2704,16 +2726,16 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 @end
 
 
+@interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
+- (void)showActivityIndicator;
+- (void)hideActivityIndicator;
+@end
+
+
 
 @interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
 - (void)registerUIStyleObserver;
 - (void)unregisterUIStyleObserver;
-@end
-
-
-@interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
-- (void)showActivityIndicator;
-- (void)hideActivityIndicator;
 @end
 
 
@@ -2739,15 +2761,6 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)hideActivityIndicator;
 @end
 
-@class NTFArticleSetCell;
-
-@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
-- (void)updateContentInsets;
-- (CGFloat)emptyFeedMessageCellHeightIn:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
-- (void)registerFeedLayoutItemCells;
-- (SWIFT_METATYPE(NTFArticleSetCell) _Nullable)cellClassWithLayoutItem:(AbstractFeedLayoutItem * _Nonnull)layoutItem SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 @interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
 - (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
@@ -2755,6 +2768,16 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NTFArticleSetCell;
+
+@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
+- (void)updateContentInsets;
+- (CGFloat)emptyFeedMessageCellHeightIn:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
+- (void)registerFeedLayoutItemCells;
+- (SWIFT_METATYPE(NTFArticleSetCell) _Nullable)cellClassWithLayoutItem:(AbstractFeedLayoutItem * _Nonnull)layoutItem SWIFT_WARN_UNUSED_RESULT;
+- (void)setupCoBranding;
 @end
 
 
@@ -3491,7 +3514,7 @@ SWIFT_CLASS("_TtC4PRUI24BookCoverPlaceholderView")
 
 @class UICollectionViewCell;
 @class PRCatalogSection;
-@protocol CatalogFacade;
+@class PRSourceList;
 @protocol PRSourceCollectionControllerDelegate;
 @class PRTitleItemExemplar;
 @class PRIssuesGroup;
@@ -3505,7 +3528,7 @@ SWIFT_CLASS("_TtC4PRUI9BookHubVC")
 - (void)setupFilterSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
 @property (nonatomic, readonly, copy) NSString * _Nonnull catalogPath;
 - (nonnull instancetype)initWithDataSource:(PRPubHubDataSource * _Nonnull)dataSource SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithExemplars:(NSArray<PRTitleItemExemplar *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithGroups:(NSArray<PRIssuesGroup *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithItems:(NSArray<id <PRCatalogItem>> * _Nonnull)items delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
@@ -3556,18 +3579,10 @@ SWIFT_PROTOCOL("_TtP4PRUI25CatalogFilterCellDelegate_")
 - (void)catalogFilterCell:(CatalogFilterCell * _Nonnull)cell action:(NSString * _Nonnull)action;
 @end
 
-
-SWIFT_PROTOCOL("_TtP4PRUI18CatalogFilterModel_")
-@protocol CatalogFilterModel
-@property (nonatomic, readonly, copy) NSString * _Nonnull title;
-@property (nonatomic, readonly) enum CatalogNavigationType filterType;
-- (void)getIconWithSize:(CGSize)size completionHandler:(void (^ _Nonnull)(UIImage * _Nullable))completionHandler;
-@end
-
 @protocol CatalogNavigation;
 
 SWIFT_CLASS("_TtC4PRUI21CatalogFilterModelImp")
-@interface CatalogFilterModelImp : NSObject <CatalogFilterModel>
+@interface CatalogFilterModelImp : NSObject
 @property (nonatomic, readonly) enum CatalogNavigationType filterType;
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
 - (nonnull instancetype)initWithFilter:(id <CatalogNavigation> _Nonnull)filter OBJC_DESIGNATED_INITIALIZER;
@@ -3600,7 +3615,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGSize recommendedSi
 + (CGFloat)iconPaddingWithFilterType:(enum CatalogNavigationType)filterType SWIFT_WARN_UNUSED_RESULT;
 + (NSDirectionalEdgeInsets)contentInsetWithFilterType:(enum CatalogNavigationType)filterType SWIFT_WARN_UNUSED_RESULT;
 + (CGFloat)iconWidthWithFilterType:(enum CatalogNavigationType)filterType SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, strong) id <CatalogFilterModel> _Nullable model;
 @property (nonatomic) BOOL isTitleUppercased;
 @property (nonatomic) CGSize iconSize;
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
@@ -3956,8 +3970,8 @@ SWIFT_CLASS("_TtC4PRUI17FilteredCatalogVC")
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (void)completeDataLoading:(id _Nonnull)source;
 @property (nonatomic, readonly, copy) NSString * _Nonnull catalogPath;
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithExemplars:(NSArray<PRTitleItemExemplar *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithGroups:(NSArray<PRIssuesGroup *> * _Nonnull)tExemplars delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithItems:(NSArray<id <PRCatalogItem>> * _Nonnull)items delegate:(id <PRSourceCollectionControllerDelegate> _Nullable)delegate SWIFT_UNAVAILABLE;
@@ -4261,11 +4275,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat anchorHeight
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
 @end
 
 
@@ -4487,6 +4501,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRBannersHub
 @end
 
 
+@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly) BOOL isCoBrandingEnabled;
+@property (nonatomic, readonly) CGFloat partnerBannerHeight;
+- (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRBookmarkListVC (SWIFT_EXTENSION(PRUI))
 - (void)updateMasthead;
 - (void)updateWithPresentationStyle:(UIModalPresentationStyle)presentationStyle;
@@ -4594,11 +4615,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @class PubHubSectionPresentationInfo;
 
 @interface PREmbedablePubHubVC (SWIFT_EXTENSION(PRUI))
-- (nonnull instancetype)initWithSourceList:(id <CatalogFacade> _Nonnull)sourceList;
+- (nonnull instancetype)initWithSourceList:(PRSourceList * _Nonnull)sourceList;
 - (PubHubSectionPresentationInfo * _Nonnull)sectionPresentationInfo:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (PRSourceItemCellPresentationStyle)cellPresentationStyleWithSection:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (void)setupListenHighlightsSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
 - (void)setupFilterSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
+- (void)setupCoBrandingSectionCell:(UICollectionViewCell * _Nonnull)cell section:(PRCatalogSection * _Nonnull)section;
 - (PRSourcesVC * _Nonnull)sourceVCWithSection:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)bannerHeightWithWidth:(CGFloat)width section:(PRCatalogSection * _Nonnull)section SWIFT_WARN_UNUSED_RESULT;
 - (void)_registerReusableCells;
@@ -4740,12 +4762,6 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (BOOL)askOrderConfirmationWithOptions:(PROrderDeliveryOption)options completion:(PROrderCompletion _Nullable)completion SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 @class PRUserBundle;
 @class SubscriptionCancellationAdvisory;
 
@@ -4754,8 +4770,14 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 
+
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+@end
+
+
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -4771,6 +4793,13 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 
 
 
+@interface PROrderView (SWIFT_EXTENSION(PRUI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBannerHeight;)
++ (CGFloat)partnerBannerHeight SWIFT_WARN_UNUSED_RESULT;
++ (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRPremiumBannerView (SWIFT_EXTENSION(PRUI))
 - (void)closeAction:(id _Nonnull)sender;
 - (void)proceedAction:(id _Nonnull)sender;
@@ -4784,7 +4813,6 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 
-
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
 - (void)toggleBannerWithType:(PRBannerType)type;
 - (void)showBannerWithType:(PRBannerType)type;
@@ -4792,20 +4820,24 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 @class CatalogSectionScheme;
-@protocol SectionDataSourceProtocol;
-@class PRSourceListFilter;
-
-@interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
-- (id <CatalogItemDataSourceProtocol, SectionDataSourceProtocol> _Nullable)catalogSectionDataSourceWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
-- (void)updatePublicationCategoriesSectionContentWidth;
-- (PRCatalogSection * _Nonnull)contentCategoriesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
-- (PRCatalogSection * _Nonnull)recentlyReadSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme list:(NSArray<PRTitleItemExemplar *> * _Nonnull)list index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
-- (PRSourceListFilter * _Nullable)filterWithId:(enum CatalogNavigationType)id SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
 - (PRCatalogSection * _Nullable)listenSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class PRAccountManager;
+@protocol SectionDataSourceProtocol;
+
+@interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly, strong) PRAccountManager * _Nonnull accountManager;
+@property (nonatomic, readonly, strong) PRAccountItem * _Nullable defaultAccount;
+@property (nonatomic, readonly) BOOL isLocalServiceOn;
+- (id <CatalogItemDataSourceProtocol, SectionDataSourceProtocol> _Nullable)catalogSectionDataSourceWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
+- (id <CatalogItemDataSourceProtocol, SectionDataSourceProtocol> _Nullable)catalogSectionDataSourceWithEntityId:(NSString * _Nonnull)entityId SWIFT_WARN_UNUSED_RESULT;
+- (void)updatePublicationCategoriesSectionContentWidth;
+- (PRCatalogSection * _Nullable)contentCategoriesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
+- (PRCatalogSection * _Nonnull)recentlyReadSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme list:(NSArray<PRTitleItemExemplar *> * _Nonnull)list index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (PRCatalogSection * _Nullable)coBrandingSection SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -4887,6 +4919,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 @interface PRSourceCategoriesCollectionVC (SWIFT_EXTENSION(PRUI))
+- (void)setupCategoryCell:(CatalogFilterCell * _Nonnull)cell indexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface PRSourceCategoriesCollectionVC (SWIFT_EXTENSION(PRUI))
 - (void)setupAccessibility;
 - (void)setupAccessibilityWithView:(UICollectionViewCell * _Nonnull)view filter:(id <CatalogNavigation> _Nonnull)filter;
 @end
@@ -4906,13 +4943,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
-- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
+- (void)updateActionState;
 @end
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (void)updateActionState;
+- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
+- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
 @end
 
 
@@ -4925,6 +4962,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 @interface PRSourceItemCellList (SWIFT_EXTENSION(PRUI))
 - (void)setupCellWithItem:(id <PRCatalogItem> _Nonnull)item;
 @end
+
 
 
 @interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
@@ -5026,6 +5064,13 @@ SWIFT_CLASS("_TtC4PRUI21PageSliderWrapperView")
 - (void)show;
 - (void)hide;
 @end
+
+
+SWIFT_CLASS("_TtC4PRUI24PartnerBannerViewAdapter")
+@interface PartnerBannerViewAdapter : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 typedef SWIFT_ENUM(NSInteger, PaymentOptionsMode, open) {
   PaymentOptionsModeAllPaymentOptions = 0,
@@ -5503,16 +5548,16 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 @end
 
 
+@interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
+- (void)showActivityIndicator;
+- (void)hideActivityIndicator;
+@end
+
+
 
 @interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
 - (void)registerUIStyleObserver;
 - (void)unregisterUIStyleObserver;
-@end
-
-
-@interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
-- (void)showActivityIndicator;
-- (void)hideActivityIndicator;
 @end
 
 
@@ -5538,15 +5583,6 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)hideActivityIndicator;
 @end
 
-@class NTFArticleSetCell;
-
-@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
-- (void)updateContentInsets;
-- (CGFloat)emptyFeedMessageCellHeightIn:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
-- (void)registerFeedLayoutItemCells;
-- (SWIFT_METATYPE(NTFArticleSetCell) _Nullable)cellClassWithLayoutItem:(AbstractFeedLayoutItem * _Nonnull)layoutItem SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 @interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
 - (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
@@ -5554,6 +5590,16 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NTFArticleSetCell;
+
+@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
+- (void)updateContentInsets;
+- (CGFloat)emptyFeedMessageCellHeightIn:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
+- (void)registerFeedLayoutItemCells;
+- (SWIFT_METATYPE(NTFArticleSetCell) _Nullable)cellClassWithLayoutItem:(AbstractFeedLayoutItem * _Nonnull)layoutItem SWIFT_WARN_UNUSED_RESULT;
+- (void)setupCoBranding;
 @end
 
 

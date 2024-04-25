@@ -1,6 +1,6 @@
 //
 //  UIViewController+Child.h
-//  PR-UI
+//  PRUIKit
 //
 //  Created by berec on 02/08/2019.
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Child)
+- (void)addChild:(UIViewController *)child containerView:(UIView *)view insets:(UIEdgeInsets)insets;
 - (void)addChild:(UIViewController *)child containerView:(nullable UIView *)view;
 - (void)removeChild:(UIViewController *)child;
 

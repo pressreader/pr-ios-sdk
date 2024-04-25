@@ -35,8 +35,8 @@ extension ObjectiveC.NSObject : PRDIContainer.DependencyResolver {
 }
 @available(*, unavailable)
 @objc extension PRDIContainer.DIContainer {
-  @objc final public func resolveForKey(_ key: PRDIContainer.DIContainer.Key) -> Any?
-  @objc(resolveForType:) final public func resolveForType(_ type: Swift.AnyClass) -> Any?
+  @objc final public func resolveForKey(_ key: PRDIContainer.DIContainer.Key) -> Any
+  @objc final public func resolveForType(_ type: Swift.AnyClass) -> Any
 }
 @objc @_inheritsConvenienceInitializers final public class DIContainer : ObjectiveC.NSObject {
   public typealias Key = Swift.String

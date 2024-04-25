@@ -227,3 +227,4 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRCatalogFilterTableCell.h"
 #import "PRRelatedArticlesView.h"
 #import "NTFRelatedArticleCell.h"
+#import "PROrderView.h"

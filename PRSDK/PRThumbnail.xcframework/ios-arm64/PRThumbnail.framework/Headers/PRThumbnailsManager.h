@@ -51,12 +51,12 @@ extern NSNotificationName const PRLatestAvailableThumbnailChanged;
 
 NS_ASSUME_NONNULL_END
 
-#import "PRThumbnailsManager+LatestInfo.h"
+#import <PRThumbnail/PRThumbnailsManager+LatestInfo.h>
 
-#import "PRThumbnailsManager+AppLogo.h"
-#import "PRThumbnailsManager+Article.h"
-#import "PRThumbnailsManager+Category.h"
-#import "PRThumbnailsManager+Flag.h"
-#import "PRThumbnailsManager+LatestInfo.h"
-#import "PRThumbnailsManager+Masthead.h"
-#import "PRThumbnailsManager+Source.h"
+#import <PRThumbnail/PRThumbnailsManager+AppLogo.h>
+#import <PRThumbnail/PRThumbnailsManager+Article.h>
+#import <PRThumbnail/PRThumbnailsManager+Category.h>
+#import <PRThumbnail/PRThumbnailsManager+Flag.h>
+#import <PRThumbnail/PRThumbnailsManager+LatestInfo.h>
+#import <PRThumbnail/PRThumbnailsManager+Masthead.h>
+#import <PRThumbnail/PRThumbnailsManager+Source.h>

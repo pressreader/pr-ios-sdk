@@ -8,11 +8,9 @@
 
 @import PRUtils.PRNotification;
 
-//@import PRAPI.PRSubscriptionCatalogProtocol;
-//@import PRAPI.PRBundle;
-
-#import "PRSubscriptionCatalogProtocol.h"
-#import "PRBundle.h"
+#import <PRAPI/PRSubscriptionCatalogProtocol.h>
+#import <PRAPI/PRBundle.h>
+#import <PRAPI/PRSponsorshipManagerService.h>
 
 @class PRTitleItemExemplar;
 @class PRSourceItem;
@@ -55,8 +53,6 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
     PRSmartSearchAreaHotSpots,
 };
 
-typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
-
 @class PRSmartPageset, PRSmartArticle, PRSmartCommentPost, PRAnalyticsProfile, PRAnalyticsProfileBase;
 
 @interface PRSubscription : PRNotification <PRSubscriptionCatalogProtocol>
@@ -83,49 +79,7 @@ typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
     NSMutableDictionary<NSString *, NSMutableArray<NSMutableDictionary<NSString *, id> *> *> *bookReadingStatistics; // key session and userContext
 }
 
-@property (class, nonatomic, readonly) PRSubscription *defaultSubscription;
-@property (nullable, class, nonatomic, readonly) PRSubscription *defaultOnlineSubscription;
-
-@property (nullable, nonatomic, weak) PRAccountItem *account;
-@property (nonatomic, readonly) BOOL sourceDatesObtained;
-@property (nullable, nonatomic, strong) NSMutableArray *accessibleCids;
-@property (nullable, nonatomic, readonly) id updateLaterObserver;
-@property (nonatomic, readonly) BOOL sourcesUpToDate;
-
-// candidates for being replaced with NS_OPTIONS
-@property (nonatomic) BOOL requestingHotSpotStatus;
-@property (nonatomic) BOOL hotSpotStatusUpdated;
-@property (nonatomic) BOOL requestingClientConfig;
-@property (nonatomic) BOOL requestingOnlineConfig;
-
-@property (nonatomic, strong, readonly) NSString *name;
-@property (null_resettable, nonatomic, strong) PRPromise *onlineTokenRequest;
-@property (nonatomic, readonly) BOOL hasOnlineToken;
-@property (nullable, nonatomic, strong) NSString *deviceAccountOnlineToken;
-@property (nullable, nonatomic, strong) NSString *preloadToken;
-@property (nullable, nonatomic, strong) NSDate *onlineTokenExpiration;
-@property (nullable, nonatomic, copy) NSString *activationId;
-@property (nonatomic, readonly, getter = isValid) BOOL valid;
-@property (nonatomic, readonly) BOOL isDefaultOnline;
-
-@property (nullable, nonatomic, strong) NSArray *contentCategories;
-@property (nullable, nonatomic, strong) NSArray<NSDictionary<NSString *, id> *> *groups;
-@property (nullable, nonatomic, strong) NSArray *contentRegions;
-@property (nullable, nonatomic, strong) NSArray *featuredTitles;
-
-/// nil or array (can be empty) in case of info was retrieved
-@property (nullable, nonatomic, strong, readonly) NSArray<PRTitleItemExemplar *> *latestReadExemplars;
-
-@property (nullable, nonatomic, strong, readonly) NSSet<NSString *> *latestReadCIDs;
-@property (nonatomic) PRSubscriptionSourcesStatus sourcesStatus;
-@property (nonatomic) PRSubscriptionResourceStatus resourceStatus;
-
-@property (nullable, nonatomic, strong) NSCache *channelSearchResults;
-@property (nullable, nonatomic, strong) NSCache *sourcesSearchResults;
-
-@property (nullable, nonatomic, strong) NSArray<PRBundle *> *bundlesWithCIDs;
-
-- (NSArray<PRBundle *> *)bundlesWithCID:(NSString *)cid NS_SWIFT_NAME(bundles(cid:)); 
+- (NSArray<PRBundle *> *)bundlesWithCID:(NSString *)cid NS_SWIFT_NAME(bundles(cid:));
 - (NSArray<NSString *> *)appStoreProductIDsFromBundlesWithCIDs:(nullable NSSet<NSString *> *)cids
                                                     bundleType:(PRBundleProductType)type;
 
@@ -134,7 +88,9 @@ typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
 
 - (instancetype)initWithAccount:(PRAccountItem *)accountItem
                    activationId:(nullable NSString *)activationId;
-- (void)restoreFromCache;
+
+- (instancetype)init NS_UNAVAILABLE;
+
 - (BOOL)isCatalogCacheAvailable;
 - (void)removeTitleItem:(PRSourceItem *)ti;
 - (void)getSmartSearchSuggestions:(NSString *)searchText
@@ -304,37 +260,6 @@ typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
                     completion:(void(^ _Nullable)(NSArray<NSString *> * _Nullable collectionIds,
                                                   NSError * _Nullable error))completionBlock;
 
-- (void)optoutHotzone:(BOOL)optout
-              success:(void(^ _Nullable)(void))success
-              failure:(PRSimpleResult)failure;
-- (void)getHotZoneLocationsWithZoomLevel:(long)zoomLevel
-                            northEastLat:(double)northEastLat
-                            northEastLng:(double)northEestLng
-                            southWestLat:(double)southWestLat
-                            southWestLng:(double)southWestLng
-                              currentLat:(double)myLat
-                              currentLng:(double)myLng
-                                 pattern:(NSString *)pattern
-                                 success:(void(^ _Nullable)(NSArray * _Nullable hotSpots))success
-                                 failure:(PRSimpleResult)failure;
-- (void)getGeoFencingHotZoneLocationsAtNorthEastLat:(double)northEastLat
-                                       northEastLng:(double)northEestLng
-                                       southWestLat:(double)southWestLat
-                                       southWestLng:(double)southWestLng
-                                            success:(void (^ _Nullable)(NSArray * _Nullable hotSpots))success
-                                            failure:(PRSimpleResult)failure;
-
-- (void)searchForHotZoneLocations:(NSString *)searchString
-                            count:(NSUInteger)count
-                       completion:(void(^ _Nullable)(NSArray * _Nullable hotSpots,
-                                                     NSError * _Nullable error))completion;
-
-- (void)getRegionOfHotZonesWithPattern:(NSString *)searchString
-                            currentLat:(double)myLat
-                            currentLng:(double)myLng
-                      currentZoomLevel:(int)myZoomLevel
-                               success:(void (^ _Nullable)(NSDictionary *regionOfHotZones))success
-                               failure:(PRSimpleResult)failure;
 
 - (void)getCurrentLocationByIPAddress:(void(^ _Nullable)(NSDictionary * _Nullable items,
                                                          NSError * _Nullable error))completionBlock;
@@ -373,10 +298,54 @@ typedef void(^_Nullable PRSimpleResult)(NSError *_Nullable error);
 - (void)updateRemainingCredits;
 - (void)updateConfigsIfNeeded;
 
+@property (class, nonatomic, readonly) PRSubscription *defaultSubscription;
+@property (nullable, class, nonatomic, readonly) PRSubscription *defaultOnlineSubscription;
+
+@property (nullable, nonatomic, weak) PRAccountItem *account;
+@property (nonatomic, readonly) BOOL sourceDatesObtained;
+@property (nullable, nonatomic, strong) NSMutableArray *accessibleCids;
+@property (nullable, nonatomic, readonly) id updateLaterObserver;
+@property (nonatomic, readonly) BOOL sourcesUpToDate;
+
+// candidates for being replaced with NS_OPTIONS
+@property (nonatomic) BOOL requestingHotSpotStatus;
+@property (nonatomic) BOOL hotSpotStatusUpdated;
+@property (nonatomic) BOOL requestingClientConfig;
+@property (nonatomic) BOOL requestingOnlineConfig;
+
+@property (nonatomic, strong, readonly) NSString *name;
+@property (null_resettable, nonatomic, strong) PRPromise *onlineTokenRequest;
+@property (nonatomic, readonly) BOOL hasOnlineToken;
+@property (nullable, nonatomic, strong) NSString *deviceAccountOnlineToken;
+@property (nullable, nonatomic, strong) NSString *preloadToken;
+@property (nullable, nonatomic, strong) NSDate *onlineTokenExpiration;
+@property (nullable, nonatomic, copy) NSString *activationId;
+@property (nonatomic, readonly, getter = isValid) BOOL valid;
+@property (nonatomic, readonly) BOOL isDefaultOnline;
+
+@property (nullable, nonatomic, strong) NSArray *contentCategories;
+@property (nullable, nonatomic, strong) NSArray<NSDictionary<NSString *, id> *> *groups;
+@property (nullable, nonatomic, strong) NSArray *contentRegions;
+@property (nullable, nonatomic, strong) NSArray *featuredTitles;
+
+/// nil or array (can be empty) in case of info was retrieved
+@property (nullable, nonatomic, strong, readonly) NSArray<PRTitleItemExemplar *> *latestReadExemplars;
+
+@property (nullable, nonatomic, strong, readonly) NSSet<NSString *> *latestReadCIDs;
+@property (nonatomic) PRSubscriptionSourcesStatus sourcesStatus;
+@property (nonatomic) PRSubscriptionResourceStatus resourceStatus;
+
+@property (nullable, nonatomic, strong) NSCache *channelSearchResults;
+@property (nullable, nonatomic, strong) NSCache *sourcesSearchResults;
+
+@property (nullable, nonatomic, strong) NSArray<PRBundle *> *bundlesWithCIDs;
+
+@property (nonatomic, strong, readonly) PRSponsorshipManagerService *sponsorshipManagerService;
+
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "PRSubscription+Back2ObjC.h"
-#import "PRSubscription+Titles.h"
-#import "PRSubscription+Promise.h"
+#import <PRAPI/PRSubscription+Back2ObjC.h>
+#import <PRAPI/PRSubscription+Titles.h>
+#import <PRAPI/PRSubscription+Promise.h>

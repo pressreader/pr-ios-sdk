@@ -46,7 +46,12 @@ typedef NS_ENUM(NSInteger, PRCatalogSortingOrder) {
 @property (nonatomic, readonly) BOOL isThumbnailStretchingEnabled;
 @property (nonatomic, readonly) NSUInteger catalogSearchMinItemsCount;
 @property (nonatomic, readonly) PRCatalogSortingOrder catalogSortingOrder;
-@property (nonatomic, readonly) PRCatalogMode catalogMode;
+@property (nonatomic) PRCatalogMode catalogMode;
+
+/// Catalog presentation mode. This value is configurable, you should use it whenever it's possible,
+/// because some publishers with one main CID and supplements want to have multi-title mode.
+@property (nonatomic, readonly) BOOL isSingleTitleMode;
+
 
 @property (nonatomic, readonly) BOOL pressCatalogUpdateDisabled;
 

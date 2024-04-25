@@ -23,7 +23,7 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class SearchConfig : ObjectiveC.NSObject {
-  @objc final public var global: PRConfiguration.GlobalSearchConfig {
+  @objc @PRDIContainer.Inject final public var global: PRConfiguration.GlobalSearchConfig {
     @objc get
   }
   @objc override dynamic public init()
@@ -52,8 +52,6 @@ public struct AutoTranslationConfigKey {
 @_hasMissingDesignatedInitializers final public class MarfeelAnalyticsConfigKey {
   @objc deinit
 }
-public struct AccountConfigKey {
-}
 @objc @_inheritsConvenienceInitializers @objcMembers public class ExternalLinkAccountConfig : ObjectiveC.NSObject {
   @objc public var isEnabled: Swift.Bool {
     @objc get
@@ -70,6 +68,23 @@ public struct AccountConfigKey {
   }
   @objc override dynamic public init()
   @objc deinit
+}
+public struct CoBrandingConfig {
+  public struct Area : Swift.OptionSet {
+    public static let catalog: PRConfiguration.CoBrandingConfig.Area
+    public static let issueDetails: PRConfiguration.CoBrandingConfig.Area
+    public static let bookDetails: PRConfiguration.CoBrandingConfig.Area
+    public static let textFlow: PRConfiguration.CoBrandingConfig.Area
+    public static let article: PRConfiguration.CoBrandingConfig.Area
+    public let rawValue: Swift.Int
+    public init(rawValue: Swift.Int)
+    public typealias ArrayLiteralElement = PRConfiguration.CoBrandingConfig.Area
+    public typealias Element = PRConfiguration.CoBrandingConfig.Area
+    public typealias RawValue = Swift.Int
+  }
+  public var area: PRConfiguration.CoBrandingConfig.Area {
+    get
+  }
 }
 @objc extension PRConfiguration.PROrderConfig {
   @objc dynamic public var typeSpecificTextForDatePicker: Swift.Bool {
@@ -119,16 +134,58 @@ public struct AccountConfigKey {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc extension PRConfiguration.PRCatalogConfig {
+@objc public enum PRCatalogSectionType : Swift.Int {
+  case begin = -2
+  case none
+  case featured
+  case filters
+  case listen
+  case favorites
+  case recentlyRead
+  case linkedService
+  case topMagazines
+  case topNewspapers
+  case books
+  case justAdded
+  case newReleases
+  case topFree
+  case downloaded
+  case latestIssues
+  case bannerBegin
+  case bannerHotspotServices
+  case bannerPremiumSubscription
+  case bannerImproveExperience
+  case bannerPersonalizationCompleted
+  case bannerBooks
+  case bannerBrazeContentCard
+  case bannerAll
+  case bannerEnd
+  case categories
+  case fullCatalog
+  case categoryContent
+  case sections
+  case hotSpot
+  case topAdBanner
+  case inlineAdBanner
+  case coBrandingBanner
+  case end
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension PRConfiguration.PRCatalogConfig {
+  @objc dynamic public var books: PRConfiguration.BookConfig {
+    @objc get
+  }
   @objc dynamic public var localPromotionsCount: Swift.Int {
     @objc get
   }
   @objc dynamic public var isFreeIndicatorEnabled: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var books: PRConfiguration.BookConfig {
-    @objc get
-  }
+  public func isModernAPISupported(by section: PRConfiguration.PRCatalogSectionType) -> Swift.Bool
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class RadioConfig : ObjectiveC.NSObject {
   @objc final public var featured: PRConfiguration.FeaturedRadioConfig {
@@ -502,7 +559,7 @@ extension PRConfiguration.PRConfig {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc extension PRConfiguration.PRConfig {
+extension PRConfiguration.PRConfig {
   @objc(externalLinkAccountConfig) @PRDIContainer.Inject public static var externalLinkAccount: PRConfiguration.ExternalLinkAccountConfig {
     @objc get
   }
@@ -515,9 +572,10 @@ extension PRConfiguration.PRConfig {
   @objc(printConfig) @PRDIContainer.Inject public static var print: PRConfiguration.PrintConfig {
     @objc get
   }
-  @objc(accountConfig) dynamic public class var account: PRConfiguration.AccountConfig {
+  @objc(accountConfig) @PRDIContainer.Inject public static var account: PRConfiguration.AccountConfig {
     @objc get
   }
+  public static let coBranding: PRConfiguration.CoBrandingConfig
 }
 extension PRConfiguration.PRConfig {
   public static func bool(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Bool) -> Swift.Bool
@@ -649,17 +707,17 @@ extension PRConfiguration.PRConfig {
     @objc get
   }
   @objc final public let mainMenu: PRConfiguration.MainMenuAnalyticsConfig
-  @objc final public var firebase: PRConfiguration.FirebaseAnalyticsConfig {
-    @objc get
-  }
   @objc(readingConfig) final public let reading: PRConfiguration.ReadingAnalyticsConfig
-  @objc final public var comScore: PRConfiguration.ComScoreAnalyticsConfig {
+  @objc @PRDIContainer.Inject final public var firebase: PRConfiguration.FirebaseAnalyticsConfig {
     @objc get
   }
-  @objc final public var treasureData: PRConfiguration.TreasureDataAnalyticsConfig {
+  @objc @PRDIContainer.Inject final public var comScore: PRConfiguration.ComScoreAnalyticsConfig {
     @objc get
   }
-  @objc final public var marfeel: PRConfiguration.MarfeelAnalyticsConfig {
+  @objc @PRDIContainer.Inject final public var treasureData: PRConfiguration.TreasureDataAnalyticsConfig {
+    @objc get
+  }
+  @objc @PRDIContainer.Inject final public var marfeel: PRConfiguration.MarfeelAnalyticsConfig {
     @objc get
   }
   @objc override dynamic public init()
@@ -982,6 +1040,9 @@ public enum AuthorizationRequestFrequency {
     get
   }
 }
+extension PRConfiguration.PRCatalogSectionType : Swift.Equatable {}
+extension PRConfiguration.PRCatalogSectionType : Swift.Hashable {}
+extension PRConfiguration.PRCatalogSectionType : Swift.RawRepresentable {}
 extension PRConfiguration.ArticleGalleryCaptionPosition : Swift.Equatable {}
 extension PRConfiguration.ArticleGalleryCaptionPosition : Swift.Hashable {}
 extension PRConfiguration.ArticleGalleryCaptionPosition : Swift.RawRepresentable {}

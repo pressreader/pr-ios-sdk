@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSNotificationName const PRHotSpotStatusUpdatedNotification;
 
 typedef NS_ENUM(int, PRHotSpotServicesStatus) {
@@ -32,20 +34,8 @@ typedef NS_ENUM(uint8_t, PRHotSpotStatus) {
 };
 
 @interface PRHotSpotManager : NSObject
-@property (nonatomic, readonly, getter=isGeoFencingRequired) BOOL geoFencingRequired;
-@property (nonatomic, readonly, getter=isLocationServiceEnabled) BOOL locationServiceEnabled;
-@property (nonatomic, readonly, getter=isLocationServiceEnabledWhileInUse) BOOL locationServiceEnabledWhileInUse;
-@property (nonatomic, readonly, getter=isLocationServiceFullAccuracyEnabled) BOOL locationServiceFullAccuracyEnabled;
-@property (nonatomic, getter=isActivatingHotSpotServices) BOOL activatingHotSpotServices;
-@property (nonatomic) BOOL geoFencingOptedOut;
-@property (nonatomic, strong, readonly) CLRegion *geoHotSpotRegion;
-@property (nonatomic, readonly) PRHotSpotServicesStatus hotSpotServicesStatus;
-@property (nonatomic, getter=isHotSpotServicesBannerClosed) BOOL hotSpotServicesBannerClosed;
 
-@property (nonatomic, readonly) PRHotSpotStatus currentHotspotStatus;
-@property (nonatomic, readonly) BOOL hotZoneReachableAndValid;
-
-- (BOOL)isUserShouldBeNotifiedAboutGeoHotSpotRegion:(NSString *)hotspotID;
+- (BOOL)isUserShouldBeNotifiedAboutGeoHotSpotRegion:(nullable NSString *)hotspotID;
 - (BOOL)isGeoFencingPermissionsPromptRequired;
 - (void)requestHotSpotServicesOnView;
 - (void)activateHotSpotServices;
@@ -55,7 +45,21 @@ typedef NS_ENUM(uint8_t, PRHotSpotStatus) {
 - (void)setUserResponseEnableGift;
 - (BOOL)needRemindUserAboutLocationService;
 - (void)stopMonitoring;
-- (void)notifyAboutGeoHotSpotRegionWithMessage:(NSString *)message;
+- (void)notifyAboutGeoHotSpotRegionWithMessage:(nullable NSString *)message;
 - (void)resetAllNotifications;
 
+@property (nonatomic, readonly, getter=isGeoFencingRequired) BOOL geoFencingRequired;
+@property (nonatomic, readonly, getter=isLocationServiceEnabled) BOOL locationServiceEnabled;
+@property (nonatomic, readonly, getter=isLocationServiceEnabledWhileInUse) BOOL locationServiceEnabledWhileInUse;
+@property (nonatomic, readonly, getter=isLocationServiceFullAccuracyEnabled) BOOL locationServiceFullAccuracyEnabled;
+@property (nonatomic, getter=isActivatingHotSpotServices) BOOL activatingHotSpotServices;
+@property (nonatomic) BOOL geoFencingOptedOut;
+@property (nullable, nonatomic, strong, readonly) CLRegion *geoHotSpotRegion;
+@property (nonatomic, readonly) PRHotSpotServicesStatus hotSpotServicesStatus;
+@property (nonatomic, getter=isHotSpotServicesBannerClosed) BOOL hotSpotServicesBannerClosed;
+
+@property (nonatomic, readonly) PRHotSpotStatus currentHotspotStatus;
+
 @end
+
+NS_ASSUME_NONNULL_END

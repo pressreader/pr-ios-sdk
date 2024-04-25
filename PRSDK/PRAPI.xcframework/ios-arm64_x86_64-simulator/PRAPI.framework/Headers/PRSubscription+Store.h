@@ -1,37 +1,44 @@
 //
 //  PRSubscription+Store.h
-//  PRiphone
+//  PRAPI
 //
 //  Created by Jackie Cane on 10/18/12.
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSubscription.h"
+#import <PRAPI/PRSubscription.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface PRSubscription (Store)
 
+- (BOOL)saveJSONObject:(nullable id)object toFileName:(NSString *)name error:(NSError *_Nullable *)error;
+- (nullable NSData *)restoreJSONObjectFromFileName:(NSString *)name;
+
 - (void)saveCatalog;
-- (NSArray *)restoreCatalog;
+- (nullable NSArray *)fetchCatalog;
 
 - (void)saveContentCategories;
-- (NSArray *)restoreContentCategories;
+- (nullable NSArray *)fetchContentCategories;
 
 - (void)saveGroups;
-- (NSArray *)restoreGroups;
+- (nullable NSArray *)fetchGroups;
 
 - (void)saveContentRegions;
-- (NSArray *)restoreContentRegions;
+- (nullable NSArray *)fetchContentRegions;
 
 - (void)saveFeaturedTitles;
-- (NSArray *)restoreFeaturedTitles;
+- (nullable NSArray *)fetchFeaturedTitles;
 
 - (void)saveLatestReadExemplars;
-- (NSArray *)restoreLatestReadExemplars;
+- (nullable NSArray *)fetchLatestReadExemplars;
 
 - (void)saveReadingStatistics;
-- (NSMutableDictionary *)restoreReadingStatistics;
+- (nullable NSMutableDictionary *)fetchReadingStatistics;
 
 - (void)saveBookReadingStatistics;
-- (NSMutableDictionary *)restoreBookReadingStatistics;
+- (nullable NSMutableDictionary *)fetchBookReadingStatistics;
 
 @end
+
+NS_ASSUME_NONNULL_END

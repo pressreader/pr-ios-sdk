@@ -17,6 +17,7 @@
 @class PRSubscription;
 @class PRTitleItem;
 @class PRCatalogSection;
+@class PRSourceList;
 
 @protocol PRCatalogItem;
 @protocol CatalogItemDataSourceProtocol;
@@ -56,9 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PRSourceCollectionVC : PRFilterableCollectionVC <DataSourceObserver>
 
 /// dataProviderType: PRTitleItemsCollectionDataProviderTypeSourceList
-- (instancetype)initWithSourceList:(id<CatalogFacade>)sourceList
+- (instancetype)initWithSourceList:(PRSourceList *)sourceList
                           delegate:(nullable id<PRSourceCollectionControllerDelegate>)delegate;
-- (instancetype)initWithSourceList:(id<CatalogFacade>)sourceList;
+- (instancetype)initWithSourceList:(PRSourceList *)sourceList;
 
 /// dataProviderType: PRTitleItemsCollectionDataProviderTypeExemplars
 - (instancetype)initWithExemplars:(NSArray<PRTitleItemExemplar *> *)tExemplars
@@ -80,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)accessoryTextForItem:(id)item;
 
 - (void)fillWithTitleItemExemplars:(NSArray<PRTitleItemExemplar *> *)tExemplars NS_SWIFT_NAME(fill(with:));
-- (void)fillWithSourceList:(id<CatalogFacade>)list NS_SWIFT_NAME(fill(with:));
+- (void)fillWithSourceList:(PRSourceList *)list NS_SWIFT_NAME(fill(with:));
 - (void)fillWithDataSource:(id<CatalogItemDataSourceProtocol>)dataSource NS_SWIFT_NAME(fill(with:));
 
 - (void)setNeedsReloadDataAndScrollToCid:(NSString *)cid date:(NSDate *)date;
@@ -90,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) PRTitleItemsCollectionDataProviderType dataProviderType;
 
-@property (nullable, nonatomic, strong, readonly) id<CatalogFacade> sourceList;
+@property (nullable, nonatomic, strong, readonly) PRSourceList *sourceList;
 
 @property (nonatomic) BOOL prefersOpeningReaderView;
 

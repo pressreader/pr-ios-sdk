@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRThumbnailsManager (Masthead)
 
-- (nullable PRThumbnailMasthead *)thumbnailWithMastheadId:(NSString *)mastheadId height:(CGFloat)height NS_SWIFT_NAME(thumbnail(mastheadId:height:));
+- (PRThumbnailMasthead *)thumbnailWithMastheadId:(NSString *)mastheadId height:(CGFloat)height NS_SWIFT_NAME(thumbnail(mastheadId:height:));
 
 @end
 

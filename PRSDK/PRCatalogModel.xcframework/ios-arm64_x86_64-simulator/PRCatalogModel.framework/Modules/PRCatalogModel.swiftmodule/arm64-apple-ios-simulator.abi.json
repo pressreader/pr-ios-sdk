@@ -721,6 +721,43 @@
                 "moduleName": "PRCatalogModel"
               },
               {
+                "kind": "Var",
+                "name": "favorites",
+                "printedName": "favorites",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.Section.Id.Type) -> PRCatalogModel.Section.Id",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Id",
+                        "printedName": "PRCatalogModel.Section.Id",
+                        "usr": "s:14PRCatalogModel7SectionC2IdO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.Section.Id.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Id",
+                            "printedName": "PRCatalogModel.Section.Id",
+                            "usr": "s:14PRCatalogModel7SectionC2IdO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel7SectionC2IdO9favoritesyA2EmF",
+                "mangledName": "$s14PRCatalogModel7SectionC2IdO9favoritesyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
                 "kind": "Constructor",
                 "name": "init",
                 "printedName": "init(rawValue:)",
@@ -931,7 +968,7 @@
           {
             "kind": "Function",
             "name": "section",
-            "printedName": "section(id:catalog:)",
+            "printedName": "section(id:catalog:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -949,11 +986,17 @@
                 "name": "Catalog",
                 "printedName": "PRCatalogModel.Catalog",
                 "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel7SectionC7section2id7catalogACXDAC2IdO_AA7CatalogCtFZ",
-            "mangledName": "$s14PRCatalogModel7SectionC7section2id7catalogACXDAC2IdO_AA7CatalogCtFZ",
+            "usr": "s:14PRCatalogModel7SectionC7section2id7catalog7contextACXDAC2IdO_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel7SectionC7section2id7catalog7contextACXDAC2IdO_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
             "moduleName": "PRCatalogModel",
             "static": true,
             "declAttributes": [
@@ -961,7 +1004,118 @@
               "AccessControl",
               "RawDocComment"
             ],
+            "throwing": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "section",
+            "printedName": "section(id:catalog:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Self?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DynamicSelf",
+                    "printedName": "Self"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Id",
+                "printedName": "PRCatalogModel.Section.Id",
+                "usr": "s:14PRCatalogModel7SectionC2IdO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Catalog",
+                "printedName": "PRCatalogModel.Catalog",
+                "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14PRCatalogModel7SectionC7section2id7catalog7contextACXDSgAC2IdO_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel7SectionC7section2id7catalog7contextACXDSgAC2IdO_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
+            "moduleName": "PRCatalogModel",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "sectionId",
+            "printedName": "sectionId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRCatalogModel.Section.Id?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Id",
+                    "printedName": "PRCatalogModel.Section.Id",
+                    "usr": "s:14PRCatalogModel7SectionC2IdO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel7SectionC9sectionIdAC0E0OSgvp",
+            "mangledName": "$s14PRCatalogModel7SectionC9sectionIdAC0E0OSgvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRCatalogModel.Section.Id?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Id",
+                        "printedName": "PRCatalogModel.Section.Id",
+                        "usr": "s:14PRCatalogModel7SectionC2IdO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel7SectionC9sectionIdAC0E0OSgvg",
+                "mangledName": "$s14PRCatalogModel7SectionC9sectionIdAC0E0OSgvg",
+                "moduleName": "PRCatalogModel",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
           },
           {
             "kind": "Var",
@@ -983,8 +1137,7 @@
             "declAttributes": [
               "Final",
               "Override",
-              "AccessControl",
-              "RawDocComment"
+              "AccessControl"
             ],
             "accessors": [
               {
@@ -5088,7 +5241,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(from:forceUpdate:)",
+            "printedName": "item(from:context:forceUpdate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -5125,14 +5278,20 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel5BooksC4item4from11forceUpdateAA11CatalogItemCSgSDySSypG_SbtF",
-            "mangledName": "$s14PRCatalogModel5BooksC4item4from11forceUpdateAA11CatalogItemCSgSDySSypG_SbtF",
+            "usr": "s:14PRCatalogModel5BooksC4item4from7context11forceUpdateAA11CatalogItemCSgSDySSypG_So22NSManagedObjectContextCSbtF",
+            "mangledName": "$s14PRCatalogModel5BooksC4item4from7context11forceUpdateAA11CatalogItemCSgSDySSypG_So22NSManagedObjectContextCSbtF",
             "moduleName": "PRCatalogModel",
             "overriding": true,
             "declAttributes": [
@@ -9376,7 +9535,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(from:forceUpdate:)",
+            "printedName": "item(from:context:forceUpdate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -9413,14 +9572,20 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel12PublicationsC4item4from11forceUpdateAA11CatalogItemCSgSDySSypG_SbtF",
-            "mangledName": "$s14PRCatalogModel12PublicationsC4item4from11forceUpdateAA11CatalogItemCSgSDySSypG_SbtF",
+            "usr": "s:14PRCatalogModel12PublicationsC4item4from7context11forceUpdateAA11CatalogItemCSgSDySSypG_So22NSManagedObjectContextCSbtF",
+            "mangledName": "$s14PRCatalogModel12PublicationsC4item4from7context11forceUpdateAA11CatalogItemCSgSDySSypG_So22NSManagedObjectContextCSbtF",
             "moduleName": "PRCatalogModel",
             "overriding": true,
             "declAttributes": [
@@ -9985,7 +10150,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(from:forceUpdate:)",
+            "printedName": "item(from:context:forceUpdate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -10022,14 +10187,20 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel7CatalogC4item4from11forceUpdateAA0C4ItemCSgSDySSypG_SbtF",
-            "mangledName": "$s14PRCatalogModel7CatalogC4item4from11forceUpdateAA0C4ItemCSgSDySSypG_SbtF",
+            "usr": "s:14PRCatalogModel7CatalogC4item4from7context11forceUpdateAA0C4ItemCSgSDySSypG_So22NSManagedObjectContextCSbtF",
+            "mangledName": "$s14PRCatalogModel7CatalogC4item4from7context11forceUpdateAA0C4ItemCSgSDySSypG_So22NSManagedObjectContextCSbtF",
             "moduleName": "PRCatalogModel",
             "declAttributes": [
               "AccessControl",
@@ -11365,7 +11536,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(with:predicate:)",
+            "printedName": "item(with:predicate:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -11389,11 +11560,17 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel7CatalogC4item4with9predicatexxm_SStSo15NSManagedObjectCRbzlF",
-            "mangledName": "$s14PRCatalogModel7CatalogC4item4with9predicatexxm_SStSo15NSManagedObjectCRbzlF",
+            "usr": "s:14PRCatalogModel7CatalogC4item4with9predicate7contextxxm_SSSo22NSManagedObjectContextCtSo0hI0CRbzlF",
+            "mangledName": "$s14PRCatalogModel7CatalogC4item4with9predicate7contextxxm_SSSo22NSManagedObjectContextCtSo0hI0CRbzlF",
             "moduleName": "PRCatalogModel",
             "genericSig": "<τ_0_0 where τ_0_0 : CoreData.NSManagedObject>",
             "sugared_genericSig": "<T where T : CoreData.NSManagedObject>",
@@ -11407,7 +11584,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(with:predicate:)",
+            "printedName": "item(with:predicate:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -11439,11 +11616,17 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel7CatalogC4item4with9predicatexSgxm_SStSo15NSManagedObjectCRbzlF",
-            "mangledName": "$s14PRCatalogModel7CatalogC4item4with9predicatexSgxm_SStSo15NSManagedObjectCRbzlF",
+            "usr": "s:14PRCatalogModel7CatalogC4item4with9predicate7contextxSgxm_SSSo22NSManagedObjectContextCtSo0hI0CRbzlF",
+            "mangledName": "$s14PRCatalogModel7CatalogC4item4with9predicate7contextxSgxm_SSSo22NSManagedObjectContextCtSo0hI0CRbzlF",
             "moduleName": "PRCatalogModel",
             "genericSig": "<τ_0_0 where τ_0_0 : CoreData.NSManagedObject>",
             "sugared_genericSig": "<T where T : CoreData.NSManagedObject>",
@@ -11555,7 +11738,7 @@
           {
             "kind": "Function",
             "name": "section",
-            "printedName": "section(_:)",
+            "printedName": "section(_:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -11568,13 +11751,20 @@
                 "name": "Id",
                 "printedName": "PRCatalogModel.Section.Id",
                 "usr": "s:14PRCatalogModel7SectionC2IdO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel7CatalogC7sectionyAA7SectionCAF2IdOF",
-            "mangledName": "$s14PRCatalogModel7CatalogC7sectionyAA7SectionCAF2IdOF",
+            "usr": "s:14PRCatalogModel7CatalogC7section_7contextAA7SectionCAG2IdO_So22NSManagedObjectContextCtKF",
+            "mangledName": "$s14PRCatalogModel7CatalogC7section_7contextAA7SectionCAG2IdO_So22NSManagedObjectContextCtKF",
             "moduleName": "PRCatalogModel",
             "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -18773,6 +18963,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Series",
         "printedName": "Series",
@@ -20525,7 +20725,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(id:catalog:)",
+            "printedName": "item(id:catalog:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -20543,16 +20743,23 @@
                 "name": "Catalog",
                 "printedName": "PRCatalogModel.Catalog",
                 "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel13CatalogableMOP4item2id7catalogxSS_AA7CatalogCtFZ",
-            "mangledName": "$s14PRCatalogModel13CatalogableMOP4item2id7catalogxSS_AA7CatalogCtFZ",
+            "usr": "s:14PRCatalogModel13CatalogableMOP4item2id7catalog7contextxSS_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOP4item2id7catalog7contextxSS_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
             "moduleName": "PRCatalogModel",
             "genericSig": "<τ_0_0 where τ_0_0 : PRCatalogModel.CatalogableMO>",
             "sugared_genericSig": "<Self where Self : PRCatalogModel.CatalogableMO>",
             "static": true,
             "protocolReq": true,
+            "throwing": true,
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           },
@@ -20586,7 +20793,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(id:catalog:)",
+            "printedName": "item(id:catalog:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -20612,22 +20819,29 @@
                 "name": "Catalog",
                 "printedName": "PRCatalogModel.Catalog",
                 "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalogxSgSS_AA7CatalogCtFZ",
-            "mangledName": "$s14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalogxSgSS_AA7CatalogCtFZ",
+            "usr": "s:14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalog7contextxSgSS_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalog7contextxSgSS_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
             "moduleName": "PRCatalogModel",
             "genericSig": "<τ_0_0 where τ_0_0 : PRCatalogModel.CatalogableMO, τ_0_0 : PRCoreDataUtils.IdentifiableMO>",
             "sugared_genericSig": "<Self where Self : PRCatalogModel.CatalogableMO, Self : PRCoreDataUtils.IdentifiableMO>",
             "static": true,
             "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(id:catalog:)",
+            "printedName": "item(id:catalog:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -20645,16 +20859,23 @@
                 "name": "Catalog",
                 "printedName": "PRCatalogModel.Catalog",
                 "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalogxSS_AA7CatalogCtFZ",
-            "mangledName": "$s14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalogxSS_AA7CatalogCtFZ",
+            "usr": "s:14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalog7contextxSS_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOPAA15PRCoreDataUtils012IdentifiableD0RzrlE4item2id7catalog7contextxSS_AA7CatalogCSo22NSManagedObjectContextCtKFZ",
             "moduleName": "PRCatalogModel",
             "genericSig": "<τ_0_0 where τ_0_0 : PRCatalogModel.CatalogableMO, τ_0_0 : PRCoreDataUtils.IdentifiableMO>",
             "sugared_genericSig": "<Self where Self : PRCatalogModel.CatalogableMO, Self : PRCoreDataUtils.IdentifiableMO>",
             "static": true,
             "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -28232,7 +28453,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(id:catalog:)",
+            "printedName": "item(id:catalog:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -28250,11 +28471,17 @@
                 "name": "Catalog",
                 "printedName": "PRCatalogModel.Catalog",
                 "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel11CatalogItemC4item2id7catalogACXDSS_AA0C0CtFZ",
-            "mangledName": "$s14PRCatalogModel11CatalogItemC4item2id7catalogACXDSS_AA0C0CtFZ",
+            "usr": "s:14PRCatalogModel11CatalogItemC4item2id7catalog7contextACXDSS_AA0C0CSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel11CatalogItemC4item2id7catalog7contextACXDSS_AA0C0CSo22NSManagedObjectContextCtKFZ",
             "moduleName": "PRCatalogModel",
             "static": true,
             "declAttributes": [
@@ -28262,6 +28489,7 @@
               "AccessControl"
             ],
             "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -28294,7 +28522,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(id:catalog:info:forceUpdate:)",
+            "printedName": "item(id:catalog:info:context:forceUpdate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -28342,6 +28570,12 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
@@ -28349,8 +28583,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel11CatalogItemC4item2id7catalog4info11forceUpdateACXDSgSS_AA0C0CSDySSypGSbtFZ",
-            "mangledName": "$s14PRCatalogModel11CatalogItemC4item2id7catalog4info11forceUpdateACXDSgSS_AA0C0CSDySSypGSbtFZ",
+            "usr": "s:14PRCatalogModel11CatalogItemC4item2id7catalog4info7context11forceUpdateACXDSgSS_AA0C0CSDySSypGSo22NSManagedObjectContextCSbtKFZ",
+            "mangledName": "$s14PRCatalogModel11CatalogItemC4item2id7catalog4info7context11forceUpdateACXDSgSS_AA0C0CSDySSypGSo22NSManagedObjectContextCSbtKFZ",
             "moduleName": "PRCatalogModel",
             "static": true,
             "declAttributes": [
@@ -28358,12 +28592,13 @@
               "RawDocComment"
             ],
             "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(catalog:info:forceUpdate:)",
+            "printedName": "item(catalog:info:context:forceUpdate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -28405,6 +28640,12 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
@@ -28412,14 +28653,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel11CatalogItemC4item7catalog4info11forceUpdateACXDSgAA0C0C_SDySSypGSbtFZ",
-            "mangledName": "$s14PRCatalogModel11CatalogItemC4item7catalog4info11forceUpdateACXDSgAA0C0C_SDySSypGSbtFZ",
+            "usr": "s:14PRCatalogModel11CatalogItemC4item7catalog4info7context11forceUpdateACXDSgAA0C0C_SDySSypGSo22NSManagedObjectContextCSbtKFZ",
+            "mangledName": "$s14PRCatalogModel11CatalogItemC4item7catalog4info7context11forceUpdateACXDSgAA0C0C_SDySSypGSo22NSManagedObjectContextCSbtKFZ",
             "moduleName": "PRCatalogModel",
             "static": true,
             "declAttributes": [
               "AccessControl"
             ],
             "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -28606,6 +28848,13 @@
         "kind": "Import",
         "name": "PRSyntacticSugar",
         "printedName": "PRSyntacticSugar",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
+        "kind": "Import",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
         "declKind": "Import",
         "moduleName": "PRCatalogModel"
       },
@@ -29213,6 +29462,43 @@
               },
               {
                 "kind": "Var",
+                "name": "cid",
+                "printedName": "cid",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.CatalogEntity.LoadingParameter.Type) -> PRCatalogModel.CatalogEntity.LoadingParameter",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingParameter",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LoadingParameter",
+                            "printedName": "PRCatalogModel.CatalogEntity.LoadingParameter",
+                            "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel13CatalogEntityC16LoadingParameterO3cidyA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC16LoadingParameterO3cidyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
                 "name": "root",
                 "printedName": "root",
                 "children": [
@@ -29755,6 +30041,282 @@
           },
           {
             "kind": "TypeDecl",
+            "name": "LoadingOrder",
+            "printedName": "LoadingOrder",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "popularity",
+                "printedName": "popularity",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.CatalogEntity.LoadingOrder.Type) -> PRCatalogModel.CatalogEntity.LoadingOrder",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingOrder",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LoadingOrder",
+                            "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                            "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO10popularityyA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO10popularityyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
+                "name": "date",
+                "printedName": "date",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.CatalogEntity.LoadingOrder.Type) -> PRCatalogModel.CatalogEntity.LoadingOrder",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingOrder",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LoadingOrder",
+                            "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                            "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO4dateyA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO4dateyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
+                "name": "alphabet",
+                "printedName": "alphabet",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.CatalogEntity.LoadingOrder.Type) -> PRCatalogModel.CatalogEntity.LoadingOrder",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingOrder",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LoadingOrder",
+                            "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                            "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO8alphabetyA2EmF",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO8alphabetyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
+                "name": "value",
+                "printedName": "value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO5valueSSvp",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO5valueSSvp",
+                "moduleName": "PRCatalogModel",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO5valueSSvg",
+                    "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO5valueSSvg",
+                    "moduleName": "PRCatalogModel",
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoadingOrder",
+                        "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                        "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO8rawValueAESgSi_tcfc",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO8rawValueAESgSi_tcfc",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "rawValue",
+                "printedName": "rawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO8rawValueSivp",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO8rawValueSivp",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO8rawValueSivg",
+                    "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO8rawValueSivg",
+                    "moduleName": "PRCatalogModel",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC12LoadingOrderO",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "enumRawTypeName": "Int",
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "RawRepresentable",
+                "printedName": "RawRepresentable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "RawValue",
+                    "printedName": "RawValue",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:SY",
+                "mangledName": "$sSY"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
             "name": "Constants",
             "printedName": "Constants",
             "children": [
@@ -29812,6 +30374,91 @@
             "moduleName": "PRCatalogModel",
             "declAttributes": [
               "AccessControl"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "loadingOrder",
+            "printedName": "loadingOrder",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadingOrder",
+                "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0Ovp",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0Ovp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "AccessControl",
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadingOrder",
+                    "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                    "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0Ovg",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0Ovg",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadingOrder",
+                    "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                    "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0Ovs",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0Ovs",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0OvM",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC12loadingOrderAC07LoadingF0OvM",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
             ]
           },
           {
@@ -30524,7 +31171,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(info:catalog:scope:forceUpdate:)",
+            "printedName": "item(info:catalog:accountName:scope:context:forceUpdate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -30559,6 +31206,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
                 "printedName": "PRCatalogModel.CatalogEntity?",
                 "children": [
                   {
@@ -30573,6 +31235,12 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
@@ -30580,8 +31248,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel13CatalogEntityC4item4info7catalog5scope11forceUpdateACXDSDySSypG_AA0C0CACSgSbtKFZ",
-            "mangledName": "$s14PRCatalogModel13CatalogEntityC4item4info7catalog5scope11forceUpdateACXDSDySSypG_AA0C0CACSgSbtKFZ",
+            "usr": "s:14PRCatalogModel13CatalogEntityC4item4info7catalog11accountName5scope7context11forceUpdateACXDSDySSypG_AA0C0CSSSgACSgSo22NSManagedObjectContextCSbtKFZ",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC4item4info7catalog11accountName5scope7context11forceUpdateACXDSDySSypG_AA0C0CSSSgACSgSo22NSManagedObjectContextCSbtKFZ",
             "moduleName": "PRCatalogModel",
             "static": true,
             "declAttributes": [
@@ -30596,7 +31264,7 @@
           {
             "kind": "Function",
             "name": "item",
-            "printedName": "item(info:catalog:scope:forceUpdate:)",
+            "printedName": "item(info:catalog:accountName:scope:context:forceUpdate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -30618,6 +31286,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
                 "printedName": "PRCatalogModel.CatalogEntity?",
                 "children": [
                   {
@@ -30632,6 +31315,12 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
@@ -30639,8 +31328,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:14PRCatalogModel13CatalogEntityC4item4info7catalog5scope11forceUpdateACXDAA0C13NavigationDTOV_AA0C0CACSgSbtFZ",
-            "mangledName": "$s14PRCatalogModel13CatalogEntityC4item4info7catalog5scope11forceUpdateACXDAA0C13NavigationDTOV_AA0C0CACSgSbtFZ",
+            "usr": "s:14PRCatalogModel13CatalogEntityC4item4info7catalog11accountName5scope7context11forceUpdateACXDAA0C13NavigationDTOV_AA0C0CSSSgACSgSo22NSManagedObjectContextCSbtKFZ",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC4item4info7catalog11accountName5scope7context11forceUpdateACXDAA0C13NavigationDTOV_AA0C0CSSSgACSgSo22NSManagedObjectContextCSbtKFZ",
             "moduleName": "PRCatalogModel",
             "static": true,
             "declAttributes": [
@@ -30648,6 +31337,127 @@
               "AccessControl"
             ],
             "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "item",
+            "printedName": "item(id:catalog:accountName:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Self?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DynamicSelf",
+                    "printedName": "Self"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Catalog",
+                "printedName": "PRCatalogModel.Catalog",
+                "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14PRCatalogModel13CatalogEntityC4item2id7catalog11accountName7contextACXDSgSS_AA0C0CSSSgSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC4item2id7catalog11accountName7contextACXDSgSS_AA0C0CSSSgSo22NSManagedObjectContextCtKFZ",
+            "moduleName": "PRCatalogModel",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "item",
+            "printedName": "item(id:catalog:accountName:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DynamicSelf",
+                "printedName": "Self"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Catalog",
+                "printedName": "PRCatalogModel.Catalog",
+                "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14PRCatalogModel13CatalogEntityC4item2id7catalog11accountName7contextACXDSS_AA0C0CSSSgSo22NSManagedObjectContextCtKFZ",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC4item2id7catalog11accountName7contextACXDSS_AA0C0CSSSgSo22NSManagedObjectContextCtKFZ",
+            "moduleName": "PRCatalogModel",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -31052,6 +31862,109 @@
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogEntity(im)setDetails:",
                 "mangledName": "$s14PRCatalogModel13CatalogEntityC7detailsSSSgvs",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "accountName",
+            "printedName": "accountName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogEntity(py)accountName",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC11accountNameSSSgvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogEntity(im)accountName",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC11accountNameSSSgvg",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogEntity(im)setAccountName:",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC11accountNameSSSgvs",
                 "moduleName": "PRCatalogModel",
                 "implicit": true,
                 "declAttributes": [
@@ -35779,6 +36692,293 @@
         "printedName": "PublicationType",
         "children": [
           {
+            "kind": "TypeDecl",
+            "name": "Id",
+            "printedName": "Id",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "magazines",
+                "printedName": "magazines",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.PublicationType.Id.Type) -> PRCatalogModel.PublicationType.Id",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Id",
+                        "printedName": "PRCatalogModel.PublicationType.Id",
+                        "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.PublicationType.Id.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Id",
+                            "printedName": "PRCatalogModel.PublicationType.Id",
+                            "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel15PublicationTypeC2IdO9magazinesyA2EmF",
+                "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO9magazinesyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Var",
+                "name": "newspapers",
+                "printedName": "newspapers",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRCatalogModel.PublicationType.Id.Type) -> PRCatalogModel.PublicationType.Id",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Id",
+                        "printedName": "PRCatalogModel.PublicationType.Id",
+                        "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRCatalogModel.PublicationType.Id.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Id",
+                            "printedName": "PRCatalogModel.PublicationType.Id",
+                            "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:14PRCatalogModel15PublicationTypeC2IdO10newspapersyA2EmF",
+                "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO10newspapersyA2EmF",
+                "moduleName": "PRCatalogModel"
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRCatalogModel.PublicationType.Id?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Id",
+                        "printedName": "PRCatalogModel.PublicationType.Id",
+                        "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:14PRCatalogModel15PublicationTypeC2IdO8rawValueAESgSS_tcfc",
+                "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO8rawValueAESgSS_tcfc",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "rawValue",
+                "printedName": "rawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:14PRCatalogModel15PublicationTypeC2IdO8rawValueSSvp",
+                "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO8rawValueSSvp",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:14PRCatalogModel15PublicationTypeC2IdO8rawValueSSvg",
+                    "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO8rawValueSSvg",
+                    "moduleName": "PRCatalogModel",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "allCases",
+                "printedName": "allCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRCatalogModel.PublicationType.Id]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Id",
+                        "printedName": "PRCatalogModel.PublicationType.Id",
+                        "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:14PRCatalogModel15PublicationTypeC2IdO8allCasesSayAEGvpZ",
+                "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO8allCasesSayAEGvpZ",
+                "moduleName": "PRCatalogModel",
+                "static": true,
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[PRCatalogModel.PublicationType.Id]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Id",
+                            "printedName": "PRCatalogModel.PublicationType.Id",
+                            "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:14PRCatalogModel15PublicationTypeC2IdO8allCasesSayAEGvgZ",
+                    "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO8allCasesSayAEGvgZ",
+                    "moduleName": "PRCatalogModel",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:14PRCatalogModel15PublicationTypeC2IdO",
+            "mangledName": "$s14PRCatalogModel15PublicationTypeC2IdO",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "enumRawTypeName": "String",
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "RawRepresentable",
+                "printedName": "RawRepresentable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "RawValue",
+                    "printedName": "RawValue",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:SY",
+                "mangledName": "$sSY"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CaseIterable",
+                "printedName": "CaseIterable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "AllCases",
+                    "printedName": "AllCases",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[PRCatalogModel.PublicationType.Id]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Id",
+                            "printedName": "PRCatalogModel.PublicationType.Id",
+                            "usr": "s:14PRCatalogModel15PublicationTypeC2IdO"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:s12CaseIterableP",
+                "mangledName": "$ss12CaseIterableP"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(entity:insertInto:)",
@@ -38002,58 +39202,30 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 355,
-      "length": 10,
-      "value": "\"featured\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 398,
+      "offset": 385,
       "length": 19,
       "value": "\"recently-released\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 447,
+      "offset": 434,
       "length": 16,
       "value": "\"recently-added\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 487,
-      "length": 9,
-      "value": "\"hotspot\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 355,
-      "length": 10,
-      "value": "\"featured\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 398,
+      "offset": 385,
       "length": 19,
       "value": "\"recently-released\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 447,
+      "offset": 434,
       "length": 16,
       "value": "\"recently-added\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 487,
-      "length": 9,
-      "value": "\"hotspot\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
@@ -38240,14 +39412,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "BooleanLiteral",
-      "offset": 766,
+      "offset": 883,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CatalogableMO.swift",
       "kind": "BooleanLiteral",
-      "offset": 1356,
+      "offset": 1796,
       "length": 5,
       "value": "false"
     },
@@ -38506,51 +39678,128 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 3899,
+      "offset": 4143,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 4442,
+      "offset": 4794,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 903,
+      "offset": 943,
       "length": 13,
       "value": "\"newreleases\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 946,
+      "offset": 986,
       "length": 11,
       "value": "\"justadded\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 903,
+      "offset": 943,
       "length": 13,
       "value": "\"newreleases\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 946,
+      "offset": 986,
       "length": 11,
       "value": "\"justadded\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1066,
+      "length": 4,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1072,
+      "length": 8,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1066,
+      "length": 4,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1072,
+      "length": 8,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1066,
+      "length": 4,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1072,
+      "length": 8,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 1106,
+      "offset": 1472,
       "length": 3,
       "value": "\"\/\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 1559,
+      "length": 15,
+      "value": "\"loadingOrder_\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/PublicationType+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 359,
+      "length": 11,
+      "value": "\"150994944\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/PublicationType+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 397,
+      "length": 11,
+      "value": "\"142606336\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/PublicationType+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 359,
+      "length": 11,
+      "value": "\"150994944\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/PublicationType+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 397,
+      "length": 11,
+      "value": "\"142606336\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Document\/HotSpot+CoreDataClass.swift",

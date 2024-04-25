@@ -27,7 +27,7 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubOption) {
 - (instancetype)initWithDataSource:(PRPubHubDataSource *)dataSource;
 - (instancetype)initWithSourceList:(PRSourceList *)sourceList NS_UNAVAILABLE;
 
-@property (nullable, nonatomic, strong) id<CatalogFacade> sourceList NS_UNAVAILABLE;
+@property (nullable, nonatomic, strong) PRSourceList *sourceList NS_UNAVAILABLE;
 
 @property (nonatomic) PRCatalogSectionType sectionToDisclose;
 

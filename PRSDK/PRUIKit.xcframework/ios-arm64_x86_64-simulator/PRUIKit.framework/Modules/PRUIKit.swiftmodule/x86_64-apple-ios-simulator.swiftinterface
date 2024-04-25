@@ -71,6 +71,25 @@ extension PRUIKit.PRSafariVC {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
+extension UIKit.UIEdgeInsets {
+  public var horizontal: CoreFoundation.CGFloat {
+    get
+  }
+  public var vertical: CoreFoundation.CGFloat {
+    get
+  }
+  public init(inset: CoreFoundation.CGFloat)
+  public init(hInset: CoreFoundation.CGFloat)
+  public init(vInset: CoreFoundation.CGFloat)
+  public init(hInset: CoreFoundation.CGFloat, vInset: CoreFoundation.CGFloat)
+  public func adjusted(top: CoreFoundation.CGFloat = 0, left: CoreFoundation.CGFloat = 0, bottom: CoreFoundation.CGFloat = 0, right: CoreFoundation.CGFloat = 0) -> UIKit.UIEdgeInsets
+}
+extension SwiftUI.EdgeInsets {
+  public init(inset: CoreFoundation.CGFloat)
+  public init(hInset: CoreFoundation.CGFloat)
+  public init(vInset: CoreFoundation.CGFloat)
+  public init(hInset: CoreFoundation.CGFloat, vInset: CoreFoundation.CGFloat)
+}
 extension UIKit.UIAccessibilityIdentification {
   public var accessibilityId: PRAccessibility.AccessibilityId? {
     get
@@ -161,6 +180,22 @@ extension UIKit.UIBarItem {
 }
 @objc extension UIKit.UIBarButtonItem {
   @objc @_Concurrency.MainActor(unsafe) dynamic public class func barButton(systemItem: PRUIKit.PRBarButtonSystemItem, target: Any?, action: ObjectiveC.Selector?) -> UIKit.UIBarButtonItem?
+}
+public struct Stack<Content> : SwiftUI.View where Content : SwiftUI.View {
+  public enum Direction {
+    case horizontal, vertical
+    public static func == (a: PRUIKit.Stack<Content>.Direction, b: PRUIKit.Stack<Content>.Direction) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let direction: PRUIKit.Stack<Content>.Direction
+  public init(direction: PRUIKit.Stack<Content>.Direction, @SwiftUI.ViewBuilder content: @escaping () -> Content)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7PRUIKit5StackV4bodyQrvp", 0) __<Content>
 }
 extension UIKit.UIView {
   public typealias BackgroundAdditive = (color: UIKit.UIColor?, effect: UIKit.UIBlurEffect?)
@@ -871,6 +906,10 @@ public protocol GetStartedViewDelegate : AnyObject {
   @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak final public var button: PRUIKit.PRFollowButton? {
     get
   }
+  @objc @_Concurrency.MainActor(unsafe) final public var sideInset: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
   @_Concurrency.MainActor(unsafe) @objc override final public func awakeFromNib()
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   @objc @_Concurrency.MainActor(unsafe) final public func setImage(_ image: UIKit.UIImage?, animated: Swift.Bool)
@@ -986,6 +1025,9 @@ public func REUSE_ID<T>(_ type: T.Type) -> Swift.String
 @objc extension UIKit.UITextField {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func getClearButton() -> UIKit.UIButton?
 }
+extension PRUIKit.PRViewExtension {
+  @objc final public func removeAllSubviews()
+}
 @objc extension PRUIKit.PRSwitchButton {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func setupAccessibility()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func updateAccessibility()
@@ -1004,14 +1046,6 @@ extension PRUIKit.PRViewExtension {
     @objc get
   }
   @objc final public var bottomHairline: UIKit.UIView {
-    @objc get
-  }
-}
-@objc @_hasMissingDesignatedInitializers final public class PRViewControllerExtension : ObjectiveC.NSObject {
-  @objc deinit
-}
-extension UIKit.UIViewController {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var pr: PRUIKit.PRViewControllerExtension {
     @objc get
   }
 }
@@ -1079,6 +1113,8 @@ extension SwiftUI.Text {
   @objc public static let separatorWidth: CoreFoundation.CGFloat
   @objc public static let thumbnailCornerRadius: CoreFoundation.CGFloat
   @objc public static func gridCellSize(with multiplier: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+  @objc public static func coBrandingBannerHeight(horizontalSize: UIKit.UIUserInterfaceSizeClass) -> CoreFoundation.CGFloat
+  public static func coBrandingBannerHeight(horizontalSize: SwiftUI.UserInterfaceSizeClass) -> CoreFoundation.CGFloat
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1145,6 +1181,9 @@ extension PRUIKit.ActivityPresenter where Self : UIKit.UIViewController {
   @objc @_Concurrency.MainActor(unsafe) final public var isRootInNavigationStack: Swift.Bool {
     @objc get
   }
+}
+extension SwiftUI.LinearGradient {
+  public init(gradient: SwiftUI.Gradient, angle: Swift.Int)
 }
 extension UIKit.UILabel : PRUIKit.HighlightableText {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func highlight(phrases: [Swift.String])
@@ -1301,6 +1340,7 @@ extension UIKit.UIGestureRecognizer {
   @objc dynamic public func defaultScaledFont() -> UIKit.UIFont
 }
 @objc extension UIKit.UIStackView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func forceRemoveArrangedSubview(_ view: UIKit.UIView)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func removeArrangedSubviews()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func addArrangedFlexibleSpace()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func insertArrangedFlexibleSpace(after view: UIKit.UIView)
@@ -1507,6 +1547,8 @@ extension PRUIKit.OptionPickerActionMenuCell.OptionItemSize : Swift.RawRepresent
 extension PRUIKit.PRBarButtonSystemItem : Swift.Equatable {}
 extension PRUIKit.PRBarButtonSystemItem : Swift.Hashable {}
 extension PRUIKit.PRBarButtonSystemItem : Swift.RawRepresentable {}
+extension PRUIKit.Stack.Direction : Swift.Equatable {}
+extension PRUIKit.Stack.Direction : Swift.Hashable {}
 extension UIKit.UINavigationBarAppearance.BackgroundType : Swift.Equatable {}
 extension UIKit.UINavigationBarAppearance.BackgroundType : Swift.Hashable {}
 extension UIKit.UINavigationBarAppearance.BackgroundType : Swift.RawRepresentable {}

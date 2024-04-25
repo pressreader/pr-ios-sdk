@@ -7,7 +7,6 @@
 //
 
 #import "PRMyLibraryItem.h"
-#import "PRSourceItem_Protected.h"
 
 typedef NS_OPTIONS(NSInteger, mlProcessStatus) { inPdnProcess = 1<<0, inImgPackProcess = 1<<1, inImgPack2Process = 1<<2, inSmartProcess = 1<<3, inIndexProcess = 1<<4 };
 

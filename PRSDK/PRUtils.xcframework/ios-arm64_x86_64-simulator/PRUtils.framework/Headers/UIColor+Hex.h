@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)colorWithHexRGBA:(NSUInteger)hex;
 + (instancetype)colorWithHexString:(NSString *)hex;
 
-@property (nonatomic, readonly) NSString *hexRepresentation;
+@property (nonatomic, readonly) NSString *hexRGBA;
+@property (nonatomic, readonly) NSString *hexRGB;
 
 @end
 

@@ -57,24 +57,28 @@ extern PRThumbnailCacheFieSizeSuffix const PRThumbnailCacheFieSizeSuffixWidth;
 
 - (instancetype)initWithKey:(NSString *)key info:(PRThumbnailInfo *)info;
 
-/**
- If thumbnail is not downloaded or didn't start downloading yet, with `priority` set to YES
- this method removes current thumb from downloading stack and put it on the top of it.
- This way we achieve the functionality of downloading visible thumbnails first.
- @param priority set YES to increase thumb's priority in downloading stack
-*/
-- (void)getImageWithPriority:(BOOL)priority handlerKey:(NSString *)key handler:(PRThumbnailHandler)handler;
-- (void)getImageWithHandlerKey:(NSString *)key handler:(PRThumbnailHandler)handler;
+/// @param synchronously When set to YES, method attemts to prepare image synchronously with no delay if possible.
+/// @warning Not suitable for async-await API as handler isn't a completion handler and might be called multiple times.
+/// F.e. first time with low quality variant or a placeholder, second time  - requred one.
+- (void)getImageSynchronously:(BOOL)synchronously handler:(PRThumbnailHandler)handler NS_SWIFT_NAME(getImage(synchronously:handler:));
 
-/// IMPORTANT. Not suitable for async-await API as handler isn't a completion handler and might be called multiple times.
+/// Calls `getImageSynchronously:handler` with NO synchrony
 - (void)getImage:(PRThumbnailHandler)handler;
+
+- (void)getImageWithHandlerKey:(NSString *)key handler:(PRThumbnailHandler)handler;
 
 - (void)removeHandlerForKey:(NSString *)key;
 
 - (void)updateURLs;
 
-// download|load|prepare|cache thumbnail
-// return YES if thumbnail is ready to show
+/// download|load|prepare|cache thumbnail.
+/// If thumbnail is not downloaded or didn't start downloading yet,
+/// re-calling this method removes current thumb from downloading stack and put it on the top of it.
+/// This way we achieve the functionality of downloading visible thumbnails first.
+/// @param synchronously When set to YES, method attemts to prepare image synchronously with no delay if possible.
+/// @return YES if thumbnail is ready to show
+- (BOOL)prepareThumbnailSynchronously:(BOOL)synchronously;
+/// Calls `prepareThumbnailSynchronously` with NO synchrony.
 - (BOOL)prepareThumbnail;
 
 - (BOOL)hasCacheFile;

@@ -6,7 +6,7 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import CoreData;
+#import <CoreData/CoreData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

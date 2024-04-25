@@ -846,7 +846,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(key:primitiveType:)",
+            "printedName": "init(key:primitiveType:defaultValue:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -879,11 +879,17 @@
                     "usr": "s:s17FixedWidthIntegerP"
                   }
                 ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0",
+                "hasDefaultArg": true
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV3key13primitiveTypeACyxGSS_s17FixedWidthInteger_pXptcfc",
-            "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV3key13primitiveTypeACyxGSS_s17FixedWidthInteger_pXptcfc",
+            "usr": "s:15PRCoreDataUtils27RawRepresentableCDPrimitiveV3key13primitiveType12defaultValueACyxGSS_s17FixedWidthInteger_pXpxtcfc",
+            "mangledName": "$s15PRCoreDataUtils27RawRepresentableCDPrimitiveV3key13primitiveType12defaultValueACyxGSS_s17FixedWidthInteger_pXpxtcfc",
             "moduleName": "PRCoreDataUtils",
             "genericSig": "<τ_0_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.Int>",
             "sugared_genericSig": "<Value where Value : Swift.RawRepresentable, Value.RawValue == Swift.Int>",
@@ -1751,6 +1757,40 @@
           },
           {
             "kind": "Function",
+            "name": "nonEmptyString",
+            "printedName": "nonEmptyString(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD15PRCoreDataUtilsE14nonEmptyStringySSSgxF",
+            "mangledName": "$sSD15PRCoreDataUtilsE14nonEmptyStringySSSgxF",
+            "moduleName": "PRCoreDataUtils",
+            "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
+            "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "string",
             "printedName": "string(_:)",
             "children": [
@@ -2310,54 +2350,6 @@
           },
           {
             "kind": "Var",
-            "name": "managedObjectContext_",
-            "printedName": "managedObjectContext_",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "NSManagedObjectContext",
-                "printedName": "CoreData.NSManagedObjectContext",
-                "usr": "c:objc(cs)NSManagedObjectContext"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRCoreDataUtils@@objc(cs)NSManagedObject(py)managedObjectContext_",
-            "mangledName": "$sSo15NSManagedObjectC15PRCoreDataUtilsE07managedB8Context_So0abG0Cvp",
-            "moduleName": "PRCoreDataUtils",
-            "declAttributes": [
-              "Dynamic",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSManagedObjectContext",
-                    "printedName": "CoreData.NSManagedObjectContext",
-                    "usr": "c:objc(cs)NSManagedObjectContext"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCoreDataUtils@@objc(cs)NSManagedObject(im)managedObjectContext_",
-                "mangledName": "$sSo15NSManagedObjectC15PRCoreDataUtilsE07managedB8Context_So0abG0Cvg",
-                "moduleName": "PRCoreDataUtils",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "entityName",
             "printedName": "entityName",
             "children": [
@@ -2374,6 +2366,7 @@
             "moduleName": "PRCoreDataUtils",
             "declAttributes": [
               "Dynamic",
+              "RawDocComment",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -2593,6 +2586,247 @@
             "mangledName": "$s7Combine16ObservableObjectP"
           }
         ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NSDictionary",
+        "printedName": "NSDictionary",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "string",
+            "printedName": "string(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSString",
+                "printedName": "Foundation.NSString",
+                "usr": "c:objc(cs)NSString"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRCoreDataUtils@@objc(cs)NSDictionary(im)string:",
+            "mangledName": "$sSo12NSDictionaryC15PRCoreDataUtilsE6stringySSSgSo8NSStringCF",
+            "moduleName": "PRCoreDataUtils",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nonEmptyString",
+            "printedName": "nonEmptyString(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSString",
+                "printedName": "Foundation.NSString",
+                "usr": "c:objc(cs)NSString"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRCoreDataUtils@@objc(cs)NSDictionary(im)nonEmptyString:",
+            "mangledName": "$sSo12NSDictionaryC15PRCoreDataUtilsE14nonEmptyStringySSSgSo8NSStringCF",
+            "moduleName": "PRCoreDataUtils",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSDictionary",
+        "moduleName": "Foundation",
+        "isOpen": true,
+        "objc_name": "NSDictionary",
+        "declAttributes": [
+          "ObjC",
+          "NonSendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByDictionaryLiteral",
+            "printedName": "ExpressibleByDictionaryLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Key",
+                "printedName": "Key",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Value",
+                "printedName": "Value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s30ExpressibleByDictionaryLiteralP",
+            "mangledName": "$ss30ExpressibleByDictionaryLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_HasCustomAnyHashableRepresentation",
+            "printedName": "_HasCustomAnyHashableRepresentation",
+            "usr": "s:s35_HasCustomAnyHashableRepresentationP",
+            "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sequence",
+            "printedName": "Sequence",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(key: Any, value: Any)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Iterator",
+                "printedName": "Iterator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Iterator",
+                    "printedName": "Foundation.NSDictionary.Iterator",
+                    "usr": "s:So12NSDictionaryC10FoundationE8IteratorC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:ST",
+            "mangledName": "$sST"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
+          }
+        ]
       }
     ],
     "json_format_version": 8
@@ -2609,6 +2843,13 @@
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/Dictionary+Int.swift",
       "kind": "IntegerLiteral",
       "offset": 457,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCoreDataUtils\/RawRepresentableCDPrimitive.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1763,
       "length": 1,
       "value": "0"
     }

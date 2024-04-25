@@ -92,11 +92,8 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 @property (nullable, nonatomic, strong) NSArray<PRCatalogSection *> *sections;
 @property (nonatomic) PRPubHubDataSourceOption options;
 @property (nonatomic, readonly) BOOL isItemsSizeFixed;
-@property (nonatomic, readonly) BOOL isLocalServiceOn;
 
-@property (nullable, nonatomic, readonly) PRAccountItem *defaultAccount;
 @property (nonatomic) CGSize contentSize;
-@property (nonatomic, readonly) PRCatalog *catalog;
 
 @end
 

@@ -17,7 +17,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PROptionsListingSortingOrderDidChangeNotification;
-extern NSNotificationName const PROptionsCatalogSourceTypeChangedNotification;
 extern NSNotificationName const PROptionsPresentationStyleChangedNotification;
 extern NSNotificationName const PROptionsLocalServiceDeactivatedNotification;
 
@@ -160,8 +159,8 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 - (NSInteger)screenshotCounterForIssue:(NSString *)issueKey;
 - (void)setScreenshotCounter:(NSInteger)counter forIssue:(NSString *)issueKey;
 
-- (nullable NSArray *)publicationPath;
-- (void)setPublicationPath:(nullable NSArray *)value;
+- (nullable NSArray<NSDictionary<NSString *, id> *> *)publicationPath;
+- (void)setPublicationPath:(nullable NSArray<NSDictionary<NSString *, id> *> *)value;
 
 // base service urls and vesions
 - (void) updateBaseServices:(NSDictionary *)baseInfo;
@@ -193,7 +192,6 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 @property (nonatomic, assign) NSUInteger minItemsInGroup;
 @property (nonatomic, assign) PROpinionSortOrder opinionSortOrder;
 @property (nonatomic, assign) PROpinionSortOrder suggestedOpinionsSortOrder;
-@property (nonatomic, assign) PRSourceType catalogSourceType;
 @property (nonatomic, assign) PRPresentationStyle downloadedPresentationStyle;
 @property (nonatomic) PRAppPanelID defaultAppPanel;
 @property (nonatomic, getter = isConfigRefreshedAfterAppUpdated) BOOL configRefreshedAfterAppUpdated;

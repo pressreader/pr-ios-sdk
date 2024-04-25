@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, weak) id<PRSourceCategoriesCollectionDelegate> delegate;
 @property (null_resettable, nonatomic, strong) NSArray<id<CatalogNavigation>> *dataProvider;
 
-@property (nonatomic) UIEdgeInsets sectionInsets;
+@property (nonatomic) UIEdgeInsets contentInset;
 
 @end
 

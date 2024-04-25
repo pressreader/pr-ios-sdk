@@ -78,6 +78,33 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
     BOOL justRegistered;
 }
 
+- (BOOL)needShowHotzoneWelcomeMessage;
+- (void)updateHotzoneWelcomeMessageInfo;
+
+- (BOOL)isBrandRegisteredAccount;
+- (BOOL)isPressDisplayAccount;
+- (BOOL)isDefaultServiceAccount;
+- (BOOL)isDefaultAccount;
+- (BOOL)isDefaultOnlineAccount;
+- (BOOL)isEligibleIPhoneAccount;
+- (BOOL)isEligibleAccount;
+- (BOOL)hasSubscription;
+- (BOOL)subscriptionNotValid;
+- (BOOL)subscriptionNotValidOrExceeded;
+- (BOOL)isUnlimitedSubscription;
+
+- (BOOL)isPremiumSubscriptionEligible;
+- (BOOL)expirationDateHidden;
+- (void)setProfileProperties:(nullable NSDictionary *)properties;
+- (void)setValue:(id)value forAccStatusKey:(NSString *)key;
+
+- (nullable UIImage *)getProfilePhotoIcon:(void(^)(UIImage *icon))completionBlock;
+- (BOOL)setUnlimitedSubscription:(BOOL)isUnlimited withPremiumTrial:(BOOL)isPremiumTrial;
+- (void)getProfileName:(void(^_Nullable)(NSString *))completion;
+
+- (void)repair;
+- (void)resetCaches;
+
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *displayServiceName;
 @property (nullable, nonatomic, copy) NSString *friendlyUserName;
@@ -165,25 +192,6 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @property (nonatomic, readonly) BOOL shouldReloadCardInfo;
 @property (nonatomic, readonly) BOOL accountContainsValidCard;
 
-// HOTZONE STATUS PROPERTIES
-@property (nonatomic, readonly) BOOL hotzoneEnabled;
-@property (nonatomic, readonly) BOOL canHotzoneBeUsed;
-@property (nullable, nonatomic, readonly) NSString *hotzoneId;
-@property (nullable, nonatomic, readonly) NSString *hotzoneIndustry;
-@property (nullable, nonatomic, readonly) NSString *hotzoneName;
-@property (nonatomic, readonly) NSInteger sponsorshipStatus;
-@property (nullable, nonatomic, readonly) NSString * sponsorshipMessage;
-@property (nonatomic, readonly) NSInteger sponsorshipCredits;
-@property (nullable, nonatomic, readonly) NSDate * sponsorshipRadiantAccessExpiration;
-@property (nonatomic, readonly) BOOL isSponsorshipExpired;
-@property (nonatomic, readonly) BOOL notificationEnabled;
-- (BOOL) needShowHotzoneWelcomeMessage;
-- (void) updateHotzoneWelcomeMessageInfo;
-// true if device uses sponsorship netpoint
-@property (nonatomic, readonly) BOOL inSponsorshipArea;
-// true if user wants to use hotzone's benefits when he is in sponsorship area,
-// configured in account settings view
-
 // LINKED SERVICES
 @property (nonatomic, strong) NSArray<PRLinkedService *> *linkedServices;
 
@@ -194,32 +202,10 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 /// Account is registered or doesn't require registration.
 @property (nonatomic, readonly) BOOL isSufficient;
 @property (nonatomic, readonly) BOOL isUnlimited;
+@property (nonatomic, readonly) BOOL notificationEnabled;
 
-- (BOOL)isBrandRegisteredAccount;
-- (BOOL)isPressDisplayAccount;
-- (BOOL)isDefaultServiceAccount;
-- (BOOL)isDefaultAccount;
-- (BOOL)isDefaultOnlineAccount;
-- (BOOL)isEligibleIPhoneAccount;
-- (BOOL)isEligibleAccount;
-- (BOOL)hasSubscription;
-- (BOOL)subscriptionNotValid;
-- (BOOL)subscriptionNotValidOrExceeded;
-- (BOOL)isUnlimitedSubscription;
 @property (nonatomic, readonly) BOOL isPremiumTrial;
 @property (nonatomic, readonly) BOOL isBalanceInIssues;
-
-- (BOOL)isPremiumSubscriptionEligible;
-- (BOOL)expirationDateHidden;
-- (void)setProfileProperties:(nullable NSDictionary *)properties;
-- (void)setValue:(id)value forAccStatusKey:(NSString *)key;
-
-- (nullable UIImage *)getProfilePhotoIcon:(void(^)(UIImage *icon))completionBlock;
-- (BOOL)setUnlimitedSubscription:(BOOL)isUnlimited withPremiumTrial:(BOOL)isPremiumTrial;
-- (void)getProfileName:(void(^_Nullable)(NSString *))completion;
-
-- (void)repair;
-- (void)resetCaches;
 
 @end
 

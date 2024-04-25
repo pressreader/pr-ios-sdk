@@ -29,9 +29,9 @@ typedef NS_ENUM (NSUInteger, PRSourcesListType) {
 /// All content rendering logic contains in parent class PRBaseStoreCollectionVC.
 @interface PRSourcesVC : PRBaseStoreCollectionVC
 
-+ (NSArray *)controllersWithSourceList:(id<CatalogFacade>)sourceList andPath:(NSArray *)path;
++ (NSArray *)controllersWithSourceList:(PRSourceList *)sourceList
+                               andPath:(NSArray<NSDictionary<NSString *, id> *> *)path;
 
-@property (nonatomic, readonly) NSArray<NSDictionary *> *publicationPath;
 @property (nullable, nonatomic, strong) NSString *listName;
 @property (nullable, nonatomic) id<PRSourcesVCOrderDelegate> orderDelegate;
 

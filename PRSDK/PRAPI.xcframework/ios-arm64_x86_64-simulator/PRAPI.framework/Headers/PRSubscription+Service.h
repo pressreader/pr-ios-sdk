@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SKPaymentTransaction;
 
 extern NSString *const PRClientVerificationHeaderEncodingSecretKey;
+extern NSString *const PRSubscriptionUserDataKey;
 
 typedef NS_ENUM(NSInteger, BookmarkType) {
     BookmarkTypeArticle = 1,
@@ -52,8 +53,11 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
                              failure:(void (^_Nullable)(NSError *_Nullable error))failureBlock;
 
 - (PRPromise *)requestOnlineServiceWithPath:(NSString *)resourcePath
+                                 parameters:(nullable NSDictionary *)params;
+
+- (PRPromise *)requestOnlineServiceWithPath:(NSString *)resourcePath
                                      method:(NSString *)method
-                                 parameters:(NSDictionary *)params
+                                 parameters:(nullable NSDictionary *)params
                                     options:(NSDictionary *)options
                     useMultipartFormRequest:(BOOL)useMultipartFormRequest;
 
@@ -87,14 +91,6 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
 
 - (void) RequestIssueVersionsIntForCID:(NSString*)CID issueDate:(NSDate *)issueDate;
 - (void) RequestAudioUrlsForCID:(NSString *)CID issueDate:(NSDate *)issueDate;
-
-- (void)updateFavoritesWithCID:(NSString *)CID
-                      favorite:(BOOL)addFavorite
-                    completion:(void(^_Nullable)(BOOL success))completion;
-- (void)updateFavoritesWithCID:(NSString *)userCID
-                      favorite:(BOOL)addFavorite
-                      userInfo:(nullable NSDictionary *)userInfo
-                    completion:(void(^_Nullable)(BOOL success))completion;
 
 - (void)requestDownloadLicenseForCID:(NSString *)CID
                                 date:(NSDate *)date
@@ -242,3 +238,5 @@ extern PRVideoLinkType const PRVideoLinkTypeVimeo;
 @end
 
 NS_ASSUME_NONNULL_END
+
+#import "PRSubscription+Favorites.h"

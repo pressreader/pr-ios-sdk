@@ -278,6 +278,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreData;
+@import Foundation;
 #endif
 
 #endif
@@ -299,6 +300,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
+
+@interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(PRCoreDataUtils))
+- (NSString * _Nullable)string:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)nonEmptyString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NSManagedObjectContext;
 @class NSPredicate;
 
@@ -306,7 +313,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull entityName;)
 + (NSString * _Nonnull)entityName SWIFT_WARN_UNUSED_RESULT;
 + (NSUInteger)itemsCountWithContext:(NSManagedObjectContext * _Nonnull)context predicate:(NSPredicate * _Nullable)predicate SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly, strong) NSManagedObjectContext * _Nonnull managedObjectContext_;
 @property (nonatomic, readonly, copy) NSString * _Nonnull entityName;
 @property (nonatomic, readonly) BOOL isAvailable;
 - (nonnull instancetype)restoreWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
@@ -606,6 +612,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreData;
+@import Foundation;
 #endif
 
 #endif
@@ -627,6 +634,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
+
+@interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(PRCoreDataUtils))
+- (NSString * _Nullable)string:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)nonEmptyString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NSManagedObjectContext;
 @class NSPredicate;
 
@@ -634,7 +647,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull entityName;)
 + (NSString * _Nonnull)entityName SWIFT_WARN_UNUSED_RESULT;
 + (NSUInteger)itemsCountWithContext:(NSManagedObjectContext * _Nonnull)context predicate:(NSPredicate * _Nullable)predicate SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly, strong) NSManagedObjectContext * _Nonnull managedObjectContext_;
 @property (nonatomic, readonly, copy) NSString * _Nonnull entityName;
 @property (nonatomic, readonly) BOOL isAvailable;
 - (nonnull instancetype)restoreWithContext:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;

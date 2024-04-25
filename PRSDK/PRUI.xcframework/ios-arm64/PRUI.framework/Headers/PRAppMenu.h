@@ -77,14 +77,12 @@ extern NSString *const PRAppMenuDidChangeNotification;
 
 @property (class, nonatomic, readonly) PRAppMenu *instance;
 
-@property (nonatomic, getter = isFavoriteSourcesDisclosed) BOOL favoriteSourcesDisclosed;
 @property (nullable, nonatomic, readonly) PRMenuItem *accountItemForRegularStyle;
 
 @end
 
 
 @interface PRAppMenu (/*PROTECTED*/)
-@property (nonatomic, strong) id<CatalogFacade> favoritesSourceList;
 @property (nonatomic, readonly) BOOL isBrandEdition;
 
 @end

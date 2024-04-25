@@ -561,6 +561,7 @@ SWIFT_CLASS_NAMED("Books")
 @property (nonatomic, copy) NSString * _Nonnull id;
 @property (nonatomic, copy) NSString * _Nullable name;
 @property (nonatomic, copy) NSString * _Nullable details;
+@property (nonatomic, copy) NSString * _Nullable accountName;
 @property (nonatomic, strong) Catalog * _Nullable catalog;
 @property (nonatomic, strong) CompoundNavigation * _Nullable navigation;
 @property (nonatomic, strong) CatalogFilter * _Nullable filter;
@@ -1751,6 +1752,7 @@ SWIFT_CLASS_NAMED("Books")
 @property (nonatomic, copy) NSString * _Nonnull id;
 @property (nonatomic, copy) NSString * _Nullable name;
 @property (nonatomic, copy) NSString * _Nullable details;
+@property (nonatomic, copy) NSString * _Nullable accountName;
 @property (nonatomic, strong) Catalog * _Nullable catalog;
 @property (nonatomic, strong) CompoundNavigation * _Nullable navigation;
 @property (nonatomic, strong) CatalogFilter * _Nullable filter;

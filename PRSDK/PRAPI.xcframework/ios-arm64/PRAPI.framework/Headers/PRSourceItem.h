@@ -21,18 +21,13 @@ extern NSString *const kSourceType;
 @interface PRSourceItem : NSObject
 
 @property (nonatomic, retain, readonly) NSString *CID;
-@property (nonatomic, retain, readonly) NSString *title;
-@property (nonatomic, retain, readonly) NSString *localizedTitle;
 @property (nonatomic, readonly) NSString *titleSlug;
-@property (nonatomic, retain, readonly) NSString *parentName;
-@property (nonatomic, retain, readonly) NSString *parentCID;
-@property (nonatomic, retain, readonly) NSArray *parentCIDs;
+@property (nullable, nonatomic, retain, readonly) NSString *parentName;
+@property (nullable, nonatomic, retain, readonly) NSString *parentCID;
 @property (nullable, nonatomic, retain, readonly) NSString *supplementName;
 @property (nonatomic, retain, readonly) NSDate *issueDate;
-@property (nullable, nonatomic, retain, readonly) NSDate *orderDate;
+@property (nullable, nonatomic, retain) NSDate *orderDate;
 @property (nonatomic, readonly) NSDate *downloadedSortingDateValue;
-@property (nonatomic, assign, readonly) PRSourceType sourceType;
-@property (nonatomic, retain, readonly) UIColor *paperColor;
 @property (nonatomic, readonly) NSString *displayName;
 
 @property (nonatomic, getter=isSoundDisabled) BOOL soundDisabled;
@@ -70,6 +65,16 @@ extern NSString *const kSourceType;
 
 - (instancetype)initWithCID:(NSString *)cid title:(NSString *)title parentName:(NSString *)parent supplementName:(NSString *)supplement;
 - (void)saveToPersistentStore;
+
+@end
+
+@interface PRSourceItem (/*PROTECTED*/)
+@property (nonatomic, strong) NSString *title;
+@property (nullable, nonatomic, strong) NSString *localizedTitle;
+@property (nonatomic) PRSourceType sourceType;
+@property (nullable, nonatomic, strong) NSArray<NSValue *> *subscriptions;
+@property (nullable, nonatomic, strong) UIColor *paperColor;
+@property (nullable, nonatomic, strong) NSArray *parentCIDs;
 
 @end
 

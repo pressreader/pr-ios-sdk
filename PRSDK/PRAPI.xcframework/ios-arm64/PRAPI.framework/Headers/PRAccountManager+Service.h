@@ -43,8 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
                        completionHandler:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completionHandler;
 - (void)requestUserProfileInt:(PRAccountItem *)ai
               completionBlock:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completionBlock;
-- (void)requestHotZoneInfo:(PRAccountItem *)ai
-           completionBlock:(void(^ _Nullable)(BOOL success, SPNode * _Nullable response))completionBlock;
 - (void)performExternalAuthRequest:(NSString *)request
                            account:(nullable PRAccountItem *)ai
                         parameters:(nullable NSDictionary *)parameters
@@ -99,8 +97,6 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
              activationNumber:(NSString *)activationNumber
                  clientNumber:(NSString *)clientNumber
               completionBlock:(void(^)(BOOL success, NSError *_Nullable error))completionBlock;
-
-- (PRPromise *)getFavoriteCIDs;
 
 @end
 

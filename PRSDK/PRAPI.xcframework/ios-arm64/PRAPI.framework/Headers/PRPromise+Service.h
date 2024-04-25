@@ -32,13 +32,22 @@ NS_ASSUME_NONNULL_BEGIN
 + (PRPromise *)deleteRequestWithPath:(NSString *)path;
 
 + (PRPromise *)requestWithPath:(NSString *)path type:(PRRequestType)type;
+
 + (PRPromise *)requestWithPath:(NSString *)path
                           type:(PRRequestType)type
                     parameters:(nullable NSDictionary *)parameters;
+
 + (PRPromise *)requestWithPath:(NSString *)path
                           type:(PRRequestType)type
                     parameters:(nullable NSDictionary *)parameters
                        options:(nullable NSDictionary<PRServiceRequestOption, id> *)options;
+
++ (PRPromise *)requestWithPath:(NSString *)path
+                          type:(PRRequestType)type
+                       account:(nullable PRAccountItem *)account
+                    parameters:(nullable NSDictionary *)parameters
+                       options:(nullable NSDictionary<PRServiceRequestOption, id> *)options;
+
 + (PRPromise *)requestWithPath:(NSString *)path
                           type:(PRRequestType)type
                        account:(nullable PRAccountItem *)account

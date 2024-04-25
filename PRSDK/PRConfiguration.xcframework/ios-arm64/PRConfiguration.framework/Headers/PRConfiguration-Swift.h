@@ -364,8 +364,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdsType * _N
 
 @class AnalyticsUserId;
 @class MainMenuAnalyticsConfig;
-@class FirebaseAnalyticsConfig;
 @class ReadingAnalyticsConfig;
+@class FirebaseAnalyticsConfig;
 @class ComScoreAnalyticsConfig;
 @class TreasureDataAnalyticsConfig;
 @class MarfeelAnalyticsConfig;
@@ -375,8 +375,8 @@ SWIFT_CLASS("_TtC15PRConfiguration15AnalyticsConfig")
 @property (nonatomic, readonly, strong) AnalyticsUserId * _Nonnull userIdType;
 @property (nonatomic, readonly) BOOL replicaPageTrackingEnabled;
 @property (nonatomic, readonly, strong) MainMenuAnalyticsConfig * _Nonnull mainMenu;
-@property (nonatomic, readonly, strong) FirebaseAnalyticsConfig * _Nonnull firebase;
 @property (nonatomic, readonly, strong) ReadingAnalyticsConfig * _Nonnull readingConfig;
+@property (nonatomic, readonly, strong) FirebaseAnalyticsConfig * _Nonnull firebase;
 @property (nonatomic, readonly, strong) ComScoreAnalyticsConfig * _Nonnull comScore;
 @property (nonatomic, readonly, strong) TreasureDataAnalyticsConfig * _Nonnull treasureData;
 @property (nonatomic, readonly, strong) MarfeelAnalyticsConfig * _Nonnull marfeel;
@@ -886,10 +886,48 @@ SWIFT_CLASS("_TtC15PRConfiguration15PRArticleConfig")
 
 
 @interface PRCatalogConfig (SWIFT_EXTENSION(PRConfiguration))
+@property (nonatomic, readonly, strong) BookConfig * _Nonnull books;
 @property (nonatomic, readonly) NSInteger localPromotionsCount;
 @property (nonatomic, readonly) BOOL isFreeIndicatorEnabled;
-@property (nonatomic, readonly, strong) BookConfig * _Nonnull books;
 @end
+
+typedef SWIFT_ENUM(NSInteger, PRCatalogSectionType, open) {
+  PRCatalogSectionTypeBegin = -2,
+  PRCatalogSectionTypeNone = -1,
+  PRCatalogSectionTypeFeatured = 0,
+  PRCatalogSectionTypeFilters = 1,
+  PRCatalogSectionTypeListen = 2,
+  PRCatalogSectionTypeFavorites = 3,
+  PRCatalogSectionTypeRecentlyRead = 4,
+  PRCatalogSectionTypeLinkedService = 5,
+  PRCatalogSectionTypeTopMagazines = 6,
+  PRCatalogSectionTypeTopNewspapers = 7,
+  PRCatalogSectionTypeBooks = 8,
+  PRCatalogSectionTypeJustAdded = 9,
+  PRCatalogSectionTypeNewReleases = 10,
+  PRCatalogSectionTypeTopFree = 11,
+  PRCatalogSectionTypeDownloaded = 12,
+  PRCatalogSectionTypeLatestIssues = 13,
+  PRCatalogSectionTypeBannerBegin = 14,
+  PRCatalogSectionTypeBannerHotspotServices = 15,
+  PRCatalogSectionTypeBannerPremiumSubscription = 16,
+  PRCatalogSectionTypeBannerImproveExperience = 17,
+  PRCatalogSectionTypeBannerPersonalizationCompleted = 18,
+  PRCatalogSectionTypeBannerBooks = 19,
+  PRCatalogSectionTypeBannerBrazeContentCard = 20,
+  PRCatalogSectionTypeBannerAll = 21,
+  PRCatalogSectionTypeBannerEnd = 22,
+  PRCatalogSectionTypeCategories = 23,
+  PRCatalogSectionTypeFullCatalog = 24,
+  PRCatalogSectionTypeCategoryContent = 25,
+/// Special categories for custom catalog. Might support rows in the future.
+  PRCatalogSectionTypeSections = 26,
+  PRCatalogSectionTypeHotSpot = 27,
+  PRCatalogSectionTypeTopAdBanner = 28,
+  PRCatalogSectionTypeInlineAdBanner = 29,
+  PRCatalogSectionTypeCoBrandingBanner = 30,
+  PRCatalogSectionTypeEnd = 31,
+};
 
 
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))

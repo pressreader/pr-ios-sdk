@@ -113,6 +113,7 @@ extension PRCatalogModel.FragmentEndLocator {
     case recentlyReleased
     case recentlyAdded
     case hotspot
+    case favorites
     public init?(rawValue: Swift.String)
     public typealias AllCases = [PRCatalogModel.Section.Id]
     public typealias RawValue = Swift.String
@@ -123,7 +124,11 @@ extension PRCatalogModel.FragmentEndLocator {
       get
     }
   }
-  public static func section(id: PRCatalogModel.Section.Id, catalog: PRCatalogModel.Catalog) -> Self
+  public static func section(id: PRCatalogModel.Section.Id, catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext) throws -> Self
+  public static func section(id: PRCatalogModel.Section.Id, catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext) throws -> Self?
+  final public var sectionId: PRCatalogModel.Section.Id? {
+    get
+  }
   override final public var loadingPath: Swift.String {
     get
   }
@@ -492,7 +497,7 @@ extension PRCatalogModel.ItemSeriesMetadata : PRCoreDataUtils.UpdatableMO {
   override final public var slug: Swift.String {
     get
   }
-  override final public func item(from json: [Swift.String : Any], forceUpdate: Swift.Bool) -> PRCatalogModel.CatalogItem?
+  override final public func item(from json: [Swift.String : Any], context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool) -> PRCatalogModel.CatalogItem?
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
@@ -510,8 +515,10 @@ extension PRCatalogModel.CatalogEntity : PRCatalogModel.CatalogableMO {
   public func setCatalog(_ catalog: PRCatalogModel.Catalog)
 }
 extension PRCatalogModel.CatalogEntity : PRCoreDataUtils.IdentifiableMO {
-  public static func item(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) throws -> Self
-  public static func item(info: PRCatalogModel.CatalogNavigationDTO, catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) -> Self
+  public static func item(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog, accountName: Swift.String? = nil, scope: PRCatalogModel.CatalogEntity? = nil, context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool = false) throws -> Self
+  public static func item(info: PRCatalogModel.CatalogNavigationDTO, catalog: PRCatalogModel.Catalog, accountName: Swift.String? = nil, scope: PRCatalogModel.CatalogEntity? = nil, context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool = false) throws -> Self
+  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog, accountName: Swift.String?, context: CoreData.NSManagedObjectContext) throws -> Self?
+  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog, accountName: Swift.String?, context: CoreData.NSManagedObjectContext) throws -> Self
   public func metadata<T>(catalogItem: PRCatalogModel.CatalogItem) -> T? where T : PRCatalogModel.RelationshipMetadata
   @discardableResult
   public func processLoadedItems(info: [Swift.String : Any]) -> [PRCatalogModel.CatalogItem]?
@@ -600,7 +607,7 @@ extension PRCatalogModel.Highlight {
   override final public var slug: Swift.String {
     get
   }
-  override final public func item(from json: [Swift.String : Any], forceUpdate: Swift.Bool) -> PRCatalogModel.CatalogItem?
+  override final public func item(from json: [Swift.String : Any], context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool) -> PRCatalogModel.CatalogItem?
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
@@ -687,13 +694,13 @@ extension PRCatalogModel.CatalogNavigation : Swift.Identifiable {
   }
   @objc override dynamic public func awakeFromInsert()
   @objc override dynamic public func prepareForDeletion()
-  public func item(from json: [Swift.String : Any], forceUpdate: Swift.Bool) -> PRCatalogModel.CatalogItem?
+  public func item(from json: [Swift.String : Any], context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool) -> PRCatalogModel.CatalogItem?
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Catalog : PRCoreDataUtils.IdentifiableMO {
-  public func item<T>(with type: T.Type, predicate: Swift.String) -> T where T : CoreData.NSManagedObject
-  public func item<T>(with type: T.Type, predicate: Swift.String) -> T? where T : CoreData.NSManagedObject
+  public func item<T>(with type: T.Type, predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T where T : CoreData.NSManagedObject
+  public func item<T>(with type: T.Type, predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T? where T : CoreData.NSManagedObject
   @objc dynamic public func isEmpty() -> Swift.Bool
   public func query(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.Query
 }
@@ -982,7 +989,7 @@ extension PRCatalogModel.Bookmark {
 extension PRCatalogModel.Catalog {
   @objc dynamic public func hasFeatured() -> Swift.Bool
   @objc dynamic public func hasHotspot() -> Swift.Bool
-  public func section(_ id: PRCatalogModel.Section.Id) -> PRCatalogModel.Section
+  public func section(_ id: PRCatalogModel.Section.Id, context: CoreData.NSManagedObjectContext) throws -> PRCatalogModel.Section
 }
 @_inheritsConvenienceInitializers @objc(Series) final public class Series : PRCatalogModel.CatalogEntity {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
@@ -1050,12 +1057,12 @@ extension PRCatalogModel.CatalogEntity : PRCatalogModel.NavigatableScope {
   public typealias Navigation = PRCatalogModel.CompoundNavigation
 }
 public protocol CatalogableMO : CoreData.NSManagedObject {
-  static func item(id: Swift.String, catalog: PRCatalogModel.Catalog) -> Self
+  static func item(id: Swift.String, catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext) throws -> Self
   func setCatalog(_ catalog: PRCatalogModel.Catalog)
 }
 extension PRCatalogModel.CatalogableMO where Self : PRCoreDataUtils.IdentifiableMO {
-  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog) -> Self?
-  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog) -> Self
+  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext) throws -> Self?
+  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext) throws -> Self
   public static func item(entityName: Swift.String, id: Swift.String, catalog: PRCatalogModel.Catalog) -> Self?
 }
 extension PRCatalogModel.CatalogItem {
@@ -1148,6 +1155,10 @@ extension PRCatalogModel.CatalogEntity {
     @objc set
   }
   @objc @NSManaged dynamic public var details: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var accountName: Swift.String? {
     @objc get
     @objc set
   }
@@ -1291,12 +1302,12 @@ extension PRCatalogModel.RelationshipMetadata : Swift.Identifiable {
   @objc deinit
 }
 extension PRCatalogModel.CatalogItem : PRCatalogModel.CatalogableMO {
-  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog) -> Self
+  public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext) throws -> Self
   public func setCatalog(_ catalog: PRCatalogModel.Catalog)
 }
 extension PRCatalogModel.CatalogItem : PRCoreDataUtils.IdentifiableMO {
-  public class func item(id: Swift.String, catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], forceUpdate: Swift.Bool = false) -> Self?
-  public class func item(catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], forceUpdate: Swift.Bool = false) -> Self?
+  public class func item(id: Swift.String, catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool = false) throws -> Self?
+  public class func item(catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool = false) throws -> Self?
 }
 extension PRCatalogModel.PublicationType {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PublicationType>
@@ -1344,6 +1355,7 @@ extension PRCatalogModel.Author {
     case publisherId
     case query
     case ids
+    case cid
     case root
     case orderBy
     case supplement
@@ -1365,9 +1377,25 @@ extension PRCatalogModel.Author {
       get
     }
   }
+  public enum LoadingOrder : Swift.Int {
+    case popularity, date, alphabet
+    public var value: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
   public typealias LoadingParameters = [PRCatalogModel.CatalogEntity.LoadingParameter : Any]
   public struct Constants {
     public static let compoundIdJoint: Swift.String
+  }
+  @PRCoreDataUtils.RawRepresentableCDPrimitive public var loadingOrder: PRCatalogModel.CatalogEntity.LoadingOrder {
+    get
+    set
+    _modify
   }
   public var loadedCatalogItems: [PRCatalogModel.CatalogItem]? {
     get
@@ -1442,6 +1470,19 @@ extension PRCatalogModel.TitleItem {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(PublicationType) public class PublicationType : PRCatalogModel.CatalogEntity {
+  public enum Id : Swift.String, Swift.CaseIterable {
+    case magazines
+    case newspapers
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [PRCatalogModel.PublicationType.Id]
+    public typealias RawValue = Swift.String
+    public static var allCases: [PRCatalogModel.PublicationType.Id] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
@@ -1534,3 +1575,9 @@ extension PRCatalogModel.CatalogEntity.LoadingParameter : Swift.RawRepresentable
 extension PRCatalogModel.CatalogEntity.LoadingFlag : Swift.Equatable {}
 extension PRCatalogModel.CatalogEntity.LoadingFlag : Swift.Hashable {}
 extension PRCatalogModel.CatalogEntity.LoadingFlag : Swift.RawRepresentable {}
+extension PRCatalogModel.CatalogEntity.LoadingOrder : Swift.Equatable {}
+extension PRCatalogModel.CatalogEntity.LoadingOrder : Swift.Hashable {}
+extension PRCatalogModel.CatalogEntity.LoadingOrder : Swift.RawRepresentable {}
+extension PRCatalogModel.PublicationType.Id : Swift.Equatable {}
+extension PRCatalogModel.PublicationType.Id : Swift.Hashable {}
+extension PRCatalogModel.PublicationType.Id : Swift.RawRepresentable {}

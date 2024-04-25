@@ -34,9 +34,6 @@ extension Swift.FixedWidthInteger {
     @objc get
   }
   @objc dynamic public class func itemsCount(context: CoreData.NSManagedObjectContext, predicate: Foundation.NSPredicate? = nil) -> Swift.UInt
-  @objc dynamic public var managedObjectContext_: CoreData.NSManagedObjectContext {
-    @objc get
-  }
   @objc dynamic public var entityName: Swift.String {
     @objc get
   }
@@ -71,7 +68,12 @@ extension PRCoreDataUtils.UpdatableMO where Self : PRCoreDataUtils.IdentifiableM
 }
 extension Swift.Dictionary {
   public func string(_ key: Key) -> Swift.String?
+  public func nonEmptyString(_ key: Key) -> Swift.String?
   public func string(_ keys: [Key]) -> Swift.String?
+}
+@objc extension Foundation.NSDictionary {
+  @objc dynamic public func string(_ key: Foundation.NSString) -> Swift.String?
+  @objc dynamic public func nonEmptyString(_ key: Foundation.NSString) -> Swift.String?
 }
 extension CoreData.NSManagedObjectContext {
   public func fetchItems<T>(predicate: Foundation.NSPredicate? = nil, sortDecriptors: [Foundation.NSSortDescriptor]? = nil, limit: Swift.UInt = .max) -> [T]? where T : CoreData.NSManagedObject
@@ -90,7 +92,7 @@ extension CoreData.NSManagedObjectContext {
     get
     set
   }
-  public init(key: Swift.String, primitiveType: any PRCoreDataUtils.RawRepresentableCDPrimitive<Value>.Primitive.Type)
+  public init(key: Swift.String, primitiveType: any PRCoreDataUtils.RawRepresentableCDPrimitive<Value>.Primitive.Type, defaultValue: Value = Value(rawValue: 0)!)
 }
 public protocol IdentifiableMO : CoreData.NSManagedObject {
   static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self

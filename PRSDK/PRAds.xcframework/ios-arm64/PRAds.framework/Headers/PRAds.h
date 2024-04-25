@@ -17,5 +17,5 @@ FOUNDATION_EXPORT const unsigned char PRAdsVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <PRAds/PublicHeader.h>
 
 
-#import "PRGoogleAdProvider.h"
-#import "PRGoogleAdManager.h"
+#import <PRAds/PRGoogleAdProvider.h>
+#import <PRAds/PRGoogleAdManager.h>

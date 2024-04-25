@@ -14,10 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern const CGFloat kPRCompactInfoBarHeight;
-extern const CGFloat kPRFollowViewHeight;
 extern const CGFloat kPRCompactSidePadding;
-extern const CGFloat kPRFollowViewCompactPadding;
 
 typedef NS_ENUM(uint8_t, PROrderThumbnailInfoBarStyle) {
     PROrderThumbnailInfoBarStyleRegular = 0,
@@ -63,6 +60,7 @@ typedef NS_ENUM(uint8_t, PROrderThumbnailInfoBarStyle) {
 @property (nonatomic, assign) NSInteger downloadProgress;
 @property (nonatomic, assign) PRTitleItemExemplarState exemplarState;
 
+@property (nonatomic, strong, readonly) UIImageView *thumbnailContainerView;
 @property (nonatomic, readonly) PRInfoBarView *infoBar;
 @property (nonatomic, readonly) PROrderInfoBarView *compactInfoBar;
 @property (nonatomic, readonly) UIButton *progressButton;
@@ -75,7 +73,8 @@ typedef NS_ENUM(uint8_t, PROrderThumbnailInfoBarStyle) {
 @property (nonatomic) BOOL following;
 @property (nonatomic, copy) void(^followAction)(BOOL);
 
-@property (nonatomic, readonly) UIView *titleView;
+@property (nonatomic, readonly) UIView *headerTitleView;
+@property (nonatomic, readonly) CGFloat headerHeight;
 
 @end
 

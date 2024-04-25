@@ -38,7 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *webViewItem;
 @property (nullable, nonatomic, readonly) PRCommandMenuItem *moreItem;
 
-@property (nonatomic, readonly) BOOL isSingleTitle;
 @property (nonatomic, readonly) BOOL hasFeed;
 @property (nonatomic, readonly) BOOL hasHome;
 

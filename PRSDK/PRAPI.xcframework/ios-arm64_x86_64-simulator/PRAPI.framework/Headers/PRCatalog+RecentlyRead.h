@@ -16,10 +16,6 @@ typedef NSArray<PRTitleItemExemplar *> PRExemplars;
 
 @interface PRCatalog (RecentlyRead)
 
-- (PRExemplars *)recentlyReadExemplarsForType:(PRSourceType)type
-                                 sortingOrder:(PRCatalogSortingOrder)sortingOrder;
-- (PRExemplars *)recentlyReadExemplarsSortedBy:(PRCatalogSortingOrder)sortOrder;
-
 - (void)updateRecentlyReadWithExemplars:(NSArray<PRTitleItemExemplar *> *)exemplars;
 
 // {cid:{date1:exemplar1, date2:exemplar2}, cid2:{date1:exemplar3}...}

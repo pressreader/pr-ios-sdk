@@ -563,12 +563,12 @@ SWIFT_PROTOCOL("_TtP5PRAPI23BEHomeAnalyticsProvider_")
 
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isNew;
+@property (nonatomic, readonly) PRSourceType sourceType;
 @end
 
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) PRSourceType sourceType;
+@property (nonatomic, readonly) BOOL isNew;
 @end
 
 
@@ -641,7 +641,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 
 SWIFT_CLASS("_TtC5PRAPI13CatalogBanner")
 @interface CatalogBanner : PRCatalogSection
-@property (nonatomic) PRCatalogSectionType sectionType;
+@property (nonatomic) enum PRCatalogSectionType sectionType;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -734,65 +734,12 @@ SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @property (nonatomic, readonly) BOOL canLoadMoreSilently;
 @end
 
-@protocol PRSourceListDelegate;
 @protocol CatalogNavigation;
-@class PRCountableDictionary;
-@class PRCountableCountry;
-@class CatalogPresentationOption;
-@class PRSourceListFilter;
-@class PRCountableValue;
-@class PRSubscription;
-@class CatalogSectionScheme;
-@class PRPromise;
-@class PRTitleItem;
 
 SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 @protocol CatalogFacade
-@property (nonatomic, readonly) ModelState state;
-@property (nonatomic, strong) id <PRSourceListDelegate> _Nullable delegate;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull list;
-/// List <ANY: PRTitleItem, PRTitleExemplar> without groups and including supplements.
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull plainList;
-/// List <ANY: PRTitleItem, PRTitleExemplar> without groups and including supplements.
-/// IMPORTANT: Supplements are not included into the list if it contains their parent.
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
-@property (nonatomic) PRCatalogSortingOrder order;
-@property (nonatomic, readonly) BOOL isReady;
 @property (nonatomic, readonly) BOOL isEmpty;
-@property (nonatomic) PRSourceListOption options;
-@property (nonatomic, readonly, strong) CatalogPresentationOption * _Nonnull presentationOptions;
-@property (nonatomic, readonly, copy) NSArray<PRSourceListFilter *> * _Nonnull filters;
-@property (nonatomic, readonly, strong) PRCountableValue * _Nonnull mainCID;
-@property (nonatomic, copy) NSString * _Nullable text;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull categoryFilters;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull regionFilters;
-@property (nonatomic, readonly, copy) NSArray<PRSubscription *> * _Nonnull subscriptionFilters;
-- (nonnull instancetype)catalogSliceWithFilter:(id <CatalogNavigation> _Nonnull)filter scheme:(CatalogSectionScheme * _Nullable)scheme SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)customCatalogCatalogSlice SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)favouritesSliceWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-/// Deactivated groupping and supplemenets included.
-- (nonnull instancetype)semiplainSlice SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)sectionsSortedBy:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)categoriesSortedByAlpha:(BOOL)byAlpha SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
-- (void)filterList;
-- (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applySourceTypeFilter:(PRSourceType)sourceType;
-- (void)applyFreeFilter;
-- (void)applyFavoriteFilter;
-- (void)applyMinRateFilter;
-- (void)applyCategoryFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyLanguageFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyCountryFilter:(id <CatalogNavigation> _Nonnull)filter;
-- (void)applyParentTitleFilter:(PRTitleItem * _Nonnull)filter;
-- (void)applyGroupFilter:(NSString * _Nonnull)name title:(NSString * _Nonnull)title;
-- (void)applyCIDsFilter:(NSArray<NSString *> * _Nonnull)cids title:(NSString * _Nullable)title;
-- (void)applySubscriptionFilter:(PRSubscription * _Nonnull)subscription;
-- (void)applyFilters:(NSArray<PRSourceListFilter *> * _Nonnull)filters;
+@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
 @end
 
 
@@ -819,9 +766,11 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @end
 
 @class Catalog;
+@class NSManagedObjectContext;
+@class PRPromise;
 
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI))
-+ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
++ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog context:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -844,15 +793,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 - (NSProgress * _Nullable)downloadProgressObjectWithOptions:(CatalogItemContentOption * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class NSDate;
-
-@interface CatalogItem (SWIFT_EXTENSION(PRAPI)) <PRCatalogItem>
-@property (nonatomic, readonly) PRSourceType sourceType;
-@property (nonatomic, readonly, copy) NSString * _Nonnull CID;
-@property (nonatomic, readonly, copy) NSDate * _Nullable date;
-@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
-@end
-
 @protocol ReadingViewItem;
 
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI))
@@ -862,6 +802,16 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @property (nonatomic, readonly) NSUInteger numberOfPages;
 @property (nonatomic, readonly) NSUInteger pagesCount;
 - (BOOL)done SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NSDate;
+
+@interface CatalogItem (SWIFT_EXTENSION(PRAPI)) <PRCatalogItem>
+@property (nonatomic, readonly) PRSourceType sourceType;
+@property (nonatomic, readonly, copy) NSString * _Nonnull CID;
+@property (nonatomic, readonly, copy) NSDate * _Nullable date;
+@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
+@property (nonatomic, readonly) NSUInteger size;
 @end
 
 @protocol HotSpotInfo;
@@ -965,49 +915,11 @@ SWIFT_CLASS("_TtC5PRAPI16CatalogPresenter")
 
 
 @interface CatalogPresenter (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) ModelState state;
-@property (nonatomic, strong) id <PRSourceListDelegate> _Nullable delegate;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull list;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull plainList;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
-@property (nonatomic) PRCatalogSortingOrder order;
-@property (nonatomic, readonly) BOOL isReady;
 @property (nonatomic, readonly) BOOL isEmpty;
-@property (nonatomic) PRSourceListOption options;
-@property (nonatomic, readonly, strong) CatalogPresentationOption * _Nonnull presentationOptions;
-@property (nonatomic, readonly, copy) NSArray<PRSourceListFilter *> * _Nonnull filters;
-@property (nonatomic, readonly, strong) PRCountableValue * _Nonnull mainCID;
-@property (nonatomic, copy) NSString * _Nullable text;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull categoryFilters;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull regionFilters;
-@property (nonatomic, readonly, copy) NSArray<PRSubscription *> * _Nonnull subscriptionFilters;
-- (nonnull instancetype)catalogSliceWithFilter:(id <CatalogNavigation> _Nonnull)filter scheme:(CatalogSectionScheme * _Nullable)scheme SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)customCatalogCatalogSlice SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)favouritesSliceWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)semiplainSlice SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)sectionsSortedBy:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)categoriesSortedByAlpha:(BOOL)byAlpha SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
-- (void)filterList;
-- (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applySourceTypeFilter:(PRSourceType)sourceType;
-- (void)applyFreeFilter;
-- (void)applyFavoriteFilter;
-- (void)applyMinRateFilter;
-- (void)applyCategoryFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyLanguageFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyCountryFilter:(id <CatalogNavigation> _Nonnull)filter;
-- (void)applyParentTitleFilter:(PRTitleItem * _Nonnull)filter;
-- (void)applyGroupFilter:(NSString * _Nonnull)name title:(NSString * _Nonnull)title;
-- (void)applyCIDsFilter:(NSArray<NSString *> * _Nonnull)cids title:(NSString * _Nullable)title;
-- (void)applySubscriptionFilter:(PRSubscription * _Nonnull)subscription;
-- (void)applyFilters:(NSArray<PRSourceListFilter *> * _Nonnull)filters;
+@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
 @end
 
+@class CatalogSectionScheme;
 
 SWIFT_CLASS("_TtC5PRAPI21CatalogSchemeProvider")
 @interface CatalogSchemeProvider : PRSchemeProvider
@@ -1025,7 +937,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchem
 + (CatalogSchemeProvider * _Nonnull)book SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, copy) NSArray<CatalogSectionScheme *> * _Nonnull sections;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (CatalogSectionScheme * _Nullable)firstSchemeWithType:(PRCatalogSectionType)type SWIFT_WARN_UNUSED_RESULT;
+- (CatalogSectionScheme * _Nullable)firstSchemeWithType:(enum PRCatalogSectionType)type SWIFT_WARN_UNUSED_RESULT;
 - (void)loadConfigurationJSON:(NSArray<NSString *> * _Nonnull)names;
 @end
 
@@ -1033,7 +945,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchem
 
 SWIFT_CLASS("_TtC5PRAPI20CatalogSectionScheme")
 @interface CatalogSectionScheme : NSObject
-@property (nonatomic, readonly) PRCatalogSectionType type;
+@property (nonatomic, readonly) enum PRCatalogSectionType type;
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) PRCatalogSortingOrder sortingOrder;
 @property (nonatomic, readonly) PRCatalogSortingOrder sortingOrderForSubsection;
@@ -1042,6 +954,7 @@ SWIFT_CLASS("_TtC5PRAPI20CatalogSectionScheme")
 @property (nonatomic, readonly, copy) NSString * _Nullable customTitle;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable cids;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable categories;
+@property (nonatomic, readonly) BOOL isModernAPISupported;
 - (nonnull instancetype)initWithName:(NSString * _Nonnull)name sortingOrder:(PRCatalogSortingOrder)sortingOrder sortingOrderForSubsection:(PRCatalogSortingOrder)sortingOrderForSubsection layoutType:(PRLayoutType)layoutType options:(CatalogSectionSchemeOption * _Nonnull)options customTitle:(NSString * _Nullable)customTitle cids:(NSArray<NSString *> * _Nullable)cids categories:(NSArray<NSString *> * _Nullable)categories OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1115,6 +1028,23 @@ SWIFT_UNAVAILABLE
 
 
 
+@class PRCoreUtil;
+@class PROptions;
+@class PRCatalog;
+@class PRMyLibrary;
+@class PRAccountManager;
+
+SWIFT_CLASS("_TtC5PRAPI11DIExtension")
+@interface DIExtension : NSObject
+@property (nonatomic, readonly, strong) id <AnalyticsService> _Nonnull analytics;
+@property (nonatomic, readonly, strong) PRCoreUtil * _Nonnull util;
+@property (nonatomic, readonly, strong) PROptions * _Nonnull options;
+@property (nonatomic, readonly, strong) PRCatalog * _Nonnull catalog;
+@property (nonatomic, readonly, strong) PRMyLibrary * _Nonnull library;
+@property (nonatomic, readonly, strong) PRAccountManager * _Nonnull accountManager;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_PROTOCOL("_TtP5PRAPI18DataSourceObserver_")
 @protocol DataSourceObserver
@@ -1145,7 +1075,7 @@ SWIFT_CLASS("_TtC5PRAPI16DeviceActivation")
 
 @interface Document (SWIFT_EXTENSION(PRAPI))
 /// return Promise which will provide Document instance
-+ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
++ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog context:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1339,6 +1269,15 @@ SWIFT_PROTOCOL("_TtP5PRAPI11HotSpotInfo_")
 
 
 
+SWIFT_CLASS("_TtC5PRAPI13HotSpotTitles")
+@interface HotSpotTitles : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable boughtBy;
+@property (nonatomic, readonly, copy) NSString * _Nullable complimentaryAccess;
+@property (nonatomic, readonly, copy) NSString * _Nullable featuredCarouselTitle;
+@property (nonatomic, readonly, copy) NSString * _Nullable sponsorBy;
+@end
+
+
 
 
 
@@ -1416,10 +1355,11 @@ SWIFT_CLASS("_TtC5PRAPI23MyLibraryItemPrintActor")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSManagedObjectContext;
 
-@interface NSManagedObject (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) NSManagedObjectContext * _Nonnull ntfContext;
+SWIFT_UNAVAILABLE
+@interface NSError (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _Nonnull unexpectedResponse;)
++ (NSError * _Nonnull)unexpectedResponse SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1476,6 +1416,13 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface NSObject (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DIExtension * _Nonnull pr_inject;)
++ (DIExtension * _Nonnull)pr_inject SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) DIExtension * _Nonnull pr_inject;
+@end
+
+
 @interface NTFAbstractArticle (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isTranslatable;
 @end
@@ -1497,14 +1444,14 @@ SWIFT_UNAVAILABLE
 @end
 
 
-@interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) id <ArticleService> _Nonnull service;
-@end
-
-
 @interface NTFArticleItem (SWIFT_EXTENSION(PRAPI)) <MastheadProvider>
 @property (nonatomic, readonly) BOOL hasMasthead;
 - (void)mastheadWithHeight:(CGFloat)height style:(UIUserInterfaceStyle)style handler:(PRThumbnailHandler _Nonnull)handler;
+@end
+
+
+@interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) id <ArticleService> _Nonnull service;
 @end
 
 
@@ -1599,6 +1546,11 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 - (void)showDeleteConfirmationAlert:(void (^ _Nonnull)(BOOL))completion;
 @end
 
+
+@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly) BOOL isReachableAndReady;
+@end
+
 @class PRSubscriptionBundle;
 @class PRUserBundle;
 
@@ -1625,6 +1577,27 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @property (nonatomic, readonly) BOOL isTrialBundleActive;
 @end
 
+
+
+@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, copy) NSString * _Nullable hotzoneId;
+@property (nonatomic, readonly) BOOL canHotzoneBeUsed;
+///
+/// returns:
+/// <code>true</code> if device uses sponsorship netpoint
+@property (nonatomic, readonly) BOOL inSponsorshipArea;
+@property (nonatomic, readonly) NSInteger sponsorshipStatus;
+@property (nonatomic, readonly) BOOL isSponsored;
+@property (nonatomic, readonly) NSInteger sponsorshipCredits;
+@property (nonatomic, readonly) BOOL hotzoneEnabled;
+@property (nonatomic, readonly, copy) NSString * _Nullable hotzoneIndustry;
+@property (nonatomic, readonly, copy) NSString * _Nullable hotzoneName;
+@property (nonatomic, readonly, copy) NSString * _Nullable sponsorshipMessage;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull hozoneSessionExpiration;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull sponsorshipRadiantAccessExpiration;
+@property (nonatomic, readonly) BOOL isSponsorshipExpired;
+@property (nonatomic, strong) HotSpotTitles * _Nullable hotSpotTitles;
+@end
 
 
 @interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
@@ -1655,16 +1628,16 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 
+
+
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
-
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 SWIFT_UNAVAILABLE
@@ -1685,12 +1658,14 @@ SWIFT_UNAVAILABLE
 
 
 
+@class PRCountableCountry;
 
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, strong) id <CatalogFacade> _Nonnull presenter;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull favoriteCountries;
 @end
 
+@class PRSourceListFilter;
 
 @interface PRCatalogFilter (SWIFT_EXTENSION(PRAPI))
 - (PRSourceListFilter * _Nullable)filterWithId:(enum CatalogNavigationType)id SWIFT_WARN_UNUSED_RESULT;
@@ -1752,43 +1727,6 @@ SWIFT_UNAVAILABLE
 + (nonnull instancetype)instance SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)hasInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)dismiss;
-@end
-
-@class PRSocialSignInManager;
-@class PROnlineContentUpdater;
-@class PRMyLibrary;
-@class PRTitleItemsManager;
-@class PRWebServer;
-@class PRHotSpotManager;
-@class PRSuggestionsManager;
-@class PRAnalyticsProfileManager;
-@class PRStoreKitManager;
-@class PRPushNotificationsManager;
-@class PROptions;
-@class PRThumbnailsManager;
-@class PRCoreUtil;
-@class PRCoreGlobal;
-@class PRHost;
-
-@interface PRModel (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) PRAccountManager * _Nonnull accountManager;
-@property (nonatomic, readonly, strong) PRSocialSignInManager * _Nonnull socialSignInManager;
-@property (nonatomic, readonly, strong) PRAnalyticsService * _Nonnull analytics;
-@property (nonatomic, readonly, strong) PROnlineContentUpdater * _Nonnull contentUpdater;
-@property (nonatomic, readonly, strong) PRMyLibrary * _Nonnull mylib;
-@property (nonatomic, readonly, strong) PRCatalog * _Nonnull catalog;
-@property (nonatomic, readonly, strong) PRTitleItemsManager * _Nonnull titleItemsManager;
-@property (nonatomic, readonly, strong) PRWebServer * _Nonnull httpServer;
-@property (nonatomic, readonly, strong) PRHotSpotManager * _Nonnull hotSpotManager;
-@property (nonatomic, readonly, strong) PRSuggestionsManager * _Nonnull suggestionsManager;
-@property (nonatomic, readonly, strong) PRAnalyticsProfileManager * _Nonnull analyticsProfileManager;
-@property (nonatomic, readonly, strong) PRStoreKitManager * _Nonnull storeKitManager;
-@property (nonatomic, readonly, strong) PRPushNotificationsManager * _Nonnull pushNotificationsManager;
-@property (nonatomic, readonly, strong) PROptions * _Nonnull options;
-@property (nonatomic, readonly, strong) PRThumbnailsManager * _Nonnull thumbnailsManager;
-@property (nonatomic, readonly, strong) PRCoreUtil * _Nonnull util;
-@property (nonatomic, readonly, strong) PRCoreGlobal * _Nonnull glob;
-@property (nonatomic, readonly, strong) PRHost * _Nonnull host;
 @end
 
 
@@ -1893,6 +1831,10 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface PRSourceList (SWIFT_EXTENSION(PRAPI)) <CatalogFacade>
+@end
+
+
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 - (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -1904,27 +1846,28 @@ SWIFT_UNAVAILABLE
 @end
 
 
-@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic) ModelState state;
-@end
-
-
-@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, strong) CatalogPresentationOption * _Nonnull presentationOptions;
-- (void)sortList;
-- (void)filterList;
-- (void)removeFilter:(enum CatalogNavigationType)type;
-- (void)notifyAboutDataChange;
-@end
-
 
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
 - (nonnull instancetype)catalogSliceWithFilter:(id <CatalogNavigation> _Nonnull)filter scheme:(CatalogSectionScheme * _Nullable)scheme SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)customCatalogCatalogSlice SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
+/// Deactivated groupping and supplemenets included.
 - (nonnull instancetype)semiplainSlice SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)favouritesSliceWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@protocol PRTitleObject;
+
+@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, strong) CatalogPresentationOption * _Nonnull presentationOptions;
+@property (nonatomic, readonly, copy) NSArray<id <PRTitleObject>> * _Nonnull titleObjects;
+- (void)sortList;
+- (void)filterList;
+- (void)removeFilter:(enum CatalogNavigationType)type;
+- (PRSourceListFilter * _Nullable)filterWithId:(enum CatalogNavigationType)id SWIFT_WARN_UNUSED_RESULT;
+- (void)notifyAboutDataChange;
+- (BOOL)collectionContainsEdition:(NSArray<id <PRTitleObject>> * _Nonnull)collection of:(id <PRTitleObject> _Nonnull)item SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1933,6 +1876,25 @@ SWIFT_UNAVAILABLE
 @property (nonatomic) enum CatalogNavigationType filterId;
 - (nonnull instancetype)initWithType:(enum CatalogNavigationType)type value:(id _Nullable)value title:(NSString * _Nullable)title;
 @end
+
+enum PRSponsorshipManagerServiceMethod : NSInteger;
+
+@interface PRSponsorshipManagerService (SWIFT_EXTENSION(PRAPI))
+- (void)updateHotSpotInfoWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)updateHotSpotInfo;
+- (void)requestWithMethod:(enum PRSponsorshipManagerServiceMethod)method parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters completionHandler:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completionHandler SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method", open) {
+  PRSponsorshipManagerServiceMethodSearchHotZoneClusters = 0,
+  PRSponsorshipManagerServiceMethodGetGeoFencingHotZoneLocations = 1,
+  PRSponsorshipManagerServiceMethodSearchHotZoneLocations = 2,
+  PRSponsorshipManagerServiceMethodSearchHotZoneClustersWithBounds = 3,
+  PRSponsorshipManagerServiceMethodSetHotzoneStatus = 4,
+  PRSponsorshipManagerServiceMethodGetCobranding = 5,
+  PRSponsorshipManagerServiceMethodGetNotificationTitles = 6,
+};
+
 
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
@@ -1952,6 +1914,12 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
+- (BOOL)restoreCoBrandingAndReturnError:(NSError * _Nullable * _Nullable)error;
+- (BOOL)restoreHotSpotTitlesAndReturnError:(NSError * _Nullable * _Nullable)error;
+@end
+
+
 @interface PRSubscriptionBundle (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
 @end
@@ -1963,6 +1931,7 @@ SWIFT_UNAVAILABLE
 - (NSInteger)issueVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)expungeVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 @class PRThumbnailSource;
 
@@ -2087,7 +2056,7 @@ SWIFT_CLASS("_TtC5PRAPI17SearchHistoryItem")
 
 SWIFT_PROTOCOL("_TtP5PRAPI25SectionDataSourceProtocol_")
 @protocol SectionDataSourceProtocol
-@property (nonatomic, readonly) PRCatalogSectionType section;
+@property (nonatomic, readonly) enum PRCatalogSectionType section;
 @end
 
 
@@ -2132,12 +2101,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<TextLi
 
 
 @interface TitleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
+@property (nonatomic, readonly, strong) PRTitleItem * _Nullable titleItem;
 @end
 
 
 @interface TitleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) PRTitleItem * _Nullable titleItem;
+@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
 @end
 
 
@@ -2154,6 +2123,7 @@ SWIFT_CLASS("_TtC5PRAPI26TransientCatalogNavigation")
 @end
 
 @class PRCountableString;
+@class PRCountableDictionary;
 
 @interface TransientCatalogNavigation (SWIFT_EXTENSION(PRAPI))
 - (nonnull instancetype)initWithCountry:(PRCountableCountry * _Nonnull)country;
@@ -2796,12 +2766,12 @@ SWIFT_PROTOCOL("_TtP5PRAPI23BEHomeAnalyticsProvider_")
 
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isNew;
+@property (nonatomic, readonly) PRSourceType sourceType;
 @end
 
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) PRSourceType sourceType;
+@property (nonatomic, readonly) BOOL isNew;
 @end
 
 
@@ -2874,7 +2844,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 
 SWIFT_CLASS("_TtC5PRAPI13CatalogBanner")
 @interface CatalogBanner : PRCatalogSection
-@property (nonatomic) PRCatalogSectionType sectionType;
+@property (nonatomic) enum PRCatalogSectionType sectionType;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2967,65 +2937,12 @@ SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @property (nonatomic, readonly) BOOL canLoadMoreSilently;
 @end
 
-@protocol PRSourceListDelegate;
 @protocol CatalogNavigation;
-@class PRCountableDictionary;
-@class PRCountableCountry;
-@class CatalogPresentationOption;
-@class PRSourceListFilter;
-@class PRCountableValue;
-@class PRSubscription;
-@class CatalogSectionScheme;
-@class PRPromise;
-@class PRTitleItem;
 
 SWIFT_PROTOCOL("_TtP5PRAPI13CatalogFacade_")
 @protocol CatalogFacade
-@property (nonatomic, readonly) ModelState state;
-@property (nonatomic, strong) id <PRSourceListDelegate> _Nullable delegate;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull list;
-/// List <ANY: PRTitleItem, PRTitleExemplar> without groups and including supplements.
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull plainList;
-/// List <ANY: PRTitleItem, PRTitleExemplar> without groups and including supplements.
-/// IMPORTANT: Supplements are not included into the list if it contains their parent.
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
-@property (nonatomic) PRCatalogSortingOrder order;
-@property (nonatomic, readonly) BOOL isReady;
 @property (nonatomic, readonly) BOOL isEmpty;
-@property (nonatomic) PRSourceListOption options;
-@property (nonatomic, readonly, strong) CatalogPresentationOption * _Nonnull presentationOptions;
-@property (nonatomic, readonly, copy) NSArray<PRSourceListFilter *> * _Nonnull filters;
-@property (nonatomic, readonly, strong) PRCountableValue * _Nonnull mainCID;
-@property (nonatomic, copy) NSString * _Nullable text;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull categoryFilters;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull regionFilters;
-@property (nonatomic, readonly, copy) NSArray<PRSubscription *> * _Nonnull subscriptionFilters;
-- (nonnull instancetype)catalogSliceWithFilter:(id <CatalogNavigation> _Nonnull)filter scheme:(CatalogSectionScheme * _Nullable)scheme SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)customCatalogCatalogSlice SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)favouritesSliceWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-/// Deactivated groupping and supplemenets included.
-- (nonnull instancetype)semiplainSlice SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)sectionsSortedBy:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)categoriesSortedByAlpha:(BOOL)byAlpha SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
-- (void)filterList;
-- (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applySourceTypeFilter:(PRSourceType)sourceType;
-- (void)applyFreeFilter;
-- (void)applyFavoriteFilter;
-- (void)applyMinRateFilter;
-- (void)applyCategoryFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyLanguageFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyCountryFilter:(id <CatalogNavigation> _Nonnull)filter;
-- (void)applyParentTitleFilter:(PRTitleItem * _Nonnull)filter;
-- (void)applyGroupFilter:(NSString * _Nonnull)name title:(NSString * _Nonnull)title;
-- (void)applyCIDsFilter:(NSArray<NSString *> * _Nonnull)cids title:(NSString * _Nullable)title;
-- (void)applySubscriptionFilter:(PRSubscription * _Nonnull)subscription;
-- (void)applyFilters:(NSArray<PRSourceListFilter *> * _Nonnull)filters;
+@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
 @end
 
 
@@ -3052,9 +2969,11 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @end
 
 @class Catalog;
+@class NSManagedObjectContext;
+@class PRPromise;
 
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI))
-+ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
++ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog context:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3077,15 +2996,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 - (NSProgress * _Nullable)downloadProgressObjectWithOptions:(CatalogItemContentOption * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class NSDate;
-
-@interface CatalogItem (SWIFT_EXTENSION(PRAPI)) <PRCatalogItem>
-@property (nonatomic, readonly) PRSourceType sourceType;
-@property (nonatomic, readonly, copy) NSString * _Nonnull CID;
-@property (nonatomic, readonly, copy) NSDate * _Nullable date;
-@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
-@end
-
 @protocol ReadingViewItem;
 
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI))
@@ -3095,6 +3005,16 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @property (nonatomic, readonly) NSUInteger numberOfPages;
 @property (nonatomic, readonly) NSUInteger pagesCount;
 - (BOOL)done SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NSDate;
+
+@interface CatalogItem (SWIFT_EXTENSION(PRAPI)) <PRCatalogItem>
+@property (nonatomic, readonly) PRSourceType sourceType;
+@property (nonatomic, readonly, copy) NSString * _Nonnull CID;
+@property (nonatomic, readonly, copy) NSDate * _Nullable date;
+@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
+@property (nonatomic, readonly) NSUInteger size;
 @end
 
 @protocol HotSpotInfo;
@@ -3198,49 +3118,11 @@ SWIFT_CLASS("_TtC5PRAPI16CatalogPresenter")
 
 
 @interface CatalogPresenter (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) ModelState state;
-@property (nonatomic, strong) id <PRSourceListDelegate> _Nullable delegate;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull list;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull plainList;
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nonnull semiplainList;
-@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
-@property (nonatomic, readonly, copy) NSArray<PRCountableDictionary *> * _Nonnull categories;
-@property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull countries;
-@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cids;
-@property (nonatomic) PRCatalogSortingOrder order;
-@property (nonatomic, readonly) BOOL isReady;
 @property (nonatomic, readonly) BOOL isEmpty;
-@property (nonatomic) PRSourceListOption options;
-@property (nonatomic, readonly, strong) CatalogPresentationOption * _Nonnull presentationOptions;
-@property (nonatomic, readonly, copy) NSArray<PRSourceListFilter *> * _Nonnull filters;
-@property (nonatomic, readonly, strong) PRCountableValue * _Nonnull mainCID;
-@property (nonatomic, copy) NSString * _Nullable text;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull categoryFilters;
-@property (nonatomic, readonly, copy) NSArray<NSDictionary<NSString *, id> *> * _Nonnull regionFilters;
-@property (nonatomic, readonly, copy) NSArray<PRSubscription *> * _Nonnull subscriptionFilters;
-- (nonnull instancetype)catalogSliceWithFilter:(id <CatalogNavigation> _Nonnull)filter scheme:(CatalogSectionScheme * _Nullable)scheme SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)customCatalogCatalogSlice SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)favouritesSliceWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)semiplainSlice SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)sectionsSortedBy:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<PRCountableDictionary *> * _Nonnull)categoriesSortedByAlpha:(BOOL)byAlpha SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
-- (void)filterList;
-- (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-- (void)applySourceTypeFilter:(PRSourceType)sourceType;
-- (void)applyFreeFilter;
-- (void)applyFavoriteFilter;
-- (void)applyMinRateFilter;
-- (void)applyCategoryFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyLanguageFilter:(PRCountableValue * _Nonnull)filter;
-- (void)applyCountryFilter:(id <CatalogNavigation> _Nonnull)filter;
-- (void)applyParentTitleFilter:(PRTitleItem * _Nonnull)filter;
-- (void)applyGroupFilter:(NSString * _Nonnull)name title:(NSString * _Nonnull)title;
-- (void)applyCIDsFilter:(NSArray<NSString *> * _Nonnull)cids title:(NSString * _Nullable)title;
-- (void)applySubscriptionFilter:(PRSubscription * _Nonnull)subscription;
-- (void)applyFilters:(NSArray<PRSourceListFilter *> * _Nonnull)filters;
+@property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
 @end
 
+@class CatalogSectionScheme;
 
 SWIFT_CLASS("_TtC5PRAPI21CatalogSchemeProvider")
 @interface CatalogSchemeProvider : PRSchemeProvider
@@ -3258,7 +3140,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchem
 + (CatalogSchemeProvider * _Nonnull)book SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, copy) NSArray<CatalogSectionScheme *> * _Nonnull sections;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (CatalogSectionScheme * _Nullable)firstSchemeWithType:(PRCatalogSectionType)type SWIFT_WARN_UNUSED_RESULT;
+- (CatalogSectionScheme * _Nullable)firstSchemeWithType:(enum PRCatalogSectionType)type SWIFT_WARN_UNUSED_RESULT;
 - (void)loadConfigurationJSON:(NSArray<NSString *> * _Nonnull)names;
 @end
 
@@ -3266,7 +3148,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchem
 
 SWIFT_CLASS("_TtC5PRAPI20CatalogSectionScheme")
 @interface CatalogSectionScheme : NSObject
-@property (nonatomic, readonly) PRCatalogSectionType type;
+@property (nonatomic, readonly) enum PRCatalogSectionType type;
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) PRCatalogSortingOrder sortingOrder;
 @property (nonatomic, readonly) PRCatalogSortingOrder sortingOrderForSubsection;
@@ -3275,6 +3157,7 @@ SWIFT_CLASS("_TtC5PRAPI20CatalogSectionScheme")
 @property (nonatomic, readonly, copy) NSString * _Nullable customTitle;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable cids;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable categories;
+@property (nonatomic, readonly) BOOL isModernAPISupported;
 - (nonnull instancetype)initWithName:(NSString * _Nonnull)name sortingOrder:(PRCatalogSortingOrder)sortingOrder sortingOrderForSubsection:(PRCatalogSortingOrder)sortingOrderForSubsection layoutType:(PRLayoutType)layoutType options:(CatalogSectionSchemeOption * _Nonnull)options customTitle:(NSString * _Nullable)customTitle cids:(NSArray<NSString *> * _Nullable)cids categories:(NSArray<NSString *> * _Nullable)categories OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -3348,6 +3231,23 @@ SWIFT_UNAVAILABLE
 
 
 
+@class PRCoreUtil;
+@class PROptions;
+@class PRCatalog;
+@class PRMyLibrary;
+@class PRAccountManager;
+
+SWIFT_CLASS("_TtC5PRAPI11DIExtension")
+@interface DIExtension : NSObject
+@property (nonatomic, readonly, strong) id <AnalyticsService> _Nonnull analytics;
+@property (nonatomic, readonly, strong) PRCoreUtil * _Nonnull util;
+@property (nonatomic, readonly, strong) PROptions * _Nonnull options;
+@property (nonatomic, readonly, strong) PRCatalog * _Nonnull catalog;
+@property (nonatomic, readonly, strong) PRMyLibrary * _Nonnull library;
+@property (nonatomic, readonly, strong) PRAccountManager * _Nonnull accountManager;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_PROTOCOL("_TtP5PRAPI18DataSourceObserver_")
 @protocol DataSourceObserver
@@ -3378,7 +3278,7 @@ SWIFT_CLASS("_TtC5PRAPI16DeviceActivation")
 
 @interface Document (SWIFT_EXTENSION(PRAPI))
 /// return Promise which will provide Document instance
-+ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
++ (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog context:(NSManagedObjectContext * _Nonnull)context SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3572,6 +3472,15 @@ SWIFT_PROTOCOL("_TtP5PRAPI11HotSpotInfo_")
 
 
 
+SWIFT_CLASS("_TtC5PRAPI13HotSpotTitles")
+@interface HotSpotTitles : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable boughtBy;
+@property (nonatomic, readonly, copy) NSString * _Nullable complimentaryAccess;
+@property (nonatomic, readonly, copy) NSString * _Nullable featuredCarouselTitle;
+@property (nonatomic, readonly, copy) NSString * _Nullable sponsorBy;
+@end
+
+
 
 
 
@@ -3649,10 +3558,11 @@ SWIFT_CLASS("_TtC5PRAPI23MyLibraryItemPrintActor")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSManagedObjectContext;
 
-@interface NSManagedObject (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) NSManagedObjectContext * _Nonnull ntfContext;
+SWIFT_UNAVAILABLE
+@interface NSError (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _Nonnull unexpectedResponse;)
++ (NSError * _Nonnull)unexpectedResponse SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3709,6 +3619,13 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface NSObject (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DIExtension * _Nonnull pr_inject;)
++ (DIExtension * _Nonnull)pr_inject SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) DIExtension * _Nonnull pr_inject;
+@end
+
+
 @interface NTFAbstractArticle (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isTranslatable;
 @end
@@ -3730,14 +3647,14 @@ SWIFT_UNAVAILABLE
 @end
 
 
-@interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) id <ArticleService> _Nonnull service;
-@end
-
-
 @interface NTFArticleItem (SWIFT_EXTENSION(PRAPI)) <MastheadProvider>
 @property (nonatomic, readonly) BOOL hasMasthead;
 - (void)mastheadWithHeight:(CGFloat)height style:(UIUserInterfaceStyle)style handler:(PRThumbnailHandler _Nonnull)handler;
+@end
+
+
+@interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) id <ArticleService> _Nonnull service;
 @end
 
 
@@ -3832,6 +3749,11 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 - (void)showDeleteConfirmationAlert:(void (^ _Nonnull)(BOOL))completion;
 @end
 
+
+@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly) BOOL isReachableAndReady;
+@end
+
 @class PRSubscriptionBundle;
 @class PRUserBundle;
 
@@ -3858,6 +3780,27 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @property (nonatomic, readonly) BOOL isTrialBundleActive;
 @end
 
+
+
+@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, copy) NSString * _Nullable hotzoneId;
+@property (nonatomic, readonly) BOOL canHotzoneBeUsed;
+///
+/// returns:
+/// <code>true</code> if device uses sponsorship netpoint
+@property (nonatomic, readonly) BOOL inSponsorshipArea;
+@property (nonatomic, readonly) NSInteger sponsorshipStatus;
+@property (nonatomic, readonly) BOOL isSponsored;
+@property (nonatomic, readonly) NSInteger sponsorshipCredits;
+@property (nonatomic, readonly) BOOL hotzoneEnabled;
+@property (nonatomic, readonly, copy) NSString * _Nullable hotzoneIndustry;
+@property (nonatomic, readonly, copy) NSString * _Nullable hotzoneName;
+@property (nonatomic, readonly, copy) NSString * _Nullable sponsorshipMessage;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull hozoneSessionExpiration;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull sponsorshipRadiantAccessExpiration;
+@property (nonatomic, readonly) BOOL isSponsorshipExpired;
+@property (nonatomic, strong) HotSpotTitles * _Nullable hotSpotTitles;
+@end
 
 
 @interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
@@ -3888,16 +3831,16 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 
+
+
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
-
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 SWIFT_UNAVAILABLE
@@ -3918,12 +3861,14 @@ SWIFT_UNAVAILABLE
 
 
 
+@class PRCountableCountry;
 
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, strong) id <CatalogFacade> _Nonnull presenter;
 @property (nonatomic, readonly, copy) NSArray<PRCountableCountry *> * _Nonnull favoriteCountries;
 @end
 
+@class PRSourceListFilter;
 
 @interface PRCatalogFilter (SWIFT_EXTENSION(PRAPI))
 - (PRSourceListFilter * _Nullable)filterWithId:(enum CatalogNavigationType)id SWIFT_WARN_UNUSED_RESULT;
@@ -3985,43 +3930,6 @@ SWIFT_UNAVAILABLE
 + (nonnull instancetype)instance SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)hasInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)dismiss;
-@end
-
-@class PRSocialSignInManager;
-@class PROnlineContentUpdater;
-@class PRMyLibrary;
-@class PRTitleItemsManager;
-@class PRWebServer;
-@class PRHotSpotManager;
-@class PRSuggestionsManager;
-@class PRAnalyticsProfileManager;
-@class PRStoreKitManager;
-@class PRPushNotificationsManager;
-@class PROptions;
-@class PRThumbnailsManager;
-@class PRCoreUtil;
-@class PRCoreGlobal;
-@class PRHost;
-
-@interface PRModel (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) PRAccountManager * _Nonnull accountManager;
-@property (nonatomic, readonly, strong) PRSocialSignInManager * _Nonnull socialSignInManager;
-@property (nonatomic, readonly, strong) PRAnalyticsService * _Nonnull analytics;
-@property (nonatomic, readonly, strong) PROnlineContentUpdater * _Nonnull contentUpdater;
-@property (nonatomic, readonly, strong) PRMyLibrary * _Nonnull mylib;
-@property (nonatomic, readonly, strong) PRCatalog * _Nonnull catalog;
-@property (nonatomic, readonly, strong) PRTitleItemsManager * _Nonnull titleItemsManager;
-@property (nonatomic, readonly, strong) PRWebServer * _Nonnull httpServer;
-@property (nonatomic, readonly, strong) PRHotSpotManager * _Nonnull hotSpotManager;
-@property (nonatomic, readonly, strong) PRSuggestionsManager * _Nonnull suggestionsManager;
-@property (nonatomic, readonly, strong) PRAnalyticsProfileManager * _Nonnull analyticsProfileManager;
-@property (nonatomic, readonly, strong) PRStoreKitManager * _Nonnull storeKitManager;
-@property (nonatomic, readonly, strong) PRPushNotificationsManager * _Nonnull pushNotificationsManager;
-@property (nonatomic, readonly, strong) PROptions * _Nonnull options;
-@property (nonatomic, readonly, strong) PRThumbnailsManager * _Nonnull thumbnailsManager;
-@property (nonatomic, readonly, strong) PRCoreUtil * _Nonnull util;
-@property (nonatomic, readonly, strong) PRCoreGlobal * _Nonnull glob;
-@property (nonatomic, readonly, strong) PRHost * _Nonnull host;
 @end
 
 
@@ -4126,6 +4034,10 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface PRSourceList (SWIFT_EXTENSION(PRAPI)) <CatalogFacade>
+@end
+
+
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 - (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -4137,27 +4049,28 @@ SWIFT_UNAVAILABLE
 @end
 
 
-@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic) ModelState state;
-@end
-
-
-@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, strong) CatalogPresentationOption * _Nonnull presentationOptions;
-- (void)sortList;
-- (void)filterList;
-- (void)removeFilter:(enum CatalogNavigationType)type;
-- (void)notifyAboutDataChange;
-@end
-
 
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull navigationFilters;
 - (nonnull instancetype)catalogSliceWithFilter:(id <CatalogNavigation> _Nonnull)filter scheme:(CatalogSectionScheme * _Nullable)scheme SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)customCatalogCatalogSlice SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)copyMe SWIFT_WARN_UNUSED_RESULT;
+/// Deactivated groupping and supplemenets included.
 - (nonnull instancetype)semiplainSlice SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)favouritesSliceWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@protocol PRTitleObject;
+
+@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, strong) CatalogPresentationOption * _Nonnull presentationOptions;
+@property (nonatomic, readonly, copy) NSArray<id <PRTitleObject>> * _Nonnull titleObjects;
+- (void)sortList;
+- (void)filterList;
+- (void)removeFilter:(enum CatalogNavigationType)type;
+- (PRSourceListFilter * _Nullable)filterWithId:(enum CatalogNavigationType)id SWIFT_WARN_UNUSED_RESULT;
+- (void)notifyAboutDataChange;
+- (BOOL)collectionContainsEdition:(NSArray<id <PRTitleObject>> * _Nonnull)collection of:(id <PRTitleObject> _Nonnull)item SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE;
 @end
 
 
@@ -4166,6 +4079,25 @@ SWIFT_UNAVAILABLE
 @property (nonatomic) enum CatalogNavigationType filterId;
 - (nonnull instancetype)initWithType:(enum CatalogNavigationType)type value:(id _Nullable)value title:(NSString * _Nullable)title;
 @end
+
+enum PRSponsorshipManagerServiceMethod : NSInteger;
+
+@interface PRSponsorshipManagerService (SWIFT_EXTENSION(PRAPI))
+- (void)updateHotSpotInfoWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)updateHotSpotInfo;
+- (void)requestWithMethod:(enum PRSponsorshipManagerServiceMethod)method parameters:(NSDictionary<NSString *, id> * _Nonnull)parameters completionHandler:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completionHandler SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method", open) {
+  PRSponsorshipManagerServiceMethodSearchHotZoneClusters = 0,
+  PRSponsorshipManagerServiceMethodGetGeoFencingHotZoneLocations = 1,
+  PRSponsorshipManagerServiceMethodSearchHotZoneLocations = 2,
+  PRSponsorshipManagerServiceMethodSearchHotZoneClustersWithBounds = 3,
+  PRSponsorshipManagerServiceMethodSetHotzoneStatus = 4,
+  PRSponsorshipManagerServiceMethodGetCobranding = 5,
+  PRSponsorshipManagerServiceMethodGetNotificationTitles = 6,
+};
+
 
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
@@ -4185,6 +4117,12 @@ SWIFT_UNAVAILABLE
 @end
 
 
+@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
+- (BOOL)restoreCoBrandingAndReturnError:(NSError * _Nullable * _Nullable)error;
+- (BOOL)restoreHotSpotTitlesAndReturnError:(NSError * _Nullable * _Nullable)error;
+@end
+
+
 @interface PRSubscriptionBundle (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
 @end
@@ -4196,6 +4134,7 @@ SWIFT_UNAVAILABLE
 - (NSInteger)issueVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)expungeVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 @class PRThumbnailSource;
 
@@ -4320,7 +4259,7 @@ SWIFT_CLASS("_TtC5PRAPI17SearchHistoryItem")
 
 SWIFT_PROTOCOL("_TtP5PRAPI25SectionDataSourceProtocol_")
 @protocol SectionDataSourceProtocol
-@property (nonatomic, readonly) PRCatalogSectionType section;
+@property (nonatomic, readonly) enum PRCatalogSectionType section;
 @end
 
 
@@ -4365,12 +4304,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<TextLi
 
 
 @interface TitleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
+@property (nonatomic, readonly, strong) PRTitleItem * _Nullable titleItem;
 @end
 
 
 @interface TitleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) PRTitleItem * _Nullable titleItem;
+@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
 @end
 
 
@@ -4387,6 +4326,7 @@ SWIFT_CLASS("_TtC5PRAPI26TransientCatalogNavigation")
 @end
 
 @class PRCountableString;
+@class PRCountableDictionary;
 
 @interface TransientCatalogNavigation (SWIFT_EXTENSION(PRAPI))
 - (nonnull instancetype)initWithCountry:(PRCountableCountry * _Nonnull)country;
