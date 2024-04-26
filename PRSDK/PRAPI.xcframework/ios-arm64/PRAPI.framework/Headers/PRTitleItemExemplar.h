@@ -33,10 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (nullable PRTitleItemExemplar *)titleItemExemplarFromItem:(id)item;
 
-- (void)cancelDownload;
 - (void)pauseDownload;
 - (void)resumeDownload;
-- (void)deleteDownloaded;
+- (void)cancelDownload;
 
 @property (nonatomic, strong, readonly) NSString *CID;
 @property (nonatomic, strong, readonly) NSDate *date;

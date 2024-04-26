@@ -25,11 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) resetImagePackDownload;
 - (void) resetImagePack2Download;
 - (void) resetSmartDownload;
-- (void) cancelPdnDownloadForPageRange:(NSRange)range;
-- (void) cancelSmartDownload;
 - (void) resetIndexDownload;
-- (void) cancelIndexDownload;
-- (void) cancelThumbDownload;
 - (void) downloadPdn;
 - (void) downloadPdnRange:(NSRange)pageRange;
 - (void) downloadSmart;
@@ -38,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) downloadImgPack;
 - (BOOL) downloadImgPack2;
 - (void) downloadThumbnailForWidth:(NSInteger)width;
-//- (void) unpackImages;
 
 // helpers
 - (void)checkTitleName;
