@@ -44,12 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)deleteItem:(PRMyLibraryItem *)mli;
 - (void)deleteLibraryItem:(id<LibraryItemProtocol>)item;
-- (void) PauseItem:(NSString*)MID;
-- (void) ResumeItem:(NSString*)MID;
-- (void) PauseResumeItem:(NSString*)MID;
+- (void)pauseItem:(NSString *)MID;
+- (void)resumeItem:(NSString *)MID;
 
 - (void) ShowNetworkChangedAlert: (BOOL)isWifiEnabled;
-//proto end
 
 - (BOOL)addItem:(PRMyLibraryItem *)mli doMerge:(BOOL)doMerge;
 - (BOOL)updateItem:(PRMyLibraryItem *)mli;

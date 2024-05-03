@@ -1147,12 +1147,14 @@ SWIFT_CLASS("_TtC15PRConfiguration12ReaderConfig")
 @property (nonatomic, readonly) BOOL isSmartZoomEnabled;
 @property (nonatomic) BOOL isFullScreenDisabled;
 @property (nonatomic, readonly) double barsHidingDelay;
+@property (nonatomic, readonly) BOOL externalLinksEnabled;
 @end
 
 
 SWIFT_CLASS("_TtC15PRConfiguration15ReaderConfigKey")
 @interface ReaderConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull fullScreenDisabled;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull externalLinksEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

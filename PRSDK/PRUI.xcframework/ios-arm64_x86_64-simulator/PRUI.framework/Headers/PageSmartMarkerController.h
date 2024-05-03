@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isViewVisible;
 @end
 
-@class PRSmartMarkerViewController;
 @class PRSmartArticle;
 @protocol PRSmartLayoutItem;
 

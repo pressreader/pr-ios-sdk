@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ReadingMapFrame.h"
-#import "PRSmartMarkerViewController.h"
 #import "PageSmartMarkerController.h"
+
+@class PRSmartMarkerViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 

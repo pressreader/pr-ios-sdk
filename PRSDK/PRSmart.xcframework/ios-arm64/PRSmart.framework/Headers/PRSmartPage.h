@@ -16,6 +16,8 @@
 @class PRSmartMediaRegion;
 @class PRSmartRegion;
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern PRSmartObjectAttribute const PRSmartObjectAttributePageName;
 extern PRSmartObjectAttribute const PRSmartObjectAttributePageNumber;
 extern PRSmartObjectAttribute const PRSmartObjectAttributePageRect;
@@ -23,19 +25,22 @@ extern PRSmartObjectAttribute const PRSmartObjectAttributePageSection;
 
 @interface PRSmartPage: PRSmartBaseObject
 
-- (instancetype)initWithRoot:(PRSmartBaseObject *)root prevArticle:(PRSmartArticle *)article NS_DESIGNATED_INITIALIZER;
-
-@property (nonatomic, readonly) NSArray<PRSmartArticle*>* articles;
-@property (nonatomic, readonly) NSArray<PRSmartPageLink*>* pageLinks;
-@property (nonatomic, readonly) NSArray<PRSmartHyperLink*>* hyperLinks;
-@property (nonatomic, readonly) NSArray<PRSmartArticleLink*>* articleLinks;
-@property (nonatomic, readonly) NSArray<PRSmartImageRegion*>* imageRegions;
-@property (nonatomic, readonly) NSArray<PRSmartMediaRegion*>* mediaRegions;
-@property (nonatomic, readonly) NSUInteger comments;
-
-@property (nonatomic, readonly) PRSmartArticle *prevArticle;
+- (instancetype)initWithRoot:(nullable PRSmartBaseObject *)root
+                 prevArticle:(nullable PRSmartArticle *)article NS_DESIGNATED_INITIALIZER;
 
 - (void)addSmartRegion:(__kindof PRSmartRegion *)region;
 - (void)removeSmartRegion:(__kindof PRSmartRegion *)region;
 
+@property (nullable, nonatomic, readonly) NSArray<PRSmartArticle*>* articles;
+@property (nullable, nonatomic, readonly) NSArray<PRSmartPageLink*>* pageLinks;
+@property (nullable, nonatomic, readonly) NSArray<PRSmartHyperLink*>* hyperLinks;
+@property (nullable, nonatomic, readonly) NSArray<PRSmartArticleLink*>* articleLinks;
+@property (nullable, nonatomic, readonly) NSArray<PRSmartImageRegion*>* imageRegions;
+@property (nullable, nonatomic, readonly) NSArray<PRSmartMediaRegion*>* mediaRegions;
+@property (nonatomic, readonly) NSUInteger comments;
+
+@property (nullable, nonatomic, readonly) PRSmartArticle *prevArticle;
+
 @end
+
+NS_ASSUME_NONNULL_END
