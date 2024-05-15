@@ -1,0 +1,922 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E717A63C25794A3800257D2B /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E717A63B25794A3800257D2B /* RootModel.swift */; };
+		E74B27D223D724E4002795B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B27D123D724E4002795B7 /* AppDelegate.swift */; };
+		E74B27D423D724E4002795B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B27D323D724E4002795B7 /* SceneDelegate.swift */; };
+		E74B27D623D724E4002795B7 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B27D523D724E4002795B7 /* RootVC.swift */; };
+		E74B27D923D724E4002795B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74B27D723D724E4002795B7 /* Main.storyboard */; };
+		E74B27DB23D724E6002795B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74B27DA23D724E6002795B7 /* Assets.xcassets */; };
+		E74B27DE23D724E6002795B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74B27DC23D724E6002795B7 /* LaunchScreen.storyboard */; };
+		E75C75D729E7560E000A812D /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B27D523D724E4002795B7 /* RootVC.swift */; };
+		E75C75D829E7560E000A812D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B27D123D724E4002795B7 /* AppDelegate.swift */; };
+		E75C75D929E7560E000A812D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B27D323D724E4002795B7 /* SceneDelegate.swift */; };
+		E75C75DA29E7560E000A812D /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E717A63B25794A3800257D2B /* RootModel.swift */; };
+		E75C75DB29E7560E000A812D /* IssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F8E2B2568630D0047C0AD /* IssueCell.swift */; };
+		E75C75DC29E7560E000A812D /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76A3823255DB37A007ABC81 /* TextFieldCell.swift */; };
+		E75C760229E7560E000A812D /* CatalogConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E7EDCDA123BE719400DB7038 /* CatalogConfiguration.json */; };
+		E75C760329E7560E000A812D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74B27DC23D724E6002795B7 /* LaunchScreen.storyboard */; };
+		E75C760429E7560E000A812D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74B27DA23D724E6002795B7 /* Assets.xcassets */; };
+		E75C760529E7560E000A812D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74B27D723D724E4002795B7 /* Main.storyboard */; };
+		E75F8E2C2568630D0047C0AD /* IssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F8E2B2568630D0047C0AD /* IssueCell.swift */; };
+		E7610BF02BF4E697008BD505 /* CocoaLumberjack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD52BF4E681008BD505 /* CocoaLumberjack.xcframework */; };
+		E7610BF12BF4E697008BD505 /* CocoaLumberjack.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD52BF4E681008BD505 /* CocoaLumberjack.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610BF22BF4E697008BD505 /* FMDB.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE02BF4E681008BD505 /* FMDB.xcframework */; };
+		E7610BF32BF4E697008BD505 /* FMDB.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE02BF4E681008BD505 /* FMDB.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610BF42BF4E697008BD505 /* GCDWebServers.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD72BF4E681008BD505 /* GCDWebServers.xcframework */; };
+		E7610BF52BF4E697008BD505 /* GCDWebServers.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD72BF4E681008BD505 /* GCDWebServers.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610BF62BF4E697008BD505 /* HJCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDC2BF4E681008BD505 /* HJCache.xcframework */; };
+		E7610BF72BF4E697008BD505 /* HJCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDC2BF4E681008BD505 /* HJCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610BF82BF4E697008BD505 /* JSONKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDD2BF4E681008BD505 /* JSONKit.xcframework */; };
+		E7610BF92BF4E697008BD505 /* JSONKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDD2BF4E681008BD505 /* JSONKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610BFA2BF4E697008BD505 /* LTUpdate.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD22BF4E681008BD505 /* LTUpdate.xcframework */; };
+		E7610BFB2BF4E697008BD505 /* LTUpdate.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD22BF4E681008BD505 /* LTUpdate.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610BFC2BF4E697008BD505 /* MBProgressHUD.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEF2BF4E681008BD505 /* MBProgressHUD.xcframework */; };
+		E7610BFD2BF4E697008BD505 /* MBProgressHUD.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEF2BF4E681008BD505 /* MBProgressHUD.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610BFE2BF4E697008BD505 /* MTBlockTableView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD62BF4E681008BD505 /* MTBlockTableView.xcframework */; };
+		E7610BFF2BF4E697008BD505 /* MTBlockTableView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD62BF4E681008BD505 /* MTBlockTableView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C002BF4E697008BD505 /* NetworkingKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE72BF4E681008BD505 /* NetworkingKit.xcframework */; };
+		E7610C012BF4E697008BD505 /* NetworkingKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE72BF4E681008BD505 /* NetworkingKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C022BF4E697008BD505 /* OpenIDFA.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE42BF4E681008BD505 /* OpenIDFA.xcframework */; };
+		E7610C032BF4E697008BD505 /* OpenIDFA.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE42BF4E681008BD505 /* OpenIDFA.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C042BF4E697008BD505 /* PRAccessibility.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEC2BF4E681008BD505 /* PRAccessibility.xcframework */; };
+		E7610C052BF4E697008BD505 /* PRAccessibility.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEC2BF4E681008BD505 /* PRAccessibility.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C062BF4E697008BD505 /* PRAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEB2BF4E681008BD505 /* PRAds.xcframework */; };
+		E7610C072BF4E697008BD505 /* PRAds.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEB2BF4E681008BD505 /* PRAds.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C082BF4E697008BD505 /* PRAlertKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE62BF4E681008BD505 /* PRAlertKit.xcframework */; };
+		E7610C092BF4E697008BD505 /* PRAlertKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE62BF4E681008BD505 /* PRAlertKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C0A2BF4E697008BD505 /* PRAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDA2BF4E681008BD505 /* PRAnalytics.xcframework */; };
+		E7610C0B2BF4E697008BD505 /* PRAnalytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDA2BF4E681008BD505 /* PRAnalytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C0C2BF4E697008BD505 /* PRAPI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDB2BF4E681008BD505 /* PRAPI.xcframework */; };
+		E7610C0D2BF4E697008BD505 /* PRAPI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDB2BF4E681008BD505 /* PRAPI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C0E2BF4E697008BD505 /* PRCatalogModel.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE12BF4E681008BD505 /* PRCatalogModel.xcframework */; };
+		E7610C0F2BF4E697008BD505 /* PRCatalogModel.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE12BF4E681008BD505 /* PRCatalogModel.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C102BF4E697008BD505 /* PRCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDF2BF4E681008BD505 /* PRCommands.xcframework */; };
+		E7610C112BF4E697008BD505 /* PRCommands.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDF2BF4E681008BD505 /* PRCommands.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C122BF4E697008BD505 /* PRConfiguration.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDE2BF4E681008BD505 /* PRConfiguration.xcframework */; };
+		E7610C132BF4E697008BD505 /* PRConfiguration.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BDE2BF4E681008BD505 /* PRConfiguration.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C142BF4E697008BD505 /* PRCoreDataUtils.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCC2BF4E680008BD505 /* PRCoreDataUtils.xcframework */; };
+		E7610C152BF4E697008BD505 /* PRCoreDataUtils.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCC2BF4E680008BD505 /* PRCoreDataUtils.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C162BF4E697008BD505 /* PRDIContainer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE52BF4E681008BD505 /* PRDIContainer.xcframework */; };
+		E7610C172BF4E697008BD505 /* PRDIContainer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE52BF4E681008BD505 /* PRDIContainer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C182BF4E697008BD505 /* PRIAPReceipt.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCE2BF4E681008BD505 /* PRIAPReceipt.xcframework */; };
+		E7610C192BF4E697008BD505 /* PRIAPReceipt.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCE2BF4E681008BD505 /* PRIAPReceipt.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C1A2BF4E697008BD505 /* PRImageProcessing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD42BF4E681008BD505 /* PRImageProcessing.xcframework */; };
+		E7610C1B2BF4E697008BD505 /* PRImageProcessing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD42BF4E681008BD505 /* PRImageProcessing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C1C2BF4E697008BD505 /* PRLogKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD12BF4E681008BD505 /* PRLogKit.xcframework */; };
+		E7610C1D2BF4E697008BD505 /* PRLogKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD12BF4E681008BD505 /* PRLogKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C1E2BF4E697008BD505 /* PRPromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD92BF4E681008BD505 /* PRPromiseKit.xcframework */; };
+		E7610C1F2BF4E697008BD505 /* PRPromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD92BF4E681008BD505 /* PRPromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C202BF4E697008BD505 /* PRProtocols.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BED2BF4E681008BD505 /* PRProtocols.xcframework */; };
+		E7610C212BF4E698008BD505 /* PRProtocols.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BED2BF4E681008BD505 /* PRProtocols.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C222BF4E698008BD505 /* PRSmart.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE92BF4E681008BD505 /* PRSmart.xcframework */; };
+		E7610C232BF4E698008BD505 /* PRSmart.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE92BF4E681008BD505 /* PRSmart.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C242BF4E698008BD505 /* PRSyntacticSugar.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEE2BF4E681008BD505 /* PRSyntacticSugar.xcframework */; };
+		E7610C252BF4E698008BD505 /* PRSyntacticSugar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEE2BF4E681008BD505 /* PRSyntacticSugar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C262BF4E698008BD505 /* PRThumbnail.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE22BF4E681008BD505 /* PRThumbnail.xcframework */; };
+		E7610C272BF4E698008BD505 /* PRThumbnail.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE22BF4E681008BD505 /* PRThumbnail.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C282BF4E698008BD505 /* PRUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE32BF4E681008BD505 /* PRUI.xcframework */; };
+		E7610C292BF4E698008BD505 /* PRUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE32BF4E681008BD505 /* PRUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C2A2BF4E698008BD505 /* PRUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD32BF4E681008BD505 /* PRUIKit.xcframework */; };
+		E7610C2B2BF4E698008BD505 /* PRUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD32BF4E681008BD505 /* PRUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C2C2BF4E698008BD505 /* PRUtils.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCF2BF4E681008BD505 /* PRUtils.xcframework */; };
+		E7610C2D2BF4E698008BD505 /* PRUtils.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCF2BF4E681008BD505 /* PRUtils.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C2E2BF4E698008BD505 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCD2BF4E681008BD505 /* SDWebImage.xcframework */; };
+		E7610C2F2BF4E698008BD505 /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BCD2BF4E681008BD505 /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C302BF4E698008BD505 /* StreamingKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD02BF4E681008BD505 /* StreamingKit.xcframework */; };
+		E7610C312BF4E698008BD505 /* StreamingKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BD02BF4E681008BD505 /* StreamingKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C322BF4E698008BD505 /* WKYTPlayerView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE82BF4E681008BD505 /* WKYTPlayerView.xcframework */; };
+		E7610C332BF4E698008BD505 /* WKYTPlayerView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BE82BF4E681008BD505 /* WKYTPlayerView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C342BF4E698008BD505 /* WYPopoverController.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEA2BF4E681008BD505 /* WYPopoverController.xcframework */; };
+		E7610C352BF4E698008BD505 /* WYPopoverController.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7610BEA2BF4E681008BD505 /* WYPopoverController.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7610C392BF4EDFE008BD505 /* PressReaderResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7610C382BF4EDFE008BD505 /* PressReaderResources.bundle */; };
+		E76A3824255DB37A007ABC81 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76A3823255DB37A007ABC81 /* TextFieldCell.swift */; };
+		E7F3844324B5DE2900B63586 /* CatalogConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E7EDCDA123BE719400DB7038 /* CatalogConfiguration.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E75C760629E7560E000A812D /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E75C760729E7560E000A812D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7610C362BF4E698008BD505 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E7610C272BF4E698008BD505 /* PRThumbnail.xcframework in Embed Frameworks */,
+				E7610C0B2BF4E697008BD505 /* PRAnalytics.xcframework in Embed Frameworks */,
+				E7610C292BF4E698008BD505 /* PRUI.xcframework in Embed Frameworks */,
+				E7610C052BF4E697008BD505 /* PRAccessibility.xcframework in Embed Frameworks */,
+				E7610C192BF4E697008BD505 /* PRIAPReceipt.xcframework in Embed Frameworks */,
+				E7610C2F2BF4E698008BD505 /* SDWebImage.xcframework in Embed Frameworks */,
+				E7610BFB2BF4E697008BD505 /* LTUpdate.xcframework in Embed Frameworks */,
+				E7610C072BF4E697008BD505 /* PRAds.xcframework in Embed Frameworks */,
+				E7610C332BF4E698008BD505 /* WKYTPlayerView.xcframework in Embed Frameworks */,
+				E7610C1D2BF4E697008BD505 /* PRLogKit.xcframework in Embed Frameworks */,
+				E7610C312BF4E698008BD505 /* StreamingKit.xcframework in Embed Frameworks */,
+				E7610BF72BF4E697008BD505 /* HJCache.xcframework in Embed Frameworks */,
+				E7610BFF2BF4E697008BD505 /* MTBlockTableView.xcframework in Embed Frameworks */,
+				E7610C1F2BF4E697008BD505 /* PRPromiseKit.xcframework in Embed Frameworks */,
+				E7610C212BF4E698008BD505 /* PRProtocols.xcframework in Embed Frameworks */,
+				E7610C0D2BF4E697008BD505 /* PRAPI.xcframework in Embed Frameworks */,
+				E7610C1B2BF4E697008BD505 /* PRImageProcessing.xcframework in Embed Frameworks */,
+				E7610C092BF4E697008BD505 /* PRAlertKit.xcframework in Embed Frameworks */,
+				E7610BF32BF4E697008BD505 /* FMDB.xcframework in Embed Frameworks */,
+				E7610BF92BF4E697008BD505 /* JSONKit.xcframework in Embed Frameworks */,
+				E7610C2D2BF4E698008BD505 /* PRUtils.xcframework in Embed Frameworks */,
+				E7610C232BF4E698008BD505 /* PRSmart.xcframework in Embed Frameworks */,
+				E7610C2B2BF4E698008BD505 /* PRUIKit.xcframework in Embed Frameworks */,
+				E7610BF52BF4E697008BD505 /* GCDWebServers.xcframework in Embed Frameworks */,
+				E7610BF12BF4E697008BD505 /* CocoaLumberjack.xcframework in Embed Frameworks */,
+				E7610C112BF4E697008BD505 /* PRCommands.xcframework in Embed Frameworks */,
+				E7610C032BF4E697008BD505 /* OpenIDFA.xcframework in Embed Frameworks */,
+				E7610BFD2BF4E697008BD505 /* MBProgressHUD.xcframework in Embed Frameworks */,
+				E7610C012BF4E697008BD505 /* NetworkingKit.xcframework in Embed Frameworks */,
+				E7610C132BF4E697008BD505 /* PRConfiguration.xcframework in Embed Frameworks */,
+				E7610C352BF4E698008BD505 /* WYPopoverController.xcframework in Embed Frameworks */,
+				E7610C0F2BF4E697008BD505 /* PRCatalogModel.xcframework in Embed Frameworks */,
+				E7610C252BF4E698008BD505 /* PRSyntacticSugar.xcframework in Embed Frameworks */,
+				E7610C172BF4E697008BD505 /* PRDIContainer.xcframework in Embed Frameworks */,
+				E7610C152BF4E697008BD505 /* PRCoreDataUtils.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E798286824A0FB48001A1E62 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8CDCEC6E25B8FC53001C4817 /* PRSDKTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PRSDKTest.entitlements; sourceTree = "<group>"; };
+		E717A63B25794A3800257D2B /* RootModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
+		E7183D1B2B76424A001BCDA7 /* PRAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAnalytics.xcframework; path = Libraries/prsdk/PRAnalytics.xcframework; sourceTree = "<group>"; };
+		E7184EDF2B7AB7C5001BCDA7 /* PRCommands.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRCommands.xcframework; path = Libraries/prsdk/PRCommands.xcframework; sourceTree = "<group>"; };
+		E740409C250BCABE00B53305 /* PRAccessibility.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAccessibility.xcframework; path = Libraries/prsdk/PRAccessibility.xcframework; sourceTree = "<group>"; };
+		E74040A2250BCB0700B53305 /* StreamingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StreamingKit.xcframework; path = Libraries/3rd_party/StreamingKit.xcframework; sourceTree = "<group>"; };
+		E74040A3250BCB0700B53305 /* NetworkingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingKit.xcframework; path = Libraries/3rd_party/NetworkingKit.xcframework; sourceTree = "<group>"; };
+		E74B27CF23D724E4002795B7 /* PRSDKTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRSDKTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E74B27D123D724E4002795B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E74B27D323D724E4002795B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E74B27D523D724E4002795B7 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
+		E74B27D823D724E4002795B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E74B27DA23D724E6002795B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E74B27DD23D724E6002795B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E74B27DF23D724E6002795B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E75C762D29E7560E000A812D /* PRSDKTest_Pods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRSDKTest_Pods.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E75F8E2B2568630D0047C0AD /* IssueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCell.swift; sourceTree = "<group>"; };
+		E7610BCC2BF4E680008BD505 /* PRCoreDataUtils.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRCoreDataUtils.xcframework; path = ../PRSDK/PRCoreDataUtils.xcframework; sourceTree = "<group>"; };
+		E7610BCD2BF4E681008BD505 /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = ../PRSDK/SDWebImage.xcframework; sourceTree = "<group>"; };
+		E7610BCE2BF4E681008BD505 /* PRIAPReceipt.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRIAPReceipt.xcframework; path = ../PRSDK/PRIAPReceipt.xcframework; sourceTree = "<group>"; };
+		E7610BCF2BF4E681008BD505 /* PRUtils.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRUtils.xcframework; path = ../PRSDK/PRUtils.xcframework; sourceTree = "<group>"; };
+		E7610BD02BF4E681008BD505 /* StreamingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StreamingKit.xcframework; path = ../PRSDK/StreamingKit.xcframework; sourceTree = "<group>"; };
+		E7610BD12BF4E681008BD505 /* PRLogKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRLogKit.xcframework; path = ../PRSDK/PRLogKit.xcframework; sourceTree = "<group>"; };
+		E7610BD22BF4E681008BD505 /* LTUpdate.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LTUpdate.xcframework; path = ../PRSDK/LTUpdate.xcframework; sourceTree = "<group>"; };
+		E7610BD32BF4E681008BD505 /* PRUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRUIKit.xcframework; path = ../PRSDK/PRUIKit.xcframework; sourceTree = "<group>"; };
+		E7610BD42BF4E681008BD505 /* PRImageProcessing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRImageProcessing.xcframework; path = ../PRSDK/PRImageProcessing.xcframework; sourceTree = "<group>"; };
+		E7610BD52BF4E681008BD505 /* CocoaLumberjack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjack.xcframework; path = ../PRSDK/CocoaLumberjack.xcframework; sourceTree = "<group>"; };
+		E7610BD62BF4E681008BD505 /* MTBlockTableView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MTBlockTableView.xcframework; path = ../PRSDK/MTBlockTableView.xcframework; sourceTree = "<group>"; };
+		E7610BD72BF4E681008BD505 /* GCDWebServers.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GCDWebServers.xcframework; path = ../PRSDK/GCDWebServers.xcframework; sourceTree = "<group>"; };
+		E7610BD92BF4E681008BD505 /* PRPromiseKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRPromiseKit.xcframework; path = ../PRSDK/PRPromiseKit.xcframework; sourceTree = "<group>"; };
+		E7610BDA2BF4E681008BD505 /* PRAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAnalytics.xcframework; path = ../PRSDK/PRAnalytics.xcframework; sourceTree = "<group>"; };
+		E7610BDB2BF4E681008BD505 /* PRAPI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAPI.xcframework; path = ../PRSDK/PRAPI.xcframework; sourceTree = "<group>"; };
+		E7610BDC2BF4E681008BD505 /* HJCache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HJCache.xcframework; path = ../PRSDK/HJCache.xcframework; sourceTree = "<group>"; };
+		E7610BDD2BF4E681008BD505 /* JSONKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JSONKit.xcframework; path = ../PRSDK/JSONKit.xcframework; sourceTree = "<group>"; };
+		E7610BDE2BF4E681008BD505 /* PRConfiguration.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRConfiguration.xcframework; path = ../PRSDK/PRConfiguration.xcframework; sourceTree = "<group>"; };
+		E7610BDF2BF4E681008BD505 /* PRCommands.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRCommands.xcframework; path = ../PRSDK/PRCommands.xcframework; sourceTree = "<group>"; };
+		E7610BE02BF4E681008BD505 /* FMDB.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FMDB.xcframework; path = ../PRSDK/FMDB.xcframework; sourceTree = "<group>"; };
+		E7610BE12BF4E681008BD505 /* PRCatalogModel.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRCatalogModel.xcframework; path = ../PRSDK/PRCatalogModel.xcframework; sourceTree = "<group>"; };
+		E7610BE22BF4E681008BD505 /* PRThumbnail.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRThumbnail.xcframework; path = ../PRSDK/PRThumbnail.xcframework; sourceTree = "<group>"; };
+		E7610BE32BF4E681008BD505 /* PRUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRUI.xcframework; path = ../PRSDK/PRUI.xcframework; sourceTree = "<group>"; };
+		E7610BE42BF4E681008BD505 /* OpenIDFA.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OpenIDFA.xcframework; path = ../PRSDK/OpenIDFA.xcframework; sourceTree = "<group>"; };
+		E7610BE52BF4E681008BD505 /* PRDIContainer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRDIContainer.xcframework; path = ../PRSDK/PRDIContainer.xcframework; sourceTree = "<group>"; };
+		E7610BE62BF4E681008BD505 /* PRAlertKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAlertKit.xcframework; path = ../PRSDK/PRAlertKit.xcframework; sourceTree = "<group>"; };
+		E7610BE72BF4E681008BD505 /* NetworkingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NetworkingKit.xcframework; path = ../PRSDK/NetworkingKit.xcframework; sourceTree = "<group>"; };
+		E7610BE82BF4E681008BD505 /* WKYTPlayerView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = WKYTPlayerView.xcframework; path = ../PRSDK/WKYTPlayerView.xcframework; sourceTree = "<group>"; };
+		E7610BE92BF4E681008BD505 /* PRSmart.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRSmart.xcframework; path = ../PRSDK/PRSmart.xcframework; sourceTree = "<group>"; };
+		E7610BEA2BF4E681008BD505 /* WYPopoverController.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = WYPopoverController.xcframework; path = ../PRSDK/WYPopoverController.xcframework; sourceTree = "<group>"; };
+		E7610BEB2BF4E681008BD505 /* PRAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAds.xcframework; path = ../PRSDK/PRAds.xcframework; sourceTree = "<group>"; };
+		E7610BEC2BF4E681008BD505 /* PRAccessibility.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAccessibility.xcframework; path = ../PRSDK/PRAccessibility.xcframework; sourceTree = "<group>"; };
+		E7610BED2BF4E681008BD505 /* PRProtocols.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRProtocols.xcframework; path = ../PRSDK/PRProtocols.xcframework; sourceTree = "<group>"; };
+		E7610BEE2BF4E681008BD505 /* PRSyntacticSugar.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRSyntacticSugar.xcframework; path = ../PRSDK/PRSyntacticSugar.xcframework; sourceTree = "<group>"; };
+		E7610BEF2BF4E681008BD505 /* MBProgressHUD.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MBProgressHUD.xcframework; path = ../PRSDK/MBProgressHUD.xcframework; sourceTree = "<group>"; };
+		E7610C382BF4EDFE008BD505 /* PressReaderResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PressReaderResources.bundle; path = ../PRSDK/PressReaderResources.bundle; sourceTree = "<group>"; };
+		E76A3823255DB37A007ABC81 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		E76F65AD27F2067D002EE110 /* PRCoreDataUtils.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRCoreDataUtils.xcframework; path = Libraries/prsdk/PRCoreDataUtils.xcframework; sourceTree = "<group>"; };
+		E76F65AE27F2067D002EE110 /* PRCatalogModel.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRCatalogModel.xcframework; path = Libraries/prsdk/PRCatalogModel.xcframework; sourceTree = "<group>"; };
+		E76F65B327F206D2002EE110 /* PRSocialManagers.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRSocialManagers.xcframework; path = Libraries/prsdk/PRSocialManagers.xcframework; sourceTree = "<group>"; };
+		E773FBFA274D88D900A0E5EF /* PRAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAds.xcframework; path = Libraries/prsdk/PRAds.xcframework; sourceTree = "<group>"; };
+		E77F4CF32535BBE700BDA69E /* WYPopoverController.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = WYPopoverController.xcframework; path = Libraries/3rd_party/WYPopoverController.xcframework; sourceTree = "<group>"; };
+		E77F4CF42535BBE700BDA69E /* MTBlockTableView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MTBlockTableView.xcframework; path = Libraries/3rd_party/MTBlockTableView.xcframework; sourceTree = "<group>"; };
+		E77F4CF52535BBE700BDA69E /* WKYTPlayerView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = WKYTPlayerView.xcframework; path = Libraries/3rd_party/WKYTPlayerView.xcframework; sourceTree = "<group>"; };
+		E77F4CF62535BBE700BDA69E /* MBProgressHUD.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MBProgressHUD.xcframework; path = Libraries/3rd_party/MBProgressHUD.xcframework; sourceTree = "<group>"; };
+		E77F4CFF2535BC1900BDA69E /* JSONKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JSONKit.xcframework; path = Libraries/3rd_party/JSONKit.xcframework; sourceTree = "<group>"; };
+		E77F4D022535BC4900BDA69E /* PRAlertKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAlertKit.xcframework; path = Libraries/prsdk/PRAlertKit.xcframework; sourceTree = "<group>"; };
+		E77F4D5A2535BF8800BDA69E /* HJCache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HJCache.xcframework; path = Libraries/3rd_party/HJCache.xcframework; sourceTree = "<group>"; };
+		E77F4D602535EEBF00BDA69E /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = Libraries/3rd_party/SDWebImage.xcframework; sourceTree = "<group>"; };
+		E77F4E002535FFA400BDA69E /* PRUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRUIKit.xcframework; path = Libraries/prsdk/PRUIKit.xcframework; sourceTree = "<group>"; };
+		E79930DC256D5BF7000303DC /* Flurry_iOS_SDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flurry_iOS_SDK.xcframework; path = Libraries/3rd_party/Flurry_iOS_SDK.xcframework; sourceTree = "<group>"; };
+		E7E8722B25408AC600E77F9E /* LTUpdate.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LTUpdate.xcframework; path = Libraries/3rd_party/LTUpdate.xcframework; sourceTree = "<group>"; };
+		E7E876532540BD0900E77F9E /* OpenIDFA.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OpenIDFA.xcframework; path = Libraries/3rd_party/OpenIDFA.xcframework; sourceTree = "<group>"; };
+		E7EDCDA123BE719400DB7038 /* CatalogConfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CatalogConfiguration.json; sourceTree = "<group>"; };
+		E7F3844D24B5FBE800B63586 /* CocoaLumberjack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjack.xcframework; path = Libraries/3rd_party/CocoaLumberjack.xcframework; sourceTree = "<group>"; };
+		E7F3847424B5FC5C00B63586 /* FMDB.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FMDB.xcframework; path = Libraries/3rd_party/FMDB.xcframework; sourceTree = "<group>"; };
+		E7F3847624B5FC5C00B63586 /* GCDWebServers.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GCDWebServers.xcframework; path = Libraries/3rd_party/GCDWebServers.xcframework; sourceTree = "<group>"; };
+		E7F3848D24B5FCCD00B63586 /* PRAPI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRAPI.xcframework; path = Libraries/prsdk/PRAPI.xcframework; sourceTree = "<group>"; };
+		E7F3849024B5FCCD00B63586 /* PRImageProcessing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRImageProcessing.xcframework; path = Libraries/prsdk/PRImageProcessing.xcframework; sourceTree = "<group>"; };
+		E7F3849124B5FCCD00B63586 /* PRLogKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRLogKit.xcframework; path = Libraries/prsdk/PRLogKit.xcframework; sourceTree = "<group>"; };
+		E7F3849224B5FCCD00B63586 /* PRThumbnail.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRThumbnail.xcframework; path = Libraries/prsdk/PRThumbnail.xcframework; sourceTree = "<group>"; };
+		E7F3849324B5FCCD00B63586 /* PRUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRUI.xcframework; path = Libraries/prsdk/PRUI.xcframework; sourceTree = "<group>"; };
+		E7F3849424B5FCCD00B63586 /* PRUtils.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRUtils.xcframework; path = Libraries/prsdk/PRUtils.xcframework; sourceTree = "<group>"; };
+		E7F3849524B5FCCD00B63586 /* PRIAPReceipt.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRIAPReceipt.xcframework; path = Libraries/prsdk/PRIAPReceipt.xcframework; sourceTree = "<group>"; };
+		E7F3849624B5FCCD00B63586 /* PRPromiseKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRPromiseKit.xcframework; path = Libraries/prsdk/PRPromiseKit.xcframework; sourceTree = "<group>"; };
+		E7F3849724B5FCCD00B63586 /* PRSmart.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRSmart.xcframework; path = Libraries/prsdk/PRSmart.xcframework; sourceTree = "<group>"; };
+		E7F384B024B5FCF800B63586 /* PressReaderResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PressReaderResources.bundle; path = Libraries/prsdk/PressReaderResources.bundle; sourceTree = "<group>"; };
+		E7F4CC712833E46F004322DC /* PRSyntacticSugar.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRSyntacticSugar.xcframework; path = Libraries/prsdk/PRSyntacticSugar.xcframework; sourceTree = "<group>"; };
+		E7F4E6562876541D00EAE98C /* Flurry_iOS_SDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flurry_iOS_SDK.xcframework; path = Libraries/prsdk/Flurry_iOS_SDK.xcframework; sourceTree = "<group>"; };
+		E7F4E6592876545700EAE98C /* PRProtocols.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRProtocols.xcframework; path = Libraries/prsdk/PRProtocols.xcframework; sourceTree = "<group>"; };
+		E7F74795283444CB008E3B84 /* PRConfiguration.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRConfiguration.xcframework; path = Libraries/prsdk/PRConfiguration.xcframework; sourceTree = "<group>"; };
+		E7F74796283444CB008E3B84 /* PRDIContainer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRDIContainer.xcframework; path = Libraries/prsdk/PRDIContainer.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E74B27CC23D724E4002795B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7610C262BF4E698008BD505 /* PRThumbnail.xcframework in Frameworks */,
+				E7610C0A2BF4E697008BD505 /* PRAnalytics.xcframework in Frameworks */,
+				E7610C282BF4E698008BD505 /* PRUI.xcframework in Frameworks */,
+				E7610C042BF4E697008BD505 /* PRAccessibility.xcframework in Frameworks */,
+				E7610C182BF4E697008BD505 /* PRIAPReceipt.xcframework in Frameworks */,
+				E7610C2E2BF4E698008BD505 /* SDWebImage.xcframework in Frameworks */,
+				E7610BFA2BF4E697008BD505 /* LTUpdate.xcframework in Frameworks */,
+				E7610C062BF4E697008BD505 /* PRAds.xcframework in Frameworks */,
+				E7610C322BF4E698008BD505 /* WKYTPlayerView.xcframework in Frameworks */,
+				E7610C1C2BF4E697008BD505 /* PRLogKit.xcframework in Frameworks */,
+				E7610C302BF4E698008BD505 /* StreamingKit.xcframework in Frameworks */,
+				E7610BF62BF4E697008BD505 /* HJCache.xcframework in Frameworks */,
+				E7610BFE2BF4E697008BD505 /* MTBlockTableView.xcframework in Frameworks */,
+				E7610C1E2BF4E697008BD505 /* PRPromiseKit.xcframework in Frameworks */,
+				E7610C202BF4E697008BD505 /* PRProtocols.xcframework in Frameworks */,
+				E7610C0C2BF4E697008BD505 /* PRAPI.xcframework in Frameworks */,
+				E7610C1A2BF4E697008BD505 /* PRImageProcessing.xcframework in Frameworks */,
+				E7610C082BF4E697008BD505 /* PRAlertKit.xcframework in Frameworks */,
+				E7610BF22BF4E697008BD505 /* FMDB.xcframework in Frameworks */,
+				E7610BF82BF4E697008BD505 /* JSONKit.xcframework in Frameworks */,
+				E7610C2C2BF4E698008BD505 /* PRUtils.xcframework in Frameworks */,
+				E7610C222BF4E698008BD505 /* PRSmart.xcframework in Frameworks */,
+				E7610C2A2BF4E698008BD505 /* PRUIKit.xcframework in Frameworks */,
+				E7610BF42BF4E697008BD505 /* GCDWebServers.xcframework in Frameworks */,
+				E7610BF02BF4E697008BD505 /* CocoaLumberjack.xcframework in Frameworks */,
+				E7610C102BF4E697008BD505 /* PRCommands.xcframework in Frameworks */,
+				E7610C022BF4E697008BD505 /* OpenIDFA.xcframework in Frameworks */,
+				E7610BFC2BF4E697008BD505 /* MBProgressHUD.xcframework in Frameworks */,
+				E7610C002BF4E697008BD505 /* NetworkingKit.xcframework in Frameworks */,
+				E7610C122BF4E697008BD505 /* PRConfiguration.xcframework in Frameworks */,
+				E7610C342BF4E698008BD505 /* WYPopoverController.xcframework in Frameworks */,
+				E7610C0E2BF4E697008BD505 /* PRCatalogModel.xcframework in Frameworks */,
+				E7610C242BF4E698008BD505 /* PRSyntacticSugar.xcframework in Frameworks */,
+				E7610C162BF4E697008BD505 /* PRDIContainer.xcframework in Frameworks */,
+				E7610C142BF4E697008BD505 /* PRCoreDataUtils.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E75C75DD29E7560E000A812D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E74B27D023D724E4002795B7 /* PRSDKTest */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDCDA123BE719400DB7038 /* CatalogConfiguration.json */,
+				E76A3822255DB35D007ABC81 /* Components */,
+				E74B27DA23D724E6002795B7 /* Assets.xcassets */,
+				E74B27DF23D724E6002795B7 /* Info.plist */,
+				E74B27D123D724E4002795B7 /* AppDelegate.swift */,
+				E74B27D323D724E4002795B7 /* SceneDelegate.swift */,
+				E717A63B25794A3800257D2B /* RootModel.swift */,
+				E74B27D523D724E4002795B7 /* RootVC.swift */,
+				E74B27DC23D724E6002795B7 /* LaunchScreen.storyboard */,
+				E74B27D723D724E4002795B7 /* Main.storyboard */,
+			);
+			path = PRSDKTest;
+			sourceTree = "<group>";
+		};
+		E7610BD82BF4E681008BD505 /* prsdk */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = prsdk;
+			path = ../PRSDK/prsdk;
+			sourceTree = "<group>";
+		};
+		E7610C372BF4E698008BD505 /* prsdk */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = prsdk;
+			path = ../PRSDK/prsdk;
+			sourceTree = "<group>";
+		};
+		E76A3822255DB35D007ABC81 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E76A3823255DB37A007ABC81 /* TextFieldCell.swift */,
+				E75F8E2B2568630D0047C0AD /* IssueCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E798127815A6E652005C0CAD = {
+			isa = PBXGroup;
+			children = (
+				E7610C382BF4EDFE008BD505 /* PressReaderResources.bundle */,
+				8CDCEC6E25B8FC53001C4817 /* PRSDKTest.entitlements */,
+				E7F384B024B5FCF800B63586 /* PressReaderResources.bundle */,
+				E74B27D023D724E4002795B7 /* PRSDKTest */,
+				E798128615A6E652005C0CAD /* Frameworks */,
+				E798128415A6E652005C0CAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E798128415A6E652005C0CAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E74B27CF23D724E4002795B7 /* PRSDKTest.app */,
+				E75C762D29E7560E000A812D /* PRSDKTest_Pods.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E798128615A6E652005C0CAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7610C372BF4E698008BD505 /* prsdk */,
+				E7610BE12BF4E681008BD505 /* PRCatalogModel.xcframework */,
+				E7184EDF2B7AB7C5001BCDA7 /* PRCommands.xcframework */,
+				E7610BE72BF4E681008BD505 /* NetworkingKit.xcframework */,
+				E7610BE42BF4E681008BD505 /* OpenIDFA.xcframework */,
+				E7610BEC2BF4E681008BD505 /* PRAccessibility.xcframework */,
+				E7610BEB2BF4E681008BD505 /* PRAds.xcframework */,
+				E7610BE62BF4E681008BD505 /* PRAlertKit.xcframework */,
+				E7183D1B2B76424A001BCDA7 /* PRAnalytics.xcframework */,
+				E7F4E6592876545700EAE98C /* PRProtocols.xcframework */,
+				E7610BD52BF4E681008BD505 /* CocoaLumberjack.xcframework */,
+				E7610BE02BF4E681008BD505 /* FMDB.xcframework */,
+				E7610BD72BF4E681008BD505 /* GCDWebServers.xcframework */,
+				E7610BDC2BF4E681008BD505 /* HJCache.xcframework */,
+				E7610BDD2BF4E681008BD505 /* JSONKit.xcframework */,
+				E7610BD22BF4E681008BD505 /* LTUpdate.xcframework */,
+				E7610BEF2BF4E681008BD505 /* MBProgressHUD.xcframework */,
+				E7610BD62BF4E681008BD505 /* MTBlockTableView.xcframework */,
+				E7610BDA2BF4E681008BD505 /* PRAnalytics.xcframework */,
+				E7610BDB2BF4E681008BD505 /* PRAPI.xcframework */,
+				E7610BDF2BF4E681008BD505 /* PRCommands.xcframework */,
+				E7610BDE2BF4E681008BD505 /* PRConfiguration.xcframework */,
+				E7610BCC2BF4E680008BD505 /* PRCoreDataUtils.xcframework */,
+				E7610BE52BF4E681008BD505 /* PRDIContainer.xcframework */,
+				E7610BCE2BF4E681008BD505 /* PRIAPReceipt.xcframework */,
+				E7610BD42BF4E681008BD505 /* PRImageProcessing.xcframework */,
+				E7610BD12BF4E681008BD505 /* PRLogKit.xcframework */,
+				E7610BD92BF4E681008BD505 /* PRPromiseKit.xcframework */,
+				E7610BED2BF4E681008BD505 /* PRProtocols.xcframework */,
+				E7610BD82BF4E681008BD505 /* prsdk */,
+				E7610BE92BF4E681008BD505 /* PRSmart.xcframework */,
+				E7610BEE2BF4E681008BD505 /* PRSyntacticSugar.xcframework */,
+				E7610BE22BF4E681008BD505 /* PRThumbnail.xcframework */,
+				E7610BE32BF4E681008BD505 /* PRUI.xcframework */,
+				E7610BD32BF4E681008BD505 /* PRUIKit.xcframework */,
+				E7610BCF2BF4E681008BD505 /* PRUtils.xcframework */,
+				E7610BCD2BF4E681008BD505 /* SDWebImage.xcframework */,
+				E7610BD02BF4E681008BD505 /* StreamingKit.xcframework */,
+				E7610BE82BF4E681008BD505 /* WKYTPlayerView.xcframework */,
+				E7610BEA2BF4E681008BD505 /* WYPopoverController.xcframework */,
+				E7F4E6562876541D00EAE98C /* Flurry_iOS_SDK.xcframework */,
+				E7F74795283444CB008E3B84 /* PRConfiguration.xcframework */,
+				E7F74796283444CB008E3B84 /* PRDIContainer.xcframework */,
+				E7F4CC712833E46F004322DC /* PRSyntacticSugar.xcframework */,
+				E76F65B327F206D2002EE110 /* PRSocialManagers.xcframework */,
+				E76F65AE27F2067D002EE110 /* PRCatalogModel.xcframework */,
+				E76F65AD27F2067D002EE110 /* PRCoreDataUtils.xcframework */,
+				E773FBFA274D88D900A0E5EF /* PRAds.xcframework */,
+				E79930DC256D5BF7000303DC /* Flurry_iOS_SDK.xcframework */,
+				E7E876532540BD0900E77F9E /* OpenIDFA.xcframework */,
+				E7E8722B25408AC600E77F9E /* LTUpdate.xcframework */,
+				E7F3844D24B5FBE800B63586 /* CocoaLumberjack.xcframework */,
+				E7F3847424B5FC5C00B63586 /* FMDB.xcframework */,
+				E7F3847624B5FC5C00B63586 /* GCDWebServers.xcframework */,
+				E77F4D5A2535BF8800BDA69E /* HJCache.xcframework */,
+				E77F4CFF2535BC1900BDA69E /* JSONKit.xcframework */,
+				E77F4CF62535BBE700BDA69E /* MBProgressHUD.xcframework */,
+				E77F4CF42535BBE700BDA69E /* MTBlockTableView.xcframework */,
+				E74040A3250BCB0700B53305 /* NetworkingKit.xcframework */,
+				E740409C250BCABE00B53305 /* PRAccessibility.xcframework */,
+				E77F4D022535BC4900BDA69E /* PRAlertKit.xcframework */,
+				E7F3848D24B5FCCD00B63586 /* PRAPI.xcframework */,
+				E7F3849524B5FCCD00B63586 /* PRIAPReceipt.xcframework */,
+				E7F3849024B5FCCD00B63586 /* PRImageProcessing.xcframework */,
+				E7F3849124B5FCCD00B63586 /* PRLogKit.xcframework */,
+				E7F3849624B5FCCD00B63586 /* PRPromiseKit.xcframework */,
+				E7F3849724B5FCCD00B63586 /* PRSmart.xcframework */,
+				E7F3849224B5FCCD00B63586 /* PRThumbnail.xcframework */,
+				E7F3849324B5FCCD00B63586 /* PRUI.xcframework */,
+				E77F4E002535FFA400BDA69E /* PRUIKit.xcframework */,
+				E7F3849424B5FCCD00B63586 /* PRUtils.xcframework */,
+				E77F4D602535EEBF00BDA69E /* SDWebImage.xcframework */,
+				E74040A2250BCB0700B53305 /* StreamingKit.xcframework */,
+				E77F4CF52535BBE700BDA69E /* WKYTPlayerView.xcframework */,
+				E77F4CF32535BBE700BDA69E /* WYPopoverController.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E74B27CE23D724E4002795B7 /* PRSDKTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E74B27E223D724E6002795B7 /* Build configuration list for PBXNativeTarget "PRSDKTest" */;
+			buildPhases = (
+				E74B27CB23D724E4002795B7 /* Sources */,
+				E74B27CC23D724E4002795B7 /* Frameworks */,
+				E74B27CD23D724E4002795B7 /* Resources */,
+				E798286824A0FB48001A1E62 /* Embed PlugIns */,
+				E7610C362BF4E698008BD505 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PRSDKTest;
+			productName = PRLibTest_Swift;
+			productReference = E74B27CF23D724E4002795B7 /* PRSDKTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E75C75D529E7560E000A812D /* PRSDKTest_Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E75C762A29E7560E000A812D /* Build configuration list for PBXNativeTarget "PRSDKTest_Pods" */;
+			buildPhases = (
+				E75C75D629E7560E000A812D /* Sources */,
+				E75C75DD29E7560E000A812D /* Frameworks */,
+				E75C760029E7560E000A812D /* Resources */,
+				E75C760629E7560E000A812D /* Embed PlugIns */,
+				E75C760729E7560E000A812D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PRSDKTest_Pods;
+			productName = PRLibTest_Swift;
+			productReference = E75C762D29E7560E000A812D /* PRSDKTest_Pods.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E798127A15A6E652005C0CAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1530;
+				ORGANIZATIONNAME = PressReader;
+				TargetAttributes = {
+					E74B27CE23D724E4002795B7 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = E798127D15A6E652005C0CAD /* Build configuration list for PBXProject "PRSDKTest" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E798127815A6E652005C0CAD;
+			productRefGroup = E798128415A6E652005C0CAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E74B27CE23D724E4002795B7 /* PRSDKTest */,
+				E75C75D529E7560E000A812D /* PRSDKTest_Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E74B27CD23D724E4002795B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7610C392BF4EDFE008BD505 /* PressReaderResources.bundle in Resources */,
+				E7F3844324B5DE2900B63586 /* CatalogConfiguration.json in Resources */,
+				E74B27DE23D724E6002795B7 /* LaunchScreen.storyboard in Resources */,
+				E74B27DB23D724E6002795B7 /* Assets.xcassets in Resources */,
+				E74B27D923D724E4002795B7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E75C760029E7560E000A812D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E75C760229E7560E000A812D /* CatalogConfiguration.json in Resources */,
+				E75C760329E7560E000A812D /* LaunchScreen.storyboard in Resources */,
+				E75C760429E7560E000A812D /* Assets.xcassets in Resources */,
+				E75C760529E7560E000A812D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E74B27CB23D724E4002795B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E74B27D623D724E4002795B7 /* RootVC.swift in Sources */,
+				E74B27D223D724E4002795B7 /* AppDelegate.swift in Sources */,
+				E74B27D423D724E4002795B7 /* SceneDelegate.swift in Sources */,
+				E717A63C25794A3800257D2B /* RootModel.swift in Sources */,
+				E75F8E2C2568630D0047C0AD /* IssueCell.swift in Sources */,
+				E76A3824255DB37A007ABC81 /* TextFieldCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E75C75D629E7560E000A812D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E75C75D729E7560E000A812D /* RootVC.swift in Sources */,
+				E75C75D829E7560E000A812D /* AppDelegate.swift in Sources */,
+				E75C75D929E7560E000A812D /* SceneDelegate.swift in Sources */,
+				E75C75DA29E7560E000A812D /* RootModel.swift in Sources */,
+				E75C75DB29E7560E000A812D /* IssueCell.swift in Sources */,
+				E75C75DC29E7560E000A812D /* TextFieldCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E74B27D723D724E4002795B7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E74B27D823D724E4002795B7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E74B27DC23D724E6002795B7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E74B27DD23D724E6002795B7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E74B27E023D724E6002795B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = PRSDKTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7.2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = STGAXEXW22;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 7.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E74B27E123D724E6002795B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = PRSDKTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 7.2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = STGAXEXW22;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 7.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E75C762B29E7560E000A812D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = PRSDKTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7.2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = STGAXEXW22;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 7.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E75C762C29E7560E000A812D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = PRSDKTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 7.2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = STGAXEXW22;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 7.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E79812A215A6E652005C0CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 6.7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries/3rd_party";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = PRSDKTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries/3rd_party";
+				MARKETING_VERSION = 6.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewspaperDirect.PRSDKTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E79812A315A6E652005C0CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 6.7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries/3rd_party";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = PRSDKTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries/3rd_party";
+				MARKETING_VERSION = 6.7;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewspaperDirect.PRSDKTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E74B27E223D724E6002795B7 /* Build configuration list for PBXNativeTarget "PRSDKTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E74B27E023D724E6002795B7 /* Debug */,
+				E74B27E123D724E6002795B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E75C762A29E7560E000A812D /* Build configuration list for PBXNativeTarget "PRSDKTest_Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E75C762B29E7560E000A812D /* Debug */,
+				E75C762C29E7560E000A812D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E798127D15A6E652005C0CAD /* Build configuration list for PBXProject "PRSDKTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E79812A215A6E652005C0CAD /* Debug */,
+				E79812A315A6E652005C0CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E798127A15A6E652005C0CAD /* Project object */;
+}
