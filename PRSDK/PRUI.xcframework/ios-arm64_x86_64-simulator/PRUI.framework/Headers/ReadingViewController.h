@@ -6,12 +6,10 @@
 //  Copyright 2010 NewspaperDirect. All rights reserved.
 //
 
-
 #import "ReadingViewBaseController.h"
 
 #import <MessageUI/MessageUI.h>
-
-#import "PageSmartMarkerController.h"
+#import <PRUI/PageSmartMarkerController.h>
 
 @class PRTitleToolbar;
 @class NTFActionMenuProvider;
@@ -25,8 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isDislpayingPage:(NSUInteger)page;
 - (BOOL)actionButtonEnabled;
 
-// setupToolbar used instead
-//- (PRTitleToolbar *)initTopBar;
 - (BOOL) translationSupported;
 - (CGRect)frameForPageAtIndex:(NSUInteger)index;
 - (CGSize)contentSizeForPagingScrollView;

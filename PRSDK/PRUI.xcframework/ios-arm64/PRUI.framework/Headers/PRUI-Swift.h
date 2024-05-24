@@ -2027,7 +2027,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 
 @interface PRPubHubVC (SWIFT_EXTENSION(PRUI))
 + (nonnull instancetype)catalogHub SWIFT_WARN_UNUSED_RESULT;
-+ (nonnull instancetype)homeHub SWIFT_WARN_UNUSED_RESULT;
++ (nonnull instancetype)homeHubWithScheme:(CatalogSchemeProvider * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
 + (nonnull instancetype)hubWithHotspotManager:(id <PRHotspotStatusViewManagerProtocol> _Nullable)hotspotManager SWIFT_WARN_UNUSED_RESULT;
 + (nonnull instancetype)hubWithHotspotManager:(id <PRHotspotStatusViewManagerProtocol> _Nullable)hotspotManager dataSource:(PRPubHubDataSource * _Nonnull)dataSource SWIFT_WARN_UNUSED_RESULT;
 @end

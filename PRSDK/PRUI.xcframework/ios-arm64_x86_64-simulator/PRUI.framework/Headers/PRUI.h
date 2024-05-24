@@ -105,8 +105,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "PRSubscriptionBundle+PlanType.h"
 
-#import "PRSignInOption+Display.h"
-
 #import "UIViewController+Popover.h"
 #import "UIViewController+AccountObserver.h"
 #import "UIViewController+Modal.h"

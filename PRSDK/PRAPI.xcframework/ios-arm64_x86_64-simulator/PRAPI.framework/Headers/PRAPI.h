@@ -159,6 +159,8 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRSmartArticle+NTF.h>
 #import <PRAPI/PRSmartArticle+Service.h>
 
+#import <PRAPI/PRSmartMediaRegion+MediaContent.h>
+
 #import <PRAPI/PRProduct.h>
 
 #import <PRAPI/PRExpunge.h>

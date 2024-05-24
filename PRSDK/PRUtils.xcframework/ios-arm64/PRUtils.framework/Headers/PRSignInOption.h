@@ -41,7 +41,8 @@ extern PRAuthProviderName const PRAuthProviderNameAuth0;
 @property (nonatomic, readonly) BOOL isPrimary;
 @property (nonatomic, readonly) BOOL hasBanner;
 
-@property (nonatomic, strong, readonly) NSString *displayName;
+@property (nullable, nonatomic, strong, readonly) NSString *displayName;
+@property (nonatomic, readonly) NSString *displayNameEx;
 @property (nullable, nonatomic, readonly) NSString *iconURL;
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PRUI/PRPageSlider.h>
+
+@import PRUIKit;
 
 @class PRPDFScrollView;
-#import "PRPageSlider.h"
-@import PRUIKit;
 
 #define SWITCH_TABBAR_HEIGHT 49
 #define SWITCH_TABBAR_HEIGHT_COMPACT 35

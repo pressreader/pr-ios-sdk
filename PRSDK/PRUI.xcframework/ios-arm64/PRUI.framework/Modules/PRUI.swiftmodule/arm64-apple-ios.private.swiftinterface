@@ -1154,7 +1154,7 @@ extension PRAPI.CatalogBanner : PRAPI.BannerAnalyticsProvider {
 }
 @objc extension PRUI.PRPubHubVC {
   @objc @_Concurrency.MainActor(unsafe) public static func catalogHub() -> Self
-  @objc @_Concurrency.MainActor(unsafe) public static func homeHub() -> Self
+  @objc @_Concurrency.MainActor(unsafe) public static func homeHub(scheme: PRAPI.CatalogSchemeProvider = .home) -> Self
   @objc @_Concurrency.MainActor(unsafe) public static func hub(hotspotManager: (any PRUI.PRHotspotStatusViewManagerProtocol)?) -> Self
   @objc @_Concurrency.MainActor(unsafe) public static func hub(hotspotManager: (any PRUI.PRHotspotStatusViewManagerProtocol)?, dataSource: PRUI.PRPubHubDataSource) -> Self
 }

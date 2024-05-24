@@ -10,17 +10,20 @@
 
 @interface PRLinkedServiceInfo : NSObject
 @property (nonatomic, readonly) NSString *serviceName;
+@property (nonatomic, readonly) NSString *displayName;
 @property (nonatomic, readonly) NSString *accountName;
 @property (nonatomic, readonly) NSString *associatedSubscriptionBehaviourProfileName;
 
 @property (nonatomic, readonly) BOOL linked;
 
 + (instancetype)infoWithServiceName:(NSString *)serviceName
+                        displayName:(NSString *)displayName
                         accountName:(NSString *)accountName
             associatedBehaviourName:(NSString *)associatedName
                              linked:(BOOL)linked;
 
 - (instancetype)initWithServiceName:(NSString *)serviceName
+                        displayName:(NSString *)displayName
                         accountName:(NSString *)accountName
             associatedBehaviourName:(NSString *)associatedName
                              linked:(BOOL)linked;

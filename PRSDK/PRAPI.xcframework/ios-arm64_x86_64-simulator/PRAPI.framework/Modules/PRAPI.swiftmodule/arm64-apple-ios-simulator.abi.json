@@ -7469,8 +7469,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
         "declKind": "Import",
         "moduleName": "PRAPI",
         "declAttributes": [
@@ -11245,32 +11245,14 @@
             "init_kind": "Designated"
           },
           {
-            "kind": "Var",
+            "kind": "Function",
             "name": "catalog",
-            "printedName": "catalog",
+            "printedName": "catalog(context:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "PressCatalogable",
-                "printedName": "any PRAPI.PressCatalogable",
-                "usr": "s:5PRAPI16PressCatalogableP"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5PRAPI14CatalogServiceC7catalogAA16PressCatalogable_pvp",
-            "mangledName": "$s5PRAPI14CatalogServiceC7catalogAA16PressCatalogable_pvp",
-            "moduleName": "PRAPI",
-            "declAttributes": [
-              "Custom",
-              "Final",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
+                "name": "Optional",
+                "printedName": "(any PRAPI.PressCatalogable)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -11279,19 +11261,27 @@
                     "usr": "s:5PRAPI16PressCatalogableP"
                   }
                 ],
-                "declKind": "Accessor",
-                "usr": "s:5PRAPI14CatalogServiceC7catalogAA16PressCatalogable_pvg",
-                "mangledName": "$s5PRAPI14CatalogServiceC7catalogAA16PressCatalogable_pvg",
-                "moduleName": "PRAPI",
-                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.PressCatalogable>",
-                "sugared_genericSig": "<T where T : PRAPI.PressCatalogable>",
-                "declAttributes": [
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
-            ]
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI14CatalogServiceC7catalog7contextAA16PressCatalogable_pSgSo22NSManagedObjectContextC_tF",
+            "mangledName": "$s5PRAPI14CatalogServiceC7catalog7contextAA16PressCatalogable_pSgSo22NSManagedObjectContextC_tF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.PressCatalogable>",
+            "sugared_genericSig": "<T where T : PRAPI.PressCatalogable>",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -22300,13 +22290,21 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:5PRAPI9MOServiceC4itemxvp",
-            "mangledName": "$s5PRAPI9MOServiceC4itemxvp",
+            "usr": "s:5PRAPI9MOServiceC4itemxSgvp",
+            "mangledName": "$s5PRAPI9MOServiceC4itemxSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
               "Custom",
@@ -22320,13 +22318,21 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
+                    "name": "Optional",
+                    "printedName": "τ_0_0?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:5PRAPI9MOServiceC4itemxvg",
-                "mangledName": "$s5PRAPI9MOServiceC4itemxvg",
+                "usr": "s:5PRAPI9MOServiceC4itemxSgvg",
+                "mangledName": "$s5PRAPI9MOServiceC4itemxSgvg",
                 "moduleName": "PRAPI",
                 "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : CoreData.NSManagedObject, τ_0_1 : PRAPI.PRCoreDataController>",
                 "sugared_genericSig": "<T, Controller where T : CoreData.NSManagedObject, Controller : PRAPI.PRCoreDataController>",
@@ -31324,8 +31330,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
         "declKind": "Import",
         "moduleName": "PRAPI",
         "declAttributes": [
@@ -31424,6 +31430,54 @@
                 "declKind": "Accessor",
                 "usr": "c:@M@PRAPI@objc(cs)CatalogSchemeProvider(cm)home",
                 "mangledName": "$s5PRAPI21CatalogSchemeProviderC4homeACvgZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "home2",
+            "printedName": "home2",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CatalogSchemeProvider",
+                "printedName": "PRAPI.CatalogSchemeProvider",
+                "usr": "c:@M@PRAPI@objc(cs)CatalogSchemeProvider"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAPI@objc(cs)CatalogSchemeProvider(cpy)home2",
+            "mangledName": "$s5PRAPI21CatalogSchemeProviderC5home2ACvpZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CatalogSchemeProvider",
+                    "printedName": "PRAPI.CatalogSchemeProvider",
+                    "usr": "c:@M@PRAPI@objc(cs)CatalogSchemeProvider"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAPI@objc(cs)CatalogSchemeProvider(cm)home2",
+                "mangledName": "$s5PRAPI21CatalogSchemeProviderC5home2ACvgZ",
                 "moduleName": "PRAPI",
                 "static": true,
                 "declAttributes": [
@@ -46140,48 +46194,6 @@
         "children": [
           {
             "kind": "Var",
-            "name": "catalog",
-            "printedName": "catalog",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "PressCatalogable",
-                "printedName": "any PRAPI.PressCatalogable",
-                "usr": "s:5PRAPI16PressCatalogableP"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5PRAPI15LoadableCatalogP7catalogAA16PressCatalogable_pvp",
-            "mangledName": "$s5PRAPI15LoadableCatalogP7catalogAA16PressCatalogable_pvp",
-            "moduleName": "PRAPI",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PressCatalogable",
-                    "printedName": "any PRAPI.PressCatalogable",
-                    "usr": "s:5PRAPI16PressCatalogableP"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5PRAPI15LoadableCatalogP7catalogAA16PressCatalogable_pvg",
-                "mangledName": "$s5PRAPI15LoadableCatalogP7catalogAA16PressCatalogable_pvg",
-                "moduleName": "PRAPI",
-                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableCatalog>",
-                "sugared_genericSig": "<Self where Self : PRAPI.LoadableCatalog>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "updateInterval",
             "printedName": "updateInterval",
             "children": [
@@ -46223,6 +46235,84 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "mainContext",
+            "printedName": "mainContext",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI15LoadableCatalogP11mainContextSo015NSManagedObjectE0Cvp",
+            "mangledName": "$s5PRAPI15LoadableCatalogP11mainContextSo015NSManagedObjectE0Cvp",
+            "moduleName": "PRAPI",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI15LoadableCatalogP11mainContextSo015NSManagedObjectE0Cvg",
+                "mangledName": "$s5PRAPI15LoadableCatalogP11mainContextSo015NSManagedObjectE0Cvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableCatalog>",
+                "sugared_genericSig": "<Self where Self : PRAPI.LoadableCatalog>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "catalog",
+            "printedName": "catalog(context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any PRAPI.PressCatalogable)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PressCatalogable",
+                    "printedName": "any PRAPI.PressCatalogable",
+                    "usr": "s:5PRAPI16PressCatalogableP"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI15LoadableCatalogP7catalog7contextAA16PressCatalogable_pSgSo22NSManagedObjectContextC_tF",
+            "mangledName": "$s5PRAPI15LoadableCatalogP7catalog7contextAA16PressCatalogable_pSgSo22NSManagedObjectContextC_tF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableCatalog>",
+            "sugared_genericSig": "<Self where Self : PRAPI.LoadableCatalog>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Function",
             "name": "loadBatch",
             "printedName": "loadBatch(entity:)",
@@ -46258,6 +46348,66 @@
             "throwing": true,
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "catalog",
+            "printedName": "catalog",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any PRAPI.PressCatalogable)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PressCatalogable",
+                    "printedName": "any PRAPI.PressCatalogable",
+                    "usr": "s:5PRAPI16PressCatalogableP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI15LoadableCatalogPAAE7catalogAA16PressCatalogable_pSgvp",
+            "mangledName": "$s5PRAPI15LoadableCatalogPAAE7catalogAA16PressCatalogable_pSgvp",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any PRAPI.PressCatalogable)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PressCatalogable",
+                        "printedName": "any PRAPI.PressCatalogable",
+                        "usr": "s:5PRAPI16PressCatalogableP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI15LoadableCatalogPAAE7catalogAA16PressCatalogable_pSgvg",
+                "mangledName": "$s5PRAPI15LoadableCatalogPAAE7catalogAA16PressCatalogable_pSgvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableCatalog>",
+                "sugared_genericSig": "<Self where Self : PRAPI.LoadableCatalog>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           },
           {
             "kind": "Function",
@@ -46340,7 +46490,7 @@
           {
             "kind": "Function",
             "name": "section",
-            "printedName": "section(id:account:)",
+            "printedName": "section(id:account:context:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -46368,17 +46518,20 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:5PRAPI15LoadableCatalogPAAE7section2id7account14PRCatalogModel7SectionCAI2IdO_So13PRAccountItemCSgtYaKF",
-            "mangledName": "$s5PRAPI15LoadableCatalogPAAE7section2id7account14PRCatalogModel7SectionCAI2IdO_So13PRAccountItemCSgtYaKF",
+            "usr": "s:5PRAPI15LoadableCatalogPAAE7section2id7account7context14PRCatalogModel7SectionCAJ2IdO_So13PRAccountItemCSgSo22NSManagedObjectContextCtKF",
+            "mangledName": "$s5PRAPI15LoadableCatalogPAAE7section2id7account7context14PRCatalogModel7SectionCAJ2IdO_So13PRAccountItemCSgSo22NSManagedObjectContextCtKF",
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableCatalog>",
             "sugared_genericSig": "<Self where Self : PRAPI.LoadableCatalog>",
-            "declAttributes": [
-              "Custom"
-            ],
             "isFromExtension": true,
             "throwing": true,
             "funcSelfKind": "NonMutating"
@@ -46416,29 +46569,17 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "CoreData.NSManagedObjectContext?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSManagedObjectContext",
-                    "printedName": "CoreData.NSManagedObjectContext",
-                    "usr": "c:objc(cs)NSManagedObjectContext"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
               }
             ],
             "declKind": "Func",
-            "usr": "s:5PRAPI15LoadableCatalogPAAE5enity2id7account7contextqd__SS_So13PRAccountItemCSgSo22NSManagedObjectContextCSgtYaK14PRCatalogModel0C6EntityCRbd__lF",
-            "mangledName": "$s5PRAPI15LoadableCatalogPAAE5enity2id7account7contextqd__SS_So13PRAccountItemCSgSo22NSManagedObjectContextCSgtYaK14PRCatalogModel0C6EntityCRbd__lF",
+            "usr": "s:5PRAPI15LoadableCatalogPAAE5enity2id7account7contextqd__SS_So13PRAccountItemCSgSo22NSManagedObjectContextCtK14PRCatalogModel0C6EntityCRbd__lF",
+            "mangledName": "$s5PRAPI15LoadableCatalogPAAE5enity2id7account7contextqd__SS_So13PRAccountItemCSgSo22NSManagedObjectContextCtK14PRCatalogModel0C6EntityCRbd__lF",
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : PRAPI.LoadableCatalog, τ_1_0 : PRCatalogModel.CatalogEntity>",
             "sugared_genericSig": "<Self, T where Self : PRAPI.LoadableCatalog, T : PRCatalogModel.CatalogEntity>",
-            "declAttributes": [
-              "Custom"
-            ],
             "isFromExtension": true,
             "throwing": true,
             "funcSelfKind": "NonMutating"
@@ -85234,105 +85375,133 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 425,
+      "offset": 430,
       "length": 22,
       "value": "\"CatalogConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 468,
+      "offset": 482,
+      "length": 23,
+      "value": "\"CatalogConfiguration2\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 526,
       "length": 19,
       "value": "\"HomeConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 511,
+      "offset": 567,
+      "length": 20,
+      "value": "\"HomeConfiguration2\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 611,
       "length": 22,
       "value": "\"LibraryConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 559,
+      "offset": 659,
       "length": 25,
       "value": "\"FavouritesConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 607,
+      "offset": 707,
       "length": 27,
       "value": "\"LatestIssuesConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 655,
+      "offset": 755,
       "length": 26,
       "value": "\"BookCatalogConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 425,
+      "offset": 430,
       "length": 22,
       "value": "\"CatalogConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 468,
+      "offset": 482,
+      "length": 23,
+      "value": "\"CatalogConfiguration2\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 526,
       "length": 19,
       "value": "\"HomeConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 511,
+      "offset": 567,
+      "length": 20,
+      "value": "\"HomeConfiguration2\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 611,
       "length": 22,
       "value": "\"LibraryConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 559,
+      "offset": 659,
       "length": 25,
       "value": "\"FavouritesConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 607,
+      "offset": 707,
       "length": 27,
       "value": "\"LatestIssuesConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 655,
+      "offset": 755,
       "length": 26,
       "value": "\"BookCatalogConfiguration\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 776,
+      "offset": 876,
       "length": 16,
       "value": "\"from_favorites\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "StringLiteral",
-      "offset": 776,
+      "offset": 876,
       "length": 16,
       "value": "\"from_favorites\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSchemeProvider.swift",
       "kind": "Array",
-      "offset": 1688,
+      "offset": 2029,
       "length": 2,
       "value": "[]"
     },
@@ -85843,7 +86012,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ManagedObjects\/PressCatalog\/Service\/LoadableCatalog.swift",
       "kind": "StringLiteral",
-      "offset": 467,
+      "offset": 551,
       "length": 21,
       "value": "\"catalogItemsUpdated\""
     },

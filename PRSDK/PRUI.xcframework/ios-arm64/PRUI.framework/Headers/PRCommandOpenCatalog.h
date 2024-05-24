@@ -10,7 +10,7 @@
 
 @import PRAPI.PRCatalogSection;
 
-extern NSString *const PRCommandOpenCatalogUseHomeConfigurationKey;
+extern NSString *const PRCommandOpenCatalogHomeConfigurationSchemeKey;
 extern NSString *const PRCommandOpenCatalogSectionKey;
 
 @interface PRCommandOpenCatalog : PRCommandOpenSources

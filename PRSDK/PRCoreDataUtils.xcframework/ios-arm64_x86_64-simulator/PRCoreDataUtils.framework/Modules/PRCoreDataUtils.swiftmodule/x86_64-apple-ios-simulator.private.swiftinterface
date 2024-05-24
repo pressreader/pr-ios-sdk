@@ -23,6 +23,9 @@ extension CoreData.NSManagedObjectContext {
   public func object(entityName: Swift.String, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil) -> CoreData.NSManagedObject?
 }
 extension Swift.Dictionary {
+  public func int(_ key: Key) -> Swift.Int?
+}
+extension Swift.Dictionary {
   public func castInt<T>(_ key: Key, defaultValue: T = 0) -> T where T : Swift.FixedWidthInteger, T : Swift.SignedInteger
   public func castInt<T>(_ keys: [Key], defaultValue: T = 0) -> T where T : Swift.FixedWidthInteger, T : Swift.SignedInteger
 }

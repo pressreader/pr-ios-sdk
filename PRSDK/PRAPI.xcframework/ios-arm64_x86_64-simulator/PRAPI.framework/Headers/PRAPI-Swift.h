@@ -927,6 +927,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchem
 + (CatalogSchemeProvider * _Nonnull)publications SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home;)
 + (CatalogSchemeProvider * _Nonnull)home SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home2;)
++ (CatalogSchemeProvider * _Nonnull)home2 SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull library;)
 + (CatalogSchemeProvider * _Nonnull)library SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull favorites;)
@@ -1927,11 +1929,11 @@ typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method",
 
 
 
+
 @interface PRTitleItem (SWIFT_EXTENSION(PRAPI))
 - (NSInteger)issueVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)expungeVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 @class PRThumbnailSource;
 
@@ -3130,6 +3132,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchem
 + (CatalogSchemeProvider * _Nonnull)publications SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home;)
 + (CatalogSchemeProvider * _Nonnull)home SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home2;)
++ (CatalogSchemeProvider * _Nonnull)home2 SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull library;)
 + (CatalogSchemeProvider * _Nonnull)library SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull favorites;)
@@ -4130,11 +4134,11 @@ typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method",
 
 
 
+
 @interface PRTitleItem (SWIFT_EXTENSION(PRAPI))
 - (NSInteger)issueVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)expungeVersionWithDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 @class PRThumbnailSource;
 

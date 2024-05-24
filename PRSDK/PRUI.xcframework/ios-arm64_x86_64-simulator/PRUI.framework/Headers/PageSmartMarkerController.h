@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PRSmartMarkerViewController.h"
+@import PRAPI;
 
 NS_ASSUME_NONNULL_BEGIN
-
-@import PRAPI;
 
 @protocol  PRPageSmartMarkerDelegate <PRSmartMarkerControllerDelegate>
 - (BOOL)isFullScreenMode;

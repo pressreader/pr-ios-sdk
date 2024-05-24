@@ -732,9 +732,7 @@ extension Foundation.NSNotification.Name {
   @objc deinit
 }
 extension PRAPI.CatalogService : PRAPI.LoadableCatalog {
-  @_Concurrency.MainActor final public var catalog: any PRAPI.PressCatalogable {
-    get
-  }
+  @_Concurrency.MainActor public func catalog(context: CoreData.NSManagedObjectContext) -> (any PRAPI.PressCatalogable)?
 }
 @objc @objcMembers final public class CatalogSectionScheme : ObjectiveC.NSObject {
   @objc final public let type: PRConfiguration.PRCatalogSectionType
@@ -1220,7 +1218,7 @@ extension PRAPI.NTFSession {
 @_Concurrency.MainActor public class MOService<T, Controller> : ObjectiveC.NSObject where T : CoreData.NSManagedObject, Controller : PRAPI.PRCoreDataController {
   @_Concurrency.MainActor final public let mainContext: CoreData.NSManagedObjectContext
   @_Concurrency.MainActor final public let privateContext: CoreData.NSManagedObjectContext
-  @_Concurrency.MainActor public var item: T {
+  @_Concurrency.MainActor public var item: T? {
     get
   }
   nonisolated public init(item: T)
@@ -1859,6 +1857,9 @@ extension PRAPI.AutoTranslationAnalyticsProvider {
     @objc get
   }
   @objc final public class var home: PRAPI.CatalogSchemeProvider {
+    @objc get
+  }
+  @objc final public class var home2: PRAPI.CatalogSchemeProvider {
     @objc get
   }
   @objc final public class var library: PRAPI.CatalogSchemeProvider {
@@ -2586,8 +2587,9 @@ public struct BookLicenseRenewResult : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public protocol LoadableCatalog {
-  var catalog: any PRAPI.PressCatalogable { get }
   var updateInterval: Foundation.TimeInterval { get }
+  var mainContext: CoreData.NSManagedObjectContext { get }
+  func catalog(context: CoreData.NSManagedObjectContext) -> (any PRAPI.PressCatalogable)?
   #if compiler(>=5.3) && $AsyncAwait
   func loadBatch(entity: PRCatalogModel.CatalogEntity) async throws -> [PRCatalogModel.CatalogItem]
   #endif
@@ -2596,18 +2598,19 @@ extension Foundation.NSNotification.Name {
   public static let catalogItemsUpdated: Foundation.Notification.Name
 }
 @_Concurrency.MainActor extension PRAPI.LoadableCatalog {
+  @_Concurrency.MainActor public var catalog: (any PRAPI.PressCatalogable)? {
+    get
+  }
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor public func load(entity: PRCatalogModel.CatalogEntity) async throws -> [PRCatalogModel.CatalogItem]
   #endif
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor public func load(sectionId: PRCatalogModel.Section.Id) async throws -> [PRCatalogModel.CatalogItem]
   #endif
-  #if compiler(>=5.3) && $AsyncAwait
-  @_Concurrency.MainActor public func section(id: PRCatalogModel.Section.Id, account: PRAPI.PRAccountItem? = nil) async throws -> PRCatalogModel.Section
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
-  @_Concurrency.MainActor public func enity<T>(id: Swift.String, account: PRAPI.PRAccountItem? = nil, context: CoreData.NSManagedObjectContext? = nil) async throws -> T where T : PRCatalogModel.CatalogEntity
-  #endif
+}
+extension PRAPI.LoadableCatalog {
+  public func section(id: PRCatalogModel.Section.Id, account: PRAPI.PRAccountItem? = nil, context: CoreData.NSManagedObjectContext) throws -> PRCatalogModel.Section
+  public func enity<T>(id: Swift.String, account: PRAPI.PRAccountItem? = nil, context: CoreData.NSManagedObjectContext) throws -> T where T : PRCatalogModel.CatalogEntity
 }
 @objc(PRFacebookSharingDelegate) public protocol FacebookSharingDelegate : ObjectiveC.NSObjectProtocol {
   @objc func facebookSharingDidComplete(results: [Swift.String : Any])

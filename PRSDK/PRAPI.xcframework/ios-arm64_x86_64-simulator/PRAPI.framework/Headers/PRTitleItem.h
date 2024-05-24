@@ -74,8 +74,8 @@ typedef NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, id> *> *
 
 @property (nonatomic) CGFloat aspectRatio;
 @property (nullable, nonatomic, strong) NSDate* latestAvailableIssueDate;
-@property (nonatomic) int latestAvailableIssueVersion;
-@property (nonatomic) int latestAvailableLayoutVersion;
+@property (nonatomic) NSInteger latestAvailableIssueVersion;
+@property (nonatomic) NSInteger latestAvailableLayoutVersion;
 @property (nonatomic, strong) NSString *latestAvailableExpungeVersion;
 
 @property (nonatomic, strong) NSDate *activationTime;
