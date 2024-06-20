@@ -1,4 +1,4 @@
-### pr-ios-sdk
+### PressReader iOS SDK -- Readme
 
 # Distribution
 
@@ -78,7 +78,7 @@ When you no longer need the shared instance, you can deallocate resources it use
 
 Along with the PRSDK package we provide a Demo App designed to demonstrate integration and basic use cases including configuration, authorisation, issue downloading and reading. The Demo App is available in the same repository as the PRSDK frameworks
 
-We kindly request that you begin your PRSDK integration by configuring this Demo App with your `SERVICE_NAME` and other `PRConfig` parameters. This will give you a quick understanding of how PRSDK operates and what to expect from it.
+We kindly request that you begin your PRSDK integration by [configuring](/doc/Configuration.md) this Demo App with your `SERVICE_NAME` and other `PRConfig` parameters. This will give you a quick understanding of how PRSDK operates and what to expect from it.
 
 ## Troubleshooting
 
