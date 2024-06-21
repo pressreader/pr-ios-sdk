@@ -74,6 +74,9 @@ When you no longer need the shared instance, you can deallocate resources it use
  PressReader.dismiss()
 ```
 
+## API
+You can explore the features of the PRSDK through the [PressReader SDK - API](/doc/API.md)
+
 ## Demo App
 
 Along with the PRSDK package we provide a Demo App designed to demonstrate integration and basic use cases including configuration, authorisation, issue downloading and reading. The Demo App is available in the same repository as the PRSDK frameworks
