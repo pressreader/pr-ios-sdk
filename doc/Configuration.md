@@ -91,10 +91,21 @@ For __Brand Edition__ service, ensure to include your assigned `SERVICE_NAME` wi
 ### Support
 | Parameter | Type | Default value | Description |
 | --- | --- | --- | --- |
+|`BUNDLE.SHOW_CUSTOMER_SUPPORT`|Boolean|YES|Displayed in `Settings > Subscriptions` section|
+|`SUPPORT_EMAIL_ADDRESS`|String|support@pressreader.com|Displayed in `Settings > Subscriptions` section|
+|`SUPPORT_PHONE_NUMBER`|String|+1-604-278-4604|Displayed in `Settings > Subscriptions` section|
+|`PRIVACY_POLICY_URL`|String||Privacy policy link|
+|`LEGAL_URL`|String||Terms or Use|
+|`ABOUT_SOCIAL_URLS|Array||<p>List of social media’s links. It’s an array of dictionaries: `[Dictionary<String, String>]`, i.e.<pre><code>[[“Facebook”: “https://facebook.com/mypage“],&#10;[“Twitter”: “https://twitter.com/mypage“],&#10;[“Instagram”: “https://instagram.com/mypage“]]</code><pre>|
+|`support_emails`|Array||Feedback eamail(s). Array of String, i.e.`["support@me.com"]`|
+|`support_email_subject`|String||Feedback email. You can use `{deviceType}` occurrence symbol which will be replaced with the appropriate device type.|
 
 ### Tabs
 | Parameter | Type | Default value | Description |
 | --- | --- | --- | --- |
+|`APP_MENU_ITEMS_ABSENCE`|Number|0 (all available items are visible)|<p>Opting-out app menu items (tabs).<pre><code>typedef NS_OPTIONS(NSUInteger, PRAppMenuItemAbsence) {&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceHome = 1 << 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceCatalog = 1 << 1,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceDownloaded = 1 << 2,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceBookmarks = 1 << 3,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceSignIn = 1 << 4,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceHotspots = 1 << 5,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceAccount = 1 << 6,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceSettings = 1 << 7,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceSubscriptions = 1 << 8,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceAbout = 1 << 9,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceMore = 1 << 10,&#10;};</code></pre>|
+|`SDK_EXIT_BUTTON_TITLE`|String|Dismiss|Title of the Dismiss PressReader menu item. Providing value is actually a localisable string’s key. A host app is responsible for the localisation.|
+|`SDK_EXIT_BUTTON_HIDDEN`|Boolean|NO|Set `YES` to hide exit button. |
 
 ### Translation
 | Parameter | Type | Default value | Description |
