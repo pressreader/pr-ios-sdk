@@ -73,7 +73,10 @@ When you no longer need the shared instance, you can deallocate resources it use
 ```
 
 ## API
-You can explore the features of the PRSDK through the [PressReader SDK - API](/doc/API.md)
+Explore the features of the PRSDK through the [PressReader SDK - API](/doc/API.md)
+
+## Configuration
+Explore the ways to configure PRSDK to meet your needs through the [PressReader SDK - Configuration](/doc/Configuration.md)
 
 ## Demo App
 
