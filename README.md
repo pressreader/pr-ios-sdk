@@ -1,8 +1,6 @@
-### PressReader iOS SDK -- Readme
-
 __The PressReader iOS SDK__ (referred to as __PRSDK__) comprises a collection of _PressReader iOS frameworks_ along with third-party dependencies.
 
-## Distribution
+# Distribution
 
 The latest PressReader SDK can be downloaded from [release page](https://github.com/pressreader/pr-ios-sdk/releases). For receiving the SDK release notifications, subscribe to Watch → Custom → Releases event.
 Additionally, you may want to review the ["PressReader SDK - release policies"](https://pressreader.atlassian.net/wiki/x/GAA70w).
