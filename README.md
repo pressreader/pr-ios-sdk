@@ -36,11 +36,11 @@ end
 Ensure to link and embed all xc-frameworks found within the **`PRSDK/`** directory within your host application.
 Should your application already utilise certain dependencies listed, avoid redundant linking of those frameworks.
 
-![frameworks_image](assets/frameworks.png)
+![frameworks_image](docs/assets/frameworks.png)
 
 Within the `PRSDK/` directory, you'll find _`PressReaderResources.bundle`_. Ensure not to link it alongside other frameworks. Instead, include it in the **Copy Bundle Resources** build phase of your host application.
 
-![build_phases_image](assets/build_phases.png)
+![build_phases_image](docs/assets/build_phases.png)
 
 # Usage
 
@@ -73,16 +73,16 @@ When you no longer need the shared instance, you can deallocate resources it use
 ```
 
 ## API
-Explore the features of the PRSDK through the [PressReader SDK - API](/doc/API.md)
+Explore the features of the PRSDK through the [PressReader SDK - API](/docs/API.md)
 
 ## Configuration
-Explore the ways to configure PRSDK to meet your needs through the [PressReader SDK - Configuration](/doc/Configuration.md)
+Explore the ways to configure PRSDK to meet your needs through the [PressReader SDK - Configuration](/docs/Configuration.md)
 
 ## Demo App
 
 Along with the PRSDK package we provide a Demo App designed to demonstrate integration and basic use cases including configuration, authorisation, issue downloading and reading. The Demo App is available in the same repository as the PRSDK frameworks
 
-We kindly request that you begin your PRSDK integration by [configuring](/doc/Configuration.md) this Demo App with your `SERVICE_NAME` and other `PRConfig` parameters. This will give you a quick understanding of how PRSDK operates and what to expect from it.
+We kindly request that you begin your PRSDK integration by [configuring](/docs/Configuration.md) this Demo App with your `SERVICE_NAME` and other `PRConfig` parameters. This will give you a quick understanding of how PRSDK operates and what to expect from it.
 
 ## Troubleshooting
 

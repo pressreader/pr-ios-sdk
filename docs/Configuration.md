@@ -18,7 +18,7 @@ There’re two types of services supported by PRSDK:
 
 For __Brand Edition__ service, ensure to include your assigned `SERVICE_NAME` within `PRConfig`, as illustrated below. Failure to provide a `SERVICE_NAME` entry will result in PRSDK defaulting to the __Baseline__ service.
 
-![PRConfig_image](/assets/PRConfig.png)
+![PRConfig_image](assets/PRConfig.png)
 
 ## Configuration types
 * [Appearance](#appearance)
