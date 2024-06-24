@@ -1,29 +1,20 @@
 # Authorization
 
-Auth API is available via account property of `PressReader`. Normally Host app performs PressReader authorization on start or before access to `PressReader` features is required.
+Auth API is available via `account` property of `PressReader`. Normally Host app performs PressReader authorization on start or before access to `PressReader` features is required.
 ```swift
-account = PressReader.instance.account
+let account = PressReader.instance().account
 ```
-<br>
 
 ## Authorization by  token
 
 ```
 account.authorize(token: String, completion: Callback)
 ```
-where `Callback` is
-```
-interface Callback {   
-   fun onComplete(success: Boolean, error: Throwable?)
-}
-```
 
 ## Authorization by  service name
 Authorization by service name allows working with SDK based on service name only, without token. In order to achieve this behavior the next configuration has to be done:
 
-In `Info.plist` file `PRConfig` section has to be created. In this dictionary two entries has to be added:
-* `SERVICE_NAME` string with your service name.
-* `SDK.AUTHORIZATION_TYPE` number with value 1.
+In `Info.plist` of your app add [`PRConfig`](Configuration.md) dictionary with `SERVICE_NAME` string type entry with your service name value.
 <br><br><br>
 
 # Observing SDK state
@@ -74,7 +65,7 @@ enum DownloadState {
 
 You access specific download for a `cid` / `date` pair via corresponding item in catalog:
 ```swift
-guard let download = PressReader.instance.catalog.item(cid, date)?.download else {
+guard let download = PressReader.instance().catalog.item(cid, date)?.download else {
     print("Item with given cid / date isn't found")
     return
 }
@@ -106,14 +97,13 @@ Download {
     func observe(_ callback: @escaping Callback) -> DownloadObserver?
 }
 ```
-where `callback` is
+where `Callback` is
 ```swift
-func callback(state: DownloadState, progress: Int, error: Error?)
+typealias Callback = (DownloadState, Progress, Error?) -> Void
 ```
 
 ## Download error processing
 `AuthorizationError` is returned when there’s a problem with authorization and re-authorization is required.
-`ServerError` / `ServerErrorText` is returned when a problem happened on server side.
 <br><br>
 
 ## Open the downloaded issue (Reader API)
@@ -123,7 +113,7 @@ if let reader = ReadingVC(issue: issue) {
     yourViewController.present(reader. animated: true, completion: nil)
 }
 ```
-`reader` can be nil in case issue wasn't ordered (dowload process hasn't been started)
+`reader` can be nil in case issue hasn't been previously ordered (dowload process not started)
 <br><br><br>
 
 # Downloaded
@@ -245,7 +235,7 @@ public struct TrackingArticle {
 ```
 providing most of possibly used for analytics information from both replica and article view. In the future we’ll define more protocols for analytics in other parts of the tracked functionality.
 
-Because current implementation of PressReader class as the singleton, we the host app should setup the list of analytics trackers via launchOptions class property before first use of PressReader singleton:
+Because `PressReader` class is a singleton, the host app should setup the list of analytics trackers via launchOptions class property before first use of `PressReader`:
 ```swift
 private lazy var pressreader: PressReader = {
     PressReader.launchOptions = [.prAnalyticsTrackers: [self]]
