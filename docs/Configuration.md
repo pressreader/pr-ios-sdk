@@ -158,5 +158,5 @@ To customise splash (loading) screen background add `PRSplashBackground` (or `Sp
 # Catalog View
 To customise splash (loading) screen background add PRSplashBackground (or SplashBackground) image set into assets catalog of your host app.
 
-[BE2.0: Page Sections json configuration](https://pressreader.atlassian.net/l/cp/MCNEC5yE)
+[BE2.0: Page Sections json configuration](https://pressreader.atlassian.net/wiki/x/AYAH1g)
 
