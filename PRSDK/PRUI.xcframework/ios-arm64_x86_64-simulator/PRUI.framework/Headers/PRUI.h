@@ -31,8 +31,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "PROrderDelivery+Error.h"
 
-#import "PREmailSignInOptions.h"
-
 #import "PRActivityItem.h"
 #import "PRActivityProvider.h"
 
@@ -226,3 +224,4 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRRelatedArticlesView.h"
 #import "NTFRelatedArticleCell.h"
 #import "PROrderView.h"
+#import "PRAccountItem+HotSpotWelcomeMessage.h"

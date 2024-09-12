@@ -280,6 +280,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import AuthenticationServices;
 @import CoreData;
 @import CoreFoundation;
+@import CoreLocation;
 @import Foundation;
 @import ObjectiveC;
 @import PRAnalytics;
@@ -343,8 +344,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI24AccountAnalyticsProvider_")
 @end
 
 
-/// An abstract class with common tracking code. Do not subclass this class directly, use <code>ScreenViewAnalytics</code>
-/// or <code>EventAnalytics</code> instead.
 SWIFT_CLASS("_TtC5PRAPI9Analytics")
 @interface Analytics : NSObject <AnalyticsService>
 /// Enabled explicitly by subclasses. Permanently off here.
@@ -440,6 +439,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ASAuthorizat
 @end
 
 
+SWIFT_CLASS("_TtC5PRAPI18AppsFlyerAnalytics")
+@interface AppsFlyerAnalytics : Analytics
+@end
+
+
+SWIFT_CLASS("_TtC5PRAPI14AppsFlyerProxy")
+@interface AppsFlyerProxy : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 @interface ArticleLink (SWIFT_EXTENSION(PRAPI))
 - (void)updateWith:(NSDictionary<NSString *, id> * _Nonnull)info;
 @end
@@ -451,6 +461,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI14ArticleService_")
 - (void)contentRestrictionsWithCompletionHandler:(void (^ _Nonnull)(NTFContentRestrictions * _Nullable))completionHandler;
 - (void)updateRelatedArticlesWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
 - (void)loadFullContentWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
+- (void)updateListenDurationWithCompletionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
 @end
 
 typedef SWIFT_ENUM(NSInteger, ArticleTranslationState, open) {
@@ -493,13 +504,12 @@ SWIFT_CLASS("_TtC5PRAPI25AutoTranslateLanguagePair")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@protocol TranslationLanguagesInfo;
+@class PRAccountItem;
 
 SWIFT_CLASS("_TtC5PRAPI20BaseTranslateOptions")
 @interface BaseTranslateOptions : NSObject
-@property (nonatomic, readonly) BOOL isAvailable;
 @property (nonatomic, copy) NSString * _Nullable lastSelectedLanguageISOCode;
-- (nonnull instancetype)initWithLanguagesInfo:(id <TranslationLanguagesInfo> _Nonnull)languagesInfo OBJC_DESIGNATED_INITIALIZER;
+- (BOOL)isAvailableForAccount:(PRAccountItem * _Nullable)account SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isLanguageSupportedWithIsoCode:(NSString * _Nonnull)isoCode SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSString *> * _Nullable)translationLanguageISOCodesWithSourceLanguageISOCode:(NSString * _Nonnull)isoCode SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nullable)languageNameWithIsoCode:(NSString * _Nonnull)isoCode SWIFT_WARN_UNUSED_RESULT;
@@ -509,16 +519,17 @@ SWIFT_CLASS("_TtC5PRAPI20BaseTranslateOptions")
 @end
 
 @class AutoTranslationZone;
+@protocol TranslationLanguagesInfo;
 
 SWIFT_CLASS("_TtC5PRAPI20AutoTranslateOptions")
 @interface AutoTranslateOptions : BaseTranslateOptions
 @property (nonatomic, copy) NSArray<AutoTranslateLanguagePair *> * _Nonnull languagePairs;
 @property (nonatomic) BOOL hideSaveLanguagePairAlertView;
 @property (nonatomic) BOOL isOff;
-@property (nonatomic, readonly) BOOL isAvailable;
+- (BOOL)isAvailableForAccount:(PRAccountItem * _Nullable)account SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, strong) AutoTranslationZone * _Nonnull zones;
 @property (nonatomic, readonly) NSInteger languagePairsLimit;
-- (BOOL)isAvailableWithZone:(AutoTranslationZone * _Nonnull)zone SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isAvailableWithZone:(AutoTranslationZone * _Nonnull)zone account:(PRAccountItem * _Nullable)account SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithLanguagesInfo:(id <TranslationLanguagesInfo> _Nonnull)languagesInfo OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -637,6 +648,13 @@ SWIFT_CLASS("_TtC5PRAPI14BrazeAnalytics")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 + (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
+SWIFT_CLASS_NAMED("BrazeProxy")
+@interface PRBrazeProxy : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 
 SWIFT_CLASS("_TtC5PRAPI13CatalogBanner")
@@ -1016,16 +1034,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 
 
 
+@interface DIContainer (SWIFT_EXTENSION(PRAPI))
+- (void)removeAppDependencies;
+- (void)registerAppDependencies;
+@end
+
+
 SWIFT_UNAVAILABLE
 @interface DIContainer (SWIFT_EXTENSION(PRAPI))
 - (id _Nullable)twitterAuth SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)hasTwitterAuth SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface DIContainer (SWIFT_EXTENSION(PRAPI))
-- (void)removeAppDependencies;
-- (void)registerAppDependencies;
 @end
 
 
@@ -1035,6 +1053,7 @@ SWIFT_UNAVAILABLE
 @class PRCatalog;
 @class PRMyLibrary;
 @class PRAccountManager;
+@class HotSpotManager;
 
 SWIFT_CLASS("_TtC5PRAPI11DIExtension")
 @interface DIExtension : NSObject
@@ -1044,6 +1063,7 @@ SWIFT_CLASS("_TtC5PRAPI11DIExtension")
 @property (nonatomic, readonly, strong) PRCatalog * _Nonnull catalog;
 @property (nonatomic, readonly, strong) PRMyLibrary * _Nonnull library;
 @property (nonatomic, readonly, strong) PRAccountManager * _Nonnull accountManager;
+@property (nonatomic, readonly, strong) HotSpotManager * _Nonnull hotSpotManager;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1263,12 +1283,42 @@ SWIFT_PROTOCOL("_TtP5PRAPI11HotSpotInfo_")
 @interface HotSpot (SWIFT_EXTENSION(PRAPI)) <HotSpotInfo>
 @end
 
-@class PRAccountItem;
 
 @interface HotSpot (SWIFT_EXTENSION(PRAPI))
 + (BOOL)isActiveWithAccount:(PRAccountItem * _Nonnull)account SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+
+SWIFT_CLASS("_TtC5PRAPI14HotSpotManager")
+@interface HotSpotManager : NSObject
+@property (nonatomic) BOOL isOptedOut;
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) BOOL isLocationServiceEnabled;
+@property (nonatomic, readonly) BOOL isLocationPermissionsRequired;
+@property (nonatomic, readonly, copy) NSString * _Nullable activeHotSpotId;
+@property (nonatomic, readonly) PRHotSpotStatus hotSpotStatus;
+- (void)startIfAvailable;
+- (void)start;
+- (void)stop;
+- (void)reset;
+- (void)validateHotSpotLocationsWithInfo:(NSArray<SPNode *> * _Nonnull)info;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface HotSpotManager (SWIFT_EXTENSION(PRAPI))
+- (void)notifyAboutHotSpotEnteringWithMessage:(NSString * _Nonnull)message hotSpotId:(NSString * _Nonnull)hotSpotId isDebug:(BOOL)isDebug;
+@end
+
+
+@interface HotSpotManager (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic) BOOL hotSpotBannerInteracted;
+@property (nonatomic, readonly) BOOL needsRemindUserAboutLocationPermissions;
+@property (nonatomic) NSTimeInterval remindingPostponeDate;
+@property (nonatomic) BOOL isUserRespondEnableGift;
+@end
 
 
 SWIFT_CLASS("_TtC5PRAPI13HotSpotTitles")
@@ -1329,6 +1379,36 @@ SWIFT_CLASS("_TtC5PRAPI21ListenHighlightsModel")
 
 
 
+SWIFT_CLASS("_TtC5PRAPI15LocationManager")
+@interface LocationManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class CLLocationManager;
+@class CLLocation;
+@class CLRegion;
+
+@interface LocationManager (SWIFT_EXTENSION(PRAPI)) <CLLocationManagerDelegate>
+- (void)locationManagerDidChangeAuthorization:(CLLocationManager * _Nonnull)manager;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didStartMonitoringForRegion:(CLRegion * _Nonnull)region;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion * _Nonnull)region;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager monitoringDidFailForRegion:(CLRegion * _Nullable)region withError:(NSError * _Nonnull)error;
+@end
+
+
+SWIFT_CLASS("_TtC5PRAPI12LocationRect")
+@interface LocationRect : NSObject
+@property (nonatomic, readonly) CLLocationCoordinate2D northEast;
+@property (nonatomic, readonly) CLLocationCoordinate2D southWest;
+- (nullable instancetype)initWithNorthEast:(CLLocationCoordinate2D)northEast southWest:(CLLocationCoordinate2D)southWest OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 
 SWIFT_PROTOCOL("_TtP5PRAPI13PrintableItem_")
 @protocol PrintableItem
@@ -1372,16 +1452,22 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _N
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
+/// Notification’s userInfo contains book ids for which license was updated.
+/// userInfo: [String: BookLicenseUpdateStatus]
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
++ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface NSNotification (SWIFT_EXTENSION(PRAPI))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
 + (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-/// Notification’s userInfo contains book ids for which license was updated.
-/// userInfo: [String: BookLicenseUpdateStatus]
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
-+ (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull hotSpotStatusUpdated;)
++ (NSNotificationName _Nonnull)hotSpotStatusUpdated SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1407,6 +1493,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly) BOOL isEligibleBrazeEntity;
+@end
+
+
+SWIFT_UNAVAILABLE
+@interface NSObject (SWIFT_EXTENSION(PRAPI))
 - (void)_startServiceReachabilityObservation;
 - (void)_stopServiceReachabilityObservation;
 @end
@@ -1427,6 +1519,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DIExtension 
 
 @interface NTFAbstractArticle (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isTranslatable;
+@property (nonatomic, readonly, copy) NSURL * _Nullable url;
 @end
 
 
@@ -1588,9 +1681,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 /// returns:
 /// <code>true</code> if device uses sponsorship netpoint
 @property (nonatomic, readonly) BOOL inSponsorshipArea;
-@property (nonatomic, readonly) NSInteger sponsorshipStatus;
+@property (nonatomic, readonly) enum SponsorshipStatus sponsorshipStatus;
 @property (nonatomic, readonly) BOOL isSponsored;
-@property (nonatomic, readonly) NSInteger sponsorshipCredits;
 @property (nonatomic, readonly) BOOL hotzoneEnabled;
 @property (nonatomic, readonly, copy) NSString * _Nullable hotzoneIndustry;
 @property (nonatomic, readonly, copy) NSString * _Nullable hotzoneName;
@@ -1609,13 +1701,30 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 
 
 
-@interface PRAnalyticsService (SWIFT_EXTENSION(PRAPI))
-+ (NSArray<id <AnalyticsService>> * _Nonnull)analyticsServicesWithApplication:(UIApplication * _Nullable)application launchOptions:(NSDictionary * _Nullable)launchOptions SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 @interface PRBaseBundle (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
+@end
+
+
+@interface PRBrazeAnalytics (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isUserAvailable;)
++ (BOOL)isUserAvailable SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nullable userId;)
++ (NSString * _Nullable)userId SWIFT_WARN_UNUSED_RESULT;
++ (void)logCustomEvent:(NSString * _Nonnull)name properties:(NSDictionary * _Nullable)properties;
++ (void)subscribeToEmailsWithSubscribe:(BOOL)subscribe;
++ (void)setCustomAttributeWithKey:(NSString * _Nonnull)key boolValue:(BOOL)value;
++ (void)setCustomAttributeWithKey:(NSString * _Nonnull)key doubleValue:(double)value;
++ (void)setCustomAttributeWithKey:(NSString * _Nonnull)key intValue:(NSInteger)value;
++ (void)setCustomAttributeWithKey:(NSString * _Nonnull)key stringValue:(NSString * _Nonnull)value;
++ (void)setCustomAttributeWithKey:(NSString * _Nonnull)key dateValue:(NSDate * _Nonnull)value;
++ (void)setCustomAttribute:(NSString * _Nonnull)key array:(NSArray<NSString *> * _Nullable)array;
++ (void)unsetCustomAttribute:(NSString * _Nonnull)key;
++ (void)setEmail:(NSString * _Nullable)email;
++ (void)setFirstName:(NSString * _Nullable)firstName;
++ (void)setLastName:(NSString * _Nullable)lastName;
++ (void)changeUserWithUserId:(NSString * _Nonnull)userId;
 @end
 
 
@@ -1630,21 +1739,21 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 
-
-
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
-@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 SWIFT_UNAVAILABLE
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
 - (void)_finishLoading;
+@end
+
+
+
+@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
+- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1738,10 +1847,10 @@ SWIFT_UNAVAILABLE
 
 
 
-
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
 - (void)observeItems;
 @end
+
 
 
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
@@ -1787,6 +1896,12 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, readonly) BOOL isActive;
 @end
 
+@class PRStreamingOptions;
+
+@interface PROptions (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly, strong) PRStreamingOptions * _Nonnull streaming;
+@end
+
 
 @interface PROptions (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL booksAvailable;
@@ -1794,6 +1909,7 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, readonly, copy) NSString * _Nonnull applicationMajorVersion;
 - (BOOL)deleteDocumentsAndReturnError:(NSError * _Nullable * _Nullable)error;
 @end
+
 
 
 @interface PRServiceClient (SWIFT_EXTENSION(PRAPI))
@@ -1822,6 +1938,10 @@ SWIFT_UNAVAILABLE
 @interface PRSocialSignInManager (SWIFT_EXTENSION(PRAPI))
 - (void)appleLogin:(SignInCompletion _Nonnull)handler;
 - (void)appleRequestPublishPermission:(PRAccountItem * _Nonnull)ai linkToCurrentAccount:(BOOL)linkToCurrentAccount completion:(ExternalAuthCompletion _Nonnull)handler;
+@end
+
+
+@interface PRSourceItem (SWIFT_EXTENSION(PRAPI)) <AnalyticsProvider>
 @end
 
 
@@ -1898,10 +2018,10 @@ typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method",
 };
 
 
-
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
 - (void)requestGoogleAdsConfig:(void (^ _Nonnull)(SPNode * _Nullable, NSError * _Nullable))completion;
 @end
+
 
 
 
@@ -2003,7 +2123,7 @@ SWIFT_CLASS("_TtC5PRAPI24PublicationChannelsModel")
 
 SWIFT_PROTOCOL("_TtP5PRAPI22RadioAnalyticsProvider_")
 @protocol RadioAnalyticsProvider <AnalyticsProvider>
-@property (nonatomic, readonly, strong) PRMyLibraryItem * _Nullable libraryItem;
+@property (nonatomic, readonly, strong) PRSourceItem * _Nullable dataSourceItem;
 @property (nonatomic, readonly, strong) PRSmartArticle * _Nonnull currentSmartArticle;
 @property (nonatomic, readonly, strong) id <NTFArticle> _Nullable currentFeedArticle;
 @end
@@ -2084,6 +2204,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 @end
 
 
+SWIFT_CLASS_NAMED("StreamingOptions")
+@interface PRStreamingOptions : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable streamingURL;
+- (NSURL * _Nullable)streamingURLWithArticleId:(NSString * _Nonnull)articleId language:(NSString * _Nonnull)language originalLanguage:(NSString * _Nonnull)originalLanguage country:(NSString * _Nullable)country premium:(BOOL)premium SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)streamingURLWithArticle:(id <NTFArticle> _Nonnull)article premium:(BOOL)premium SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5PRAPI8TextLink")
 @interface TextLink : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
@@ -2103,12 +2232,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<TextLi
 
 
 @interface TitleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, strong) PRTitleItem * _Nullable titleItem;
+@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
 @end
 
 
 @interface TitleItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSDate * _Nullable sortingDate;
+@property (nonatomic, readonly, strong) PRTitleItem * _Nullable titleItem;
 @end
 
 

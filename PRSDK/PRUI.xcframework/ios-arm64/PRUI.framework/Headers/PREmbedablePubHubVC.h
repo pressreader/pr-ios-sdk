@@ -39,8 +39,6 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubOption) {
 
 @property (nonatomic, readonly) PRPubHubOption hubOptions;
 
-@property (nonatomic, readonly) BOOL shouldDiscard;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -277,8 +277,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import Foundation;
-@import ObjectiveC;
 #endif
 
 #import <PRAnalytics/PRAnalytics.h>
@@ -307,19 +305,20 @@ SWIFT_PROTOCOL("_TtP11PRAnalytics17AnalyticsProvider_")
 @end
 
 
-SWIFT_PROTOCOL("_TtP11PRAnalytics16AnalyticsService_")
-@protocol AnalyticsService <NSObject>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
-+ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
-- (void)track:(PRAnalyticsTrackName _Nonnull)name parameters:(NSDictionary<PRAnalyticsTrackParameter, id> * _Nullable)parameters;
-@end
-
-
 /// Remove once transition to <code>PRAPI.Analytics</code> superclass  (which has its own optional initialiser) completed. PBI #145040.
 SWIFT_PROTOCOL("_TtP11PRAnalytics22LegacyAnalyticsService_")
 @protocol LegacyAnalyticsService <AnalyticsService>
 - (nonnull instancetype)init;
 @end
+
+typedef SWIFT_ENUM(NSInteger, SponsorshipStatus, open) {
+  SponsorshipStatusNone = 0,
+  SponsorshipStatusActive = 1,
+  SponsorshipStatusNonActive = 2,
+  SponsorshipStatusRestricted = 3,
+  SponsorshipStatusDisabled = 4,
+  SponsorshipStatusInvalid = 5,
+};
 
 #endif
 #if __has_attribute(external_source_symbol)

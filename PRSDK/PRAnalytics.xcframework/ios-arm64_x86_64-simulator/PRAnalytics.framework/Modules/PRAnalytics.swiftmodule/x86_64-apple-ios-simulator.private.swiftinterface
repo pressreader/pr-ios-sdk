@@ -1,17 +1,19 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRAnalytics
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRAnalytics
 import Combine
 import Foundation
 @_exported import PRAnalytics
 import PRDIContainer
+import PRLogKit
+import StoreKit
 import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc public protocol AnalyticsService : ObjectiveC.NSObjectProtocol {
-  @objc static var isEnabled: Swift.Bool { get }
-  @objc func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+public struct AnalyticsNamingMapper {
+  public init(provider: Swift.String)
+  public func map(name: Swift.String) -> Swift.String?
 }
 @objc public protocol LegacyAnalyticsService : PRAnalytics.AnalyticsService {
   @objc init()
@@ -19,20 +21,42 @@ import _SwiftConcurrencyShims
 extension PRAnalytics.LegacyAnalyticsService {
   public init?(_: Swift.Void? = nil)
 }
-public typealias AnalyticsParameters = [PRAnalytics.PRAnalyticsTrackParameter : Any]
-@objc public protocol AnalyticsProvider {
+public protocol PaymentOptionsProduct {
+  var productIdentifier: Swift.String { get }
+  var title: Swift.String { get }
 }
-extension PRAnalytics.AnalyticsProvider {
-  public var service: any PRAnalytics.AnalyticsService {
-    get
-  }
-  public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters? = nil)
+public struct PaymentOptionsAnalyticsContext {
+  public let containerId: Swift.String
+  public init(containerId: Swift.String)
+}
+public protocol PaymentOptionsAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  var context: PRAnalytics.PaymentOptionsAnalyticsContext { get }
+}
+extension PRAnalytics.PaymentOptionsAnalyticsProvider {
+  public func trackProductSelected(_ product: any PRAnalytics.PaymentOptionsProduct)
+  public func trackPaymentOptionsAppeared(parameters: () -> PRAnalytics.AnalyticsParameters?)
+  public func trackPurchaseRestore(parameters: () -> PRAnalytics.AnalyticsParameters?)
+  public func trackProductPurchase(parameters: () -> PRAnalytics.AnalyticsParameters?)
+  public func trackPremiumProductOffer(parameters: () -> PRAnalytics.AnalyticsParameters?)
 }
 public typealias AnalyticsAccountProvider = Combine.CurrentValueSubject<(any PRAnalytics.AnalyticsAccount)?, Swift.Never>
+@objc public enum SponsorshipStatus : Swift.Int {
+  case none
+  case active
+  case nonActive
+  case restricted
+  case disabled
+  case invalid
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public protocol AnalyticsAccount {
   var accountNumber: Swift.Int { get }
   var internalRefNumber: Swift.String? { get }
-  var activationNumber: Swift.String { get }
+  var activationNumber: Swift.String? { get }
   var serviceName: Swift.String { get }
   var linkedServices: [Swift.String] { get }
   var email: Swift.String? { get }
@@ -41,7 +65,7 @@ public protocol AnalyticsAccount {
   var subscriptionId: Swift.String? { get }
   var subscriptionType: Swift.String? { get }
   var isSubscriptionForBundle: Swift.Bool { get }
-  var sponsorshipStatus: Swift.Int { get }
+  var sponsorshipStatus: PRAnalytics.SponsorshipStatus { get }
   var hotzoneIndustry: Swift.String? { get }
   var hotzoneId: Swift.String? { get }
   var isUnregistered: Swift.Bool { get }
@@ -52,3 +76,51 @@ public protocol AnalyticsAccount {
   var isOnboardingStarted: Swift.Bool { get }
   var isOnboardingSkipped: Swift.Bool { get }
 }
+public typealias AnalyticsParameters = [PRAnalytics.PRAnalyticsTrackParameter : Any]
+@objc public protocol AnalyticsProvider {
+}
+extension PRAnalytics.AnalyticsProvider {
+  public var service: any PRAnalytics.AnalyticsService {
+    get
+  }
+  public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters? = nil)
+}
+extension Swift.Dictionary where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any {
+  public var operationState: PRAnalytics.OperationState {
+    get
+    set
+  }
+  public var operationResult: Swift.Bool? {
+    get
+  }
+  public func context<C>() -> C?
+}
+public struct RegistrationAnalyticsContext {
+  public enum Screen {
+    case paymentOptions
+    case registrationAlert
+    public static func == (a: PRAnalytics.RegistrationAnalyticsContext.Screen, b: PRAnalytics.RegistrationAnalyticsContext.Screen) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let screen: PRAnalytics.RegistrationAnalyticsContext.Screen
+  public let containerId: Swift.String
+  public let titleEdition: Swift.String
+  public init(screen: PRAnalytics.RegistrationAnalyticsContext.Screen, containerId: Swift.String, titleEdition: Swift.String)
+}
+public protocol RegistrationAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  var registrationContext: PRAnalytics.RegistrationAnalyticsContext { get }
+}
+extension PRAnalytics.RegistrationAnalyticsProvider {
+  public func trackRegistrationAlertPresented()
+  public func trackSignInTap()
+  public func trackSubscribeTap()
+  public func trackCancelTap()
+}
+extension PRAnalytics.SponsorshipStatus : Swift.Equatable {}
+extension PRAnalytics.SponsorshipStatus : Swift.Hashable {}
+extension PRAnalytics.SponsorshipStatus : Swift.RawRepresentable {}
+extension PRAnalytics.RegistrationAnalyticsContext.Screen : Swift.Equatable {}
+extension PRAnalytics.RegistrationAnalyticsContext.Screen : Swift.Hashable {}

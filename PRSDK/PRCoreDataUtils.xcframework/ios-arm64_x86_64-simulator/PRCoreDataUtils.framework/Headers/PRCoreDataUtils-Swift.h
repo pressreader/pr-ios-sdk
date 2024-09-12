@@ -278,7 +278,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreData;
-@import Foundation;
 #endif
 
 #endif
@@ -300,12 +299,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
-
-@interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(PRCoreDataUtils))
-- (NSString * _Nullable)string:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nullable)nonEmptyString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class NSManagedObjectContext;
 @class NSPredicate;
 
@@ -612,7 +605,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreData;
-@import Foundation;
 #endif
 
 #endif
@@ -634,12 +626,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSString;
-
-@interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(PRCoreDataUtils))
-- (NSString * _Nullable)string:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nullable)nonEmptyString:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class NSManagedObjectContext;
 @class NSPredicate;
 

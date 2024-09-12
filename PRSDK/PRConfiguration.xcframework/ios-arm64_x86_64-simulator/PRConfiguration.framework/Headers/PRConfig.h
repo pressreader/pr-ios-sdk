@@ -215,21 +215,6 @@
  */
 #define KOOABA_ENABLED                  _PRCONFIG_BOOL_(@"KOOABA_ENABLED", NO)
 
-
-#pragma mark - Hot Zone
-#define SHOW_HOTZONE_BUTTON             (PRConfig.isHotspotEnabled && _PRCONFIG_BOOL_(@"SHOW_HOTZONE_BUTTON", YES))
-#define SHOW_HOTZONE_OPTOUT             _PRCONFIG_BOOL_(@"SHOW_HOTZONE_OPTOUT", NO)
-#define HOTSPOT_PROXIMITY_UUID          _PRCONFIG_STRING_(@"HOTSPOT_PROXIMITY_UUID", @"beb2d30a-0906-4066-84d0-0c65958814c1")
-#define HOTSPOT_GEOFENCING_ENABLED      (PRConfig.isHotspotEnabled && _PRCONFIG_BOOL_(@"HOTSPOT_GEOFENCING_ENABLED", NO))
-
-#define HOTSPOT_ALERT_ENABLED                   _PRCONFIG_BOOL_(@"HOTSPOT_ALERT_ENABLED", YES)
-#define HOTSPOT_WELCOME_POPUP_INTERVAL          _PRCONFIG_INT_(@"HOTSPOT_WELCOME_POPUP_INTERVAL", 60*60*1)
-#define HOTSPOT_NOTIFICATION_INTERVAL           _PRCONFIG_INT_(@"HOTSPOT_NOTIFICATION_INTERVAL", 60*60*3)
-#define HOTSPOT_LOCATION_ENABLE_REMINDER_INTERVAL _PRCONFIG_INT_(@"HOTSPOT_LOCATION_ENABLE_REMINDER_INTERVAL", 60*60*24*14)
-#define HOTSPOT_WELCOME_POPUP_SHOW_ON_START     _PRCONFIG_BOOL_(@"HOTSPOT_WELCOME_POPUP_SHOW_ON_START", YES)
-#define HOTSPOT_WELCOME_POPUP_SHOW_ON_SWITCH    _PRCONFIG_BOOL_(@"HOTSPOT_WELCOME_POPUP_SHOW_ON_SWITCH", YES)
-#define HOTSPOT_NOTIFICATION_SHOW_ON_SWITCH     _PRCONFIG_BOOL_(@"HOTSPOT_NOTIFICATION_SHOW_ON_SWITCH", NO)
-
 #pragma mark - APP REVIEW POLICY
 #define APPREVIEW_MINIMUM_DAYS_SINCE_CURRENT_VERSION_INSTALLED   _PRCONFIG_INT_(@"APPREVIEW_MINIMUM_DAYS_SINCE_CURRENT_VERSION_INSTALLED", 7)
 #define APPREVIEW_MINIMUM_DAYS_SINCE_CURRENT_VERSION_CRASHED     _PRCONFIG_INT_(@"APPREVIEW_MINIMUM_DAYS_SINCE_CURRENT_VERSION_CRASHED", 90)
@@ -287,10 +272,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setValueForKey:(NSString *)key value:(nullable id)value;
 
 @property (class, nonatomic, readonly) BOOL isBrandEdition;
-/// If HotSpot is disabled then in the app there should not be any reference to HotSpots (cup, HotSpot in settings, etc) .
-@property (class, nonatomic, readonly) BOOL isHotspotEnabled;
-/// If HotSpot Map is disabled then in the app remove all references to Map like on Select Product dialog, etc.
-@property (class, nonatomic, readonly) BOOL isHotspotMapEnabled;
 @property (class, nonatomic, readonly) BOOL isStoreProductWithPrefixAppId;
 
 @property (class, nonatomic, readonly) NSString *serviceName;

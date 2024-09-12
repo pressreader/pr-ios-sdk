@@ -124,8 +124,8 @@ extern CGFloat const kPRMaxTextWidth;
 
 @property (nonatomic, readonly) BOOL isAuthorizationRequiredToRead;
 
-@property (nullable, nonatomic, strong) UIFont *bodyFont;
-@property (nullable, nonatomic, strong) UIFont *fontForCaption;
+@property (null_resettable, nonatomic, strong) UIFont *bodyFont;
+@property (null_resettable, nonatomic, strong) UIFont *fontForCaption;
 
 @property (nullable, nonatomic, strong) NSString *dropcap;
 @property (nullable,nonatomic, strong) NSString *textBlockWithDropcap;

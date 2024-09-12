@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRPushNotificationsManager : NSObject
 
-- (void)registerForNotifications:(BOOL)silently NS_SWIFT_NAME(registerForNotifications(silently:));
+- (void)requestNotificationsAuthorization:(BOOL)silently completionHandler:(dispatch_block_t)completion;
 - (void)registerForSilentRemoteNotifications;
 - (void)registerAppDelegateAsNotificationCenterDelegate;
 

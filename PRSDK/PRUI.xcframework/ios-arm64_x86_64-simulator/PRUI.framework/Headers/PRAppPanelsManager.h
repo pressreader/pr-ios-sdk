@@ -13,6 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class PRPromise;
+@class AppPanelsManagerAlertsCoordinator;
 
 @interface PRAppPanelsManager : NSObject
 
@@ -31,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) PRPanelId currentPanelId;
 @property (nonatomic) PRAppPanelID defaultPanelIdToOpenOnce;
 @property (nullable, nonatomic, readonly) PRAppPanel *currentPanel;
+@property (nonatomic, readonly) AppPanelsManagerAlertsCoordinator *alertsCoordinator;
 
 @property (nullable, nonatomic, copy) void(^openFirstPanelPreprocessor)(void);
 

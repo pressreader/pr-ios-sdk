@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
                   password:(nullable NSString *)password
                serviceName:(nullable NSString *)serviceName
                     signup:(BOOL)signup //mode
-      navigationController:(nullable PRWeakLink *)navigationController
+                 presenter:(nullable PRWeakLink *)presenter
             hideBackButton:(BOOL)hideBackButton
             showSkipButton:(BOOL)showSkipButton
           onSuccessCommand:(nullable NSString *)onSuccessCommand
@@ -73,8 +73,6 @@ onSuccessCommandParameters:(nullable NSDictionary *)onSuccessCommandParameters
 - (BOOL)openUrlWithParameters:(nullable NSDictionary *)params;
 - (BOOL)downloadItemWithParameters:(nullable NSDictionary *)parameters;
 - (BOOL)openGiftCampaignWithParameters:(nullable NSDictionary *)params;
-- (BOOL)openPremiumTrialOnboardingWithParameters:(nullable NSDictionary *)params;
-- (BOOL)startPremiumTrialWithParameters:(nullable NSDictionary *)params;
 - (BOOL)notifyWithParameters:(nullable NSDictionary *)params;
 - (BOOL)openPublicationDetailsWithParameters:(nullable NSDictionary *)params;
 @end

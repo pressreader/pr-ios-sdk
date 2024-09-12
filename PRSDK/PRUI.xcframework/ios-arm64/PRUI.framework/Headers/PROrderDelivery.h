@@ -99,6 +99,14 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
 @interface PROrderDelivery (/*PROTECTED*/)
 - (void)cancelOrderDelivery;
 - (void)requestBackIssue;
+- (void)completeHotSpotWaiting;
+
+@property (nullable, nonatomic, strong) SKProduct *purchasingProduct;
+@property (nullable, nonatomic, copy) NSString *purchasingTransactionId;
+@property (nonatomic) BOOL confirmingServerSidePurchase;
+@property (nullable, nonatomic, strong) id issuePrice;
+@property (nullable, nonatomic, copy) NSString *issuePriceCurrency;
+
 @end
 
 #ifdef TEST

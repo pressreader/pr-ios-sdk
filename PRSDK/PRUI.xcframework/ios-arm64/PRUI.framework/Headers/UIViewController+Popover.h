@@ -10,24 +10,33 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_OPTIONS(NSUInteger, PRPopoverOption) {
+    PRPopoverOptionUseNavigationStack = 1 << 0,
+    PRPopoverOptionDisableAdaptivePresentation = 1 << 1
+};
+
 @interface UIViewController (Popover)
 
 - (void)presentViewControllerInPopover:(UIViewController *)viewController
-                    useNavigationStack:(BOOL)useNavigationStack
-                        dismissHandler:(void(^)(void))dismissHandler;
+                               options:(PRPopoverOption)options
+                        dismissHandler:(void(^_Nullable)(void))dismissHandler
+NS_SWIFT_NAME(presentInPopover(_:options:dismissHandler:));
 
 - (void)presentViewControllerInPopover:(UIViewController *)viewController
-                        dismissHandler:(void(^_Nullable)(void))dismissHandler NS_SWIFT_NAME(presentInPopover(_:dismissHandler:));
+                        dismissHandler:(void(^_Nullable)(void))dismissHandler
+NS_SWIFT_NAME(presentInPopover(_:dismissHandler:));
+
+- (void)presentInPopoverWithOptions:(PRPopoverOption)options
+                     dismissHandler:(void(^_Nullable)(void))dismissHandler
+NS_SWIFT_NAME(presentInPopover(options:dismissHandler:));
 
 - (void)presentInPopoverWithDismissHandler:(void(^_Nullable)(void))dismissHandler;
-
-- (void)presentInPopoverUsingNavigationStack:(BOOL)usingNavigationStack
-                              dismissHandler:(void(^_Nullable)(void))dismissHandler;
 
 - (void)presentViewControllerInPopover:(UIViewController *)vc
                                 anchor:(id)sender
               permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
-                    useNavigationStack:(BOOL)useNavigationStack NS_SWIFT_NAME(presentInPopover(_:anchor:permittedArrowDirections:useNavigationStack:)) ;
+                    useNavigationStack:(BOOL)useNavigationStack
+NS_SWIFT_NAME(presentInPopover(_:anchor:permittedArrowDirections:useNavigationStack:));
 
 - (void)dismissPopoverAnimated:(BOOL)animated completion:(void(^_Nullable)(void))completion;
 

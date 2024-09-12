@@ -66,7 +66,6 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
     PRAccountItemPriority _priority;
 	NSString *url;
 	NSString *baseUrl;
-	NSString *userName;
 	NSString *activationNumber;
 	NSString *clientName;
 	int profileStatus;
@@ -77,9 +76,6 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @public
     BOOL justRegistered;
 }
-
-- (BOOL)needShowHotzoneWelcomeMessage;
-- (void)updateHotzoneWelcomeMessageInfo;
 
 - (BOOL)isBrandRegisteredAccount;
 - (BOOL)isPressDisplayAccount;
@@ -149,7 +145,7 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @property (nonatomic, strong) NSString* profilePhotoURL;
 @property (nullable, nonatomic, readonly) NSString *userRegisteredCountry;
 @property (nullable, nonatomic, readonly) NSString *currentCountry;
-@property (nonatomic, copy) NSString* activationNumber;
+@property (nullable, nonatomic, copy) NSString* activationNumber;
 @property (nullable, nonatomic, strong) NSArray<PRUserBundle *> *userBundles;
 @property (nonatomic, readonly) NSString *behaviourProfileId;
 @property (nonatomic) BOOL askProfileInfo;
@@ -161,7 +157,6 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @property (nonatomic, strong) NSDate *catalogUpdateDate;
 @property (nullable, nonatomic, strong) NSDate *customCatalogUpdateDate;
 @property (nonatomic, copy) NSString *catalogLanguage;
-@property (nonatomic, readonly) PRAccountManager *accountManager;
 @property (nullable, nonatomic, strong) UIImage *profilePhotoIcon;
 
 // This flag guarantees that account is reachable. It becomes true when get-account-status

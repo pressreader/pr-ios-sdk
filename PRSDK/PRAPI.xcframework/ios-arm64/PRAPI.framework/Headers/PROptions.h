@@ -16,7 +16,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSNotificationName const PROptionsListingSortingOrderDidChangeNotification;
 extern NSNotificationName const PROptionsPresentationStyleChangedNotification;
 extern NSNotificationName const PROptionsLocalServiceDeactivatedNotification;
 
@@ -182,6 +181,7 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 @property (nullable, nonatomic, readonly) NSString *serviceName;
 
 @property (nonatomic, strong, nullable) NSString *deviceToken;
+@property (nullable, nonatomic, strong) NSString *fcmToken;
 @property (nonatomic, readonly) NSDictionary *config;
 
 @property (nonatomic, readonly) NSString *installationVersion;

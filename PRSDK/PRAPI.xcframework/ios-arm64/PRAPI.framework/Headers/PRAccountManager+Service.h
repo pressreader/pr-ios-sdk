@@ -86,6 +86,11 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
 - (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
                                 forced:(BOOL)forced
                             completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
+- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
+                             hotSpotId:(nullable NSString *)hotSpotId
+                                forced:(BOOL)forced
+                            completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
+
 - (void)deleteRadiantHotSpotForAccount:(PRAccountItem *)accountItem;
 
 - (void)requestGiftedAccessWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;

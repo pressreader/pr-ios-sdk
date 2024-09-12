@@ -16,7 +16,7 @@ extern NSString * const kPRStoryboardExtension;
 
 @protocol PRNSBundleUpdatable <NSObject>
 @optional
-+ (NSBundle *)updatedResourceBundle;
++ (nullable NSBundle *)updatedResourceBundle;
 
 @end
 

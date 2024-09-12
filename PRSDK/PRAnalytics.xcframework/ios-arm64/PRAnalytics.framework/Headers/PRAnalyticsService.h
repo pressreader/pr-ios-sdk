@@ -6,9 +6,11 @@
 //  Copyright 2011 NewspaperDirect. All rights reserved.
 //
 
-#import <PRAPI/PRAnalyticsProto.h>
-#import <PRAPI/PRAnalyticsProfile.h>
-#import <PRAnalytics/PRAnalytics.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <PRAnalytics/PRAnalyticsProto.h>
+#import <PRAnalytics/PRAnalyticsProfile.h>
+#import <PRAnalytics/AnalyticsService.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,27 +49,12 @@ extern PRAnalyticsMainMenu const PRAnalyticsMainMenuCustomerSupport;
 extern PRAnalyticsMainMenu const PRAnalyticsMainMenuOnlineView;
 extern PRAnalyticsMainMenu const PRAnalyticsMainMenuSendFeedback;
 
-//typedef NS_ENUM(NSInteger, PRAnalyticsTextFlowType) {
-//    PRAnalyticsTextFlowTypeUnknown = 0,
-//    PRAnalyticsTextFlowTypeWeb,
-//    PRAnalyticsTextFlowTypeNative,
-//    PRAnalyticsTextFlowTypeSimplified,
-//};
 typedef NSInteger PRAnalyticsTextFlowType NS_TYPED_ENUM;
 static PRAnalyticsTextFlowType const PRAnalyticsTextFlowTypeUnknown = 0;
 static PRAnalyticsTextFlowType const PRAnalyticsTextFlowTypeWeb = 1;
 static PRAnalyticsTextFlowType const PRAnalyticsTextFlowTypeNative = 2;
 static PRAnalyticsTextFlowType const PRAnalyticsTextFlowTypeSimplified = 3;
 
-//typedef NS_ENUM(NSInteger, PRAnalyticsTextFlowSource) {
-//    PRAnalyticsTextFlowSourceUnknown = 0,
-//    PRAnalyticsTextFlowSourceIssue,
-//    PRAnalyticsTextFlowSourceHomeFeed,
-//    PRAnalyticsTextFlowSourceProfile,
-//    PRAnalyticsTextFlowSourceBookmarks,
-//    PRAnalyticsTextFlowSourceMonitors,
-//    PRAnalyticsTextFlowSourceSearchResult,
-//};
 typedef NSInteger PRAnalyticsTextFlowSource NS_TYPED_ENUM;
 static PRAnalyticsTextFlowSource const PRAnalyticsTextFlowSourceUnknown = 0;
 static PRAnalyticsTextFlowSource const PRAnalyticsTextFlowSourceIssue = 1;
@@ -196,18 +183,10 @@ extern PRAnalyticsAutoTranslationPopUpAction const PRAnalyticsAutoTranslationPop
 
 @interface PRAnalyticsService : NSObject<AnalyticsService, PRPageViewTracker, PRGATracker>
 
-- (instancetype)initWithApplication:(nullable UIApplication *)application
-                      launchOptions:(nullable NSDictionary *)launchOptions;
-
-- (nullable id<PRPageViewTracker>)analyticsServiceWithType:(PRAnalyticsProfileType)type;
-
-- (BOOL)isConsoleAnalyticsEnabled;
-- (BOOL)isGoogleAnalyticsEnabled;
-- (BOOL)isFirebaseAnalyticsEnabled;
-- (BOOL)isBrazeAnalyticsEnabled;
-
 - (void)track:(PRAnalyticsTrackName)name
    parameters:(nullable NSDictionary<PRAnalyticsTrackParameter, id> *)parameters;
+
+@property (nonatomic, strong) NSArray<id<AnalyticsService> > *analyticsProviders;
 
 @end
 

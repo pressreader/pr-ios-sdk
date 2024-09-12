@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PRAPI/PRAnalyticsProto.h>
 #import <PRAnalytics/PRAnalytics.h>
 
 NS_ASSUME_NONNULL_BEGIN

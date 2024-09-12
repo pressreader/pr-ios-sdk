@@ -6,8 +6,7 @@
 //  Copyright 2011 NewspaperDirect. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@import PRAnalytics;
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol PRGATracker <NSObject>
-- (void)trackGAPageView:(NSString*)pageURL;
+- (void)trackGAPageView:(NSString *)pageURL;
 - (void)trackGAEvent:(NSString *)category action:(NSString *)action label:(nullable NSString *)label value:(NSInteger)value;
 - (void)trackGATimingWithCategory:(NSString *)category variable:(NSString *)variable timeSpent:(NSInteger)timeSpent;
 @end

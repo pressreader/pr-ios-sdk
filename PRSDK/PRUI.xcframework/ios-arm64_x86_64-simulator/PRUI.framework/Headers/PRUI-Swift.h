@@ -390,6 +390,7 @@ SWIFT_CLASS("_TtC4PRUI15AppMenuItemInfo")
 @interface AppMenuItemInfo : NSObject
 @property (nonatomic, readonly) PRAppMenuItemType _Nonnull type;
 @property (nonatomic, readonly) PRAppMenuIcon _Nullable icon;
+@property (nonatomic, readonly, copy) NSString * _Nullable customIconName;
 @property (nonatomic, readonly, copy) NSString * _Nullable title;
 @property (nonatomic, readonly, copy) NSString * _Nullable url;
 @property (nonatomic, readonly) BOOL isFolded;
@@ -410,6 +411,13 @@ SWIFT_CLASS("_TtC4PRUI25AppMenuSchemeProviderImpl")
 @property (nonatomic, readonly, copy) NSArray<AppMenuItemInfo *> * _Nonnull items;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (AppMenuItemInfo * _Nullable)firstItemWithType:(PRAppMenuItemType _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI33AppPanelsManagerAlertsCoordinator")
+@interface AppPanelsManagerAlertsCoordinator : NSObject
+- (void)presentAlerts;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSMutableParagraphStyle;
@@ -952,7 +960,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 
 SWIFT_CLASS("_TtC4PRUI22CommandShowEmailSignIn")
 @interface CommandShowEmailSignIn : PROnlineCommand
-+ (void)executeWithOptions:(PREmailSignInOptions * _Nullable)options uiPreference:(SignInUIPreferences * _Nonnull)uiPreference;
++ (void)executeWithPresenter:(UIViewController * _Nullable)presenter options:(PREmailSignInOptions * _Nullable)options uiPreference:(SignInUIPreferences * _Nonnull)uiPreference;
 + (void)executeWithParameters:(NSDictionary * _Nullable)parameters;
 - (nonnull instancetype)initWithName:(PRCommandName _Nonnull)name OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1002,7 +1010,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) PRCommandName _Nonnu
 + (PRCommandName _Nonnull)defaultCommandName SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 + (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)executeForAutoDownload:(BOOL)autoDownload;
++ (void)executeForAutoDownload:(BOOL)autoDownload completionHandler:(void (^ _Nonnull)(void))completionHandler;
 - (void)invokeWithParameters:(NSDictionary * _Nullable)parameters;
 - (nonnull instancetype)initWithName:(PRCommandName _Nonnull)name OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1011,7 +1019,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 
 SWIFT_CLASS("_TtC4PRUI24CommandShowSignInOptions")
 @interface CommandShowSignInOptions : NSObject <PRExecutable>
-+ (UIViewController * _Nonnull)executeWith:(SignInUIPreferences * _Nullable)preferences;
++ (UIViewController * _Nonnull)executeWithPresenter:(UIViewController * _Nullable)presenter preferences:(SignInUIPreferences * _Nullable)preferences;
 + (void)execute;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1048,13 +1056,6 @@ SWIFT_CLASS("_TtC4PRUI20ComplexLayoutManager")
 - (nonnull instancetype)initWithOptions:(NTFLayoutOption)options SWIFT_UNAVAILABLE;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC4PRUI30ContentCardsPresentationConfig")
-@interface ContentCardsPresentationConfig : NSObject
-@property (nonatomic, readonly) NSNotificationName _Nullable updateNote;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1176,6 +1177,21 @@ SWIFT_CLASS("_TtC4PRUI19GlobalSearchTopView")
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI17HotSpotNotFoundVC")
+@interface HotSpotNotFoundVC : UIViewController
+- (void)loadView;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_RESILIENT_CLASS("_TtC4PRUI19HotSpotNotFoundView")
+@interface HotSpotNotFoundView : BrandGradientView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1327,7 +1343,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 
-
 SWIFT_PROTOCOL("_TtP4PRUI14NTFArticleCell_")
 @protocol NTFArticleCell
 - (void)setupWithArticle:(NTFArticleItem * _Nullable)article contentWidth:(CGFloat)contentWidth action:(FeedItemAction * _Nullable)action;
@@ -1453,11 +1468,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat anchorHeight
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
 @end
 
 
@@ -1593,20 +1608,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (PRMenuItem * _Nullable)exitSDKMenuItem SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<PRMenuItem *> * _Nonnull)appMenuItemsWithInfo:(NSArray<AppMenuItemInfo *> * _Nonnull)info SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nullable)defaultImageNameWithType:(PRAppMenuItemType _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nullable)imageNameWithIcon:(PRAppMenuIcon _Nonnull)icon SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface PRAppMenuVC (SWIFT_EXTENSION(PRUI))
 - (void)setupAccessibility;
-@end
-
-@class PRPromise;
-
-@interface PRAppPanelsManager (SWIFT_EXTENSION(PRUI)) <PRAppUIReadyDelegate>
-- (PRPromise * _Nonnull)getReady SWIFT_WARN_UNUSED_RESULT;
-- (void)updateFirstPanelWhenReadyWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
-- (PRPromise * _Nonnull)getAppUIReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1616,9 +1622,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (void)dismiss;
 @end
 
+@class PRPromise;
 
-@interface PRAppPanelsManager (SWIFT_EXTENSION(PRUI))
-- (void)presentRequiredAlerts;
+@interface PRAppPanelsManager (SWIFT_EXTENSION(PRUI)) <PRAppUIReadyDelegate>
+- (PRPromise * _Nonnull)getReady SWIFT_WARN_UNUSED_RESULT;
+- (void)updateFirstPanelWhenReadyWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (PRPromise * _Nonnull)getAppUIReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1664,25 +1673,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRBannersHub
 @end
 
 
-
-@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI)) <PRSourceCategoriesCollectionDelegate>
-- (void)discloseCategory:(id <CatalogNavigation> _Nonnull)value sender:(UIView * _Nullable)sender;
-@end
-
-@class CatalogEntity;
-
-@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly) BOOL shouldAnimateDisclosure;
-- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc animated:(BOOL)animated;
-- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc;
-- (void)applyFilter:(CatalogEntity * _Nonnull)filter;
-@end
-
-
-@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly) BOOL isCoBrandingEnabled;
-@property (nonatomic, readonly) CGFloat partnerBannerHeight;
-- (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
+@interface PRBasePaymentOptionsVC (SWIFT_EXTENSION(PRUI))
+- (void)trackViewDidAppear;
+- (void)trackPurchaseRestoreStarted;
 @end
 
 
@@ -1735,6 +1728,7 @@ SWIFT_CLASS("_TtC4PRUI11PRBottomBar")
 - (void)setupCell:(PRCatalogFilterTableCell * _Nonnull)cell item:(id <CatalogNavigationVariant> _Nonnull)item;
 @end
 
+@class CatalogEntity;
 
 @interface PRCatalogSection (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, strong) CatalogEntity * _Nullable entity;
@@ -1785,6 +1779,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @end
 
 
+SWIFT_CLASS("_TtC4PRUI20PREmailSignInOptions")
+@interface PREmailSignInOptions : NSObject
+@property (nonatomic, copy) NSString * _Nonnull userName;
+@property (nonatomic, copy) NSString * _Nonnull password;
+@property (nonatomic, copy) NSString * _Nullable serviceName;
+@property (nonatomic) BOOL linkToCurrentAccount;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 @interface PREmbedablePubHubVC (SWIFT_EXTENSION(PRUI))
 - (void)discloseCategory:(id <CatalogNavigation> _Nonnull)value sender:(UIView * _Nullable)sender;
@@ -1805,6 +1808,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (void)pushFullCatalogVC;
 - (PRSectionHeaderViewOption)headerViewOptionsWithSectionOptions:(PRCatalogSectionOption)sectionOptions section:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) BOOL shouldDiscard;
 @end
 
 
@@ -1940,6 +1944,11 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (BOOL)askOrderConfirmationWithOptions:(PROrderDeliveryOption)options completion:(PROrderCompletion _Nullable)completion SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+@end
+
 @class PRUserBundle;
 @class SubscriptionCancellationAdvisory;
 
@@ -1948,14 +1957,26 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 
-
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
+
+
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
+- (void)waitForHotSpotUpdateWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)stopHotSpotUpdateWaiting;
+@end
+
+@class SKProduct;
+
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (void)trackProductPurchaseStarted:(SKProduct * _Nonnull)product;
+- (void)trackProductPurchaseCompleted:(BOOL)success;
+- (void)trackProductPurchaseCompleted:(BOOL)success error:(NSError * _Nullable)error;
+- (void)trackRestoreCompleted:(BOOL)success;
+- (void)trackPremiumProductOffer;
 @end
 
 
@@ -1987,14 +2008,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 
 
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
-- (void)observeContentCards;
+- (void)toggleBannerWithType:(PRBannerType)type;
+- (void)showBannerWithType:(PRBannerType)type;
+- (void)hideBannerWithType:(PRBannerType)type;
 @end
 
 
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
-- (void)toggleBannerWithType:(PRBannerType)type;
-- (void)showBannerWithType:(PRBannerType)type;
-- (void)hideBannerWithType:(PRBannerType)type;
+- (void)observeContentCards;
 @end
 
 @class CatalogSectionScheme;
@@ -2018,11 +2039,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 - (PRCatalogSection * _Nullable)coBrandingSection SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface PRPubHubVC (SWIFT_EXTENSION(PRUI))
-- (void)dataSourceDidUpdate:(PRPubHubDataSource * _Nonnull)dataSource;
-@end
-
 @protocol PRHotspotStatusViewManagerProtocol;
 
 @interface PRPubHubVC (SWIFT_EXTENSION(PRUI))
@@ -2033,13 +2049,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 @end
 
 
+@class PRSourceItem;
 
 @interface PRRadioManager (SWIFT_EXTENSION(PRUI)) <RadioAnalyticsProvider>
+@property (nonatomic, readonly, strong) PRSourceItem * _Nullable dataSourceItem;
 @end
 
 
 SWIFT_UNAVAILABLE
 @interface PRRadioManager (SWIFT_EXTENSION(PRUI))
+- (void)_trackRadioView;
 - (void)_trackRadioStart;
 - (void)_trackRadioPauseRestart;
 - (void)_trackRadioComplete;
@@ -2121,13 +2140,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (void)updateActionState;
+- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
+- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
 @end
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
-- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
+- (void)updateActionState;
 @end
 
 
@@ -2143,9 +2162,36 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
+- (void)registerAsObserver;
+@end
+
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI)) <PRSourceCategoriesCollectionDelegate>
+- (void)discloseCategory:(id <CatalogNavigation> _Nonnull)value sender:(UIView * _Nullable)sender;
+@end
+
+
+
 @interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, readonly, copy) NSString * _Nonnull catalogPath;
 - (void)_trackCatalogView SWIFT_UNAVAILABLE;
+@end
+
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly) BOOL shouldAnimateDisclosure;
+- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc animated:(BOOL)animated;
+- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc;
+- (void)applyFilter:(CatalogEntity * _Nonnull)filter;
+@end
+
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly) BOOL isCoBrandingEnabled;
+@property (nonatomic, readonly) CGFloat partnerBannerHeight;
+- (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2210,12 +2256,17 @@ SWIFT_CLASS("_TtC4PRUI21PRVerticalBookmarksVC")
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
+@end
+
+
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (void)setupApplicationShortcutItems;
 @end
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
+- (void)setupThirdPartyLibrariesWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
 @end
 
 
@@ -2224,9 +2275,25 @@ SWIFT_CLASS("_TtC4PRUI21PRVerticalBookmarksVC")
 @end
 
 
+
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (void)setupHotSpotManager;
+- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UNNotificationResponse;
+
+SWIFT_UNAVAILABLE
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (void)processLaunchEnvironment;
 @end
+
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -2295,6 +2362,7 @@ SWIFT_CLASS("_TtC4PRUI16PaymentOptionsVC")
 @end
 
 
+
 @interface PhotoGalleryVC (SWIFT_EXTENSION(PRUI)) <RichMediaPhotoAnalyticsProvider>
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
@@ -2313,6 +2381,15 @@ SWIFT_CLASS("_TtC4PRUI15PlaceholderCell")
 - (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 @end
 
+@class UIPopoverPresentationController;
+
+SWIFT_CLASS_NAMED("PopoverPresentationController")
+@interface PRPopoverPresentationController : NSObject <UIPopoverPresentationControllerDelegate>
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
+- (void)popoverPresentationController:(UIPopoverPresentationController * _Nonnull)popoverPresentationController willRepositionPopoverToRect:(CGRect * _Nonnull)rect inView:(UIView * _Nonnull * _Nonnull)view;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC4PRUI17PremiumBannerView")
 @interface PremiumBannerView : PRPremiumBannerView
@@ -2323,7 +2400,6 @@ SWIFT_CLASS("_TtC4PRUI17PremiumBannerView")
 @end
 
 
-@class BrandGradientView;
 @class UIButton;
 
 @interface PremiumBannerView (SWIFT_EXTENSION(PRUI))
@@ -2472,7 +2548,7 @@ SWIFT_RESILIENT_CLASS("_TtC4PRUI23SettingsTableFooterView")
 SWIFT_CLASS("_TtC4PRUI19SignInUIPreferences")
 @interface SignInUIPreferences : NSObject
 - (nonnull instancetype)init;
-- (nonnull instancetype)initWithNavigationController:(UINavigationController * _Nullable)navigationController hideBackButton:(BOOL)hideBackButton showSkipButton:(BOOL)showSkipButton isMandatory:(BOOL)isMandatory mode:(PRAuthorizeVCMode)mode OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithHideBackButton:(BOOL)hideBackButton showSkipButton:(BOOL)showSkipButton isMandatory:(BOOL)isMandatory mode:(PRAuthorizeVCMode)mode OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -2593,11 +2669,9 @@ SWIFT_CLASS("_TtC4PRUI17TwoTextFieldsView")
 @end
 
 
-
 @interface UINavigationController (SWIFT_EXTENSION(PRUI)) <ViewRefreshable>
 - (void)refreshView;
 @end
-
 
 
 
@@ -2607,6 +2681,7 @@ SWIFT_CLASS("_TtC4PRUI17TwoTextFieldsView")
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle completion:(PRThumbnailHandler _Nullable)completion;
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider;
 @end
+
 
 
 @interface UINavigationItem (SWIFT_EXTENSION(PRUI))
@@ -2686,11 +2761,7 @@ SWIFT_CLASS("_TtC4PRUI19UITextViewWithLinks")
 
 
 @interface UIViewController (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly, strong) UIViewController * _Nullable popoverContainer;
-- (CGSize)popoverContentSize SWIFT_WARN_UNUSED_RESULT;
-- (CGSize)popoverContentSizeWithHeight:(CGFloat)height SWIFT_WARN_UNUSED_RESULT;
-- (CGSize)signInPopoverContentSize SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)isInPopoverWithArrow SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull analyticsUUID;
 @end
 
 
@@ -2698,6 +2769,16 @@ SWIFT_CLASS("_TtC4PRUI19UITextViewWithLinks")
 @property (nonatomic, readonly) CGFloat searchBarRegularWidth;
 @property (nonatomic, readonly) BOOL isInSearchFlow;
 @property (nonatomic, readonly) BOOL isGlobalSearchPresented;
+@end
+
+
+@interface UIViewController (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, strong) PRPopoverPresentationController * _Nullable popoverPresentationDelegate;
+@property (nonatomic, readonly, strong) UIViewController * _Nullable popoverContainer;
+- (CGSize)popoverContentSize SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)popoverContentSizeWithHeight:(CGFloat)height SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)signInPopoverContentSize SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isInPopoverWithArrow SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class LPLinkMetadata;
@@ -2761,15 +2842,6 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)hideActivityIndicator;
 @end
 
-
-@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
-- (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<id <NTFItem>> * _Nullable)articleSetWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-- (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class NTFArticleSetCell;
 
 @interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
@@ -2778,6 +2850,15 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)registerFeedLayoutItemCells;
 - (SWIFT_METATYPE(NTFArticleSetCell) _Nullable)cellClassWithLayoutItem:(AbstractFeedLayoutItem * _Nonnull)layoutItem SWIFT_WARN_UNUSED_RESULT;
 - (void)setupCoBranding;
+@end
+
+
+@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
+- (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<id <NTFItem>> * _Nullable)articleSetWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+- (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2799,6 +2880,24 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 
 @interface WKWebView (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, copy) void (^ _Nullable contentSizeObserver)(CGSize);
+- (void)makeTransparent;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI16WelcomeHotSpotVC")
+@interface WelcomeHotSpotVC : UIViewController
+@property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
+- (void)loadView;
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^ _Nullable)(void))completion;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_RESILIENT_CLASS("_TtC4PRUI18WelcomeHotSpotView")
+@interface WelcomeHotSpotView : BrandGradientView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
@@ -3212,6 +3311,7 @@ SWIFT_CLASS("_TtC4PRUI15AppMenuItemInfo")
 @interface AppMenuItemInfo : NSObject
 @property (nonatomic, readonly) PRAppMenuItemType _Nonnull type;
 @property (nonatomic, readonly) PRAppMenuIcon _Nullable icon;
+@property (nonatomic, readonly, copy) NSString * _Nullable customIconName;
 @property (nonatomic, readonly, copy) NSString * _Nullable title;
 @property (nonatomic, readonly, copy) NSString * _Nullable url;
 @property (nonatomic, readonly) BOOL isFolded;
@@ -3232,6 +3332,13 @@ SWIFT_CLASS("_TtC4PRUI25AppMenuSchemeProviderImpl")
 @property (nonatomic, readonly, copy) NSArray<AppMenuItemInfo *> * _Nonnull items;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (AppMenuItemInfo * _Nullable)firstItemWithType:(PRAppMenuItemType _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI33AppPanelsManagerAlertsCoordinator")
+@interface AppPanelsManagerAlertsCoordinator : NSObject
+- (void)presentAlerts;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSMutableParagraphStyle;
@@ -3774,7 +3881,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 
 SWIFT_CLASS("_TtC4PRUI22CommandShowEmailSignIn")
 @interface CommandShowEmailSignIn : PROnlineCommand
-+ (void)executeWithOptions:(PREmailSignInOptions * _Nullable)options uiPreference:(SignInUIPreferences * _Nonnull)uiPreference;
++ (void)executeWithPresenter:(UIViewController * _Nullable)presenter options:(PREmailSignInOptions * _Nullable)options uiPreference:(SignInUIPreferences * _Nonnull)uiPreference;
 + (void)executeWithParameters:(NSDictionary * _Nullable)parameters;
 - (nonnull instancetype)initWithName:(PRCommandName _Nonnull)name OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -3824,7 +3931,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) PRCommandName _Nonnu
 + (PRCommandName _Nonnull)defaultCommandName SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 + (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)executeForAutoDownload:(BOOL)autoDownload;
++ (void)executeForAutoDownload:(BOOL)autoDownload completionHandler:(void (^ _Nonnull)(void))completionHandler;
 - (void)invokeWithParameters:(NSDictionary * _Nullable)parameters;
 - (nonnull instancetype)initWithName:(PRCommandName _Nonnull)name OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -3833,7 +3940,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 
 SWIFT_CLASS("_TtC4PRUI24CommandShowSignInOptions")
 @interface CommandShowSignInOptions : NSObject <PRExecutable>
-+ (UIViewController * _Nonnull)executeWith:(SignInUIPreferences * _Nullable)preferences;
++ (UIViewController * _Nonnull)executeWithPresenter:(UIViewController * _Nullable)presenter preferences:(SignInUIPreferences * _Nullable)preferences;
 + (void)execute;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -3870,13 +3977,6 @@ SWIFT_CLASS("_TtC4PRUI20ComplexLayoutManager")
 - (nonnull instancetype)initWithOptions:(NTFLayoutOption)options SWIFT_UNAVAILABLE;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC4PRUI30ContentCardsPresentationConfig")
-@interface ContentCardsPresentationConfig : NSObject
-@property (nonatomic, readonly) NSNotificationName _Nullable updateNote;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -3998,6 +4098,21 @@ SWIFT_CLASS("_TtC4PRUI19GlobalSearchTopView")
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI17HotSpotNotFoundVC")
+@interface HotSpotNotFoundVC : UIViewController
+- (void)loadView;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_RESILIENT_CLASS("_TtC4PRUI19HotSpotNotFoundView")
+@interface HotSpotNotFoundView : BrandGradientView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
@@ -4149,7 +4264,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 
-
 SWIFT_PROTOCOL("_TtP4PRUI14NTFArticleCell_")
 @protocol NTFArticleCell
 - (void)setupWithArticle:(NTFArticleItem * _Nullable)article contentWidth:(CGFloat)contentWidth action:(FeedItemAction * _Nullable)action;
@@ -4275,11 +4389,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat anchorHeight
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
 @end
 
 
-@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <NTFItem>
+@interface NTFSmartArticleDataItem (SWIFT_EXTENSION(PRUI)) <FlowArticle>
 @end
 
 
@@ -4415,20 +4529,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (PRMenuItem * _Nullable)exitSDKMenuItem SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<PRMenuItem *> * _Nonnull)appMenuItemsWithInfo:(NSArray<AppMenuItemInfo *> * _Nonnull)info SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nullable)defaultImageNameWithType:(PRAppMenuItemType _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nullable)imageNameWithIcon:(PRAppMenuIcon _Nonnull)icon SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface PRAppMenuVC (SWIFT_EXTENSION(PRUI))
 - (void)setupAccessibility;
-@end
-
-@class PRPromise;
-
-@interface PRAppPanelsManager (SWIFT_EXTENSION(PRUI)) <PRAppUIReadyDelegate>
-- (PRPromise * _Nonnull)getReady SWIFT_WARN_UNUSED_RESULT;
-- (void)updateFirstPanelWhenReadyWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
-- (PRPromise * _Nonnull)getAppUIReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -4438,9 +4543,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (void)dismiss;
 @end
 
+@class PRPromise;
 
-@interface PRAppPanelsManager (SWIFT_EXTENSION(PRUI))
-- (void)presentRequiredAlerts;
+@interface PRAppPanelsManager (SWIFT_EXTENSION(PRUI)) <PRAppUIReadyDelegate>
+- (PRPromise * _Nonnull)getReady SWIFT_WARN_UNUSED_RESULT;
+- (void)updateFirstPanelWhenReadyWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (PRPromise * _Nonnull)getAppUIReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -4486,25 +4594,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRBannersHub
 @end
 
 
-
-@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI)) <PRSourceCategoriesCollectionDelegate>
-- (void)discloseCategory:(id <CatalogNavigation> _Nonnull)value sender:(UIView * _Nullable)sender;
-@end
-
-@class CatalogEntity;
-
-@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly) BOOL shouldAnimateDisclosure;
-- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc animated:(BOOL)animated;
-- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc;
-- (void)applyFilter:(CatalogEntity * _Nonnull)filter;
-@end
-
-
-@interface PRBaseStoreCollectionVC (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly) BOOL isCoBrandingEnabled;
-@property (nonatomic, readonly) CGFloat partnerBannerHeight;
-- (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
+@interface PRBasePaymentOptionsVC (SWIFT_EXTENSION(PRUI))
+- (void)trackViewDidAppear;
+- (void)trackPurchaseRestoreStarted;
 @end
 
 
@@ -4557,6 +4649,7 @@ SWIFT_CLASS("_TtC4PRUI11PRBottomBar")
 - (void)setupCell:(PRCatalogFilterTableCell * _Nonnull)cell item:(id <CatalogNavigationVariant> _Nonnull)item;
 @end
 
+@class CatalogEntity;
 
 @interface PRCatalogSection (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, strong) CatalogEntity * _Nullable entity;
@@ -4607,6 +4700,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @end
 
 
+SWIFT_CLASS("_TtC4PRUI20PREmailSignInOptions")
+@interface PREmailSignInOptions : NSObject
+@property (nonatomic, copy) NSString * _Nonnull userName;
+@property (nonatomic, copy) NSString * _Nonnull password;
+@property (nonatomic, copy) NSString * _Nullable serviceName;
+@property (nonatomic) BOOL linkToCurrentAccount;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 @interface PREmbedablePubHubVC (SWIFT_EXTENSION(PRUI))
 - (void)discloseCategory:(id <CatalogNavigation> _Nonnull)value sender:(UIView * _Nullable)sender;
@@ -4627,6 +4729,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (void)pushFullCatalogVC;
 - (PRSectionHeaderViewOption)headerViewOptionsWithSectionOptions:(PRCatalogSectionOption)sectionOptions section:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) BOOL shouldDiscard;
 @end
 
 
@@ -4762,6 +4865,11 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (BOOL)askOrderConfirmationWithOptions:(PROrderDeliveryOption)options completion:(PROrderCompletion _Nullable)completion SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+@end
+
 @class PRUserBundle;
 @class SubscriptionCancellationAdvisory;
 
@@ -4770,14 +4878,26 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 @end
 
 
-
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
+
+
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
+- (void)waitForHotSpotUpdateWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)stopHotSpotUpdateWaiting;
+@end
+
+@class SKProduct;
+
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (void)trackProductPurchaseStarted:(SKProduct * _Nonnull)product;
+- (void)trackProductPurchaseCompleted:(BOOL)success;
+- (void)trackProductPurchaseCompleted:(BOOL)success error:(NSError * _Nullable)error;
+- (void)trackRestoreCompleted:(BOOL)success;
+- (void)trackPremiumProductOffer;
 @end
 
 
@@ -4809,14 +4929,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 
 
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
-- (void)observeContentCards;
+- (void)toggleBannerWithType:(PRBannerType)type;
+- (void)showBannerWithType:(PRBannerType)type;
+- (void)hideBannerWithType:(PRBannerType)type;
 @end
 
 
 @interface PRPubHubDataSource (SWIFT_EXTENSION(PRUI))
-- (void)toggleBannerWithType:(PRBannerType)type;
-- (void)showBannerWithType:(PRBannerType)type;
-- (void)hideBannerWithType:(PRBannerType)type;
+- (void)observeContentCards;
 @end
 
 @class CatalogSectionScheme;
@@ -4840,11 +4960,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 - (PRCatalogSection * _Nullable)coBrandingSection SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface PRPubHubVC (SWIFT_EXTENSION(PRUI))
-- (void)dataSourceDidUpdate:(PRPubHubDataSource * _Nonnull)dataSource;
-@end
-
 @protocol PRHotspotStatusViewManagerProtocol;
 
 @interface PRPubHubVC (SWIFT_EXTENSION(PRUI))
@@ -4855,13 +4970,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 @end
 
 
+@class PRSourceItem;
 
 @interface PRRadioManager (SWIFT_EXTENSION(PRUI)) <RadioAnalyticsProvider>
+@property (nonatomic, readonly, strong) PRSourceItem * _Nullable dataSourceItem;
 @end
 
 
 SWIFT_UNAVAILABLE
 @interface PRRadioManager (SWIFT_EXTENSION(PRUI))
+- (void)_trackRadioView;
 - (void)_trackRadioStart;
 - (void)_trackRadioPauseRestart;
 - (void)_trackRadioComplete;
@@ -4943,13 +5061,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (void)updateActionState;
+- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
+- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
 @end
 
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
-- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
+- (void)updateActionState;
 @end
 
 
@@ -4965,9 +5083,36 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 
 
 
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
+- (void)registerAsObserver;
+@end
+
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI)) <PRSourceCategoriesCollectionDelegate>
+- (void)discloseCategory:(id <CatalogNavigation> _Nonnull)value sender:(UIView * _Nullable)sender;
+@end
+
+
+
 @interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, readonly, copy) NSString * _Nonnull catalogPath;
 - (void)_trackCatalogView SWIFT_UNAVAILABLE;
+@end
+
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly) BOOL shouldAnimateDisclosure;
+- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc animated:(BOOL)animated;
+- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc;
+- (void)applyFilter:(CatalogEntity * _Nonnull)filter;
+@end
+
+
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly) BOOL isCoBrandingEnabled;
+@property (nonatomic, readonly) CGFloat partnerBannerHeight;
+- (UIStackView * _Nonnull)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -5032,12 +5177,17 @@ SWIFT_CLASS("_TtC4PRUI21PRVerticalBookmarksVC")
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
+@end
+
+
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (void)setupApplicationShortcutItems;
 @end
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
+- (void)setupThirdPartyLibrariesWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
 @end
 
 
@@ -5046,9 +5196,25 @@ SWIFT_CLASS("_TtC4PRUI21PRVerticalBookmarksVC")
 @end
 
 
+
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (void)setupHotSpotManager;
+- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UNNotificationResponse;
+
+SWIFT_UNAVAILABLE
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (void)processLaunchEnvironment;
 @end
+
 
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -5117,6 +5283,7 @@ SWIFT_CLASS("_TtC4PRUI16PaymentOptionsVC")
 @end
 
 
+
 @interface PhotoGalleryVC (SWIFT_EXTENSION(PRUI)) <RichMediaPhotoAnalyticsProvider>
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 @property (nonatomic, readonly, strong) id <IssueAnalyticsProvider> _Nullable issue;
@@ -5135,6 +5302,15 @@ SWIFT_CLASS("_TtC4PRUI15PlaceholderCell")
 - (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 @end
 
+@class UIPopoverPresentationController;
+
+SWIFT_CLASS_NAMED("PopoverPresentationController")
+@interface PRPopoverPresentationController : NSObject <UIPopoverPresentationControllerDelegate>
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
+- (void)popoverPresentationController:(UIPopoverPresentationController * _Nonnull)popoverPresentationController willRepositionPopoverToRect:(CGRect * _Nonnull)rect inView:(UIView * _Nonnull * _Nonnull)view;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC4PRUI17PremiumBannerView")
 @interface PremiumBannerView : PRPremiumBannerView
@@ -5145,7 +5321,6 @@ SWIFT_CLASS("_TtC4PRUI17PremiumBannerView")
 @end
 
 
-@class BrandGradientView;
 @class UIButton;
 
 @interface PremiumBannerView (SWIFT_EXTENSION(PRUI))
@@ -5294,7 +5469,7 @@ SWIFT_RESILIENT_CLASS("_TtC4PRUI23SettingsTableFooterView")
 SWIFT_CLASS("_TtC4PRUI19SignInUIPreferences")
 @interface SignInUIPreferences : NSObject
 - (nonnull instancetype)init;
-- (nonnull instancetype)initWithNavigationController:(UINavigationController * _Nullable)navigationController hideBackButton:(BOOL)hideBackButton showSkipButton:(BOOL)showSkipButton isMandatory:(BOOL)isMandatory mode:(PRAuthorizeVCMode)mode OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithHideBackButton:(BOOL)hideBackButton showSkipButton:(BOOL)showSkipButton isMandatory:(BOOL)isMandatory mode:(PRAuthorizeVCMode)mode OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -5415,11 +5590,9 @@ SWIFT_CLASS("_TtC4PRUI17TwoTextFieldsView")
 @end
 
 
-
 @interface UINavigationController (SWIFT_EXTENSION(PRUI)) <ViewRefreshable>
 - (void)refreshView;
 @end
-
 
 
 
@@ -5429,6 +5602,7 @@ SWIFT_CLASS("_TtC4PRUI17TwoTextFieldsView")
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle completion:(PRThumbnailHandler _Nullable)completion;
 - (void)setupTitleViewWithMastheadProvider:(id <MastheadProvider> _Nonnull)mastheadProvider;
 @end
+
 
 
 @interface UINavigationItem (SWIFT_EXTENSION(PRUI))
@@ -5508,11 +5682,7 @@ SWIFT_CLASS("_TtC4PRUI19UITextViewWithLinks")
 
 
 @interface UIViewController (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly, strong) UIViewController * _Nullable popoverContainer;
-- (CGSize)popoverContentSize SWIFT_WARN_UNUSED_RESULT;
-- (CGSize)popoverContentSizeWithHeight:(CGFloat)height SWIFT_WARN_UNUSED_RESULT;
-- (CGSize)signInPopoverContentSize SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)isInPopoverWithArrow SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull analyticsUUID;
 @end
 
 
@@ -5520,6 +5690,16 @@ SWIFT_CLASS("_TtC4PRUI19UITextViewWithLinks")
 @property (nonatomic, readonly) CGFloat searchBarRegularWidth;
 @property (nonatomic, readonly) BOOL isInSearchFlow;
 @property (nonatomic, readonly) BOOL isGlobalSearchPresented;
+@end
+
+
+@interface UIViewController (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, strong) PRPopoverPresentationController * _Nullable popoverPresentationDelegate;
+@property (nonatomic, readonly, strong) UIViewController * _Nullable popoverContainer;
+- (CGSize)popoverContentSize SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)popoverContentSizeWithHeight:(CGFloat)height SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)signInPopoverContentSize SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isInPopoverWithArrow SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class LPLinkMetadata;
@@ -5583,15 +5763,6 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)hideActivityIndicator;
 @end
 
-
-@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
-- (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<id <NTFItem>> * _Nullable)articleSetWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-- (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class NTFArticleSetCell;
 
 @interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
@@ -5600,6 +5771,15 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)registerFeedLayoutItemCells;
 - (SWIFT_METATYPE(NTFArticleSetCell) _Nullable)cellClassWithLayoutItem:(AbstractFeedLayoutItem * _Nonnull)layoutItem SWIFT_WARN_UNUSED_RESULT;
 - (void)setupCoBranding;
+@end
+
+
+@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
+- (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<id <NTFItem>> * _Nullable)articleSetWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+- (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -5621,6 +5801,24 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 
 @interface WKWebView (SWIFT_EXTENSION(PRUI))
 @property (nonatomic, copy) void (^ _Nullable contentSizeObserver)(CGSize);
+- (void)makeTransparent;
+@end
+
+
+SWIFT_CLASS("_TtC4PRUI16WelcomeHotSpotVC")
+@interface WelcomeHotSpotVC : UIViewController
+@property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
+- (void)loadView;
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^ _Nullable)(void))completion;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_RESILIENT_CLASS("_TtC4PRUI18WelcomeHotSpotView")
+@interface WelcomeHotSpotView : BrandGradientView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 

@@ -1,7 +1,8 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUtils
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUtils
 import Compression
+import CoreLocation
 import CryptoKit
 import Foundation
 import PRConfiguration
@@ -12,6 +13,9 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+extension CoreLocation.CLLocationCoordinate2D : Swift.Equatable {
+  public static func == (left: CoreLocation.CLLocationCoordinate2D, right: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+}
 @objc extension ObjectiveC.NSObject {
   @objc dynamic public class var className: Swift.String {
     @objc get

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PRMapAnnotation.h"
-#import "PRHotSpotManager.h"
+#import "PRHotSpotStatus.h"
 
 // dictionary's keys
 extern NSString *const kHSId;

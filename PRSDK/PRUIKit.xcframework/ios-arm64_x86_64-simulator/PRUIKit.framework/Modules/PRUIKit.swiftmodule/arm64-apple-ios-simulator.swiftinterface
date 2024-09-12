@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUIKit
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUIKit
 import Combine
 import CoreGraphics
 import Foundation
@@ -40,6 +40,9 @@ import _SwiftConcurrencyShims
   @objc @_Concurrency.MainActor(unsafe) dynamic public func blurImage(_ blurRadius: CoreFoundation.CGFloat) -> UIKit.UIImage?
   @objc @discardableResult
   @_Concurrency.MainActor(unsafe) dynamic open func addBlurSubview(blurFrame: CoreFoundation.CGRect, style: UIKit.UIBlurEffect.Style, color: UIKit.UIColor? = nil, createBlur: () -> UIKit.UIVisualEffectView) -> UIKit.UIVisualEffectView
+}
+extension SwiftUI.Image {
+  public init?(bundledWithName name: Swift.String)
 }
 extension PRUIKit.PRSafariVC {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func handleInitialPresentation(_ url: Foundation.URL, components: Foundation.URLComponents) -> Swift.Bool
@@ -373,6 +376,23 @@ public protocol TabsPanelDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
   @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
   @objc deinit
+}
+public struct ActionButton : SwiftUI.UIViewRepresentable {
+  public enum Style {
+    case simple, action, clearAction, white
+    public static func == (a: PRUIKit.ActionButton.Style, b: PRUIKit.ActionButton.Style) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public init(style: PRUIKit.ActionButton.Style, title: Swift.String, action: UIKit.UIAction?)
+  public init(style: PRUIKit.ActionButton.Style, title: Swift.String, action: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: PRUIKit.ActionButton.Context) -> UIKit.UIButton
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ button: UIKit.UIButton, context: PRUIKit.ActionButton.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = UIKit.UIButton
 }
 @objc extension UIKit.UIView {
   @objc @_Concurrency.MainActor(unsafe) dynamic public class var scaleCoefficient: CoreFoundation.CGFloat {
@@ -1064,6 +1084,7 @@ extension CoreFoundation.CGSize {
 extension SwiftUI.Text {
   public init?(optional content: Swift.String?)
   public init(_ attributedString: Foundation.NSAttributedString)
+  public init(localizedKey: Swift.String)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class PRRoundedButton : PRUIKit.EasyTapButton {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
@@ -1140,6 +1161,9 @@ extension SwiftUI.Text {
 }
 extension UIKit.UITableView {
   @_Concurrency.MainActor(unsafe) convenience public init(style: UIKit.UITableView.Style = .plain)
+}
+extension UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) public func discard(_ vc: UIKit.UIViewController)
 }
 @objc extension UIKit.UIFontMetrics {
   @objc(scaledFontForFont:contentCategoryAdjustment:) dynamic public func scaledFont(for font: UIKit.UIFont, contentCategoryAdjustment: Swift.Int) -> UIKit.UIFont
@@ -1220,7 +1244,6 @@ extension UIKit.UIColor {
   @_Concurrency.MainActor(unsafe) @objc convenience dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @objc deinit
 }
 extension UIKit.UICollectionView {
@@ -1549,6 +1572,8 @@ extension PRUIKit.PRBarButtonSystemItem : Swift.Hashable {}
 extension PRUIKit.PRBarButtonSystemItem : Swift.RawRepresentable {}
 extension PRUIKit.Stack.Direction : Swift.Equatable {}
 extension PRUIKit.Stack.Direction : Swift.Hashable {}
+extension PRUIKit.ActionButton.Style : Swift.Equatable {}
+extension PRUIKit.ActionButton.Style : Swift.Hashable {}
 extension UIKit.UINavigationBarAppearance.BackgroundType : Swift.Equatable {}
 extension UIKit.UINavigationBarAppearance.BackgroundType : Swift.Hashable {}
 extension UIKit.UINavigationBarAppearance.BackgroundType : Swift.RawRepresentable {}

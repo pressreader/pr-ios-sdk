@@ -62,6 +62,7 @@ extern PRAppMenuIcon const PRAppMenuIconWeather;
 extern PRAppMenuIcon const PRAppMenuIconPuzzles;
 extern PRAppMenuIcon const PRAppMenuIconVideo;
 extern PRAppMenuIcon const PRAppMenuIconBrandedVideo;
+extern PRAppMenuIcon const PRAppMenuIconCustom;
 
 extern NSString *const PRAppMenuDidChangeNotification;
 

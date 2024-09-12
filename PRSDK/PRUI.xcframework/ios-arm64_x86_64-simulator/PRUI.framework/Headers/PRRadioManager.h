@@ -34,8 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRRadioManager : NSObject
 
-+ (nullable NSURL *)streamingURLForArticle:(id<NTFArticle>)article;
-
 - (instancetype)initWithSourceItem:(PRSourceItem *)sourceItem;
 - (instancetype)initWithDataSource:(id<PRRadioDataSource>)dataSource;
 

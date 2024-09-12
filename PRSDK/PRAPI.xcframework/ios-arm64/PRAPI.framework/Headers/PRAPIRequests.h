@@ -39,11 +39,3 @@ extern PRAPIRequest const PRAPIRequestGetTemplateURL;
 extern PRAPIRequest const PRAPIRequestAttachIPhoneUser;
 extern PRAPIRequest const PRAPIRequestAuthorizeUserByExternalAuthTicket;
 extern PRAPIRequest const PRAPIRequestGetTrackingConfig;
-
-// AdDisplay API
-extern PRAPIRequest const PRGetAdSplashScreenRequest;
-extern PRAPIRequest const PRGetAdPlasticBagRequest;
-extern PRAPIRequest const PRGetInterstitialAdsRequest;
-extern PRAPIRequest const PRGetAdPopUpBannersRequest;
-extern PRAPIRequest const PRGetTextViewAdRequest;
-extern PRAPIRequest const PRGetOrderScreenAdRequest;

@@ -917,7 +917,6 @@ SWIFT_CLASS("_TtC7PRUIKit19ThumbnailShadowView")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)layoutSubviews;
-- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 @end
 
 
@@ -1016,13 +1015,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIButton * _
 
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull selectionColor;)
++ (UIColor * _Nonnull)selectionColor SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull selectionColor;)
-+ (UIColor * _Nonnull)selectionColor SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
 @end
 
 
@@ -1095,13 +1094,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
-+ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style pointSizeCorrection:(CGFloat)pointSizeCorrection SWIFT_WARN_UNUSED_RESULT;
-+ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style scale:(CGFloat)scale SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) UIFontWeight weight;
 @end
 
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) UIFontWeight weight;
++ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style pointSizeCorrection:(CGFloat)pointSizeCorrection SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)preferredFontForTextStyle:(UIFontTextStyle _Nonnull)style scale:(CGFloat)scale SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1193,16 +1192,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIFont * _Nu
 
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
-@end
-
-
-@interface UILabel (SWIFT_EXTENSION(PRUIKit))
 - (void)updateAppearance;
 - (void)updateAppearanceOfLinks;
 @end
 
+
+
+@interface UILabel (SWIFT_EXTENSION(PRUIKit))
+- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+@end
 
 @class NSAttributedString;
 
@@ -1244,6 +1243,7 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 };
 
 
+
 @interface UINavigationController (SWIFT_EXTENSION(PRUIKit))
 - (void)pushViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
 - (void)popViewControllerWithAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
@@ -1266,11 +1266,11 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 
-
 @interface UINavigationItem (SWIFT_EXTENSION(PRUIKit))
 - (void)setLeftBarButtonItems:(NSArray<UIBarButtonItem *> * _Nullable)items animated:(BOOL)animated startInset:(CGFloat)startInset endInset:(CGFloat)endInset;
 - (void)setRightBarButtonItems:(NSArray<UIBarButtonItem *> * _Nullable)items animated:(BOOL)animated startInset:(CGFloat)startInset endInset:(CGFloat)endInset;
 @end
+
 
 
 @interface UIStackView (SWIFT_EXTENSION(PRUIKit))
@@ -1318,11 +1318,6 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (void)forceRelayout;
-@end
-
-
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
 - (void)rightToLeftAllSubviews;
 @end
 
@@ -1332,14 +1327,26 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
+- (void)forceRelayout;
+@end
+
+
+
+
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
+- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
 @property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
 @end
 
 
+SWIFT_UNAVAILABLE
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
 
@@ -1348,13 +1355,6 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
 - (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-SWIFT_UNAVAILABLE
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
 

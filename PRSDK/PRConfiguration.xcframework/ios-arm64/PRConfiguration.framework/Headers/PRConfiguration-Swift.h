@@ -369,6 +369,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdsType * _N
 @class ComScoreAnalyticsConfig;
 @class TreasureDataAnalyticsConfig;
 @class MarfeelAnalyticsConfig;
+@class SpoorAnalyticsConfig;
 
 SWIFT_CLASS("_TtC15PRConfiguration15AnalyticsConfig")
 @interface AnalyticsConfig : NSObject
@@ -380,6 +381,7 @@ SWIFT_CLASS("_TtC15PRConfiguration15AnalyticsConfig")
 @property (nonatomic, readonly, strong) ComScoreAnalyticsConfig * _Nonnull comScore;
 @property (nonatomic, readonly, strong) TreasureDataAnalyticsConfig * _Nonnull treasureData;
 @property (nonatomic, readonly, strong) MarfeelAnalyticsConfig * _Nonnull marfeel;
+@property (nonatomic, readonly, strong) SpoorAnalyticsConfig * _Nonnull spoor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -412,6 +414,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AnalyticsUse
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AnalyticsUserId * _Nonnull internalRefNumber;)
 + (AnalyticsUserId * _Nonnull)internalRefNumber SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration13AppInfoConfig")
+@interface AppInfoConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable appId;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -730,6 +739,49 @@ SWIFT_CLASS("_TtC15PRConfiguration17HomeSourcesConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class HotSpotNotificationsConfig;
+
+SWIFT_CLASS("_TtC15PRConfiguration13HotSpotConfig")
+@interface HotSpotConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) BOOL isMapEnabled;
+@property (nonatomic, readonly) BOOL isCupButtonEnabled;
+@property (nonatomic, readonly) BOOL isOptOut;
+@property (nonatomic, readonly, copy) NSString * _Nonnull proximityUUID;
+@property (nonatomic, readonly) BOOL isGeoFencingEnabled;
+@property (nonatomic, readonly, strong) HotSpotNotificationsConfig * _Nonnull notifications;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class HotSpotLocalNotificationsConfig;
+@class HotSpotWelcomeNotificationsConfig;
+
+SWIFT_CLASS_NAMED("NotificationsConfig")
+@interface HotSpotNotificationsConfig : NSObject
+@property (nonatomic, readonly, strong) HotSpotLocalNotificationsConfig * _Nonnull local;
+@property (nonatomic, readonly, strong) HotSpotWelcomeNotificationsConfig * _Nonnull welcome;
+@property (nonatomic, readonly) BOOL isEnabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("LocalConfig")
+@interface HotSpotLocalNotificationsConfig : NSObject
+@property (nonatomic, readonly) NSTimeInterval timeInterval;
+@property (nonatomic, readonly) NSTimeInterval requestReminderTimeInterval;
+@property (nonatomic, readonly) BOOL showOnSwitch;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("WelcomeConfig")
+@interface HotSpotWelcomeNotificationsConfig : NSObject
+@property (nonatomic, readonly) NSTimeInterval timeInterval;
+@property (nonatomic, readonly) BOOL showOnSwitch;
+@property (nonatomic, readonly) BOOL showOnStart;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC15PRConfiguration9IAPConfig")
 @interface IAPConfig : NSObject
@@ -934,13 +986,6 @@ typedef SWIFT_ENUM(NSInteger, PRCatalogSectionType, open) {
 + (void)refresh;
 @end
 
-@class NSURL;
-
-@interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSURL * _Nullable spoorBaseUrl;)
-+ (NSURL * _Nullable)spoorBaseUrl SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
 + (void)registerDependencies;
@@ -1003,6 +1048,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PrintConfig 
 + (PrintConfig * _Nonnull)printConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccountConfig * _Nonnull accountConfig;)
 + (AccountConfig * _Nonnull)accountConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) HotSpotConfig * _Nonnull hotSpotConfig;)
++ (HotSpotConfig * _Nonnull)hotSpotConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AppInfoConfig * _Nonnull appInfoConfig;)
++ (AppInfoConfig * _Nonnull)appInfoConfig SWIFT_WARN_UNUSED_RESULT;
++ (void)setAppInfoConfig:(AppInfoConfig * _Nonnull)value;
 @end
 
 
@@ -1041,8 +1091,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CustomerSupp
 + (CustomerSupportConfigKey * _Nonnull)customerSupport SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull deallocAlertClasses;)
 + (PRConfigKey * _Nonnull)deallocAlertClasses SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull hotspotAllowed;)
-+ (PRConfigKey * _Nonnull)hotspotAllowed SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LibraryConfigKey * _Nonnull library;)
 + (LibraryConfigKey * _Nonnull)library SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LocalServerConfigKey * _Nonnull localServer;)
@@ -1077,6 +1125,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 @interface PROnboardingConfig (SWIFT_EXTENSION(PRConfiguration))
 @property (nonatomic, readonly) BOOL showTrialSubscriptionIntro;
 @property (nonatomic, readonly) BOOL isSignInDisabled;
+@property (nonatomic, readonly) BOOL isPublicationSearchEnabled;
 @end
 
 
@@ -1217,11 +1266,19 @@ SWIFT_CLASS("_TtC15PRConfiguration11ShareConfig")
 @end
 
 
+SWIFT_CLASS("_TtC15PRConfiguration30SplashScreenAnimatedLogoConfig")
+@interface SplashScreenAnimatedLogoConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) BOOL isSpecial;
+@property (nonatomic, readonly) CGFloat progress;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC15PRConfiguration18SplashScreenConfig")
 @interface SplashScreenConfig : NSObject
 @property (nonatomic, readonly) BOOL isPoweredByImageEnabled;
-@property (nonatomic, readonly) BOOL isAnimatedLogoEnabled;
-@property (nonatomic, readonly) CGFloat animatedLogoProgress;
+@property (nonatomic, strong) SplashScreenAnimatedLogoConfig * _Nonnull animatedLogo;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1229,8 +1286,12 @@ SWIFT_CLASS("_TtC15PRConfiguration18SplashScreenConfig")
 SWIFT_CLASS("_TtC15PRConfiguration21SplashScreenConfigKey")
 @interface SplashScreenConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull poweredByImageEnabled;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull animatedLogoEnabled;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull animatedLogoProgress;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15PRConfiguration20SpoorAnalyticsConfig")
+@interface SpoorAnalyticsConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
