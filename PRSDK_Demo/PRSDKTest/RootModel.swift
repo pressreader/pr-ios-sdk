@@ -64,11 +64,11 @@ final class RootModel {
     }
     
     var isCatalogEnabled: Bool {
-        !self.cids.isEmpty && !self.isLocalService
+        self.cids?.isEmpty == false && !self.isLocalService
     }
         
     var catalogItemsCount: Int {
-        self.canShowCatalog ? self.cids.count : 0
+        self.cids?.count ?? 0
     }
 
     var downloadedItemsCount: Int {
@@ -95,17 +95,8 @@ final class RootModel {
         self.catalog.downloaded
     }
 
-    private var cids: [String] {
-        // Never rely on `catalog.sources` property in your implementation.
-        // It's used only for demonstration and a subject to change.
-        // Instead obtain `cids` using provided PressReader Public API.
-        self.catalog.sources?.prefix(20).map { $0.cid } ?? []
-    }
-    
-    private var canShowCatalog = false {
+    private var cids: [String]? {
         didSet {
-            guard self.canShowCatalog != oldValue else { return }
-            
             self.delegate.reloadData()
         }
     }
@@ -141,11 +132,13 @@ final class RootModel {
         }
     }
     
-    func catalogItem(at index: Int) -> PRCatalogItem? {
-        self.catalog.item(cid: self.cids[index], date: nil)
+    func catalogItem(at index: Int) -> TitleItem? {
+        self.cids.flatMap {
+            self.catalog.item(cid: $0[index], date: nil)
+        }
     }
 
-    func downloadedItem(at index: Int) -> PRCatalogItem {
+    func downloadedItem(at index: Int) -> TitleItem {
         self.catalog.downloaded.items[index]
     }
     
@@ -153,7 +146,7 @@ final class RootModel {
         self.delete(self.downloadedItem(at: index))
     }
 
-    func delete(_ item: PRCatalogItem) {
+    func delete(_ item: TitleItem) {
         self.downloaded.delete(item)
     }
 
@@ -203,8 +196,11 @@ final class RootModel {
             return
         }
         
-        if state.contains(.catalogLoaded) {
-            self.canShowCatalog = true
+        if state.contains(.catalogLoaded) && self.cids?.isEmpty ?? true {
+            // Never rely on `catalog.loadedPublications` property in your implementation.
+            // It's used only for demonstration and a subject to change.
+            // Instead obtain `cids` using provided PressReader Public API.
+            self.cids = self.catalog.loadedPublications()?.prefix(20).map { $0.cid }
         }
     }
     
