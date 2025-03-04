@@ -38,7 +38,7 @@ SDK `state` has to turn `.activated` to execute any operations and `.catalogLoad
 
 # Download
 
-After the instance of PressReader SDK is authorized the and its state turned `.catelogLoaded` issues downloading becomes possible. The downloading process is manageable via catalog item's download property that conforms to Download interface described below.
+After the instance of PressReader SDK is authorized the and its state turned `.catalogLoaded` issues downloading becomes possible. The downloading process is manageable via catalog item's download property that conforms to Download interface described below.
 
 ```swift
 Download {
