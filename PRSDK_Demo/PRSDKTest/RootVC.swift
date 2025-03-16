@@ -10,7 +10,18 @@ import UIKit
 import PRUI
 
 final class RootVC: UITableViewController, Reloadable {
+
+    // MARK: - Nested Types
     
+    private class Sections {
+        var service: Int?
+        var auth: Int?
+        var log: Int?
+        var dismiss: Int?
+        var catalog: Int?
+        var downloaded: Int?
+    }
+
     // MARK: - Private Properties
 
     private lazy var model = {
@@ -18,15 +29,13 @@ final class RootVC: UITableViewController, Reloadable {
     }()
     
     private var isReloadingDisabled = false
-    
-    private var serviceSection: Int?
-    private var authSection: Int?
-    private var logSection: Int?
-    private var catalogSection: Int?
-    private var downloadedSection: Int?
+    private var sections = Sections()
 
     private var authoriseCellTitle: String {
-        let account = self.model.account
+        guard let account = self.model.account else {
+            return ""
+        }
+        
         switch account.state {
         case .sponsorship:
             return "Authorised till \(DateFormatter.localizedString(from: account.sponsorshipExpiration ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
@@ -54,16 +63,22 @@ final class RootVC: UITableViewController, Reloadable {
     
     // MARK: - Private Methods
     
-    private func actionCell(_ tableView: UITableView,
-                            indexPath: IndexPath,
-                            title: String? = nil,
-                            enabled: Bool = true) -> UITableViewCell
-    {
+    private func actionCell(
+        _ tableView: UITableView,
+        indexPath: IndexPath,
+        title: String? = nil,
+        enabled: Bool = true,
+        accessibilityId: String? = nil
+    ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionCell", for: indexPath)
         cell.textLabel.map {
             $0.isEnabled = enabled
             $0.textColor = .label
             $0.text = title
+        }
+
+        accessibilityId.map {
+            cell.accessibilityIdentifier = $0
         }
 
         return cell
@@ -99,30 +114,43 @@ final class RootVC: UITableViewController, Reloadable {
     // MARK: - UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        let sections = Sections()
         var section = 0
-        self.serviceSection = section; section += 1
         
-        if self.model.isAuthEnabled {
-            self.authSection = section; section += 1
+        let model = self.model
+
+        if !model.isDismissed {
+            sections.service = section; section += 1
         }
 
-        self.logSection = section; section += 1
+        sections.dismiss = section; section += 1
+
+        if model.isAuthEnabled {
+            sections.auth = section; section += 1
+        }
+
+        if model.isLoggingEnabled {
+            sections.log = section; section += 1
+        }
 
         if self.model.isCatalogEnabled {
-            self.catalogSection = section; section += 1
-            self.downloadedSection = section; section += 1
+            sections.catalog = section; section += 1
+            sections.downloaded = section; section += 1
         }
 
+        self.sections = sections
+        
         return section
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sections = self.sections
         switch section {
-        case self.authSection:
+        case sections.auth:
             return 2
-        case self.catalogSection:
+        case sections.catalog:
             return self.model.catalogItemsCount
-        case self.downloadedSection:
+        case sections.downloaded:
             return self.model.downloadedItemsCount
         default:
             return 1
@@ -132,10 +160,11 @@ final class RootVC: UITableViewController, Reloadable {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
+        let sections = self.sections
         let model = self.model
         
         switch indexPath.section {
-        case self.authSection:
+        case sections.auth:
             if indexPath.row == 0 {
                 let _cell = self.textFieldCell(tableView, indexPath: indexPath)
                 self.updateTokenCell(_cell)
@@ -148,24 +177,32 @@ final class RootVC: UITableViewController, Reloadable {
                                        enabled: model.canAuthorise)
             }
             
-        case self.serviceSection:
+        case sections.service:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: model.serviceName,
                                    enabled: model.canPresentFullUI)
 
-        case self.logSection:
+        case sections.log:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: "Upload Logs and Get the link")
 
-        case self.catalogSection:
+        case sections.dismiss:
+            cell = self.actionCell(
+                tableView,
+                indexPath: indexPath,
+                title: model.isDismissed ? "Restore" : "Dismiss",
+                accessibilityId: "dismiss"
+            )
+
+        case sections.catalog:
             let _cell = self.issueCell(tableView, indexPath: indexPath)
             _cell.issue = model.catalogItem(at: indexPath.row)
 
             cell = _cell
 
-        case self.downloadedSection:
+        case sections.downloaded:
             let _cell = self.issueCell(tableView, indexPath: indexPath)
             _cell.issue = model.downloadedItem(at: indexPath.row)
 
@@ -181,12 +218,13 @@ final class RootVC: UITableViewController, Reloadable {
     // MARK: - UITableViewDelegate
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        let sections = self.sections
         switch indexPath.section {
-        case self.authSection:
+        case sections.auth:
             return indexPath.row > 0 && self.model.canAuthorise
-        case self.logSection:
+        case sections.log, sections.dismiss:
             return true
-        case self.serviceSection:
+        case sections.service:
             return self.model.canPresentFullUI
         default:
             return false
@@ -194,8 +232,11 @@ final class RootVC: UITableViewController, Reloadable {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = self.model
+        let sections = self.sections
+
         switch indexPath.section {
-        case self.authSection:
+        case sections.auth:
             guard let cell = tableView.cellForRow(at: IndexPath(row: indexPath.row - 1, section: indexPath.section)) as? TextFieldCell
             else {
                 return
@@ -203,18 +244,21 @@ final class RootVC: UITableViewController, Reloadable {
             
             let textField = cell.textField
             let token = textField.text
-            self.model.authToken = token
+            model.authToken = token
 
             if token?.count ?? 0 > 0 {
                 textField.isEnabled = false
 
-                self.model.authorisePressreader()
+                model.authorisePressreader()
             }
 
-        case self.logSection:
-            self.model.getLogs()
-            
-        case self.serviceSection:
+        case sections.log:
+            model.getLogs()
+
+        case sections.dismiss:
+            model.isDismissed.toggle()
+
+        case sections.service:
             self.present(PressReader.instance().rootViewController, animated: true, completion: nil)
 
         default:
@@ -227,16 +271,18 @@ final class RootVC: UITableViewController, Reloadable {
     override func tableView(_ tableView: UITableView,
                             titleForHeaderInSection section: Int) -> String?
     {
+        let sections = self.sections
+
         switch section {
-        case self.authSection:
+        case sections.auth:
             return "Authorisation"
-        case self.serviceSection:
+        case sections.service:
             return "Service"
-        case self.logSection:
+        case sections.log:
             return "Logs"
-        case self.catalogSection:
+        case sections.catalog:
             return "Catalog"
-        case self.downloadedSection:
+        case sections.downloaded:
             return "Downloaded"
         default:
             return nil
@@ -246,23 +292,28 @@ final class RootVC: UITableViewController, Reloadable {
     override func tableView(_ tableView: UITableView,
                             titleForFooterInSection section: Int) -> String?
     {
+        let sections = self.sections
+
         switch section {
-        case self.catalogSection:
+        case sections.catalog:
             return self.model.catalogItemsCount > 0 ? nil : "Loading..."
-        case self.downloadedSection:
+        case sections.downloaded:
             return "Downloaded (ordered) items will appear here"
         default:
             return nil
         }
     }
     
-    override func tableView(_ tableView: UITableView,
-                            editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle
-    {
+    override func tableView(
+        _ tableView: UITableView,
+        editingStyleForRowAt indexPath: IndexPath
+    ) -> UITableViewCell.EditingStyle {
+        let sections = self.sections
+        
         switch indexPath.section {
-        case self.downloadedSection:
+        case sections.downloaded:
             return .delete
-        case self.catalogSection:
+        case sections.catalog:
             return self.model.catalogItem(at: indexPath.row)?.download?.state ==  .ready
                 ? .delete
                 : .none
@@ -275,7 +326,8 @@ final class RootVC: UITableViewController, Reloadable {
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath)
     {
-        if indexPath.section == self.downloadedSection {
+        let sections = self.sections
+        if indexPath.section == sections.downloaded {
             self.isReloadingDisabled = true
 
             self.model.deleteDownloadedItem(at: indexPath.row)
@@ -283,7 +335,7 @@ final class RootVC: UITableViewController, Reloadable {
             
             self.isReloadingDisabled = false
         }
-        else if indexPath.section == self.catalogSection {
+        else if indexPath.section == sections.catalog {
             self.model.catalogItem(at: indexPath.row).map {
                 self.model.delete($0)
                 (self.tableView.cellForRow(at: indexPath) as? IssueCell).map {

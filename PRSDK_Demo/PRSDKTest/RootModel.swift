@@ -39,19 +39,19 @@ final class RootModel {
     }
     
     var isLocalServiceActive: Bool {
-        self.pressreader.account.state == .localService
+        self.pressreader?.account.state == .localService
     }
 
     var isAuthEnabled: Bool {
-        !self.isLocalService
+        !self.isDismissed && !self.isLocalService
     }
     
     var canAuthorise: Bool {
-        self.pressreader.account.state == .idle
+        self.pressreader?.account.state == .idle
     }
     
-    var account: Account {
-        self.pressreader.account
+    var account: Account? {
+        self.pressreader?.account
     }
 
     var authToken: String? {
@@ -64,42 +64,54 @@ final class RootModel {
     }
     
     var isCatalogEnabled: Bool {
-        !self.cids.isEmpty && !self.isLocalService
+        !self.isDismissed && !self.cids.isEmpty && !self.isLocalService
     }
-        
+
+    var isLoggingEnabled: Bool {
+        !self.isDismissed
+    }
+
     var catalogItemsCount: Int {
         self.canShowCatalog ? self.cids.count : 0
     }
 
     var downloadedItemsCount: Int {
-        self.downloaded.items.count
+        self.downloaded?.items.count ?? 0
     }
 
     // MARK: - Private Properties
 
     private let delegate: Reloadable
 
-    private var pressreader: PressReader {
+    private var pressreader: PressReader? {
+        guard !self.isDismissed else {
+            return nil
+        }
+
         if !PressReader.hasInstance() {
+            Task { @MainActor in
+                self.registerObservers()
+            }
+
             PressReader.launchOptions = [.prAnalyticsTrackers: [self]]
         }
 
         return PressReader.instance()
     }
 
-    private var catalog: PRCatalog {
-        self.pressreader.catalog
+    private var catalog: PRCatalog? {
+        self.pressreader?.catalog
     }
 
-    private var downloaded: Downloaded {
-        self.catalog.downloaded
+    private var downloaded: Downloaded? {
+        self.catalog?.downloaded
     }
 
     private var cids: [String] {
         // Never rely on `catalog.sources` property in your implementation.
         // It's used only for demonstration and a subject to change.
         // Instead obtain `cids` using provided PressReader Public API.
-        self.catalog.sources?.prefix(20).map { $0.cid } ?? []
+        self.catalog?.sources?.prefix(20).map { $0.cid } ?? []
     }
     
     private var canShowCatalog = false {
@@ -110,17 +122,23 @@ final class RootModel {
         }
     }
     
-    private lazy var downloadedObserver: Downloaded.Observer = {
-        self.downloaded.observe { [weak self] in
-            self?.delegate.reloadData()
-        }
-    }()
+    private var downloadedObserver: Downloaded.Observer?
     
+    var isDismissed = false {
+        didSet {
+            if self.isDismissed {
+                self.unregisterObservers()
+                PressReader.dismiss()
+            }
+
+            self.delegate.reloadData()
+        }
+    }
+
     // MARK: - Init
 
     init(delegate: Reloadable) {
         self.delegate = delegate
-        self.registerObservers()
     }
     
     // MARK: - Public Methods
@@ -130,7 +148,7 @@ final class RootModel {
             return
         }
 
-        self.pressreader.account.authorize(token: token) { (success, error) in
+        self.account?.authorize(token: token) { (success, error) in
             print("Auth result: \(success), \(String(describing: error))")
             
             if !success {
@@ -142,24 +160,26 @@ final class RootModel {
     }
     
     func catalogItem(at index: Int) -> PRCatalogItem? {
-        self.catalog.item(cid: self.cids[index], date: nil)
+        self.catalog?.item(cid: self.cids[index], date: nil)
     }
 
-    func downloadedItem(at index: Int) -> PRCatalogItem {
-        self.catalog.downloaded.items[index]
+    func downloadedItem(at index: Int) -> PRCatalogItem? {
+        self.catalog?.downloaded.items[index]
     }
     
     func deleteDownloadedItem(at index: Int) {
-        self.delete(self.downloadedItem(at: index))
+        self.downloadedItem(at: index).map {
+            self.delete($0)
+        }
     }
 
     func delete(_ item: PRCatalogItem) {
-        self.downloaded.delete(item)
+        self.downloaded?.delete(item)
     }
 
     func getLogs() {
         let hud = MBProgressHUD.showWindowHUD(withTitle: "Uploading...", message: nil, animated: true)
-        self.pressreader
+        self.pressreader?
             .getLogs { (result: Result<(linkToUploadedLogs: URL,
                                         additionalInfo: String), Error>) in
                 hud.hide(animated: false)
@@ -187,14 +207,21 @@ final class RootModel {
         nCentre.addObserver(self,
                             selector: #selector(authStateHandler),
                             name: .PRAuthStateDidChange,
-                            object: self.pressreader.account)
+                            object: self.account)
         
-        _ = self.downloadedObserver
+        self.downloadedObserver = self.downloaded?.observe { [weak self] in
+            self?.delegate.reloadData()
+        }
+    }
+    
+    private func unregisterObservers() {
+        NotificationCenter.default.removeObserver(self)
+        self.downloadedObserver = nil
     }
 
     @objc
     private func pressreaderStateHandler(note: NSNotification) {
-        let state = self.pressreader.state
+        let state = self.pressreader?.state ?? []
         print("PR state: \(state.rawValue)")
         
         if let error = note.userInfo?["error"] as? Error {
@@ -210,7 +237,9 @@ final class RootModel {
     
     @objc
     private func authStateHandler(note: NSNotification) {
-        print("PR account state: \(self.pressreader.account.state)")
+        guard let account else { return }
+        
+        print("PR account state: \(account.state)")
         
         self.delegate.reloadData()
     }
