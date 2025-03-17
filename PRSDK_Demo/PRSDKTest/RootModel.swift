@@ -111,7 +111,7 @@ final class RootModel {
         // Never rely on `catalog.sources` property in your implementation.
         // It's used only for demonstration and a subject to change.
         // Instead obtain `cids` using provided PressReader Public API.
-        self.catalog?.sources?.prefix(20).map { $0.cid } ?? []
+        self.catalog?.loadedPublications()?.prefix(20).map { $0.cid } ?? []
     }
     
     private var canShowCatalog = false {
@@ -159,11 +159,11 @@ final class RootModel {
         }
     }
     
-    func catalogItem(at index: Int) -> PRCatalogItem? {
+    func catalogItem(at index: Int) -> TitleItem? {
         self.catalog?.item(cid: self.cids[index], date: nil)
     }
 
-    func downloadedItem(at index: Int) -> PRCatalogItem? {
+    func downloadedItem(at index: Int) -> TitleItem? {
         self.catalog?.downloaded.items[index]
     }
     
@@ -173,7 +173,7 @@ final class RootModel {
         }
     }
 
-    func delete(_ item: PRCatalogItem) {
+    func delete(_ item: TitleItem) {
         self.downloaded?.delete(item)
     }
 
