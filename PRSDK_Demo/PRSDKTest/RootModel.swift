@@ -39,7 +39,7 @@ final class RootModel {
     }
     
     var isLocalServiceActive: Bool {
-        self.pressreader?.account.state == .localService
+        self.account?.state == .localService
     }
 
     var isAuthEnabled: Bool {
@@ -47,7 +47,10 @@ final class RootModel {
     }
     
     var canAuthorise: Bool {
-        self.pressreader?.account.state == .idle
+        switch self.account?.state {
+        case .idle, .sponsorship: return true
+        default: return false
+        }
     }
     
     var account: Account? {

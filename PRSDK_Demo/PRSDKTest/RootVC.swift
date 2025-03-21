@@ -37,8 +37,6 @@ final class RootVC: UITableViewController, Reloadable {
         }
         
         switch account.state {
-        case .sponsorship:
-            return "Authorised till \(DateFormatter.localizedString(from: account.sponsorshipExpiration ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
         case .authorising:
             return "Authorising..."
         case .notReachable:
@@ -289,16 +287,26 @@ final class RootVC: UITableViewController, Reloadable {
         }
     }
     
-    override func tableView(_ tableView: UITableView,
-                            titleForFooterInSection section: Int) -> String?
-    {
+    override func tableView(
+        _ tableView: UITableView,
+        titleForFooterInSection section: Int
+    ) -> String? {
         let sections = self.sections
+        let model = self.model
 
         switch section {
+        case sections.auth:
+            return model.account.flatMap {
+                $0.state == .sponsorship
+                ? "Authorised till \(DateFormatter.localizedString(from: $0.sponsorshipExpiration ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
+                : nil
+            }
         case sections.catalog:
-            return self.model.catalogItemsCount > 0 ? nil : "Loading..."
+            return model.catalogItemsCount > 0 ? nil : "Loading..."
+
         case sections.downloaded:
             return "Downloaded (ordered) items will appear here"
+
         default:
             return nil
         }
