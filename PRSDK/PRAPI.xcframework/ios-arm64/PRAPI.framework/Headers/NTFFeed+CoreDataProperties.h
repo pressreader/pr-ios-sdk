@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, copy) NSString *locale;
 @property (nullable, nonatomic, copy) NSString *name;
+@property (nonatomic) NSInteger version;
 @property (nullable, nonatomic, retain) NTFChannelAccountItem *userChannel;
 @property (nullable, nonatomic, retain) NSSet<NTFFeedItem *> *feedItems;
 @property (nullable, nonatomic, retain) NTFSession *session;

@@ -42,7 +42,6 @@ typedef NS_ENUM(NSUInteger, NTFUserItemType) {
               completion:(void(^)(UIImage *image))completion;
 
 - (void)fillWithFollowInfo:(NSDictionary *)info;
-- (void)fillWithDetailedJSON:(NSDictionary *)json;
 - (void)fillWithSourceJSON:(NSDictionary *)json;
 
 @property (nonatomic) NTFUserItemType type;

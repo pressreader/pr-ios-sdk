@@ -1,9 +1,210 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "PRThumbnail",
+    "printedName": "PRThumbnail",
     "children": [
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRThumbnailObjectError",
+        "printedName": "PRThumbnailObjectError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "unexpected",
+            "printedName": "unexpected",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRThumbnail.PRThumbnailObjectError.Type) -> PRThumbnail.PRThumbnailObjectError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRThumbnailObjectError",
+                    "printedName": "PRThumbnail.PRThumbnailObjectError",
+                    "usr": "s:11PRThumbnail0A11ObjectErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRThumbnail.PRThumbnailObjectError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRThumbnailObjectError",
+                        "printedName": "PRThumbnail.PRThumbnailObjectError",
+                        "usr": "s:11PRThumbnail0A11ObjectErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11PRThumbnail0A11ObjectErrorO10unexpectedyA2CmF",
+            "mangledName": "$s11PRThumbnail0A11ObjectErrorO10unexpectedyA2CmF",
+            "moduleName": "PRThumbnail"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRThumbnailObjectError",
+                "printedName": "PRThumbnail.PRThumbnailObjectError",
+                "usr": "s:11PRThumbnail0A11ObjectErrorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRThumbnailObjectError",
+                "printedName": "PRThumbnail.PRThumbnailObjectError",
+                "usr": "s:11PRThumbnail0A11ObjectErrorO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRThumbnail0A11ObjectErrorO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s11PRThumbnail0A11ObjectErrorO2eeoiySbAC_ACtFZ",
+            "moduleName": "PRThumbnail",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRThumbnail0A11ObjectErrorO9hashValueSivp",
+            "mangledName": "$s11PRThumbnail0A11ObjectErrorO9hashValueSivp",
+            "moduleName": "PRThumbnail",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRThumbnail0A11ObjectErrorO9hashValueSivg",
+                "mangledName": "$s11PRThumbnail0A11ObjectErrorO9hashValueSivg",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRThumbnail0A11ObjectErrorO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s11PRThumbnail0A11ObjectErrorO4hash4intoys6HasherVz_tF",
+            "moduleName": "PRThumbnail",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11PRThumbnail0A11ObjectErrorO",
+        "mangledName": "$s11PRThumbnail0A11ObjectErrorO",
+        "moduleName": "PRThumbnail",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
       {
         "kind": "Import",
         "name": "UIKit",
@@ -40,12 +241,12 @@
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               }
             ],
             "declKind": "Constructor",
             "usr": "c:@M@PRThumbnail@objc(cs)ContentCardThumbnail(im)initWithKey:info:",
-            "mangledName": "$s11PRThumbnail20ContentCardThumbnailC3key4infoACSS_So0A4InfoCtcfc",
+            "mangledName": "$s11PRThumbnail20ContentCardThumbnailC3key4infoACSS_AA0A4InfoCtcfc",
             "moduleName": "PRThumbnail",
             "overriding": true,
             "implicit": true,
@@ -100,6 +301,665 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRArticleThumbnailURLType",
+        "printedName": "PRArticleThumbnailURLType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "full",
+            "printedName": "full",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRThumbnail.PRArticleThumbnailURLType.Type) -> PRThumbnail.PRArticleThumbnailURLType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRArticleThumbnailURLType",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                    "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRArticleThumbnailURLType",
+                        "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                        "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType@PRArticleThumbnailURLTypeFull",
+            "mangledName": "$s11PRThumbnail25PRArticleThumbnailURLTypeO4fullyA2CmF",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "regionKey",
+            "printedName": "regionKey",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRThumbnail.PRArticleThumbnailURLType.Type) -> PRThumbnail.PRArticleThumbnailURLType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRArticleThumbnailURLType",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                    "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRArticleThumbnailURLType",
+                        "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                        "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType@PRArticleThumbnailURLTypeRegionKey",
+            "mangledName": "$s11PRThumbnail25PRArticleThumbnailURLTypeO9regionKeyyA2CmF",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "subpath",
+            "printedName": "subpath",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRThumbnail.PRArticleThumbnailURLType.Type) -> PRThumbnail.PRArticleThumbnailURLType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRArticleThumbnailURLType",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                    "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRArticleThumbnailURLType",
+                        "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                        "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType@PRArticleThumbnailURLTypeSubpath",
+            "mangledName": "$s11PRThumbnail25PRArticleThumbnailURLTypeO7subpathyA2CmF",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRThumbnail.PRArticleThumbnailURLType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRArticleThumbnailURLType",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                    "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRThumbnail25PRArticleThumbnailURLTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11PRThumbnail25PRArticleThumbnailURLTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "PRThumbnail",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRThumbnail25PRArticleThumbnailURLTypeO8rawValueSivp",
+            "mangledName": "$s11PRThumbnail25PRArticleThumbnailURLTypeO8rawValueSivp",
+            "moduleName": "PRThumbnail",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRThumbnail25PRArticleThumbnailURLTypeO8rawValueSivg",
+                "mangledName": "$s11PRThumbnail25PRArticleThumbnailURLTypeO8rawValueSivg",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType",
+        "mangledName": "$s11PRThumbnail25PRArticleThumbnailURLTypeO",
+        "moduleName": "PRThumbnail",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRArticleThumbnailInfo",
+        "printedName": "PRArticleThumbnailInfo",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "urlType",
+            "printedName": "urlType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRArticleThumbnailURLType",
+                "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo(py)urlType",
+            "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC7urlTypeAA0bC7URLTypeOvp",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRArticleThumbnailURLType",
+                    "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                    "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo(im)urlType",
+                "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC7urlTypeAA0bC7URLTypeOvg",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "scaleLimit",
+            "printedName": "scaleLimit",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo(py)scaleLimit",
+            "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC10scaleLimit12CoreGraphics7CGFloatVvp",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo(im)scaleLimit",
+                "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC10scaleLimit12CoreGraphics7CGFloatVvg",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(storePath:downloadUrls:urlType:scaleLimit:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRArticleThumbnailInfo",
+                "printedName": "PRThumbnail.PRArticleThumbnailInfo",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRArticleThumbnailURLType",
+                "printedName": "PRThumbnail.PRArticleThumbnailURLType",
+                "usr": "c:@M@PRThumbnail@E@PRArticleThumbnailURLType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo(im)initWithStorePath:downloadUrls:urlType:scaleLimit:",
+            "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC9storePath12downloadUrls7urlType10scaleLimitACSS_SaySSGSgAA0bC7URLTypeO12CoreGraphics7CGFloatVtcfc",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRThumbnail22PRArticleThumbnailInfoC6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC6encode2toys7Encoder_p_tKF",
+            "moduleName": "PRThumbnail",
+            "overriding": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Override"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(storePath:downloadUrls:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRArticleThumbnailInfo",
+                "printedName": "PRThumbnail.PRArticleThumbnailInfo",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo(im)initWithStorePath:downloadUrls:",
+            "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC9storePath12downloadUrlsACSS_SaySSGSgtcfc",
+            "moduleName": "PRThumbnail",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithStorePath:downloadUrls:",
+            "declAttributes": [
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo",
+        "mangledName": "$s11PRThumbnail22PRArticleThumbnailInfoC",
+        "moduleName": "PRThumbnail",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "PRThumbnail.PRThumbnailInfo",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -179,9 +1039,726 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "PRThumbnailInfo",
+        "printedName": "PRThumbnailInfo",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "ImageSource",
+            "printedName": "ImageSource",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "url",
+                "printedName": "url",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRThumbnail.PRThumbnailInfo.ImageSource.Type) -> PRThumbnail.PRThumbnailInfo.ImageSource",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ImageSource",
+                        "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                        "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ImageSource",
+                            "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                            "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO3urlyA2EmF",
+                "mangledName": "$s11PRThumbnail0A4InfoC11ImageSourceO3urlyA2EmF",
+                "moduleName": "PRThumbnail",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "fixedbinaryorder": 0
+              },
+              {
+                "kind": "Var",
+                "name": "asset",
+                "printedName": "asset",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRThumbnail.PRThumbnailInfo.ImageSource.Type) -> PRThumbnail.PRThumbnailInfo.ImageSource",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ImageSource",
+                        "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                        "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ImageSource",
+                            "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                            "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO5assetyA2EmF",
+                "mangledName": "$s11PRThumbnail0A4InfoC11ImageSourceO5assetyA2EmF",
+                "moduleName": "PRThumbnail",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "fixedbinaryorder": 1
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ImageSource",
+                        "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                        "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO8rawValueAESgSi_tcfc",
+                "mangledName": "$s11PRThumbnail0A4InfoC11ImageSourceO8rawValueAESgSi_tcfc",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "rawValue",
+                "printedName": "rawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO8rawValueSivp",
+                "mangledName": "$s11PRThumbnail0A4InfoC11ImageSourceO8rawValueSivp",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO8rawValueSivg",
+                    "mangledName": "$s11PRThumbnail0A4InfoC11ImageSourceO8rawValueSivg",
+                    "moduleName": "PRThumbnail",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO",
+            "mangledName": "$s11PRThumbnail0A4InfoC11ImageSourceO",
+            "moduleName": "PRThumbnail",
+            "objc_name": "PRThumbnailInfoImageSource",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "enumRawTypeName": "Int",
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "RawRepresentable",
+                "printedName": "RawRepresentable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "RawValue",
+                    "printedName": "RawValue",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:SY",
+                "mangledName": "$sSY"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Decodable",
+                "printedName": "Decodable",
+                "usr": "s:Se",
+                "mangledName": "$sSe"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Encodable",
+                "printedName": "Encodable",
+                "usr": "s:SE",
+                "mangledName": "$sSE"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "imageSource",
+            "printedName": "imageSource",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImageSource",
+                "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(py)imageSource",
+            "mangledName": "$s11PRThumbnail0A4InfoC11imageSourceAC05ImageD0Ovp",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImageSource",
+                    "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                    "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(im)imageSource",
+                "mangledName": "$s11PRThumbnail0A4InfoC11imageSourceAC05ImageD0Ovg",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImageSource",
+                    "printedName": "PRThumbnail.PRThumbnailInfo.ImageSource",
+                    "usr": "s:11PRThumbnail0A4InfoC11ImageSourceO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(im)setImageSource:",
+                "mangledName": "$s11PRThumbnail0A4InfoC11imageSourceAC05ImageD0Ovs",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRThumbnail0A4InfoC11imageSourceAC05ImageD0OvM",
+                "mangledName": "$s11PRThumbnail0A4InfoC11imageSourceAC05ImageD0OvM",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "storagePath",
+            "printedName": "storagePath",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(py)storagePath",
+            "mangledName": "$s11PRThumbnail0A4InfoC11storagePathSSvp",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(im)storagePath",
+                "mangledName": "$s11PRThumbnail0A4InfoC11storagePathSSvg",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "downloadUrls",
+            "printedName": "downloadUrls",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(py)downloadUrls",
+            "mangledName": "$s11PRThumbnail0A4InfoC12downloadUrlsSaySSGSgvp",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(im)downloadUrls",
+                "mangledName": "$s11PRThumbnail0A4InfoC12downloadUrlsSaySSGSgvg",
+                "moduleName": "PRThumbnail",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(storePath:downloadUrls:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRThumbnailInfo",
+                "printedName": "PRThumbnail.PRThumbnailInfo",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(im)initWithStorePath:downloadUrls:",
+            "mangledName": "$s11PRThumbnail0A4InfoC9storePath12downloadUrlsACSS_SaySSGSgtcfc",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRThumbnailInfo",
+                "printedName": "PRThumbnail.PRThumbnailInfo",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo(im)init",
+            "mangledName": "$s11PRThumbnail0A4InfoCACycfc",
+            "moduleName": "PRThumbnail",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRThumbnailInfo",
+                "printedName": "PRThumbnail.PRThumbnailInfo",
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRThumbnail0A4InfoC4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s11PRThumbnail0A4InfoC4fromACs7Decoder_p_tKcfc",
+            "moduleName": "PRThumbnail",
+            "implicit": true,
+            "declAttributes": [
+              "Required"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRThumbnail0A4InfoC6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s11PRThumbnail0A4InfoC6encode2toys7Encoder_p_tKF",
+            "moduleName": "PRThumbnail",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo",
+        "mangledName": "$s11PRThumbnail0A4InfoC",
+        "moduleName": "PRThumbnail",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "PRUtils",
         "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail"
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
         "declKind": "Import",
         "moduleName": "PRThumbnail"
       },
@@ -283,12 +1860,12 @@
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               }
             ],
             "declKind": "Constructor",
             "usr": "c:@M@PRThumbnail@objc(cs)PRCatalogItemThumbnail(im)initWithKey:info:",
-            "mangledName": "$s11PRThumbnail22PRCatalogItemThumbnailC3key4infoACSS_So0A4InfoCtcfc",
+            "mangledName": "$s11PRThumbnail22PRCatalogItemThumbnailC3key4infoACSS_AA0A4InfoCtcfc",
             "moduleName": "PRThumbnail",
             "overriding": true,
             "implicit": true,
@@ -342,6 +1919,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -411,6 +2002,151 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail"
+      },
+      {
+        "kind": "Import",
+        "name": "DeveloperToolsSupport",
+        "printedName": "DeveloperToolsSupport",
+        "declKind": "Import",
+        "moduleName": "PRThumbnail"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRThumbnailObject",
+        "printedName": "PRThumbnailObject",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getImage",
+            "printedName": "getImage()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So17PRThumbnailObjectC0A0E8getImageSo7UIImageCyYaKF",
+            "mangledName": "$sSo17PRThumbnailObjectC0A0E8getImageSo7UIImageCyYaKF",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)PRThumbnailObject",
+        "moduleName": "PRThumbnail",
+        "isOpen": true,
+        "objc_name": "PRThumbnailObject",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "PRThumbnailsManager",
         "printedName": "PRThumbnailsManager",
@@ -460,54 +2196,78 @@
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               },
               {
                 "kind": "TypeNominal",
                 "name": "PRArticleThumbnailInfo",
                 "printedName": "PRThumbnail.PRArticleThumbnailInfo",
-                "usr": "c:objc(cs)PRArticleThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRArticleThumbnailInfo"
               },
               {
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               },
               {
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               },
               {
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               },
               {
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               },
               {
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               },
               {
                 "kind": "TypeNominal",
                 "name": "PRThumbnailInfo",
                 "printedName": "PRThumbnail.PRThumbnailInfo",
-                "usr": "c:objc(cs)PRThumbnailInfo"
+                "usr": "c:@M@PRThumbnail@objc(cs)PRThumbnailInfo"
               }
             ],
             "declKind": "Func",
             "usr": "c:@CM@PRThumbnail@@objc(cs)PRThumbnailsManager(im)updateWithSourceThumbsInfo:articleThumbsInfo:flagsThumbsInfo:mastheadsThumbsInfo:categoryThumbsInfo:appLogoWhiteThumbsInfo:appLogoColorThumbsInfo:catalogItemThumbsInfo:",
-            "mangledName": "$sSo19PRThumbnailsManagerC11PRThumbnailE6update16sourceThumbsInfo07articlefG005flagsfG009mastheadsfG008categoryfG0012appLogoWhitefG00lm5ColorfG0011catalogItemfG0ySo0cG0C_So018PRArticleThumbnailG0CA6NtF",
+            "mangledName": "$sSo19PRThumbnailsManagerC11PRThumbnailE6update16sourceThumbsInfo07articlefG005flagsfG009mastheadsfG008categoryfG0012appLogoWhitefG00lm5ColorfG0011catalogItemfG0yAC0cG0C_AC018PRArticleThumbnailG0CA6NtF",
+            "moduleName": "PRThumbnail",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "restoreInfoFromSharedUserDefaults",
+            "printedName": "restoreInfoFromSharedUserDefaults()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRThumbnail@@objc(cs)PRThumbnailsManager(im)restoreInfoFromSharedUserDefaults",
+            "mangledName": "$sSo19PRThumbnailsManagerC11PRThumbnailE33restoreInfoFromSharedUserDefaultsyyF",
             "moduleName": "PRThumbnail",
             "declAttributes": [
               "Dynamic",
@@ -570,6 +2330,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -623,6 +2397,20 @@
             "printedName": "DependencyResolver",
             "usr": "s:13PRDIContainer18DependencyResolverP",
             "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       }
@@ -631,32 +2419,1285 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Thumbnail\/ContentCardThumbnail.swift",
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Thumbnail\/Info\/PRArticleThumbnailInfo.swift",
+      "kind": "IntegerLiteral",
+      "offset": 264,
+      "length": 9,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Thumbnail\/Info\/PRArticleThumbnailInfo.swift",
+      "kind": "IntegerLiteral",
+      "offset": 283,
+      "length": 7,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Thumbnail\/Info\/PRThumbnailInfo.swift",
+      "kind": "IntegerLiteral",
+      "offset": 390,
+      "length": 5,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
       "kind": "StringLiteral",
-      "offset": 193,
+      "offset": 313,
+      "length": 18,
+      "value": "\"sourceThumbsInfo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
+      "kind": "StringLiteral",
+      "offset": 395,
+      "length": 19,
+      "value": "\"articleThumbsInfo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
+      "kind": "StringLiteral",
+      "offset": 476,
+      "length": 17,
+      "value": "\"flagsThumbsInfo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
+      "kind": "StringLiteral",
+      "offset": 559,
+      "length": 21,
+      "value": "\"mastheadsThumbsInfo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
+      "kind": "StringLiteral",
+      "offset": 645,
       "length": 20,
-      "value": "\"PRThumbnail.ContentCardThumbnail\""
+      "value": "\"categoryThumbsInfo\""
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Thumbnail\/ContentCardThumbnail.swift",
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
       "kind": "StringLiteral",
-      "offset": 193,
-      "length": 20,
-      "value": "\"PRThumbnail.ContentCardThumbnail\""
+      "offset": 734,
+      "length": 24,
+      "value": "\"appLogoWhiteThumbsInfo\""
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Thumbnail\/PRCatalogItemThumbnail.swift",
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
       "kind": "StringLiteral",
-      "offset": 194,
-      "length": 22,
-      "value": "\"PRThumbnail.PRCatalogItemThumbnail\""
+      "offset": 827,
+      "length": 24,
+      "value": "\"appLogoColorThumbsInfo\""
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Thumbnail\/PRCatalogItemThumbnail.swift",
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRThumbnail\/Manager\/PRThumbnailsManager+Updater.swift",
       "kind": "StringLiteral",
-      "offset": 194,
-      "length": 22,
-      "value": "\"PRThumbnail.PRCatalogItemThumbnail\""
+      "offset": 919,
+      "length": 23,
+      "value": "\"catalogItemThumbsInfo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 837,
+      "length": 25,
+      "value": "\"countries\/NothernCyprus\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 993,
+      "length": 14,
+      "value": "\"countries\/_i\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1139,
+      "length": 14,
+      "value": "\"countries\/ae\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1285,
+      "length": 14,
+      "value": "\"countries\/al\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1441,
+      "length": 19,
+      "value": "\"countries\/algeria\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1592,
+      "length": 14,
+      "value": "\"countries\/am\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1738,
+      "length": 14,
+      "value": "\"countries\/ao\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1884,
+      "length": 14,
+      "value": "\"countries\/ar\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2036,
+      "length": 17,
+      "value": "\"countries\/aruba\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2185,
+      "length": 14,
+      "value": "\"countries\/at\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2331,
+      "length": 14,
+      "value": "\"countries\/au\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2477,
+      "length": 14,
+      "value": "\"countries\/az\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2623,
+      "length": 14,
+      "value": "\"countries\/ba\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2769,
+      "length": 14,
+      "value": "\"countries\/bb\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2915,
+      "length": 14,
+      "value": "\"countries\/bd\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3061,
+      "length": 14,
+      "value": "\"countries\/be\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3207,
+      "length": 14,
+      "value": "\"countries\/bf\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3353,
+      "length": 14,
+      "value": "\"countries\/bg\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3499,
+      "length": 14,
+      "value": "\"countries\/bh\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3645,
+      "length": 14,
+      "value": "\"countries\/bi\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3791,
+      "length": 14,
+      "value": "\"countries\/bj\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3937,
+      "length": 14,
+      "value": "\"countries\/bn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 4083,
+      "length": 14,
+      "value": "\"countries\/bo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 4229,
+      "length": 14,
+      "value": "\"countries\/br\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 4375,
+      "length": 14,
+      "value": "\"countries\/bt\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 4521,
+      "length": 14,
+      "value": "\"countries\/bw\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 4667,
+      "length": 14,
+      "value": "\"countries\/by\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 4813,
+      "length": 14,
+      "value": "\"countries\/ca\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 4959,
+      "length": 14,
+      "value": "\"countries\/cg\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 5105,
+      "length": 14,
+      "value": "\"countries\/ch\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 5251,
+      "length": 14,
+      "value": "\"countries\/ci\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 5397,
+      "length": 14,
+      "value": "\"countries\/cl\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 5543,
+      "length": 14,
+      "value": "\"countries\/cm\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 5689,
+      "length": 14,
+      "value": "\"countries\/cn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 5835,
+      "length": 14,
+      "value": "\"countries\/co\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 5981,
+      "length": 14,
+      "value": "\"countries\/cr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 6127,
+      "length": 14,
+      "value": "\"countries\/cu\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 6273,
+      "length": 14,
+      "value": "\"countries\/cy\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 6419,
+      "length": 14,
+      "value": "\"countries\/cz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 6565,
+      "length": 14,
+      "value": "\"countries\/de\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 6711,
+      "length": 14,
+      "value": "\"countries\/dk\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 6859,
+      "length": 14,
+      "value": "\"countries\/do\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 7005,
+      "length": 14,
+      "value": "\"countries\/dz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 7151,
+      "length": 14,
+      "value": "\"countries\/ec\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 7297,
+      "length": 14,
+      "value": "\"countries\/ee\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 7443,
+      "length": 14,
+      "value": "\"countries\/eg\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 7589,
+      "length": 14,
+      "value": "\"countries\/es\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 7735,
+      "length": 14,
+      "value": "\"countries\/fi\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 7881,
+      "length": 14,
+      "value": "\"countries\/fj\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 8027,
+      "length": 14,
+      "value": "\"countries\/fr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 8173,
+      "length": 14,
+      "value": "\"countries\/ga\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 8319,
+      "length": 14,
+      "value": "\"countries\/gb\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 8465,
+      "length": 14,
+      "value": "\"countries\/gh\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 8611,
+      "length": 14,
+      "value": "\"countries\/gn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 8757,
+      "length": 14,
+      "value": "\"countries\/gq\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 8903,
+      "length": 14,
+      "value": "\"countries\/gr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 9049,
+      "length": 14,
+      "value": "\"countries\/gt\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 9195,
+      "length": 14,
+      "value": "\"countries\/gy\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 9341,
+      "length": 14,
+      "value": "\"countries\/hk\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 9487,
+      "length": 14,
+      "value": "\"countries\/hn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 9633,
+      "length": 14,
+      "value": "\"countries\/hr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 9779,
+      "length": 14,
+      "value": "\"countries\/ht\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 9925,
+      "length": 14,
+      "value": "\"countries\/hu\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 10071,
+      "length": 14,
+      "value": "\"countries\/id\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 10217,
+      "length": 14,
+      "value": "\"countries\/ie\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 10363,
+      "length": 14,
+      "value": "\"countries\/il\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 10511,
+      "length": 14,
+      "value": "\"countries\/in\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 10679,
+      "length": 25,
+      "value": "\"countries\/international\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 10836,
+      "length": 14,
+      "value": "\"countries\/iq\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 10982,
+      "length": 14,
+      "value": "\"countries\/ir\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 11130,
+      "length": 14,
+      "value": "\"countries\/is\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 11276,
+      "length": 14,
+      "value": "\"countries\/it\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 11422,
+      "length": 14,
+      "value": "\"countries\/jm\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 11568,
+      "length": 14,
+      "value": "\"countries\/jo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 11714,
+      "length": 14,
+      "value": "\"countries\/jp\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 11860,
+      "length": 14,
+      "value": "\"countries\/ke\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 12006,
+      "length": 14,
+      "value": "\"countries\/kh\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 12160,
+      "length": 18,
+      "value": "\"countries\/kosovo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 12310,
+      "length": 14,
+      "value": "\"countries\/kp\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 12456,
+      "length": 14,
+      "value": "\"countries\/kr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 12602,
+      "length": 14,
+      "value": "\"countries\/ks\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 12748,
+      "length": 14,
+      "value": "\"countries\/kw\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 12894,
+      "length": 14,
+      "value": "\"countries\/ky\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 13040,
+      "length": 14,
+      "value": "\"countries\/kz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 13186,
+      "length": 14,
+      "value": "\"countries\/la\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 13332,
+      "length": 14,
+      "value": "\"countries\/lb\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 13478,
+      "length": 14,
+      "value": "\"countries\/lc\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 13624,
+      "length": 14,
+      "value": "\"countries\/li\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 13770,
+      "length": 14,
+      "value": "\"countries\/lk\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 13916,
+      "length": 14,
+      "value": "\"countries\/ls\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 14062,
+      "length": 14,
+      "value": "\"countries\/lt\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 14208,
+      "length": 14,
+      "value": "\"countries\/lu\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 14354,
+      "length": 14,
+      "value": "\"countries\/lv\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 14500,
+      "length": 14,
+      "value": "\"countries\/ly\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 14646,
+      "length": 14,
+      "value": "\"countries\/ma\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 14792,
+      "length": 14,
+      "value": "\"countries\/mc\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 14938,
+      "length": 14,
+      "value": "\"countries\/md\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 15084,
+      "length": 14,
+      "value": "\"countries\/me\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 15230,
+      "length": 14,
+      "value": "\"countries\/mk\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 15376,
+      "length": 14,
+      "value": "\"countries\/ml\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 15522,
+      "length": 14,
+      "value": "\"countries\/mm\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 15668,
+      "length": 14,
+      "value": "\"countries\/mn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 15814,
+      "length": 14,
+      "value": "\"countries\/mo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 15960,
+      "length": 14,
+      "value": "\"countries\/mt\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 16106,
+      "length": 14,
+      "value": "\"countries\/mu\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 16252,
+      "length": 14,
+      "value": "\"countries\/mw\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 16398,
+      "length": 14,
+      "value": "\"countries\/mx\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 16544,
+      "length": 14,
+      "value": "\"countries\/my\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 16690,
+      "length": 14,
+      "value": "\"countries\/mz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 16836,
+      "length": 14,
+      "value": "\"countries\/na\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 16982,
+      "length": 14,
+      "value": "\"countries\/nc\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 17128,
+      "length": 14,
+      "value": "\"countries\/ne\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 17274,
+      "length": 14,
+      "value": "\"countries\/ng\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 17420,
+      "length": 14,
+      "value": "\"countries\/ni\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 17566,
+      "length": 14,
+      "value": "\"countries\/nl\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 17712,
+      "length": 14,
+      "value": "\"countries\/no\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 17858,
+      "length": 14,
+      "value": "\"countries\/np\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 18004,
+      "length": 14,
+      "value": "\"countries\/nz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 18150,
+      "length": 14,
+      "value": "\"countries\/om\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 18296,
+      "length": 14,
+      "value": "\"countries\/pa\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 18442,
+      "length": 14,
+      "value": "\"countries\/pe\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 18588,
+      "length": 14,
+      "value": "\"countries\/pg\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 18734,
+      "length": 14,
+      "value": "\"countries\/ph\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 18880,
+      "length": 14,
+      "value": "\"countries\/pk\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 19026,
+      "length": 14,
+      "value": "\"countries\/pl\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 19172,
+      "length": 14,
+      "value": "\"countries\/pr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 19318,
+      "length": 14,
+      "value": "\"countries\/ps\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 19464,
+      "length": 14,
+      "value": "\"countries\/pt\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 19610,
+      "length": 14,
+      "value": "\"countries\/py\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 19756,
+      "length": 14,
+      "value": "\"countries\/qa\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 19902,
+      "length": 14,
+      "value": "\"countries\/ro\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 20048,
+      "length": 14,
+      "value": "\"countries\/rs\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 20194,
+      "length": 14,
+      "value": "\"countries\/ru\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 20340,
+      "length": 14,
+      "value": "\"countries\/rw\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 20486,
+      "length": 14,
+      "value": "\"countries\/sa\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 20632,
+      "length": 14,
+      "value": "\"countries\/sb\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 20778,
+      "length": 14,
+      "value": "\"countries\/sc\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 20924,
+      "length": 14,
+      "value": "\"countries\/sd\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 21070,
+      "length": 14,
+      "value": "\"countries\/se\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 21216,
+      "length": 14,
+      "value": "\"countries\/sg\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 21362,
+      "length": 14,
+      "value": "\"countries\/si\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 21508,
+      "length": 14,
+      "value": "\"countries\/sk\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 21654,
+      "length": 14,
+      "value": "\"countries\/sl\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 21800,
+      "length": 14,
+      "value": "\"countries\/sn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 21946,
+      "length": 14,
+      "value": "\"countries\/sr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 22092,
+      "length": 14,
+      "value": "\"countries\/su\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 22238,
+      "length": 14,
+      "value": "\"countries\/sv\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 22384,
+      "length": 14,
+      "value": "\"countries\/sy\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 22530,
+      "length": 14,
+      "value": "\"countries\/sz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 22676,
+      "length": 14,
+      "value": "\"countries\/td\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 22822,
+      "length": 14,
+      "value": "\"countries\/th\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 22968,
+      "length": 14,
+      "value": "\"countries\/tj\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 23114,
+      "length": 14,
+      "value": "\"countries\/tn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 23260,
+      "length": 14,
+      "value": "\"countries\/tr\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 23406,
+      "length": 14,
+      "value": "\"countries\/tw\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 23552,
+      "length": 14,
+      "value": "\"countries\/tz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 23698,
+      "length": 14,
+      "value": "\"countries\/ua\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 23844,
+      "length": 14,
+      "value": "\"countries\/ug\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 23990,
+      "length": 14,
+      "value": "\"countries\/uk\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 24136,
+      "length": 14,
+      "value": "\"countries\/us\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 24282,
+      "length": 14,
+      "value": "\"countries\/uy\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 24428,
+      "length": 14,
+      "value": "\"countries\/uz\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 24574,
+      "length": 14,
+      "value": "\"countries\/ve\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 24720,
+      "length": 14,
+      "value": "\"countries\/vg\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 24866,
+      "length": 14,
+      "value": "\"countries\/vi\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 25012,
+      "length": 14,
+      "value": "\"countries\/vn\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 25158,
+      "length": 14,
+      "value": "\"countries\/vu\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 25304,
+      "length": 14,
+      "value": "\"countries\/ye\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 25450,
+      "length": 14,
+      "value": "\"countries\/za\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 25596,
+      "length": 14,
+      "value": "\"countries\/zm\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 25742,
+      "length": 14,
+      "value": "\"countries\/zw\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRThumbnail\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphoneos\/PRThumbnail.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 25901,
+      "length": 16,
+      "value": "\"btnVideoFilled\""
     }
   ]
 }

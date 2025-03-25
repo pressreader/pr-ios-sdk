@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
                         parameters:(nullable NSDictionary *)parameters
                            options:(nullable NSDictionary<PRServiceRequestOption, id> *)options
                             method:(nullable NSString *)method
-                           success:(void(^)(id response))success
+                           success:(void(^)(id _Nullable response))success
                            failure:(void(^ _Nullable)(NSError *error))failure;
 
 - (void)getExternalAuthKeyWithCompletion:(void(^)(NSString * _Nullable key, NSError * _Nullable error))completion;
@@ -86,6 +86,11 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
 - (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
                                 forced:(BOOL)forced
                             completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
+- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
+                             hotSpotId:(nullable NSString *)hotSpotId
+                                forced:(BOOL)forced
+                            completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
+
 - (void)deleteRadiantHotSpotForAccount:(PRAccountItem *)accountItem;
 
 - (void)requestGiftedAccessWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;

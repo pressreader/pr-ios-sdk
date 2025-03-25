@@ -7,8 +7,7 @@
 //
 
 #import "PRThumbnailObject.h"
-
-#import "PRArticleThumbnailInfo.h"
+@class PRArticleThumbnailInfo;
 
 typedef NS_ENUM(uint8_t, NTFThumbnailArticleOption) {
     NTFThumbnailArticleOptionNone = 0,

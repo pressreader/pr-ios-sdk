@@ -35,6 +35,7 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
 @protocol PRPurchaseSelectorProtocol <NSObject>
 - (void)productSelected:(NSInteger)index;
 - (void)requestRestoredTransactions;
+- (void)requestRestoredTransactionsForced:(BOOL)forced completionHandler:(nullable void(^)(BOOL success))completionHandler NS_SWIFT_NAME(requestRestoredTransactions(forced:completionHandler:));
 @end
 
 @interface PROrderDelivery : NSObject <PRPurchaseSelectorProtocol>
@@ -99,6 +100,14 @@ extern NSNotificationName const PROrderDeliveryResultNotification;
 @interface PROrderDelivery (/*PROTECTED*/)
 - (void)cancelOrderDelivery;
 - (void)requestBackIssue;
+- (void)completeHotSpotWaiting;
+
+@property (nullable, nonatomic, strong) SKProduct *purchasingProduct;
+@property (nullable, nonatomic, copy) NSString *purchasingTransactionId;
+@property (nonatomic) BOOL confirmingServerSidePurchase;
+@property (nullable, nonatomic, strong) id issuePrice;
+@property (nullable, nonatomic, copy) NSString *issuePriceCurrency;
+
 @end
 
 #ifdef TEST

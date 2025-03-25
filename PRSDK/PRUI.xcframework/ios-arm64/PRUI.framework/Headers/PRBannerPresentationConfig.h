@@ -13,7 +13,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol CatalogFacade;
-@class ContentCardsPresentationConfig;
 
 @interface PRBannerPresentationConfig : NSObject
 
@@ -21,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, nonatomic, readonly) PRAppPanelID panelToShowBanners;
 @property (nonatomic, strong, readonly) id<CatalogFacade> sourceList;
-@property (nonatomic, strong, readonly) ContentCardsPresentationConfig *contentCards;
 
 @end
 

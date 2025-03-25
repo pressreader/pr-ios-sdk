@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
                          category:(NSString *)category
                       sectionJSON:(nullable NSDictionary *)sectionJSON;
 
-+ (instancetype)serviceWithFeedID:(NSManagedObjectID *)feedId NS_UNAVAILABLE;
-- (instancetype)initWithFeedID:(NSManagedObjectID *)feedId NS_UNAVAILABLE;
++ (instancetype)serviceWithFeedID:(nullable NSManagedObjectID *)feedId NS_UNAVAILABLE;
+- (instancetype)initWithFeedID:(nullable NSManagedObjectID *)feedId NS_UNAVAILABLE;
 
 @end
 

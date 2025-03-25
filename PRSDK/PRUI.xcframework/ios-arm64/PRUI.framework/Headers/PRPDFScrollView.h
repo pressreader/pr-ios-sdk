@@ -112,9 +112,6 @@ typedef enum _PAGE_CONTENT_MODE {
 // printing support
 - (void)printPageWithTitle:(NSString *)title footer:(NSString *)footer asBitmap:(BOOL)useBitmap justVisible:(BOOL)justVisibleBox fromBarButtonItem:(nullable UIBarButtonItem *)item;
 
-//adv. support
-- (void)redrawAdvertisement;
-
 - (NSUInteger)pageNum;
 - (NSUInteger)leftPageNum;
 - (NSUInteger)rightPageNum;

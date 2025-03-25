@@ -43,8 +43,8 @@ extern NSString *const kSourceType;
 @property (nonatomic, readonly) BOOL isInCatalog;
 @property (nonatomic, readonly) BOOL isServiceReachable;
 
-@property (nonatomic, readonly) NSString *country;
-@property (nonatomic, readonly) NSString *countryISOCode;
+@property (nullable, nonatomic, readonly) NSString *country;
+@property (nullable, nonatomic, readonly) NSString *originCountryCode;
 @property (nonatomic, readonly) NSString *language;
 @property (nonatomic, readonly) NSString *languageISOCode;
 @property (nonatomic, readonly) NSString *languageRegionCode;

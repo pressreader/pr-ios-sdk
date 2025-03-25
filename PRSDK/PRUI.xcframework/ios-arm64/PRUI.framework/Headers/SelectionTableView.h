@@ -6,12 +6,11 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-@import MTBlockTableView;
-@import PRUtils;
+#import "PRMTBlockTableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SelectionTableView : MTBlockTableView
+@interface SelectionTableView : PRMTBlockTableView
 
 - (void)setSelectionList:(NSArray *)selectionList
        selectedItemIndex:(NSInteger)index

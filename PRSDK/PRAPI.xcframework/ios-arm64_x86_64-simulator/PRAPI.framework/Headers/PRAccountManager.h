@@ -68,7 +68,6 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
 - (PRAccountItem*) AccountByIdx:(NSUInteger)idx;
 - (PRAccountItem*) GetFirstAvailableAccount;
 
-- (BOOL) canAuthorizeIPhoneAccount;
 - (BOOL) isAuthorizationRequired;
 - (BOOL) isUserAuthorizationRequired;
 - (BOOL) isDeviceRegistered;

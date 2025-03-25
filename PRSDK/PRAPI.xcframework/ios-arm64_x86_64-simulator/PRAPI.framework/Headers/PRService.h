@@ -44,10 +44,10 @@
 #pragma mark -
 
 @interface PRServiceClientLogger : NSObject
-+ (void) enableDebugLogForRequestType:(NSString *)reqType;
-+ (void) disableDebugLogForRequestType:(NSString *)reqType;
-+ (void) removeDebugLogForRequestType:(NSString *)reqType;
-+ (BOOL) isDebugLogEnabledForRequestType:(NSString *)reqType;
++ (void)enableDebugLogForRequestType:(NSString *)reqType;
++ (void)disableDebugLogForRequestType:(NSString *)reqType;
++ (void)removeDebugLogForRequestType:(NSString *)reqType;
++ (BOOL)isDebugLogEnabledForRequestType:(NSString *)reqType;
 @end
 
 @interface PRServiceClient : AFHTTPClient

@@ -1,6 +1,6 @@
 //
 //  PRSwitcherMenuItem.h
-//  PR-API
+//  PRUIKit
 //
 //  Created by berec on 25/11/2018.
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
@@ -14,11 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)itemWithTitle:(NSString *)title
                    switcherOn:(BOOL)on
-                     iconName:(nullable NSString *)iconName
+                         icon:(nullable NSString *)icon
                executionBlock:(nullable void(^)(void))executionBlock;
 
-@property (nonatomic, readonly) BOOL switcherOn;
 - (void)toggleSwitcherOn;
+
+@property (nonatomic, readonly) BOOL switcherOn;
 
 @end
 

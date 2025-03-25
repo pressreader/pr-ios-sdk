@@ -1,10 +1,13 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUtils
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUtils
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Compression
+import CoreLocation
 import CryptoKit
 import Foundation
 import PRConfiguration
+import PRLogKit
 import PRSyntacticSugar
 @_exported import PRUtils
 import Swift
@@ -12,11 +15,28 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+#if compiler(>=5.3) && $RetroactiveAttribute
+extension CoreLocation.CLLocationCoordinate2D : @retroactive Swift.Equatable {
+  public static func == (left: CoreLocation.CLLocationCoordinate2D, right: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+}
+#else
+extension CoreLocation.CLLocationCoordinate2D : Swift.Equatable {
+  public static func == (left: CoreLocation.CLLocationCoordinate2D, right: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+}
+#endif
 @objc extension ObjectiveC.NSObject {
   @objc dynamic public class var className: Swift.String {
     @objc get
   }
   @objc dynamic public var className: Swift.String {
+    @objc get
+  }
+}
+@objc extension ObjectiveC.NSObject {
+  @objc dynamic open class var bundle: Foundation.Bundle {
+    @objc get
+  }
+  @objc dynamic open var bundle: Foundation.Bundle {
     @objc get
   }
 }
@@ -47,6 +67,9 @@ extension Foundation.NSMutableAttributedString {
   dynamic public class func htmlAttributedString(_ html: Swift.String) -> Self?
   @objc dynamic public class func htmlAttributedString(_ html: Swift.String, options: Foundation.NSAttributedString.Options = [:], documentAttributes: Swift.AutoreleasingUnsafeMutablePointer<Foundation.NSDictionary?>? = nil) throws -> Self
 }
+extension Foundation.NSAttributedString {
+  public func height(constrainingWidth width: CoreFoundation.CGFloat, options: UIKit.NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]) -> CoreFoundation.CGFloat
+}
 public protocol Observable {
   associatedtype Callback
   func observe(_ callback: Self.Callback) -> Swift.AnyObject
@@ -64,7 +87,6 @@ extension PRUtils.Observable {
   }
   public func _observe(_ callback: Self.Callback) -> Swift.AnyObject
 }
-#if compiler(>=5.3) && $Actors
 public actor ArrayActor<T> {
   public var items: [T] {
     get
@@ -77,7 +99,6 @@ public actor ArrayActor<T> {
     get
   }
 }
-#endif
 extension Foundation.Data {
   public func inflated() -> Foundation.Data?
 }
@@ -136,6 +157,31 @@ extension PRUtils.DefaultLocalizedError {
 extension Foundation.JSONDecoder.DateDecodingStrategy {
   public static let flexibleISO8601: Foundation.JSONDecoder.DateDecodingStrategy
 }
+public struct TrimOption : Swift.OptionSet {
+  public static let null: PRUtils.TrimOption
+  public static let emptyCollection: PRUtils.TrimOption
+  public static let all: PRUtils.TrimOption
+  public var rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public typealias ArrayLiteralElement = PRUtils.TrimOption
+  public typealias Element = PRUtils.TrimOption
+  public typealias RawValue = Swift.Int
+}
+public protocol TrimmableCollection : PRSyntacticSugar.Emptiable {
+  func trimmed(options: PRUtils.TrimOption) -> Self
+}
+extension Swift.Array : PRUtils.TrimmableCollection {
+  public func trimmed(options: PRUtils.TrimOption) -> [Element]
+}
+extension Foundation.NSArray : PRUtils.TrimmableCollection {
+  public func trimmed(options: PRUtils.TrimOption) -> Self
+}
+extension Swift.Dictionary : PRUtils.TrimmableCollection where Value == Any {
+  public func trimmed(options: PRUtils.TrimOption) -> [Key : Value]
+}
+extension Foundation.NSDictionary : PRUtils.TrimmableCollection {
+  public func trimmed(options: PRUtils.TrimOption) -> Self
+}
 extension Swift.Array where Element : Swift.Equatable {
   public mutating func removeFirstOccurrence(_ element: Swift.Array<Element>.Element)
 }
@@ -147,6 +193,12 @@ extension Foundation.URL {
     get
   }
   public func queryDictionary() -> [Swift.String : Swift.String]
+  public var fragmentless: Foundation.URL? {
+    get
+  }
+  public var isSchemeSyntaxNormalised: Swift.Bool {
+    get
+  }
 }
 extension Foundation.Date {
   public var canonicalString: Swift.String {
@@ -208,13 +260,12 @@ extension Swift.String {
 }
 @objc extension Foundation.Bundle {
   @objc dynamic public func containsURLScheme(_ urlScheme: Swift.String?) -> Swift.Bool
+  @objc dynamic public func firstURLScheme() -> Swift.String?
   @objc dynamic public func containsAssociatedBranchDomain(_ associatedBranchDomain: Swift.String?) -> Swift.Bool
   @objc dynamic public func canHandleURL(_ url: Foundation.URL) -> Swift.Bool
 }
 extension Swift.Encodable {
-  public var jsonObject: Any? {
-    get
-  }
+  public func jsonObject<T>() -> T?
 }
 @objc @_inheritsConvenienceInitializers final public class HTMLFormatter : ObjectiveC.NSObject {
   @objc final public class func css(font: UIKit.UIFont, fontSource: Swift.String? = nil, color: UIKit.UIColor? = nil, margin: Foundation.NSNumber? = nil) -> Swift.String
@@ -233,17 +284,33 @@ final public class WeakArray<T> where T : AnyObject {
   final public func forEach(reverse: Swift.Bool = false, callback: (T) -> ())
   @objc deinit
 }
+#if compiler(>=5.3) && $NoncopyableGenerics
 extension Swift.Result {
   public var isSucceeded: Swift.Bool {
     get
   }
 }
+#else
+extension Swift.Result {
+  public var isSucceeded: Swift.Bool {
+    get
+  }
+}
+#endif
 public typealias VoidResult = Swift.Result<(), any Swift.Error>
+#if compiler(>=5.3) && $NoncopyableGenerics
 extension Swift.Result where Success == () {
   public static var success: Swift.Result<(), Failure> {
     get
   }
 }
+#else
+extension Swift.Result where Success == () {
+  public static var success: Swift.Result<(), Failure> {
+    get
+  }
+}
+#endif
 extension Foundation.UUID {
   public init(number: Swift.Int64)
 }
@@ -263,6 +330,9 @@ extension Foundation.UUID {
   @objc deinit
 }
 extension Swift.String {
+  public var wordCount: Swift.Int {
+    get
+  }
   public func ranges(of substring: Swift.String, options: Swift.String.CompareOptions = [], locale: Foundation.Locale? = nil) -> [Swift.Range<Swift.String.Index>]
   public func capitalizedFirstLetter() -> Swift.String
   public mutating func capitalizeFirstLetter()
@@ -276,20 +346,20 @@ extension Foundation.Data {
 }
 public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -> Swift.String
 @objc extension UIKit.UIApplication {
-  @objc @_Concurrency.MainActor(unsafe) public static let PRRootVCClass: Swift.AnyClass?
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var rootVC: UIKit.UIViewController? {
+  @objc @_Concurrency.MainActor @preconcurrency public static let PRRootVCClass: Swift.AnyClass?
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var rootVC: UIKit.UIViewController? {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstKeyWindow: UIKit.UIWindow? {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var firstKeyWindow: UIKit.UIWindow? {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var appWindows: [UIKit.UIWindow] {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var appWindows: [UIKit.UIWindow] {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstWindowSceneStatusBarFrame: CoreFoundation.CGRect {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var firstWindowSceneStatusBarFrame: CoreFoundation.CGRect {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var firstWindowScene: UIKit.UIWindowScene? {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var firstWindowScene: UIKit.UIWindowScene? {
     @objc get
   }
 }
@@ -312,30 +382,8 @@ public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -
   @objc deinit
 }
 extension PRUtils.SecureStorage {
-  #if compiler(>=5.3) && $AsyncAwait
   final public func load() async throws -> Foundation.Data
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
   final public func store(_ data: Foundation.Data) async throws
-  #endif
-}
-@objc extension Foundation.NSLocale {
-  @objc dynamic public func languageName(isoCode: Swift.String) -> Swift.String?
-  @objc public static func hasCountry(forLocaleIdentifier localeIdentifier: Swift.String) -> Swift.Bool
-  @objc public static func languageAndScript(fromLocaleIdentifier localeIdentifier: Swift.String) -> Swift.String
-  @objc public static func canonicalValidatedLanguageIdentifier(fromComponents components: [Swift.String : Swift.String]) -> Swift.String
-  @objc public static func canonicalValidatedLanguageIdentifier(from localeIdentifier: Swift.String) -> Swift.String
-  @objc public static func validatedCurrentLanguageIdentifier() -> Swift.String
-  @objc public static func currentLanguageAndScriptIdentifier() -> Swift.String
-  @objc public static func validatedPreferredLanguageIdentifiers() -> [Swift.String]
-  @objc public static func validatedPreferredLanguageIdentifier(matching languageIdentifier: Swift.String) -> Swift.String?
-  @objc public static func validatedLanguageIdentifier(languageCode: Swift.String, countryCode: Swift.String?) -> Swift.String
-  @objc dynamic public var validatedLanguageIdentifier: Swift.String {
-    @objc get
-  }
-}
-extension Foundation.Locale {
-  public func languageName(isoCode: Swift.String) -> Swift.String?
 }
 extension Swift.Array where Element : Swift.Equatable {
   public mutating func remove(items: [Element])

@@ -26,11 +26,22 @@ typedef NS_OPTIONS(uint8_t, PRNavigationBarRefreshOption) {
 };
 
 @interface UIViewController (PRUINavigation)
+
+- (void)updateNavigationBarItemsAnimated:(BOOL)animated;
+- (void)updateNavigationBarItemsAnimated:(BOOL)animated options:(PRNavigationBarRefreshOption)options;
+
+- (void)backButtonAction:(id)sender;
+- (void)setShowParams:(NSDictionary*)p;
+
+- (void)setLeftBarButtonItems:(nullable NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated;
+- (void)setRightBarButtonItems:(nullable NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated;
+
+- (void)setNeedsUpdateNavigationItemInsets;
+
 @property (nullable, nonatomic, readonly) NSArray<UIBarButtonItem *> *navigationBarLeftBarButtonItems;
 @property (nullable, nonatomic, readonly) NSArray<UIBarButtonItem *> *navigationBarRightBarButtonItems;
 
 @property (nonatomic, readonly) UIView *navigationItemTitleView;
-@property (nonatomic, readonly) CGFloat navigationItemTitleViewWidth;
 
 @property (nonatomic, readonly) BOOL isNavigationBarHidden;
 @property (nonatomic, readonly) BOOL isStatusBarAppearanceManuallyAdjusted;
@@ -44,15 +55,6 @@ typedef NS_OPTIONS(uint8_t, PRNavigationBarRefreshOption) {
 @property (nonatomic, readonly) PRDismissNavigationButtonStyle backButtonStyle;
 
 @property (nonatomic) BOOL discardOnTraitCollectionChanges;
-
-- (void)updateNavigationBarItemsAnimated:(BOOL)animated;
-- (void)updateNavigationBarItemsAnimated:(BOOL)animated options:(PRNavigationBarRefreshOption)options;
-
-- (void)backButtonAction:(id)sender;
-- (void)setShowParams:(NSDictionary*)p;
-
-- (void)setLeftBarButtonItems:(nullable NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated;
-- (void)setRightBarButtonItems:(nullable NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated;
 
 @end
 

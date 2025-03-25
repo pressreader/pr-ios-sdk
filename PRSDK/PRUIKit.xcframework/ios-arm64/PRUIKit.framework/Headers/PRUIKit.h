@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@import PRUtils;
-@import PRLogKit;
 
 //! Project version number for PRUI.
 FOUNDATION_EXPORT double PRUIVersionNumber;
@@ -22,7 +20,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRSplashBackgroundView.h"
 
 #import "UIUtils.h"
-#import "PRExitSDKUtil.h"
 
 #import "UIApplication+Orientation.h"
 #import "NSLayoutAnchor+Active.h"
@@ -39,7 +36,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "UIView+SubviewSearch.h"
 #import "UIView+Theme.h"
 
-#import "UIButton+Extended.h"
+#import "UIButton+Configuration.h"
 #import "PRReversedButton.h"
 #import "PRSwitchButton.h"
 #import "PRFollowButton.h"
@@ -53,7 +50,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "UIViewController+PopoverPresentation.h"
 #import "UIViewController+PRUINavigation.h"
 #import "UIViewController+PRAppMenu.h"
-#import "UIViewController+Bundle.h"
 
 #import "PRConfig+Theme.h"
 
@@ -61,7 +57,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "UIColor+AppStyle.h"
 
 #import "PRAppStyle.h"
-#import "PRAppStyle+Shadow.h"
 
 #import "PRPopoverBackgroundView.h"
 #import "PRDropdownView.h"
@@ -95,8 +90,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRRoundedCenteredCell.h"
 
 #import "UILabel+TappableLink.h"
-
-#import "PRSocialSignInCell.h"
 
 #import "UIFont+CustomFonts.h"
 #import "UIFont+CoreTextExtensions.h"

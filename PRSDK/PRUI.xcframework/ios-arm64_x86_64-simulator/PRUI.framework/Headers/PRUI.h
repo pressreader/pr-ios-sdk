@@ -31,8 +31,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "PROrderDelivery+Error.h"
 
-#import "PREmailSignInOptions.h"
-
 #import "PRActivityItem.h"
 #import "PRActivityProvider.h"
 
@@ -202,6 +200,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PROrderVC.h"
 #import "PRSelectionPanelVC.h"
 #import "PREditAccountVC.h"
+#import "UIImage+BarButtonSystemItem.h"
 
 // Protected API
 #import "PRVerticalFeedVC_Protected.h"
@@ -226,3 +225,10 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRRelatedArticlesView.h"
 #import "NTFRelatedArticleCell.h"
 #import "PROrderView.h"
+#import "PRExitSDKUtil.h"
+#import "PRSchemeProvider.h"
+#import "PRAccountItem+HotSpotWelcomeMessage.h"
+#import "PRShareComponent.h"
+#import "PRArticleBylineView.h"
+#import "PRGiftIssuePromoBlockVC.h"
+#import "PRSmartArticleTools.h"

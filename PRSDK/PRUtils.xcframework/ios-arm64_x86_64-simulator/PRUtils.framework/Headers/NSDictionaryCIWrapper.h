@@ -16,16 +16,18 @@ typedef NS_OPTIONS(NSUInteger, NSDictionaryCIWrapperOption) {
     NSDictionaryCIWrapperOptionAcceptKeyPath = 1 << 1
 };
 
+typedef NSDictionary<NSString *, id> * CIWrapperDictionary;
+
 /// Dictionary's wrapper that provides capitalisation insensitive access to the objects
 @interface NSDictionaryCIWrapper : NSObject
 
-+ (nullable instancetype)CIWrapperForDictionary:(NSDictionary *)dictionary;
-+ (nullable instancetype)CIWrapperForDictionary:(NSDictionary *)dictionary
-                                        options:(NSDictionaryCIWrapperOption)options;
++ (instancetype)CIWrapperForDictionary:(CIWrapperDictionary)dictionary;
++ (instancetype)CIWrapperForDictionary:(CIWrapperDictionary)dictionary
+                               options:(NSDictionaryCIWrapperOption)options;
 
 - (nullable id)objectForKeyedSubscript:(id)key;
 
-@property (nonatomic, strong, readonly) NSDictionary *dictionary;
+@property (nonatomic, strong, readonly) CIWrapperDictionary dictionary;
 
 /// default value is "/"
 @property (nonatomic, strong) NSString *keyPathSeparator;

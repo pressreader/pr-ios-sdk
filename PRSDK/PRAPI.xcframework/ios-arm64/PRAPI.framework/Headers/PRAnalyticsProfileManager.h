@@ -6,8 +6,7 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "PRAnalyticsProfile.h"
+@import PRAnalytics;
 
 NS_ASSUME_NONNULL_BEGIN
 

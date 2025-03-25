@@ -22,15 +22,8 @@ extern const NSInteger kNTFMyLibraryDataSourcePagesetIndexBase;
  */
 @interface NTFMyLibraryItemDataSource : NTFDataSource
 
-/**
- @method initWithMli:
- @abstract Creates and initializes an `NTFMyLibraryItemDataSource` object
- @param mli a `PRMyLibraryItem` object with SmartLayout use to build Data Source
- @return the newely initialized `NTFMyLibraryItemDataSource` object, or nil if `mli` parameter is nil or does not contain smart layout information
- */
-- (nullable instancetype)initWithMli:(nullable PRMyLibraryItem *)mli;
-- (nullable instancetype)initWithMli:(nullable PRMyLibraryItem *)mli page:(NSUInteger)pageIndex article:(nullable NSString *)artID NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithMLI:(PRMyLibraryItem *)mli NS_DESIGNATED_INITIALIZER;
 
 - (NSUInteger)numberOfSections;
 - (NSInteger)itemIndexForSectionIndex:(NSInteger)sectionIndex;
@@ -45,7 +38,7 @@ extern const NSInteger kNTFMyLibraryDataSourcePagesetIndexBase;
 - (void)savePageset:(PRSmartPageset *)pageset toCollections:(nullable NSArray<NSString *> *)collectionIds
            completed:(void (^ _Nullable) (NSError * _Nullable error))completionBlock;
 
-@property (nullable, nonatomic, readonly) PRMyLibraryItem *mli;
+@property (nonatomic, unsafe_unretained, readonly) PRMyLibraryItem *mli;
 
 @property (nonatomic, readonly, nullable) NSString *title;
 @property (nonatomic, readonly, nullable) NSDate *issueDate;

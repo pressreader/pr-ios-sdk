@@ -24,10 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)enumerateThroughTitleItems:(BOOL(^)(PRTitleItem *item))block;
 
-@property (nonatomic, readonly) NSArray<PRCountableDictionary *> *categories;
 @property (nonatomic, readonly) NSArray<PRCountableDictionary *> *sections;
 @property (nonatomic, readonly) NSArray<PRCountableString *> *languages;
-@property (nonatomic, readonly) NSArray<PRCountableCountry *> *countries;
 @property (nullable, nonatomic, readonly) NSArray<PRCountableDictionary *> *countryRegions;
 
 @end

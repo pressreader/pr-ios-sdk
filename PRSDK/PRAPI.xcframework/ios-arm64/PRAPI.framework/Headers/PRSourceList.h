@@ -43,19 +43,11 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 
 #pragma mark Init
 
-+ (instancetype)listWithDelegate:(nullable id<PRSourceListDelegate>)delegate;
-+ (instancetype)listWithCatalog:(PRCatalog *)catalog;
-
 - (instancetype)initWithSourceList:(PRSourceList *)sourceList;
-
-+ (instancetype)listWithList:(NSArray<id<PRCatalogItem>> *)list;
 - (instancetype)initWithList:(NSArray<id<PRCatalogItem>> *)list;
-
 - (instancetype)initWithCIDs:(NSArray<NSString *> *)cids;
 
 #pragma mark Basic Operations With Sources
-
-- (void)setNeedsReloadList;
 
 /// Calls `reloadListCheckingContent` with `checkContent` set to YES.
 - (void)reloadList;
@@ -110,6 +102,7 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 @property (nonatomic, strong, readonly) PRCountableValue *country;
 @property (nonatomic, strong, readonly) PRCountableValue *mainCID;
 @property (nonatomic, strong, readonly) PRCountableValue *minRate;
+@property (nonatomic, strong, readonly) PRCountableValue *issueDate;
 @property (nonatomic, strong, readonly) NSString *group;
 @property (nonatomic, strong, readonly) NSArray<NSString *> *cids;
 @property (nonatomic, copy, readonly) NSArray<PRSubscription *> *subscriptionFilters;
@@ -131,5 +124,4 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 NS_ASSUME_NONNULL_END
 
 #import "PRSourceList+Info.h"
-#import "PRSourceList+Equality.h"
 #import "PRSourceList+Factory.h"

@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (id)objectForKeyedSubscript:(NSString *)key;
 - (void)setObject:(nullable id)object forKeyedSubscript:(NSString *)key;
 
-@property (nonatomic, strong, readonly) NSUserDefaults *appGroupDefaults;
+@property (nullable, nonatomic, readonly) NSUserDefaults *appGroupDefaults;
 
 @end
 

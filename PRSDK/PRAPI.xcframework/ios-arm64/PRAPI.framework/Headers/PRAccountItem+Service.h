@@ -20,8 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestHotZoneStatus;
 - (void)requestHotZoneStatusForced:(BOOL)forced
                         completion:(void(^_Nullable)(BOOL success,
-                                                     NSError *error,
+                                                     NSError  *_Nullable error,
                                                      NSTimeInterval repeatInterval))completion;
+- (void)requestHotZoneStatusWithHotSpotId:(nullable NSString *)hotSpotId
+                                   forced:(BOOL)forced
+                               completion:(void(^_Nullable)(BOOL success,
+                                                            NSError *_Nullable error,
+                                                            NSTimeInterval repeatInterval))completion;
 
 /// `then` block will provide NSString *ticket
 - (PRPromise *)getAuthTicket;

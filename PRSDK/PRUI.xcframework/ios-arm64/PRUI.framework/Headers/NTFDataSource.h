@@ -12,6 +12,7 @@
 #import <PRUI/PRFeedLayoutManager.h>
 
 @import PRConfiguration.PRFeedConfig;
+@import PRThumbnail;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -112,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
                              item:(id)item
                              size:(CGSize)size
                     fromCacheOnly:(BOOL)cacheOnly
-                       completion:(void (^ _Nullable)(UIImage * _Nullable img, NSError * _Nullable err)) completionBlock;
+                      completion:(nullable PRThumbnailHandler) completionBlock;
 
 - (void)cancelLoadingThumbnailForPageNo:(NSUInteger)pageNo
                                     item:(id)item

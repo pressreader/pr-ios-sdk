@@ -12,8 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRiphoneAppDelegate : NSObject <UIApplicationDelegate>
 
+- (void)checkAppVersion;
+
 // Utils
 @property (nonatomic) BOOL onLaunch;
+@property (nonatomic, readonly) NSString *backgroundAppRefreshIdentifier;
 
 @end
 

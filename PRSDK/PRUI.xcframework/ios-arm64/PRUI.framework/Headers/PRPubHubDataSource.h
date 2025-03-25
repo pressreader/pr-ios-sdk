@@ -69,7 +69,7 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
                                  prompt:(nullable NSString *)prompt
                                subtitle:(nullable NSString *)subtitle
                              dataSource:(nullable id)dataSource
-                              skipCache:(BOOL)skipCache NS_SWIFT_NAME(section(scheme:title:prompt:subtitle:dataSource:skipCache:));
+NS_SWIFT_NAME(section(scheme:title:prompt:subtitle:dataSource:));
 
 - (PRCatalogSection *)sectionWithScheme:(CatalogSectionScheme *)scheme
                        titlePlaceholder:(nullable NSString *)titlePlaceholder
@@ -104,7 +104,7 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 - (void)dataSource:(PRPubHubDataSource *)dataSource didUpdateSectionAtIndex:(NSInteger)index headerUpdated:(BOOL)headerUpdated;
 - (void)dataSourceDidUpdateAdBanners:(PRPubHubDataSource *)dataSource;
 - (void)scrollToTop;
-- (void)discloseCategory:(PRCountableDictionary *)value;
+- (void)discloseCategory:(id<CatalogNavigationVariant>)value;
 
 @property (nonatomic, readonly) CGSize viewSize;
 

@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRDIContainer
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRDIContainer
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 @_exported import PRDIContainer
 import Swift
@@ -9,17 +10,17 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public protocol DependencyResolver {
-  static func resolveDependency<T>() -> T
-  func resolveDependency<T>() -> T
+  static func resolveDependency<T>() -> T?
+  func resolveDependency<T>() -> T?
 }
 extension PRDIContainer.DependencyResolver {
-  public static func resolveDependency<T>() -> T
-  public func resolveDependency<T>() -> T
+  public static func resolveDependency<T>() -> T?
+  public func resolveDependency<T>() -> T?
 }
 extension ObjectiveC.NSObject : PRDIContainer.DependencyResolver {
 }
 @propertyWrapper public struct Inject<T> {
-  public var wrappedValue: T {
+  public var wrappedValue: T? {
     get
   }
   public init()
@@ -35,8 +36,8 @@ extension ObjectiveC.NSObject : PRDIContainer.DependencyResolver {
 }
 @available(*, unavailable)
 @objc extension PRDIContainer.DIContainer {
-  @objc final public func resolveForKey(_ key: PRDIContainer.DIContainer.Key) -> Any
-  @objc final public func resolveForType(_ type: Swift.AnyClass) -> Any
+  @objc final public func resolveForKey(_ key: PRDIContainer.DIContainer.Key) -> Any?
+  @objc final public func resolveForType(_ type: Swift.AnyClass) -> Any?
 }
 @objc @_inheritsConvenienceInitializers final public class DIContainer : ObjectiveC.NSObject {
   public typealias Key = Swift.String
@@ -64,9 +65,7 @@ extension PRDIContainer.DIContainer {
 }
 extension PRDIContainer.DIContainer {
   final public func resolve<T>(key: PRDIContainer.DIContainer.Key? = nil) -> T?
-  final public func resolveRegistered<T>(key: PRDIContainer.DIContainer.Key? = nil) -> T
   final public func enumerateRegisteredDependencies(_ handler: (Any) -> ())
-  final public func resolveRegisteredMock<T>() -> T where T : ObjectiveC.NSObject
 }
 extension PRDIContainer.DIContainer {
   @objc(hasDependencyForKey:) final public func hasDependency(key: PRDIContainer.DIContainer.Key) -> Swift.Bool
