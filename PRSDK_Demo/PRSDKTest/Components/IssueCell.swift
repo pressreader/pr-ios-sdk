@@ -16,7 +16,7 @@ final class IssueCell: UITableViewCell {
     
     private var observer: Download.Observer?
     
-    var issue: PRCatalogItem? {
+    var issue: TitleItem? {
         didSet {
             self.update()
 
