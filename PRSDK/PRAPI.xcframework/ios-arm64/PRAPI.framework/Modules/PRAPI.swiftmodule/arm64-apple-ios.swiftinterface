@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRAPI
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRAPI
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import AVFoundation
 import AppTrackingTransparency
 import AuthenticationServices
@@ -42,15 +42,9 @@ import _SwiftConcurrencyShims
   @objc @_Concurrency.MainActor @preconcurrency public init?(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, linkToCurrentAccount: Swift.Bool, completion: @escaping (_ success: Swift.Bool, _ isNewUser: Swift.Bool, (any Swift.Error)?) -> ())
   @objc deinit
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension AuthenticationServices.ASWebAuthenticationSession : @retroactive AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentationAnchor(for session: AuthenticationServices.ASWebAuthenticationSession) -> AuthenticationServices.ASPresentationAnchor
 }
-#else
-extension AuthenticationServices.ASWebAuthenticationSession : AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentationAnchor(for session: AuthenticationServices.ASWebAuthenticationSession) -> AuthenticationServices.ASPresentationAnchor
-}
-#endif
 @objc public protocol RichMediaAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   @objc var mediaType: Swift.String { get }
   @objc var issue: (any PRAPI.IssueAnalyticsProvider)? { get }
@@ -587,15 +581,9 @@ extension PRAPI.NTFSession {
   public func object<T>(predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T where T : CoreData.NSManagedObject
   public func object<T>(predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T? where T : CoreData.NSManagedObject
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension StoreKit.SKProduct : @retroactive PRAnalytics.AnalyticsProvider {
   public func track()
 }
-#else
-extension StoreKit.SKProduct : PRAnalytics.AnalyticsProvider {
-  public func track()
-}
-#endif
 extension PRAPI.PRSourceItem {
   public func isAutoDeliverable() -> (hasSubscription: Swift.Bool, includingSupplements: Swift.Bool)
   public func setAutodelivery(_ isOn: Swift.Bool, applyToSupplements: Swift.Bool = false, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)? = nil)
@@ -1953,9 +1941,9 @@ public protocol BackgroundTaskRunner : AnyObject {
 public struct BackgroundTask : Swift.Hashable, Swift.Identifiable {
   public let id: Foundation.UUID
   public var backgroundTaskId: UIKit.UIBackgroundTaskIdentifier
-  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: PRAPI.BackgroundTask, b: PRAPI.BackgroundTask) -> Swift.Bool
   public typealias ID = Foundation.UUID
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -2992,7 +2980,6 @@ extension PRAPI.SignInAnalyticsProvider {
 }
 public protocol ObservableCatalogFacade : PRAPI.CatalogFacade, PRAPI.ObservableModel {
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension PRCatalogModel.ContentLicense : @retroactive PRCoreDataUtils.UpdatableMO {
   public typealias Payload = PRCatalogModel.ContentLicense.DTO
   public struct DTO : PRCoreDataUtils.StringIdentifiable {
@@ -3001,16 +2988,6 @@ extension PRCatalogModel.ContentLicense : @retroactive PRCoreDataUtils.Updatable
   public class func payload(with info: [Swift.String : Any]) -> PRCatalogModel.ContentLicense.DTO?
   public func update(payload: PRCatalogModel.ContentLicense.DTO)
 }
-#else
-extension PRCatalogModel.ContentLicense : PRCoreDataUtils.UpdatableMO {
-  public typealias Payload = PRCatalogModel.ContentLicense.DTO
-  public struct DTO : PRCoreDataUtils.StringIdentifiable {
-    public let id: Swift.String
-  }
-  public class func payload(with info: [Swift.String : Any]) -> PRCatalogModel.ContentLicense.DTO?
-  public func update(payload: PRCatalogModel.ContentLicense.DTO)
-}
-#endif
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AnalyticsTrackerAdapter : ObjectiveC.NSObject {
   @objc public init(tracker: any PRAPI.AnalyticsTracker)
   @objc deinit

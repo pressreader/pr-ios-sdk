@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUtils
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRUtils
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import Compression
 import CoreLocation
 import CryptoKit
@@ -15,15 +15,9 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension CoreLocation.CLLocationCoordinate2D : @retroactive Swift.Equatable {
   public static func == (left: CoreLocation.CLLocationCoordinate2D, right: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
 }
-#else
-extension CoreLocation.CLLocationCoordinate2D : Swift.Equatable {
-  public static func == (left: CoreLocation.CLLocationCoordinate2D, right: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
-}
-#endif
 @objc extension ObjectiveC.NSObject {
   @objc dynamic public class var className: Swift.String {
     @objc get
@@ -284,33 +278,17 @@ final public class WeakArray<T> where T : AnyObject {
   final public func forEach(reverse: Swift.Bool = false, callback: (T) -> ())
   @objc deinit
 }
-#if compiler(>=5.3) && $NoncopyableGenerics
 extension Swift.Result {
   public var isSucceeded: Swift.Bool {
     get
   }
 }
-#else
-extension Swift.Result {
-  public var isSucceeded: Swift.Bool {
-    get
-  }
-}
-#endif
 public typealias VoidResult = Swift.Result<(), any Swift.Error>
-#if compiler(>=5.3) && $NoncopyableGenerics
 extension Swift.Result where Success == () {
   public static var success: Swift.Result<(), Failure> {
     get
   }
 }
-#else
-extension Swift.Result where Success == () {
-  public static var success: Swift.Result<(), Failure> {
-    get
-  }
-}
-#endif
 extension Foundation.UUID {
   public init(number: Swift.Int64)
 }

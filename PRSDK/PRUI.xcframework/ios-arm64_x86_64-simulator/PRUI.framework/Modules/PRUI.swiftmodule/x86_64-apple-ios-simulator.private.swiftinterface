@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRUI
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRUI
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import AuthenticationServices
 import BackgroundTasks
 import PRAPI.BranchAnalytics
@@ -374,15 +374,9 @@ extension PRUI.VerticalTextFlowVC {
   @objc public func variant(indexPath: Foundation.IndexPath) -> any PRAPI.CatalogNavigationVariant
   @objc deinit
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension PRUIKit.PRSafariVC : @retroactive PRUIKit.Reportable {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func report()
 }
-#else
-extension PRUIKit.PRSafariVC : PRUIKit.Reportable {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func report()
-}
-#endif
 @objc extension WKYTPlayerView.YTPlayerView {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func metadata(completion: ((Any?, (any Swift.Error)?) -> Swift.Void)?)
 }
@@ -403,15 +397,9 @@ extension UIKit.UIViewController {
     @objc get
   }
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension UIKit.UIViewController : @retroactive PRUIKit.GlobalSearchSupportable {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func showGlobalSearch(text: Swift.String?) async -> UIKit.UIViewController?
 }
-#else
-extension UIKit.UIViewController : PRUIKit.GlobalSearchSupportable {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func showGlobalSearch(text: Swift.String?) async -> UIKit.UIViewController?
-}
-#endif
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency final public class ArticlePopoverContainerVC : UIKit.UIViewController, UIKit.UINavigationControllerDelegate {
   @objc(ArticlePopoverContentAppearanceType) public enum AppearanceType : Swift.Int {
     case automatic = 0
@@ -1182,6 +1170,17 @@ extension PRUI.CustomStyleableTextFlowVC : PRUIKit.NavigationBarAppearanceProvid
   @_Concurrency.MainActor @preconcurrency @objc final public func imagePickerController(_ picker: UIKit.UIImagePickerController, didFinishPickingMediaWithInfo info: [UIKit.UIImagePickerController.InfoKey : Any])
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @objcMembers public class PRSectionHeaderViewModel : ObjectiveC.NSObject, Foundation.NSCopying {
+  @objc public var title: Swift.String
+  @objc public var prompt: Swift.String?
+  @objc public var subtitle: Swift.String?
+  @objc public var options: PRUI.PRSectionHeaderViewOption
+  @objc override convenience dynamic public init()
+  @objc public init(title: Swift.String = "", prompt: Swift.String? = nil, subtitle: Swift.String? = nil, options: PRUI.PRSectionHeaderViewOption = .showSeeAllButton)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class NewsChannelsView : PRUIKit.SwiftView {
   @_Concurrency.MainActor @preconcurrency public var delegate: (any UIKit.UITableViewDataSource & UIKit.UITableViewDelegate)? {
     get
@@ -1203,37 +1202,17 @@ extension PRUI.CustomStyleableTextFlowVC : PRUIKit.NavigationBarAppearanceProvid
 @objc extension PRUIKit.PRMenuItem {
   @objc public static func editInterestsMenuItem() -> PRUIKit.PRMenuItem?
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension PRUIKit.PRUINavigationController : @retroactive UIKit.UINavigationControllerDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func navigationController(_ navigationController: UIKit.UINavigationController, willShow viewController: UIKit.UIViewController, animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func navigationController(_ navigationController: UIKit.UINavigationController, didShow viewController: UIKit.UIViewController, animated: Swift.Bool)
 }
-#else
-extension PRUIKit.PRUINavigationController : UIKit.UINavigationControllerDelegate {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func navigationController(_ navigationController: UIKit.UINavigationController, willShow viewController: UIKit.UIViewController, animated: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func navigationController(_ navigationController: UIKit.UINavigationController, didShow viewController: UIKit.UIViewController, animated: Swift.Bool)
-}
-#endif
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension PRAPI.CatalogBanner : @retroactive PRAnalytics.AnalyticsProvider {
 }
-#else
-extension PRAPI.CatalogBanner : PRAnalytics.AnalyticsProvider {
-}
-#endif
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension PRAPI.CatalogBanner : @retroactive PRAPI.BannerAnalyticsProvider {
   final public var bannerType: PRAnalytics.PRAnalyticsBannerType {
     get
   }
 }
-#else
-extension PRAPI.CatalogBanner : PRAPI.BannerAnalyticsProvider {
-  final public var bannerType: PRAnalytics.PRAnalyticsBannerType {
-    get
-  }
-}
-#endif
 @_inheritsConvenienceInitializers @_Concurrency.MainActor @objc final public class CommandNavigateBooks : ObjectiveC.NSObject {
   @objc @_Concurrency.MainActor final public class func execute(parameters: [Swift.String : Any]) async
   @_Concurrency.MainActor @objc override dynamic public init()
@@ -1711,19 +1690,11 @@ extension UIKit.UIUserInterfaceStyle {
     get
   }
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension UIKit.UIUserInterfaceStyle : @retroactive Swift.CaseIterable {
   public static let allCases: [UIKit.UIUserInterfaceStyle]
   @available(iOS 12.0, *)
   public typealias AllCases = [UIKit.UIUserInterfaceStyle]
 }
-#else
-extension UIKit.UIUserInterfaceStyle : Swift.CaseIterable {
-  public static let allCases: [UIKit.UIUserInterfaceStyle]
-  @available(iOS 12.0, *)
-  public typealias AllCases = [UIKit.UIUserInterfaceStyle]
-}
-#endif
 @_inheritsConvenienceInitializers @objc final public class Wide3CFeedLayoutItem : PRUI.AbstractFeedLayoutItem {
   @objc required dynamic public init()
   @objc deinit
