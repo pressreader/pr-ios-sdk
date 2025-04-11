@@ -35,9 +35,13 @@ typedef NS_ENUM(NSUInteger, NTFGiftUserStatus) {
     NTFGiftUserStatusHasAccess = 1 << 4
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class NTFUserItem;
 
 @interface NTFGiftedIssueItem : NTFFeedItem
+
++ (nullable instancetype)standaloneItemWithJSON:(NSDictionary<NSString *, id> *)json;
 
 - (void)updateClaimed:(BOOL)claimed;
 
@@ -50,5 +54,7 @@ typedef NS_ENUM(NSUInteger, NTFGiftUserStatus) {
 @property (nullable, nonatomic, readonly) NSDictionary *videoAdParameters;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #import "NTFGiftedIssueItem+CoreDataProperties.h"

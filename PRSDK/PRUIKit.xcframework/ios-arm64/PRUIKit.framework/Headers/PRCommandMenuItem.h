@@ -1,6 +1,6 @@
 //
 //  PRMenuItemCommand.h
-//  PR-API
+//  PRUIKit
 //
 //  Created by berec on 23/11/2018.
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
@@ -18,12 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)itemWithCommand:(PRCommandName)commandName
                           title:(NSString *)title
                         details:(nullable NSString *)details
-                       iconName:(nullable NSString *)iconName;
+                           icon:(nullable NSString *)icon;
 
 + (instancetype)itemWithCommand:(PRCommandName)commandName
                           title:(NSString *)title
                         details:(nullable NSString *)details
-                       iconName:(nullable NSString *)iconName
+                           icon:(nullable NSString *)icon
                      parameters:(nullable NSDictionary *)data
                         context:(nullable NSString *)context;
 

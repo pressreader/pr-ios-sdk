@@ -1,19 +1,48 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRCoreDataUtils
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRCoreDataUtils
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import CoreData
 import Foundation
 @_exported import PRCoreDataUtils
+import PRLogKit
 import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 extension CoreData.NSManagedObjectContext {
   public func performAndWaitAndSave<T>(_ block: () throws -> T) rethrows -> T
-  #if compiler(>=5.3) && $AsyncAwait
   @discardableResult
   public func performAndSave<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping () throws -> T) async rethrows -> T
-  #endif
+}
+extension Foundation.NSValueTransformerName {
+  public static let stringAnyDictionaryTransformer: Foundation.NSValueTransformerName
+  public static let stringArrayTransformer: Foundation.NSValueTransformerName
+}
+@objc @_inheritsConvenienceInitializers final public class StringAnyDictionaryTransformer : Foundation.ValueTransformer, PRCoreDataUtils.DataValueTransformer {
+  public typealias Value = [Swift.String : Any]
+  @objc override final public func transformedValue(_ value: Any?) -> Any?
+  @objc override final public func reverseTransformedValue(_ value: Any?) -> Any?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class StringArrayTransformer : Foundation.ValueTransformer, PRCoreDataUtils.DataValueTransformer {
+  public typealias Value = [Swift.String]
+  @objc override final public func transformedValue(_ value: Any?) -> Any?
+  @objc override final public func reverseTransformedValue(_ value: Any?) -> Any?
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol DataValueTransformer : Foundation.ValueTransformer {
+  associatedtype Value
+  func archive(_ value: Any?) -> Foundation.Data?
+  func unarchive<T>(_ data: Any?, type: T.Type) -> Self.Value? where T : ObjectiveC.NSObject, T : Foundation.NSCoding
+}
+extension PRCoreDataUtils.DataValueTransformer {
+  public static func transformedValueClass() -> Swift.AnyClass
+  public static func allowsReverseTransformation() -> Swift.Bool
+  public func archive(_ value: Any?) -> Foundation.Data?
+  public func unarchive<T>(_ data: Any?, type: T.Type) -> Self.Value? where T : ObjectiveC.NSObject, T : Foundation.NSCoding
 }
 extension CoreData.NSManagedObjectContext {
   public func object<T>(predicate: Foundation.NSPredicate?) -> T where T : CoreData.NSManagedObject
@@ -21,9 +50,6 @@ extension CoreData.NSManagedObjectContext {
 }
 extension CoreData.NSManagedObjectContext {
   public func object(entityName: Swift.String, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil) -> CoreData.NSManagedObject?
-}
-extension Swift.Dictionary {
-  public func int(_ key: Key) -> Swift.Int?
 }
 extension Swift.Dictionary {
   public func castInt<T>(_ key: Key, defaultValue: T = 0) -> T where T : Swift.FixedWidthInteger, T : Swift.SignedInteger
@@ -69,24 +95,27 @@ extension PRCoreDataUtils.UpdatableMO where Self : PRCoreDataUtils.IdentifiableM
   public static func object(info: [Swift.String : Any], context: CoreData.NSManagedObjectContext) -> Self?
   public static func object(payload: Self.Payload, context: CoreData.NSManagedObjectContext) -> Self
 }
-extension Swift.Dictionary {
-  public func string(_ key: Key) -> Swift.String?
-  public func nonEmptyString(_ key: Key) -> Swift.String?
-  public func string(_ keys: [Key]) -> Swift.String?
-}
-@objc extension Foundation.NSDictionary {
-  @objc dynamic public func string(_ key: Foundation.NSString) -> Swift.String?
-  @objc dynamic public func nonEmptyString(_ key: Foundation.NSString) -> Swift.String?
-}
 extension CoreData.NSManagedObjectContext {
   public func fetchItems<T>(predicate: Foundation.NSPredicate? = nil, sortDecriptors: [Foundation.NSSortDescriptor]? = nil, limit: Swift.UInt = .max) -> [T]? where T : CoreData.NSManagedObject
   public func fetchItem<T>(predicate: Foundation.NSPredicate) -> T? where T : CoreData.NSManagedObject
   public func fetchAndDeleteItems<T>(request: CoreData.NSFetchRequest<T>) -> [T] where T : CoreData.NSManagedObject
   public func deleteItems<T>(request: CoreData.NSFetchRequest<T>) where T : CoreData.NSManagedObject
 }
-@propertyWrapper public struct RawRepresentableCDPrimitive<Value> where Value : Swift.RawRepresentable, Value.RawValue == Swift.Int {
+@propertyWrapper public struct CDOrderedSetArrayRepresentation<Item> where Item : CoreData.NSManagedObject {
+  public static subscript<T>(_enclosingInstance instance: T, wrapped wrappedKeyPath: Swift.ReferenceWritableKeyPath<T, [Item]>, storage storageKeyPath: Swift.ReferenceWritableKeyPath<T, PRCoreDataUtils.CDOrderedSetArrayRepresentation<Item>>) -> [Item] where T : CoreData.NSManagedObject {
+    get
+    set
+  }
+  @available(*, unavailable)
+  public var wrappedValue: [Item] {
+    get
+    set
+  }
+  public init(key: Swift.String)
+}
+@propertyWrapper public struct CDRawRepresentablePrimitive<Value> where Value : Swift.RawRepresentable, Value.RawValue == Swift.Int {
   public typealias Primitive = Swift.FixedWidthInteger
-  public static subscript<T>(_enclosingInstance instance: T, wrapped wrappedKeyPath: Swift.ReferenceWritableKeyPath<T, Value>, storage storageKeyPath: Swift.ReferenceWritableKeyPath<T, PRCoreDataUtils.RawRepresentableCDPrimitive<Value>>) -> Value where T : CoreData.NSManagedObject {
+  public static subscript<T>(_enclosingInstance instance: T, wrapped wrappedKeyPath: Swift.ReferenceWritableKeyPath<T, Value>, storage storageKeyPath: Swift.ReferenceWritableKeyPath<T, PRCoreDataUtils.CDRawRepresentablePrimitive<Value>>) -> Value where T : CoreData.NSManagedObject {
     get
     set
   }
@@ -95,7 +124,7 @@ extension CoreData.NSManagedObjectContext {
     get
     set
   }
-  public init(key: Swift.String, primitiveType: any PRCoreDataUtils.RawRepresentableCDPrimitive<Value>.Primitive.Type, defaultValue: Value = Value(rawValue: 0)!)
+  public init(key: Swift.String, primitiveType: any PRCoreDataUtils.CDRawRepresentablePrimitive<Value>.Primitive.Type, defaultValue: Value = Value(rawValue: 0)!)
 }
 public protocol IdentifiableMO : CoreData.NSManagedObject {
   static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self

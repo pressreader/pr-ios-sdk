@@ -11,7 +11,6 @@
 #import <PRThumbnail/PRThumbnailsManager.h>
 
 #import <PRThumbnail/PRThumbnailObject.h>
-#import <PRThumbnail/PRArticleThumbnailInfo.h>
 
 #import <PRThumbnail/PRThumbnailFlag.h>
 #import <PRThumbnail/PRThumbnailArticle.h>
@@ -20,6 +19,7 @@
 #import <PRThumbnail/PRThumbnailAppLogo.h>
 #import <PRThumbnail/PRThumbnailSource.h>
 
+#import <PRThumbnail/UIImage+Video.h>
 
 //! Project version number for PRThumbnail.
 FOUNDATION_EXPORT double PRThumbnailVersionNumber;

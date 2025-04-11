@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getReady;
 - (void)refresh;
-- (void)refreshAfterDelay:(NSTimeInterval)delay;
+- (void)setNeedsToRefresh;
 - (void)update;
 - (void)deleteExpiredItemsIfNeeded;
 - (void)updateDownloadsIfReady;

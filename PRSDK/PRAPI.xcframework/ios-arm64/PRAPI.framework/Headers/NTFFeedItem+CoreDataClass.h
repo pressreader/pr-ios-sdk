@@ -16,19 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NTFFeedItem : NTFDataItem
 
-/// Inserts new item into feed and fill it with provided JSON
-+ (instancetype)itemWithJSON:(NSDictionary *)json
-                 isoLanguage:(nullable NSString *)language
-                        feed:(NTFFeed *)feed;
++ (nullable instancetype)itemWithJSON:(NSDictionary *)json
+                                 feed:(NTFFeed *)feed
+                              context:(NSManagedObjectContext *)context;
 
-/// Inserts into or fetches from feed (if exists) and returns a Feed Item based on provided info
-+ (instancetype)itemWithJSON:(NSDictionary *)json feed:(NTFFeed *)feed;
-
-+ (instancetype)itemWithJSON:(NSDictionary *)json
-                     context:(NSManagedObjectContext *)context NS_UNAVAILABLE;
-+ (instancetype)itemWithJSON:(NSDictionary *)json
-                 isoLanguage:(nullable NSString *)language
-                     context:(NSManagedObjectContext *)context NS_UNAVAILABLE;
++ (nullable instancetype)itemWithJSON:(NSDictionary *)json
+                          isoLanguage:(nullable NSString *)language
+                                 feed:(NTFFeed *)feed
+                              context:(NSManagedObjectContext *)context;
 
 /// Looks for an item with a given id in a given feed
 + (nullable instancetype)getItemWithId:(NSString *)itemId feed:(NTFFeed *)feed;

@@ -59,18 +59,12 @@ typedef NSArray<JSONDictionary> * JSONCollection;
 /**
  * @param feedId managed object identifier of feed used for caching retrieved data
  */
-+ (instancetype)serviceWithFeedID:(NSManagedObjectID *)feedId;
++ (instancetype)serviceWithFeedID:(nullable NSManagedObjectID *)feedId;
 
 /**
- *  @param feedId managed object identifier of feed used for caching retrieved data
- */
-- (instancetype)initWithFeedID:(NSManagedObjectID *)feedId defaultState:(NTFDataServiceState)defaultState NS_DESIGNATED_INITIALIZER;
-
-/**
- * @brief Calls initWithFeedID:defaultState: with default state NTFDataServiceStateAtBeginning
  * @param feedId managed object identifier of feed used for caching retrieved data
  */
-- (instancetype)initWithFeedID:(NSManagedObjectID *)feedId;
+- (instancetype)initWithFeedID:(nullable NSManagedObjectID *)feedId NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -93,7 +87,6 @@ typedef NSArray<JSONDictionary> * JSONCollection;
 - (NSArray<NSManagedObjectID *> *)mapJSONIntoFlowData:(NSArray<NSDictionary *> *)items;
 
 - (void)resetDataService;
-- (void)resetAtEndStatus;
 
 - (void)isDataReloadNeeded:(void(^)(BOOL reload))completion;
 
@@ -111,9 +104,9 @@ typedef NSArray<JSONDictionary> * JSONCollection;
 @property (nonatomic, readonly) JSONDictionary articlesRequestParameters;
 @property (nonatomic, assign) NSUInteger batchSize;
 
-@property (nonatomic, strong) NSManagedObjectID *feedId;
+@property (nullable, nonatomic, strong) NSManagedObjectID *feedId;
 @property (nonatomic, strong, readonly) NSManagedObjectContext *context;
-@property (nonatomic, strong, readonly) NTFFeed *feed;
+@property (nullable, nonatomic, readonly) NTFFeed *feed;
 
 @property (nullable, nonatomic, readonly) NSDictionary *sectionJSON;
 

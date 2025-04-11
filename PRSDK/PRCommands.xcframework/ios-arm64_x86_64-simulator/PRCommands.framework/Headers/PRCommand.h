@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) PRCommandName defaultCommandName;
 
 @property (nonatomic, strong) PRCommandName name;
-@property (nonatomic, getter=isEnabled) BOOL enabled;
+@property (nonatomic, readonly) BOOL isEnabled;
 @property (nullable, nonatomic, strong) id result;
 @property (nullable, nonatomic, weak) PRContext *context;
 

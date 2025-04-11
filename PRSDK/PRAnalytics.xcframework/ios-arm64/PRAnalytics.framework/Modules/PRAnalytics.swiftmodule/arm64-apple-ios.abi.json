@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "PRAnalytics",
+    "printedName": "PRAnalytics",
     "children": [
       {
         "kind": "Import",
@@ -12,130 +12,6 @@
         "moduleName": "PRAnalytics",
         "declAttributes": [
           "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "AnalyticsService",
-        "printedName": "AnalyticsService",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "isEnabled",
-            "printedName": "isEnabled",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService(cpy)isEnabled",
-            "mangledName": "$s11PRAnalytics16AnalyticsServiceP9isEnabledSbvpZ",
-            "moduleName": "PRAnalytics",
-            "static": true,
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService(cm)isEnabled",
-                "mangledName": "$s11PRAnalytics16AnalyticsServiceP9isEnabledSbvgZ",
-                "moduleName": "PRAnalytics",
-                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsService>",
-                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsService>",
-                "static": true,
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "track",
-            "printedName": "track(_:parameters:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "PRAnalyticsTrackName",
-                "printedName": "PRAnalytics.PRAnalyticsTrackName",
-                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PRAnalyticsTrackParameter",
-                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
-                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService(im)track:parameters:",
-            "mangledName": "$s11PRAnalytics16AnalyticsServiceP5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
-            "moduleName": "PRAnalytics",
-            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsService>",
-            "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsService>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService",
-        "mangledName": "$s11PRAnalytics16AnalyticsServiceP",
-        "moduleName": "PRAnalytics",
-        "genericSig": "<τ_0_0 : ObjectiveC.NSObjectProtocol>",
-        "sugared_genericSig": "<Self : ObjectiveC.NSObjectProtocol>",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
         ]
       },
       {
@@ -224,10 +100,314 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "AnalyticsService",
-            "printedName": "AnalyticsService",
-            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService",
-            "mangledName": "$s11PRAnalytics16AnalyticsServiceP"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRLogKit",
+        "printedName": "PRLogKit",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UserEngagementAnalyticsProvider",
+        "printedName": "UserEngagementAnalyticsProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "digestNotificationsInfo",
+            "printedName": "digestNotificationsInfo",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[[Swift.String : Any]]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[[Swift.String : Any]]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics31UserEngagementAnalyticsProviderP23digestNotificationsInfoSaySDySSypGGSgvp",
+            "mangledName": "$s11PRAnalytics31UserEngagementAnalyticsProviderP23digestNotificationsInfoSaySDySSypGGSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[[Swift.String : Any]]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[[Swift.String : Any]]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Dictionary",
+                            "printedName": "[Swift.String : Any]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ProtocolComposition",
+                                "printedName": "Any"
+                              }
+                            ],
+                            "usr": "s:SD"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics31UserEngagementAnalyticsProviderP23digestNotificationsInfoSaySDySSypGGSgvg",
+                "mangledName": "$s11PRAnalytics31UserEngagementAnalyticsProviderP23digestNotificationsInfoSaySDySSypGGSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.UserEngagementAnalyticsProvider>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.UserEngagementAnalyticsProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "trackDigestPushNotificationReceived",
+            "printedName": "trackDigestPushNotificationReceived()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics31UserEngagementAnalyticsProviderPAAE35trackDigestPushNotificationReceivedyyF",
+            "mangledName": "$s11PRAnalytics31UserEngagementAnalyticsProviderPAAE35trackDigestPushNotificationReceivedyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.UserEngagementAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.UserEngagementAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11PRAnalytics31UserEngagementAnalyticsProviderP",
+        "mangledName": "$s11PRAnalytics31UserEngagementAnalyticsProviderP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : PRAnalytics.AnalyticsProvider>",
+        "sugared_genericSig": "<Self : PRAnalytics.AnalyticsProvider>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnalyticsProvider",
+            "printedName": "AnalyticsProvider",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRLogKit",
+        "printedName": "PRLogKit",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnalyticsNamingMapper",
+        "printedName": "AnalyticsNamingMapper",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(provider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnalyticsNamingMapper",
+                "printedName": "PRAnalytics.AnalyticsNamingMapper",
+                "usr": "s:11PRAnalytics21AnalyticsNamingMapperV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRAnalytics21AnalyticsNamingMapperV8providerACSS_tcfc",
+            "mangledName": "$s11PRAnalytics21AnalyticsNamingMapperV8providerACSS_tcfc",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "map",
+            "printedName": "map(name:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics21AnalyticsNamingMapperV3map4nameSSSgSS_tF",
+            "mangledName": "$s11PRAnalytics21AnalyticsNamingMapperV3map4nameSSSgSS_tF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:11PRAnalytics21AnalyticsNamingMapperV",
+        "mangledName": "$s11PRAnalytics21AnalyticsNamingMapperV",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -249,30 +429,44 @@
         "moduleName": "PRAnalytics"
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "StoreKit",
+        "printedName": "StoreKit",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
         "kind": "TypeDecl",
-        "name": "AnalyticsProvider",
-        "printedName": "AnalyticsProvider",
+        "name": "PaymentOptionsProduct",
+        "printedName": "PaymentOptionsProduct",
         "children": [
           {
             "kind": "Var",
-            "name": "service",
-            "printedName": "service",
+            "name": "productIdentifier",
+            "printedName": "productIdentifier",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "AnalyticsService",
-                "printedName": "any PRAnalytics.AnalyticsService",
-                "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Var",
-            "usr": "s:11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvp",
-            "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvp",
+            "usr": "s:11PRAnalytics21PaymentOptionsProductP17productIdentifierSSvp",
+            "mangledName": "$s11PRAnalytics21PaymentOptionsProductP17productIdentifierSSvp",
             "moduleName": "PRAnalytics",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "isFromExtension": true,
+            "protocolReq": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -281,26 +475,242 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "AnalyticsService",
-                    "printedName": "any PRAnalytics.AnalyticsService",
-                    "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsService"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvg",
-                "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE7serviceAA0B7Service_pvg",
+                "usr": "s:11PRAnalytics21PaymentOptionsProductP17productIdentifierSSvg",
+                "mangledName": "$s11PRAnalytics21PaymentOptionsProductP17productIdentifierSSvg",
                 "moduleName": "PRAnalytics",
-                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsProvider>",
-                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsProvider>",
-                "isFromExtension": true,
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsProduct>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsProduct>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "title",
+            "printedName": "title",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics21PaymentOptionsProductP5titleSSvp",
+            "mangledName": "$s11PRAnalytics21PaymentOptionsProductP5titleSSvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics21PaymentOptionsProductP5titleSSvg",
+                "mangledName": "$s11PRAnalytics21PaymentOptionsProductP5titleSSvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsProduct>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsProduct>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11PRAnalytics21PaymentOptionsProductP",
+        "mangledName": "$s11PRAnalytics21PaymentOptionsProductP",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PaymentOptionsAnalyticsContext",
+        "printedName": "PaymentOptionsAnalyticsContext",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "containerId",
+            "printedName": "containerId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics30PaymentOptionsAnalyticsContextV11containerIdSSvp",
+            "mangledName": "$s11PRAnalytics30PaymentOptionsAnalyticsContextV11containerIdSSvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics30PaymentOptionsAnalyticsContextV11containerIdSSvg",
+                "mangledName": "$s11PRAnalytics30PaymentOptionsAnalyticsContextV11containerIdSSvg",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(containerId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PaymentOptionsAnalyticsContext",
+                "printedName": "PRAnalytics.PaymentOptionsAnalyticsContext",
+                "usr": "s:11PRAnalytics30PaymentOptionsAnalyticsContextV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRAnalytics30PaymentOptionsAnalyticsContextV11containerIdACSS_tcfc",
+            "mangledName": "$s11PRAnalytics30PaymentOptionsAnalyticsContextV11containerIdACSS_tcfc",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:11PRAnalytics30PaymentOptionsAnalyticsContextV",
+        "mangledName": "$s11PRAnalytics30PaymentOptionsAnalyticsContextV",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PaymentOptionsAnalyticsProvider",
+        "printedName": "PaymentOptionsAnalyticsProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "context",
+            "printedName": "context",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PaymentOptionsAnalyticsContext",
+                "printedName": "PRAnalytics.PaymentOptionsAnalyticsContext",
+                "usr": "s:11PRAnalytics30PaymentOptionsAnalyticsContextV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderP7contextAA0bcD7ContextVvp",
+            "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderP7contextAA0bcD7ContextVvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PaymentOptionsAnalyticsContext",
+                    "printedName": "PRAnalytics.PaymentOptionsAnalyticsContext",
+                    "usr": "s:11PRAnalytics30PaymentOptionsAnalyticsContextV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderP7contextAA0bcD7ContextVvg",
+                "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderP7contextAA0bcD7ContextVvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
               }
             ]
           },
           {
             "kind": "Function",
-            "name": "track",
-            "printedName": "track(_:parameters:)",
+            "name": "trackProductSelected",
+            "printedName": "trackProductSelected(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -309,61 +719,440 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "PRAnalyticsTrackName",
-                "printedName": "PRAnalytics.PRAnalyticsTrackName",
-                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PRAnalyticsTrackParameter",
-                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
-                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
+                "name": "PaymentOptionsProduct",
+                "printedName": "any PRAnalytics.PaymentOptionsProduct",
+                "usr": "s:11PRAnalytics21PaymentOptionsProductP"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11PRAnalytics17AnalyticsProviderPAAE5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
-            "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
+            "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE20trackProductSelectedyyAA0bcG0_pF",
+            "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE20trackProductSelectedyyAA0bcG0_pF",
             "moduleName": "PRAnalytics",
-            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsProvider>",
-            "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsProvider>",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsAnalyticsProvider>",
             "declAttributes": [
-              "AccessControl"
+              "RawDocComment"
             ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackPaymentOptionsAppeared",
+            "printedName": "trackPaymentOptionsAppeared(parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> [PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "PRAnalyticsTrackParameter",
+                            "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                            "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE05trackbC8Appeared10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE05trackbC8Appeared10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackPurchaseRestore",
+            "printedName": "trackPurchaseRestore(parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> [PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "PRAnalyticsTrackParameter",
+                            "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                            "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE20trackPurchaseRestore10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE20trackPurchaseRestore10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackProductPurchase",
+            "printedName": "trackProductPurchase(parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> [PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "PRAnalyticsTrackParameter",
+                            "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                            "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE20trackProductPurchase10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE20trackProductPurchase10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackPremiumProductOffer",
+            "printedName": "trackPremiumProductOffer(parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> [PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "PRAnalyticsTrackParameter",
+                            "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                            "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE24trackPremiumProductOffer10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderPAAE24trackPremiumProductOffer10parametersySDySo0A14TrackParameteraypGSgyXE_tF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.PaymentOptionsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.PaymentOptionsAnalyticsProvider>",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
-        "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
-        "mangledName": "$s11PRAnalytics17AnalyticsProviderP",
+        "usr": "s:11PRAnalytics31PaymentOptionsAnalyticsProviderP",
+        "mangledName": "$s11PRAnalytics31PaymentOptionsAnalyticsProviderP",
         "moduleName": "PRAnalytics",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
+        "genericSig": "<τ_0_0 : PRAnalytics.AnalyticsProvider>",
+        "sugared_genericSig": "<Self : PRAnalytics.AnalyticsProvider>",
         "declAttributes": [
-          "AccessControl",
-          "ObjC"
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnalyticsProvider",
+            "printedName": "AnalyticsProvider",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WidgetKit",
+        "printedName": "WidgetKit",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "Import",
+        "name": "PRLogKit",
+        "printedName": "PRLogKit",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "WidgetsAnalyticsProvider",
+        "printedName": "WidgetsAnalyticsProvider",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "widgetsInfo",
+            "printedName": "widgetsInfo()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[WidgetKit.WidgetInfo]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WidgetInfo",
+                    "printedName": "WidgetKit.WidgetInfo",
+                    "usr": "s:9WidgetKit0A4InfoV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics24WidgetsAnalyticsProviderP11widgetsInfoSay9WidgetKit0gF0VGyYaKF",
+            "mangledName": "$s11PRAnalytics24WidgetsAnalyticsProviderP11widgetsInfoSay9WidgetKit0gF0VGyYaKF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.WidgetsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.WidgetsAnalyticsProvider>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackWidgetsInfo",
+            "printedName": "trackWidgetsInfo()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics24WidgetsAnalyticsProviderPAAE05trackB4InfoyyF",
+            "mangledName": "$s11PRAnalytics24WidgetsAnalyticsProviderPAAE05trackB4InfoyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.WidgetsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.WidgetsAnalyticsProvider>",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackWidgetsInstallation",
+            "printedName": "trackWidgetsInstallation()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics24WidgetsAnalyticsProviderPAAE05trackB12InstallationyyF",
+            "mangledName": "$s11PRAnalytics24WidgetsAnalyticsProviderPAAE05trackB12InstallationyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.WidgetsAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.WidgetsAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11PRAnalytics24WidgetsAnalyticsProviderP",
+        "mangledName": "$s11PRAnalytics24WidgetsAnalyticsProviderP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : PRAnalytics.AnalyticsProvider>",
+        "sugared_genericSig": "<Self : PRAnalytics.AnalyticsProvider>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnalyticsProvider",
+            "printedName": "AnalyticsProvider",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderP"
+          }
         ]
       },
       {
@@ -382,6 +1171,580 @@
         "printedName": "Combine",
         "declKind": "Import",
         "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SponsorshipStatus",
+        "printedName": "SponsorshipStatus",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAnalytics.SponsorshipStatus.Type) -> PRAnalytics.SponsorshipStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAnalytics.SponsorshipStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SponsorshipStatus",
+                        "printedName": "PRAnalytics.SponsorshipStatus",
+                        "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRAnalytics@E@SponsorshipStatus@SponsorshipStatusNone",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO4noneyA2CmF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "active",
+            "printedName": "active",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAnalytics.SponsorshipStatus.Type) -> PRAnalytics.SponsorshipStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAnalytics.SponsorshipStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SponsorshipStatus",
+                        "printedName": "PRAnalytics.SponsorshipStatus",
+                        "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRAnalytics@E@SponsorshipStatus@SponsorshipStatusActive",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO6activeyA2CmF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "nonActive",
+            "printedName": "nonActive",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAnalytics.SponsorshipStatus.Type) -> PRAnalytics.SponsorshipStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAnalytics.SponsorshipStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SponsorshipStatus",
+                        "printedName": "PRAnalytics.SponsorshipStatus",
+                        "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRAnalytics@E@SponsorshipStatus@SponsorshipStatusNonActive",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO9nonActiveyA2CmF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "restricted",
+            "printedName": "restricted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAnalytics.SponsorshipStatus.Type) -> PRAnalytics.SponsorshipStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAnalytics.SponsorshipStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SponsorshipStatus",
+                        "printedName": "PRAnalytics.SponsorshipStatus",
+                        "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRAnalytics@E@SponsorshipStatus@SponsorshipStatusRestricted",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO10restrictedyA2CmF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "disabled",
+            "printedName": "disabled",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAnalytics.SponsorshipStatus.Type) -> PRAnalytics.SponsorshipStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAnalytics.SponsorshipStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SponsorshipStatus",
+                        "printedName": "PRAnalytics.SponsorshipStatus",
+                        "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRAnalytics@E@SponsorshipStatus@SponsorshipStatusDisabled",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO8disabledyA2CmF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "invalid",
+            "printedName": "invalid",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAnalytics.SponsorshipStatus.Type) -> PRAnalytics.SponsorshipStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAnalytics.SponsorshipStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SponsorshipStatus",
+                        "printedName": "PRAnalytics.SponsorshipStatus",
+                        "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@PRAnalytics@E@SponsorshipStatus@SponsorshipStatusInvalid",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO7invalidyA2CmF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRAnalytics.SponsorshipStatus?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRAnalytics17SponsorshipStatusO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO8rawValueACSgSi_tcfc",
+            "moduleName": "PRAnalytics",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics17SponsorshipStatusO8rawValueSivp",
+            "mangledName": "$s11PRAnalytics17SponsorshipStatusO8rawValueSivp",
+            "moduleName": "PRAnalytics",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics17SponsorshipStatusO8rawValueSivg",
+                "mangledName": "$s11PRAnalytics17SponsorshipStatusO8rawValueSivg",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@PRAnalytics@E@SponsorshipStatus",
+        "mangledName": "$s11PRAnalytics17SponsorshipStatusO",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Sponsorship",
+        "printedName": "Sponsorship",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "status",
+            "printedName": "status",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SponsorshipStatus",
+                "printedName": "PRAnalytics.SponsorshipStatus",
+                "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics11SponsorshipP6statusAA0B6StatusOvp",
+            "mangledName": "$s11PRAnalytics11SponsorshipP6statusAA0B6StatusOvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SponsorshipStatus",
+                    "printedName": "PRAnalytics.SponsorshipStatus",
+                    "usr": "c:@M@PRAnalytics@E@SponsorshipStatus"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics11SponsorshipP6statusAA0B6StatusOvg",
+                "mangledName": "$s11PRAnalytics11SponsorshipP6statusAA0B6StatusOvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.Sponsorship>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.Sponsorship>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "industry",
+            "printedName": "industry",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics11SponsorshipP8industrySSSgvp",
+            "mangledName": "$s11PRAnalytics11SponsorshipP8industrySSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics11SponsorshipP8industrySSSgvg",
+                "mangledName": "$s11PRAnalytics11SponsorshipP8industrySSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.Sponsorship>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.Sponsorship>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hotSpotId",
+            "printedName": "hotSpotId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics11SponsorshipP9hotSpotIdSSSgvp",
+            "mangledName": "$s11PRAnalytics11SponsorshipP9hotSpotIdSSSgvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics11SponsorshipP9hotSpotIdSSSgvg",
+                "mangledName": "$s11PRAnalytics11SponsorshipP9hotSpotIdSSSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.Sponsorship>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.Sponsorship>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11PRAnalytics11SponsorshipP",
+        "mangledName": "$s11PRAnalytics11SponsorshipP",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
       },
       {
         "kind": "TypeDecl",
@@ -495,14 +1858,22 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:11PRAnalytics16AnalyticsAccountP16activationNumberSSvp",
-            "mangledName": "$s11PRAnalytics16AnalyticsAccountP16activationNumberSSvp",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP16activationNumberSSSgvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP16activationNumberSSSgvp",
             "moduleName": "PRAnalytics",
             "protocolReq": true,
             "accessors": [
@@ -513,14 +1884,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11PRAnalytics16AnalyticsAccountP16activationNumberSSvg",
-                "mangledName": "$s11PRAnalytics16AnalyticsAccountP16activationNumberSSvg",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP16activationNumberSSSgvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP16activationNumberSSSgvg",
                 "moduleName": "PRAnalytics",
                 "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
                 "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
@@ -964,19 +2343,19 @@
           },
           {
             "kind": "Var",
-            "name": "sponsorshipStatus",
-            "printedName": "sponsorshipStatus",
+            "name": "sponsorshipInfo",
+            "printedName": "sponsorshipInfo",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "Sponsorship",
+                "printedName": "any PRAnalytics.Sponsorship",
+                "usr": "s:11PRAnalytics11SponsorshipP"
               }
             ],
             "declKind": "Var",
-            "usr": "s:11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivp",
-            "mangledName": "$s11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivp",
+            "usr": "s:11PRAnalytics16AnalyticsAccountP15sponsorshipInfoAA11Sponsorship_pvp",
+            "mangledName": "$s11PRAnalytics16AnalyticsAccountP15sponsorshipInfoAA11Sponsorship_pvp",
             "moduleName": "PRAnalytics",
             "protocolReq": true,
             "accessors": [
@@ -987,130 +2366,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "Sponsorship",
+                    "printedName": "any PRAnalytics.Sponsorship",
+                    "usr": "s:11PRAnalytics11SponsorshipP"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivg",
-                "mangledName": "$s11PRAnalytics16AnalyticsAccountP17sponsorshipStatusSivg",
-                "moduleName": "PRAnalytics",
-                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
-                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "hotzoneIndustry",
-            "printedName": "hotzoneIndustry",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvp",
-            "mangledName": "$s11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvp",
-            "moduleName": "PRAnalytics",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvg",
-                "mangledName": "$s11PRAnalytics16AnalyticsAccountP15hotzoneIndustrySSSgvg",
-                "moduleName": "PRAnalytics",
-                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
-                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "hotzoneId",
-            "printedName": "hotzoneId",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvp",
-            "mangledName": "$s11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvp",
-            "moduleName": "PRAnalytics",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvg",
-                "mangledName": "$s11PRAnalytics16AnalyticsAccountP9hotzoneIdSSSgvg",
+                "usr": "s:11PRAnalytics16AnalyticsAccountP15sponsorshipInfoAA11Sponsorship_pvg",
+                "mangledName": "$s11PRAnalytics16AnalyticsAccountP15sponsorshipInfoAA11Sponsorship_pvg",
                 "moduleName": "PRAnalytics",
                 "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsAccount>",
                 "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsAccount>",
@@ -1453,10 +2716,3102 @@
         "moduleName": "PRAnalytics",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRDIContainer",
+        "printedName": "PRDIContainer",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnalyticsProvider",
+        "printedName": "AnalyticsProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "service",
+            "printedName": "service",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRAnalytics.PRAnalyticsService?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRAnalyticsService",
+                    "printedName": "PRAnalytics.PRAnalyticsService",
+                    "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics17AnalyticsProviderPAAE7serviceAA0A7ServiceCSgvp",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE7serviceAA0A7ServiceCSgvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRAnalytics.PRAnalyticsService?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRAnalyticsService",
+                        "printedName": "PRAnalytics.PRAnalyticsService",
+                        "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics17AnalyticsProviderPAAE7serviceAA0A7ServiceCSgvg",
+                "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE7serviceAA0A7ServiceCSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsProvider>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsProvider>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track(_:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsTrackName",
+                "printedName": "PRAnalytics.PRAnalyticsTrackName",
+                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRAnalyticsTrackParameter",
+                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics17AnalyticsProviderPAAE5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderPAAE5track_10parametersySo0A9TrackNamea_SDySo0aF9ParameteraypGSgtF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.AnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.AnalyticsProvider>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+        "mangledName": "$s11PRAnalytics17AnalyticsProviderP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRAnalyticsService",
+        "printedName": "PRAnalyticsService",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "services",
+            "printedName": "services",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any PRAnalytics.AnalyticsService]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnalyticsService",
+                    "printedName": "any PRAnalytics.AnalyticsService",
+                    "usr": "c:objc(pl)AnalyticsService"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService(py)services",
+            "mangledName": "$s11PRAnalytics0A7ServiceC8servicesSaySo09AnalyticsB0_pGvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[any PRAnalytics.AnalyticsService]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AnalyticsService",
+                        "printedName": "any PRAnalytics.AnalyticsService",
+                        "usr": "c:objc(pl)AnalyticsService"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService(im)services",
+                "mangledName": "$s11PRAnalytics0A7ServiceC8servicesSaySo09AnalyticsB0_pGvg",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(services:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsService",
+                "printedName": "PRAnalytics.PRAnalyticsService",
+                "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any PRAnalytics.AnalyticsService]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnalyticsService",
+                    "printedName": "any PRAnalytics.AnalyticsService",
+                    "usr": "c:objc(pl)AnalyticsService"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRAnalytics0A7ServiceC8servicesACSaySo09AnalyticsB0_pG_tcfc",
+            "mangledName": "$s11PRAnalytics0A7ServiceC8servicesACSaySo09AnalyticsB0_pG_tcfc",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsService",
+                "printedName": "PRAnalytics.PRAnalyticsService",
+                "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService(im)init",
+            "mangledName": "$s11PRAnalytics0A7ServiceCACycfc",
+            "moduleName": "PRAnalytics",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "isEnabled",
+            "printedName": "isEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRAnalytics@objc(cs)PRAnalyticsService(cpy)isEnabled",
+            "mangledName": "$s11PRAnalytics0A7ServiceC9isEnabledSbvpZ",
+            "moduleName": "PRAnalytics",
+            "static": true,
+            "objc_name": "isEnabled",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAnalytics@objc(cs)PRAnalyticsService(cm)isEnabled",
+                "mangledName": "$s11PRAnalytics0A7ServiceC9isEnabledSbvgZ",
+                "moduleName": "PRAnalytics",
+                "static": true,
+                "objc_name": "isEnabled",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track(_:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsTrackName",
+                "printedName": "PRAnalytics.PRAnalyticsTrackName",
+                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRAnalyticsTrackParameter",
+                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAnalytics@objc(cs)PRAnalyticsService(im)track:parameters:",
+            "mangledName": "$s11PRAnalytics0A7ServiceC5track_10parametersySo0A9TrackNamea_SDySo0aE9ParameteraypGSgtF",
+            "moduleName": "PRAnalytics",
+            "isOpen": true,
+            "objc_name": "track:parameters:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tracker",
+            "printedName": "tracker(_:pageView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAnalytics@objc(cs)PRAnalyticsService(im)tracker:pageView:",
+            "mangledName": "$s11PRAnalytics0A7ServiceC7tracker_8pageViewySS_SStF",
+            "moduleName": "PRAnalytics",
+            "objc_name": "tracker:pageView:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackGAPageView",
+            "printedName": "trackGAPageView(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAnalytics@objc(cs)PRAnalyticsService(im)trackGAPageView:",
+            "mangledName": "$s11PRAnalytics0A7ServiceC15trackGAPageViewyySSF",
+            "moduleName": "PRAnalytics",
+            "objc_name": "trackGAPageView:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackGAEvent",
+            "printedName": "trackGAEvent(_:action:label:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAnalytics@objc(cs)PRAnalyticsService(im)trackGAEvent:action:label:value:",
+            "mangledName": "$s11PRAnalytics0A7ServiceC12trackGAEvent_6action5label5valueySS_S2SSgSitF",
+            "moduleName": "PRAnalytics",
+            "objc_name": "trackGAEvent:action:label:value:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackGATiming",
+            "printedName": "trackGATiming(withCategory:variable:timeSpent:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAnalytics@objc(cs)PRAnalyticsService(im)trackGATimingWithCategory:variable:timeSpent:",
+            "mangledName": "$s11PRAnalytics0A7ServiceC13trackGATiming12withCategory8variable9timeSpentySS_SSSitF",
+            "moduleName": "PRAnalytics",
+            "objc_name": "trackGATimingWithCategory:variable:timeSpent:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "registerDeepLinkData",
+            "printedName": "registerDeepLinkData(parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics0A7ServiceC20registerDeepLinkData10parametersySDySSypG_tF",
+            "mangledName": "$s11PRAnalytics0A7ServiceC20registerDeepLinkData10parametersySDySSypG_tF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRAnalytics@objc(cs)PRAnalyticsService",
+        "mangledName": "$s11PRAnalytics0A7ServiceC",
+        "moduleName": "PRAnalytics",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRUtils",
+        "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RegistrationAnalyticsContext",
+        "printedName": "RegistrationAnalyticsContext",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "Screen",
+            "printedName": "Screen",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "paymentOptions",
+                "printedName": "paymentOptions",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRAnalytics.RegistrationAnalyticsContext.Screen.Type) -> PRAnalytics.RegistrationAnalyticsContext.Screen",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Screen",
+                        "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                        "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Screen",
+                            "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                            "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO14paymentOptionsyA2EmF",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6ScreenO14paymentOptionsyA2EmF",
+                "moduleName": "PRAnalytics"
+              },
+              {
+                "kind": "Var",
+                "name": "registrationAlert",
+                "printedName": "registrationAlert",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRAnalytics.RegistrationAnalyticsContext.Screen.Type) -> PRAnalytics.RegistrationAnalyticsContext.Screen",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Screen",
+                        "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                        "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Screen",
+                            "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                            "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO17registrationAlertyA2EmF",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6ScreenO17registrationAlertyA2EmF",
+                "moduleName": "PRAnalytics"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Screen",
+                    "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                    "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Screen",
+                    "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                    "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO2eeoiySbAE_AEtFZ",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6ScreenO2eeoiySbAE_AEtFZ",
+                "moduleName": "PRAnalytics",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO9hashValueSivp",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6ScreenO9hashValueSivp",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO9hashValueSivg",
+                    "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6ScreenO9hashValueSivg",
+                    "moduleName": "PRAnalytics",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO4hash4intoys6HasherVz_tF",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6ScreenO4hash4intoys6HasherVz_tF",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO",
+            "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6ScreenO",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "screen",
+            "printedName": "screen",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Screen",
+                "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6screenAC6ScreenOvp",
+            "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6screenAC6ScreenOvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Screen",
+                    "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                    "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6screenAC6ScreenOvg",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6screenAC6ScreenOvg",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "containerId",
+            "printedName": "containerId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV11containerIdSSvp",
+            "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV11containerIdSSvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV11containerIdSSvg",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV11containerIdSSvg",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "titleEdition",
+            "printedName": "titleEdition",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV12titleEditionSSvp",
+            "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV12titleEditionSSvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV12titleEditionSSvg",
+                "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV12titleEditionSSvg",
+                "moduleName": "PRAnalytics",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(screen:containerId:titleEdition:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RegistrationAnalyticsContext",
+                "printedName": "PRAnalytics.RegistrationAnalyticsContext",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Screen",
+                "printedName": "PRAnalytics.RegistrationAnalyticsContext.Screen",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6ScreenO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV6screen11containerId12titleEditionA2C6ScreenO_S2Stcfc",
+            "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV6screen11containerId12titleEditionA2C6ScreenO_S2Stcfc",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV",
+        "mangledName": "$s11PRAnalytics28RegistrationAnalyticsContextV",
+        "moduleName": "PRAnalytics",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RegistrationAnalyticsProvider",
+        "printedName": "RegistrationAnalyticsProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "registrationContext",
+            "printedName": "registrationContext",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RegistrationAnalyticsContext",
+                "printedName": "PRAnalytics.RegistrationAnalyticsContext",
+                "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderP19registrationContextAA0bcF0Vvp",
+            "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderP19registrationContextAA0bcF0Vvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RegistrationAnalyticsContext",
+                    "printedName": "PRAnalytics.RegistrationAnalyticsContext",
+                    "usr": "s:11PRAnalytics28RegistrationAnalyticsContextV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderP19registrationContextAA0bcF0Vvg",
+                "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderP19registrationContextAA0bcF0Vvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.RegistrationAnalyticsProvider>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.RegistrationAnalyticsProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "trackRegistrationAlertPresented",
+            "printedName": "trackRegistrationAlertPresented()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderPAAE05trackB14AlertPresentedyyF",
+            "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderPAAE05trackB14AlertPresentedyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.RegistrationAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.RegistrationAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackSignInTap",
+            "printedName": "trackSignInTap()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderPAAE14trackSignInTapyyF",
+            "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderPAAE14trackSignInTapyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.RegistrationAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.RegistrationAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackSubscribeTap",
+            "printedName": "trackSubscribeTap()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderPAAE17trackSubscribeTapyyF",
+            "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderPAAE17trackSubscribeTapyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.RegistrationAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.RegistrationAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackCancelTap",
+            "printedName": "trackCancelTap()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderPAAE14trackCancelTapyyF",
+            "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderPAAE14trackCancelTapyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.RegistrationAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.RegistrationAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderP",
+        "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : PRAnalytics.AnalyticsProvider>",
+        "sugared_genericSig": "<Self : PRAnalytics.AnalyticsProvider>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnalyticsProvider",
+            "printedName": "AnalyticsProvider",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GiftedIssueAnalyticsProvider",
+        "printedName": "GiftedIssueAnalyticsProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "campaignId",
+            "printedName": "campaignId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderP10campaignIdSSvp",
+            "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderP10campaignIdSSvp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderP10campaignIdSSvg",
+                "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderP10campaignIdSSvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.GiftedIssueAnalyticsProvider>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.GiftedIssueAnalyticsProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "videoPlayedDuration",
+            "printedName": "videoPlayedDuration",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderP19videoPlayedDurationSivp",
+            "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderP19videoPlayedDurationSivp",
+            "moduleName": "PRAnalytics",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderP19videoPlayedDurationSivg",
+                "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderP19videoPlayedDurationSivg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.GiftedIssueAnalyticsProvider>",
+                "sugared_genericSig": "<Self where Self : PRAnalytics.GiftedIssueAnalyticsProvider>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "trackGiftedIssueAdget",
+            "printedName": "trackGiftedIssueAdget()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderPAAE05trackbC5AdgetyyF",
+            "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderPAAE05trackbC5AdgetyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.GiftedIssueAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.GiftedIssueAnalyticsProvider>",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackGiftedIssueVideoPlayed",
+            "printedName": "trackGiftedIssueVideoPlayed()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderPAAE05trackbC11VideoPlayedyyF",
+            "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderPAAE05trackbC11VideoPlayedyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.GiftedIssueAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.GiftedIssueAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "updateUserEngagementAnalyticsParameters",
+            "printedName": "updateUserEngagementAnalyticsParameters()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderPAAE020updateUserEngagementD10ParametersyyF",
+            "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderPAAE020updateUserEngagementD10ParametersyyF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAnalytics.GiftedIssueAnalyticsProvider>",
+            "sugared_genericSig": "<Self where Self : PRAnalytics.GiftedIssueAnalyticsProvider>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11PRAnalytics28GiftedIssueAnalyticsProviderP",
+        "mangledName": "$s11PRAnalytics28GiftedIssueAnalyticsProviderP",
+        "moduleName": "PRAnalytics",
+        "genericSig": "<τ_0_0 : PRAnalytics.AnalyticsProvider>",
+        "sugared_genericSig": "<Self : PRAnalytics.AnalyticsProvider>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnalyticsProvider",
+            "printedName": "AnalyticsProvider",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UserDefaults",
+        "printedName": "UserDefaults",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "digestNotificationsInfo",
+            "printedName": "digestNotificationsInfo",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[[Swift.String : Any]]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[[Swift.String : Any]]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So14NSUserDefaultsC11PRAnalyticsE23digestNotificationsInfoSaySDySSypGGSgvp",
+            "mangledName": "$sSo14NSUserDefaultsC11PRAnalyticsE23digestNotificationsInfoSaySDySSypGGSgvp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[[Swift.String : Any]]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[[Swift.String : Any]]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Dictionary",
+                            "printedName": "[Swift.String : Any]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ProtocolComposition",
+                                "printedName": "Any"
+                              }
+                            ],
+                            "usr": "s:SD"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So14NSUserDefaultsC11PRAnalyticsE23digestNotificationsInfoSaySDySSypGGSgvg",
+                "mangledName": "$sSo14NSUserDefaultsC11PRAnalyticsE23digestNotificationsInfoSaySDySSypGGSgvg",
+                "moduleName": "PRAnalytics",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSUserDefaults",
+        "moduleName": "Foundation",
+        "isOpen": true,
+        "objc_name": "NSUserDefaults",
+        "declAttributes": [
+          "ObjC",
+          "NonSendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UserEngagementAnalyticsProvider",
+            "printedName": "UserEngagementAnalyticsProvider",
+            "usr": "s:11PRAnalytics31UserEngagementAnalyticsProviderP",
+            "mangledName": "$s11PRAnalytics31UserEngagementAnalyticsProviderP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnalyticsProvider",
+            "printedName": "AnalyticsProvider",
+            "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
+            "mangledName": "$s11PRAnalytics17AnalyticsProviderP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "KeyValueStore",
+            "printedName": "KeyValueStore",
+            "usr": "s:15PRConfiguration13KeyValueStoreP",
+            "mangledName": "$s15PRConfiguration13KeyValueStoreP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NSURL",
+        "printedName": "NSURL",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAnalytics@@objc(cs)NSURL(im)track",
+            "mangledName": "$sSo5NSURLC11PRAnalyticsE5trackyyF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSURL",
+        "moduleName": "Foundation",
+        "isOpen": true,
+        "objc_name": "NSURL",
+        "declAttributes": [
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_HasCustomAnyHashableRepresentation",
+            "printedName": "_HasCustomAnyHashableRepresentation",
+            "usr": "s:s35_HasCustomAnyHashableRepresentationP",
+            "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_CustomPlaygroundQuickLookable",
+            "printedName": "_CustomPlaygroundQuickLookable",
+            "usr": "s:s30_CustomPlaygroundQuickLookableP",
+            "mangledName": "$ss30_CustomPlaygroundQuickLookableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "URL",
+        "printedName": "URL",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10Foundation3URLV11PRAnalyticsE5trackyyF",
+            "mangledName": "$s10Foundation3URLV11PRAnalyticsE5trackyyF",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:10Foundation3URLV",
+        "mangledName": "$s10Foundation3URLV",
+        "moduleName": "Foundation",
+        "intro_Macosx": "10.10",
+        "intro_iOS": "8.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
+        "declAttributes": [
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ReferenceConvertible",
+            "printedName": "ReferenceConvertible",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ReferenceType",
+                "printedName": "ReferenceType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSURL",
+                    "printedName": "Foundation.NSURL",
+                    "usr": "c:objc(cs)NSURL"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:10Foundation20ReferenceConvertibleP",
+            "mangledName": "$s10Foundation20ReferenceConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSURL",
+                    "printedName": "Foundation.NSURL",
+                    "usr": "c:objc(cs)NSURL"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_CustomPlaygroundQuickLookable",
+            "printedName": "_CustomPlaygroundQuickLookable",
+            "usr": "s:s30_CustomPlaygroundQuickLookableP",
+            "mangledName": "$ss30_CustomPlaygroundQuickLookableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ExpressibleByFileReferenceLiteral",
+            "printedName": "_ExpressibleByFileReferenceLiteral",
+            "usr": "s:s34_ExpressibleByFileReferenceLiteralP",
+            "mangledName": "$ss34_ExpressibleByFileReferenceLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Transferable",
+            "printedName": "Transferable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Representation",
+                "printedName": "Representation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OpaqueTypeArchetype",
+                    "printedName": "some CoreTransferable.TransferRepresentation",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TransferRepresentation",
+                        "printedName": "CoreTransferable.TransferRepresentation",
+                        "usr": "s:16CoreTransferable22TransferRepresentationP"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "usr": "s:16CoreTransferable0B0P",
+            "mangledName": "$s16CoreTransferable0B0P"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomURLRepresentationParameterConvertible",
+            "printedName": "CustomURLRepresentationParameterConvertible",
+            "usr": "s:10AppIntents43CustomURLRepresentationParameterConvertibleP",
+            "mangledName": "$s10AppIntents43CustomURLRepresentationParameterConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_IntentValue",
+            "printedName": "_IntentValue",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ValueType",
+                "printedName": "ValueType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "UnwrappedType",
+                "printedName": "UnwrappedType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Specification",
+                "printedName": "Specification",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OpaqueTypeArchetype",
+                    "printedName": "some AppIntents.ResolverSpecification",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ResolverSpecification",
+                        "printedName": "AppIntents.ResolverSpecification",
+                        "usr": "s:10AppIntents21ResolverSpecificationP"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "usr": "s:10AppIntents12_IntentValueP",
+            "mangledName": "$s10AppIntents12_IntentValueP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "WidgetFamily",
+        "printedName": "WidgetFamily",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[WidgetKit.WidgetFamily]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WidgetFamily",
+                    "printedName": "WidgetKit.WidgetFamily",
+                    "usr": "s:9WidgetKit0A6FamilyO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9WidgetKit0A6FamilyO11PRAnalyticsE8allCasesSayACGvpZ",
+            "mangledName": "$s9WidgetKit0A6FamilyO11PRAnalyticsE8allCasesSayACGvpZ",
+            "moduleName": "PRAnalytics",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[WidgetKit.WidgetFamily]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WidgetFamily",
+                        "printedName": "WidgetKit.WidgetFamily",
+                        "usr": "s:9WidgetKit0A6FamilyO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9WidgetKit0A6FamilyO11PRAnalyticsE8allCasesSayACGvgZ",
+                "mangledName": "$s9WidgetKit0A6FamilyO11PRAnalyticsE8allCasesSayACGvgZ",
+                "moduleName": "PRAnalytics",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:9WidgetKit0A6FamilyO",
+        "mangledName": "$s9WidgetKit0A6FamilyO",
+        "moduleName": "WidgetKit",
+        "intro_Macosx": "11.0",
+        "intro_iOS": "14.0",
+        "intro_watchOS": "9.0",
+        "declAttributes": [
+          "Preconcurrency",
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
+        "enumRawTypeName": "Int",
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[WidgetKit.WidgetFamily]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WidgetFamily",
+                        "printedName": "WidgetKit.WidgetFamily",
+                        "usr": "s:9WidgetKit0A6FamilyO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Dictionary",
+        "printedName": "Dictionary",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "operationState",
+            "printedName": "operationState",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OperationState",
+                "printedName": "PRAnalytics.OperationState",
+                "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsOperationState"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avp",
+            "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avp",
+            "moduleName": "PRAnalytics",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OperationState",
+                    "printedName": "PRAnalytics.OperationState",
+                    "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsOperationState"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avg",
+                "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OperationState",
+                    "printedName": "PRAnalytics.OperationState",
+                    "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsOperationState"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avs",
+                "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avs",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avM",
+                "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE14operationStateSo0a9OperationE0avM",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "operationResult",
+            "printedName": "operationResult",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE15operationResultSbSgvp",
+            "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE15operationResultSbSgvp",
+            "moduleName": "PRAnalytics",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE15operationResultSbSgvg",
+                "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE15operationResultSbSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "userEngagementInfo",
+            "printedName": "userEngagementInfo",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvp",
+            "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvp",
+            "moduleName": "PRAnalytics",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvg",
+                "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvg",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvs",
+                "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvs",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvM",
+                "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE18userEngagementInfoSDySSypGSgvM",
+                "moduleName": "PRAnalytics",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "context",
+            "printedName": "context()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_1_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE7contextqd__SgylF",
+            "mangledName": "$sSD11PRAnalyticsSo0A14TrackParameteraRszypRs_rlE7contextqd__SgylF",
+            "moduleName": "PRAnalytics",
+            "genericSig": "<τ_0_0, τ_0_1, τ_1_0 where τ_0_0 == PRAnalytics.PRAnalyticsTrackParameter, τ_0_1 == Any>",
+            "sugared_genericSig": "<Key, Value, C where Key == PRAnalytics.PRAnalyticsTrackParameter, Value == Any>",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:SD",
+        "mangledName": "$sSD",
+        "moduleName": "Swift",
+        "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
+        "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
+        "declAttributes": [
+          "EagerMove",
+          "Frozen"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sequence",
+            "printedName": "Sequence",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(key: τ_0_0, value: τ_0_1)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Iterator",
+                "printedName": "Iterator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Iterator",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.Iterator",
+                    "usr": "s:SD8IteratorV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:ST",
+            "mangledName": "$sST"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Collection",
+            "printedName": "Collection",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(key: τ_0_0, value: τ_0_1)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Index",
+                "printedName": "Index",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Index",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.Index",
+                    "usr": "s:SD5IndexV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Iterator",
+                "printedName": "Iterator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Iterator",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.Iterator",
+                    "usr": "s:SD8IteratorV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "SubSequence",
+                "printedName": "SubSequence",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Slice",
+                    "printedName": "Swift.Slice<[τ_0_0 : τ_0_1]>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[τ_0_0 : τ_0_1]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_0"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_1"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:s5SliceV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Indices",
+                "printedName": "Indices",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefaultIndices",
+                    "printedName": "Swift.DefaultIndices<[τ_0_0 : τ_0_1]>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[τ_0_0 : τ_0_1]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_0"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "τ_0_1"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:SI"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:Sl",
+            "mangledName": "$sSl"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByDictionaryLiteral",
+            "printedName": "ExpressibleByDictionaryLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Key",
+                "printedName": "Key",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Value",
+                "printedName": "Value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_1"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s30ExpressibleByDictionaryLiteralP",
+            "mangledName": "$ss30ExpressibleByDictionaryLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_HasCustomAnyHashableRepresentation",
+            "printedName": "_HasCustomAnyHashableRepresentation",
+            "usr": "s:s35_HasCustomAnyHashableRepresentationP",
+            "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Emptiable",
+            "printedName": "Emptiable",
+            "usr": "s:16PRSyntacticSugar9EmptiableP",
+            "mangledName": "$s16PRSyntacticSugar9EmptiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TrimmableCollection",
+            "printedName": "TrimmableCollection",
+            "usr": "s:7PRUtils19TrimmableCollectionP",
+            "mangledName": "$s7PRUtils19TrimmableCollectionP"
+          }
         ]
       }
     ],
     "json_format_version": 8
   },
-  "ConstValues": []
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/UserEngagementAnalyticsParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 1838,
+      "length": 14,
+      "value": "\"utm_campaign\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/UserEngagementAnalyticsParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 1863,
+      "length": 12,
+      "value": "\"utm_source\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/UserEngagementAnalyticsParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 1886,
+      "length": 12,
+      "value": "\"utm_medium\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/UserEngagementAnalyticsParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 1912,
+      "length": 12,
+      "value": "\"article_id\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/AnalyticsProviders\/WidgetsAnalyticsProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 3952,
+      "length": 24,
+      "value": "\"lastTrackedWidgetsInfo\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/AnalyticsAccount.swift",
+      "kind": "IntegerLiteral",
+      "offset": 347,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/AnalyticsAccount.swift",
+      "kind": "IntegerLiteral",
+      "offset": 363,
+      "length": 9,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/AnalyticsAccount.swift",
+      "kind": "IntegerLiteral",
+      "offset": 382,
+      "length": 10,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/AnalyticsAccount.swift",
+      "kind": "IntegerLiteral",
+      "offset": 402,
+      "length": 8,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAnalytics\/AnalyticsAccount.swift",
+      "kind": "IntegerLiteral",
+      "offset": 420,
+      "length": 7,
+      "value": "5"
+    }
+  ]
 }

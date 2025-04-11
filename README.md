@@ -38,10 +38,6 @@ Should your application already utilise certain dependencies listed, avoid redun
 
 ![frameworks_image](docs/assets/frameworks.png)
 
-Within the `PRSDK/` directory, you'll find _`PressReaderResources.bundle`_. Ensure not to link it alongside other frameworks. Instead, include it in the **Copy Bundle Resources** build phase of your host application.
-
-![build_phases_image](docs/assets/build_phases.png)
-
 # Usage
 
 You operate `PRSDK` using _`PressReader`_ singleton class (shared instance).

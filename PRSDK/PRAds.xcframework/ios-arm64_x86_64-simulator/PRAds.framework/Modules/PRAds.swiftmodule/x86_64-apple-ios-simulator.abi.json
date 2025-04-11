@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "PRAds",
+    "printedName": "PRAds",
     "children": [
       {
         "kind": "TypeDecl",
@@ -130,6 +130,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -203,7 +217,7 @@
         "declKind": "Import",
         "moduleName": "PRAds",
         "declAttributes": [
-          "ImplementationOnly"
+          "AccessControl"
         ]
       },
       {
@@ -216,6 +230,22 @@
         "moduleName": "PRAds",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -240,8 +270,9 @@
             "mangledName": "$s5PRAds10GoogleAdVCC8adUnitIdSSvp",
             "moduleName": "PRAds",
             "declAttributes": [
-              "HasStorage",
+              "Preconcurrency",
               "Custom",
+              "HasStorage",
               "SetterAccess",
               "AccessControl",
               "RawDocComment"
@@ -297,8 +328,9 @@
             "moduleName": "PRAds",
             "declAttributes": [
               "HasInitialValue",
-              "HasStorage",
+              "Preconcurrency",
               "Custom",
+              "HasStorage",
               "SetterAccess",
               "AccessControl"
             ],
@@ -399,6 +431,7 @@
             "overriding": true,
             "implicit": true,
             "declAttributes": [
+              "Preconcurrency",
               "Custom",
               "Override"
             ],
@@ -412,6 +445,7 @@
         "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UIView>",
         "sugared_genericSig": "<RootView where RootView : UIKit.UIView>",
         "declAttributes": [
+          "Preconcurrency",
           "Custom",
           "AccessControl"
         ],
@@ -425,6 +459,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -494,6 +542,13 @@
             "printedName": "NavigationBarDismissable",
             "usr": "c:@M@PRUIKit@objc(pl)NavigationBarDismissable",
             "mangledName": "$s7PRUIKit24NavigationBarDismissableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -751,6 +806,56 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "consequent",
+            "printedName": "consequent",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAds@objc(cs)InterstitialAdBannerInfo(py)consequent",
+            "mangledName": "$s5PRAds24InterstitialAdBannerInfoC10consequentSbvp",
+            "moduleName": "PRAds",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdBannerInfo(im)consequent",
+                "mangledName": "$s5PRAds24InterstitialAdBannerInfoC10consequentSbvg",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -793,6 +898,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -886,6 +1005,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "PRUtils",
+        "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRAds"
+      },
+      {
         "kind": "TypeDecl",
         "name": "InterstitialADView",
         "printedName": "InterstitialADView",
@@ -918,6 +1044,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "Override"
             ],
@@ -959,6 +1086,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "Required"
             ],
@@ -970,6 +1098,7 @@
         "mangledName": "$s5PRAds18InterstitialADViewC",
         "moduleName": "PRAds",
         "declAttributes": [
+          "Preconcurrency",
           "Custom",
           "Final",
           "AccessControl",
@@ -983,6 +1112,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1041,13 +1184,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "UITraitChangeObservable",
             "printedName": "UITraitChangeObservable",
             "usr": "s:5UIKit23UITraitChangeObservableP",
@@ -1088,6 +1224,13 @@
             "printedName": "LayoutGuidable",
             "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
             "mangledName": "$s7PRUIKit14LayoutGuidableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -1130,6 +1273,7 @@
             "objc_name": "fillWithBannerPresentation:",
             "declAttributes": [
               "Final",
+              "Preconcurrency",
               "Custom",
               "AccessControl",
               "ObjC",
@@ -1165,6 +1309,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "Override"
             ],
@@ -1206,6 +1351,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "Required"
             ],
@@ -1217,6 +1363,7 @@
         "mangledName": "$s5PRAds26AdBannerCollectionViewCellC",
         "moduleName": "PRAds",
         "declAttributes": [
+          "Preconcurrency",
           "Custom",
           "Final",
           "AccessControl",
@@ -1232,6 +1379,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1290,13 +1451,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "UITraitChangeObservable",
             "printedName": "UITraitChangeObservable",
             "usr": "s:5UIKit23UITraitChangeObservableP",
@@ -1337,6 +1491,13 @@
             "printedName": "LayoutGuidable",
             "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
             "mangledName": "$s7PRUIKit14LayoutGuidableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -1634,6 +1795,20 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2088,6 +2263,20 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2698,6 +2887,580 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAds",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InterstitialAdCounter",
+        "printedName": "InterstitialAdCounter",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "numOfArticleBeforeInterstitialAdDisplay",
+            "printedName": "numOfArticleBeforeInterstitialAdDisplay",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(py)numOfArticleBeforeInterstitialAdDisplay",
+            "mangledName": "$s5PRAds21InterstitialAdCounterC018numOfArticleBeforebC7DisplaySivp",
+            "moduleName": "PRAds",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)numOfArticleBeforeInterstitialAdDisplay",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC018numOfArticleBeforebC7DisplaySivg",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)setNumOfArticleBeforeInterstitialAdDisplay:",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC018numOfArticleBeforebC7DisplaySivs",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAds21InterstitialAdCounterC018numOfArticleBeforebC7DisplaySivM",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC018numOfArticleBeforebC7DisplaySivM",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "displayedArticles",
+            "printedName": "displayedArticles",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSMutableSet",
+                "printedName": "Foundation.NSMutableSet",
+                "usr": "c:objc(cs)NSMutableSet"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(py)displayedArticles",
+            "mangledName": "$s5PRAds21InterstitialAdCounterC17displayedArticlesSo12NSMutableSetCvp",
+            "moduleName": "PRAds",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSMutableSet",
+                    "printedName": "Foundation.NSMutableSet",
+                    "usr": "c:objc(cs)NSMutableSet"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)displayedArticles",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC17displayedArticlesSo12NSMutableSetCvg",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSMutableSet",
+                    "printedName": "Foundation.NSMutableSet",
+                    "usr": "c:objc(cs)NSMutableSet"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)setDisplayedArticles:",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC17displayedArticlesSo12NSMutableSetCvs",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAds21InterstitialAdCounterC17displayedArticlesSo12NSMutableSetCvM",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC17displayedArticlesSo12NSMutableSetCvM",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "numInterstitialAdsToDisplay",
+            "printedName": "numInterstitialAdsToDisplay",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(py)numInterstitialAdsToDisplay",
+            "mangledName": "$s5PRAds21InterstitialAdCounterC03numB12AdsToDisplaySivp",
+            "moduleName": "PRAds",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)numInterstitialAdsToDisplay",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC03numB12AdsToDisplaySivg",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)setNumInterstitialAdsToDisplay:",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC03numB12AdsToDisplaySivs",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAds21InterstitialAdCounterC03numB12AdsToDisplaySivM",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC03numB12AdsToDisplaySivM",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "numArticlesBetweenInterstitialAds",
+            "printedName": "numArticlesBetweenInterstitialAds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(py)numArticlesBetweenInterstitialAds",
+            "mangledName": "$s5PRAds21InterstitialAdCounterC018numArticlesBetweenB3AdsSivp",
+            "moduleName": "PRAds",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)numArticlesBetweenInterstitialAds",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC018numArticlesBetweenB3AdsSivg",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)setNumArticlesBetweenInterstitialAds:",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC018numArticlesBetweenB3AdsSivs",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAds21InterstitialAdCounterC018numArticlesBetweenB3AdsSivM",
+                "mangledName": "$s5PRAds21InterstitialAdCounterC018numArticlesBetweenB3AdsSivM",
+                "moduleName": "PRAds",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(bannerInfo:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRAds.InterstitialAdCounter?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InterstitialAdCounter",
+                    "printedName": "PRAds.InterstitialAdCounter",
+                    "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdBannerInfo",
+                "printedName": "PRAds.AdBannerInfo",
+                "usr": "c:@M@PRAds@objc(cs)AdBannerInfo"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)initWithBannerInfo:",
+            "mangledName": "$s5PRAds21InterstitialAdCounterC10bannerInfoACSgAA0c6BannerF0C_tcfc",
+            "moduleName": "PRAds",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InterstitialAdCounter",
+                "printedName": "PRAds.InterstitialAdCounter",
+                "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter(im)init",
+            "mangledName": "$s5PRAds21InterstitialAdCounterCACycfc",
+            "moduleName": "PRAds",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRAds@objc(cs)InterstitialAdCounter",
+        "mangledName": "$s5PRAds21InterstitialAdCounterC",
+        "moduleName": "PRAds",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -3027,6 +3790,22 @@
         "declAttributes": [
           "AccessControl",
           "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -3622,6 +4401,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -3713,6 +4506,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "Override",
               "AccessControl",
@@ -3740,6 +4534,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "Override",
               "AccessControl"
@@ -3786,6 +4581,7 @@
             "mangledName": "$s5PRAds16InterstitialADVCC05checkB2Ad18withParentViewSize10completionySo6CGSizeV_ySbctF",
             "moduleName": "PRAds",
             "declAttributes": [
+              "Preconcurrency",
               "Custom",
               "Final",
               "AccessControl",
@@ -3815,6 +4611,7 @@
             "mangledName": "$s5PRAds16InterstitialADVCC15presentAnimated2inySo16UIViewControllerC_tF",
             "moduleName": "PRAds",
             "declAttributes": [
+              "Preconcurrency",
               "Custom",
               "Final",
               "AccessControl"
@@ -3837,6 +4634,7 @@
             "mangledName": "$s5PRAds16InterstitialADVCC20dismissViewsAnimatedyyF",
             "moduleName": "PRAds",
             "declAttributes": [
+              "Preconcurrency",
               "Custom",
               "Final",
               "AccessControl"
@@ -3888,6 +4686,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "AccessControl",
               "RawDocComment"
@@ -3900,6 +4699,7 @@
         "mangledName": "$s5PRAds16InterstitialADVCC",
         "moduleName": "PRAds",
         "declAttributes": [
+          "Preconcurrency",
           "Custom",
           "Final",
           "AccessControl"
@@ -3916,6 +4716,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -4138,19 +4952,56 @@
         "declAttributes": [
           "AccessControl",
           "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAds"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PRAds"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "PRAds"
+      },
+      {
+        "kind": "Import",
+        "name": "DeveloperToolsSupport",
+        "printedName": "DeveloperToolsSupport",
+        "declKind": "Import",
+        "moduleName": "PRAds"
       }
     ],
     "json_format_version": 8
   },
   "ConstValues": [
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/GoogleAdVC.swift",
-      "kind": "StringLiteral",
-      "offset": 262,
-      "length": 10,
-      "value": "\"PRAds.GoogleAdVC\""
-    },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
       "kind": "StringLiteral",
@@ -4209,122 +5060,17 @@
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 394,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 405,
-      "length": 7,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 422,
-      "length": 9,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 441,
-      "length": 7,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 458,
-      "length": 5,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 473,
-      "length": 5,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 488,
-      "length": 10,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 394,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 405,
-      "length": 7,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 422,
-      "length": 9,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 441,
-      "length": 7,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 458,
-      "length": 5,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 473,
-      "length": 5,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
-      "kind": "IntegerLiteral",
-      "offset": 488,
-      "length": 10,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 4810,
+      "offset": 4733,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/OnlineBannerVC.swift",
       "kind": "StringLiteral",
-      "offset": 4904,
+      "offset": 4827,
       "length": 2,
       "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/InterstitialAdBannerInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 188,
-      "length": 24,
-      "value": "\"PRAds.InterstitialAdBannerInfo\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/OnlineBanners\/HTMLContentManager.swift",
@@ -4350,77 +5096,77 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 506,
+      "offset": 521,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 549,
+      "offset": 564,
       "length": 4,
       "value": "72.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 597,
+      "offset": 612,
       "length": 3,
       "value": "4.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 652,
+      "offset": 667,
       "length": 4,
       "value": "12.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 704,
+      "offset": 719,
       "length": 5,
       "value": "102.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 710,
+      "offset": 725,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 724,
+      "offset": 739,
       "length": 4,
       "value": "0.32"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 785,
+      "offset": 800,
       "length": 5,
       "value": "291.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 800,
+      "offset": 815,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "FloatLiteral",
-      "offset": 850,
+      "offset": 865,
       "length": 4,
       "value": "30.0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Google\/Interstitial\/InterstitialADView.swift",
       "kind": "Array",
-      "offset": 1445,
+      "offset": 1460,
       "length": 2,
       "value": "[]"
     },
@@ -4455,92 +5201,8 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
       "kind": "IntegerLiteral",
-      "offset": 226,
-      "length": 3,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 239,
-      "length": 6,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 255,
-      "length": 6,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 271,
-      "length": 12,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
       "offset": 348,
       "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 367,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 378,
-      "length": 7,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 395,
-      "length": 7,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 412,
-      "length": 5,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 427,
-      "length": 14,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 451,
-      "length": 5,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 466,
-      "length": 10,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 348,
-      "length": 1,
       "value": "-1"
     },
     {
@@ -4600,25 +5262,32 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/AdBannerInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 512,
-      "length": 12,
-      "value": "\"PRAds.AdBannerInfo\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Combined\/CombinedBannerProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 173,
-      "length": 22,
-      "value": "\"PRAds.CombinedBannerProvider\""
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1144,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
-      "kind": "StringLiteral",
-      "offset": 681,
-      "length": 12,
-      "value": "\"PRAds.AdDataSource\""
+      "kind": "BooleanLiteral",
+      "offset": 1193,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1426,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/AdDataSource.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1475,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdView.swift",
@@ -4630,65 +5299,65 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "StringLiteral",
-      "offset": 211,
-      "length": 21,
-      "value": "\"PRAds.GoogleBannersProvider\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 8131,
+      "offset": 8279,
       "length": 50,
       "value": "\"\/89799359\/app_sltrib\/eedition\/app_footer_section\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 8430,
+      "offset": 8578,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 8552,
+      "offset": 8700,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 8617,
+      "offset": 8765,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 8680,
+      "offset": 8828,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 8756,
+      "offset": 8904,
       "length": 3,
       "value": "320"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 8769,
+      "offset": 8917,
       "length": 2,
       "value": "50"
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/UI\/Components\/CombinedAdVC.swift",
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRAds\/API\/Google\/GoogleBannersProvider.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8974,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Library\/Developer\/Xcode\/DerivedData\/PRiphone-elvqzqszwtildjghstsrcfsacxpg\/Build\/Intermediates.noindex\/ArchiveIntermediates\/PRAds\/IntermediateBuildFilesPath\/PRiphone.build\/Release-iphonesimulator\/PRAds.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
-      "offset": 206,
-      "length": 12,
-      "value": "\"PRAds.CombinedAdVC\""
+      "offset": 726,
+      "length": 9,
+      "value": "\"i-close\""
     }
   ]
 }

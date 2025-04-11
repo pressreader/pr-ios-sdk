@@ -43,9 +43,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 - (void)resetCookies;
 - (void)setupCookiePolicy:(NSHTTPCookieAcceptPolicy)policy;
 
-- (NSMutableDictionary *)getUrlParams:(NSString *)url;
-- (nullable NSURL *)urlFromResource:(nullable NSString *)documentName;
-
 - (nullable NSString*)xmlAttrib:(id)node attrName:(NSString*)attrName defValue:(nullable NSString*)defValue;
 
 - (nullable NSDate*) GetFileModificationDate:(NSString*)fileName GMT:(BOOL)GMT;

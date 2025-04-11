@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class PRCountableDictionary;
+@protocol CatalogNavigationVariant;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRCategoryCell : UICollectionViewCell
-@property (nullable, nonatomic, strong) PRCountableDictionary *category;
+@property (nullable, nonatomic, strong) id<CatalogNavigationVariant> category;
 
 @end
 

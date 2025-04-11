@@ -20,6 +20,7 @@ extern PRAuthProviderName const PRAuthProviderNameLibrary;
 extern PRAuthProviderName const PRAuthProviderNamePiano;
 extern PRAuthProviderName const PRAuthProviderNameGigya;
 extern PRAuthProviderName const PRAuthProviderNameAuth0;
+extern PRAuthProviderName const PRAuthProviderNameOAuth2;
 
 @interface PRSignInOption : NSObject
 

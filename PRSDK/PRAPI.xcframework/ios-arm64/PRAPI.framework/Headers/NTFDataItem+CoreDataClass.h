@@ -9,9 +9,8 @@
 #import <CoreData/CoreData.h>
 
 @import PRUtils.NSDictionaryCIWrapper;
-
-@class NSDictionaryCIWrapper;
-@class PRWeakLink;
+@class NTFUserItem;
+@class DataItemContent;
 
 typedef NS_ENUM(NSInteger, NTFDataItemType) {
     NTFDataItemTypeNone,
@@ -29,28 +28,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NTFDataItem : NSManagedObject
 
-+ (instancetype)itemWithJSON:(NSDictionary *)json context:(NSManagedObjectContext *)context;
-+ (instancetype)itemWithJSON:(NSDictionary *)json
-                 isoLanguage:(nullable NSString *)language
-                     context:(NSManagedObjectContext *)context;
-
-+ (instancetype)itemWithJSON:(NSDictionary *)json
-                 isoLanguage:(nullable NSString *)language
-                     context:(NSManagedObjectContext *)context
-                  standalone:(BOOL)isTemporary;
-
-- (void)updateWithJSON:(NSDictionary *)json;
-
 @property (nonatomic, readonly) NTFDataItemType type;
-@property (nullable, nonatomic, strong, readonly) NSDictionaryCIWrapper *info;
-@property (nullable, nonatomic, strong, readonly) NSDictionaryCIWrapper *payload;
-@property (nullable, nonatomic, strong, readonly) NSDictionary *json;
+@property (nullable, nonatomic, readonly) NTFUserItem *owner;
 
 @end
 
 @interface NTFDataItem (/*Protected*/)
 
++ (nullable NSString *)itemIdFromJSON:(NSDictionary<NSString *, id> *)json;
+
 - (void)resetComputedProperties;
+- (void)updateWithJSON:(NSDictionary *)json;
+- (nullable NSDictionaryCIWrapper *)payloadWithJSON:(NSDictionary<NSString*, id> *)json;
+- (nullable NSString *)languageFromJSON:(NSDictionary *)json;
 
 @property (nullable, nonatomic, copy) NSString *contextKey;
 
@@ -59,4 +49,3 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 #import "NTFDataItem+CoreDataProperties.h"
-#import "NTFDataItem+Convenience.h"

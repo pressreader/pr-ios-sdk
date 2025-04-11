@@ -41,6 +41,7 @@ extern PRAnalyticsTrackName const PRAnalyticsTrackAboutBrandEditionView; // para
 extern PRAnalyticsTrackName const PRAnalyticsTrackSettingsView; // parameter SettingsSection
 extern PRAnalyticsTrackName const PRAnalyticsTrackAuthorizeView; // parameter: AuthorizeViewMode
 extern PRAnalyticsTrackName const PRAnalyticsTrackPaymentProductsView; // parameters: PaymentProducts and optional TitleItemExemplar
+extern PRAnalyticsTrackName const PRAnalyticsTrackPaymentProductSelected;
 extern PRAnalyticsTrackName const PRAnalyticsTrackPurchaseConfirmationView;
 extern PRAnalyticsTrackName const PRAnalyticsTrackBannerView; // parameters: BannerType, BannerContext
 extern PRAnalyticsTrackName const PRAnalyticsTrackOnboardingGetStartedView;
@@ -75,13 +76,11 @@ extern PRAnalyticsTrackName const PRAnalyticsTrackSocialSignInButton;
 extern PRAnalyticsTrackName const PRAnalyticsTrackMainMenu; // parameter MainMenu;
 extern PRAnalyticsTrackName const PRAnalyticsTrackWebLink; // parameter: WebUrl
 extern PRAnalyticsTrackName const PRAnalyticsTrackSFAction; // parameter SFAction
-extern PRAnalyticsTrackName const PRAnalyticsTrackAuthorizeOperation; // parameter : AuthType, ServiceName, OperationResult
+extern PRAnalyticsTrackName const PRAnalyticsTrackAuthorize; // parameter : AuthType, ServiceName, OperationResult
 extern PRAnalyticsTrackName const PRAnalyticsTrackSeeAllPaymentOptions;
 extern PRAnalyticsTrackName const PRAnalyticsTrackProductOffer; // PaymentProduct, ProductOfferSource
-extern PRAnalyticsTrackName const PRAnalyticsTrackPurchaseStarted; // PaymentProduct and TitleItemExemplar
-extern PRAnalyticsTrackName const PRAnalyticsTrackPurchaseCompleted; // PaymentProduct, PRTitleItemExemplar, SKPaymentTransaction and OperationResult
-extern PRAnalyticsTrackName const PRAnalyticsTrackPurchaseRestoreStarted; // PurchaseRestoreSource
-extern PRAnalyticsTrackName const PRAnalyticsTrackPurchaseRestoreCompleted; // OperationResult, PRTitleItemExemplar, SKProduct
+extern PRAnalyticsTrackName const PRAnalyticsTrackPurchase; // PaymentProduct, PRTitleItemExemplar, SKPaymentTransaction and OperationResult
+extern PRAnalyticsTrackName const PRAnalyticsTrackPurchaseRestore; // PurchaseRestoreSource
 extern PRAnalyticsTrackName const PRAnalyticsTrackBannerAction; // parameters: BannerType, BannerContext, BannerAction
 extern PRAnalyticsTrackName const PRAnalyticsTrackAskForAppReview;
 extern PRAnalyticsTrackName const PRAnalyticsTrackAppState; // parameter: AppState
@@ -100,6 +99,7 @@ extern PRAnalyticsTrackName const PRAnalyticsTrack10ArticlesInHomeFeedOpened;
 extern PRAnalyticsTrackName const PRAnalyticsTrack30ArticlesInHomeFeedOpened;
 extern PRAnalyticsTrackName const PRAnalyticsTrack10IssuesOpened;
 extern PRAnalyticsTrackName const PRAnalyticsTrackSubscribeToReadTap;  // parameter: Copy
+extern PRAnalyticsTrackName const PRAnalyticsTrackSubscribeTap;
 extern PRAnalyticsTrackName const PRAnalyticsTrackArticleNavigationSwipe; // parameters: "direction", "section name"
 extern PRAnalyticsTrackName const PRAnalyticsTrackArticleNavigationNavigate; // parameters: "direction", "section name"
 extern PRAnalyticsTrackName const PRAnalyticsTrackRichMedia; // parameters: "action"
@@ -139,3 +139,14 @@ extern PRAnalyticsTrackName const PRAnalyticsTrackBookRead;
 extern PRAnalyticsTrackName const PRAnalyticsTrackBookOrder;
 
 extern PRAnalyticsTrackName const PRAnalyticsTrackExternalLinkAccount;
+extern PRAnalyticsTrackName const PRAnalyticsTrackCancelRegistration;
+extern PRAnalyticsTrackName const PRAnalyticsTrackRegistrationAlertPresented;
+extern PRAnalyticsTrackName const PRAnalyticsTrackDigestNotificationReceived;
+
+extern PRAnalyticsTrackName const PRAnalyticsTrackAutodelivery;
+extern PRAnalyticsTrackName const PRAnalyticsTrackWidget;
+extern PRAnalyticsTrackName const PRAnalyticsTrackWidgetInstallation;
+
+extern PRAnalyticsTrackName const PRAnalyticsTrackHomeFeedOpened;
+extern PRAnalyticsTrackName const PRAnalyticsTrackGiftedIssueAdget;
+extern PRAnalyticsTrackName const PRAnalyticsTrackGiftedIssueVideoPlayed;

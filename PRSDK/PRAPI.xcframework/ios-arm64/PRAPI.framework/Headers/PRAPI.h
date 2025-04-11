@@ -28,7 +28,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/NTFGiftedIssueItem+Service.h>
 
 #pragma mark - Protocols
-#import <PRAPI/PRAnalyticsProto.h>
 #import <PRAPI/SynthesizeSingleton.h>
 #import <PRAPI/PRSubscriptionCatalogProtocol.h>
 #import <PRAPI/PRWebServerBookRegister.h>
@@ -107,7 +106,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 
 #import <PRAPI/PRSourceList.h>
 #import <PRAPI/PRSourceList_Protected.h>
-#import <PRAPI/PRSourceList+Equality.h>
 #import <PRAPI/PRSourceList+Info.h>
 
 #import <PRAPI/PRLatestIssuesList.h>
@@ -248,15 +246,16 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRCoreGlobalImpl.h>
 #import <PRAPI/PRWebServer.h>
 #import <PRAPI/PRSocialSignInManager.h>
-#import <PRAPI/PRHotSpotManager.h>
+#import <PRAPI/PRHotSpotStatus.h>
 #import <PRAPI/PRSuggestionsManager.h>
+#import <PRAPI/PRImageLoader.h>
 
 #pragma mark - PROTECTED
 
 #import <PRAPI/PRService.h>
 #import <PRAPI/PRNSBundle+Updatable.h>
 #import <PRAPI/PRAnalyticsProfileManager.h>
-#import <PRAPI/PRSchemeProvider.h>
 #import <PRAPI/ConsoleAnalytics.h>
 #import <PRAPI/GoogleAnalytics.h>
-#import <PRAPI/PRAnalyticsService.h>
+#import <PRAPI/GeoHasher.h>
+#import <PRAPI/NTFHomeFeedDataService.h>

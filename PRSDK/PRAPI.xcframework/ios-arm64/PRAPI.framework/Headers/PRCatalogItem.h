@@ -14,9 +14,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NSString * CID;
+
 @protocol PRCatalogItem <NSObject>
 @required
-@property (nonatomic, readonly) NSString *CID;
+@property (nonatomic, readonly) CID CID;
 @property (nullable, nonatomic, readonly) NSDate *date;
 @property (nullable, nonatomic, readonly) NSString *title;
 
@@ -25,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, readonly) NSDate *sortingDate;
 @property (nonatomic, readonly) PRSourceType sourceType;
+@property (nullable, nonatomic, readonly) NSArray<NSString *> *countryCodes;
+@property (nullable, nonatomic, readonly) NSString * originCountryCode;
 
 @end
 

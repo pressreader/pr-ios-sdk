@@ -16,7 +16,7 @@ extern NSString * const kPRStoryboardExtension;
 
 @protocol PRNSBundleUpdatable <NSObject>
 @optional
-+ (NSBundle *)updatedResourceBundle;
++ (nullable NSBundle *)updatedResourceBundle;
 
 @end
 
@@ -26,32 +26,29 @@ typedef NS_ENUM(NSUInteger, PRPreferredBundle) {
     PRPreferredBundleCustom
 };
 
-// This class-singleton is for providing access to resources inside 
-// of the PressReaderResources bundle. It must be used instead 
-// of [NSBundle mainBundle] standard instance for accessing to PressReader 
-// app's specific table localized strings, JS, html, images, xib and other 
-// resources.
-// In case of no PressReaderResources.bundle this singleton 
-// is initialized with [NSBundle mainBundle].
-@interface PRNSBundle : NSBundle <PRNSBundleUpdatable>
+/// Utility class for providing access to bundled resources.
+@interface PRNSBundle : NSObject <PRNSBundleUpdatable>
 
-+ (NSBundle *)instance;
-+ (void)dismiss;
++ (nullable NSBundle *)bundleForResource:(nullable NSString *)name
+                                  ofType:(nullable NSString *)ext
+                         preferredBundle:(nullable NSBundle *)preferredBundle;
 
-+ (nullable NSString *)localizedStringForKey:(nullable NSString *)key;
-+ (nullable NSString *)localizedStringForKey:(nullable NSString *)key preferredBundle:(PRPreferredBundle)preferredBundle;
-+ (nullable NSString *)specificLocalizedStringForKey:(NSString *)key;
-+ (nullable NSString *)adjustedLocalizedPluralStringForKey:(nullable NSString *)pluralStringKey number:(NSUInteger)number;
-+ (nullable NSBundle *)customResourcesBundle;
-+ (nullable NSBundle *)bundleForResource:(nullable NSString *)name ofType:(nullable NSString *)ext;
++ (nullable NSString *)pathForResource:(nullable NSString *)name 
+                                ofType:(nullable NSString *)ext
+                       preferredBundle:(nullable NSBundle *)preferredBundle;
 
-+ (nullable NSString *)pathForResource:(nullable NSString *)name ofType:(nullable NSString *)ext;
-+ (nonnull UIStoryboard *)storyboardWithName:(nonnull NSString *)name;
-+ (nullable UINib *)nibWithName:(nonnull NSString *)name;
-+ (nullable NSArray *)loadNibNamed:(NSString *)name owner:(id)owner;
++ (nonnull UIStoryboard *)storyboardWithName:(nonnull NSString *)name
+                             preferredBundle:(nullable NSBundle *)preferredBundle;
 
-+ (void)resetUpdatedBundle;
++ (nullable UINib *)nibWithName:(nonnull NSString *)name
+                preferredBundle:(nullable NSBundle *)preferredBundle;
 
++ (nullable NSArray *)loadNibNamed:(NSString *)name
+                             owner:(id)owner
+                   preferredBundle:(nullable NSBundle *)preferredBundle;
+
+@property (class, nonatomic, readonly) NSBundle *localizedStringsBundle;
+@property (nullable, class, nonatomic, readonly) NSBundle *customResourcesBundle;
 @property (nullable, class, nonatomic, strong) NSBundle *_updatedResourcesBundle;
 @property (nullable, class, nonatomic, readonly) NSBundle *SFBundle;
 
@@ -64,3 +61,5 @@ NS_ASSUME_NONNULL_END
 
 #define PRLocalizedString(...) __GET_MACRO2(__VA_ARGS__, _PRLStringWithComment, _PRLString)(__VA_ARGS__)
 #define PRLocalizedPluralString(pluralStringKey, num) [PRNSBundle adjustedLocalizedPluralStringForKey:(pluralStringKey) number:(num)]
+
+#import <PRUtils/PRNSBundle+LocalizedStrings.h>

@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithType:(NTFDataItemType)type NS_UNAVAILABLE;
 
 @property (nonatomic, strong) PRSmartArticle *smartArticle;
-@property (nonatomic, strong) PRMyLibraryItem *mli;
+@property (nonatomic, unsafe_unretained, readonly) PRMyLibraryItem *mli;
 @property (nullable, nonatomic, strong) NSArray<PRSmartImageRegion *> *imageRegions;
 @property (nullable, nonatomic, readonly) NSString *issueId;
 @property (nullable, nonatomic, readonly) NSString *byline;
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) NSString *bylineForDisplayWithLineBreak;
 
 /// DEPRECATED (in new code rely on item's interface)
-@property (nonatomic, weak) NTFMyLibraryItemDataSource *dataSource;
+@property (nullable, nonatomic, readonly) NTFMyLibraryItemDataSource *dataSource;
 
 @property (nonatomic) NTFArticleItemPresentationType presentationType;
 

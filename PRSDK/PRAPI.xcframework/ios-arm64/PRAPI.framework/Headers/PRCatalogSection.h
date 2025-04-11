@@ -11,6 +11,7 @@
 
 @class PRAccountItem;
 @class PRSourceList;
+@class CatalogSectionScheme;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,6 +42,7 @@ typedef NS_OPTIONS(NSUInteger, PRCatalogSectionOption) {
 /// DEPRECATED. Avoid model - controller association to be able to reuse section controllers effectively.
 @property (nullable, nonatomic, strong) UIViewController *associatedController;
 
+@property (nullable, nonatomic) CatalogSectionScheme *scheme;
 @property (nonatomic) PRCatalogSectionType sectionType;
 @property (nonatomic) PRLayoutType layoutType;
 @property (nonatomic) PRCatalogSectionOption viewOptions;

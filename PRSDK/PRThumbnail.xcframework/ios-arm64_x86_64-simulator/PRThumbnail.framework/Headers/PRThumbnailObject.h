@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-#import "PRThumbnailInfo.h"
+@class PRThumbnailInfo;
 
 /* UIImage will implement the resizing mode the fastest way possible while
  retaining the desired visual appearance.
@@ -116,7 +116,6 @@ extern PRThumbnailCacheFieSizeSuffix const PRThumbnailCacheFieSizeSuffixWidth;
 
 @property (nullable, nonatomic, strong, readonly) UIImage *image;
 @property (nonatomic, strong, readonly) UIImage *imagePlaceholder;
-@property (nonatomic, readonly) UIImage *loadingPlaceholder;
 
 @property (nonatomic) PRThumbnailOption options;
 

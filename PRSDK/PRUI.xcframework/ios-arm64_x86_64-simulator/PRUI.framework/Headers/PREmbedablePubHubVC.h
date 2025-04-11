@@ -26,6 +26,9 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubOption) {
 
 - (instancetype)initWithDataSource:(PRPubHubDataSource *)dataSource;
 - (instancetype)initWithSourceList:(PRSourceList *)sourceList NS_UNAVAILABLE;
+- (instancetype)initWithSourceList:(PRSourceList *)sourceList
+                          delegate:(nullable id<PRSourceCollectionControllerDelegate>)delegate
+NS_UNAVAILABLE;
 
 @property (nullable, nonatomic, strong) PRSourceList *sourceList NS_UNAVAILABLE;
 
@@ -38,8 +41,6 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubOption) {
 @property (nonatomic, readonly) BOOL isEmpty;
 
 @property (nonatomic, readonly) PRPubHubOption hubOptions;
-
-@property (nonatomic, readonly) BOOL shouldDiscard;
 
 @end
 

@@ -14,8 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSErrorDomain const PRAccountManagerErrorDomain;
 typedef NS_ERROR_ENUM(PRAccountManagerErrorDomain, PRAccountManagerError) {
-    PRAccountManagerErrorUnknown,
-    PRAccountManagerErrorRegisterGiftAccess
+    PRAccountManagerErrorUnknown
+};
+
+extern NSErrorDomain const PRRegisterGiftAccessErrorDomain;
+typedef NS_ERROR_ENUM(PRRegisterGiftAccessErrorDomain, PRRegisterGiftAccessError) {
+    PRRegisterGiftAccessErrorUnknown,
+    PRRegisterGiftAccessErrorConcurrentActivationExists
 };
 
 @interface PRAccountManager (Error) <PRErrorProvider>

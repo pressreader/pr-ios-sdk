@@ -11,15 +11,14 @@
 
 @class PRUpdateItem;
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRNSBundle (Updatable)
 
-+ (PRUpdateItem *)resourceUpdateItem;
++ (nullable PRUpdateItem *)resourceUpdateItem;
 + (void)UpdateOnlineContentUpdaterItems;
 
-+ (NSBundle *)updatedResourceBundle;
++ (nullable NSBundle *)updatedResourceBundle;
 
 @end
 

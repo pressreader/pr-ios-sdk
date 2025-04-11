@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "PRCatalogModel",
+    "printedName": "PRCatalogModel",
     "children": [
       {
         "kind": "Import",
@@ -330,25 +330,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -420,6 +412,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -855,6 +869,9 @@
                 "moduleName": "PRCatalogModel",
                 "static": true,
                 "implicit": true,
+                "declAttributes": [
+                  "Nonisolated"
+                ],
                 "accessors": [
                   {
                     "kind": "Accessor",
@@ -897,6 +914,20 @@
             ],
             "enumRawTypeName": "String",
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "Equatable",
@@ -1262,6 +1293,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1725,6 +1770,9 @@
             "moduleName": "PRCatalogModel",
             "static": true,
             "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "accessors": [
               {
                 "kind": "Accessor",
@@ -1766,6 +1814,20 @@
         ],
         "enumRawTypeName": "String",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2277,6 +2339,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -2500,6 +2576,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -2706,6 +2796,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2975,6 +3079,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3305,25 +3423,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "ScopeNavigation",
-            "printedName": "ScopeNavigation",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Scope",
-                "printedName": "Scope",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Catalog",
-                    "printedName": "PRCatalogModel.Catalog",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:14PRCatalogModel15ScopeNavigationP",
-            "mangledName": "$s14PRCatalogModel15ScopeNavigationP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -3417,6 +3527,28 @@
             ],
             "usr": "s:s12IdentifiableP",
             "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ScopeNavigation",
+            "printedName": "ScopeNavigation",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Scope",
+                "printedName": "Scope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Catalog",
+                    "printedName": "PRCatalogModel.Catalog",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)Catalog"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:14PRCatalogModel15ScopeNavigationP",
+            "mangledName": "$s14PRCatalogModel15ScopeNavigationP"
           }
         ]
       },
@@ -4338,6 +4470,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4621,6 +4767,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4803,6 +4963,22 @@
             "declAttributes": [
               "AccessControl",
               "RawDocComment"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              }
             ]
           },
           {
@@ -5060,25 +5236,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "UpdatableMO",
-            "printedName": "UpdatableMO",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Payload",
-                "printedName": "Payload",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DTO",
-                    "printedName": "PRCatalogModel.ItemSeriesMetadata.DTO",
-                    "usr": "s:14PRCatalogModel18ItemSeriesMetadataC3DTOV"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:15PRCoreDataUtils11UpdatableMOP",
-            "mangledName": "$s15PRCoreDataUtils11UpdatableMOP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -5172,6 +5340,28 @@
             ],
             "usr": "s:s12IdentifiableP",
             "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UpdatableMO",
+            "printedName": "UpdatableMO",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Payload",
+                "printedName": "Payload",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DTO",
+                    "printedName": "PRCatalogModel.ItemSeriesMetadata.DTO",
+                    "usr": "s:14PRCatalogModel18ItemSeriesMetadataC3DTOV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:15PRCoreDataUtils11UpdatableMOP",
+            "mangledName": "$s15PRCoreDataUtils11UpdatableMOP"
           }
         ]
       },
@@ -5482,6 +5672,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -6446,25 +6650,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -6536,6 +6732,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -6841,6 +7059,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -6950,8 +7182,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
         "declKind": "Import",
         "moduleName": "PRCatalogModel",
         "declAttributes": [
@@ -6972,8 +7204,8 @@
         "children": [
           {
             "kind": "Var",
-            "name": "filtersArray",
-            "printedName": "filtersArray",
+            "name": "filters",
+            "printedName": "filters",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -6991,11 +7223,12 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:14PRCatalogModel17CatalogNavigationC12filtersArraySayAA0C6FilterCGvp",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC12filtersArraySayAA0C6FilterCGvp",
+            "usr": "s:14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvp",
+            "mangledName": "$s14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvp",
             "moduleName": "PRCatalogModel",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "Custom"
             ],
             "accessors": [
               {
@@ -7019,10 +7252,61 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14PRCatalogModel17CatalogNavigationC12filtersArraySayAA0C6FilterCGvg",
-                "mangledName": "$s14PRCatalogModel17CatalogNavigationC12filtersArraySayAA0C6FilterCGvg",
+                "usr": "s:14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvg",
+                "mangledName": "$s14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvg",
                 "moduleName": "PRCatalogModel",
+                "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRCatalogModel.CatalogFilter]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CatalogFilter",
+                        "printedName": "PRCatalogModel.CatalogFilter",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogFilter"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvs",
+                "mangledName": "$s14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvs",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvM",
+                "mangledName": "$s14PRCatalogModel17CatalogNavigationC7filtersSayAA0C6FilterCGvM",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -7103,459 +7387,6 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "filters",
-            "printedName": "filters",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.NSOrderedSet?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSOrderedSet",
-                    "printedName": "Foundation.NSOrderedSet",
-                    "usr": "c:objc(cs)NSOrderedSet"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(py)filters",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC7filtersSo12NSOrderedSetCSgvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.NSOrderedSet?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NSOrderedSet",
-                        "printedName": "Foundation.NSOrderedSet",
-                        "usr": "c:objc(cs)NSOrderedSet"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)filters",
-                "mangledName": "$s14PRCatalogModel17CatalogNavigationC7filtersSo12NSOrderedSetCSgvg",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.NSOrderedSet?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NSOrderedSet",
-                        "printedName": "Foundation.NSOrderedSet",
-                        "usr": "c:objc(cs)NSOrderedSet"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)setFilters:",
-                "mangledName": "$s14PRCatalogModel17CatalogNavigationC7filtersSo12NSOrderedSetCSgvs",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "insertIntoFilters",
-            "printedName": "insertIntoFilters(_:at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogFilter",
-                "printedName": "PRCatalogModel.CatalogFilter",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogFilter"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)insertObject:inFiltersAtIndex:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC17insertIntoFilters_2atyAA0C6FilterC_SitF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "insertObject:inFiltersAtIndex:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromFilters",
-            "printedName": "removeFromFilters(at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)removeObjectFromFiltersAtIndex:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC17removeFromFilters2atySi_tF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeObjectFromFiltersAtIndex:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "insertIntoFilters",
-            "printedName": "insertIntoFilters(_:at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[PRCatalogModel.CatalogFilter]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogFilter",
-                    "printedName": "PRCatalogModel.CatalogFilter",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogFilter"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)insertFilters:atIndexes:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC17insertIntoFilters_2atySayAA0C6FilterCG_So10NSIndexSetCtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "insertFilters:atIndexes:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromFilters",
-            "printedName": "removeFromFilters(at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)removeFiltersAtIndexes:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC17removeFromFilters2atySo10NSIndexSetC_tF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeFiltersAtIndexes:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "replaceFilters",
-            "printedName": "replaceFilters(at:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogFilter",
-                "printedName": "PRCatalogModel.CatalogFilter",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogFilter"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)replaceObjectInFiltersAtIndex:withObject:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC14replaceFilters2at4withySi_AA0C6FilterCtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "replaceObjectInFiltersAtIndex:withObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "replaceFilters",
-            "printedName": "replaceFilters(at:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[PRCatalogModel.CatalogFilter]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogFilter",
-                    "printedName": "PRCatalogModel.CatalogFilter",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogFilter"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)replaceFiltersAtIndexes:withFilters:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC14replaceFilters2at4withySo10NSIndexSetC_SayAA0C6FilterCGtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "replaceFiltersAtIndexes:withFilters:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "addToFilters",
-            "printedName": "addToFilters(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogFilter",
-                "printedName": "PRCatalogModel.CatalogFilter",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogFilter"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)addFiltersObject:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC12addToFiltersyyAA0C6FilterCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "addFiltersObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromFilters",
-            "printedName": "removeFromFilters(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogFilter",
-                "printedName": "PRCatalogModel.CatalogFilter",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogFilter"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)removeFiltersObject:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC17removeFromFiltersyyAA0C6FilterCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeFiltersObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "addToFilters",
-            "printedName": "addToFilters(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSOrderedSet",
-                "printedName": "Foundation.NSOrderedSet",
-                "usr": "c:objc(cs)NSOrderedSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)addFilters:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC12addToFiltersyySo12NSOrderedSetCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "addFilters:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromFilters",
-            "printedName": "removeFromFilters(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSOrderedSet",
-                "printedName": "Foundation.NSOrderedSet",
-                "usr": "c:objc(cs)NSOrderedSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogNavigation(im)removeFilters:",
-            "mangledName": "$s14PRCatalogModel17CatalogNavigationC17removeFromFiltersyySo12NSOrderedSetCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeFilters:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -7576,25 +7407,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -7666,6 +7489,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -7813,6 +7658,22 @@
         "declAttributes": [
           "AccessControl",
           "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -7895,6 +7756,22 @@
         "sugared_genericSig": "<Self : CoreData.NSManagedObject, Self.Navigation : PRCatalogModel.CatalogNavigation>",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -8193,6 +8070,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -8509,6 +8400,20 @@
             ],
             "enumRawTypeName": "Int16",
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "Equatable",
@@ -9369,25 +9274,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -9459,6 +9356,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -9778,6 +9697,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -9979,19 +9912,51 @@
         "moduleName": "PRCatalogModel"
       },
       {
+        "kind": "Import",
+        "name": "PRSyntacticSugar",
+        "printedName": "PRSyntacticSugar",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
         "kind": "TypeDecl",
         "name": "Catalog",
         "printedName": "Catalog",
         "children": [
           {
             "kind": "Var",
-            "name": "hubCatalogEntities",
-            "printedName": "hubCatalogEntities",
+            "name": "hubEntities",
+            "printedName": "hubEntities",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[PRCatalogModel.CatalogEntity]?",
+                "name": "Array",
+                "printedName": "[PRCatalogModel.CatalogEntity]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CatalogEntity",
+                    "printedName": "PRCatalogModel.CatalogEntity",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvp",
+            "mangledName": "$s14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "AccessControl",
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -10008,51 +9973,62 @@
                     "usr": "s:Sa"
                   }
                 ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:14PRCatalogModel7CatalogC03hubC8EntitiesSayAA0C6EntityCGSgvp",
-            "mangledName": "$s14PRCatalogModel7CatalogC03hubC8EntitiesSayAA0C6EntityCGSgvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvg",
+                "mangledName": "$s14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvg",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessorKind": "get"
+              },
               {
                 "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
+                "name": "Set",
+                "printedName": "Set()",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "[PRCatalogModel.CatalogEntity]?",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRCatalogModel.CatalogEntity]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Array",
-                        "printedName": "[PRCatalogModel.CatalogEntity]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CatalogEntity",
-                            "printedName": "PRCatalogModel.CatalogEntity",
-                            "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-                          }
-                        ],
-                        "usr": "s:Sa"
+                        "name": "CatalogEntity",
+                        "printedName": "PRCatalogModel.CatalogEntity",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
                       }
                     ],
-                    "usr": "s:Sq"
+                    "usr": "s:Sa"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14PRCatalogModel7CatalogC03hubC8EntitiesSayAA0C6EntityCGSgvg",
-                "mangledName": "$s14PRCatalogModel7CatalogC03hubC8EntitiesSayAA0C6EntityCGSgvg",
+                "usr": "s:14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvs",
+                "mangledName": "$s14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvs",
                 "moduleName": "PRCatalogModel",
-                "accessorKind": "get"
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvM",
+                "mangledName": "$s14PRCatalogModel7CatalogC11hubEntitiesSayAA0C6EntityCGvM",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -10531,13 +10507,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Foundation.NSSet?",
+                "printedName": "Swift.Set<PRCatalogModel.CatalogEntity>?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NSSet",
-                    "printedName": "Foundation.NSSet",
-                    "usr": "c:objc(cs)NSSet"
+                    "name": "Set",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogEntity>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CatalogEntity",
+                        "printedName": "PRCatalogModel.CatalogEntity",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                      }
+                    ],
+                    "usr": "s:Sh"
                   }
                 ],
                 "usr": "s:Sq"
@@ -10545,7 +10529,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(py)entities",
-            "mangledName": "$s14PRCatalogModel7CatalogC8entitiesSo5NSSetCSgvp",
+            "mangledName": "$s14PRCatalogModel7CatalogC8entitiesShyAA0C6EntityCGSgvp",
             "moduleName": "PRCatalogModel",
             "declAttributes": [
               "Dynamic",
@@ -10563,13 +10547,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogEntity>?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
+                        "name": "Set",
+                        "printedName": "Swift.Set<PRCatalogModel.CatalogEntity>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CatalogEntity",
+                            "printedName": "PRCatalogModel.CatalogEntity",
+                            "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                          }
+                        ],
+                        "usr": "s:Sh"
                       }
                     ],
                     "usr": "s:Sq"
@@ -10577,7 +10569,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)entities",
-                "mangledName": "$s14PRCatalogModel7CatalogC8entitiesSo5NSSetCSgvg",
+                "mangledName": "$s14PRCatalogModel7CatalogC8entitiesShyAA0C6EntityCGSgvg",
                 "moduleName": "PRCatalogModel",
                 "implicit": true,
                 "declAttributes": [
@@ -10600,13 +10592,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogEntity>?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
+                        "name": "Set",
+                        "printedName": "Swift.Set<PRCatalogModel.CatalogEntity>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CatalogEntity",
+                            "printedName": "PRCatalogModel.CatalogEntity",
+                            "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                          }
+                        ],
+                        "usr": "s:Sh"
                       }
                     ],
                     "usr": "s:Sq"
@@ -10614,7 +10614,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)setEntities:",
-                "mangledName": "$s14PRCatalogModel7CatalogC8entitiesSo5NSSetCSgvs",
+                "mangledName": "$s14PRCatalogModel7CatalogC8entitiesShyAA0C6EntityCGSgvs",
                 "moduleName": "PRCatalogModel",
                 "implicit": true,
                 "declAttributes": [
@@ -10731,122 +10731,27 @@
           },
           {
             "kind": "Var",
-            "name": "hubEntities",
-            "printedName": "hubEntities",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.NSOrderedSet?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSOrderedSet",
-                    "printedName": "Foundation.NSOrderedSet",
-                    "usr": "c:objc(cs)NSOrderedSet"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(py)hubEntities",
-            "mangledName": "$s14PRCatalogModel7CatalogC11hubEntitiesSo12NSOrderedSetCSgvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.NSOrderedSet?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NSOrderedSet",
-                        "printedName": "Foundation.NSOrderedSet",
-                        "usr": "c:objc(cs)NSOrderedSet"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)hubEntities",
-                "mangledName": "$s14PRCatalogModel7CatalogC11hubEntitiesSo12NSOrderedSetCSgvg",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.NSOrderedSet?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NSOrderedSet",
-                        "printedName": "Foundation.NSOrderedSet",
-                        "usr": "c:objc(cs)NSOrderedSet"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)setHubEntities:",
-                "mangledName": "$s14PRCatalogModel7CatalogC11hubEntitiesSo12NSOrderedSetCSgvs",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "items",
             "printedName": "items",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Foundation.NSSet?",
+                "printedName": "Swift.Set<PRCatalogModel.CatalogItem>?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NSSet",
-                    "printedName": "Foundation.NSSet",
-                    "usr": "c:objc(cs)NSSet"
+                    "name": "Set",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CatalogItem",
+                        "printedName": "PRCatalogModel.CatalogItem",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
+                      }
+                    ],
+                    "usr": "s:Sh"
                   }
                 ],
                 "usr": "s:Sq"
@@ -10854,7 +10759,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(py)items",
-            "mangledName": "$s14PRCatalogModel7CatalogC5itemsSo5NSSetCSgvp",
+            "mangledName": "$s14PRCatalogModel7CatalogC5itemsShyAA0C4ItemCGSgvp",
             "moduleName": "PRCatalogModel",
             "declAttributes": [
               "Dynamic",
@@ -10872,13 +10777,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogItem>?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
+                        "name": "Set",
+                        "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CatalogItem",
+                            "printedName": "PRCatalogModel.CatalogItem",
+                            "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
+                          }
+                        ],
+                        "usr": "s:Sh"
                       }
                     ],
                     "usr": "s:Sq"
@@ -10886,7 +10799,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)items",
-                "mangledName": "$s14PRCatalogModel7CatalogC5itemsSo5NSSetCSgvg",
+                "mangledName": "$s14PRCatalogModel7CatalogC5itemsShyAA0C4ItemCGSgvg",
                 "moduleName": "PRCatalogModel",
                 "implicit": true,
                 "declAttributes": [
@@ -10909,13 +10822,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogItem>?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
+                        "name": "Set",
+                        "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CatalogItem",
+                            "printedName": "PRCatalogModel.CatalogItem",
+                            "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
+                          }
+                        ],
+                        "usr": "s:Sh"
                       }
                     ],
                     "usr": "s:Sq"
@@ -10923,7 +10844,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)setItems:",
-                "mangledName": "$s14PRCatalogModel7CatalogC5itemsSo5NSSetCSgvs",
+                "mangledName": "$s14PRCatalogModel7CatalogC5itemsShyAA0C4ItemCGSgvs",
                 "moduleName": "PRCatalogModel",
                 "implicit": true,
                 "declAttributes": [
@@ -11050,356 +10971,6 @@
             "mangledName": "$s14PRCatalogModel7CatalogC18removeFromEntitiesyySo5NSSetCF",
             "moduleName": "PRCatalogModel",
             "objc_name": "removeEntities:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "insertIntoHubEntities",
-            "printedName": "insertIntoHubEntities(_:at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)insertObject:inHubEntitiesAtIndex:",
-            "mangledName": "$s14PRCatalogModel7CatalogC21insertIntoHubEntities_2atyAA0C6EntityC_SitF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "insertObject:inHubEntitiesAtIndex:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromHubEntities",
-            "printedName": "removeFromHubEntities(at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)removeObjectFromHubEntitiesAtIndex:",
-            "mangledName": "$s14PRCatalogModel7CatalogC21removeFromHubEntities2atySi_tF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeObjectFromHubEntitiesAtIndex:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "insertIntoHubEntities",
-            "printedName": "insertIntoHubEntities(_:at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[PRCatalogModel.CatalogEntity]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogEntity",
-                    "printedName": "PRCatalogModel.CatalogEntity",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)insertHubEntities:atIndexes:",
-            "mangledName": "$s14PRCatalogModel7CatalogC21insertIntoHubEntities_2atySayAA0C6EntityCG_So10NSIndexSetCtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "insertHubEntities:atIndexes:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromHubEntities",
-            "printedName": "removeFromHubEntities(at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)removeHubEntitiesAtIndexes:",
-            "mangledName": "$s14PRCatalogModel7CatalogC21removeFromHubEntities2atySo10NSIndexSetC_tF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeHubEntitiesAtIndexes:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "replaceHubEntities",
-            "printedName": "replaceHubEntities(at:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)replaceObjectInHubEntitiesAtIndex:withObject:",
-            "mangledName": "$s14PRCatalogModel7CatalogC18replaceHubEntities2at4withySi_AA0C6EntityCtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "replaceObjectInHubEntitiesAtIndex:withObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "replaceHubEntities",
-            "printedName": "replaceHubEntities(at:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[PRCatalogModel.CatalogEntity]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogEntity",
-                    "printedName": "PRCatalogModel.CatalogEntity",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)replaceHubEntitiesAtIndexes:withHubEntities:",
-            "mangledName": "$s14PRCatalogModel7CatalogC18replaceHubEntities2at4withySo10NSIndexSetC_SayAA0C6EntityCGtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "replaceHubEntitiesAtIndexes:withHubEntities:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "addToHubEntities",
-            "printedName": "addToHubEntities(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)addHubEntitiesObject:",
-            "mangledName": "$s14PRCatalogModel7CatalogC16addToHubEntitiesyyAA0C6EntityCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "addHubEntitiesObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromHubEntities",
-            "printedName": "removeFromHubEntities(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)removeHubEntitiesObject:",
-            "mangledName": "$s14PRCatalogModel7CatalogC21removeFromHubEntitiesyyAA0C6EntityCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeHubEntitiesObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "addToHubEntities",
-            "printedName": "addToHubEntities(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSOrderedSet",
-                "printedName": "Foundation.NSOrderedSet",
-                "usr": "c:objc(cs)NSOrderedSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)addHubEntities:",
-            "mangledName": "$s14PRCatalogModel7CatalogC16addToHubEntitiesyySo12NSOrderedSetCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "addHubEntities:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromHubEntities",
-            "printedName": "removeFromHubEntities(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSOrderedSet",
-                "printedName": "Foundation.NSOrderedSet",
-                "usr": "c:objc(cs)NSOrderedSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)Catalog(im)removeHubEntities:",
-            "mangledName": "$s14PRCatalogModel7CatalogC21removeFromHubEntitiesyySo12NSOrderedSetCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeHubEntities:",
             "declAttributes": [
               "Dynamic",
               "AccessControl",
@@ -11786,54 +11357,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "NavigatableScope",
-            "printedName": "NavigatableScope",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Navigation",
-                "printedName": "Navigation",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "HubNavigation",
-                    "printedName": "PRCatalogModel.HubNavigation",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)HubNavigation"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:14PRCatalogModel16NavigatableScopeP",
-            "mangledName": "$s14PRCatalogModel16NavigatableScopeP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
           },
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "IdentifiableMO",
-            "printedName": "IdentifiableMO",
-            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
-            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -11905,6 +11439,57 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NavigatableScope",
+            "printedName": "NavigatableScope",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Navigation",
+                "printedName": "Navigation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "HubNavigation",
+                    "printedName": "PRCatalogModel.HubNavigation",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)HubNavigation"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:14PRCatalogModel16NavigatableScopeP",
+            "mangledName": "$s14PRCatalogModel16NavigatableScopeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
           }
         ]
       },
@@ -12748,6 +12333,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -12866,6 +12465,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
+      },
+      {
         "kind": "TypeDecl",
         "name": "ContentLicense",
         "printedName": "ContentLicense",
@@ -12965,7 +12571,23 @@
             "usr": "s:14PRCatalogModel14ContentLicenseC13AttributeNameV",
             "mangledName": "$s14PRCatalogModel14ContentLicenseC13AttributeNameV",
             "moduleName": "PRCatalogModel",
-            "isFromExtension": true
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              }
+            ]
           },
           {
             "kind": "Function",
@@ -14080,6 +13702,20 @@
             "conformances": [
               {
                 "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
                 "name": "OptionSet",
                 "printedName": "OptionSet",
                 "children": [
@@ -14277,6 +13913,27 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -14495,6 +14152,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -15440,25 +15111,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -15530,13 +15193,35 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
         "declKind": "Import",
         "moduleName": "PRCatalogModel",
         "declAttributes": [
@@ -15557,8 +15242,8 @@
         "children": [
           {
             "kind": "Var",
-            "name": "filterVariants",
-            "printedName": "filterVariants",
+            "name": "variants",
+            "printedName": "variants",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -15576,12 +15261,13 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:14PRCatalogModel13CatalogFilterC14filterVariantsSayAA0C6EntityCGvp",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC14filterVariantsSayAA0C6EntityCGvp",
+            "usr": "s:14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvp",
+            "mangledName": "$s14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvp",
             "moduleName": "PRCatalogModel",
             "declAttributes": [
               "Final",
               "AccessControl",
+              "Custom",
               "RawDocComment"
             ],
             "accessors": [
@@ -15606,13 +15292,70 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14PRCatalogModel13CatalogFilterC14filterVariantsSayAA0C6EntityCGvg",
-                "mangledName": "$s14PRCatalogModel13CatalogFilterC14filterVariantsSayAA0C6EntityCGvg",
+                "usr": "s:14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvg",
+                "mangledName": "$s14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvg",
                 "moduleName": "PRCatalogModel",
+                "implicit": true,
                 "declAttributes": [
                   "Final"
                 ],
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRCatalogModel.CatalogEntity]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CatalogEntity",
+                        "printedName": "PRCatalogModel.CatalogEntity",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvs",
+                "mangledName": "$s14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvs",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvM",
+                "mangledName": "$s14PRCatalogModel13CatalogFilterC8variantsSayAA0C6EntityCGvM",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -15796,88 +15539,6 @@
           },
           {
             "kind": "Var",
-            "name": "variants",
-            "printedName": "variants",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "NSOrderedSet",
-                "printedName": "Foundation.NSOrderedSet",
-                "usr": "c:objc(cs)NSOrderedSet"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(py)variants",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC8variantsSo12NSOrderedSetCvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSOrderedSet",
-                    "printedName": "Foundation.NSOrderedSet",
-                    "usr": "c:objc(cs)NSOrderedSet"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)variants",
-                "mangledName": "$s14PRCatalogModel13CatalogFilterC8variantsSo12NSOrderedSetCvg",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSOrderedSet",
-                    "printedName": "Foundation.NSOrderedSet",
-                    "usr": "c:objc(cs)NSOrderedSet"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)setVariants:",
-                "mangledName": "$s14PRCatalogModel13CatalogFilterC8variantsSo12NSOrderedSetCvs",
-                "moduleName": "PRCatalogModel",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "navigator",
             "printedName": "navigator",
             "children": [
@@ -15957,366 +15618,6 @@
                 "accessorKind": "set"
               }
             ]
-          },
-          {
-            "kind": "Function",
-            "name": "insertIntoVariants",
-            "printedName": "insertIntoVariants(_:at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)insertObject:inVariantsAtIndex:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC18insertIntoVariants_2atyAA0C6EntityC_SitF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "insertObject:inVariantsAtIndex:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromVariants",
-            "printedName": "removeFromVariants(at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)removeObjectFromVariantsAtIndex:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC18removeFromVariants2atySi_tF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeObjectFromVariantsAtIndex:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "insertIntoVariants",
-            "printedName": "insertIntoVariants(_:at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[PRCatalogModel.CatalogEntity]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogEntity",
-                    "printedName": "PRCatalogModel.CatalogEntity",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)insertVariants:atIndexes:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC18insertIntoVariants_2atySayAA0C6EntityCG_So10NSIndexSetCtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "insertVariants:atIndexes:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromVariants",
-            "printedName": "removeFromVariants(at:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)removeVariantsAtIndexes:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC18removeFromVariants2atySo10NSIndexSetC_tF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeVariantsAtIndexes:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "replaceVariants",
-            "printedName": "replaceVariants(at:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)replaceObjectInVariantsAtIndex:withObject:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC15replaceVariants2at4withySi_AA0C6EntityCtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "replaceObjectInVariantsAtIndex:withObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "replaceVariants",
-            "printedName": "replaceVariants(at:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSIndexSet",
-                "printedName": "Foundation.NSIndexSet",
-                "usr": "c:objc(cs)NSIndexSet"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[PRCatalogModel.CatalogEntity]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogEntity",
-                    "printedName": "PRCatalogModel.CatalogEntity",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)replaceVariantsAtIndexes:withVariants:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC15replaceVariants2at4withySo10NSIndexSetC_SayAA0C6EntityCGtF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "replaceVariantsAtIndexes:withVariants:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "addToVariants",
-            "printedName": "addToVariants(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)addVariantsObject:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC13addToVariantsyyAA0C6EntityCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "addVariantsObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromVariants",
-            "printedName": "removeFromVariants(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CatalogEntity",
-                "printedName": "PRCatalogModel.CatalogEntity",
-                "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)removeVariantsObject:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC18removeFromVariantsyyAA0C6EntityCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeVariantsObject:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "addToVariants",
-            "printedName": "addToVariants(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSOrderedSet",
-                "printedName": "Foundation.NSOrderedSet",
-                "usr": "c:objc(cs)NSOrderedSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)addVariants:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC13addToVariantsyySo12NSOrderedSetCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "addVariants:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "removeFromVariants",
-            "printedName": "removeFromVariants(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSOrderedSet",
-                "printedName": "Foundation.NSOrderedSet",
-                "usr": "c:objc(cs)NSOrderedSet"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogFilter(im)removeVariants:",
-            "mangledName": "$s14PRCatalogModel13CatalogFilterC18removeFromVariantsyySo12NSOrderedSetCF",
-            "moduleName": "PRCatalogModel",
-            "objc_name": "removeVariants:",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "NSManaged",
-              "ObjC",
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -16338,25 +15639,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -16428,6 +15721,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -17044,25 +16359,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -17134,6 +16441,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -17881,6 +17210,27 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -18842,25 +18192,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -18932,6 +18274,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -19075,6 +18439,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -19451,6 +18829,20 @@
             ],
             "enumRawTypeName": "Int",
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "Equatable",
@@ -20065,25 +19457,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -20155,6 +19539,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -20343,6 +19749,20 @@
           "AccessControl"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Decodable",
@@ -20585,25 +20005,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "ScopeNavigation",
-            "printedName": "ScopeNavigation",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Scope",
-                "printedName": "Scope",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogEntity",
-                    "printedName": "PRCatalogModel.CatalogEntity",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:14PRCatalogModel15ScopeNavigationP",
-            "mangledName": "$s14PRCatalogModel15ScopeNavigationP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -20697,6 +20109,28 @@
             ],
             "usr": "s:s12IdentifiableP",
             "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ScopeNavigation",
+            "printedName": "ScopeNavigation",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Scope",
+                "printedName": "Scope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CatalogEntity",
+                    "printedName": "PRCatalogModel.CatalogEntity",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:14PRCatalogModel15ScopeNavigationP",
+            "mangledName": "$s14PRCatalogModel15ScopeNavigationP"
           }
         ]
       },
@@ -20934,6 +20368,22 @@
         "sugared_genericSig": "<Self : CoreData.NSManagedObject>",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -21083,6 +20533,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -21333,6 +20797,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -21610,6 +21088,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -22088,10 +21580,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "IdentifiableMO",
-            "printedName": "IdentifiableMO",
-            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
-            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -22163,6 +21662,13 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
           }
         ]
       },
@@ -22277,6 +21783,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -22417,6 +21937,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
+        "declKind": "Import",
+        "moduleName": "PRCatalogModel"
       },
       {
         "kind": "TypeDecl",
@@ -22659,6 +22186,20 @@
             ],
             "enumRawTypeName": "Int16",
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "Equatable",
@@ -23961,6 +23502,27 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -24229,6 +23791,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -24610,6 +24186,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -25525,6 +25115,20 @@
             "moduleName": "PRCatalogModel",
             "isFromExtension": true,
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "OptionSet",
@@ -27233,6 +26837,236 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "date",
+            "printedName": "date",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogItem(py)date",
+            "mangledName": "$s14PRCatalogModel11CatalogItemC4date10Foundation4DateVSgvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Date?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Date",
+                        "printedName": "Foundation.Date",
+                        "usr": "s:10Foundation4DateV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogItem(im)date",
+                "mangledName": "$s14PRCatalogModel11CatalogItemC4date10Foundation4DateVSgvg",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Date?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Date",
+                        "printedName": "Foundation.Date",
+                        "usr": "s:10Foundation4DateV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogItem(im)setDate:",
+                "mangledName": "$s14PRCatalogModel11CatalogItemC4date10Foundation4DateVSgvs",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "countryCodes",
+            "printedName": "countryCodes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogItem(py)countryCodes",
+            "mangledName": "$s14PRCatalogModel11CatalogItemC12countryCodesSaySSGSgvp",
+            "moduleName": "PRCatalogModel",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogItem(im)countryCodes",
+                "mangledName": "$s14PRCatalogModel11CatalogItemC12countryCodesSaySSGSgvg",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogItem(im)setCountryCodes:",
+                "mangledName": "$s14PRCatalogModel11CatalogItemC12countryCodesSaySSGSgvs",
+                "moduleName": "PRCatalogModel",
+                "implicit": true,
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "addToContents",
             "printedName": "addToContents(_:)",
@@ -28683,39 +28517,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
           },
           {
             "kind": "Conformance",
-            "name": "CatalogableMO",
-            "printedName": "CatalogableMO",
-            "usr": "s:14PRCatalogModel13CatalogableMOP",
-            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "IdentifiableMO",
-            "printedName": "IdentifiableMO",
-            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
-            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -28787,6 +28599,42 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CatalogableMO",
+            "printedName": "CatalogableMO",
+            "usr": "s:14PRCatalogModel13CatalogableMOP",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
           }
         ]
       },
@@ -29767,6 +29615,20 @@
             "conformances": [
               {
                 "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
                 "name": "Equatable",
                 "printedName": "Equatable",
                 "usr": "s:SQ",
@@ -30001,6 +29863,20 @@
             ],
             "enumRawTypeName": "String",
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "Equatable",
@@ -30279,6 +30155,20 @@
             "conformances": [
               {
                 "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
                 "name": "Equatable",
                 "printedName": "Equatable",
                 "usr": "s:SQ",
@@ -30374,6 +30264,22 @@
             "moduleName": "PRCatalogModel",
             "declAttributes": [
               "AccessControl"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              }
             ]
           },
           {
@@ -30609,62 +30515,6 @@
                 "declKind": "Accessor",
                 "usr": "s:14PRCatalogModel13CatalogEntityC11loadingPathSSvg",
                 "mangledName": "$s14PRCatalogModel13CatalogEntityC11loadingPathSSvg",
-                "moduleName": "PRCatalogModel",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "catalogItems",
-            "printedName": "catalogItems",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Set",
-                "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CatalogItem",
-                    "printedName": "PRCatalogModel.CatalogItem",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
-                  }
-                ],
-                "usr": "s:Sh"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:14PRCatalogModel13CatalogEntityC12catalogItemsShyAA0C4ItemCGvp",
-            "mangledName": "$s14PRCatalogModel13CatalogEntityC12catalogItemsShyAA0C4ItemCGvp",
-            "moduleName": "PRCatalogModel",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Set",
-                    "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CatalogItem",
-                        "printedName": "PRCatalogModel.CatalogItem",
-                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
-                      }
-                    ],
-                    "usr": "s:Sh"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:14PRCatalogModel13CatalogEntityC12catalogItemsShyAA0C4ItemCGvg",
-                "mangledName": "$s14PRCatalogModel13CatalogEntityC12catalogItemsShyAA0C4ItemCGvg",
                 "moduleName": "PRCatalogModel",
                 "accessorKind": "get"
               }
@@ -32396,13 +32246,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Foundation.NSSet?",
+                "printedName": "Swift.Set<PRCatalogModel.CatalogItem>?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NSSet",
-                    "printedName": "Foundation.NSSet",
-                    "usr": "c:objc(cs)NSSet"
+                    "name": "Set",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CatalogItem",
+                        "printedName": "PRCatalogModel.CatalogItem",
+                        "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
+                      }
+                    ],
+                    "usr": "s:Sh"
                   }
                 ],
                 "usr": "s:Sq"
@@ -32410,7 +32268,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogEntity(py)items",
-            "mangledName": "$s14PRCatalogModel13CatalogEntityC5itemsSo5NSSetCSgvp",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC5itemsShyAA0C4ItemCGSgvp",
             "moduleName": "PRCatalogModel",
             "declAttributes": [
               "Dynamic",
@@ -32428,13 +32286,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogItem>?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
+                        "name": "Set",
+                        "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CatalogItem",
+                            "printedName": "PRCatalogModel.CatalogItem",
+                            "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
+                          }
+                        ],
+                        "usr": "s:Sh"
                       }
                     ],
                     "usr": "s:Sq"
@@ -32442,7 +32308,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogEntity(im)items",
-                "mangledName": "$s14PRCatalogModel13CatalogEntityC5itemsSo5NSSetCSgvg",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC5itemsShyAA0C4ItemCGSgvg",
                 "moduleName": "PRCatalogModel",
                 "implicit": true,
                 "declAttributes": [
@@ -32465,13 +32331,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Foundation.NSSet?",
+                    "printedName": "Swift.Set<PRCatalogModel.CatalogItem>?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "NSSet",
-                        "printedName": "Foundation.NSSet",
-                        "usr": "c:objc(cs)NSSet"
+                        "name": "Set",
+                        "printedName": "Swift.Set<PRCatalogModel.CatalogItem>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CatalogItem",
+                            "printedName": "PRCatalogModel.CatalogItem",
+                            "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
+                          }
+                        ],
+                        "usr": "s:Sh"
                       }
                     ],
                     "usr": "s:Sq"
@@ -32479,7 +32353,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRCatalogModel@objc(cs)CatalogEntity(im)setItems:",
-                "mangledName": "$s14PRCatalogModel13CatalogEntityC5itemsSo5NSSetCSgvs",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC5itemsShyAA0C4ItemCGSgvs",
                 "moduleName": "PRCatalogModel",
                 "implicit": true,
                 "declAttributes": [
@@ -34097,61 +33971,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "CatalogableMO",
-            "printedName": "CatalogableMO",
-            "usr": "s:14PRCatalogModel13CatalogableMOP",
-            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
           },
           {
             "kind": "Conformance",
-            "name": "IdentifiableMO",
-            "printedName": "IdentifiableMO",
-            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
-            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "NavigatableScope",
-            "printedName": "NavigatableScope",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Navigation",
-                "printedName": "Navigation",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CompoundNavigation",
-                    "printedName": "PRCatalogModel.CompoundNavigation",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CompoundNavigation"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:14PRCatalogModel16NavigatableScopeP",
-            "mangledName": "$s14PRCatalogModel16NavigatableScopeP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -34223,6 +34053,64 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CatalogableMO",
+            "printedName": "CatalogableMO",
+            "usr": "s:14PRCatalogModel13CatalogableMOP",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NavigatableScope",
+            "printedName": "NavigatableScope",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Navigation",
+                "printedName": "Navigation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CompoundNavigation",
+                    "printedName": "PRCatalogModel.CompoundNavigation",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)CompoundNavigation"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:14PRCatalogModel16NavigatableScopeP",
+            "mangledName": "$s14PRCatalogModel16NavigatableScopeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -34867,25 +34755,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -34957,6 +34837,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -35130,6 +35032,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -35952,6 +35868,27 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -36142,6 +36079,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -36583,25 +36534,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -36673,6 +36616,28 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
           }
         ]
       },
@@ -36868,6 +36833,9 @@
                 "moduleName": "PRCatalogModel",
                 "static": true,
                 "implicit": true,
+                "declAttributes": [
+                  "Nonisolated"
+                ],
                 "accessors": [
                   {
                     "kind": "Accessor",
@@ -36910,6 +36878,20 @@
             ],
             "enumRawTypeName": "String",
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "Equatable",
@@ -37074,6 +37056,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -37436,6 +37432,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -38266,6 +38276,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -38820,32 +38844,17 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
           },
           {
             "kind": "Conformance",
-            "name": "IdentifiableMO",
-            "printedName": "IdentifiableMO",
-            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
-            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -38917,6 +38926,35 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
           }
         ]
       },
@@ -39032,6 +39070,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -39105,6 +39157,170 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "Name",
+        "printedName": "Name",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "catalogWillBeDeleted",
+            "printedName": "catalogWillBeDeleted",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Name",
+                "printedName": "Foundation.NSNotification.Name",
+                "usr": "c:@T@NSNotificationName"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So18NSNotificationNamea14PRCatalogModelE20catalogWillBeDeletedABvpZ",
+            "mangledName": "$sSo18NSNotificationNamea14PRCatalogModelE20catalogWillBeDeletedABvpZ",
+            "moduleName": "PRCatalogModel",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Name",
+                    "printedName": "Foundation.NSNotification.Name",
+                    "usr": "c:@T@NSNotificationName"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So18NSNotificationNamea14PRCatalogModelE20catalogWillBeDeletedABvgZ",
+                "mangledName": "$sSo18NSNotificationNamea14PRCatalogModelE20catalogWillBeDeletedABvgZ",
+                "moduleName": "PRCatalogModel",
+                "static": true,
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "c:@T@NSNotificationName",
+        "moduleName": "Foundation",
+        "declAttributes": [
+          "SynthesizedProtocol",
+          "SynthesizedProtocol",
+          "SynthesizedProtocol",
+          "SynthesizedProtocol",
+          "SynthesizedProtocol",
+          "SynthesizedProtocol",
+          "Sendable"
+        ],
+        "isFromExtension": true,
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSString",
+                    "printedName": "Foundation.NSString",
+                    "usr": "c:objc(cs)NSString"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_SwiftNewtypeWrapper",
+            "printedName": "_SwiftNewtypeWrapper",
+            "usr": "s:s20_SwiftNewtypeWrapperP",
+            "mangledName": "$ss20_SwiftNewtypeWrapperP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_HasCustomAnyHashableRepresentation",
+            "printedName": "_HasCustomAnyHashableRepresentation",
+            "usr": "s:s35_HasCustomAnyHashableRepresentationP",
+            "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "KeyedDecodingContainer",
         "printedName": "KeyedDecodingContainer",
         "children": [
@@ -39164,6 +39380,27 @@
             ],
             "usr": "s:s30KeyedDecodingContainerProtocolP",
             "mangledName": "$ss30KeyedDecodingContainerProtocolP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       }
@@ -39212,48 +39449,6 @@
       "offset": 434,
       "length": 16,
       "value": "\"recently-added\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 385,
-      "length": 19,
-      "value": "\"recently-released\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/Section+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 434,
-      "length": 16,
-      "value": "\"recently-added\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 261,
-      "length": 20,
-      "value": "\"BaseContentCatalog\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 301,
-      "length": 11,
-      "value": "\"Countries\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 333,
-      "length": 11,
-      "value": "\"Languages\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
-      "kind": "StringLiteral",
-      "offset": 361,
-      "length": 18,
-      "value": "\"PublicationTypes\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigationDTO.swift",
@@ -39424,32 +39619,11 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogLoading+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 360,
-      "length": 4,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogLoading+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 378,
-      "length": 6,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogLoading+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 360,
-      "length": 4,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogLoading+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 378,
-      "length": 6,
-      "value": "2"
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogNavigation+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 325,
+      "length": 10,
+      "value": "\"filters_\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogLoading+CoreDataClass.swift",
@@ -39471,6 +39645,20 @@
       "offset": 463,
       "length": 1,
       "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Catalog+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 318,
+      "length": 22,
+      "value": "\"CatalogWillBeDeleted\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Catalog+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 481,
+      "length": 14,
+      "value": "\"hubEntities_\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Books\/Book+CoreDataClass.swift",
@@ -39501,6 +39689,13 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Navigation\/CatalogFilter+CoreDataClass.swift",
+      "kind": "StringLiteral",
+      "offset": 347,
+      "length": 11,
+      "value": "\"variants_\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+Properties.swift",
       "kind": "StringLiteral",
       "offset": 331,
@@ -39513,34 +39708,6 @@
       "offset": 367,
       "length": 9,
       "value": "\"license\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/PurchaseInfo\/PurchaseInfo+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 385,
-      "length": 10,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/PurchaseInfo\/PurchaseInfo+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 397,
-      "length": 6,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/PurchaseInfo\/PurchaseInfo+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 385,
-      "length": 10,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/PurchaseInfo\/PurchaseInfo+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 397,
-      "length": 6,
-      "value": "2"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/PurchaseInfo\/PurchaseInfo+CoreDataClass.swift",
@@ -39578,114 +39745,51 @@
       "value": "\"timestamp\""
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/PurchaseInfo\/BookLibraryItem.swift",
-      "kind": "StringLiteral",
-      "offset": 480,
-      "length": 11,
-      "value": "\"timestamp\""
-    },
-    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
       "kind": "IntegerLiteral",
-      "offset": 354,
+      "offset": 393,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
       "kind": "IntegerLiteral",
-      "offset": 381,
+      "offset": 420,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
       "kind": "IntegerLiteral",
-      "offset": 396,
+      "offset": 435,
       "length": 3,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
       "kind": "IntegerLiteral",
-      "offset": 413,
-      "length": 3,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 354,
-      "length": 1,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 381,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 396,
-      "length": 3,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 413,
-      "length": 3,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 354,
-      "length": 1,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 381,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 396,
-      "length": 3,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItemContent+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 413,
+      "offset": 452,
       "length": 3,
       "value": "2"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "Array",
-      "offset": 1765,
+      "offset": 1813,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 4143,
+      "offset": 4438,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/CatalogItem+CoreDataClass.swift",
       "kind": "BooleanLiteral",
-      "offset": 4794,
+      "offset": 5089,
       "length": 5,
       "value": "false"
     },
@@ -39702,48 +39806,6 @@
       "offset": 986,
       "length": 11,
       "value": "\"justadded\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 943,
-      "length": 13,
-      "value": "\"newreleases\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 986,
-      "length": 11,
-      "value": "\"justadded\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1066,
-      "length": 4,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1072,
-      "length": 8,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1066,
-      "length": 4,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1072,
-      "length": 8,
-      "value": "2"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/CatalogEntity+CoreDataClass.swift",
@@ -39774,18 +39836,11 @@
       "value": "\"loadingOrder_\""
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/PublicationType+CoreDataClass.swift",
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Publications\/Publication\/TitlteItem+CoreDataClass.swift",
       "kind": "StringLiteral",
-      "offset": 359,
-      "length": 11,
-      "value": "\"150994944\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/PublicationType+CoreDataClass.swift",
-      "kind": "StringLiteral",
-      "offset": 397,
-      "length": 11,
-      "value": "\"142606336\""
+      "offset": 686,
+      "length": 12,
+      "value": "\"yyyy-MM-dd\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRCatalogModel\/Entities\/PublicationType+CoreDataClass.swift",

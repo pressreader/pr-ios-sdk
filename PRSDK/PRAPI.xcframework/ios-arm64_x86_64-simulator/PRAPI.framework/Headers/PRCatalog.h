@@ -61,10 +61,9 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 
 @property (nonatomic, assign, readonly) PRCatalogStatus status;
 @property (nonatomic) PRCatalogPartitionState partitionState;
-@property (nonatomic, readonly) BOOL containsSingleCID;
 
-@property (nonatomic, readonly) PRAccountItem *defaultService;
-@property (nonatomic, readonly) NSArray<PRAccountItem *> *services;
+@property (nullable, nonatomic, readonly) PRAccountItem *defaultService;
+@property (nullable, nonatomic, readonly) NSArray<PRAccountItem *> *services;
 
 @property (nullable, nonatomic, strong) NSArray<PRTitleItem *> *sources;
 

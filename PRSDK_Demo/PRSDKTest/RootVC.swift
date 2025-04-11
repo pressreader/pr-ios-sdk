@@ -9,7 +9,7 @@
 import UIKit
 import PRUI
 
-final class RootVC: UITableViewController, Reloadable {
+final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
     // MARK: - Nested Types
     
@@ -197,6 +197,7 @@ final class RootVC: UITableViewController, Reloadable {
         case sections.catalog:
             let _cell = self.issueCell(tableView, indexPath: indexPath)
             _cell.issue = model.catalogItem(at: indexPath.row)
+            _cell.delegate = self
 
             cell = _cell
 
@@ -351,5 +352,15 @@ final class RootVC: UITableViewController, Reloadable {
                 }
             }
         }
+    }
+    
+    // MARK: - IssueHandler
+    
+    func openIssue(_ issue: PRCatalogItem) {
+        guard let rootVC = UIApplication.shared.rootVC,
+              let reader = ReadingVC(issue)
+        else { return }
+        
+        rootVC.present(reader, animated: true, completion: nil)
     }
 }

@@ -21,9 +21,6 @@ extern NTFFeedSectionItemId const NTFFeedSectionItemIdTopic;
 
 @interface NTFFeedSectionItem : NTFFeedItem <NTFSection>
 
-+ (instancetype)newSectionWithTitle:(NSString *)title feed:(NTFFeed *)feed;
-+ (instancetype)sectionWithTitle:(NSString *)title feed:(NTFFeed *)feed;
-
 + (instancetype)sectionWithInfo:(NSDictionary *)info feed:(NTFFeed *)feed;
 
 + (NTFFeedSectionItemType)presentationTypeForSectionId:(NSString *)name;

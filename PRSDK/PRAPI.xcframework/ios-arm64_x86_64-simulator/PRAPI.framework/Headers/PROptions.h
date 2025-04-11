@@ -16,7 +16,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSNotificationName const PROptionsListingSortingOrderDidChangeNotification;
 extern NSNotificationName const PROptionsPresentationStyleChangedNotification;
 extern NSNotificationName const PROptionsLocalServiceDeactivatedNotification;
 
@@ -27,6 +26,7 @@ extern NSString *const kRSSImagesCacheDir;
 extern NSString *const kPRJWT;
 extern NSString *const kPRGiftCommand;
 extern NSString *const kPRTextPushAuthorized;
+extern NSString *const kMLIThumbnailPath;
 
 // File path
 extern NSString *const kThumbCacheDir;
@@ -44,10 +44,6 @@ extern NSString *const kBooksPath;
 extern NSString *const kDocumentsPath;
 extern NSString *const kDefaultConfigPath;
 
-extern NSString *const kPRServiceNameKey;
-extern NSString *const kServiceDisplayName;
-extern NSString *const kPayAsYouGoServiceName;
-extern NSString *const kDeviceServiceName;
 extern NSString *const kExternalServicesKey;
 extern NSString *const kManagedExternalServicesKey;
 extern NSString *const kExternalSignInTemplateIdKey;
@@ -172,16 +168,16 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 
 - (void)clearApplicationCache;
 
-- (NSString *)extractServiceName;
-
 @property (class, nonatomic, readonly) BOOL isBackgroundSupported;
 
 @property (class, nonatomic, readonly) PRAppMode appMode;
 @property (nonatomic, readonly) PRAppMode appMode;
 
-@property (nullable, nonatomic, readonly) NSString *serviceName;
+@property (nonatomic, readonly) NSString *serviceName;
+@property (nullable, nonatomic, readonly) NSString *displayServiceName;
 
 @property (nonatomic, strong, nullable) NSString *deviceToken;
+@property (nullable, nonatomic, strong) NSString *fcmToken;
 @property (nonatomic, readonly) NSDictionary *config;
 
 @property (nonatomic, readonly) NSString *installationVersion;

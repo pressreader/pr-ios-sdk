@@ -19,3 +19,8 @@ FOUNDATION_EXPORT const unsigned char PRAnalyticsVersionString[];
 
 #import <PRAnalytics/PRAnalyticsTrackName.h>
 #import <PRAnalytics/PRAnalyticsTrackParameter.h>
+#import <PRAnalytics/PRAnalyticsProto.h>
+#import <PRAnalytics/PRAnalyticsProfile.h>
+#import <PRAnalytics/PRAnalyticsEnums.h>
+#import <PRAnalytics/AnalyticsService.h>
+

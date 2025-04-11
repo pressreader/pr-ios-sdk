@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NSInteger PRAnalyticsOperationState NS_TYPED_ENUM NS_SWIFT_NAME(OperationState);
+static PRAnalyticsOperationState const PRAnalyticsOperationStateCompleted = 0;
+static PRAnalyticsOperationState const PRAnalyticsOperationStateStarted = 1;
+static PRAnalyticsOperationState const PRAnalyticsOperationStateFailed = 2;
+
 /// `rawValue` must be equal to the last part of the case name.
 /// `camelCase` is preferable.
 ///
@@ -53,7 +58,6 @@ NS_SWIFT_NAME(authType) extern PRAnalyticsTrackParameter const PRAnalyticsAuthTy
 NS_SWIFT_NAME(authMethod) extern PRAnalyticsTrackParameter const PRAnalyticsAuthMethodParameter; // AuthMethod
 NS_SWIFT_NAME(authProvider) extern PRAnalyticsTrackParameter const PRAnalyticsAuthProviderParameter; // String (social network or external provider name like library
 NS_SWIFT_NAME(serviceName) extern PRAnalyticsTrackParameter const PRAnalyticsServiceNameParameter; // String (SE linked service or "PressDisplay.com" for base service
-NS_SWIFT_NAME(operationResult) extern PRAnalyticsTrackParameter const PRAnalyticsOperationResultParameter; // Boolean: false:fail, true:success
 NS_SWIFT_NAME(paymentProducts) extern PRAnalyticsTrackParameter const PRAnalyticsPaymentProductsParameter; // Array of SKProduct objects
 NS_SWIFT_NAME(paymentProduct) extern PRAnalyticsTrackParameter const PRAnalyticsPaymentProductParameter; // SKProduct
 NS_SWIFT_NAME(paymentTransactionIdentifier) extern PRAnalyticsTrackParameter const PRAnalyticsPaymentTransactionIdentifierParameter; // String
@@ -105,3 +109,14 @@ extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterSearchArticlesCo
 
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterPhotoIndex;
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterPhotosCount;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterError;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterContext;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterOperationState;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterDigestInfo;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterAccountActivationNumber;
+
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterWidgetType; // String: TopStories, etc
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterWidgetSize; // String: small, medium, large
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterWidgetKinds; // [WidgetKind]
+
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterDuration; // Int

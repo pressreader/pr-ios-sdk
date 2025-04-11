@@ -45,9 +45,6 @@ extern NSNotificationName const PRModelDismissNotification;
 - (void)postponeScreenSaver:(NSTimeInterval)delay;
 - (void)enableLocalServiceMode:(BOOL)enable serviceName:(nullable NSString *)serviceName;
 
-- (nullable NSString *)helpCenterUrlWithSection:(NSString *_Nullable)section
-                                       isOnline:(BOOL *_Nullable)isOnline;
-
 - (void)cleanup;
 - (void)stop;
 

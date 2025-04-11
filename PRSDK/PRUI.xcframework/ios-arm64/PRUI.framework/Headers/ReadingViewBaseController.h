@@ -29,6 +29,8 @@
 @protocol ReadingViewItem, PRSmartLayoutItem;
 @protocol PRCatalogItem;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface ReadingViewBaseController : PRVC <UIScrollViewDelegate, NavigationBarDismissable>
 {
 	BOOL			m_pageChangeFromEvent;
@@ -40,14 +42,14 @@
 	NSUInteger		prevPageSeg;
 }
 
-- (instancetype)initWithItem:(NSObject<ReadingViewItem> *)item;
+- (instancetype)initWithItem:(NSObject<ReadingViewItem> * _Nonnull)item;
 - (void)switchToPage:(NSUInteger)page;
 - (NSUInteger)currentPageIndex;
 - (NSUInteger)numberOfPageViews;
-- (void)showTextView:(NSInteger)page aID:(NSString*)aID animated:(BOOL)animated;
-- (PRPDFScrollView *)dequeueRecycledPage;
-- (PRPDFScrollView *)pageViewForIndex:(NSUInteger)index;
-- (PRPDFScrollView *)currentPageView;
+- (void)showTextView:(NSInteger)page aID:(NSString* _Nullable)aID animated:(BOOL)animated;
+- (PRPDFScrollView * _Nullable)dequeueRecycledPage;
+- (PRPDFScrollView * _Nullable)pageViewForIndex:(NSUInteger)index;
+- (PRPDFScrollView * _Nullable)currentPageView;
 - (void)recyclePage:(PRPDFScrollView *)page;
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
 - (void)removeRecycledPages;
@@ -60,24 +62,24 @@
 @property (nonatomic, readonly) BOOL isWaitingForDelayedBarsHiding;
 - (void)hideBarsWithDelayIfAlreadyWaiting;
 
-@property (nonatomic, copy) NSString * currentArtID;
-@property (nonatomic, strong) PDFDoc *pdfDoc;
-@property (nonatomic, strong) NSMutableSet<PRPDFScrollView *> *visiblePages;
-@property (nonatomic, readwrite, strong) NSMutableSet<PRPDFScrollView *> *recycledPages;
+@property (nullable, nonatomic, copy) NSString * currentArtID;
+@property (nullable, nonatomic, strong) PDFDoc *pdfDoc;
+@property (nullable, nonatomic, strong) NSMutableSet<PRPDFScrollView *> *visiblePages;
+@property (nullable, nonatomic, readwrite, strong) NSMutableSet<PRPDFScrollView *> *recycledPages;
 @property (nonatomic, strong, readonly) NSObject<ReadingViewItem> *item;
-@property (nonatomic, strong, readonly) NSObject<PRSmartLayoutItem> *smartLayoutItem;
-@property (nonatomic, strong, readonly) PRMyLibraryItem *mli;
+@property (nullable, nonatomic, strong, readonly) NSObject<PRSmartLayoutItem> *smartLayoutItem;
+@property (nullable ,nonatomic, strong, readonly) PRMyLibraryItem *mli;
 
-@property (nonatomic, strong) UIColor *defaultTintColor;
-@property (nonatomic, strong) NSArray<NSArray *> *sections;
-@property (nonatomic, strong) NSObject *sliderSyncronizator;
-@property (nonatomic, strong) PRSmartFlowPreview *textPreview;
+@property (nullable, nonatomic, strong) UIColor *defaultTintColor;
+@property (nullable, nonatomic, strong) NSArray<NSArray *> *sections;
+@property (nullable, nonatomic, strong) NSObject *sliderSyncronizator;
+@property (nullable, nonatomic, strong) PRSmartFlowPreview *textPreview;
 @property (nonatomic, assign, readonly) BOOL isViewVisible;
 @property (nonatomic, assign, readonly) BOOL barsHidden;
 @property (nonatomic) BOOL hideBarsOnAppear;
-@property (nonatomic, strong, readonly) NTFMyLibraryItemDataSource *mliDataSource;
+@property (nullable, nonatomic, readonly) NTFMyLibraryItemDataSource *mliDataSource;
 @property (nonatomic) BOOL shouldDismissBarsImmediately;
-@property (nonatomic, readonly) PRMenu *bottomBarMenu;
+@property (nullable, nonatomic, readonly) PRMenu *bottomBarMenu;
 
 @end
 
@@ -91,17 +93,17 @@ typedef enum {
 - (void)InitSlider;
 - (void)deallocSlider;
 - (void)offscreenSlider:(BOOL)offscreen;
-- (void)updatePreviewPosition:(PRSmartFlowPreview *)preview;
+- (void)updatePreviewPosition:(PRSmartFlowPreview * _Nullable)preview;
 - (void)displaySlider:(BOOL)makeVisible;
 - (void)displaySlider:(BOOL)makeVisible animated:(BOOL)animated;
 - (void)displayPageSlider:(BOOL)makeVisible;
 - (void)displayPageSlider:(BOOL)makeVisible animated:(BOOL)animated;
-- (void)switchToView:(ReadingViewType)viewId showParameters:(NSDictionary *)showParameters;
+- (void)switchToView:(ReadingViewType)viewId showParameters:(NSDictionary * _Nullable)showParameters;
 - (void)refreshBottomBar;
 
 @property (nonatomic, readonly) BOOL isSliderVisible;
-@property (nonatomic, readonly) PRMenuBottomBar *menuBottomBar;
-@property (nonatomic, readonly) PRPageSlider *pageSlider;
+@property (nullable, nonatomic, readonly) PRMenuBottomBar *menuBottomBar;
+@property (nullable, nonatomic, readonly) PRPageSlider *pageSlider;
 @property (nonatomic, readonly) CGFloat bottomBarHeight;
 
 @end
@@ -112,6 +114,8 @@ typedef enum {
 - (void)cancelDelayedBarsHidding;
 - (void)setBarsHidden:(BOOL)hidden animated:(BOOL)animated onUserTap:(BOOL)onUserTap;
 
-@property (nonatomic, strong) UIButton *readingModeSwitchButton;
+@property (nullable, nonatomic, strong) UIButton *readingModeSwitchButton;
 
 @end
+
+NS_ASSUME_NONNULL_END

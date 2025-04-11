@@ -17,6 +17,8 @@
 @class PDFDoc;
 @class PRSmartArticle, PRSmartPageset;
 @class PRPage;
+@class MLIFeedDataService;
+@class PRMyLibrary;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +33,7 @@ extern NSString *const kHotSpotIndustryKey;
 extern NSNotificationName const PRLibraryItemWiFiDownloadNotAvailableNotification;
 extern NSNotificationName const PRLibraryItemCurrentArticleDidChange;
 extern NSNotificationName const PRLibraryItemGotoPage;
+extern NSNotificationName const PRLibraryItemVote;
 
 @interface PRMyLibraryItem : PRSourceItem <PRTitleObject, _ReadingViewItem, PRSmartLayoutItem>
 
@@ -49,6 +52,7 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 // searches for parameter in both parameters and itemParameters dictionaries
 - (nullable id)findParameter:(NSString*)pname;
 
+@property (nonatomic, weak, readonly) PRMyLibrary *library;
 @property (nonatomic, readonly) PRTitleItemExemplar *exemplar;
 @property (nonatomic, readonly) NSDate *expirationDateAndTime;
 
@@ -147,7 +151,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (NSProgress *) pdnProgressForPageRange:(NSRange)pageRange;
 
 - (nullable NSDictionary *) artInfoById:(NSString *)artID;
-- (NSString*) GetImagesFolderPath;
 - (id) LoadDocument;
 - (NSArray *)sections;
 - (NSInteger)sectionIndexByPage:(NSInteger)pageNumber;
@@ -155,6 +158,8 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (BOOL) isOpen;
 - (NSString *) currentArtIdToListen;
 - (void) setCurrentArtIdToListen:(NSString *)artID;
+
+@property (readonly, nonatomic) NSString *imageFolderPath;
 
 - (BOOL) processSmart;
 - (void) getArtAudioUrl:(NSString*)artID completed:(void (^)(NSString * url))completionBlock;
@@ -293,7 +298,7 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 @property (nonatomic) BOOL isSelected; // transient property for ediding the library
 @property (nonatomic, readonly) BOOL isLocked;
 @property (nonatomic, strong, readonly) NSProgress* progress;
-@property (nonatomic, copy, readonly) NSString *MID;
+@property (nonatomic, copy) NSString *MID;
 @property (nonatomic, strong, readonly) NSArray<PRSmartPageset *> *pagesets;
 @property (nullable, nonatomic, strong) NSArray<NSString *> *analyticsProfileIDs;
 @property (nonatomic) BOOL requestingRadioInfo;
@@ -304,10 +309,13 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 @property (nonatomic, readonly) BOOL isDownloaded;
 @property (nonatomic, readonly) BOOL isLicenseLimited;
 
+@property (nullable, nonatomic, strong, readonly) MLIFeedDataService *feedDataService;
+@property (nullable, nonatomic, strong) NSArray<NSString *> *layoutPackageUrls;
+@property (nullable, nonatomic, readonly) NSString *layoutPackageFilePath;
+
 @end
 
 @interface PRMyLibraryItem (Reader)
-+ (void)reader:(NSString *)mid gotoPage:(NSUInteger)pageNo article:(NSString *)articleId;
 - (void)readerGotoPage:(NSUInteger)pageNo;
 - (void)readerGotoPage:(NSUInteger)pageNo article:(nullable NSString *)articleId;
 @end

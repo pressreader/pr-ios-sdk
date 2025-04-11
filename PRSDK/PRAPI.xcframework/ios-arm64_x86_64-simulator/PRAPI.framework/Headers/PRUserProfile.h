@@ -27,13 +27,8 @@ typedef NS_ENUM(NSInteger, PRUserProfilePhotoOption) {
 + (instancetype)currentUserProfile;
 + (instancetype)userProfileWithName:(NSString *)profileName;
 + (instancetype)userProfileWithInfo:(NSDictionary *)info;
-+ (UIImage *)userProfilePlaceholderImageWithSize:(CGSize)size;
 - (instancetype)initWithProfileName:(NSString *)profileName;
 - (void)setupWithInfo:(NSDictionary *)info;
-
-- (void)getPhotoWithSize:(CGSize)size completion:(void(^)(UIImage *image))completion;
-- (void)getPhotoWithSize:(CGSize)size options:(PRUserProfilePhotoOption)options completion:(void(^)(UIImage *image))completion;
-- (void)getPhotoWithSize:(CGSize)size options:(PRUserProfilePhotoOption)options textForInitials:(NSString*)placeholder completion:(void(^)(UIImage *image))completion;
 
 - (PRPromise *)follow:(BOOL)isFollowed;
 

@@ -10,12 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol PRDiscardableViewController
-
-- (BOOL)isDiscardableFromTopOfNavigation;
-
-@end
-
 @interface UINavigationController (Presentation)
 @property (nonatomic, readonly) __kindof UINavigationController *topNavigationController;
 

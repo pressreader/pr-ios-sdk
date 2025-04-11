@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BranchAnalytics : NSObject<LegacyAnalyticsService>
 
+@property (class, readonly) BOOL isEnabled;
+
 @end
 
 NS_ASSUME_NONNULL_END

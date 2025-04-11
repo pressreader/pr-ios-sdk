@@ -108,7 +108,6 @@ typedef NS_ENUM(int16_t, NTFArticleItemPresentationType) {
 - (NSDictionary<NSString *, id> *)collectionWithId:(NSString *)collectionId;
 
 - (NSDictionary *)articleContext;
-- (PRSmartArticle *)smartArticle;
 
 - (nullable NSString *)issueId;
 - (nullable NSDate *)issueDate;
@@ -148,6 +147,7 @@ typedef NS_ENUM(int16_t, NTFArticleItemPresentationType) {
 @property (nonatomic, readonly) NSDictionary *context;
 @property (nonatomic, getter=isRead) BOOL read;
 
+@property (nonatomic, readonly) PRSmartArticle *smartArticle;
 @property (nullable, nonatomic, readonly) PRMyLibraryItem *mli;
 
 @property (nonatomic, readonly) NSString *language;

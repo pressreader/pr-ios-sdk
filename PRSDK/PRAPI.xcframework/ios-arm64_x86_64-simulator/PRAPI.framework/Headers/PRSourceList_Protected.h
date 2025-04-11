@@ -1,6 +1,6 @@
 //
 //  PRSourceList_Protected.h
-//  PR-API
+//  PRAPI
 //
 //  Created by berec on 17/01/2020.
 //  Copyright © 2020 NewspaperDirect. All rights reserved.
@@ -16,10 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRSourceList (/*Protected*/)
 
-- (void)updateWithCustomList:(nullable NSArray *)list;
-
+- (void)updateWithCustomList:(nullable NSArray<id<PRCatalogItem>> *)list;
 - (void)resetComputedLists;
-
 - (void)addFilter:(PRSourceListFilter *)filter;
 
 - (NSArray<id<PRTitleObject>> *)refilter;

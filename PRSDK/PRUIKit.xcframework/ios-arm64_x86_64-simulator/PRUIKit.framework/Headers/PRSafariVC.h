@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PRSafariVC : UIViewController <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
 
 - (instancetype)initWithURL:(nullable NSURL *)contentURL;
-- (instancetype)initWithBundledNibName:(NSString *)nibNameOrNil NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 @property (nullable, nonatomic, readonly) WKWebView *webView;

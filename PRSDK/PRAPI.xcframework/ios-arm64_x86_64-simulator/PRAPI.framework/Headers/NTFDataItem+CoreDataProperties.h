@@ -2,13 +2,14 @@
 //  NTFDataItem+CoreDataProperties.h
 //  PRAPI
 //
-//  Created by berec on 05/03/2020.
-//  Copyright © 2020 NewspaperDirect. All rights reserved.
+//  Created by Vitalii Hudenko on 21.08.2024.
+//  Copyright © 2024 NewspaperDirect. All rights reserved.
 //
 //
 
 #import "NTFDataItem+CoreDataClass.h"
 
+@class DataItemContent;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,9 +19,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) BOOL bookmarked;
 @property (nullable, nonatomic, copy) NSString *itemId;
-@property (nullable, nonatomic, retain) NSData *json_;
-@property (nullable, nonatomic, copy) NSString *language;
+@property (nonatomic, copy) NSString *language;
 @property (nullable, nonatomic, copy) NSString *token;
+@property (nonatomic, retain) NSSet<DataItemContent *> *contents;
+
+@end
+
+@interface NTFDataItem (CoreDataGeneratedAccessors)
+
+- (void)addContentsObject:(DataItemContent *)value;
+- (void)removeContentsObject:(DataItemContent *)value;
+- (void)addContents:(NSSet<DataItemContent *> *)values;
+- (void)removeContents:(NSSet<DataItemContent *> *)values;
 
 @end
 
