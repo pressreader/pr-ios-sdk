@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, PRSmartArticleIncludeOptions) {
     PRSmartArticleIncludeOptionsOncePerIssue
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface PRSmartObject : PRSmartBaseObject <NSXMLParserDelegate> {
 	NSMutableDictionary<NSString *, PRSmartArticle *> *articlesByAID;
 	NSMutableDictionary<NSString *, PRSmartArticle *> *articlesByRegionID;
@@ -47,7 +49,7 @@ typedef NS_ENUM(NSInteger, PRSmartArticleIncludeOptions) {
 - (void)addSmartArticle:(PRSmartArticle *)article;
 - (void)setNewId:(NSString *)newId forArticle:(PRSmartArticle *)article;
 - (void)setRootId:(NSString *)rootId forArticle:(PRSmartArticle *)article;
-- (PRSmartPage *)pageAtIndex:(NSUInteger)pageIndex;
+- (nullable PRSmartPage *)pageAtIndex:(NSUInteger)pageIndex;
 - (void)addSmartPage:(PRSmartPage *)page;
 
 @property (nonatomic, retain) NSString *MID;
@@ -55,54 +57,63 @@ typedef NS_ENUM(NSInteger, PRSmartArticleIncludeOptions) {
 - (NSString *)issueTag:(NSString *)tagName;
 
 - (NSUInteger) pageCount;
-- (NSArray<PRSmartPage *> *)pages;
-- (NSArray<NSArray *> *)sections;
+- (nullable NSArray<PRSmartPage *> *)pages;
+- (nullable NSArray<NSArray *> *)sections;
 - (NSArray<NSArray *> *)pageCollectionWithTag:(NSString *)tagName;
 - (NSInteger)sectionIndexByPage:(NSInteger)page;
-- (NSString *)pageTag:(NSString *)tagName forPage:(NSUInteger)pageNo;
-- (NSString *)sectionNameForPage:(NSUInteger)pageNo;
-- (NSString *)pageNameWithPageNumber:(NSUInteger)pageNo;
-- (NSString *)pageFullNameWithPageNumber:(NSUInteger)pageNo NS_SWIFT_NAME(pageFullName(pageNumber:));
-- (NSArray<NSDictionary *> *)sectionsWithArticlesHavingMinimumTextLength:(NSInteger)minLength
+- (nullable NSString *)pageTag:(NSString *)tagName forPage:(NSUInteger)pageNo;
+- (nullable NSString *)sectionNameForPage:(NSUInteger)pageNo;
+- (nullable NSString *)pageNameWithPageNumber:(NSUInteger)pageNo;
+- (nullable NSString *)pageFullNameWithPageNumber:(NSUInteger)pageNo NS_SWIFT_NAME(pageFullName(pageNumber:));
+- (nullable NSArray<NSDictionary *> *)sectionsWithArticlesHavingMinimumTextLength:(NSInteger)minLength
                                                           includeOptions:(PRSmartArticleIncludeOptions)includeOptions;
 
 - (BOOL)isLayoutHyphenated;
 
 - (NSUInteger)smartCountForPage:(NSUInteger)pageNo;
-- (NSArray<PRSmartArticle *> *)articlesOnPage:(NSUInteger)pageNo;
-- (NSArray<PRSmartArticleLink *> *)articleLinksOnPage:(NSUInteger)pageNo;
-- (NSArray<PRSmartHyperLink *> *)hyperLinksOnPage:(NSUInteger)pageNo;
-- (NSArray<PRSmartPageLink *> *)pageLinksOnPage:(NSUInteger)pageNo;
-- (NSArray<PRSmartMediaRegion *> *)mediaRegionsOnPage:(NSUInteger)pageNo;
+- (nullable NSArray<PRSmartArticle *> *)articlesOnPage:(NSUInteger)pageNo;
+- (nullable NSArray<PRSmartArticleLink *> *)articleLinksOnPage:(NSUInteger)pageNo;
+- (nullable NSArray<PRSmartHyperLink *> *)hyperLinksOnPage:(NSUInteger)pageNo;
+- (nullable NSArray<PRSmartPageLink *> *)pageLinksOnPage:(NSUInteger)pageNo;
+- (nullable NSArray<PRSmartMediaRegion *> *)mediaRegionsOnPage:(NSUInteger)pageNo;
 - (NSUInteger)commentsForPage:(NSUInteger)pageNo;
-- (void)addObserver:(NSObject *)observer forCommentsOnPage:(NSUInteger)pageNo context:(void *)context;
+- (void)addObserver:(NSObject *)observer forCommentsOnPage:(NSUInteger)pageNo context:(nullable void *)context;
 - (void)removeObserver:(NSObject *)observer forCommentsOnPage:(NSUInteger)pageNo;
 
 - (PRSmartArticle *)objectForKeyedSubscript:(id)key;
-- (NSDictionary<NSString *,PRSmartArticle *> *)articles;
-- (PRSmartArticle *)articleById:(NSString *)articleID;
-- (PRSmartArticle *)articleById:(NSString *)articleID onPage:(NSUInteger)page;
-- (NSArray<PRSmartArticle *> *)articlesById:(NSString *)articleID onPage:(NSUInteger)page;
-- (PRSmartArticle *)firstPartOfArticleById:(NSString *)articleID;
-- (PRSmartArticle *)nextPartOfArticleById:(NSString *)articleID;
-- (PRSmartArticle *)prevPartOfArticleById:(NSString *)articleID;
-- (NSArray<PRSmartArticle *> *)articlesLinkedById:(NSString *)articleID;
-- (NSArray<PRSmartArticle *> *)articlesLinkedById:(NSString *)articleID currentArticleIndex:(NSUInteger *)pIndex;
-- (NSArray<PRSmartArticle *> *)articlesLinkedByRootId:(NSString *)rootId;
-- (NSString *)firstAvailableAnnotationForArticlesLinkedById:(NSString *)articleID forISOLanguage:(NSString *)language;
-- (NSString *)firstAvailableBylineForArticlesLinkedById:(NSString *)articleID forISOLanguage:(NSString *)language;
-- (NSString *)textWithContinuationForArtId:(NSString *)articleID continueDivider:(NSString *)divider;
-- (NSString *)textWithContinuationForArticles:(NSArray *)articles continueDivider:(NSString *)divider;
-- (NSString *)textWithContinuationForArticles:(NSArray *)articles continueDivider:(NSString *)divider hyphenated:(BOOL)hyphenated;
-- (NSString *)textWithContinuationForArtId:(NSString *)articleID continueDivider:(NSString *)divider hyphenated:(BOOL)hyphenated;
-- (NSString *)htmlTextForArticleId:(NSString *)articleID hyphenated:(BOOL)hyphenated withContinuation:(BOOL)withContinuation lineBreakReplacement:(NSString *)breakReplacement continueDivider:(NSString *)divider;
-- (NSString *)htmlTextForArticles:(NSArray<PRSmartArticle *> *)articles hyphenated:(BOOL)hyphenated lineBreakReplacement:(NSString *)breakReplacement continueDivider:(NSString *)divider;
-- (NSArray<PRSmartImageRegion *> *)imageRegionsInArticlesLinkedById:(NSString *)articleID;
-- (PRSmartImageRegion *)largestImageRegionInArticlesLinkedById:(NSString *)articleID;
-- (NSArray<PRSmartImageRegion *> *)onlineImageRegionsInArticlesLinkedById:(NSString *)artID;
-- (PRSmartArticle *)smartRegionByPoint:(CGPoint)point onPage:(NSUInteger)pageNo;
-- (PRSmartArticle *)smartArticleByPoint:(CGPoint)point onPage:(NSUInteger)pageNo includeImages:(BOOL)withImages;
-- (NSArray *)textBlocksOnPage:(NSUInteger)pageNo clippingArea:(CGRect)clipRect;
-- (NSArray *)columnBoundariesOnPage:(NSUInteger)pageNo clippingArea:(CGRect)clipRect;
+- (nullable NSDictionary<NSString *,PRSmartArticle *> *)articles;
+- (nullable PRSmartArticle *)articleById:(NSString *)articleID;
+- (nullable PRSmartArticle *)articleById:(NSString *)articleID onPage:(NSUInteger)page;
+- (nullable NSArray<PRSmartArticle *> *)articlesById:(NSString *)articleID onPage:(NSUInteger)page;
+- (nullable PRSmartArticle *)firstPartOfArticleById:(NSString *)articleID;
+- (nullable PRSmartArticle *)nextPartOfArticleById:(NSString *)articleID;
+- (nullable PRSmartArticle *)prevPartOfArticleById:(NSString *)articleID;
+- (nullable NSArray<PRSmartArticle *> *)articlesLinkedById:(NSString *)articleID;
+- (nullable NSArray<PRSmartArticle *> *)articlesLinkedById:(NSString *)articleID currentArticleIndex:(nullable NSUInteger *)pIndex;
+- (nullable NSArray<PRSmartArticle *> *)articlesLinkedByRootId:(NSString *)rootId;
+- (nullable NSString *)firstAvailableAnnotationForArticlesLinkedById:(NSString *)articleID forISOLanguage:(NSString *)language;
+- (nullable NSString *)firstAvailableBylineForArticlesLinkedById:(NSString *)articleID forISOLanguage:(NSString *)language;
+- (nullable NSString *)textWithContinuationForArtId:(NSString *)articleID continueDivider:(NSString *)divider;
+- (nullable NSString *)textWithContinuationForArticles:(NSArray *)articles continueDivider:(NSString *)divider;
+- (nullable NSString *)textWithContinuationForArticles:(NSArray *)articles continueDivider:(NSString *)divider hyphenated:(BOOL)hyphenated;
+- (nullable NSString *)textWithContinuationForArtId:(NSString *)articleID continueDivider:(NSString *)divider hyphenated:(BOOL)hyphenated;
+- (nullable NSString *)htmlTextForArticleId:(NSString *)articleID
+                                 hyphenated:(BOOL)hyphenated
+                           withContinuation:(BOOL)withContinuation
+                       lineBreakReplacement:(nullable NSString *)breakReplacement
+                            continueDivider:(NSString *)divider;
+- (NSString *)htmlTextForArticles:(NSArray<PRSmartArticle *> *)articles
+                       hyphenated:(BOOL)hyphenated
+             lineBreakReplacement:(nullable NSString *)breakReplacement
+                  continueDivider:(NSString *)divider;
+- (nullable NSArray<PRSmartImageRegion *> *)imageRegionsInArticlesLinkedById:(NSString *)articleID;
+- (nullable PRSmartImageRegion *)largestImageRegionInArticlesLinkedById:(NSString *)articleID;
+- (nullable NSArray<PRSmartImageRegion *> *)onlineImageRegionsInArticlesLinkedById:(NSString *)artID;
+- (nullable PRSmartArticle *)smartRegionByPoint:(CGPoint)point onPage:(NSUInteger)pageNo;
+- (nullable PRSmartArticle *)smartArticleByPoint:(CGPoint)point onPage:(NSUInteger)pageNo includeImages:(BOOL)withImages;
+- (nullable NSArray *)textBlocksOnPage:(NSUInteger)pageNo clippingArea:(CGRect)clipRect;
+- (nullable NSArray *)columnBoundariesOnPage:(NSUInteger)pageNo clippingArea:(CGRect)clipRect;
 
 @end
+
+NS_ASSUME_NONNULL_END

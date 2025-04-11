@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class PRSeeAllButton;
+@class PRSectionHeaderViewModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,13 +44,9 @@ typedef NS_OPTIONS(NSUInteger, PRSectionHeaderViewOption) {
 
 - (instancetype)initWithStyle:(PRSectionHeaderStyle)style;
 
-- (void)fillWithTitle:(NSString *)title
-               prompt:(nullable NSString *)prompt
-             subtitle:(nullable NSString *)subtitle
-              options:(PRSectionHeaderViewOption)options;
-
 @property (nonatomic, weak) id<PRSectionHeaderViewDelegate> delegate;
 @property (nonatomic) PRSectionHeaderViewOption options;
+@property (nonatomic) PRSectionHeaderViewModel *viewModel;
 
 @end
 

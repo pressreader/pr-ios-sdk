@@ -27,8 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) NSString *mediaContentThumbnailFileName;
 @property (nullable, nonatomic, readonly) NSString *mediaContentURLPath;
 @property (nullable, nonatomic, readonly) NSString *audioURLPath;
-@property (nullable, nonatomic, readonly) UIImage *mediaContentThumbnail;
-@property (nonatomic, readonly) BOOL isMediaContentThumbnailLoaded;
+@property (nullable, nonatomic) UIImage *mediaContentThumbnail;
 
 @end
 

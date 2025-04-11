@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *booksDirectoryPath;
 @property (nullable, nonatomic, readonly) NSString *htmlBannersPath;
 @property (nonatomic, readonly) NSString *storagePath;
+@property (readonly) NSString *mliThumbnailPath;
 @end
 
 NS_ASSUME_NONNULL_END

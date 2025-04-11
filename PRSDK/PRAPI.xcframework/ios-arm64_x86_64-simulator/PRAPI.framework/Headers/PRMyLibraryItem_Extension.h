@@ -8,7 +8,14 @@
 
 #import "PRMyLibraryItem.h"
 
-typedef NS_OPTIONS(NSInteger, mlProcessStatus) { inPdnProcess = 1<<0, inImgPackProcess = 1<<1, inImgPack2Process = 1<<2, inSmartProcess = 1<<3, inIndexProcess = 1<<4 };
+typedef NS_OPTIONS(NSInteger, mlProcessStatus) {
+    inPdnProcess = 1<<0,
+    inImgPackProcess = 1<<1,
+    inImgPack2Process = 1<<2,
+    inSmartProcess = 1<<3,
+    inIndexProcess = 1<<4,
+    inSmartJSONProcess = 1<<5
+};
 
 @protocol HotSpotInfo;
 
@@ -40,6 +47,7 @@ typedef NS_OPTIONS(NSInteger, mlProcessStatus) { inPdnProcess = 1<<0, inImgPackP
 @property(nonatomic, strong) PRDownload* dnlPdn;
 @property(nonatomic, strong) NSMutableDictionary* dnlPdnRange;
 @property(nonatomic, strong) PRDownload* dnlSmart;
+@property(nonatomic, strong) PRDownload* dnlSmartJSON;
 @property(nonatomic, strong) PRDownload* dnlThumb;
 @property(nonatomic, strong) PRDownload* dnlIndex;
 @property(nonatomic, strong) PRDownload* dnlImgPack;
@@ -57,7 +65,6 @@ typedef NS_OPTIONS(NSInteger, mlProcessStatus) { inPdnProcess = 1<<0, inImgPackP
 @property (nonatomic, readonly) NSString *languageUnlocalized;
 @property (nonatomic, readonly) NSString *countryUnlocalized;
 @property (nonatomic, readonly) NSString *countryISOCode;
-@property (nonatomic, copy, readwrite) NSString *MID;
 @property (nonatomic, strong) id<HotSpotInfo> hotSpot;
 
 - (BOOL)pdnDownloadedForPageRange:(NSRange)pageRange;

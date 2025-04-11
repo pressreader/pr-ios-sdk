@@ -20,3 +20,4 @@ FOUNDATION_EXPORT const unsigned char PRSyntacticSugarVersionString[];
 #import <PRSyntacticSugar/PRMacros.h>
 #import <PRSyntacticSugar/PRBlockUtil.h>
 #import <PRSyntacticSugar/PRRuntimeEnvironment.h>
+#import <PRSyntacticSugar/PRPropertyMacros.h>

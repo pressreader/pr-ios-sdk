@@ -1,23 +1,76 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRThumbnail
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRThumbnail
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+import DeveloperToolsSupport
 import Foundation
+import PRConfiguration
 @_exported import PRThumbnail
 import PRUtils
 import Swift
+import SwiftUI
 import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+public enum PRThumbnailObjectError : Swift.Error {
+  case unexpected
+  public static func == (a: PRThumbnail.PRThumbnailObjectError, b: PRThumbnail.PRThumbnailObjectError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension PRThumbnail.PRThumbnailObject {
+  public func getImage() async throws -> UIKit.UIImage
+}
 @objc @_hasMissingDesignatedInitializers final public class ContentCardThumbnail : PRThumbnail.PRThumbnailObject {
+  @objc deinit
+}
+@objc public enum PRArticleThumbnailURLType : Swift.Int, Swift.Codable {
+  case full
+  case regionKey
+  case subpath
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers final public class PRArticleThumbnailInfo : PRThumbnail.PRThumbnailInfo {
+  @objc final public let urlType: PRThumbnail.PRArticleThumbnailURLType
+  @objc final public let scaleLimit: CoreFoundation.CGFloat
+  @objc public init(storePath: Swift.String, downloadUrls: [Swift.String]? = nil, urlType: PRThumbnail.PRArticleThumbnailURLType, scaleLimit: CoreFoundation.CGFloat)
+  override final public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
 }
 extension PRThumbnail.PRThumbnailsManager {
   public func thumbnail(imageId: Swift.String, url: Swift.String) -> PRThumbnail.ContentCardThumbnail
 }
+@objc @objcMembers public class PRThumbnailInfo : ObjectiveC.NSObject, Swift.Codable {
+  @objc(PRThumbnailInfoImageSource) public enum ImageSource : Swift.Int, Swift.Codable {
+    case url
+    case asset
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public var imageSource: PRThumbnail.PRThumbnailInfo.ImageSource
+  @objc public var storagePath: Swift.String {
+    get
+  }
+  @objc final public let downloadUrls: [Swift.String]?
+  @objc public init(storePath: Swift.String, downloadUrls: [Swift.String]? = nil)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
 @objc extension PRThumbnail.PRThumbnailsManager {
   public typealias Info = PRThumbnail.PRThumbnailInfo
   @objc dynamic public func update(sourceThumbsInfo: PRThumbnail.PRThumbnailsManager.Info, articleThumbsInfo: PRThumbnail.PRArticleThumbnailInfo, flagsThumbsInfo: PRThumbnail.PRThumbnailsManager.Info, mastheadsThumbsInfo: PRThumbnail.PRThumbnailsManager.Info, categoryThumbsInfo: PRThumbnail.PRThumbnailsManager.Info, appLogoWhiteThumbsInfo: PRThumbnail.PRThumbnailsManager.Info, appLogoColorThumbsInfo: PRThumbnail.PRThumbnailsManager.Info, catalogItemThumbsInfo: PRThumbnail.PRThumbnailsManager.Info)
+  @objc dynamic public func restoreInfoFromSharedUserDefaults()
 }
 @objc @_hasMissingDesignatedInitializers public class PRCatalogItemThumbnail : PRThumbnail.PRThumbnailObject {
   @objc public class func key(_ imageId: Swift.String, size: CoreFoundation.CGSize) -> Swift.String
@@ -27,3 +80,11 @@ extension PRThumbnail.PRThumbnailsManager {
 extension PRThumbnail.PRThumbnailsManager {
   public func thumbnail(imageId: Swift.String, size: CoreFoundation.CGSize) -> PRThumbnail.PRCatalogItemThumbnail
 }
+extension PRThumbnail.PRThumbnailObjectError : Swift.Equatable {}
+extension PRThumbnail.PRThumbnailObjectError : Swift.Hashable {}
+extension PRThumbnail.PRArticleThumbnailURLType : Swift.Equatable {}
+extension PRThumbnail.PRArticleThumbnailURLType : Swift.Hashable {}
+extension PRThumbnail.PRArticleThumbnailURLType : Swift.RawRepresentable {}
+extension PRThumbnail.PRThumbnailInfo.ImageSource : Swift.Equatable {}
+extension PRThumbnail.PRThumbnailInfo.ImageSource : Swift.Hashable {}
+extension PRThumbnail.PRThumbnailInfo.ImageSource : Swift.RawRepresentable {}

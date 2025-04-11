@@ -23,10 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIViewController (Search)
 
 - (UIBarButtonItem *)createSearchBarButton;
-- (PRSearchBar *)createSearchBar;
+- (UIView *)createSearchBar;
+- (UIView *)createSearchBarWithText:(nullable NSString *)text;
 
 - (void)searchButtonAction:(id)sender;
 
+@property (nonatomic, readonly) CGFloat searchBarRegularWidth;
 @property (nonatomic, readonly) PRNavigationBarSearchItemStyle searchItemStyle;
 
 @end

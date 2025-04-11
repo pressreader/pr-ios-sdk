@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRVerticalFeedVC : CustomStyleableTextFlowVC <NTFFeedDataSourceDelegate>
 
-+ (instancetype)controllerFromStoryboardWithDataSource:(NTFFeedDataSource *)dataSource;
-
 - (nullable NSDictionary<NSString *, NSString *> *)itemNameToCellIdMap;
 
 /// `dataSource` casted into `NTFFeedDataSource`

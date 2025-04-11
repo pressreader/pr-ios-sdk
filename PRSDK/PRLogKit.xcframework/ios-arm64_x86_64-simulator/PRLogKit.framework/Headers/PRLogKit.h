@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double PRLogKitVersionNumber;
 //! Project version string for PRLogKit.
 FOUNDATION_EXPORT const unsigned char PRLogKitVersionString[];
 
-#import "PRLog.h"
+#import <PRLogKit/PRLog.h>
 
 

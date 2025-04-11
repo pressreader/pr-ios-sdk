@@ -134,10 +134,17 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
 - (void)getManageBehaviourForProvider:(NSString *)provider
                            completion:(void(^_Nullable)(NSString *_Nullable url, NSString *_Nullable title, NSError *_Nullable error))completion;
 - (void) RequestValidatePayments:(nullable NSDictionary<NSString*,SKPaymentTransaction *> *)paymentTransactions;
+- (void)requestValidatePayments:(nullable NSDictionary<NSString*,SKPaymentTransaction *> *)paymentTransactions onCompletion:(nullable void(^)(BOOL success))completionBlock;
 - (void) RequestSmartArticleInfo:(NSString *) artID
                          success:(void (^_Nullable)(NSDictionary *_Nullable artInfo))success
                          failure:(void (^_Nullable)(NSError *_Nullable error))failure;
-- (void)requestDataForArticleWithId:(NSString *)artKey language:(nullable NSString *)lngIsoCode repeatOnTimeout:(BOOL)repeadOnTimeout completion:(void (^_Nullable)(NSDictionary *_Nullable artInfo, NSError *_Nullable error))completion;
+
+- (void)requestDataForArticleWithId:(NSString *)artKey
+                           language:(nullable NSString *)lngIsoCode
+                    repeatOnTimeout:(BOOL)repeatOnTimeout
+                         completion:(void (^_Nullable)(NSDictionary<NSString *, id> *_Nullable artInfo,
+                                                       NSError *_Nullable error))completion;
+
 - (PRPromise *)requestOnlineToken;
 - (void) requestPremiumTrialEligibility:(void(^_Nullable)(BOOL isEligibleForPremiumTrial, NSError *_Nullable error))completionBlock;
 

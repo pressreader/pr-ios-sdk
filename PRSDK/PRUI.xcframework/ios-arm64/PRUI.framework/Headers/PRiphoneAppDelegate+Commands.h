@@ -28,7 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
               pageNumber:(nullable NSNumber *)pageNumber
                articleId:(nullable NSString *)articleId;
 
-- (BOOL)openArticleWithId:(nullable NSString *)articleId;
+- (BOOL)openArticleWithId:(nullable NSString *)articleId
+               parameters:(nullable NSDictionary *)parameters;
 
 - (BOOL)openArticle:(nullable id<NTFArticle>)article
              parent:(nullable NTFArticleItem *)parent
@@ -42,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
                   password:(nullable NSString *)password
                serviceName:(nullable NSString *)serviceName
                     signup:(BOOL)signup //mode
-      navigationController:(nullable PRWeakLink *)navigationController
+                 presenter:(nullable PRWeakLink *)presenter
             hideBackButton:(BOOL)hideBackButton
             showSkipButton:(BOOL)showSkipButton
           onSuccessCommand:(nullable NSString *)onSuccessCommand
@@ -73,8 +74,6 @@ onSuccessCommandParameters:(nullable NSDictionary *)onSuccessCommandParameters
 - (BOOL)openUrlWithParameters:(nullable NSDictionary *)params;
 - (BOOL)downloadItemWithParameters:(nullable NSDictionary *)parameters;
 - (BOOL)openGiftCampaignWithParameters:(nullable NSDictionary *)params;
-- (BOOL)openPremiumTrialOnboardingWithParameters:(nullable NSDictionary *)params;
-- (BOOL)startPremiumTrialWithParameters:(nullable NSDictionary *)params;
 - (BOOL)notifyWithParameters:(nullable NSDictionary *)params;
 - (BOOL)openPublicationDetailsWithParameters:(nullable NSDictionary *)params;
 @end

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) BOOL hidden;
 @property (nonatomic) int32_t orderId;
-@property (nullable, nonatomic, retain) NTFFeed *feed;
+@property (nonatomic, retain) NTFFeed *feed;
 @property (nullable, nonatomic, retain) NSOrderedSet<Interest *> *interests;
 
 @end

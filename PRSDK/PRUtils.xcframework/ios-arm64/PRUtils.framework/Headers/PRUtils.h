@@ -68,9 +68,6 @@
 #import <PRUtils/NSDictionary+CIKey.h>
 #import <PRUtils/NSDictionaryCIWrapper.h>
 
-#import <PRUtils/UIImage+Bundle.h>
-#import <PRUtils/UIImage+Video.h>
-
 #import <PRUtils/UIScreen+Size.h>
 
 #import <PRUtils/NSAttributedString+Markup.h>
@@ -85,7 +82,6 @@
 #import <PRUtils/PRLIFOOperationQueue.h>
 
 #import <PRUtils/PRNSBundle.h>
-#import <PRUtils/UINib+Bundle.h>
 
 #import <PRUtils/PRsqliteDb.h>
 
@@ -131,9 +127,9 @@
 #import <PRUtils/UIColor+Text.h>
 #import <PRUtils/UIFont+Pixel.h>
 #import <PRUtils/UIImage+animatedGIF.h>
-#import <PRUtils/UIImage+BarButtonSystemItem.h>
 #import <PRUtils/UIImage+Text.h>
 #import <PRUtils/UIImage+FontIcons.h>
+#import <PRUtils/UIImage+Bundle.h>
 #import <PRUtils/UIImageView+Alignment.h>
 #import <PRUtils/NSString+RC4Crypt.h>
 

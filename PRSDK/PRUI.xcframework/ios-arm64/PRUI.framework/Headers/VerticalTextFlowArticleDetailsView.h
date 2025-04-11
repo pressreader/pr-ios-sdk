@@ -100,7 +100,7 @@ extern CGFloat const kPRMaxTextWidth;
 @property (nonatomic, getter=isSubscriptionRequired) BOOL subscriptionRequired;
 
 @property (nonatomic, strong, readonly) TranslationView *translationView;
-
+@property (nonatomic, assign) BOOL mastheadEnabled;
 @end
 
 
@@ -120,12 +120,13 @@ extern CGFloat const kPRMaxTextWidth;
                       appendVerticalPaddings:(BOOL)appendVerticalPaddings;
 
 @property(nonatomic, readonly) NSTextAlignment textAlignment;
+@property(nonatomic, readonly) NSWritingDirection baseWritingDirection;
 @property (nonatomic, readonly) CGFloat lineHeightMultiple;
 
 @property (nonatomic, readonly) BOOL isAuthorizationRequiredToRead;
 
-@property (nullable, nonatomic, strong) UIFont *bodyFont;
-@property (nullable, nonatomic, strong) UIFont *fontForCaption;
+@property (null_resettable, nonatomic, strong) UIFont *bodyFont;
+@property (null_resettable, nonatomic, strong) UIFont *fontForCaption;
 
 @property (nullable, nonatomic, strong) NSString *dropcap;
 @property (nullable,nonatomic, strong) NSString *textBlockWithDropcap;

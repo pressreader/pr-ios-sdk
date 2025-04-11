@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (Nib)
-+ (nullable instancetype)viewWithDefaultNibName NS_SWIFT_NAME(viewWithDefaultNibName());
+
 + (nullable instancetype)viewWithNibName:(NSString *)nibName;
++ (nullable instancetype)viewWithDefaultNibName NS_SWIFT_NAME(viewWithDefaultNibName());
 
 @end
 

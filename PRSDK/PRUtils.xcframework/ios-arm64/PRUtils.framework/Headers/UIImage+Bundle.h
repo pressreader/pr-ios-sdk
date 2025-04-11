@@ -5,14 +5,6 @@
 //  Created by Jackie Cane on 6/9/12.
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
-
-//#ifdef PR_IOS
-//#import <UIKit/UIKit.h>
-//#else
-//#import <Cocoa/Cocoa.h>
-//typedef NSImage UIImage;
-//#endif
-
 // This category provides easy access to bundle images.
 // Accessing bundled images via this category is more preferable 
 // because it guaranties image's caching.
@@ -28,21 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (Bundle)
 
-+ (nullable UIImage *)bundledTemplateImageNamed:(NSString *)name NS_SWIFT_NAME(init(bundledTemplateWithName:));
-+ (nullable UIImage *)bundledImageNamed:(NSString *)name NS_SWIFT_NAME(init(bundledWithName:));
-+ (nullable UIImage *)bundledImageNamed:(NSString *)name
-          compatibleWithTraitCollection:(nullable UITraitCollection *)traitCollection NS_SWIFT_NAME(init(bundledWithName:compatibleWith:));
++ (nullable instancetype)templateImageWithName:(NSString *)name preferredBundle:(nullable NSBundle *)preferredBundle
+NS_SWIFT_NAME(template(name:preferredBundle:));
 
-/**
- This method returns selected image if exists or nil. Image name will generated automatically.
- For example:
- @code 
- [UIImage bundledImageNamed:@"some_image.png"] @endcode
- is identically to the next:
- @code 
- [UIImage bundledImageNamed:@"some_image-selected.png" selected:YES xl:NO] @endcode
- */
-+ (nullable UIImage *)bundledImageNamed:(nullable NSString *)name selected:(BOOL)selected xl:(BOOL)xl;
++ (nullable instancetype)imageWithName:(NSString *)name preferredBundle:(nullable NSBundle *)preferredBundle;
+
++ (nullable instancetype)imageWithName:(NSString *)name
+                       preferredBundle:(nullable NSBundle *)preferredBundle
+         compatibleWithTraitCollection:(nullable UITraitCollection *)traitCollection;
 
 @end
 

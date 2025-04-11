@@ -13,13 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 @class PRSmartArtifact;
 
 @interface PRCommentComposeVC : UIViewController
+
+- (instancetype)initWithArticle:(id<NTFArticle>)article;
+- (instancetype)initWithArticle:(id<NTFArticle>)article param:(nullable NSDictionary *)param;
+
 @property (nonatomic, readonly) PRSmartCommentPost *post;
 @property (nonatomic, readonly) NSAttributedString *commentText;
 @property (nonatomic, readonly) NSInteger commentIndex;
 @property (nonatomic, readonly) NSInteger parentPostId;
-
-- (instancetype)initWithArticle:(id<NTFArticle>)article;
-- (instancetype)initWithArticle:(id<NTFArticle>)article param:(NSDictionary*)param;
 
 @end
 

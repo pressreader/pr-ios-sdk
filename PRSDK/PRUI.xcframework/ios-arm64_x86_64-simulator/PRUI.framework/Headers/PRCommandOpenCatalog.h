@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-#import "PRCommandOpenSources.h"
+#import <PRCommands/PRCommand.h>
 
 @import PRAPI.PRCatalogSection;
 
 extern NSString *const PRCommandOpenCatalogHomeConfigurationSchemeKey;
 extern NSString *const PRCommandOpenCatalogSectionKey;
 
-@interface PRCommandOpenCatalog : PRCommandOpenSources
+@interface PRCommandOpenCatalog : PRCommand
 
 + (void)executeWithSection:(PRCatalogSectionType)sectionType;
 

@@ -37,9 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
                          locale:(nullable NSString *)locale
                         session:(NTFSession *)session;
 
-+ (instancetype)existingFeedWithName:(NSString *)name
-                              locale:(nullable NSString *)locale
-                             session:(NTFSession *)session;
++ (nullable instancetype)existingFeedWithName:(NSString *)name context:(NSManagedObjectContext *)context;
+
++ (nullable instancetype)existingFeedWithName:(NSString *)name
+                                       locale:(nullable NSString *)locale
+                                      session:(NTFSession *)session;
 
 + (instancetype)feedWithName:(NSString *)name
                       locale:(nullable NSString *)locale

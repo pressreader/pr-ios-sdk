@@ -1,15 +1,17 @@
 //
 //  PRSourcesVC.h
-//  PressReader
+//  PRiphone
 //
-//  Created by Oleg Stepanenko on 14.11.12.
+//  Created by Oleg Stepanenko on 12.12.12.
+//  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "PRBaseStoreCollectionVC.h"
-#import "PRTooltipDelegate.h"
+#import <PRUI/PRSourceCollectionVC.h>
+#import <PRUI/PRTooltipDelegate.h>
+@import PRAPI.PRSourceListFilter;
 
 @class PRCountableValue;
+@class CatalogFiltersCollectionVC;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,15 +21,11 @@ typedef NS_ENUM (NSUInteger, PRSourcesListType) {
 };
 
 @protocol PRSourcesVCOrderDelegate <NSObject>
-
 - (BOOL)shouldOrderParentTitleOnlyForCID:(NSString *)CID;
-
 @end
 
-/// This class represents high level business layer of SourcesVC.
-/// It provides logic for proper setup of data provider.
-/// All content rendering logic contains in parent class PRBaseStoreCollectionVC.
-@interface PRSourcesVC : PRBaseStoreCollectionVC
+
+@interface PRSourcesVC : PRSourceCollectionVC
 
 + (NSArray *)controllersWithSourceList:(PRSourceList *)sourceList
                                andPath:(NSArray<NSDictionary<NSString *, id> *> *)path;
@@ -36,6 +34,19 @@ typedef NS_ENUM (NSUInteger, PRSourcesListType) {
 @property (nullable, nonatomic) id<PRSourcesVCOrderDelegate> orderDelegate;
 
 @property (nonatomic, readonly) NSArray<PRSourceListFilter *> *sourceListFilters;
+@property (nonatomic) CatalogNavigationType selectedFilterID;
+
+@end
+
+
+@interface PRSourcesVC (/*Protected*/)
+
+- (void)displayFilters;
+- (void)removeFilters;
+
+@property (nonatomic, getter=isWaitingForCatalog) BOOL waitingForCatalog;
+@property (nonatomic, readonly) BOOL isSearchAvailable;
+@property (nullable, nonatomic, strong) CatalogFiltersCollectionVC *filtersVC;
 
 @end
 
@@ -49,4 +60,7 @@ typedef NS_ENUM (NSUInteger, PRSourcesListType) {
 @end
 #endif
 
+
 NS_ASSUME_NONNULL_END
+
+#import "PRSourcesVC+Filtering.h"

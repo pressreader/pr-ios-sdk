@@ -6,53 +6,29 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import PRCommands.PRCommand;
-@import PRAPI.NTFArticle;
-#import <PRUI/VerticalTextFlowVC.h>
-#import <PRUI/PRArticleContainerVC.h>
+@import UIKit;
+
+@class CommandOpenArticleParameters;
+@protocol NTFArticle;
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^PRCommandOpenArticleCompletion)(UIViewController *);
+
 @interface PRCommandOpenArticle : NSObject
 
-+ (void)executeWithArticle:(id<NTFArticle>)article
-                completion:(void(^_Nullable)(UIViewController *))completion;
-
-+ (void)executeWithArticle:(id<NTFArticle>)article
-                    parent:(nullable id<NTFArticle>)parent
-                  flowType:(NTFTextFlowType)flowType
-                 presenter:(nullable UIViewController *)presenter
-                completion:(void(^_Nullable)(UIViewController *))completion;
-
-+ (void)executeWithArticle:(id<NTFArticle>)article
-                    parent:(nullable id<NTFArticle>)parent
-                  flowType:(NTFTextFlowType)flowType
-                 presenter:(nullable UIViewController *)presenter
-                   options:(PRArticleContainerOption)options
-                completion:(void(^_Nullable)(UIViewController *))completion;
-
-+ (void)executeWithArticle:(id<NTFArticle>)article
-                    parent:(nullable id<NTFArticle>)parent
-                  flowType:(NTFTextFlowType)flowType
-                 presenter:(nullable UIViewController *)presenter
-                   options:(PRArticleContainerOption)options
-        highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases
-                completion:(void(^_Nullable)(UIViewController *))completion;
-
 + (void)executeWithArticleId:(NSString *)articleId
-                  completion:(void(^_Nullable)(UIViewController *))completion;
-
+                  parameters:(nullable CommandOpenArticleParameters *)parameters;
 + (void)executeWithArticleId:(NSString *)articleId
-                    flowType:(NTFTextFlowType)flowType
-                   presenter:(nullable UIViewController *)presenter
-                  completion:(void(^_Nullable)(UIViewController *))completion;
+                  parameters:(nullable CommandOpenArticleParameters *)parameters
+                  completion:(nullable PRCommandOpenArticleCompletion)completion;
 
-+ (void)executeWithArticleId:(NSString *)articleId
-                    flowType:(NTFTextFlowType)flowType
-                   presenter:(nullable UIViewController *)presenter
-                     options:(PRArticleContainerOption)options
-          highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases
-                  completion:(void(^_Nullable)(UIViewController *))completion;
+
++ (void)executeWithArticle:(id<NTFArticle>)article
+                parameters:(nullable CommandOpenArticleParameters *)parameters;
++ (void)executeWithArticle:(id<NTFArticle>)article
+                parameters:(nullable CommandOpenArticleParameters *)parameters
+                completion:(nullable PRCommandOpenArticleCompletion)completion;
 
 @property (class, nonatomic, weak, readonly) __kindof UIViewController *presentedController;
 

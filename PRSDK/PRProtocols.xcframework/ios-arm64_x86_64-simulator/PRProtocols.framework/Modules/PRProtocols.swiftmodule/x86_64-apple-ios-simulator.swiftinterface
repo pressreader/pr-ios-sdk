@@ -1,35 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRProtocols
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name PRProtocols
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc public protocol BrazeEntity {
-  @objc var extras: [Swift.AnyHashable : Any]? { get }
-}
-extension PRProtocols.BrazeEntity {
-  public var isEligible: Swift.Bool {
-    get
-  }
-}
-@available(*, unavailable)
-@objc extension ObjectiveC.NSObject {
-  @objc dynamic public var isEligibleBrazeEntity: Swift.Bool {
-    @objc get
-  }
-}
-@objc public protocol ContentCard : PRProtocols.BrazeEntity {
-  @objc var id: Swift.String { get }
-  @objc var title: Swift.String { get }
-  @objc var details: Swift.String { get }
-  @objc var imageUrl: Swift.String { get }
-  @objc var url: Swift.String? { get }
-  @objc func logImpression()
-  @objc func logClick()
-  @objc func logDismission()
-}
 @objc public protocol Singleton {
   @objc static func instance() -> Self
   @objc static func hasInstance() -> Swift.Bool

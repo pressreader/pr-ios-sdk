@@ -17,31 +17,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)itemWithTitle:(nullable NSString *)title
                       details:(nullable NSString *)details
-                     iconName:(nullable NSString *)iconName;
+                         icon:(nullable NSString *)icon;
 
 + (instancetype)itemWithTitle:(nullable NSString *)title
                       details:(nullable NSString *)details
-                     iconName:(nullable NSString *)iconName
+                        icon:(nullable NSString *)icon
                executionBlock:(nullable void(^)(void))executionBlock;
 
 + (instancetype)itemWithTitle:(nullable NSString *)title
                       details:(nullable NSString *)details
-                     iconName:(nullable NSString *)iconName
+                        icon:(nullable NSString *)icon
                     checkable:(BOOL)checkable
                executionBlock:(nullable void(^)(void))executionBlock;
 
 + (instancetype)itemWithTitle:(nullable NSString *)title
                       details:(nullable NSString *)details
-                     iconName:(nullable NSString *)iconName
+                        icon:(nullable NSString *)icon
                       submenu:(nullable PRMenu *)submenu;
 
 - (instancetype)initWithTitle:(nullable NSString *)title
                       details:(nullable NSString *)details
-                     iconName:(nullable NSString *)iconName;
+                        icon:(nullable NSString *)icon;
 
 - (instancetype)initWithTitle:(nullable NSString *)title
                       details:(nullable NSString *)details
-                     iconName:(nullable NSString *)iconName
+                        icon:(nullable NSString *)icon
                 discloseBlock:(nullable void(^)(__kindof UIViewController * menuVC, PRMenuItem *menuItem))disclose;
 
 - (BOOL)act;
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *title;
 @property (nonatomic, assign) BOOL hideTitleForSubmenu;
 @property (nullable, nonatomic, copy) NSString *details;
-@property (nullable, nonatomic, copy) NSString *iconName;
+@property (nullable, nonatomic, strong) NSString *icon;
 @property (nullable, nonatomic, strong) NSDictionary *parameters;
 
 @property (nonatomic) UIImageRenderingMode iconRenderingMode;

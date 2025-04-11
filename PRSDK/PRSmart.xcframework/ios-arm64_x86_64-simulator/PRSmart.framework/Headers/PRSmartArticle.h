@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PRSmartArticleCollectionsUpdatedNotification;
 
+typedef NSDictionary<NSString *, id> * SmartArticlePayload;
+
 typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
     PRSmartArticleStatusFulfilled = 1 << 0,
     PRSmartArticleStatusBookmarksRequested = 1 << 1,
@@ -40,18 +42,18 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
     int m_articleIndexOnPage;
 }
 
-+ (nullable NSString *)articleIdFromDictionary:(NSDictionary *)dictionary;
++ (nullable NSString *)articleIdFromDictionary:(SmartArticlePayload)dictionary;
 + (nullable instancetype)cashedArticleWithId:(NSString *)articleKey;
 
-+ (instancetype)articleWithDictionary:(NSDictionary *)dict;
-+ (instancetype)articleWithDictionary:(NSDictionary *)dict
++ (instancetype)articleWithDictionary:(SmartArticlePayload)dictionary;
++ (instancetype)articleWithDictionary:(SmartArticlePayload)dictionary
                           isoLanguage:(nullable NSString *)language
                           updateCache:(BOOL)updateCache;
 
 + (instancetype)articleWithType:(NSString *)type
                            page:(NSUInteger)page
                          parent:(PRSmartBaseObject *)parentObject
-                 attributesDict:(NSDictionary *)dict;
+                     dictionary:(SmartArticlePayload)dictionary;
 
 - (void)addSmartRegion:(PRSmartRegion *)region;
 
@@ -137,7 +139,9 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 - (BOOL)hasVisibleCollections;
 - (BOOL)hasBookmarks;
 
-- (void)updateShortContentWithInfo:(nullable NSDictionary *)info isoLanguage:(nullable NSString *)language;
+- (void)fillWithPayload:(SmartArticlePayload)payload isoLanguage:(nullable NSString *)language;
+- (void)updatePayload:(SmartArticlePayload)payload language: (nullable NSString *)language;
+- (void)updateShortContentWithPayload:(nullable SmartArticlePayload)payload isoLanguage:(nullable NSString *)language;
 - (void)resetToOriginalLanguage;
 
 @property (nonatomic, assign, readonly) BOOL isLocked;
@@ -151,7 +155,7 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 @property (nullable, nonatomic, strong, readonly) NSString *recentShortContentLanguage;
 @property (nonatomic, readonly) CGRect textRect;
 
-@property (nullable, nonatomic) NSDictionary<NSString *, id> *issueInfo;
+@property (nullable, nonatomic, strong, readonly) NSDictionary<NSString *, id> *issueInfo;
 
 @end
 

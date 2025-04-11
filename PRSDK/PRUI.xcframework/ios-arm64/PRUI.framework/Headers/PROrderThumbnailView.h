@@ -25,6 +25,7 @@ typedef NS_ENUM(uint8_t, PROrderThumbnailInfoBarStyle) {
 
 @class PRProgressButton;
 @class PRSwitchButton;
+@class ThumbnailShadowView;
 
 @interface PROrderThumbnailView : UIView
 
@@ -60,7 +61,7 @@ typedef NS_ENUM(uint8_t, PROrderThumbnailInfoBarStyle) {
 @property (nonatomic, assign) NSInteger downloadProgress;
 @property (nonatomic, assign) PRTitleItemExemplarState exemplarState;
 
-@property (nonatomic, strong, readonly) UIImageView *thumbnailContainerView;
+@property (nonatomic, strong, readonly) ThumbnailShadowView *thumbnailContainerView;
 @property (nonatomic, readonly) PRInfoBarView *infoBar;
 @property (nonatomic, readonly) PROrderInfoBarView *compactInfoBar;
 @property (nonatomic, readonly) UIButton *progressButton;

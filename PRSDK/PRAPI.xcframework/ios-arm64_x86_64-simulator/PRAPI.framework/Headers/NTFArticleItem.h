@@ -31,13 +31,6 @@ extern NSString * const kPRPopularArticlesKey;
 
 @interface NTFArticleItem : NTFFeedItem <NTFArticle>
 
-+ (instancetype)itemWithJSON:(NSDictionary *)json
-                 isoLanguage:(nullable NSString *)language
-                        feed:(NTFFeed *)feed NS_UNAVAILABLE;
-+ (instancetype)itemWithJSON:(NSDictionary *)json
-                 isoLanguage:(nullable NSString *)language
-                        feed:(NTFFeed *)feed
-                   completed:(BOOL)completed;
 @property (nonatomic, readonly) NSString *text;
 @property (nullable, nonatomic, readonly) NSString *bylineForDisplay;
 @property (nullable, nonatomic, readonly) NSString *bylineForDisplayWithLineBreak;
@@ -66,7 +59,6 @@ extern NSString * const kPRPopularArticlesKey;
 - (void)updateWithSocialInfo:(NTFSocialInfoItem *)socialInfo;
 - (BOOL)updateSocialInfoWithAccountNumber:(NSInteger)accountNumber;
 - (void)reportAnalyticsExpanded:(BOOL)expanded;
-- (void)updateWithJSON:(NSDictionary *)json completed:(BOOL)completed;
 
 - (nullable NSString *)channelCollectionNameWithPreferredCollectionId:(nullable NSString *)preferredCollectionId;
 

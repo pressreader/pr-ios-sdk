@@ -27,13 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
                                  success:(void(^ _Nullable)(NSArray * _Nullable hotSpots))success
                                  failure:(PRSimpleResult)failure;
 
-- (void)getGeoFencingHotZoneLocationsAtNorthEastLat:(double)northEastLat
-                                       northEastLng:(double)northEestLng
-                                       southWestLat:(double)southWestLat
-                                       southWestLng:(double)southWestLng
-                                            success:(void (^ _Nullable)(NSArray * _Nullable hotSpots))success
-                                            failure:(PRSimpleResult)failure;
-
 - (void)searchForHotZoneLocations:(NSString *)searchString
                             count:(NSUInteger)count
                        completion:(void(^ _Nullable)(NSArray * _Nullable hotSpots,
