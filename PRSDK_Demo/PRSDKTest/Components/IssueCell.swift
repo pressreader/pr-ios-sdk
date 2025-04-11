@@ -10,12 +10,16 @@ import UIKit
 import PRAPI
 import PRUI
 
+protocol IssueHandler: AnyObject {
+    func openIssue(_ issue: TitleItem)
+}
+
 final class IssueCell: UITableViewCell {
 
-    // MARK: - Private Properties
-    
-    private var observer: Download.Observer?
-    
+    // MARK: - Public Properties
+
+    weak var delegate: IssueHandler?
+
     var issue: PRCatalogItem? {
         didSet {
             self.update()
@@ -37,6 +41,10 @@ final class IssueCell: UITableViewCell {
         }
     }
 
+    // MARK: - Private Properties
+    
+    private var observer: Download.Observer?
+
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
         
@@ -49,12 +57,8 @@ final class IssueCell: UITableViewCell {
             
             switch download?.state {
             case .ready:
-                guard let rootVC = UIApplication.shared.rootVC,
-                      let reader = ReadingVC(issue)
-                else { return }
-
-                rootVC.present(reader, animated: true, completion: nil)
-
+                self.delegate?.openIssue(issue)
+                
             case .stop, .pause:
                 self.button.isEnabled = false
                 download?.start()
