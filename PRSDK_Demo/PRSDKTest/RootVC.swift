@@ -356,7 +356,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     // MARK: - IssueHandler
     
-    func openIssue(_ issue: any TitleItem) {
+    func openIssue(_ issue: PRCatalogItem) {
         guard let rootVC = UIApplication.shared.rootVC,
               let reader = ReadingVC(issue)
         else { return }

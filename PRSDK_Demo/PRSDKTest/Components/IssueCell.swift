@@ -11,7 +11,7 @@ import PRAPI
 import PRUI
 
 protocol IssueHandler: AnyObject {
-    func openIssue(_ issue: TitleItem)
+    func openIssue(_ issue: PRCatalogItem)
 }
 
 final class IssueCell: UITableViewCell {
