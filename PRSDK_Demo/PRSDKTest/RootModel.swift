@@ -45,12 +45,16 @@ final class RootModel {
     var isAuthEnabled: Bool {
         !self.isDismissed && !self.isLocalService
     }
-    
-    var canAuthorise: Bool {
+
+    var isReady: Bool {
         switch self.account?.state {
         case .idle, .sponsorship: return true
         default: return false
         }
+    }
+
+    var canAuthorise: Bool {
+        self.isReady
     }
     
     var account: Account? {
@@ -74,12 +78,25 @@ final class RootModel {
         !self.isDismissed
     }
 
+    var isArticleSetEnabled: Bool {
+        !self.isDismissed && !self.articles.isEmpty
+    }
+
     var catalogItemsCount: Int {
         self.canShowCatalog ? self.cids.count : 0
     }
 
     var downloadedItemsCount: Int {
         self.downloaded?.items.count ?? 0
+    }
+    
+    var articles: [String] {
+        self.isReady
+        ? ["281651080992599",
+           "281505052102991",
+           "281852944455775",
+           "281736980338521"]
+        : []
     }
 
     // MARK: - Private Properties

@@ -8,6 +8,7 @@
 
 import UIKit
 import PRUI
+import PRUIKit
 
 final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
@@ -20,6 +21,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         var dismiss: Int?
         var catalog: Int?
         var downloaded: Int?
+        var articles: Int?
     }
 
     // MARK: - Private Properties
@@ -57,6 +59,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "actionCell")
         table.register(TextFieldCell.self, forCellReuseIdentifier: "textFieldCell")
         table.register(IssueCell.self, forCellReuseIdentifier: "issueCell")
+        table.register(UITableViewCell.self, forCellReuseIdentifier: .sdkTest.cells.article)
     }
     
     // MARK: - Private Methods
@@ -135,6 +138,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             sections.catalog = section; section += 1
             sections.downloaded = section; section += 1
         }
+        
+        if self.model.isArticleSetEnabled {
+            sections.articles = section; section += 1
+        }
 
         self.sections = sections
         
@@ -143,13 +150,16 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sections = self.sections
+        let model = self.model
         switch section {
         case sections.auth:
             return 2
         case sections.catalog:
-            return self.model.catalogItemsCount
+            return model.catalogItemsCount
         case sections.downloaded:
-            return self.model.downloadedItemsCount
+            return model.downloadedItemsCount
+        case sections.articles:
+            return model.articles.count
         default:
             return 1
         }
@@ -207,6 +217,17 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
             cell = _cell
 
+        case sections.articles:
+            cell = tableView.dequeueReusableCell(
+                withIdentifier: .sdkTest.cells.article,
+                for: indexPath
+            )
+            
+            var content = cell.defaultContentConfiguration()
+            content.text = "id: \(model.articles[indexPath.row])"
+            cell.contentConfiguration = content
+            cell.accessibilityIdentifier = cell.reuseIdentifier
+
         default:
             cell = self.actionCell(tableView, indexPath: indexPath)
         }
@@ -225,6 +246,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             return true
         case sections.service:
             return self.model.canPresentFullUI
+        case sections.articles:
+            return true
         default:
             return false
         }
@@ -254,11 +277,30 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case sections.log:
             model.getLogs()
 
+        case sections.articles:
+            Task { @MainActor in
+                let activityIndicator = UIActivityIndicatorView(style: .medium)
+                activityIndicator.startAnimating()
+
+                let cell = tableView.cellForRow(at: indexPath)!
+                cell.accessoryView = activityIndicator
+
+                await PressReader.instance().openArticle(
+                    id: model.articles[indexPath.row]
+                )
+                
+                activityIndicator.stopAnimating()
+            }
+            
         case sections.dismiss:
             model.isDismissed.toggle()
 
         case sections.service:
-            self.present(PressReader.instance().rootViewController, animated: true, completion: nil)
+            self.present(
+                PressReader.instance().rootViewController,
+                animated: true,
+                completion: nil
+            )
 
         default:
             break
@@ -283,6 +325,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             return "Catalog"
         case sections.downloaded:
             return "Downloaded"
+        case sections.articles:
+            return "Articles"
         default:
             return nil
         }
