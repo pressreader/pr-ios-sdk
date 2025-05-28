@@ -15,7 +15,7 @@ account.authorize(token: String, completion: Callback)
 Authorization by service name allows working with SDK based on service name only, without token. In order to achieve this behavior the next configuration has to be done:
 
 In `Info.plist` of your app add [`PRConfig`](Configuration.md) dictionary with `SERVICE_NAME` string type entry with your service name value.
-<br><br><br>
+<br><br>
 
 # Observing SDK state
 
@@ -34,11 +34,11 @@ typedef NS_OPTIONS(NSUInteger, PRState) {
 Each change in the state triggers the `PressReaderStateDidChange` notification. Alternatively, employ the `PressReaderState` class to manage state using the Combine API.
 
 SDK `state` has to turn `.activated` to execute any operations and `.catalogLoaded` to be able to download issues.
-<br/><br><br>
+<br><br>
 
 # Download
 
-After the instance of PressReader SDK is authorized the and its state turned `.catalogLoaded` issues downloading becomes possible. The downloading process is manageable via catalog item's download property that conforms to Download interface described below.
+After the instance of PressReader SDK is authorized, issues downloading becomes possible. The downloading process is manageable via catalog item's download property that conforms to Download interface described below.
 
 ```swift
 Download {
@@ -70,7 +70,6 @@ guard let download = PressReader.instance().catalog.item(cid, date)?.download el
     return
 }
 ```
-<br>
 
 ## Start download
 ```swift
@@ -105,16 +104,6 @@ typealias Callback = (DownloadState, Progress, Error?) -> Void
 ## Download error processing
 `AuthorizationError` is returned when there’s a problem with authorization and re-authorization is required.
 <br><br>
-
-## Open the downloaded issue (Reader API)
-
-```swift
-if let reader = ReadingVC(issue: issue) {
-    yourViewController.present(reader. animated: true, completion: nil)
-}
-```
-`reader` can be nil in case issue hasn't been previously ordered (dowload process not started)
-<br><br><br>
 
 # Downloaded
 The management of downloaded catalog items can be done via `downloaded` property of `catalog`
@@ -151,7 +140,23 @@ Downloaded {
   func observe(_ callback: @escaping ()->()) -> Observer
 }
 ```
-<br><br><br>
+
+# Open the downloaded issue (Reader API)
+
+```swift
+if let reader = ReadingVC(issue: issue) {
+    yourViewController.present(reader. animated: true, completion: nil)
+}
+```
+`reader` can be nil in case issue hasn't been previously ordered (dowload process not started)
+<br><br>
+
+# Open an article by id (Article API)
+
+```swift
+let articleId = "281651080992599"
+await PressReader.instance().openArticle(id: articleId)
+```
 
 # Logs
 
@@ -160,7 +165,7 @@ The `getLogs` asyncronous method is available to collect device logs and upload 
 func getLogs(completion: (Result<(linkToUploadedLogs: URL, additionalInfo: String), Error>) -> Void)
 ```
 `completion` is a callback executed after obtaining all required information including linkToUploadedLogs, additionalInfo - some textual information we usually provide along with logs inside feedback email, like OS version, device model, device id, some internal component versions (SDK version) and crash stack if available.
-<br><br><br>
+<br>
 
 # Analytics
 
