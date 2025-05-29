@@ -10,27 +10,28 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SignInResult;
 @class FacebookSignInResult;
 
-typedef void(^PRExtAuthTokenSignInResult)(BOOL success, BOOL isNewUser, NSError * _Nullable error);
-typedef void(^PRExtAuthTokenPermissionResult)(NSString * _Nullable authKey,
-                                              BOOL isNewUser,
-                                              NSError * _Nullable error);
-typedef void(^PRExtAuthTokenSignInHandler)(NSString *token, PRExtAuthTokenSignInResult result);
-typedef void(^PRExtAuthTokenPermissionHandler)(NSString *token, PRExtAuthTokenPermissionResult result);
+typedef void(^PRExtAuthSignInResult)(BOOL success, BOOL isNewUser, NSError * _Nullable error);
+typedef void(^PRExtAuthPermissionResult)(NSString * _Nullable authKey,
+                                         BOOL isNewUser,
+                                         NSError * _Nullable error);
+typedef void(^PRExtAuthSignInHandler)(SignInResult *signInResult, PRExtAuthSignInResult result);
+typedef void(^PRExtAuthPermissionHandler)(SignInResult *signInResult, PRExtAuthPermissionResult result);
 
 @interface PRFacebookSignInManager : _PRSocialManager
 
 + (instancetype)shared;
 
 - (void)signIn:(void(^)(FacebookSignInResult *))completion NS_SWIFT_NAME(signIn(_:));
-- (void)signInWithExtAuthTokenHandler:(PRExtAuthTokenSignInHandler)extAuthHandler
-                           completion:(void(^)(FacebookSignInResult *))completion;
+- (void)signInWithExtAuthHandler:(PRExtAuthSignInHandler)extAuthHandler
+                      completion:(void(^)(FacebookSignInResult *))completion;
 
 - (void)requestPublishPermissionAndLinkToCurrentAccount:(BOOL)linkToCurrentAccount
                                              completion:(void(^)(FacebookSignInResult *))completion;
 - (void)requestPublishPermissionAndLinkToCurrentAccount:(BOOL)linkToCurrentAccount
-                                    extAuthTokenHandler:(PRExtAuthTokenPermissionHandler)extAuthHandler
+                                         extAuthHandler:(PRExtAuthPermissionHandler)extAuthHandler
                                              completion:(void(^)(FacebookSignInResult *))completion;
 
 @end

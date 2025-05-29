@@ -550,7 +550,7 @@ extension UIKit.UITableViewCell {
 @objc extension PRUIKit.PRActivityVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility()
 }
-@objc extension MBProgressHUD.MBProgressHUD {
+@objc extension MBProgressHUD {
   @objc @_Concurrency.MainActor @preconcurrency public static func showLoading() -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func showLoading(graceTime: Foundation.TimeInterval) -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func showKeyWindowHud(title: Swift.String?, message: Swift.String?, animated: Swift.Bool) -> Self
@@ -696,6 +696,10 @@ public protocol SelectionActionMenuItem {
 extension UIKit.UIViewController : PRUIKit.NavigationBarDismissable {
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func showBars(animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func dismissBars(animated: Swift.Bool, delayed: Swift.Bool)
+}
+extension UIKit.UITableView {
+  @_Concurrency.MainActor @preconcurrency public func register(_ cellClass: Swift.AnyClass?, forCellReuseIdentifier identifier: PRAccessibility.AccessibilityId)
+  @_Concurrency.MainActor @preconcurrency public func dequeueReusableCell(withIdentifier identifier: PRAccessibility.AccessibilityId, for indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
 }
 @objc extension UIKit.UIFont {
   @objc dynamic public class func preferredFont(forTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat) -> UIKit.UIFont

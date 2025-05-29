@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (CGFloat)loadPrefImageWithMinSize:(CGSize)size
                             options:(NTFThumbnailArticleOption)options
-                         completion:(void (^_Nullable)(UIImage *img, NSError *err))completionBlock;//0.0f;
+                         completion:(void (^_Nullable)(UIImage *_Nullable img, NSError *_Nullable err))completionBlock;//0.0f;
 
 - (NSString *)bylineForImageAtIndex:(NSInteger)imageIdx;//nil
 

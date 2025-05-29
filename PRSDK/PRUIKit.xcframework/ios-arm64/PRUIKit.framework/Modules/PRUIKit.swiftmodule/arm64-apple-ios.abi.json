@@ -14260,6 +14260,16 @@
       },
       {
         "kind": "Import",
+        "name": "PRAccessibility",
+        "printedName": "PRAccessibility",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -42758,6 +42768,795 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "UITableView",
+        "printedName": "UITableView",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(_:forCellReuseIdentifier:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AnyObject.Type)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExistentialMetatype",
+                    "printedName": "any AnyObject.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE8register_22forCellReuseIdentifieryyXlXpSg_15PRAccessibility15AccessibilityIdCtF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE8register_22forCellReuseIdentifieryyXlXpSg_15PRAccessibility15AccessibilityIdCtF",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dequeueReusableCell",
+            "printedName": "dequeueReusableCell(withIdentifier:for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UITableViewCell",
+                "printedName": "UIKit.UITableViewCell",
+                "usr": "c:objc(cs)UITableViewCell"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "IndexPath",
+                "printedName": "Foundation.IndexPath",
+                "usr": "s:10Foundation9IndexPathV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE19dequeueReusableCell14withIdentifier3forSo0abF0C15PRAccessibility15AccessibilityIdC_10Foundation9IndexPathVtF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE19dequeueReusableCell14withIdentifier3forSo0abF0C15PRAccessibility15AccessibilityIdC_10Foundation9IndexPathVtF",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hideExtraRows",
+            "printedName": "hideExtraRows()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UITableView(im)hideExtraRows",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE13hideExtraRowsyyF",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE8registeryyxmSo0aB4CellCRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE8registeryyxmSo0aB4CellCRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE8registeryyxmSo0ab12HeaderFooterB0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE8registeryyxmSo0ab12HeaderFooterB0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableCell",
+            "printedName": "reusableCell(with:for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "IndexPath",
+                "printedName": "Foundation.IndexPath",
+                "usr": "s:10Foundation9IndexPathV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with3forxxm_10Foundation9IndexPathVtSo0abE0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with3forxxm_10Foundation9IndexPathVtSo0abE0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableCell",
+            "printedName": "reusableCell(with:for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "IndexPath",
+                "printedName": "Foundation.IndexPath",
+                "usr": "s:10Foundation9IndexPathV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with3forxSS_10Foundation9IndexPathVtSo0abE0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with3forxSS_10Foundation9IndexPathVtSo0abE0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableCell",
+            "printedName": "reusableCell(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4withxxm_tSo0abE0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4withxxm_tSo0abE0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableCell",
+            "printedName": "reusableCell(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4withxSS_tSo0abE0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4withxSS_tSo0abE0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableCell",
+            "printedName": "reusableCell(with:provider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> τ_0_0",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with8providerxxm_xSSXEtSo0abE0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with8providerxxm_xSSXEtSo0abE0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableCell",
+            "printedName": "reusableCell(with:provider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> τ_0_0",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with8providerxSS_xSSXEtSo0abE0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with8providerxSS_xSSXEtSo0abE0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableHeaderFooter",
+            "printedName": "reusableHeaderFooter(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4withxxm_tSo0abefB0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4withxxm_tSo0abefB0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableHeaderFooter",
+            "printedName": "reusableHeaderFooter(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4withxSS_tSo0abefB0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4withxSS_tSo0abefB0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableHeaderFooter",
+            "printedName": "reusableHeaderFooter(with:provider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> τ_0_0",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxxm_xSSXEtSo0abefB0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxxm_xSSXEtSo0abefB0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reusableHeaderFooter",
+            "printedName": "reusableHeaderFooter(with:provider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> τ_0_0",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxSS_xSSXEtSo0abefB0CRbzlF",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxSS_xSSXEtSo0abefB0CRbzlF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
+            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(style:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UITableView",
+                "printedName": "UIKit.UITableView",
+                "usr": "c:objc(cs)UITableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Style",
+                "printedName": "UIKit.UITableView.Style",
+                "hasDefaultArg": true,
+                "usr": "c:@E@UITableViewStyle"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So11UITableViewC7PRUIKitE5styleABSo0aB5StyleV_tcfc",
+            "mangledName": "$sSo11UITableViewC7PRUIKitE5styleABSo0aB5StyleV_tcfc",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "Convenience",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)UITableView",
+        "moduleName": "UIKit",
+        "isOpen": true,
+        "intro_iOS": "2.0",
+        "objc_name": "UITableView",
+        "declAttributes": [
+          "Preconcurrency",
+          "Available",
+          "ObjC",
+          "NonSendable",
+          "Custom",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)UIScrollView",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "UIKit.UIScrollView",
+          "UIKit.UIView",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LayoutGuidable",
+            "printedName": "LayoutGuidable",
+            "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
+            "mangledName": "$s7PRUIKit14LayoutGuidableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "__DefaultCustomPlaygroundQuickLookable",
+            "printedName": "__DefaultCustomPlaygroundQuickLookable",
+            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
+            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "UIFont",
         "printedName": "UIFont",
         "children": [
@@ -45551,712 +46350,6 @@
             "printedName": "UITraitChangeObservable",
             "usr": "s:5UIKit23UITraitChangeObservableP",
             "mangledName": "$s5UIKit23UITraitChangeObservableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "UITableView",
-        "printedName": "UITableView",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "hideExtraRows",
-            "printedName": "hideExtraRows()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRUIKit@@objc(cs)UITableView(im)hideExtraRows",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE13hideExtraRowsyyF",
-            "moduleName": "PRUIKit",
-            "declAttributes": [
-              "Dynamic",
-              "Preconcurrency",
-              "Custom",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "register",
-            "printedName": "register(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Metatype",
-                "printedName": "τ_0_0.Type",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE8registeryyxmSo0aB4CellCRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE8registeryyxmSo0aB4CellCRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "register",
-            "printedName": "register(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Metatype",
-                "printedName": "τ_0_0.Type",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE8registeryyxmSo0ab12HeaderFooterB0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE8registeryyxmSo0ab12HeaderFooterB0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableCell",
-            "printedName": "reusableCell(with:for:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Metatype",
-                "printedName": "τ_0_0.Type",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "IndexPath",
-                "printedName": "Foundation.IndexPath",
-                "usr": "s:10Foundation9IndexPathV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with3forxxm_10Foundation9IndexPathVtSo0abE0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with3forxxm_10Foundation9IndexPathVtSo0abE0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableCell",
-            "printedName": "reusableCell(with:for:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "IndexPath",
-                "printedName": "Foundation.IndexPath",
-                "usr": "s:10Foundation9IndexPathV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with3forxSS_10Foundation9IndexPathVtSo0abE0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with3forxSS_10Foundation9IndexPathVtSo0abE0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableCell",
-            "printedName": "reusableCell(with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Metatype",
-                "printedName": "τ_0_0.Type",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4withxxm_tSo0abE0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4withxxm_tSo0abE0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableCell",
-            "printedName": "reusableCell(with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4withxSS_tSo0abE0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4withxSS_tSo0abE0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableCell",
-            "printedName": "reusableCell(with:provider:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Metatype",
-                "printedName": "τ_0_0.Type",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.String) -> τ_0_0",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "typeAttributes": [
-                  "noescape"
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with8providerxxm_xSSXEtSo0abE0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with8providerxxm_xSSXEtSo0abE0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableCell",
-            "printedName": "reusableCell(with:provider:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.String) -> τ_0_0",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "typeAttributes": [
-                  "noescape"
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE12reusableCell4with8providerxSS_xSSXEtSo0abE0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE12reusableCell4with8providerxSS_xSSXEtSo0abE0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewCell>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewCell>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableHeaderFooter",
-            "printedName": "reusableHeaderFooter(with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Metatype",
-                "printedName": "τ_0_0.Type",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4withxxm_tSo0abefB0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4withxxm_tSo0abefB0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableHeaderFooter",
-            "printedName": "reusableHeaderFooter(with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4withxSS_tSo0abefB0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4withxSS_tSo0abefB0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableHeaderFooter",
-            "printedName": "reusableHeaderFooter(with:provider:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Metatype",
-                "printedName": "τ_0_0.Type",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.String) -> τ_0_0",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "typeAttributes": [
-                  "noescape"
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxxm_xSSXEtSo0abefB0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxxm_xSSXEtSo0abefB0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reusableHeaderFooter",
-            "printedName": "reusableHeaderFooter(with:provider:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.String) -> τ_0_0",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "typeAttributes": [
-                  "noescape"
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxSS_xSSXEtSo0abefB0CRbzlF",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE20reusableHeaderFooter4with8providerxSS_xSSXEtSo0abefB0CRbzlF",
-            "moduleName": "PRUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : UIKit.UITableViewHeaderFooterView>",
-            "sugared_genericSig": "<T where T : UIKit.UITableViewHeaderFooterView>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(style:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "UITableView",
-                "printedName": "UIKit.UITableView",
-                "usr": "c:objc(cs)UITableView"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Style",
-                "printedName": "UIKit.UITableView.Style",
-                "hasDefaultArg": true,
-                "usr": "c:@E@UITableViewStyle"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:So11UITableViewC7PRUIKitE5styleABSo0aB5StyleV_tcfc",
-            "mangledName": "$sSo11UITableViewC7PRUIKitE5styleABSo0aB5StyleV_tcfc",
-            "moduleName": "PRUIKit",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom",
-              "Convenience",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "init_kind": "Convenience"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:objc(cs)UITableView",
-        "moduleName": "UIKit",
-        "isOpen": true,
-        "intro_iOS": "2.0",
-        "objc_name": "UITableView",
-        "declAttributes": [
-          "Preconcurrency",
-          "Available",
-          "ObjC",
-          "NonSendable",
-          "Custom",
-          "Dynamic"
-        ],
-        "superclassUsr": "c:objc(cs)UIScrollView",
-        "isExternal": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "UIKit.UIScrollView",
-          "UIKit.UIView",
-          "UIKit.UIResponder",
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObjectIdentifier",
-                    "printedName": "Swift.ObjectIdentifier",
-                    "usr": "s:SO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "LayoutGuidable",
-            "printedName": "LayoutGuidable",
-            "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
-            "mangledName": "$s7PRUIKit14LayoutGuidableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "UITraitChangeObservable",
-            "printedName": "UITraitChangeObservable",
-            "usr": "s:5UIKit23UITraitChangeObservableP",
-            "mangledName": "$s5UIKit23UITraitChangeObservableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "__DefaultCustomPlaygroundQuickLookable",
-            "printedName": "__DefaultCustomPlaygroundQuickLookable",
-            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
-            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
           },
           {
             "kind": "Conformance",

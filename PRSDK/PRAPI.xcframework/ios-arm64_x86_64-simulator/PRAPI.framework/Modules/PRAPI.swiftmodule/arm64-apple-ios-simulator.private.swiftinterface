@@ -2915,7 +2915,7 @@ extension PRAPI.LoadableCatalog {
   @objc @discardableResult
   final public func application(_ application: UIKit.UIApplication, didFinishLaunchingWithOptions launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]? = nil) -> Swift.Bool
   @objc final public func resetCurrentTokenAndProfile()
-  @objc final public func requestAccessToAccount(permissions: [Swift.String], presenter: UIKit.UIViewController?, completion: @escaping (_ accessToken: Swift.String?, _ tokenRefreshed: Swift.Bool, _ error: (any Swift.Error)?) -> ())
+  @objc final public func requestAccessToAccount(permissions: [Swift.String], presenter: UIKit.UIViewController?, completion: @escaping (_ signInResult: PRAPI.SignInResult?, _ tokenRefreshed: Swift.Bool, _ error: (any Swift.Error)?) -> ())
   @objc final public func logOut()
   @objc final public func share(url: Swift.String, text: Swift.String?, presenter: UIKit.UIViewController?, delegate: any PRAPI.FacebookSharingDelegate)
   @objc deinit

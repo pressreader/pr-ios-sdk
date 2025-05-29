@@ -28,8 +28,14 @@ NS_ASSUME_NONNULL_BEGIN
               pageNumber:(nullable NSNumber *)pageNumber
                articleId:(nullable NSString *)articleId;
 
-- (BOOL)openArticleWithId:(nullable NSString *)articleId
-               parameters:(nullable NSDictionary *)parameters;
+- (BOOL)openArticleWithId:(NSString *)articleId
+               parameters:(nullable NSDictionary *)parameters
+        completionHandler:(void(^_Nullable)(void))completionHandler
+NS_SWIFT_NAME(openArticle(id:parameters:completionHandler:));
+
+- (void)openArticleWithId:(NSString *)articleId
+        completionHandler:(void(^_Nullable)(void))completionHandler
+NS_SWIFT_NAME(openArticle(id:completionHandler:));
 
 - (BOOL)openArticle:(nullable id<NTFArticle>)article
              parent:(nullable NTFArticleItem *)parent

@@ -1305,6 +1305,7 @@ SWIFT_PROTOCOL("_TtP4PRUI14NTFArticleCell_")
 
 @interface NTFArticleItem (SWIFT_EXTENSION(PRUI))
 - (void)preloadVisuals;
+- (void)preloadVisualsWithPresentationType:(NTFArticleItemPresentationType)presentationType completion:(void (^ _Nullable)(void))completion;
 @end
 
 SWIFT_CLASS("_TtC4PRUI14NTFBannersCell")
@@ -4022,6 +4023,7 @@ SWIFT_PROTOCOL("_TtP4PRUI14NTFArticleCell_")
 
 @interface NTFArticleItem (SWIFT_EXTENSION(PRUI))
 - (void)preloadVisuals;
+- (void)preloadVisualsWithPresentationType:(NTFArticleItemPresentationType)presentationType completion:(void (^ _Nullable)(void))completion;
 @end
 
 SWIFT_CLASS("_TtC4PRUI14NTFBannersCell")

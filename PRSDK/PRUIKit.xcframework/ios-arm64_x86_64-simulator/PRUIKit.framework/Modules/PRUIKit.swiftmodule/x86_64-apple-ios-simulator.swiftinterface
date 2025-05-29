@@ -697,6 +697,10 @@ extension UIKit.UIViewController : PRUIKit.NavigationBarDismissable {
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func showBars(animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func dismissBars(animated: Swift.Bool, delayed: Swift.Bool)
 }
+extension UIKit.UITableView {
+  @_Concurrency.MainActor @preconcurrency public func register(_ cellClass: Swift.AnyClass?, forCellReuseIdentifier identifier: PRAccessibility.AccessibilityId)
+  @_Concurrency.MainActor @preconcurrency public func dequeueReusableCell(withIdentifier identifier: PRAccessibility.AccessibilityId, for indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
 @objc extension UIKit.UIFont {
   @objc dynamic public class func preferredFont(forTextStyle style: UIKit.UIFont.TextStyle, pointSizeCorrection: CoreFoundation.CGFloat) -> UIKit.UIFont
   @objc dynamic public class func preferredFont(forTextStyle style: UIKit.UIFont.TextStyle, scale: CoreFoundation.CGFloat) -> UIKit.UIFont

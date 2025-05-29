@@ -69,6 +69,15 @@ public struct AppMenuItemAccessibilityId {
   public let webView: PRAccessibility.AccessibilityId
   public let exit: PRAccessibility.AccessibilityId
 }
+extension PRAccessibility.AccessibilityId {
+  public static let sdkTest: PRAccessibility.SDKTestAccessibilityId
+}
+public struct SDKTestAccessibilityId {
+  public let cells: PRAccessibility.SDKTestCellsAccessibilityId
+}
+public struct SDKTestCellsAccessibilityId {
+  public let article: PRAccessibility.AccessibilityId
+}
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let account: PRAccessibility.AccountAccessibilityId
 }

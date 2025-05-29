@@ -2261,6 +2261,7 @@ extension PRUI.PRErrorManager : PRProtocols.Singleton {
 }
 extension PRAPI.NTFArticleItem {
   @objc dynamic public func preloadVisuals()
+  @objc dynamic public func preloadVisuals(presentationType: PRAPI.NTFArticleItemPresentationType, completion: (() -> ())? = nil)
 }
 @_Concurrency.MainActor @preconcurrency final public class CustomerSupportVC : PRUIKit.SwiftVC<PRUI.MySubscriptionsView, PRUI.MySubscriptionsModel>, UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
   @_Concurrency.MainActor @preconcurrency public init(account: PRAPI.PRAccountItem)
