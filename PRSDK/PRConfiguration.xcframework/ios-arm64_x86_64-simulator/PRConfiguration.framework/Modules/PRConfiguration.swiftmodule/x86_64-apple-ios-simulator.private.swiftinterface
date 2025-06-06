@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRConfiguration
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import Combine
 import CoreData
 import Foundation
@@ -252,6 +252,7 @@ extension PRConfiguration.PRCatalogConfig {
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class PRArticleConfig : ObjectiveC.NSObject {
   @objc final public let tags: PRConfiguration.ArticleTagsConfig
+  @objc final public let related: PRConfiguration.ArticleRelatedConfig
   @objc final public let details: PRConfiguration.ArticleDetailsViewConfig
   @objc final public let byline: PRConfiguration.ArticleBylineConfig
   @objc final public var hasSimilars: Swift.Bool {
@@ -276,9 +277,6 @@ extension PRConfiguration.PRCatalogConfig {
     @objc get
   }
   @objc final public var isHyphenationEnabled: Swift.Bool {
-    @objc get
-  }
-  @objc final public var isArticleDetailsPopoverPresentation: Swift.Bool {
     @objc get
   }
   @objc final public var isListeningEnabled: Swift.Bool {
@@ -319,6 +317,13 @@ extension PRConfiguration.PRCatalogConfig {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleRelatedConfig : ObjectiveC.NSObject {
+  @objc final public var enabled: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleDetailsViewConfig : ObjectiveC.NSObject {
   @objc final public let preferredImage: PRConfiguration.ArticleDetailsPreferredImageConfig
   @objc final public let title: PRConfiguration.ArticleDetailsTitleConfig
@@ -326,6 +331,12 @@ extension PRConfiguration.PRCatalogConfig {
     @objc get
   }
   @objc final public var textAlignment: UIKit.NSTextAlignment {
+    @objc get
+  }
+  @objc final public var presentInPopover: Swift.Bool {
+    @objc get
+  }
+  @objc final public var presentRadioOnTop: Swift.Bool {
     @objc get
   }
   @objc override dynamic public init()

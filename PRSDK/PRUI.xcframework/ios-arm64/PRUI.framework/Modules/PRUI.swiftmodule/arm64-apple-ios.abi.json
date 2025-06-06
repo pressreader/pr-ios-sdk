@@ -21207,6 +21207,57 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "debugDescription",
+            "printedName": "debugDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUI@objc(cs)CommandOpenArticleParameters(py)debugDescription",
+            "mangledName": "$s4PRUI28CommandOpenArticleParametersC16debugDescriptionSSvp",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "debugDescription",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUI@objc(cs)CommandOpenArticleParameters(im)debugDescription",
+                "mangledName": "$s4PRUI28CommandOpenArticleParametersC16debugDescriptionSSvg",
+                "moduleName": "PRUI",
+                "overriding": true,
+                "objc_name": "debugDescription",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -31987,16 +32038,6 @@
             "usr": "s:13PRDIContainer18DependencyResolverP",
             "mangledName": "$s13PRDIContainer18DependencyResolverP"
           }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "PRConfiguration",
-        "printedName": "PRConfiguration",
-        "declKind": "Import",
-        "moduleName": "PRUI",
-        "declAttributes": [
-          "RawDocComment"
         ]
       },
       {
@@ -99941,147 +99982,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "PRArticleConfig",
-        "printedName": "PRArticleConfig",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "shouldPresentArticleInPopover",
-            "printedName": "shouldPresentArticleInPopover",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUI@PRConfiguration@objc(cs)PRArticleConfig(py)shouldPresentArticleInPopover",
-            "mangledName": "$s15PRConfiguration15PRArticleConfigC4PRUIE29shouldPresentArticleInPopoverSbvp",
-            "moduleName": "PRUI",
-            "declAttributes": [
-              "Final",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUI@PRConfiguration@objc(cs)PRArticleConfig(im)shouldPresentArticleInPopover",
-                "mangledName": "$s15PRConfiguration15PRArticleConfigC4PRUIE29shouldPresentArticleInPopoverSbvg",
-                "moduleName": "PRUI",
-                "declAttributes": [
-                  "ObjC",
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@PRConfiguration@objc(cs)PRArticleConfig",
-        "mangledName": "$s15PRConfiguration15PRArticleConfigC",
-        "moduleName": "PRConfiguration",
-        "declAttributes": [
-          "Final",
-          "ObjCMembers",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "isExternal": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
         "name": "VerticalTextFlowArticleDetailsView",
         "printedName": "VerticalTextFlowArticleDetailsView",
         "children": [
@@ -111311,6 +111211,69 @@
       "offset": 560,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 644,
+      "length": 15,
+      "value": "\"parentArticle\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 683,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 699,
+      "length": 14,
+      "value": "\"textFlowType\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 746,
+      "length": 11,
+      "value": "\"presenter\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 777,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 793,
+      "length": 18,
+      "value": "\"containerOptions\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 848,
+      "length": 20,
+      "value": "\"highlightedPhrases\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 897,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/NTF\/OpenArticle\/CommandOpenArticleParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 913,
+      "length": 14,
+      "value": "\"openHomeFeed\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Extensions\/PRAPI\/PRCommandMenuItem+Factory.swift",
