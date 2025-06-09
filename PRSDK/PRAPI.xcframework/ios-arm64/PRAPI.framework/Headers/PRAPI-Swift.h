@@ -1096,7 +1096,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isEnabled;)
 - (void)setup;
 - (BOOL)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
 - (void)resetCurrentTokenAndProfile;
-- (void)requestAccessToAccountWithPermissions:(NSArray<NSString *> * _Nonnull)permissions presenter:(UIViewController * _Nullable)presenter completion:(void (^ _Nonnull)(NSString * _Nullable, BOOL, NSError * _Nullable))completion;
+- (void)requestAccessToAccountWithPermissions:(NSArray<NSString *> * _Nonnull)permissions presenter:(UIViewController * _Nullable)presenter completion:(void (^ _Nonnull)(SignInResult * _Nullable, BOOL, NSError * _Nullable))completion;
 - (void)logOut;
 - (void)shareWithUrl:(NSString * _Nonnull)url text:(NSString * _Nullable)text presenter:(UIViewController * _Nullable)presenter delegate:(id <PRFacebookSharingDelegate> _Nonnull)delegate;
 @end
