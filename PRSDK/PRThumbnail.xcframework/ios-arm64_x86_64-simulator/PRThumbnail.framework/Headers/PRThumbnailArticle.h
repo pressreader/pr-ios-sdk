@@ -9,14 +9,13 @@
 #import "PRThumbnailObject.h"
 @class PRArticleThumbnailInfo;
 
-typedef NS_ENUM(uint8_t, NTFThumbnailArticleOption) {
-    NTFThumbnailArticleOptionNone = 0,
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_OPTIONS(uint8_t, NTFThumbnailArticleOption) {
     NTFThumbnailArticleOptionLoadFromCacheOnly = 1 << 0, // currently not implemented
     NTFThumbnailArticleOptionIgnoreClosestImageAsPlaceholder = 1 << 1,
     NTFThumbnailArticleOptionShowVideoIndicator = 1 << 2
 };
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface PRThumbnailArticle : PRThumbnailObject
 
