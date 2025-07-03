@@ -21,136 +21,287 @@ For __Brand Edition__ service, ensure to include your assigned `SERVICE_NAME` wi
 ![PRConfig_image](assets/PRConfig.png)
 
 ## Configuration types
-* [Appearance](#appearance)
-* [Behavioural](#behavioural)
-* [Catalog UI](#catalog-ui)
-* [Feed](#feed)
-* [Local Service](#local-service)
-* [Reader](#reader)
-* [Support](#support)
-* [Tabs](#tabs)
-* [Translation](#translation)
-* [User Authorization](#user-authorization)
+- [Configuration](#configuration)
+- [PRConfig](#prconfig)
+	- [Configuration types](#configuration-types)
+		- [Appearance](#appearance)
+		- [Behavioural](#behavioural)
+		- [Catalog UI](#catalog-ui)
+		- [Feed](#feed)
+		- [Local Service](#local-service)
+		- [Reader](#reader)
+		- [Support](#support)
+		- [Tabs](#tabs)
+		- [Translation](#translation)
+		- [User Authorization](#user-authorization)
+- [Splash Screen](#splash-screen)
+- [Catalog View](#catalog-view)
 
 ---
 ### Appearance
 
 | Parameter | Type | Default value | Description |
 | --- | --- | --- | --- |
-| `COLOR_BRAND` | Number | 0x15b25 | Tint colour of buttons, highlights, some other action controls. |
-| `COLOR_BRAND_DARK` | Number | 0x11a011 | Tint colour of action controls like bar button items. |
-| `COLOR_BACKGROUND` | Number | 0xECECEC | |
-| `COLOR_BACKGROUND_DARK` | Number | 0x2A2A2A | |
-| `BRAND_GRADIENT_START_COLOR` | Number | 0x1F836A | Start gradient colour of brand modal screens (Onboarding, Subscription, Calendar, etc.). |
-| `BRAND_GRADIENT_END_COLOR` | Number | 0x043652 | End gradient colour of brand modal screens. |
+| COLOR_BRAND | Number | 0x15b25 | Tint colour of buttons, highlights, some other action controls. |
+| COLOR_BRAND_DARK | Number | 0x11a011 | Tint colour of action controls like bar button items. |
+| COLOR_BACKGROUND | Number | 0xECECEC | |
+| COLOR_BACKGROUND_DARK | Number | 0x2A2A2A | |
+| BRAND_GRADIENT_START_COLOR | Number | 0x1F836A | Start gradient colour of brand modal screens (Onboarding, Subscription, Calendar, etc.). |
+| BRAND_GRADIENT_END_COLOR | Number | 0x043652 | End gradient colour of brand modal screens. |
 
 ---
 ### Behavioural
 
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-| `SDK.AUTHORIZATION_TYPE` | Number | | <p>There are 2 authorization types in the SDK at the moment:<pre><code class="language-c">typedef NS_ENUM(NSUInteger, PRSDKAuthType) {&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRSDKAuthTypeJWTToken = 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRSDKAuthTypeServiceName&#10;};</code></pre><p>If you need authorization with JWT token, the parameter in `PRConfig` can be omitted.<p>Authorization with service name currently works only if `SERVICE_NAME` corresponds to some BE service name. In this case, JWT token is not required. |
-| `CONFIG_RUN_TIME_UPDATE_ALLOWED` | Boolean | YES | Set to `YES` to allow PRSDK automatically update its configuration from the Publishing Portal. **Note** that in this case settings described in PRConfig section of the host app’s Info.plist may be implicitly overridden.
-| `config_version` | String | | Current version of `PRConfig`. If `CONFIG_RUN_TIME_UPDATE_ALLOWED` is turned on and the back-end has a newer than stated `config_version` of `PRConfig`, then `PRSDK` will be using this newer config from the back-end instead.
-|`ONBOARDING_SUPPORTED`|Boolean|NO|Onboarding procedure includes setting up user interests.|
-|`CATALOG.MODE`|Number|0|In BRAND_EDITION apps catalog defines the UI. That’s why during the first launch the app waits for a catalog to get loaded before dismissing splash screen. It can be a problem if the catalog is big and requires significant loading time. You can override this behaviour by providing CATALOG.MODE parameter, defining what type of catalog you’re expecting and thus reducing the user’s waiting time.<p><pre><code class="language-c">typedef NS_ENUM(NSInteger, PRCatalogMode) {&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRCatalogModeUnknown = 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRCatalogModeRegular,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRCatalogModeSingleTitle,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRCatalogModeSingleTitlePlusSupplements&#10;};</code></pre>|
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>
+
+`SDK.AUTHORIZATION_TYPE`
+
+</td><td>Number</td><td/><td>
+
+```swift
+enum PRSDKAuthType: Int {
+	case jwtToken = 0
+	case serviceName = 1
+}
+```
+If you need authorization with a JWT token, the parameter in PRConfig can be omitted.
+
+Authorization with service name currently works only if SERVICE_NAME corresponds to some BE service name. In this case, JWT token is not required.
+
+</td></tr>
+<tr><td>
+
+`CONFIG_RUN_TIME_UPDATE_ALLOWED`
+
+</td><td>Boolean</td><td>YES</td><td>
+
+Set to `YES` to allow PRSDK automatically update its configuration from the Publishing Portal. Note that in this case settings described in PRConfig section of the host app’s Info.plist may be implicitly overridden.
+
+</td></tr>
+<tr><td>
+
+`config_version`
+
+</td><td>String</td><td/><td>
+
+Current version of `PRConfig`. If `CONFIG_RUN_TIME_UPDATE_ALLOWED` is turned on and the back-end has a newer than stated `config_version` of `PRConfig`, then `PRSDK` will be using this newer config from the back-end instead.
+
+</td></tr>
+<tr><td>
+
+`ONBOARDING_SUPPORTED`
+
+</td><td>Boolean</td><td>NO</td><td>Onboarding procedure includes setting up user interests.</td></tr>
+<tr><td>
+
+`CATALOG.MODE`
+
+</td><td>Number</td><td>0</td><td>
+<p>In BRAND_EDITION apps catalog defines the UI. That’s why during the first launch the app waits for a catalog to get loaded before dismissing splash screen. It can be a problem if the catalog is big and requires significant loading time. You can override this behaviour by providing CATALOG.MODE parameter, defining what type of catalog you’re expecting and thus reducing the user’s waiting time.</p>
+
+```swift
+enum PRCatalogMode: Int {
+	case unknown = 0
+	case regular = 1
+	case singleTitle = 2
+	case singleTitlePlusSupplements = 3
+}
+```
+</td></tr>
+</table>
 
 ---
 ### Catalog UI
 
 | Parameter | Type | Default value | Description |
 | --- | --- | --- | --- |
-| `FILTER_PANEL_ENABLED` | Boolean | NO in BRAND_EDITION | Convenient catalog filters (Type, Language, Country). Makes sense for big catalogs. |
+| FILTER_PANEL_ENABLED | Boolean | NO in BRAND_EDITION | Convenient catalog filters (Type, Language, Country). Makes sense for big catalogs. |
 
 ### Feed
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-|`NEWSFEED_API`|Number|0|<p>Home feed provider’s type. Available values are represented by the enum below.<pre><code class="language-c">typedef NS_ENUM(uint8_t, PRNewsFeedAPI) {&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRNewsFeedAPINone = 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;// Type reserved for PressReader service.&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRNewsFeedAPIHomeFeed,&#10;&nbsp;&nbsp;&nbsp;&nbsp;// Aggregate feed based on the followed by user issues.&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRNewsFeedAPIPublicationsRSSFeed,&#10;&nbsp;&nbsp;&nbsp;&nbsp;// Feed of the specific channel.&#10;&nbsp;&nbsp;&nbsp;&nbsp;// HOME_FEED_CHANNEL parameter must be additionaly set.&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRNewsFeedAPIChannel,&#10;&nbsp;&nbsp;&nbsp;&nbsp;// Feed of the specific bookmark collection.&#10;&nbsp;&nbsp;&nbsp;&nbsp;// Both HOME_FEED_CHANNEL and HOME_FEED_COLLECTION must be set.&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRNewsFeedAPIBookmarks&#10;};</code></pre>|
-|`HOME_FEED_CHANNEL`|String||ID of a channel used as a source of Home feed. This parameter is ignored if `NEWSFEED_API` value is other than `PRNewsFeedAPIChannel`.|
-|`HOME_FEED_COLLECTION`|String||ID of a collection used as a source of Home feed. This parameter is ignored if `NEWSFEED_API` value is other than `PRNewsFeedAPIBookmarks`.|
-|`ARTICLE_AUTORIZATION_REQUIRED_TO_PRINT`|Boolean|YES in BRAND_EDITION  mode||
-|`ARTICLE_AUTORIZATION_REQUIRED_TO_LISTEN`|Boolean|YES in BRAND_EDITION  mode||
-|`CHANNEL.FEED_ARTICLE_ACCESS_MODE`|Number|0|<pre><code class="language-c">typedef NS_ENUM(uint8_t, PRFeedArticleAccessMode) {&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleAccessModeNone = 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleAccessModeRequireSignIn,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleAccessModeRequireSubscription&#10;};|</code></pre>|
-|`ARTICLE_COMMENTS_ENABLED`|Boolean|NO|Article comments feature|
-|`ARTICLE_VOTES_ENABLED`|Boolean|NO|Article votes feature|
-|`FEED.ARTICLE_ACTIONS`|Number|`PRFeedAcrticleActionListen` in BRAND_EDITION|<p>Feed article action button<pre><code>typedef NS_OPTIONS(NSUInteger, PRFeedArticleAction) {&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleActionNone = 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleActionPrint = 1 << 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleActionShare = 1 << 1,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleActionListen = 1 << 2,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleActionBookmark = 1 << 3,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleActionUnlock = 1 << 4,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRFeedArticleActionMulti = PRFeedArticleActionPrint \| PRFeedArticleActionShare \| PRFeedArticleActionListen&#10;};</code></pre>|
-|`ISSUE.FEED.ARTICLE_ACTIONS`|Number|`PRFeedArticleActionMulti`|Issue feed article action button. See option above|
-|`ARTICLE.POPUP_VIEW_ALLOWED`|Boolean|YES|Show Article details in popover mode for tablets UI idiom. Include “two level“ navigation stack functionality.|
-|`ARTICLE.POPUP_VIEW_ALLOWED`|Boolena|NO|Disable article text hyphenation|
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>NEWSFEED_API</td><td>Number</td><td>0</td><td>
+
+```swift
+enum PRNewsFeedAPI: UInt8 {
+    case none = 0 // Type reserved for PressReader service.
+    case homeFeed // Aggregate feed based on the followed by user issues.
+    case publicationsRSSFeed // Feed of the specific channel. HOME_FEED_CHANNEL parameter must be additionally set.
+    case channel // Feed of the specific bookmark collection. Both HOME_FEED_CHANNEL and HOME_FEED_COLLECTION must be set.
+    case bookmarks
+}
+```
+
+</td></tr>
+<tr><td>HOME_FEED_CHANNEL</td><td>String</td><td></td><td>ID of a channel used as a source of Home feed. This parameter is ignored if `NEWSFEED_API` value is other than `PRNewsFeedAPIChannel`.</td></tr>
+<tr><td>HOME_FEED_COLLECTION</td><td>String</td><td></td><td>ID of a collection used as a source of Home feed. This parameter is ignored if `NEWSFEED_API` value is other than `PRNewsFeedAPIBookmarks`.</td></tr>
+<tr><td>ARTICLE_AUTORIZATION_REQUIRED_TO_PRINT</td><td>Boolean</td><td>YES in BRAND_EDITION  mode</td><td></td></tr>
+<tr><td>ARTICLE_AUTORIZATION_REQUIRED_TO_LISTEN</td><td>Boolean</td><td>YES in BRAND_EDITION  mode</td><td></td></tr>
+<tr><td>CHANNEL.FEED_ARTICLE_ACCESS_MODE</td><td>Number</td><td>0</td><td>
+
+```swift
+enum PRFeedArticleAccessMode: Integer {
+    case none = 0
+    case requireSignIn
+    case requireSubscription
+}
+```
+
+</td></tr>
+<tr><td>ARTICLE_COMMENTS_ENABLED</td><td>Boolean</td><td>NO</td><td>Article comments feature</td></tr>
+<tr><td>ARTICLE_VOTES_ENABLED</td><td>Boolean</td><td>NO</td><td>Article votes feature</td></tr>
+<tr><td>FEED.ARTICLE_ACTIONS</td><td>Number</td><td>PRFeedAcrticleActionListen in BRAND_EDITION</td><td>
+
+```swift
+struct PRFeedArticleAction: OptionSet {
+    let rawValue: UInt
+    static let none = PRFeedArticleAction(rawValue: 0)
+    static let print = PRFeedArticleAction(rawValue: 1 << 0)
+    static let share = PRFeedArticleAction(rawValue: 1 << 1)
+    static let listen = PRFeedArticleAction(rawValue: 1 << 2)
+    static let bookmark = PRFeedArticleAction(rawValue: 1 << 3)
+    static let unlock = PRFeedArticleAction(rawValue: 1 << 4)
+    static let multi: PRFeedArticleAction = [.print, .share, .listen]
+}
+```
+
+</td></tr>
+<tr><td>ISSUE.FEED.ARTICLE_ACTIONS</td><td>Number</td><td>PRFeedArticleActionMulti</td><td>Issue feed article action button. See option above</td></tr>
+<tr><td>ARTICLE.POPUP_VIEW_ALLOWED</td><td>Boolean</td><td>YES</td><td>Show Article details in popover mode for tablets UI idiom. Include “two level“ navigation stack functionality.</td></tr>
+<tr><td>ARTICLE.POPUP_VIEW_ALLOWED</td><td>Boolena</td><td>NO</td><td>Disable article text hyphenation</td></tr>
+</table>
 
 ### Local Service
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-| `LOCAL_SERVER_URL` | String | | SDK starts working with the given server instead of default online one. |
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>LOCAL_SERVER_URL</td><td>String</td><td></td><td>SDK starts working with the given server instead of default online one.</td></tr>
+</table>
 
 ### Reader
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-| `READER.EXTERNAL_LINKS.ENABLED` | Boolean | YES | Interactive external links rendering. |
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>READER.EXTERNAL_LINKS.ENABLED</td><td>Boolean</td><td>YES</td><td>Interactive external links rendering.</td></tr>
+</table>
 
 ### Support
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-|`BUNDLE.SHOW_CUSTOMER_SUPPORT`|Boolean|YES|Displayed in `Settings > Subscriptions` section|
-|`SUPPORT_EMAIL_ADDRESS`|String|support@pressreader.com|Displayed in `Settings > Subscriptions` section|
-|`SUPPORT_PHONE_NUMBER`|String|+1-604-278-4604|Displayed in `Settings > Subscriptions` section|
-|`PRIVACY_POLICY_URL`|String||Privacy policy link|
-|`LEGAL_URL`|String||Terms or Use|
-|`ABOUT_SOCIAL_URLS|Array||<p>List of social media’s links. It’s an array of dictionaries: `[Dictionary<String, String>]`, i.e.<pre><code>[[“Facebook”: “https://facebook.com/mypage“],&#10;[“Twitter”: “https://twitter.com/mypage“],&#10;[“Instagram”: “https://instagram.com/mypage“]]</code><pre>|
-|`support_emails`|Array||Feedback eamail(s). Array of String, i.e.`["support@me.com"]`|
-|`support_email_subject`|String||Feedback email. You can use `{deviceType}` occurrence symbol which will be replaced with the appropriate device type.|
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>BUNDLE.SHOW_CUSTOMER_SUPPORT</td><td>Boolean</td><td>YES</td><td>Displayed in `Settings > Subscriptions` section</td></tr>
+<tr><td>SUPPORT_EMAIL_ADDRESS</td><td>String</td><td>support@pressreader.com</td><td>Displayed in `Settings > Subscriptions` section</td></tr>
+<tr><td>SUPPORT_PHONE_NUMBER</td><td>String</td><td>+1-604-278-4604</td><td>Displayed in `Settings > Subscriptions` section</td></tr>
+<tr><td>PRIVACY_POLICY_URL</td><td>String</td><td></td><td>Privacy policy link</td></tr>
+<tr><td>LEGAL_URL</td><td>String</td><td></td><td>Terms or Use</td></tr>
+<tr><td>ABOUT_SOCIAL_URLS</td><td>Array</td><td></td><td>
+<p>List of social media’s links. It’s an array of dictionaries:</p>
+
+```swift
+[["Facebook": "https://facebook.com/mypage"],
+["Twitter": "https://twitter.com/mypage"],
+["Instagram": "https://instagram.com/mypage"]]
+```
+
+</td></tr>
+<tr><td>support_emails</td><td>Array</td><td></td><td>Feedback eamail(s). Array of String, i.e.`["support@me.com"]`</td></tr>
+<tr><td>support_email_subject</td><td>String</td><td></td><td>Feedback email. You can use `{deviceType}` occurrence symbol which will be replaced with the appropriate device type.</td></tr>
+</table>
 
 ### Tabs
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-|`APP_MENU_ITEMS_ABSENCE`|Number|0 (all available items are visible)|<p>Opting-out app menu items (tabs).<pre><code>typedef NS_OPTIONS(NSUInteger, PRAppMenuItemAbsence) {&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceHome = 1 << 0,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceCatalog = 1 << 1,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceDownloaded = 1 << 2,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceBookmarks = 1 << 3,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceSignIn = 1 << 4,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceHotspots = 1 << 5,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceAccount = 1 << 6,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceSettings = 1 << 7,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceSubscriptions = 1 << 8,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceAbout = 1 << 9,&#10;&nbsp;&nbsp;&nbsp;&nbsp;PRAppMenuItemAbsenceMore = 1 << 10,&#10;};</code></pre>|
-|`SDK_EXIT_BUTTON_TITLE`|String|Dismiss|Title of the Dismiss PressReader menu item. Providing value is actually a localisable string’s key. A host app is responsible for the localisation.|
-|`SDK_EXIT_BUTTON_HIDDEN`|Boolean|NO|Set `YES` to hide exit button. |
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>APP_MENU_ITEMS_ABSENCE</td><td>Number</td><td>0 (all available items are visible)</td><td>
+<p>Opting-out app menu items (tabs).</p>
+
+```swift
+struct PRAppMenuItemAbsence: OptionSet {
+    let rawValue: UInt
+    static let home = PRAppMenuItemAbsence(rawValue: 1 << 0)
+    static let catalog = PRAppMenuItemAbsence(rawValue: 1 << 1)
+    static let downloaded = PRAppMenuItemAbsence(rawValue: 1 << 2)
+    static let bookmarks = PRAppMenuItemAbsence(rawValue: 1 << 3)
+    static let signIn = PRAppMenuItemAbsence(rawValue: 1 << 4)
+    static let hotspots = PRAppMenuItemAbsence(rawValue: 1 << 5)
+    static let account = PRAppMenuItemAbsence(rawValue: 1 << 6)
+    static let settings = PRAppMenuItemAbsence(rawValue: 1 << 7)
+    static let subscriptions = PRAppMenuItemAbsence(rawValue: 1 << 8)
+    static let about = PRAppMenuItemAbsence(rawValue: 1 << 9)
+    static let more = PRAppMenuItemAbsence(rawValue: 1 << 10)
+}
+```
+
+</td></tr>
+<tr><td>SDK_EXIT_BUTTON_TITLE</td><td>String</td><td>Dismiss</td><td>Title of the Dismiss PressReader menu item. Providing value is actually a localisable string’s key. A host app is responsible for the localisation.</td></tr>
+<tr><td>SDK_EXIT_BUTTON_HIDDEN</td><td>Boolean</td><td>NO</td><td>Set `YES` to hide exit button. </td></tr>
+</table>
 
 ### Translation
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-| `TRANSLATE` | Boolean | YES | Enables Article translation feature |
-|`AUTOTRANSLATE_AVAILABILITY` | Number | 0 | <p>Zones where auto translation is available<p>Use 0 value to trun auto translate feature off<p>Auto translation depends on `TRANSLATE` parameter and available only in case regular translation is ON<pre><code class="language-swift">struct AutoTranslationZone: OptionSet {&#10;&nbsp;&nbsp;&nbsp;&nbsp;let rawValue: Int&#10;&#10;&nbsp;&nbsp;&nbsp;&nbsp;public static let downloadedFeed = AutoTranslationZone(rawValue: 1 << 0)&#10;&nbsp;&nbsp;&nbsp;&nbsp;public static let downloadedArticleDetails = AutoTranslationZone(rawValue: 1 << 1)&#10;&nbsp;&nbsp;&nbsp;&nbsp;public static let feed = AutoTranslationZone(rawValue: 1 << 2)&#10;&nbsp;&nbsp;&nbsp;&nbsp;public static let articleDetails = AutoTranslationZone(rawValue: 1 << 3)&#10;}</code></pre>
-| `AUTOTRANSLATE.PAIRS_LIMIT` | Number | 3 | Maximum amount of language pairs which could be saved for auto translation |
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>TRANSLATE</td><td>Boolean</td><td>YES</td><td>Enables Article translation feature</td></tr>
+<tr><td>AUTOTRANSLATE_AVAILABILITY</td><td>Number</td><td>0</td><td>
+<p>Zones where auto translation is available</p>
+<p>Use 0 value to trun auto translate feature off</p>
+<p>Auto translation depends on `TRANSLATE` parameter and available only in case regular translation is ON</p>
+
+```swift
+struct AutoTranslationZone: OptionSet {
+    let rawValue: Int
+
+    public static let downloadedFeed = AutoTranslationZone(rawValue: 1 << 0)
+    public static let downloadedArticleDetails = AutoTranslationZone(rawValue: 1 << 1)
+    public static let feed = AutoTranslationZone(rawValue: 1 << 2)
+    public static let articleDetails = AutoTranslationZone(rawValue: 1 << 3)
+}
+```
+
+</td></tr>
+<tr><td>AUTOTRANSLATE.PAIRS_LIMIT</td><td>Number</td><td>3</td><td>Maximum amount of language pairs which could be saved for auto translation</td></tr>
+</table>
 
 ### User Authorization
-| Parameter | Type | Default value | Description |
-| --- | --- | --- | --- |
-|`DEVICE_ACCOUNT_ONLY`|Boolean|NO|Set `YES` to disable sign-in|
-|`SHOW_SIGNUP`|Boolean|YES|Set `NO`to disable in-app account registration|
-|`EXTERNAL_AUTH_ENABLED`*|Boolean|NO|Set `YES` to enable social sign-in|
+<table>
+<tr align='center'><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+<tr><td>DEVICE_ACCOUNT_ONLY</td><td>Boolean</td><td>NO</td><td>Set `YES` to disable sign-in</td></tr>
+<tr><td>SHOW_SIGNUP</td><td>Boolean</td><td>YES</td><td>Set `NO`to disable in-app account registration</td></tr>
+<tr><td>EXTERNAL_AUTH_ENABLED*</td><td>Boolean</td><td>NO</td><td>
+<p>Set `YES` to enable social sign-in</p>
+<p><em>To activate external (social) auth the following url schemes must be included into the root of the host app’s Info.plist.</em></p>
 
-*To activate external (social) auth the following url schemes must be included into the root of the host app’s Info.plist.
 ```xml
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.614161124286-9krroucmnbmfecvhpup0usbfibort4nf</string>
-				<string>fb110297589138469</string>
-				<string>twitterkit-MiQSaDwkC0Ykr56GQ4el4w</string>
-			</array>
-		</dict>
-	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Viewer</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.614161124286-9krroucmnbmfecvhpup0usbfibort4nf</string>
+                <string>fb110297589138469</string>
+                <string>twitterkit-MiQSaDwkC0Ykr56GQ4el4w</string>
+            </array>
+        </dict>
+    </array>
 ```
-Additionally for the users' convenience you may want to include the following schemes into the root of the host app’s Info.plist to be able to open installed social apps to request a quick login (instead of opening the browser).
+
+<p>Additionally for the users' convenience you may want to include the following schemes into the root of the host app’s Info.plist to be able to open installed social apps to request a quick login (instead of opening the browser).</p>
+
 ```xml
     <key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fb-messenger-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
-		<string>youtube</string>
-		<string>fb</string>
-		<string>twitter</string>
-		<string>twitterauth</string>
-	</array>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+        <string>youtube</string>
+        <string>fb</string>
+        <string>twitter</string>
+        <string>twitterauth</string>
+    </array>
 ```
+
+</td></tr>
+</table>
 
 # Splash Screen
 To customise splash (loading) screen background add `PRSplashBackground` (or `SplashBackground`) image set into assets catalog of your host app.

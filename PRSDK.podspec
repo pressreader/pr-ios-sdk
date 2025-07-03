@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "PRSDK"
-  spec.version      = "7.5.1"
+  spec.version      = "7.6.1"
   spec.summary      = "Pressreader SDK"
   spec.description  = "Set of PressReader frameworks."
 
