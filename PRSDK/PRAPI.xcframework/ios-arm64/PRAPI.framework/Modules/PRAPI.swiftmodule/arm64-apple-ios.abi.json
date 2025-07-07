@@ -47687,8 +47687,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRAnalytics",
+        "printedName": "PRAnalytics",
         "declKind": "Import",
         "moduleName": "PRAPI",
         "declAttributes": [
@@ -47699,6 +47699,118 @@
         "kind": "TypeDecl",
         "name": "AnalyticsTracker",
         "printedName": "AnalyticsTracker",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track(_:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsTrackName",
+                "printedName": "PRAnalytics.PRAnalyticsTrackName",
+                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRAnalyticsTrackParameter",
+                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRAPI@objc(pl)AnalyticsTracker(im)track:parameters:",
+            "mangledName": "$s5PRAPI16AnalyticsTrackerP5track_10parametersySo20PRAnalyticsTrackNamea_SDySo0fG9ParameteraypGSgtF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.AnalyticsTracker>",
+            "sugared_genericSig": "<Self where Self : PRAPI.AnalyticsTracker>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track(_:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRAnalyticsTrackName",
+                "printedName": "PRAnalytics.PRAnalyticsTrackName",
+                "usr": "c:PRAnalyticsTrackName.h@T@PRAnalyticsTrackName"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[PRAnalytics.PRAnalyticsTrackParameter : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRAnalyticsTrackParameter",
+                        "printedName": "PRAnalytics.PRAnalyticsTrackParameter",
+                        "usr": "c:PRAnalyticsTrackParameter.h@T@PRAnalyticsTrackParameter"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI16AnalyticsTrackerPAAE5track_10parametersySo20PRAnalyticsTrackNamea_SDySo0fG9ParameteraypGSgtF",
+            "mangledName": "$s5PRAPI16AnalyticsTrackerPAAE5track_10parametersySo20PRAnalyticsTrackNamea_SDySo0fG9ParameteraypGSgtF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.AnalyticsTracker>",
+            "sugared_genericSig": "<Self where Self : PRAPI.AnalyticsTracker>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
         "declKind": "Protocol",
         "usr": "c:@M@PRAPI@objc(pl)AnalyticsTracker",
         "mangledName": "$s5PRAPI16AnalyticsTrackerP",
@@ -103690,7 +103802,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Analytics\/AnalyticsTrackerProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 286,
+      "offset": 487,
       "length": 2,
       "value": "\"\""
     },

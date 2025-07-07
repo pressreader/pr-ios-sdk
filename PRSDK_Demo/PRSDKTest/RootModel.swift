@@ -281,3 +281,11 @@ extension RootModel: ReadingViewAnalyticsTracker {
 //    func trackPrintedPages(issue: TrackingIssue, isFullPage: Bool, pageNumbers: [Int]) {}
 //    func trackPrintedArticle(issue: TrackingIssue, article: TrackingArticle, inReplicaPresentation: Bool) {}
 }
+
+extension RootModel: AnalyticsTracker {
+    func track(_ name: PRAnalyticsTrackName,
+               parameters: AnalyticsParameters?)
+    {
+        print("pr-analytics: \(name.rawValue)")
+    }
+}
