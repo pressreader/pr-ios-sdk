@@ -644,6 +644,14 @@ SWIFT_CLASS("_TtC15PRConfiguration19DeviceAccountConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSURL;
+SWIFT_CLASS("_TtC15PRConfiguration31DirectExternalLinkAccountConfig")
+@interface DirectExternalLinkAccountConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly, copy) NSURL * _Nullable link;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM(NSInteger, ExternalAuthType, open) {
   ExternalAuthTypeWebView = 0,
   ExternalAuthTypeWebSession = 1,
@@ -1083,6 +1091,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) HotSpotConfi
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AppInfoConfig * _Nonnull appInfoConfig;)
 + (AppInfoConfig * _Nonnull)appInfoConfig SWIFT_WARN_UNUSED_RESULT;
 + (void)setAppInfoConfig:(AppInfoConfig * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DirectExternalLinkAccountConfig * _Nonnull directExternalLinkAccountConfig;)
++ (DirectExternalLinkAccountConfig * _Nonnull)directExternalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL showTestServer;)
 + (BOOL)showTestServer SWIFT_WARN_UNUSED_RESULT;
 + (void)setShowTestServer:(BOOL)newValue;

@@ -487,7 +487,7 @@ SWIFT_CLASS("_TtC4PRUI15ArticleSearchVC")
 - (void)viewDidLoad;
 - (void)setupTextFlowUIStyle;
 - (void)loadMoreItemsToTheEnd:(void (^ _Nullable)(void))completion;
-- (void)presentDetailsVCForArticle:(id <NTFArticle> _Nonnull)item completion:(void (^ _Nullable)(UIViewController * _Nonnull))completion;
+- (void)presentDetailsVCForArticle:(id <NTFArticle> _Nonnull)item completion:(void (^ _Nullable)(UIViewController * _Nullable))completion;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)refreshContentWithReason:(NTFFeedDataSourceRefreshReason)reason;
