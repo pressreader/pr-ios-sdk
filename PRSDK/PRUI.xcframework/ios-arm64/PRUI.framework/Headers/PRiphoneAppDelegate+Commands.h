@@ -30,11 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)openArticleWithId:(NSString *)articleId
                parameters:(nullable NSDictionary *)parameters
-        completionHandler:(void(^_Nullable)(void))completionHandler
+        completionHandler:(void(^_Nullable)(UIViewController *_Nullable))completionHandler
 NS_SWIFT_NAME(openArticle(id:parameters:completionHandler:));
 
 - (void)openArticleWithId:(NSString *)articleId
-        completionHandler:(void(^_Nullable)(void))completionHandler
+        completionHandler:(void(^_Nullable)(UIViewController *_Nullable))completionHandler
 NS_SWIFT_NAME(openArticle(id:completionHandler:));
 
 - (BOOL)openArticle:(nullable id<NTFArticle>)article

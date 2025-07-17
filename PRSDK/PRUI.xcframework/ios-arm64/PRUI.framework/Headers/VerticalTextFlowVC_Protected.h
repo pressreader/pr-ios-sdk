@@ -63,7 +63,7 @@ typedef NS_OPTIONS(NSUInteger, VerticalTextFlowVCPreference) {
 - (void)fontSliderValueChanged:(UISlider *)slider;
 
 - (void)presentDetailsVCForArticle:(id<NTFArticle>)item
-                        completion:(void(^_Nullable)(UIViewController *))completion NS_SWIFT_NAME(presentDetailsVC(article:completion:));
+                        completion:(void(^_Nullable)(UIViewController *_Nullable))completion NS_SWIFT_NAME(presentDetailsVC(article:completion:));
 
 - (void)refreshBottomBar;
 - (void)processSizeChange;

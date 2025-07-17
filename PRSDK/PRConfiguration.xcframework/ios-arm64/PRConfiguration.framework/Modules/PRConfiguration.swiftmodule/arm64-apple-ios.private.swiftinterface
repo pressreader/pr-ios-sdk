@@ -212,6 +212,16 @@ extension PRConfiguration.PRCatalogConfig {
   }
   public func isModernAPISupported(by section: PRConfiguration.PRCatalogSectionType) -> Swift.Bool
 }
+@objc @_inheritsConvenienceInitializers @objcMembers public class DirectExternalLinkAccountConfig : ObjectiveC.NSObject {
+  @objc public var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc public var link: Foundation.URL? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class RadioConfig : ObjectiveC.NSObject {
   @objc final public var featured: PRConfiguration.FeaturedRadioConfig? {
     @objc get
@@ -806,6 +816,7 @@ extension PRConfiguration.PRConfig {
   public static let appsFlyer: PRConfiguration.AppsFlyerConfig
   @objc(appInfoConfig) public static var appInfo: PRConfiguration.AppInfoConfig
   public static let braze: PRConfiguration.BrazeConfig
+  @objc(directExternalLinkAccountConfig) public static let directExternalLinkAccount: PRConfiguration.DirectExternalLinkAccountConfig
   @objc public static var showTestServer: Swift.Bool {
     @objc get
     @objc set

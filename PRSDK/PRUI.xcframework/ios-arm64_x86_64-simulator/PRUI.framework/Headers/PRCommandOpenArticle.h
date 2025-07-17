@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^PRCommandOpenArticleCompletion)(UIViewController *);
+typedef void(^PRCommandOpenArticleCompletion)(UIViewController *_Nullable);
 
 @interface PRCommandOpenArticle : NSObject
 
