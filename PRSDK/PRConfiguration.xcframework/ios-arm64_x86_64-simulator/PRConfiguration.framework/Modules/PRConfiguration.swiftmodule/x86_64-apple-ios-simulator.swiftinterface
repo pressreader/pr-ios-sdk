@@ -704,23 +704,6 @@ extension Foundation.Bundle {
     @objc get
   }
 }
-extension Foundation.UserDefaults {
-  @objc(sharedUserDefaults) dynamic public class var shared: Foundation.UserDefaults? {
-    @objc get
-  }
-  @objc dynamic public var accessToken: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var baseServices: [Swift.String : Any]? {
-    @objc get
-    @objc set
-  }
-  public var deepLinkScheme: Swift.String? {
-    get
-    set
-  }
-}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class CancellationAdvisoryConfig : ObjectiveC.NSObject {
   @objc final public var isEnabled: Swift.Bool {
     @objc get
@@ -794,6 +777,7 @@ extension Foundation.UserDefaults {
   @objc deinit
 }
 extension PRConfiguration.PRConfig {
+  @objc public static let networking: PRConfiguration.NetworkingConfig
   @objc(externalLinkAccountConfig) @PRDIContainer.Inject public static var externalLinkAccount: PRConfiguration.ExternalLinkAccountConfig? {
     @objc get
   }
@@ -832,6 +816,9 @@ extension PRConfiguration.PRConfig {
   public static func string(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.String? = nil) -> Swift.String?
   public static func string(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.String) -> Swift.String
   public static func set(_ value: Swift.String?, forKey key: PRConfiguration.PRConfigKey)
+  public static func dictionary(forKey key: PRConfiguration.PRConfigKey, defaultValue: [Swift.String : Any]? = nil) -> [Swift.String : Any]?
+  public static func set(_ value: [Swift.String : Any]?, forKey key: PRConfiguration.PRConfigKey)
+  public static func reset(forKey key: PRConfiguration.PRConfigKey)
 }
 extension PRConfiguration.PRConfig {
   @objc(adConfig) @PRDIContainer.Inject public static var ads: PRConfiguration.AdConfig? {
@@ -1034,6 +1021,23 @@ public enum WidgetKind : Swift.String, Swift.Codable, Swift.CaseIterable {
   @objc override dynamic public init()
   @objc deinit
 }
+extension Foundation.UserDefaults {
+  @objc(sharedUserDefaults) dynamic public class var shared: Foundation.UserDefaults? {
+    @objc get
+  }
+  @objc dynamic public var accessToken: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var baseServices: [Swift.String : Any]? {
+    @objc get
+    @objc set
+  }
+  public var deepLinkScheme: Swift.String? {
+    get
+    set
+  }
+}
 @objc extension Foundation.NSLocale {
   @objc dynamic public func languageName(isoCode: Swift.String) -> Swift.String?
   @objc public static func hasCountry(forLocaleIdentifier localeIdentifier: Swift.String) -> Swift.Bool
@@ -1174,6 +1178,36 @@ extension Foundation.Locale {
   }
   @objc override dynamic public init()
   @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class NetworkingConfig : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension PRConfiguration.NetworkingConfig {
+  @objc final public var testServiceURL: Swift.String {
+    @objc get
+  }
+  @objc final public var devServiceURL: Swift.String {
+    @objc get
+  }
+  @objc final public var imageDownloadURL: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc final public var imageUploadURL: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc final public var manageAccountURL: Swift.String {
+    @objc get
+  }
+  @objc final public var shouldDownloadOnWiFiOnly: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc final public var shouldAlertBeforeDownloadViaWWAN: Swift.Bool {
+    @objc get
+  }
 }
 extension PRConfiguration.PRConfig {
   public static var deallocAlertClasses: [Swift.String] {

@@ -922,6 +922,22 @@ SWIFT_CLASS("_TtC15PRConfiguration18MigrationConfigKey")
 @property (nonatomic, readonly, copy) NSString * _Nonnull validatedLanguageIdentifier;
 @end
 
+SWIFT_CLASS("_TtC15PRConfiguration16NetworkingConfig")
+@interface NetworkingConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface NetworkingConfig (SWIFT_EXTENSION(PRConfiguration))
+@property (nonatomic, readonly, copy) NSString * _Nonnull testServiceURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull devServiceURL;
+@property (nonatomic, copy) NSString * _Nonnull imageDownloadURL;
+@property (nonatomic, copy) NSString * _Nonnull imageUploadURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull manageAccountURL;
+@property (nonatomic) BOOL shouldDownloadOnWiFiOnly;
+/// When this parameter is YES, we show alert each time when user tries download some title via WWAN
+@property (nonatomic, readonly) BOOL shouldAlertBeforeDownloadViaWWAN;
+@end
+
 SWIFT_CLASS("_TtC15PRConfiguration12OAuth2Config")
 @interface OAuth2Config : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1076,6 +1092,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL requestCachesDi
 
 @class PrintConfig;
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NetworkingConfig * _Nonnull networking;)
++ (NetworkingConfig * _Nonnull)networking SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ExternalLinkAccountConfig * _Nullable externalLinkAccountConfig;)
 + (ExternalLinkAccountConfig * _Nullable)externalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfig * _Nullable migrationConfig;)
@@ -2294,6 +2312,22 @@ SWIFT_CLASS("_TtC15PRConfiguration18MigrationConfigKey")
 @property (nonatomic, readonly, copy) NSString * _Nonnull validatedLanguageIdentifier;
 @end
 
+SWIFT_CLASS("_TtC15PRConfiguration16NetworkingConfig")
+@interface NetworkingConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface NetworkingConfig (SWIFT_EXTENSION(PRConfiguration))
+@property (nonatomic, readonly, copy) NSString * _Nonnull testServiceURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull devServiceURL;
+@property (nonatomic, copy) NSString * _Nonnull imageDownloadURL;
+@property (nonatomic, copy) NSString * _Nonnull imageUploadURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull manageAccountURL;
+@property (nonatomic) BOOL shouldDownloadOnWiFiOnly;
+/// When this parameter is YES, we show alert each time when user tries download some title via WWAN
+@property (nonatomic, readonly) BOOL shouldAlertBeforeDownloadViaWWAN;
+@end
+
 SWIFT_CLASS("_TtC15PRConfiguration12OAuth2Config")
 @interface OAuth2Config : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -2448,6 +2482,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL requestCachesDi
 
 @class PrintConfig;
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NetworkingConfig * _Nonnull networking;)
++ (NetworkingConfig * _Nonnull)networking SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ExternalLinkAccountConfig * _Nullable externalLinkAccountConfig;)
 + (ExternalLinkAccountConfig * _Nullable)externalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfig * _Nullable migrationConfig;)

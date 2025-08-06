@@ -15286,16 +15286,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "PRConfiguration",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "PRSyntacticSugar",
         "printedName": "PRSyntacticSugar",
         "declKind": "Import",
@@ -21250,6 +21240,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "FirebaseAnalyticsConfig",
         "printedName": "FirebaseAnalyticsConfig",
@@ -23536,6 +23536,606 @@
           "AccessControl",
           "ObjCMembers",
           "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NetworkingConfig",
+        "printedName": "NetworkingConfig",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NetworkingConfig",
+                "printedName": "PRConfiguration.NetworkingConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)NetworkingConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRConfiguration@objc(cs)NetworkingConfig(im)init",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigCACycfc",
+            "moduleName": "PRConfiguration",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "testServiceURL",
+            "printedName": "testServiceURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(py)testServiceURL",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigC14testServiceURLSSvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)testServiceURL",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC14testServiceURLSSvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "devServiceURL",
+            "printedName": "devServiceURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(py)devServiceURL",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigC13devServiceURLSSvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)devServiceURL",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC13devServiceURLSSvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "imageDownloadURL",
+            "printedName": "imageDownloadURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(py)imageDownloadURL",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigC16imageDownloadURLSSvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)imageDownloadURL",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC16imageDownloadURLSSvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)setImageDownloadURL:",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC16imageDownloadURLSSvs",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration16NetworkingConfigC16imageDownloadURLSSvM",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC16imageDownloadURLSSvM",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "imageUploadURL",
+            "printedName": "imageUploadURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(py)imageUploadURL",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigC14imageUploadURLSSvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)imageUploadURL",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC14imageUploadURLSSvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)setImageUploadURL:",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC14imageUploadURLSSvs",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration16NetworkingConfigC14imageUploadURLSSvM",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC14imageUploadURLSSvM",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "manageAccountURL",
+            "printedName": "manageAccountURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(py)manageAccountURL",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigC16manageAccountURLSSvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)manageAccountURL",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC16manageAccountURLSSvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "shouldDownloadOnWiFiOnly",
+            "printedName": "shouldDownloadOnWiFiOnly",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(py)shouldDownloadOnWiFiOnly",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigC24shouldDownloadOnWiFiOnlySbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)shouldDownloadOnWiFiOnly",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC24shouldDownloadOnWiFiOnlySbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)setShouldDownloadOnWiFiOnly:",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC24shouldDownloadOnWiFiOnlySbvs",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15PRConfiguration16NetworkingConfigC24shouldDownloadOnWiFiOnlySbvM",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC24shouldDownloadOnWiFiOnlySbvM",
+                "moduleName": "PRConfiguration",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "shouldAlertBeforeDownloadViaWWAN",
+            "printedName": "shouldAlertBeforeDownloadViaWWAN",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(py)shouldAlertBeforeDownloadViaWWAN",
+            "mangledName": "$s15PRConfiguration16NetworkingConfigC32shouldAlertBeforeDownloadViaWWANSbvp",
+            "moduleName": "PRConfiguration",
+            "declAttributes": [
+              "Final",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@objc(cs)NetworkingConfig(im)shouldAlertBeforeDownloadViaWWAN",
+                "mangledName": "$s15PRConfiguration16NetworkingConfigC32shouldAlertBeforeDownloadViaWWANSbvg",
+                "moduleName": "PRConfiguration",
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRConfiguration@objc(cs)NetworkingConfig",
+        "mangledName": "$s15PRConfiguration16NetworkingConfigC",
+        "moduleName": "PRConfiguration",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "inheritsConvenienceInitializers": true,
@@ -29498,6 +30098,61 @@
           },
           {
             "kind": "Var",
+            "name": "networking",
+            "printedName": "networking",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NetworkingConfig",
+                "printedName": "PRConfiguration.NetworkingConfig",
+                "usr": "c:@M@PRConfiguration@objc(cs)NetworkingConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cpy)networking",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE10networkingAC16NetworkingConfigCvpZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NetworkingConfig",
+                    "printedName": "PRConfiguration.NetworkingConfig",
+                    "usr": "c:@M@PRConfiguration@objc(cs)NetworkingConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRConfiguration@@objc(cs)PRConfig(cm)networking",
+                "mangledName": "$sSo8PRConfigC15PRConfigurationE10networkingAC16NetworkingConfigCvgZ",
+                "moduleName": "PRConfiguration",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "externalLinkAccount",
             "printedName": "externalLinkAccount",
             "children": [
@@ -29525,8 +30180,7 @@
             "declAttributes": [
               "Final",
               "Custom",
-              "ObjC",
-              "RawDocComment"
+              "ObjC"
             ],
             "isFromExtension": true,
             "accessors": [
@@ -30668,6 +31322,167 @@
             "declKind": "Func",
             "usr": "s:So8PRConfigC15PRConfigurationE3set_6forKeyySSSg_AC0aE0CtFZ",
             "mangledName": "$sSo8PRConfigC15PRConfigurationE3set_6forKeyySSSg_AC0aE0CtFZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dictionary",
+            "printedName": "dictionary(forKey:defaultValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So8PRConfigC15PRConfigurationE10dictionary6forKey12defaultValueSDySSypGSgAC0aE0C_AHtFZ",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE10dictionary6forKey12defaultValueSDySSypGSgAC0aE0C_AHtFZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "set",
+            "printedName": "set(_:forKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So8PRConfigC15PRConfigurationE3set_6forKeyySDySSypGSg_AC0aE0CtFZ",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE3set_6forKeyySDySSypGSg_AC0aE0CtFZ",
+            "moduleName": "PRConfiguration",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reset",
+            "printedName": "reset(forKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRConfigKey",
+                "printedName": "PRConfiguration.PRConfigKey",
+                "usr": "c:@M@PRConfiguration@objc(cs)PRConfigKey"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So8PRConfigC15PRConfigurationE5reset6forKeyyAC0aE0C_tFZ",
+            "mangledName": "$sSo8PRConfigC15PRConfigurationE5reset6forKeyyAC0aE0C_tFZ",
             "moduleName": "PRConfiguration",
             "static": true,
             "declAttributes": [
@@ -33034,1213 +33849,1227 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2900,
+      "offset": 2942,
       "length": 24,
       "value": "\"radio_featured_enabled\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 2965,
+      "offset": 3007,
       "length": 23,
       "value": "\"RADIO.FEATURED.LOCALE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3035,
+      "offset": 3077,
       "length": 30,
       "value": "\"RADIO.FEATURED.ARTICLE_COUNT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3118,
+      "offset": 3160,
       "length": 37,
       "value": "\"RADIO.FEATURED.ARTICLE_SEARCH_DEPTH\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3202,
+      "offset": 3244,
       "length": 30,
       "value": "\"RADIO.FEATURED.SHOW_DURATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3323,
+      "offset": 3365,
       "length": 24,
       "value": "\"auto_translation_flows\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3399,
+      "offset": 3441,
       "length": 27,
       "value": "\"AUTOTRANSLATE.PAIRS_LIMIT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3504,
+      "offset": 3546,
       "length": 25,
       "value": "\"REQUEST_SIMULATION.BASE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3566,
+      "offset": 3608,
       "length": 23,
       "value": "\"REQUEST_SIMULATION.DQ\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3697,
+      "offset": 3739,
       "length": 29,
       "value": "\"APP_MENU.CATALOG_PANEL_MODE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3773,
+      "offset": 3815,
       "length": 19,
       "value": "\"initial_app_panel\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3896,
+      "offset": 3938,
       "length": 22,
       "value": "\"ONBOARDING_SUPPORTED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 3961,
+      "offset": 4003,
       "length": 21,
       "value": "\"ONBOARDING.DEFERRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4043,
+      "offset": 4085,
       "length": 45,
       "value": "\"ONBOARDING.TRIAL_SUBSCRIPTION_INTRO.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4137,
+      "offset": 4179,
       "length": 29,
       "value": "\"ONBOARDING.SIGN_IN.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4305,
+      "offset": 4347,
       "length": 40,
       "value": "\"ONBOARDING.PUBLICATIONS.SEARCH.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4542,
+      "offset": 4584,
       "length": 24,
       "value": "\"HOME.DISPLAY_FAVORITES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4609,
+      "offset": 4651,
       "length": 28,
       "value": "\"HOME.SOURCES_VIEW_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4683,
+      "offset": 4725,
       "length": 43,
       "value": "\"BE_HOME_FEED_AMOUNT_OF_ISSUES_IN_SCROLLER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4801,
+      "offset": 4843,
       "length": 22,
       "value": "\"HOME.FEED.NAVIGATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 4960,
+      "offset": 5002,
       "length": 45,
       "value": "\"HOME.FEED.RELATED_ARTICLES.THUMBNAIL.ENABLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5160,
+      "offset": 5202,
       "length": 38,
       "value": "\"CATALOG.PRESSCATALOG.UPDATE_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5270,
+      "offset": 5312,
       "length": 38,
       "value": "\"CATALOG.THUMBNAIL.STRETCHING.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5364,
+      "offset": 5406,
       "length": 21,
       "value": "\"SHOW_FREE_INDICATOR\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5446,
+      "offset": 5488,
       "length": 39,
       "value": "\"CATALOG.MODERN_API.SUPPORTED_SECTIONS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5560,
+      "offset": 5602,
       "length": 23,
       "value": "\"CATALOG.BOOKS.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5686,
+      "offset": 5728,
       "length": 22,
       "value": "\"PUBHUB_BANNERS_ORDER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5817,
+      "offset": 5859,
       "length": 20,
       "value": "\"DISABLE_FULLSCREEN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 5892,
+      "offset": 5934,
       "length": 31,
       "value": "\"READER.EXTERNAL_LINKS.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6027,
+      "offset": 6069,
       "length": 30,
       "value": "\"BUNDLE.SHOW_CUSTOMER_SUPPORT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6097,
+      "offset": 6139,
       "length": 23,
       "value": "\"SUPPORT_EMAIL_ADDRESS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6161,
+      "offset": 6203,
       "length": 16,
       "value": "\"support_emails\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6217,
+      "offset": 6259,
       "length": 22,
       "value": "\"SUPPORT_PHONE_NUMBER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6290,
+      "offset": 6332,
       "length": 20,
       "value": "\"PRIVACY_POLICY_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6358,
+      "offset": 6400,
       "length": 11,
       "value": "\"LEGAL_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6419,
+      "offset": 6461,
       "length": 19,
       "value": "\"COOKIE_POLICY_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6494,
+      "offset": 6536,
       "length": 25,
       "value": "\"MANAGE_SUBSCRIPTION_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6579,
+      "offset": 6621,
       "length": 41,
       "value": "\"CUSTOMER_SUPPORT.FEEDBACK_QUESTION.HIDE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6729,
+      "offset": 6771,
       "length": 23,
       "value": "\"FONT.ENABLE_SWIZZLING\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6795,
+      "offset": 6837,
       "length": 11,
       "value": "\"FONT.MAIN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6853,
+      "offset": 6895,
       "length": 16,
       "value": "\"FONT.MAIN_BOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6917,
+      "offset": 6959,
       "length": 16,
       "value": "\"FONT.SECONDARY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 6985,
+      "offset": 7027,
       "length": 21,
       "value": "\"FONT.SECONDARY_BOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 7041,
+      "offset": 7083,
       "length": 19,
       "value": "\"FONT.FEED_SECTION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "BooleanLiteral",
-      "offset": 7406,
+      "offset": 7448,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "BooleanLiteral",
-      "offset": 7678,
+      "offset": 7720,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8191,
+      "offset": 8233,
       "length": 18,
       "value": "\"LOCAL_SERVER_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8286,
+      "offset": 8328,
       "length": 59,
       "value": "\"OFFLINE_MODE_CLEAN_DOWNLOADED_ITEMS_AFTER_DEAUTHORIZATION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8543,
+      "offset": 8585,
       "length": 24,
       "value": "\"ANALYTICS.USER.ID_TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8685,
+      "offset": 8727,
       "length": 33,
       "value": "\"ANALYTICS.REPLICA_PAGE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 8927,
+      "offset": 8969,
       "length": 34,
       "value": "\"ANALYTICS.READING.FRAME.DEBOUNCE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9018,
+      "offset": 9060,
       "length": 44,
       "value": "\"ANALYTICS.READING.FRAME.DURATION_THRESHOLD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9177,
+      "offset": 9219,
       "length": 36,
       "value": "\"LIBRARY.BOOK.OFFLINE_ACCESS_PERIOD\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9264,
+      "offset": 9306,
       "length": 28,
       "value": "\"LIBRARY.KEEP_EXPIRED_ITEMS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9348,
+      "offset": 9390,
       "length": 33,
       "value": "\"LIBRARY.RENEWABLE_ISSUE_LICENSE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9439,
+      "offset": 9481,
       "length": 37,
       "value": "\"LIBRARY.MY_LIBRARY_TITLE_STRING_KEY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9531,
+      "offset": 9573,
       "length": 33,
       "value": "\"LIBRARY.MODERN_FEED_API.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9669,
+      "offset": 9711,
       "length": 24,
       "value": "\"MIGRATION.BOOK.LIBRARY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9748,
+      "offset": 9790,
       "length": 34,
       "value": "\"MIGRATION.BOOK.READING_POSITIONS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9893,
+      "offset": 9935,
       "length": 23,
       "value": "\"TREASURE_DATA_API_KEY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 9959,
+      "offset": 10001,
       "length": 29,
       "value": "\"TREASURE_DATA_DATABASE_NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10028,
+      "offset": 10070,
       "length": 26,
       "value": "\"TREASURE_DATA_TABLE_NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10165,
+      "offset": 10207,
       "length": 32,
       "value": "\"ANALYTICS.FIREBASE.USER_ID_KEY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10303,
+      "offset": 10345,
       "length": 33,
       "value": "\"ANALYTICS.SPOOR.SERVER.BASE_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10480,
+      "offset": 10522,
       "length": 50,
       "value": "\"ANALYTICS.MARFEEL.USER_TYPE.USER_ACCESS_4_BUNDLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10652,
+      "offset": 10694,
       "length": 19,
       "value": "\"APPSFLYER.DEV_KEY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10756,
+      "offset": 10798,
       "length": 32,
       "value": "\"APPSFLYER.ONELINK.BRAND_DOMAIN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10837,
+      "offset": 10879,
       "length": 31,
       "value": "\"APPSFLYER.ONELINK.TEMPLATE_ID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 10984,
+      "offset": 11026,
       "length": 35,
       "value": "\"APPSFLYER.ONELINK.SHARING.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11072,
+      "offset": 11114,
       "length": 47,
       "value": "\"APPSFLYER.ONELINK.SHARING.SHARING.DESKTOP_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11246,
+      "offset": 11288,
       "length": 13,
       "value": "\"iTunesAppId\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11474,
+      "offset": 11516,
       "length": 34,
       "value": "\"SPLASH_SCREEN.POWERED_BY.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11590,
+      "offset": 11632,
       "length": 37,
       "value": "\"SPLASH_SCREEN.ANIMATED_LOGO.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11673,
+      "offset": 11715,
       "length": 37,
       "value": "\"SPLASH_SCREEN.ANIMATED_LOGO.SPECIAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11757,
+      "offset": 11799,
       "length": 38,
       "value": "\"SPLASH_SCREEN.ANIMATED_LOGO.PROGRESS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 11957,
+      "offset": 11999,
       "length": 23,
       "value": "\"SEARCH.GLOBAL.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12044,
+      "offset": 12086,
       "length": 46,
       "value": "\"SEARCH.GLOBAL.STORIES.ONGOING_SEARCH.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12237,
+      "offset": 12279,
       "length": 23,
       "value": "\"ORDER.FOLLOW.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12312,
+      "offset": 12354,
       "length": 39,
       "value": "\"ORDER_READWITHPREMIUM_BUTTON_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12429,
+      "offset": 12471,
       "length": 54,
       "value": "\"ORDER_READWITHPREMIUM_BUTTON_PRESENTED_EVENT_ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12607,
+      "offset": 12649,
       "length": 52,
       "value": "\"ORDER.LOW_CREDITS_ALERT.REAPPEARANCE_TIME_INTERVAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12707,
+      "offset": 12749,
       "length": 35,
       "value": "\"SHOW_REMAINING_FREE_ISSUES_NOTICE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12790,
+      "offset": 12832,
       "length": 34,
       "value": "\"ORDER.LOW_CREDITS.ADVICE.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 12936,
+      "offset": 12978,
       "length": 31,
       "value": "\"CANCELLATION_ADVISORY.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13069,
+      "offset": 13111,
       "length": 20,
       "value": "\"AUTHORIZATION.TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13133,
+      "offset": 13175,
       "length": 25,
       "value": "\"AUTHORIZATION.FREQUENCY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13206,
+      "offset": 13248,
       "length": 30,
       "value": "\"AUTHORIZATION.FREQUENCY_DAYS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13283,
+      "offset": 13325,
       "length": 30,
       "value": "\"AUTHORIZATION.WEB_VIEW.CLEAN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13364,
+      "offset": 13406,
       "length": 34,
       "value": "\"AUTHORIZATION.EXTERNAL_AUTH.TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13620,
+      "offset": 13662,
       "length": 31,
       "value": "\"AUTHORIZATION.AUTH0.CLIENT_ID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13696,
+      "offset": 13738,
       "length": 28,
       "value": "\"AUTHORIZATION.AUTH0.DOMAIN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13773,
+      "offset": 13815,
       "length": 34,
       "value": "\"AUTHORIZATION.AUTH0.USE_ID_TOKEN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13893,
+      "offset": 13935,
       "length": 17,
       "value": "\"FACEBOOK_APP_ID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 13960,
+      "offset": 14002,
       "length": 23,
       "value": "\"FACEBOOK_CLIENT_TOKEN\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14067,
+      "offset": 14109,
       "length": 15,
       "value": "\"GOOGLE_APP_ID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14172,
+      "offset": 14214,
       "length": 35,
       "value": "\"AUTHORIZATION.OAUTH2.CONSUMER_KEY\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14258,
+      "offset": 14300,
       "length": 36,
       "value": "\"AUTHORIZATION.OAUTH2.AUTHORIZE_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14338,
+      "offset": 14380,
       "length": 28,
       "value": "\"AUTHORIZATION.OAUTH2.SCOPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14413,
+      "offset": 14455,
       "length": 32,
       "value": "\"AUTHORIZATION.OAUTH2.TOKEN_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14496,
+      "offset": 14538,
       "length": 36,
       "value": "\"AUTHORIZATION.OAUTH2.PROVIDER_NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14653,
+      "offset": 14695,
       "length": 33,
       "value": "\"ARTICLE.PREVIEW.NUMBER_OF_LINES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 14741,
+      "offset": 14783,
       "length": 33,
       "value": "\"ARTICLE.PREVIEW.TEXT.COLOR.DARK\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15031,
+      "offset": 15073,
       "length": 26,
       "value": "\"ARTICLE.MASTHEAD.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15137,
+      "offset": 15179,
       "length": 22,
       "value": "\"ARTICLE.TAGS.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15242,
+      "offset": 15284,
       "length": 25,
       "value": "\"ARTICLE.RELATED.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15363,
+      "offset": 15405,
       "length": 40,
       "value": "\"ARTICLE.DETAILS.BACKGROUND_COLOR.LIGHT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15460,
+      "offset": 15502,
       "length": 38,
       "value": "\"ARTICLE.DETAILS.TITLE.TEXT_ALIGNMENT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15550,
+      "offset": 15592,
       "length": 32,
       "value": "\"ARTICLE.DETAILS.TEXT_ALIGNMENT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15637,
+      "offset": 15679,
       "length": 28,
       "value": "\"ARTICLE.POPUP_VIEW_ALLOWED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15724,
+      "offset": 15766,
       "length": 41,
       "value": "\"ARTICLE.DETAILS.BYLINE.TEXT_COLOR.LIGHT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 15968,
+      "offset": 16010,
       "length": 54,
       "value": "\"ARTICLE.DETAILS.PREFERRED_IMAGE.LARGE_LAYOUT.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16174,
+      "offset": 16216,
       "length": 51,
       "value": "\"ARTICLE.DETAILS.PREFERRED_IMAGE.CAPTION.ALIGNMENT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16285,
+      "offset": 16327,
       "length": 57,
       "value": "\"ARTICLE.DETAILS.PREFERRED_IMAGE.CAPTION.NUMBER_OF_LINES\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16460,
+      "offset": 16502,
       "length": 35,
       "value": "\"ARTICLE.DETAILS.TITLE_COLOR.LIGHT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16551,
+      "offset": 16593,
       "length": 38,
       "value": "\"ARTICLE.DETAILS.TITLE.TEXT_ALIGNMENT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16692,
+      "offset": 16734,
       "length": 33,
       "value": "\"ARTICLE.BYLINE.TEXT_COLOR.LIGHT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16777,
+      "offset": 16819,
       "length": 32,
       "value": "\"ARTICLE.BYLINE.TEXT_COLOR.DARK\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16906,
+      "offset": 16948,
       "length": 10,
       "value": "\"ADS.TYPE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 16967,
+      "offset": 17009,
       "length": 34,
       "value": "\"ADVERTISEMENT_DISPLAY_ENABLED_V2\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17050,
+      "offset": 17092,
       "length": 18,
       "value": "\"ADS.HTML.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17139,
+      "offset": 17181,
       "length": 17,
       "value": "\"COBRANDING.AREA\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17239,
+      "offset": 17281,
       "length": 31,
       "value": "\"EXTERNAL_LINK_ACCOUNT.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17318,
+      "offset": 17360,
       "length": 38,
       "value": "\"EXTERNAL_LINK_ACCOUNT.DEVELOPER_NAME\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17442,
+      "offset": 17484,
       "length": 35,
       "value": "\"DIRECT_EXTERNAL_LINK_ACCOUNT.LINK\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17558,
+      "offset": 17600,
       "length": 30,
       "value": "\"IAP.SAVE_MONEY_TEXT_DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17643,
+      "offset": 17685,
       "length": 28,
       "value": "\"PRIAP_LOCAL_DECODE_RECEIPT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17718,
+      "offset": 17760,
       "length": 19,
       "value": "\"IAP.SORTING_ORDER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17792,
+      "offset": 17834,
       "length": 28,
       "value": "\"IAP.SELECT_PRODUCT.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17870,
+      "offset": 17912,
       "length": 22,
       "value": "\"IAP.ACCOUNT.REQUIRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 17941,
+      "offset": 17983,
       "length": 21,
       "value": "\"IAP.RESTORE_VERSION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18012,
+      "offset": 18054,
       "length": 22,
       "value": "\"IAP.RESTORED_VERSION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18119,
+      "offset": 18161,
       "length": 33,
       "value": "\"ATT.PERMISSION_REQUEST.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18222,
+      "offset": 18264,
       "length": 16,
       "value": "\"SHARE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18288,
+      "offset": 18330,
       "length": 24,
       "value": "\"SHARE.ARTICLE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18359,
+      "offset": 18401,
       "length": 21,
       "value": "\"SHARE.PAGE.DISABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18489,
+      "offset": 18531,
       "length": 31,
       "value": "\"UI_STYLE.LOGO.ALWAYS_ORIGINAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18575,
+      "offset": 18617,
       "length": 20,
       "value": "\"UI_STYLE.PREFERRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18638,
+      "offset": 18680,
       "length": 20,
       "value": "\"UI_STYLE.TEXT_FLOW\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18707,
+      "offset": 18749,
       "length": 26,
       "value": "\"UI_STYLE.ARTICLE_DETAILS\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18784,
+      "offset": 18826,
       "length": 28,
       "value": "\"UI_STYLE.SELECTION.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 18871,
+      "offset": 18913,
       "length": 38,
       "value": "\"UI_STYLE.TEXT_FLOW.SELECTION.ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19101,
+      "offset": 19143,
       "length": 56,
       "value": "\"EBOOK.READER.PURCHASE_SUGGESTION.TRIGGER_PAGE_FROM_END\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19231,
+      "offset": 19273,
       "length": 31,
       "value": "\"EBOOK.READER.LOCATION_DIVIDER\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19316,
+      "offset": 19358,
       "length": 32,
       "value": "\"EBOOK.READER.FONT.SIZE.DEFAULT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19408,
+      "offset": 19450,
       "length": 36,
       "value": "\"EBOOK.READER.COPY_BUTTON.AVAILABLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19510,
+      "offset": 19552,
       "length": 44,
       "value": "\"EBOOK.READER.LOOKUP.MAX_WORDS_IN_SELECTION\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19615,
+      "offset": 19657,
       "length": 37,
       "value": "\"EBOOK.READER.TEXT_SPACING.AVAILABLE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19854,
+      "offset": 19896,
       "length": 22,
       "value": "\"enable_page_printing\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 19928,
+      "offset": 19970,
       "length": 28,
       "value": "\"PRINT.PAGE.LIMIT_PER_ISSUE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20004,
+      "offset": 20046,
       "length": 23,
       "value": "\"PRINT.PAGE.USE_BITMAP\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20077,
+      "offset": 20119,
       "length": 25,
       "value": "\"PRINT.PAGE.BITMAP_SCALE\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20182,
+      "offset": 20224,
       "length": 25,
       "value": "\"enable_article_printing\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20263,
+      "offset": 20305,
       "length": 34,
       "value": "\"enable_article_print_in_graphics\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20352,
+      "offset": 20394,
       "length": 17,
       "value": "\"enable_printing\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20530,
+      "offset": 20572,
       "length": 32,
       "value": "\"ACCOUNT.DELETE.RECIPIENT_EMAIL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20669,
+      "offset": 20711,
       "length": 49,
       "value": "\"ACCOUNT.TERMS_OF_USE.USER_CONFIRMATION_REQUIRED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 20774,
+      "offset": 20816,
       "length": 33,
       "value": "\"SHOW_ACCOUNT_VC_EDIT_BAR_BUTTON\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21013,
+      "offset": 21055,
       "length": 34,
       "value": "\"ACCOUNT.DEVICE.BOOKMARKS_ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21181,
+      "offset": 21223,
       "length": 31,
       "value": "\"HOTSPOT_NOTIFICATION_INTERVAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21267,
+      "offset": 21309,
       "length": 37,
       "value": "\"HOTSPOT_NOTIFICATION_SHOW_ON_SWITCH\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21374,
+      "offset": 21416,
       "length": 43,
       "value": "\"HOTSPOT_LOCATION_ENABLE_REMINDER_INTERVAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21516,
+      "offset": 21558,
       "length": 32,
       "value": "\"HOTSPOT_WELCOME_POPUP_INTERVAL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21602,
+      "offset": 21644,
       "length": 37,
       "value": "\"HOTSPOT_WELCOME_POPUP_SHOW_ON_START\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21694,
+      "offset": 21736,
       "length": 38,
       "value": "\"HOTSPOT_WELCOME_POPUP_SHOW_ON_SWITCH\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21799,
+      "offset": 21841,
       "length": 23,
       "value": "\"HOTSPOT_ALERT_ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 21937,
+      "offset": 21979,
       "length": 17,
       "value": "\"hotspots_enable\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 22001,
+      "offset": 22043,
       "length": 20,
       "value": "\"hotspot_map_enable\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 22074,
+      "offset": 22116,
       "length": 21,
       "value": "\"SHOW_HOTZONE_BUTTON\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 22138,
+      "offset": 22180,
       "length": 21,
       "value": "\"SHOW_HOTZONE_OPTOUT\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 22207,
+      "offset": 22249,
       "length": 24,
       "value": "\"HOTSPOT_PROXIMITY_UUID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 22285,
+      "offset": 22327,
       "length": 28,
       "value": "\"HOTSPOT_GEOFENCING_ENABLED\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 22480,
+      "offset": 22522,
       "length": 17,
       "value": "\"BRAZE.LOG.LEVEL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
       "kind": "StringLiteral",
-      "offset": 22588,
+      "offset": 22630,
       "length": 39,
       "value": "\"BRAZE.EMAIL_SUBSCRIPTION.EDIT_ENABLED\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 22751,
+      "length": 20,
+      "value": "\"IMAGE_DOWNLOAD_URL\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PRConfigKey.swift",
+      "kind": "StringLiteral",
+      "offset": 22820,
+      "length": 18,
+      "value": "\"IMAGE_UPLOAD_URL\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/ExternalLinkAccountConfig.swift",
@@ -35090,69 +35919,6 @@
       "value": "\"CFBundleDisplayName\""
     },
     {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 278,
-      "length": 13,
-      "value": "\"accessToken\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 358,
-      "length": 15,
-      "value": "\"base-services\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 442,
-      "length": 16,
-      "value": "\"deepLinkScheme\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 943,
-      "length": 3,
-      "value": "\".\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "IntegerLiteral",
-      "offset": 955,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 976,
-      "length": 3,
-      "value": "\".\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 991,
-      "length": 3,
-      "value": "\".\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 999,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
-      "kind": "StringLiteral",
-      "offset": 1357,
-      "length": 23,
-      "value": "\"group.com.pressreader\""
-    },
-    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/PrintConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 321,
@@ -35545,6 +36311,69 @@
       "value": "\"ios_pressreader_app\""
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 278,
+      "length": 13,
+      "value": "\"accessToken\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 358,
+      "length": 15,
+      "value": "\"base-services\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 442,
+      "length": 16,
+      "value": "\"deepLinkScheme\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 943,
+      "length": 3,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "IntegerLiteral",
+      "offset": 955,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 976,
+      "length": 3,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 991,
+      "length": 3,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 999,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/UserDefaults+Shared.swift",
+      "kind": "StringLiteral",
+      "offset": 1357,
+      "length": 23,
+      "value": "\"group.com.pressreader\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/AnalyticsConfig\/FirebaseAnalyticsConfig.swift",
       "kind": "StringLiteral",
       "offset": 474,
@@ -35660,6 +36489,69 @@
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/Presentation\/LibraryConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 1188,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 568,
+      "length": 37,
+      "value": "\"https:\/\/ingress-dev.pressreader.com\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 675,
+      "length": 11,
+      "value": "\"\/test\/dev\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1587,
+      "length": 23,
+      "value": "\"BE_MANAGE_ACCOUNT_URL\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1662,
+      "length": 44,
+      "value": "\"https:\/\/www.kioskoymas.com\/misdispositivos\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1709,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1770,
+      "length": 26,
+      "value": "\"PR_MANAGE_MYACCOUNT_LINK\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1824,
+      "length": 83,
+      "value": "\"https:\/\/www.pressreader.com\/accounting\/account?forceSignIn=true#manageactivations\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2377,
+      "length": 37,
+      "value": "\"SHOW_ALERT_BEFORE_DOWNLOAD_VIA_WWAN\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRConfiguration\/NetworkingConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2430,
       "length": 5,
       "value": "false"
     },

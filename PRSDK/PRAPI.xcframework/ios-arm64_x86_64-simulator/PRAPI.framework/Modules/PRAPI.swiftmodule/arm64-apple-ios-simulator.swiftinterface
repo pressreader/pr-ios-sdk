@@ -1587,7 +1587,7 @@ public protocol PressCatalogable : PRCatalogModel.Catalog {
   @objc dynamic public var dataController: PRAPI.CatalogCoreDataController {
     @objc get
   }
-  @objc @_Concurrency.MainActor dynamic public func updatePressCatalogForced(_ forced: Swift.Bool)
+  @objc dynamic public func updatePressCatalogForced(_ forced: Swift.Bool)
   @objc dynamic public func pressCatalog(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.PressCatalog
   @objc dynamic public func downloads(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.Downloads
 }
