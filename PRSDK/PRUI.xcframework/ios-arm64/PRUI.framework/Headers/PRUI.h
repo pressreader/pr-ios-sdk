@@ -202,6 +202,8 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PREditAccountVC.h"
 #import "UIImage+BarButtonSystemItem.h"
 
+#import "PRDismissOnSwipeActor.h"
+
 // Protected API
 #import "PRVerticalFeedVC_Protected.h"
 #import "PREmbedablePubHubVC_Protected.h"

@@ -28991,12 +28991,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "((UIKit.UIViewController) -> ())?",
+                "printedName": "((UIKit.UIViewController?) -> ())?",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(UIKit.UIViewController) -> ()",
+                    "printedName": "(UIKit.UIViewController?) -> ()",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -29005,9 +29005,17 @@
                       },
                       {
                         "kind": "TypeNominal",
-                        "name": "UIViewController",
-                        "printedName": "UIKit.UIViewController",
-                        "usr": "c:objc(cs)UIViewController"
+                        "name": "Optional",
+                        "printedName": "UIKit.UIViewController?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UIViewController",
+                            "printedName": "UIKit.UIViewController",
+                            "usr": "c:objc(cs)UIViewController"
+                          }
+                        ],
+                        "usr": "s:Sq"
                       }
                     ]
                   }
@@ -29018,7 +29026,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@PRUI@objc(cs)ArticleSearchVC(im)presentDetailsVCForArticle:completion:",
-            "mangledName": "$s4PRUI15ArticleSearchVCC014presentDetailsD07article10completionySo10NTFArticle_p_ySo16UIViewControllerCcSgtF",
+            "mangledName": "$s4PRUI15ArticleSearchVCC014presentDetailsD07article10completionySo10NTFArticle_p_ySo16UIViewControllerCSgcSgtF",
             "moduleName": "PRUI",
             "overriding": true,
             "objc_name": "presentDetailsVCForArticle:completion:",
@@ -112034,7 +112042,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/GlobalSearch\/Base\/ArticleSearchVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 3432,
+      "offset": 3455,
       "length": 5,
       "value": "false"
     },

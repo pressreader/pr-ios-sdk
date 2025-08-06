@@ -99,6 +99,7 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 - (NSInteger) titlesPopupWidth;
 
 - (BOOL)setServiceHost:(NSString *)serviceHost;
+- (BOOL)setServiceHost:(NSString *)serviceHost silently:(BOOL)silently;
 
 - (NSString *) testServiceUrlKey;
 - (NSArray *) testServiceUrlKeys;

@@ -1254,7 +1254,7 @@ extension PRAPI.CatalogBanner : @retroactive PRAPI.BannerAnalyticsProvider {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func setupTextFlowUIStyle()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func loadMoreItemsToTheEnd(completion: (() -> ())? = nil)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func presentDetailsVC(article item: any PRAPI.NTFArticle, completion: ((UIKit.UIViewController) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func presentDetailsVC(article item: any PRAPI.NTFArticle, completion: ((UIKit.UIViewController?) -> Swift.Void)? = nil)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func refreshContent(with reason: PRUI.NTFFeedDataSourceRefreshReason)

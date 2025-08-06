@@ -644,6 +644,14 @@ SWIFT_CLASS("_TtC15PRConfiguration19DeviceAccountConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSURL;
+SWIFT_CLASS("_TtC15PRConfiguration31DirectExternalLinkAccountConfig")
+@interface DirectExternalLinkAccountConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly, copy) NSURL * _Nullable link;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM(NSInteger, ExternalAuthType, open) {
   ExternalAuthTypeWebView = 0,
   ExternalAuthTypeWebSession = 1,
@@ -914,6 +922,22 @@ SWIFT_CLASS("_TtC15PRConfiguration18MigrationConfigKey")
 @property (nonatomic, readonly, copy) NSString * _Nonnull validatedLanguageIdentifier;
 @end
 
+SWIFT_CLASS("_TtC15PRConfiguration16NetworkingConfig")
+@interface NetworkingConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface NetworkingConfig (SWIFT_EXTENSION(PRConfiguration))
+@property (nonatomic, readonly, copy) NSString * _Nonnull testServiceURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull devServiceURL;
+@property (nonatomic, copy) NSString * _Nonnull imageDownloadURL;
+@property (nonatomic, copy) NSString * _Nonnull imageUploadURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull manageAccountURL;
+@property (nonatomic) BOOL shouldDownloadOnWiFiOnly;
+/// When this parameter is YES, we show alert each time when user tries download some title via WWAN
+@property (nonatomic, readonly) BOOL shouldAlertBeforeDownloadViaWWAN;
+@end
+
 SWIFT_CLASS("_TtC15PRConfiguration12OAuth2Config")
 @interface OAuth2Config : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1068,6 +1092,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL requestCachesDi
 
 @class PrintConfig;
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NetworkingConfig * _Nonnull networking;)
++ (NetworkingConfig * _Nonnull)networking SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ExternalLinkAccountConfig * _Nullable externalLinkAccountConfig;)
 + (ExternalLinkAccountConfig * _Nullable)externalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MigrationConfig * _Nullable migrationConfig;)
@@ -1083,6 +1109,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) HotSpotConfi
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AppInfoConfig * _Nonnull appInfoConfig;)
 + (AppInfoConfig * _Nonnull)appInfoConfig SWIFT_WARN_UNUSED_RESULT;
 + (void)setAppInfoConfig:(AppInfoConfig * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DirectExternalLinkAccountConfig * _Nonnull directExternalLinkAccountConfig;)
++ (DirectExternalLinkAccountConfig * _Nonnull)directExternalLinkAccountConfig SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL showTestServer;)
 + (BOOL)showTestServer SWIFT_WARN_UNUSED_RESULT;
 + (void)setShowTestServer:(BOOL)newValue;
