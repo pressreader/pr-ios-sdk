@@ -37,7 +37,11 @@ final class RootModel {
         || self.isEdition
         || self.isLocalServiceActive
     }
-    
+
+    var isFullUIOnly: Bool {
+        Bundle.main.infoDictionary?["PRFullUIOnly"] as? Bool == true
+    }
+
     var isLocalServiceActive: Bool {
         self.account?.state == .localService
     }
@@ -79,7 +83,7 @@ final class RootModel {
     }
 
     var isArticleSetEnabled: Bool {
-        !self.isDismissed && !self.articles.isEmpty
+        !self.isDismissed && !self.articles.isEmpty && !self.isLocalService
     }
 
     var catalogItemsCount: Int {
