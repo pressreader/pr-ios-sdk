@@ -550,7 +550,7 @@ extension UIKit.UITableViewCell {
 @objc extension PRUIKit.PRActivityVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility()
 }
-@objc extension MBProgressHUD {
+@objc extension MBProgressHUD.MBProgressHUD { {
   @objc @_Concurrency.MainActor @preconcurrency public static func showLoading() -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func showLoading(graceTime: Foundation.TimeInterval) -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func showKeyWindowHud(title: Swift.String?, message: Swift.String?, animated: Swift.Bool) -> Self
