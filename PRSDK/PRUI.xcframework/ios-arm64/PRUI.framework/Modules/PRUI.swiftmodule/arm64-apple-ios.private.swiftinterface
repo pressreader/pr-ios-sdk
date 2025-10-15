@@ -2372,14 +2372,6 @@ extension PRAPI.PRMyLibrary : PRUI.Downloaded {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers final public class BECommandOpenLibrary : PRUI.PRCommandOpenDownloaded {
-  @objc override final public var downloadedVC: UIKit.UIViewController {
-    @objc get
-  }
-  @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
-  @objc deinit
-}
 extension PRCatalogModel.BookContent : PRUI.ActionAccessControllable {
   @objc dynamic public func isActionAllowed(_ actionType: PRUI.ActionType, parameters: PRUI.ActionAccessParameters?) -> Swift.Bool
 }

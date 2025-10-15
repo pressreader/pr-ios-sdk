@@ -61133,221 +61133,6 @@
       },
       {
         "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "PRUI",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "BECommandOpenLibrary",
-        "printedName": "BECommandOpenLibrary",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "downloadedVC",
-            "printedName": "downloadedVC",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@PRUI@objc(cs)BECommandOpenLibrary(py)downloadedVC",
-            "mangledName": "$s4PRUI20BECommandOpenLibraryC12downloadedVCSo16UIViewControllerCvp",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "objc_name": "downloadedVC",
-            "declAttributes": [
-              "Final",
-              "ObjC",
-              "Override",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIViewController",
-                    "printedName": "UIKit.UIViewController",
-                    "usr": "c:objc(cs)UIViewController"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@PRUI@objc(cs)BECommandOpenLibrary(im)downloadedVC",
-                "mangledName": "$s4PRUI20BECommandOpenLibraryC12downloadedVCSo16UIViewControllerCvg",
-                "moduleName": "PRUI",
-                "overriding": true,
-                "objc_name": "downloadedVC",
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(name:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "BECommandOpenLibrary",
-                "printedName": "PRUI.BECommandOpenLibrary",
-                "usr": "c:@M@PRUI@objc(cs)BECommandOpenLibrary"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "PRCommandName",
-                "printedName": "PRCommands.PRCommandName",
-                "usr": "c:PRCommandNames.h@T@PRCommandName"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)BECommandOpenLibrary(im)initWithName:",
-            "mangledName": "$s4PRUI20BECommandOpenLibraryC4nameACSo13PRCommandNamea_tcfc",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithName:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "BECommandOpenLibrary",
-                "printedName": "PRUI.BECommandOpenLibrary",
-                "usr": "c:@M@PRUI@objc(cs)BECommandOpenLibrary"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)BECommandOpenLibrary(im)init",
-            "mangledName": "$s4PRUI20BECommandOpenLibraryCACycfc",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@PRUI@objc(cs)BECommandOpenLibrary",
-        "mangledName": "$s4PRUI20BECommandOpenLibraryC",
-        "moduleName": "PRUI",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)PRCommandOpenDownloaded",
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "PRUI.PRCommandOpenDownloaded",
-          "PRCommands.PRCommand",
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -68512,6 +68297,23 @@
         "kind": "Import",
         "name": "PRUIKit",
         "printedName": "PRUIKit",
+        "declKind": "Import",
+        "moduleName": "PRUI"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
         "declKind": "Import",
         "moduleName": "PRUI"
       },
@@ -103046,11 +102848,11 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUI@@objc(cs)PRMainVC(im)topMostController:",
+            "usr": "c:@CM@PRUI@@objc(cs)PRMainVC(im)topMostWithFullScreen:",
             "mangledName": "$sSo8PRMainVCC4PRUIE7topMost10fullScreenSo16UIViewControllerCSb_tF",
             "moduleName": "PRUI",
             "overriding": true,
-            "objc_name": "topMostController:",
+            "objc_name": "topMostWithFullScreen:",
             "declAttributes": [
               "Dynamic",
               "ObjC",
@@ -110019,28 +109821,28 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/TextFlow\/Article\/ArticlePopoverContainerVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 2078,
+      "offset": 2053,
       "length": 2,
       "value": "90"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/TextFlow\/Article\/ArticlePopoverContainerVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 2138,
+      "offset": 2113,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/TextFlow\/Article\/ArticlePopoverContainerVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 2393,
+      "offset": 2368,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/TextFlow\/Article\/ArticlePopoverContainerVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 7550,
+      "offset": 7525,
       "length": 5,
       "value": "false"
     },

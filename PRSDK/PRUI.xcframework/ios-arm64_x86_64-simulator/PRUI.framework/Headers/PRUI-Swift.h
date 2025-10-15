@@ -587,13 +587,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSAttributed
 - (void)resetArticleTranslation:(NSObject <NTFArticle> * _Nonnull)article completionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
 @end
 
-SWIFT_CLASS("_TtC4PRUI20BECommandOpenLibrary")
-@interface BECommandOpenLibrary : PRCommandOpenDownloaded
-@property (nonatomic, readonly, strong) UIViewController * _Nonnull downloadedVC;
-- (nonnull instancetype)initWithName:(PRCommandName _Nonnull)name OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class NSNotification;
 @class UIImagePickerController;
 SWIFT_CLASS("_TtC4PRUI23BESettingsMasterPanelVC")
@@ -1760,7 +1753,7 @@ SWIFT_CLASS("_TtC4PRUI13PRIssuesGroup")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, weak) PRMainVC * _Nullable currentInstance;)
 + (PRMainVC * _Nullable)currentInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setCurrentInstance:(PRMainVC * _Nullable)value;
-- (UIViewController * _Nonnull)topMostController:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class PRMenuVC;
@@ -1829,18 +1822,18 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (BOOL)askOrderConfirmationWithOptions:(PROrderDeliveryOption)options completion:(PROrderCompletion _Nullable)completion SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class PRUserBundle;
-@class SubscriptionCancellationAdvisory;
-@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (SubscriptionCancellationAdvisory * _Nullable)subscriptionCancellationAdvisoryWithInferiorBundles:(NSArray<PRUserBundle *> * _Nonnull)inferiorBundles SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
 @end
 
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class PRUserBundle;
+@class SubscriptionCancellationAdvisory;
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (SubscriptionCancellationAdvisory * _Nullable)subscriptionCancellationAdvisoryWithInferiorBundles:(NSArray<PRUserBundle *> * _Nonnull)inferiorBundles SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
@@ -2006,12 +1999,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 @end
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (void)updateActionState;
+- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
+- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
 @end
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
-- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
+- (void)updateActionState;
 @end
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
@@ -2113,15 +2106,15 @@ SWIFT_CLASS("_TtC4PRUI11PRVotingBar")
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupApplicationShortcutItems;
-@end
-
-@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (BOOL)openDeepLink:(NSURL * _Nonnull)url;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (BOOL)openOrderViewWithCid:(NSString * _Nullable)cid date:(NSDate * _Nullable)date preferableServiceName:(NSString * _Nullable)preferableServiceName asSeparatePanel:(BOOL)asSeparatePanel forceDownload:(BOOL)forceDownload SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (void)setupApplicationShortcutItems;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -3302,13 +3295,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSAttributed
 - (void)resetArticleTranslation:(NSObject <NTFArticle> * _Nonnull)article completionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
 @end
 
-SWIFT_CLASS("_TtC4PRUI20BECommandOpenLibrary")
-@interface BECommandOpenLibrary : PRCommandOpenDownloaded
-@property (nonatomic, readonly, strong) UIViewController * _Nonnull downloadedVC;
-- (nonnull instancetype)initWithName:(PRCommandName _Nonnull)name OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class NSNotification;
 @class UIImagePickerController;
 SWIFT_CLASS("_TtC4PRUI23BESettingsMasterPanelVC")
@@ -4475,7 +4461,7 @@ SWIFT_CLASS("_TtC4PRUI13PRIssuesGroup")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, weak) PRMainVC * _Nullable currentInstance;)
 + (PRMainVC * _Nullable)currentInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setCurrentInstance:(PRMainVC * _Nullable)value;
-- (UIViewController * _Nonnull)topMostController:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class PRMenuVC;
@@ -4544,18 +4530,18 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (BOOL)askOrderConfirmationWithOptions:(PROrderDeliveryOption)options completion:(PROrderCompletion _Nullable)completion SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class PRUserBundle;
-@class SubscriptionCancellationAdvisory;
-@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (SubscriptionCancellationAdvisory * _Nullable)subscriptionCancellationAdvisoryWithInferiorBundles:(NSArray<PRUserBundle *> * _Nonnull)inferiorBundles SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
 @end
 
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class PRUserBundle;
+@class SubscriptionCancellationAdvisory;
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (SubscriptionCancellationAdvisory * _Nullable)subscriptionCancellationAdvisoryWithInferiorBundles:(NSArray<PRUserBundle *> * _Nonnull)inferiorBundles SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
@@ -4721,12 +4707,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 @end
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (void)updateActionState;
+- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
+- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
 @end
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
-- (PRTitleItemExemplarState)currentItemState SWIFT_WARN_UNUSED_RESULT;
-- (void)updateDownloadStateWithNotification:(NSNotification * _Nonnull)notification;
+- (void)updateActionState;
 @end
 
 @interface PRSourceItemCell (SWIFT_EXTENSION(PRUI))
@@ -4828,15 +4814,15 @@ SWIFT_CLASS("_TtC4PRUI11PRVotingBar")
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupApplicationShortcutItems;
-@end
-
-@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (BOOL)openDeepLink:(NSURL * _Nonnull)url;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (BOOL)openOrderViewWithCid:(NSString * _Nullable)cid date:(NSDate * _Nullable)date preferableServiceName:(NSString * _Nullable)preferableServiceName asSeparatePanel:(BOOL)asSeparatePanel forceDownload:(BOOL)forceDownload SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (void)setupApplicationShortcutItems;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
