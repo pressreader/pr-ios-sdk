@@ -123,26 +123,28 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         if !model.isDismissed {
             sections.service = section; section += 1
         }
-
-        sections.dismiss = section; section += 1
-
-        if model.isAuthEnabled {
-            sections.auth = section; section += 1
-        }
-
-        if model.isLoggingEnabled {
-            sections.log = section; section += 1
-        }
-
-        if self.model.isCatalogEnabled {
-            sections.catalog = section; section += 1
-            sections.downloaded = section; section += 1
+        
+        if !model.isFullUIOnly {
+            sections.dismiss = section; section += 1
+            
+            if model.isAuthEnabled {
+                sections.auth = section; section += 1
+            }
+            
+            if model.isLoggingEnabled {
+                sections.log = section; section += 1
+            }
+            
+            if self.model.isCatalogEnabled {
+                sections.catalog = section; section += 1
+                sections.downloaded = section; section += 1
+            }
+            
+            if self.model.isArticleSetEnabled {
+                sections.articles = section; section += 1
+            }
         }
         
-        if self.model.isArticleSetEnabled {
-            sections.articles = section; section += 1
-        }
-
         self.sections = sections
         
         return section

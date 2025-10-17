@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -98,29 +98,24 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		E75C760629E7560E000A812D /* Embed PlugIns */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstSubfolder = PlugIns;
 			files = (
 			);
 			name = "Embed PlugIns";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E75C760729E7560E000A812D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolder = Frameworks;
 			files = (
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E7610C362BF4E698008BD505 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolder = Frameworks;
 			files = (
 				E7610C272BF4E698008BD505 /* PRThumbnail.xcframework in Embed Frameworks */,
 				E7610C0B2BF4E697008BD505 /* PRAnalytics.xcframework in Embed Frameworks */,
@@ -158,17 +153,14 @@
 				E7610C152BF4E697008BD505 /* PRCoreDataUtils.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E798286824A0FB48001A1E62 /* Embed PlugIns */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstSubfolder = PlugIns;
 			files = (
 			);
 			name = "Embed PlugIns";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -187,7 +179,7 @@
 		E75F8E2B2568630D0047C0AD /* IssueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCell.swift; sourceTree = "<group>"; };
 		E7610BCC2BF4E680008BD505 /* PRCoreDataUtils.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRCoreDataUtils.xcframework; path = ../PRSDK/PRCoreDataUtils.xcframework; sourceTree = "<group>"; };
 		E7610BCD2BF4E681008BD505 /* SDWebImage.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:STGAXEXW22:PressReader Inc"; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = ../PRSDK/SDWebImage.xcframework; sourceTree = "<group>"; };
-		E7610BCE2BF4E681008BD505 /* PRIAPReceipt.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRIAPReceipt.xcframework; path = ../PRSDK/PRIAPReceipt.xcframework; sourceTree = "<group>"; };
+		E7610BCE2BF4E681008BD505 /* PRIAPReceipt.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:STGAXEXW22:PressReader Inc"; lastKnownFileType = wrapper.xcframework; name = PRIAPReceipt.xcframework; path = ../PRSDK/PRIAPReceipt.xcframework; sourceTree = "<group>"; };
 		E7610BCF2BF4E681008BD505 /* PRUtils.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRUtils.xcframework; path = ../PRSDK/PRUtils.xcframework; sourceTree = "<group>"; };
 		E7610BD02BF4E681008BD505 /* StreamingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StreamingKit.xcframework; path = ../PRSDK/StreamingKit.xcframework; sourceTree = "<group>"; };
 		E7610BD12BF4E681008BD505 /* PRLogKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PRLogKit.xcframework; path = ../PRSDK/PRLogKit.xcframework; sourceTree = "<group>"; };
@@ -225,7 +217,6 @@
 /* Begin PBXFrameworksBuildPhase section */
 		E74B27CC23D724E4002795B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				E7610C262BF4E698008BD505 /* PRThumbnail.xcframework in Frameworks */,
 				E7610C0A2BF4E697008BD505 /* PRAnalytics.xcframework in Frameworks */,
@@ -262,14 +253,11 @@
 				E7610C162BF4E697008BD505 /* PRDIContainer.xcframework in Frameworks */,
 				E7610C142BF4E697008BD505 /* PRCoreDataUtils.xcframework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E75C75DD29E7560E000A812D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -374,8 +362,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = PRSDKTest;
 			productName = PRLibTest_Swift;
 			productReference = E74B27CF23D724E4002795B7 /* PRSDKTest.app */;
@@ -392,8 +378,6 @@
 				E75C760729E7560E000A812D /* Embed Frameworks */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			name = PRSDKTest_Pods;
 			productName = PRLibTest_Swift;
@@ -417,7 +401,6 @@
 				};
 			};
 			buildConfigurationList = E798127D15A6E652005C0CAD /* Build configuration list for PBXProject "PRSDKTest" */;
-			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -425,6 +408,7 @@
 				Base,
 			);
 			mainGroup = E798127815A6E652005C0CAD;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = E798128415A6E652005C0CAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -438,30 +422,25 @@
 /* Begin PBXResourcesBuildPhase section */
 		E74B27CD23D724E4002795B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				E74B27DE23D724E6002795B7 /* LaunchScreen.storyboard in Resources */,
 				E74B27DB23D724E6002795B7 /* Assets.xcassets in Resources */,
 				E74B27D923D724E4002795B7 /* Main.storyboard in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E75C760029E7560E000A812D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				E75C760329E7560E000A812D /* LaunchScreen.storyboard in Resources */,
 				E75C760429E7560E000A812D /* Assets.xcassets in Resources */,
 				E75C760529E7560E000A812D /* Main.storyboard in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E74B27CB23D724E4002795B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				E74B27D623D724E4002795B7 /* RootVC.swift in Sources */,
 				E74B27D223D724E4002795B7 /* AppDelegate.swift in Sources */,
@@ -470,11 +449,9 @@
 				E75F8E2C2568630D0047C0AD /* IssueCell.swift in Sources */,
 				E76A3824255DB37A007ABC81 /* TextFieldCell.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E75C75D629E7560E000A812D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				E75C75D729E7560E000A812D /* RootVC.swift in Sources */,
 				E75C75D829E7560E000A812D /* AppDelegate.swift in Sources */,
@@ -483,7 +460,6 @@
 				E75C75DB29E7560E000A812D /* IssueCell.swift in Sources */,
 				E75C75DC29E7560E000A812D /* TextFieldCell.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -507,7 +483,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E74B27E023D724E6002795B7 /* Debug */ = {
+		E74B27E023D724E6002795B7 /* Debug configuration for PBXNativeTarget "PRSDKTest" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -523,7 +499,7 @@
 				CODE_SIGN_ENTITLEMENTS = PRSDKTest.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7.7.25.770;
+				CURRENT_PROJECT_VERSION = 7.7.25.9050;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = STGAXEXW22;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -533,7 +509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 7.7;
+				MARKETING_VERSION = 7.7.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -544,7 +520,7 @@
 			};
 			name = Debug;
 		};
-		E74B27E123D724E6002795B7 /* Release */ = {
+		E74B27E123D724E6002795B7 /* Release configuration for PBXNativeTarget "PRSDKTest" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -561,7 +537,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7.7.25.770;
+				CURRENT_PROJECT_VERSION = 7.7.25.9050;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = STGAXEXW22;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -572,7 +548,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 7.7;
+				MARKETING_VERSION = 7.7.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -581,7 +557,7 @@
 			};
 			name = Release;
 		};
-		E75C762B29E7560E000A812D /* Debug */ = {
+		E75C762B29E7560E000A812D /* Debug configuration for PBXNativeTarget "PRSDKTest_Pods" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -597,7 +573,7 @@
 				CODE_SIGN_ENTITLEMENTS = PRSDKTest.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7.5.25.3251;
+				CURRENT_PROJECT_VERSION = 7.7.25.8130;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = STGAXEXW22;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -607,7 +583,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 7.5;
+				MARKETING_VERSION = 7.7.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -619,7 +595,7 @@
 			};
 			name = Debug;
 		};
-		E75C762C29E7560E000A812D /* Release */ = {
+		E75C762C29E7560E000A812D /* Release configuration for PBXNativeTarget "PRSDKTest_Pods" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -636,7 +612,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7.5.25.3251;
+				CURRENT_PROJECT_VERSION = 7.7.25.8130;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = STGAXEXW22;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -647,7 +623,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 7.5;
+				MARKETING_VERSION = 7.7.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -657,7 +633,7 @@
 			};
 			name = Release;
 		};
-		E79812A215A6E652005C0CAD /* Debug */ = {
+		E79812A215A6E652005C0CAD /* Debug configuration for PBXProject "PRSDKTest" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -714,7 +690,7 @@
 			};
 			name = Debug;
 		};
-		E79812A315A6E652005C0CAD /* Release */ = {
+		E79812A315A6E652005C0CAD /* Release configuration for PBXProject "PRSDKTest" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -772,28 +748,25 @@
 		E74B27E223D724E6002795B7 /* Build configuration list for PBXNativeTarget "PRSDKTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E74B27E023D724E6002795B7 /* Debug */,
-				E74B27E123D724E6002795B7 /* Release */,
+				E74B27E023D724E6002795B7 /* Debug configuration for PBXNativeTarget "PRSDKTest" */,
+				E74B27E123D724E6002795B7 /* Release configuration for PBXNativeTarget "PRSDKTest" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		E75C762A29E7560E000A812D /* Build configuration list for PBXNativeTarget "PRSDKTest_Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E75C762B29E7560E000A812D /* Debug */,
-				E75C762C29E7560E000A812D /* Release */,
+				E75C762B29E7560E000A812D /* Debug configuration for PBXNativeTarget "PRSDKTest_Pods" */,
+				E75C762C29E7560E000A812D /* Release configuration for PBXNativeTarget "PRSDKTest_Pods" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		E798127D15A6E652005C0CAD /* Build configuration list for PBXProject "PRSDKTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E79812A215A6E652005C0CAD /* Debug */,
-				E79812A315A6E652005C0CAD /* Release */,
+				E79812A215A6E652005C0CAD /* Debug configuration for PBXProject "PRSDKTest" */,
+				E79812A315A6E652005C0CAD /* Release configuration for PBXProject "PRSDKTest" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
