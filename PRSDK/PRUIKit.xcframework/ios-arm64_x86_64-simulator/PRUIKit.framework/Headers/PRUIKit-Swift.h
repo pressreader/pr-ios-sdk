@@ -447,8 +447,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat separatorWid
 + (CGFloat)separatorWidth SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat thumbnailCornerRadius;)
 + (CGFloat)thumbnailCornerRadius SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat containerCornerRadius;)
++ (CGFloat)containerCornerRadius SWIFT_WARN_UNUSED_RESULT;
 + (CGSize)gridCellSizeWith:(CGFloat)multiplier SWIFT_WARN_UNUSED_RESULT;
 + (CGFloat)coBrandingBannerHeightWithHorizontalSize:(UIUserInterfaceSizeClass)horizontalSize SWIFT_WARN_UNUSED_RESULT;
++ (CGFloat)hotSpotBannerHeightWithHorizontalSize:(UIUserInterfaceSizeClass)horizontalSize SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -481,16 +484,16 @@ SWIFT_CLASS("_TtC7PRUIKit33FlippableCollectionViewFlowLayout")
 @class PRFollowButton;
 SWIFT_CLASS("_TtC7PRUIKit16FollowHeaderView")
 @interface FollowHeaderView : UIView
-@property (nonatomic, readonly, weak) IBOutlet UILabel * _Nullable label;
-@property (nonatomic, readonly, weak) IBOutlet UIImageView * _Nullable imageView;
-@property (nonatomic, readonly, weak) IBOutlet PRFollowButton * _Nullable button;
+@property (nonatomic, readonly, strong) UILabel * _Nonnull label;
+@property (nonatomic, readonly, strong) UIImageView * _Nonnull imageView;
+@property (nonatomic, readonly, strong) PRFollowButton * _Nonnull button;
 @property (nonatomic) CGFloat sideInset;
-- (void)awakeFromNib;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
 - (void)setImage:(UIImage * _Nullable)image animated:(BOOL)animated;
 - (void)setTitle:(NSString * _Nullable)title;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// Superclass for Views that comply with MVC pattern
@@ -936,14 +939,14 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
-@interface UIButton (SWIFT_EXTENSION(PRUIKit))
-- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UIButtonConfiguration;
 SWIFT_UNAVAILABLE
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
 + (UIButtonConfiguration * _Nonnull)prDefaultConfiguration SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface UIButton (SWIFT_EXTENSION(PRUIKit))
+- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
@@ -966,12 +969,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIButton * _
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull selectionColor;)
-+ (UIColor * _Nonnull)selectionColor SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull selectionColor;)
++ (UIColor * _Nonnull)selectionColor SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
@@ -1133,13 +1136,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRImageExten
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+- (void)updateAppearance;
+- (void)updateAppearanceOfLinks;
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (void)updateAppearance;
-- (void)updateAppearanceOfLinks;
+- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
 @end
 
 @class NSAttributedString;
@@ -1177,9 +1180,9 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 };
 
 @interface UINavigationController (SWIFT_EXTENSION(PRUIKit))
-- (void)pushViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
-- (void)popViewControllerWithAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
-- (void)popToViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
+- (void)push:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)popAnimated:(BOOL)animated completion:(void (^ _Nonnull)(void))completionHandler;
+- (void)popTo:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completionHandler:(void (^ _Nonnull)(void))completionHandler;
 @end
 
 @interface UINavigationItem (SWIFT_EXTENSION(PRUIKit))
@@ -1222,6 +1225,10 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 - (UIButton * _Nullable)getClearButton SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@interface UITextField (SWIFT_EXTENSION(PRUIKit))
+- (void)showSecureTextEntryToggle;
+@end
+
 @interface UITraitCollection (SWIFT_EXTENSION(PRUIKit))
 @property (nonatomic, readonly) BOOL isDark;
 @property (nonatomic, readonly) BOOL isLight;
@@ -1233,22 +1240,15 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
+- (void)forceRelayout;
+@end
+
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
 - (nonnull instancetype)initWithBackgroundColor:(UIColor * _Nullable)backgroundColor;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (void)forceRelayout;
-@end
-
-@class NSLayoutConstraint;
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (void)rightToLeftAllSubviews;
-- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
+@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
 @end
 
 SWIFT_UNAVAILABLE
@@ -1257,11 +1257,18 @@ SWIFT_UNAVAILABLE
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
+- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+- (void)rightToLeftAllSubviews;
+- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
+@end
+
+@class NSLayoutConstraint;
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
+- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
@@ -1296,7 +1303,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSArray<NSLayoutConstraint *> * _Nonnull inclusionConstraints;
 - (void)includeIntoCenterOfContainer:(UIView * _Nonnull)container;
 - (NSArray<NSLayoutConstraint *> * _Nonnull)attachTo:(id <LayoutGuidable> _Nonnull)anchor insets:(UIEdgeInsets)insets;
 - (void)updateInclusionConstraints:(UIEdgeInsets)insets;
@@ -1305,8 +1311,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @class UIVisualEffectView;
 @class UIBlurEffect;
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) BOOL hasBlurEffect;
 @property (nonatomic, readonly, strong) UIView * _Nullable blurContentView;
+@property (nonatomic, readonly, strong) UIVisualEffectView * _Nullable blurSubview;
 - (UIVisualEffectView * _Nonnull)addBlurSubviewWithBlurFrame:(CGRect)blurFrame style:(enum UIBlurEffectStyle)style;
 - (UIVisualEffectView * _Nonnull)addBlurSubviewWithBlurFrame:(CGRect)blurFrame style:(enum UIBlurEffectStyle)style intensity:(CGFloat)intensity;
 - (void)addBlurEffectWithStyle:(enum UIBlurEffectStyle)style intensity:(CGFloat)intensity;
@@ -1345,6 +1351,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostController;
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostFullScreenController;
+- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
 - (void)dismissWithKeepTopAlert:(BOOL)keepTopAlert animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
 @end
 
@@ -1368,6 +1375,19 @@ SWIFT_CLASS("_TtC7PRUIKit10ViewTraits")
 @interface ViewTraits : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class WKWebViewConfiguration;
+@interface WKWebView (SWIFT_EXTENSION(PRUIKit))
+- (nonnull instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration * _Nullable)configuration css:(NSString * _Nonnull)css;
+@end
+
+@interface WKWebView (SWIFT_EXTENSION(PRUIKit))
+- (void)makeTransparent;
+@end
+
+@interface WKWebView (SWIFT_EXTENSION(PRUIKit))
+@property (nonatomic, copy) void (^ _Nullable contentSizeObserver)(CGSize);
 @end
 
 #endif
@@ -1827,8 +1847,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat separatorWid
 + (CGFloat)separatorWidth SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat thumbnailCornerRadius;)
 + (CGFloat)thumbnailCornerRadius SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat containerCornerRadius;)
++ (CGFloat)containerCornerRadius SWIFT_WARN_UNUSED_RESULT;
 + (CGSize)gridCellSizeWith:(CGFloat)multiplier SWIFT_WARN_UNUSED_RESULT;
 + (CGFloat)coBrandingBannerHeightWithHorizontalSize:(UIUserInterfaceSizeClass)horizontalSize SWIFT_WARN_UNUSED_RESULT;
++ (CGFloat)hotSpotBannerHeightWithHorizontalSize:(UIUserInterfaceSizeClass)horizontalSize SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1861,16 +1884,16 @@ SWIFT_CLASS("_TtC7PRUIKit33FlippableCollectionViewFlowLayout")
 @class PRFollowButton;
 SWIFT_CLASS("_TtC7PRUIKit16FollowHeaderView")
 @interface FollowHeaderView : UIView
-@property (nonatomic, readonly, weak) IBOutlet UILabel * _Nullable label;
-@property (nonatomic, readonly, weak) IBOutlet UIImageView * _Nullable imageView;
-@property (nonatomic, readonly, weak) IBOutlet PRFollowButton * _Nullable button;
+@property (nonatomic, readonly, strong) UILabel * _Nonnull label;
+@property (nonatomic, readonly, strong) UIImageView * _Nonnull imageView;
+@property (nonatomic, readonly, strong) PRFollowButton * _Nonnull button;
 @property (nonatomic) CGFloat sideInset;
-- (void)awakeFromNib;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
 - (void)setImage:(UIImage * _Nullable)image animated:(BOOL)animated;
 - (void)setTitle:(NSString * _Nullable)title;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// Superclass for Views that comply with MVC pattern
@@ -2316,14 +2339,14 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
-@interface UIButton (SWIFT_EXTENSION(PRUIKit))
-- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UIButtonConfiguration;
 SWIFT_UNAVAILABLE
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
 + (UIButtonConfiguration * _Nonnull)prDefaultConfiguration SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface UIButton (SWIFT_EXTENSION(PRUIKit))
+- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
@@ -2346,12 +2369,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIButton * _
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull selectionColor;)
-+ (UIColor * _Nonnull)selectionColor SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, strong) UIColor * _Nonnull invertedColor;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull selectionColor;)
++ (UIColor * _Nonnull)selectionColor SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
@@ -2513,13 +2536,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRImageExten
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+- (void)updateAppearance;
+- (void)updateAppearanceOfLinks;
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (void)updateAppearance;
-- (void)updateAppearanceOfLinks;
+- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
 @end
 
 @class NSAttributedString;
@@ -2557,9 +2580,9 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 };
 
 @interface UINavigationController (SWIFT_EXTENSION(PRUIKit))
-- (void)pushViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
-- (void)popViewControllerWithAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
-- (void)popToViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
+- (void)push:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)popAnimated:(BOOL)animated completion:(void (^ _Nonnull)(void))completionHandler;
+- (void)popTo:(UIViewController * _Nonnull)viewController animated:(BOOL)animated completionHandler:(void (^ _Nonnull)(void))completionHandler;
 @end
 
 @interface UINavigationItem (SWIFT_EXTENSION(PRUIKit))
@@ -2602,6 +2625,10 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 - (UIButton * _Nullable)getClearButton SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@interface UITextField (SWIFT_EXTENSION(PRUIKit))
+- (void)showSecureTextEntryToggle;
+@end
+
 @interface UITraitCollection (SWIFT_EXTENSION(PRUIKit))
 @property (nonatomic, readonly) BOOL isDark;
 @property (nonatomic, readonly) BOOL isLight;
@@ -2613,22 +2640,15 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
+- (void)forceRelayout;
+@end
+
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
 - (nonnull instancetype)initWithBackgroundColor:(UIColor * _Nullable)backgroundColor;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (void)forceRelayout;
-@end
-
-@class NSLayoutConstraint;
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (void)rightToLeftAllSubviews;
-- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
+@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
 @end
 
 SWIFT_UNAVAILABLE
@@ -2637,11 +2657,18 @@ SWIFT_UNAVAILABLE
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
+- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+- (void)rightToLeftAllSubviews;
+- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
+@end
+
+@class NSLayoutConstraint;
+@interface UIView (SWIFT_EXTENSION(PRUIKit))
+- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSLayoutConstraint *> * _Nonnull)sizeConstraintsWithSize:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
@@ -2676,7 +2703,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSArray<NSLayoutConstraint *> * _Nonnull inclusionConstraints;
 - (void)includeIntoCenterOfContainer:(UIView * _Nonnull)container;
 - (NSArray<NSLayoutConstraint *> * _Nonnull)attachTo:(id <LayoutGuidable> _Nonnull)anchor insets:(UIEdgeInsets)insets;
 - (void)updateInclusionConstraints:(UIEdgeInsets)insets;
@@ -2685,8 +2711,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @class UIVisualEffectView;
 @class UIBlurEffect;
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) BOOL hasBlurEffect;
 @property (nonatomic, readonly, strong) UIView * _Nullable blurContentView;
+@property (nonatomic, readonly, strong) UIVisualEffectView * _Nullable blurSubview;
 - (UIVisualEffectView * _Nonnull)addBlurSubviewWithBlurFrame:(CGRect)blurFrame style:(enum UIBlurEffectStyle)style;
 - (UIVisualEffectView * _Nonnull)addBlurSubviewWithBlurFrame:(CGRect)blurFrame style:(enum UIBlurEffectStyle)style intensity:(CGFloat)intensity;
 - (void)addBlurEffectWithStyle:(enum UIBlurEffectStyle)style intensity:(CGFloat)intensity;
@@ -2725,6 +2751,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostController;
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostFullScreenController;
+- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
 - (void)dismissWithKeepTopAlert:(BOOL)keepTopAlert animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
 @end
 
@@ -2748,6 +2775,19 @@ SWIFT_CLASS("_TtC7PRUIKit10ViewTraits")
 @interface ViewTraits : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class WKWebViewConfiguration;
+@interface WKWebView (SWIFT_EXTENSION(PRUIKit))
+- (nonnull instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration * _Nullable)configuration css:(NSString * _Nonnull)css;
+@end
+
+@interface WKWebView (SWIFT_EXTENSION(PRUIKit))
+- (void)makeTransparent;
+@end
+
+@interface WKWebView (SWIFT_EXTENSION(PRUIKit))
+@property (nonatomic, copy) void (^ _Nullable contentSizeObserver)(CGSize);
 @end
 
 #endif

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSErrorDomain const PRPromiseErrorDomain;
 typedef NS_ERROR_ENUM(PRPromiseErrorDomain, PRPromiseError) {
+    PRPromiseErrorUnknown,
     PRPromiseErrorTimeout,
     PRPromiseErrorReset
 };
@@ -195,6 +196,13 @@ NS_SWIFT_NAME(Promise) @interface PRPromise : NSObject
 
 + (PRPromiseExpirationConditionBlock) expirationConditionBlockWithResolveTimeout:(NSTimeInterval)resolveExpirationTimeout
                                                                    rejectTimeout:(NSTimeInterval)rejectExpirationTimeout;
+
+@end
+
+@interface PRPromise (Error)
+
+- (NSError *)errorWithCode:(PRPromiseError)code
+               description:(nullable NSString *)description NS_SWIFT_NAME(error(code:description:));
 
 @end
 

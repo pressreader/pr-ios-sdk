@@ -44,7 +44,6 @@ extern NSString * const kPRPopularArticlesKey;
 @property (nullable, nonatomic, readonly) NTFUserItem *source;
 @property (nonatomic, readonly) BOOL isUserPost;
 @property (nonatomic, readonly) BOOL isPublicationPost;
-@property (nonatomic, readonly) NSDictionary *articleContext;
 @property (nonatomic, readonly) PRSubscription *preferredSubscription;
 @property (nonatomic, readonly) NSString *shortContentLanguage;
 

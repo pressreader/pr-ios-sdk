@@ -63,8 +63,6 @@ typedef NS_OPTIONS(NSInteger, mlProcessStatus) {
 @property (nonatomic, strong) id semUnpack;
 @property (nonatomic, strong) NSDate *messageDate;
 @property (nonatomic, readonly) NSString *languageUnlocalized;
-@property (nonatomic, readonly) NSString *countryUnlocalized;
-@property (nonatomic, readonly) NSString *countryISOCode;
 @property (nonatomic, strong) id<HotSpotInfo> hotSpot;
 
 - (BOOL)pdnDownloadedForPageRange:(NSRange)pageRange;

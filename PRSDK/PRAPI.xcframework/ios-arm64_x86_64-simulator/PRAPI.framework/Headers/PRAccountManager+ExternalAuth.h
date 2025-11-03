@@ -104,7 +104,6 @@ typedef void (^ExternalAuthCompletion)(NSString *_Nullable authKey, BOOL isNewUs
 - (void)unlinkServiceWithAccount:(PRAccountItem *)ai
                         provider:(NSString *)provider
                  completionBlock:(void(^)(NSError *error))completionBlock;
-
 @end
 
 NS_ASSUME_NONNULL_END

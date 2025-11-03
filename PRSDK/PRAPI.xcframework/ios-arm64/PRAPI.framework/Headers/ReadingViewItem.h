@@ -6,8 +6,9 @@
 //  Copyright © 2020 NewspaperDirect. All rights reserved.
 //
 
-#import "PRTitleObject.h"
+#import <Foundation/Foundation.h>
 @import PRConfiguration.PRConfig_ScreenshotProtection;
+#import <PRAPI/PRCatalogItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,14 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
 @class PDFDoc;
 @class PdfPrintRendererPage;
 
-@protocol _ReadingViewItem <PRCatalogItem, OpenedItem>
+@protocol _ReadingViewItem <NSObject>
 @property NSUInteger viewerPage;
 
 @property (readonly) NSUInteger numberOfPages;
 @property (readonly) NSUInteger pagesCount;
 @property (readonly) BOOL rightToLeft;
 @property (readonly) BOOL isPurchaseAdvise;
-@property (readonly) BOOL isMarkedToDeleteContent;
+@property (readonly) BOOL isMarkedForDeletion;
 
 
 - (BOOL)done;
@@ -52,7 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
                          error:(NSError *_Nullable __autoreleasing *)error;
 
 
-- (UIColor *)paperColor;
 - (BOOL)printingAsBitmap;
 
 - (NSString*)defaultImagePathForPage:(NSUInteger)page;

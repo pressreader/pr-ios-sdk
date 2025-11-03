@@ -12,8 +12,9 @@
 
 + (CGSize)defaultItemSizeForCollectionWidth:(CGFloat)collectionWidth
                                infoBarStyle:(PRCellInfoBarStyle)style
+                                      ratio:(CGFloat)ratio
                                  multiplier:(CGFloat)multiplier
-NS_SWIFT_NAME(defaultItemSize(collectionWidth:infoBarStyle:multiplier:));
+NS_SWIFT_NAME(defaultItemSize(collectionWidth:infoBarStyle:ratio:multiplier:));
 
 + (CGSize)defaultItemSizeForCollectionWidth:(CGFloat)collectionWidth
 NS_SWIFT_NAME(defaultItemSize(collectionWidth:));

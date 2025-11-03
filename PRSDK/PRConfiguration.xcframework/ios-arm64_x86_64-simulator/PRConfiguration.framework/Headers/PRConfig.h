@@ -1,17 +1,28 @@
-/*
- *  PRConfig.h
- *  PRiphone
- *  Created by Vitali Bounine on 12/24/10.
- *  Copyright 2010 NewspaperDirect. All rights reserved.
- *
- */
+//
+//  PRConfig.h
+//  PRConfiguration
+//
+//  Created by Vitali Bounine on 12/24/10.
+//  Copyright 2010 NewspaperDirect. All rights reserved.
+//
+//  Configuration keys are used by DQ RCU, Firebase, and potentially other back-ends
+//  to alter the app's default appearance and behavior at runtime.
+//  SCREAMING_SNAKE_CASE dot notation for keys was originally established.
+//  It served well, as it allowed keys to be organized into specific domains,
+//  e.g., USER.PROFILE.FIRST_NAME.
+//  However, it can no longer be used due to Firebase integration
+//  and its key name limitations.
+//  To unify keys across different back-ends, it is recommended to start using
+//  lowercase colon notation for all new keys,
+//  in order to keep them (a) domain-driven and (b) platform-independent.
+//  New format example: user:profile:first_name.
+//
 
 #import <Foundation/Foundation.h>
 #import <PRConfiguration/PRBaseConfig.h>
 
 #pragma mark - General
 
-#define USE_PUBLISHER_EXTERNAL_CONFIG   _PRCONFIG_BOOL_(@"USE_PUBLISHER_EXTERNAL_CONFIG", NO)
 // if YES then VideoView.html will automatically enter to full screen mode after load video content
 #define VIDEO_VIEW_AUTO_ENTER_FULL_SCREEN    _PRCONFIG_BOOL_(@"VIDEO_VIEW_AUTO_ENTER_FULL_SCREEN", NO)
 #define VIDEO_VIEW_STARTS_IN_FULL_SCREEN    _PRCONFIG_BOOL_(@"VIDEO_VIEW_STARTS_IN_FULL_SCREEN", YES)
@@ -24,8 +35,6 @@
 #define delivery_auto_include_suppls        _PRCONFIG_BOOL_(@"delivery_auto_include_suppls", NO)
 #define autodelivery_on_subs_purchase       _PRCONFIG_BOOL_(@"autodelivery_on_subs_purchase", NO)
 #define auto_reset_on_invalid_activation    _PRCONFIG_BOOL_(@"auto_reset_on_invalid_activation", NO)
-
-#define sample_issue_cids				_PRCONFIG_STRING_(@"sample_issue_cids", @"")
 
 #define show_save_money                     _PRCONFIG_BOOL_(@"show_save_money", NO)
 #define ALWAYS_SHOW_SAVE_MONEY              _PRCONFIG_BOOL_(@"ALWAYS_SHOW_SAVE_MONEY", NO)
@@ -162,16 +171,6 @@
 
 #define free_issue_cids                 _PRCONFIG_STRING_(@"free_issue_cids", @"")
 
-#pragma mark - Order View
-
-// We show authorize button if current subscription doesn't cover current publication
-#define ORDER_VIEW_SHOW_AUTHORIZE_BUTTON_WHEN_BUYING_REQUIRED  _PRCONFIG_BOOL_(@"ORDER_VIEW_SHOW_AUTHORIZE_BUTTON_WHEN_BUYING_REQUIRED", YES)
-#define Order_Status_DeviceTrial_ZeroIssues     _PRCONFIG_STRING_(@"Order_Status_DeviceTrial_ZeroIssues", @"")
-#define SHOW_OTHER_ISSUES_IN_ORDER_VIEW         _PRCONFIG_BOOL_(@"SHOW_OTHER_ISSUES_IN_ORDER_VIEW", YES)
-#define ORDER_SHOW_SELL_INSEPARABLY_ALERT       _PRCONFIG_BOOL_(@"ORDER_SHOW_SELL_INSEPARABLY_ALERT", NO)
-#define order_show_include_suppls               _PRCONFIG_BOOL_(@"order_show_include_suppls", YES)
-#define ORDER_VIEW_SHOW_RELATED_PUBLICATIONS    _PRCONFIG_BOOL_(@"ORDER_VIEW_SHOW_RELATED_PUBLICATIONS", YES)
-
 #pragma mark - Online View 
 
 #define SHOW_ONLINE_VIEW				_PRCONFIG_BOOL_(@"SHOW_ONLINE_VIEW", NO)
@@ -181,7 +180,6 @@
 
 #pragma mark - Radio
 
-#define RADIO_FOR_PURCHASED_ITEMS_ONLY  _PRCONFIG_BOOL_(@"RADIO_FOR_PURCHASED_ITEMS_ONLY", YES)
 #define RADIO_SHOWS_VOTE_CONTROL        _PRCONFIG_BOOL_(@"RADIO_SHOWS_VOTE_CONTROL", YES)
 #define RADIO_USE_SPEECH_SYNTHESIZER    _PRCONFIG_BOOL_(PRRadioUseSpeechSynthesizer, NO)
 #define RADIO_SHOW_ISSUE_COPYRIGHT_LABEL      _PRCONFIG_BOOL_(@"RADIO_SHOW_ISSUE_COPYRIGHT_LABEL", YES)
@@ -233,6 +231,25 @@
 #define SF_HOMEFEED_LOAD_DELAY         _PRCONFIG_DOUBLE_(@"SF_HOMEFEED_LOAD_DELAY", 0.35)
 
 #define DATE_FORMATTER_TEMPLATE     _PRCONFIG_STRING_(@"DATE_FORMATTER_TEMPLATE", @"EEEdMMMyyyy")
+
+#pragma mark - Downloading
+
+#define newsstand_download_inactivity_period _PRCONFIG_INT_(@"newsstand_download_inactivity_period", 3) //days
+
+#pragma mark - iOS 7 Background Download
+
+#define IOS7_DONWLOAD_IN_BACKGROUND_ONLY _PRCONFIG_BOOL_(@"IOS7_DONWLOAD_IN_BACKGROUND_ONLY", YES)
+#define IOS7_BACKGROUND_DOWNLOAD_MULTISESSION _PRCONFIG_BOOL_(@"IOS7_BACKGROUND_DOWNLOAD_MULTISESSION", YES)
+
+#pragma mark - Partial download options
+#define DOWNLOAD_FULL_PDN_IN_FOREGROUND  _PRCONFIG_BOOL_(@"DOWNLOAD_FULL_PDN_IN_FOREGROUND", YES)
+#define DOWNLOAD_IMGPACK_IN_FOREGROUND   _PRCONFIG_BOOL_(@"DONWLOAD_IMGPACK_IN_FOREGROUND", YES)
+
+#define NOTIFY_ON_NEW_ISSUE_AVAILABLE_IN_DQ     _PRCONFIG_BOOL_(@"NOTIFY_ON_NEW_ISSUE_AVAILABLE_IN_DQ", YES)
+#define NOTIFY_ON_XML_UPDATE_AVAILABLE_IN_DQ    _PRCONFIG_BOOL_(@"NOTIFY_ON_XML_UPDATE_AVAILABLE_IN_DQ", NO)
+#define NOTIFY_ON_ISSUE_UPDATE_AVAILABLE_IN_DQ  (_PRCONFIG_BOOL_(@"NOTIFY_ON_ISSUE_UPDATE_AVAILABLE_IN_DQ", NO) || NOTIFY_ON_XML_UPDATE_AVAILABLE_IN_DQ)
+#define NOTIFY_ON_XML_UPDATE_DELIVERY           (NOTIFY_ON_XML_UPDATE_AVAILABLE_IN_DQ || _PRCONFIG_BOOL_(@"NOTIFY_ON_XML_UPDATE_DELIVERY", NO))
+#define NOTIFY_ON_ISSUE_DOWNLOAD_FINISHED     _PRCONFIG_BOOL_(@"NOTIFY_ON_ISSUE_DOWNLOAD_FINISHED", NO)
 
 @class LocalServerConfig;
 @class AnalyticsConfig;

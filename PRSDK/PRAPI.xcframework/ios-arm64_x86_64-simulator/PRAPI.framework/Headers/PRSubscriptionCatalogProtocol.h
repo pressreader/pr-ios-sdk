@@ -18,24 +18,14 @@ typedef void(^_Nullable PRServiceCompletion)(BOOL success, NSError *_Nullable er
 
 @protocol PRSubscriptionCatalogProtocol <NSObject>
 
-- (PRTitleItem *)parentWithCID:(NSString *)parentCID ;
-
 #pragma mark Bundles
 - (void)updateBundles;
 - (void)updateUserBundles;
-
-#pragma mark - Radio
-- (NSString *)currentArtIDtoListenWithCID:(NSString *)CID issueDate:(NSDate *)issueDate;
-- (void)setCurrentArtIDtoListen:(NSString *)artID CID:(NSString *)CID issueDate:(NSDate *)issueDate;
 
 #pragma mark - Catalog management
 - (void)UpdateSubscriptions;
 - (void)restartStatistics;
 - (BOOL)isSubscriptionsUpdated;
-- (NSArray*) GetAllSubscriptions;
-- (PRSubscriptionItem*) GetSubscriptionForOrderID:(NSString*)oid;
-- (PRSubscriptionItem*) GetSubscriptionByIdx:(NSUInteger)idx;
-- (BOOL)hasSubscriptionForCID:(NSString *)CID includingSupplements:(BOOL *_Nullable)pSupplementsIncluded;
 
 - (void)deleteSubscriptionsForCID:(NSString *)CID includeSupplements:(BOOL)include keepParent:(BOOL)keep successBlock:(void(^_Nullable)(void))successBlock failureBlock:(void(^_Nullable)(NSError *))failureBlock;
 - (void)changeDeleteSubscription:(PRSubscriptionItem*)order del:(BOOL)del includeSupplements:(BOOL)include successBlock:(void(^_Nullable)(void))successBlock failureBlock:(void(^_Nullable)(NSError *))failureBlock;
@@ -46,14 +36,8 @@ typedef void(^_Nullable PRServiceCompletion)(BOOL success, NSError *_Nullable er
 
 - (void)RequestIssueVersionsForCID:(NSString*)CID issueDate:(NSDate *)issueDate;
 - (void)RequestAudioUrlsForTitle:(PRTitleItem *)ti;
-- (void)RequestNewspaperRadioListWithCID:(NSString *)CID issueDate:(NSDate *)issueDate onCompletion:(void(^)(BOOL success))completionBlock;
-- (BOOL)markArticleAsListened:(NSString *)articleID CID:(NSString *)CID issueDate:(NSDate *)issueDate;
-
-#pragma mark - Vote
-- (void)SendVote:(BOOL)hateVote article:(NSDictionary *)article CID:(NSString *)CID issueDate:(NSDate *)issueDate;
 
 // subscription interface
-
 - (NSString*) localizedSubscriptionResult:(NSString*)resultCode;
 - (NSString *) localizedAccessResult:(NSString *)accessCode;
 

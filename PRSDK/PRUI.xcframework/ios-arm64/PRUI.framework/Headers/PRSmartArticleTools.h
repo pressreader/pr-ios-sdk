@@ -17,17 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSString* const kAppleWebArchiveType;
 
-@protocol PRSmartArticleVoteDelegate <NSObject>
-
-- (void) votesUpdatedForArticle:(NSString *)artID userVote:(NSInteger)userVote likeitVotes:(NSUInteger)likeitVotes hateitVotes:(NSUInteger)hateitVotes;
-
-@end
-
 @interface PRSmartArticleTools : NSObject
 
 - (instancetype)initWithMLI:(PRMyLibraryItem *)mli;
 
-@property (nullable, nonatomic, weak) id<PRSmartArticleVoteDelegate> voteDelegate;
 @property (nonatomic, unsafe_unretained, readonly) PRMyLibraryItem *mli;
 
 - (void)printArticle:(NSString *)artID
@@ -66,12 +59,6 @@ extern NSString* const kAppleWebArchiveType;
       inController:(UIViewController *)presentingController;
 
 - (void)bookmarkArticle:(NSString *)artID;
-
-- (void)voteForArticle:(NSString *)artID;
-- (void)voteAgainstArticle:(NSString *)artID;
-- (void)sendUpdateArticleVoteInfoRequest:(NSString *)artID;
-
-//+ (void) copySFSelectedArticle;
 
 @end
 

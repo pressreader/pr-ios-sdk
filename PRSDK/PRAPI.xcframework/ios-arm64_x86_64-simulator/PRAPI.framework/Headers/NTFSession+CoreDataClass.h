@@ -14,6 +14,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString *const NTFSessionHomeFeedName;
+
 @interface NTFSession : NSManagedObject
 
 + (instancetype)newSessionWithDate:(NSDate *)date context:(NSManagedObjectContext *)context;

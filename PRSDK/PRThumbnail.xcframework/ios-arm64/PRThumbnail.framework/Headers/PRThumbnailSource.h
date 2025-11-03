@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, retain, readonly) NSString *CID;
 @property (nonatomic, retain, readonly) NSDate *date;
 @property (nonatomic, readonly) NSInteger issueVersion;
-@property (nonatomic, readonly) NSString *expungeVersion;
+@property (nonatomic, readonly) NSInteger expungeVersion;
 @property (nonatomic, readonly) int pageNo;
 @property (nonatomic, getter = isSetup) BOOL setup;
 @property (nonatomic, copy) NSString * accessTicket;
@@ -53,14 +53,14 @@ NS_ASSUME_NONNULL_BEGIN
                          size:(CGSize)size
                        square:(BOOL)square
                  issueVersion:(NSInteger)issueVersion
-               expungeVersion:(NSString *)expungeVersion
+               expungeVersion:(NSInteger)expungeVersion
                        pageNo:(NSInteger)pageNo;
 
 + (NSString *)buildKeyWithCID:(NSString *)CID
                     issueDate:(NSDate *)date
                          size:(CGSize)size
                  issueVersion:(NSInteger)issueVersion
-               expungeVersion:(NSString *)expungeVersion;
+               expungeVersion:(NSInteger)expungeVersion;
 
 - (instancetype)initWithKey:(NSString *)key info:(PRThumbnailInfo *)info delegate:(nonnull id<PRThumbnailSourceDelegate>)delegate;
 - (instancetype)initWithKey:(NSString *)key info:(PRThumbnailInfo *)info NS_UNAVAILABLE;
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
                 size:(CGSize)size
               square:(BOOL)square
         issueVersion:(NSInteger)issueVersion
-      expungeVersion:(NSString *)expungeVersion
+      expungeVersion:(NSInteger)expungeVersion
               pageNo:(NSInteger)pageNo;
 
 @end

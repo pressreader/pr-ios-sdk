@@ -24,6 +24,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@class PRCalendarVC;
+@class PRCalendarDataSource;
+@class PRDropdownView;
+
+@interface PROrderVC (/*PROTECTED*/)
+- (void)displayMainThumbnailLoadingIndicator:(BOOL)display;
+- (void)switchToDate:(NSDate *)toDate;
+
+@property (nullable, nonatomic, strong) PRCalendarVC *calendarVC;
+@property (nullable, nonatomic, strong) PRCalendarDataSource *calendarDataSource;
+@property (nullable, nonatomic, strong) PRDropdownView *dropview;
+
+@end
+
 #ifdef TEST
 @interface PROrderVC ()
 - (void)openReaderWithCompletion:(nullable PRSimpleBlock)completion;

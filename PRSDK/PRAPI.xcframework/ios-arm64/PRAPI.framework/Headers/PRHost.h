@@ -12,15 +12,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRHost : NSObject
-
-- (void)requestWebTemplate:(NSString *)name locale:(NSString *)locale;
 - (void)updateBaseServicesInfo;
-- (void)discoverDQHostName:(void (^)(NSString *dqHostName, NSError *error))completionBlock;
 
 @property (nonatomic, readonly) NSString *defaultServiceName;
 @property (nonatomic, readonly) NSString *serviceName;
-@property (nonatomic, strong, readonly) PRPromise *baseServicesUpdate;
+@property (nonatomic, strong, readonly) PRPromise *updateBaseServicesInfoPromise;
 
+@end
+
+@interface PRHost (DNS)
+- (void)discoverDQHostName:(void (^)(NSString *dqHostName, NSError *error))completionBlock;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,6 +17,7 @@
 @class PRCatalog;
 @class PRTitleItem;
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface PROperationController : NSObject<Singleton> {
 
@@ -44,10 +45,8 @@
 - (void)processSmartMediaContentForURL:(NSURL *)url smartMediaRegion:(PRSmartMediaRegion *)region;
 - (void)processConfig:(NSXMLParser *)response;
 
-- (void)searchForSources:(NSString *)searchString limit:(NSUInteger)limit completionBlock:(void(^)(NSArray<PRTitleItem *>  *sources))completionBlock;
-
-
 @property (nonatomic, strong, readonly) NSOperationQueue *operationQueue;;
 
 @end
 
+NS_ASSUME_NONNULL_END

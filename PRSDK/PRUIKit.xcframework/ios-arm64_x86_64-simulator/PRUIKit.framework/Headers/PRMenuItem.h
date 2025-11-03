@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL hideTitleForSubmenu;
 @property (nullable, nonatomic, copy) NSString *details;
 @property (nullable, nonatomic, strong) NSString *icon;
-@property (nullable, nonatomic, strong) NSDictionary *parameters;
+@property (nullable, nonatomic, strong) NSDictionary<NSString *, id> *parameters;
 
 @property (nonatomic) UIImageRenderingMode iconRenderingMode;
 @property (nullable, nonatomic, copy) NSString *iconURL;

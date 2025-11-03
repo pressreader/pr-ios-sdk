@@ -89,17 +89,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (PRCellInfoBarStyle)infoBarStyleForPresentationStyle:(PRSourceItemCellPresentationStyle)style;
 + (PRCellInfoBarStyle)defaultInfoBarStyle;
 
-
-- (void)setupCellWithTitleExemplar:(PRTitleItemExemplar *)exemplar NS_SWIFT_NAME(setupCell(titleExemplar:));
-- (void)setupCellWithTitleExemplar:(PRTitleItemExemplar *)exemplar
-                  thumbnailOptions:(PRSourceThumbnailOption)thumbnailOptions;
-
 - (void)updateListenButtonState;
 - (void)setupInfoBarWithStyle:(PRCellInfoBarStyle)style;
 
 @property (class, nonatomic, readonly) CGFloat infoBarHeight;
 
-@property (nonatomic, readonly) PRTitleItem *titleItem;
 @property (nullable, nonatomic, readonly) PRTitleItemExemplar *titleExemplar;
 
 @property (nonatomic) PRSourceItemCellPresentationStyle presentationStyle;
@@ -111,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) PRRibbonStyleMask allowedRibbonStyleMask;
 @property (nonatomic, getter=isDimmed) BOOL dimmed;
 @property (nonatomic, getter=isLocked) BOOL locked;
-@property (nonatomic) NSUInteger downloadProgress;
+@property (nonatomic) NSInteger downloadProgress;
 @property (nonatomic) BOOL smartXMLExist;
 @property (nonatomic) BOOL smartXMLReady;
 

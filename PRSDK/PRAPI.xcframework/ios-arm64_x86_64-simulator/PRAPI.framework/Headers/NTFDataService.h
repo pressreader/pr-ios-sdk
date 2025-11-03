@@ -105,7 +105,8 @@ typedef NSArray<JSONDictionary> * JSONCollection;
 @property (nonatomic, assign) NSUInteger batchSize;
 
 @property (nullable, nonatomic, strong) NSManagedObjectID *feedId;
-@property (nonatomic, strong, readonly) NSManagedObjectContext *context;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *mainContext;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *privateContext;
 @property (nullable, nonatomic, readonly) NTFFeed *feed;
 
 @property (nullable, nonatomic, readonly) NSDictionary *sectionJSON;

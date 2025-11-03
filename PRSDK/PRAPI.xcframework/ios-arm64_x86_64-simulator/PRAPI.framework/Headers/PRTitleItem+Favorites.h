@@ -16,14 +16,10 @@ extern NSNotificationName const PRTitleItemFavoriteChangedNotification;
 
 @interface PRTitleItem (Favorites)
 
-- (BOOL)isFavoriteForService:(NSString *)serviceName;
+- (nullable NSString *)serviceNameWhereItemIsFavorite;
+
 - (void)setFavorite:(BOOL)favorite forService:(PRAccountItem *)service;
 - (void)setFavorite:(BOOL)favorite forService:(PRAccountItem *)service saveAndNotify:(BOOL)needSaveAndNotifiy;
-
-- (void)changeFavoriteStatus:(void(^)(BOOL success))completion;
-- (void)setFavorite:(BOOL)favorite completion:(void(^_Nullable)(BOOL success))completion;
-
-@property (nonatomic, readonly) BOOL isFavorite;
 
 @end
 

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) NSTimeInterval booksFetchInterval;
 @property (class, nonatomic, readonly) NSTimeInterval interestsFetchInterval;
 @property (class, nonatomic, readonly) NSTimeInterval catalogUpdateInterval;
+@property (class, nonatomic, readonly) NSTimeInterval catalogAvailableDatesFetchInterval;
 @property (class, nonatomic, readonly) NSTimeInterval newsfeedUpdateInterval;
 
 @end

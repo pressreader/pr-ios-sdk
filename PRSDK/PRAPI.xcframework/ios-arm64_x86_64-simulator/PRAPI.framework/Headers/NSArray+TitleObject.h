@@ -6,22 +6,13 @@
 //  Copyright (c) 2014 NewspaperDirect. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-#import "PRTitleObject.h"
-#import "PROptions.h"
+#import <PRConfiguration/PRCatalogConfig.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSSortDescriptor (TitleObject)
 
-+ (nullable NSArray<NSSortDescriptor *> *)titleObjectsSortDescriptorsByOrder:(PRCatalogSortingOrder)order;
-
-@end
-
-@interface NSArray (TitleObject)
-
-- (NSMutableArray<id<PRTitleObject>> *)sortedTitleObjects:(PRCatalogSortingOrder)order;
++ (NSArray<NSSortDescriptor *> *)titleObjectsSortDescriptorsByOrder:(PRCatalogSortingOrder)order;
 
 @end
 

@@ -41,7 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 // DQ
 - (void) getArtAudioUrlInt:(NSString*)artID completed:(void (^)(NSString * url))completionBlock;
 - (void) requestArticlesDynamicInfoInt:(NSString*)requestType completed:(void (^)(SPNode *))completionBlock;
-- (void) SendVoteInt:(NSInteger)userVote forArticle:(NSString *)artID __deprecated_msg("DQ for Vote deprecated, use `sendVoteInt:forArticle:` instead");
 - (void) sendVoteInt:(NSInteger)userVote forArticle:(PRSmartArticle *)article;
 - (void) requestVoteForArticleInt:(PRSmartArticle *)article completed:(void(^)(NSError *error))completionBlock;
 

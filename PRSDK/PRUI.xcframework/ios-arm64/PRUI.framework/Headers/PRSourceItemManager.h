@@ -12,7 +12,7 @@
 
 @class PRSubscription;
 @class PRMyLibraryItem;
-@class PRSourceItem;
+@protocol PRCatalogItem;
 @class PRTitleItemExemplar;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
              parameters:(nullable NSDictionary *)parameters
                  sender:(nullable id)sender;
 
-- (void)readItem:(PRSourceItem *)item
+- (void)readItem:(id<PRCatalogItem>)item
 preferableSubscription:(nullable PRSubscription *)subscription
       parameters:(nullable NSDictionary *)parameters
           sender:(nullable id)sender;
@@ -32,7 +32,7 @@ preferableSubscription:(nullable PRSubscription *)subscription
 preferableSubscription:(nullable PRSubscription *)subscription
           parameters:(nullable NSDictionary *)parameters;
 
-- (void)downloadItem:(PRSourceItem *)item
+- (void)downloadItem:(id<PRCatalogItem>)item
 preferableSubscription:(nullable PRSubscription *)subscription
               sender:(id)sender;
 

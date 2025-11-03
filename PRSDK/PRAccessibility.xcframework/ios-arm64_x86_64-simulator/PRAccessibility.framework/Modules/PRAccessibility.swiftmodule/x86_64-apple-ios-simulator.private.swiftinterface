@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRAccessibility
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import Foundation
 @_exported import PRAccessibility
 import Swift
@@ -68,6 +68,26 @@ public struct AppMenuItemAccessibilityId {
   public let customerSupport: PRAccessibility.AccessibilityId
   public let webView: PRAccessibility.AccessibilityId
   public let exit: PRAccessibility.AccessibilityId
+}
+@objc extension PRAccessibility.AccessibilityId {
+  @objc public static let catalog: PRAccessibility.CatalogAccessibilityId
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let filter: PRAccessibility.CatalogFilterAccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let option: PRAccessibility.CatalogFilterOptionAccessibilityId
+  @objc final public func filter(type: Swift.String) -> PRAccessibility.AccessibilityId
+  @objc final public func thumbnail(type: Swift.String) -> PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterOptionAccessibilityId : ObjectiveC.NSObject {
+  @objc final public let thumbnail: PRAccessibility.AccessibilityId
+  @objc override dynamic public init()
+  @objc deinit
 }
 extension PRAccessibility.AccessibilityId {
   public static let sdkTest: PRAccessibility.SDKTestAccessibilityId
@@ -145,6 +165,7 @@ public enum PRLaunchCommandParameter : Swift.String {
 @objc @_inheritsConvenienceInitializers @objcMembers final public class OrderCellAccessibilityId : ObjectiveC.NSObject {
   @objc final public let date: PRAccessibility.AccessibilityId
   @objc final public let autoDelivery: PRAccessibility.AccessibilityId
+  @objc final public let autoDeliverySupplements: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
@@ -155,6 +176,7 @@ public enum PRLaunchCommandParameter : Swift.String {
   @objc public static let activityView: PRAccessibility.AccessibilityId
   @objc public static let groupHeader: PRAccessibility.AccessibilityId
   @objc public static let publicationDetailsView: PRAccessibility.AccessibilityId
+  @objc public static let actionMenu: PRAccessibility.AccessibilityId
   @objc public static let moreMenuView: PRAccessibility.AccessibilityId
   @objc public static let deallocAlert: PRAccessibility.AccessibilityId
   @objc public static let sourceView: PRAccessibility.AccessibilityId
@@ -278,6 +300,7 @@ public enum PRLaunchCommand : Swift.String {
   case findHotSpot
   case kymPurchase
   case article
+  case openArticleCollection
   public enum Parameter : Swift.String {
     case `default`
     case server

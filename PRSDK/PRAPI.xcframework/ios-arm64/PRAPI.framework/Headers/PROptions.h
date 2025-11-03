@@ -47,11 +47,7 @@ extern NSString *const kDefaultConfigPath;
 extern NSString *const kExternalServicesKey;
 extern NSString *const kManagedExternalServicesKey;
 extern NSString *const kExternalSignInTemplateIdKey;
-extern NSString *const kAnonymousUserCategoriesKey;
 extern NSString *const kAnalyticsEventsConfigurationKey;
-extern NSString *const kAuthentificationAuth0SSOConfigurationKey;
-extern NSString *const kAuthentificationAuth0SSOScopeConfigurationKey;
-extern NSString *const kAuthentificationAuth0SSOAudienceConfigurationKey;
 
 extern CGFloat const kIPad_MaxZoomLevel;
 extern CGFloat const kIPhone_MaxZoomLevel;
@@ -99,6 +95,7 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 - (NSInteger) titlesPopupWidth;
 
 - (BOOL)setServiceHost:(NSString *)serviceHost;
+- (BOOL)setServiceHost:(NSString *)serviceHost silently:(BOOL)silently;
 
 - (NSString *) testServiceUrlKey;
 - (NSArray *) testServiceUrlKeys;
@@ -155,9 +152,6 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 - (NSInteger)screenshotCounterForIssue:(NSString *)issueKey;
 - (void)setScreenshotCounter:(NSInteger)counter forIssue:(NSString *)issueKey;
 
-- (nullable NSArray<NSDictionary<NSString *, id> *> *)publicationPath;
-- (void)setPublicationPath:(nullable NSArray<NSDictionary<NSString *, id> *> *)value;
-
 // base service urls and vesions
 - (void) updateBaseServices:(NSDictionary *)baseInfo;
 - (NSString *)versionForBaseService:(NSString *)serviceName;
@@ -181,9 +175,6 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 @property (nonatomic, readonly) NSDictionary *config;
 
 @property (nonatomic, readonly) NSString *installationVersion;
-
-@property (nonatomic, assign, nullable) NSString *localServiceName;
-@property (nonatomic, assign, nullable) NSString *localServiceURL;
 
 @property (nonatomic, assign) NSUInteger minItemsInGroup;
 @property (nonatomic, assign) PROpinionSortOrder opinionSortOrder;
@@ -213,3 +204,4 @@ NS_ASSUME_NONNULL_END
 #import "PROptions+Paths.h"
 #import "PROptions+URLs.h"
 #import "PROptions+Promise.h"
+#import "PROptions+LocalService.h"

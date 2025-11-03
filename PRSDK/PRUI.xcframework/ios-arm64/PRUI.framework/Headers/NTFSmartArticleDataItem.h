@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NTFSmartArticleDataItem : NTFSmartDataItem <NTFArticle>
 
 - (instancetype)initWithSmartArticle:(PRSmartArticle *)article
-                         isoLanguage:(NSString *)language
+                         isoLanguage:(nullable NSString *)language
                           issueTitle:(NSString *)issueTitle
                            issueDate:(NSString *)issueDate
                                  mli:(PRMyLibraryItem *)mli NS_DESIGNATED_INITIALIZER;

@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char PRCatalogModelVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <PRCatalogModel/PublicHeader.h>
 
 #import <PRCatalogModel/PRSourceItem_Basics.h>
+#import <PRCatalogModel/PRTitleItemSchedule.h>

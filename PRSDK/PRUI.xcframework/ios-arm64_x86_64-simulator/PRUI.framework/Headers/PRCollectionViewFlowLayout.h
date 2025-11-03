@@ -26,5 +26,3 @@ extern NSNotificationName const PRCollectionViewLayoutUpdated;
 @property (nonatomic, readonly) BOOL isEmpty;
 
 @end
-
-#import "PRCollectionViewFlowLayout+CellSize.h"

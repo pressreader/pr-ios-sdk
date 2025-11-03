@@ -11,24 +11,20 @@
 
 @import Foundation;
 @import PRCatalogModel.PRSourceItem_Basics;
+@class PRTitleItemExposer;
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSString * CID;
 
 @protocol PRCatalogItem <NSObject>
-@required
 @property (nonatomic, readonly) CID CID;
 @property (nullable, nonatomic, readonly) NSDate *date;
 @property (nullable, nonatomic, readonly) NSString *title;
-
-/// Size of downloaded content in bytes. Returns `0` in case of no content is downloaded.
-@property (nonatomic, readonly) NSUInteger size;
-
 @property (nullable, nonatomic, readonly) NSDate *sortingDate;
-@property (nonatomic, readonly) PRSourceType sourceType;
-@property (nullable, nonatomic, readonly) NSArray<NSString *> *countryCodes;
-@property (nullable, nonatomic, readonly) NSString * originCountryCode;
+
+// for legacy objc compatibility
+@property (nullable, nonatomic, readonly) PRTitleItemExposer *ti;
 
 @end
 

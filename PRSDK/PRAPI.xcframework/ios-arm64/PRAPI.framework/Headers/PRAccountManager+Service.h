@@ -27,7 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
                              stamp:(nullable NSString *)stamp
                         socialData:(nullable NSString *)socialData
                         completion:(void(^_Nullable)(BOOL success, NSError * _Nullable error))completion;
-- (void)sendAuthorizeUserByExternalAuthTicketRequest:(NSString *)externalAuthTicket isNewUser:(BOOL)isNewUser onComplete:(void(^)(BOOL success, NSError *error))onCompleteBlock;
+- (void)sendAuthorizeUserByExternalAuthTicketRequest:(NSString *)externalAuthTicket
+                                           isNewUser:(BOOL)isNewUser
+                                          onComplete:(void(^)(BOOL success, NSError * _Nullable error))onCompleteBlock;
 
 - (void)deauthorizeAccount:(PRAccountItem *)ai
                    options:(PRAccountDeauthorizationOption)options
@@ -82,6 +84,7 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
                failure:(void (^)(NSError *error))failureBlock;
 
 - (void)sendDownloadCompletedRequest:(NSString *)accountName;
+- (void)requestHotZoneStatus;
 - (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem;
 - (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
                                 forced:(BOOL)forced

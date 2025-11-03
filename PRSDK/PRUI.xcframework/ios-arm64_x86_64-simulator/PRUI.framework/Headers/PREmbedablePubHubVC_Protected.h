@@ -25,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateDataSource;
 
 - (CGFloat)itemSizeMultiplierForSection:(PRCatalogSection *)section;
-- (CGSize)itemSizeForSection:(PRCatalogSection *)section;
 
 - (PRCatalogSection *)sectionForIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)showSeeAllButtonForSection:(NSInteger)section;

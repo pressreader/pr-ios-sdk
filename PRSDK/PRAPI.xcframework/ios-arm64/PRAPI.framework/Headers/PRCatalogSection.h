@@ -10,7 +10,8 @@
 #import <PRAPI/PROptions.h>
 
 @class PRAccountItem;
-@class PRSourceList;
+@class PRCollectionVC;
+@class PRSourceList, PRLatestIssuesList;
 @class CatalogSectionScheme;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,8 +28,6 @@ typedef NS_OPTIONS(NSUInteger, PRCatalogSectionOption) {
     PRCatalogSectionOptionNew = 1 << 4,
     PRCatalogSectionOptionPromptOnTop = 1 << 5
 };
-
-@class PRCollectionVC, PRSourceList;
 
 @interface PRCatalogSection : NSObject
 
@@ -57,7 +56,13 @@ typedef NS_OPTIONS(NSUInteger, PRCatalogSectionOption) {
 /// For PRCatalogDetailsSectionTypeLinkedService
 @property (nonatomic, strong) PRAccountItem *account;
 
+// Three types of section data source are supported:
+// - dataSource: prefrerrable modern catalog approach
+// - latestList: neutral static data set
+// - sourceList: deprecated legacy approach
 @property (nullable, nonatomic, strong) PRSourceList *sourceList;
+@property (nullable, nonatomic, strong) PRLatestIssuesList *latestList;
+
 @property (nonatomic, strong) id data;
 @property (nonatomic, strong) UIButton *discloseButton;
 

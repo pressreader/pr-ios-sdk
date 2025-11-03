@@ -43,7 +43,6 @@ extern NSNotificationName const PRModelDismissNotification;
 - (void)updateLastActiveInterval;
 - (void)enableScreenSaver;
 - (void)postponeScreenSaver:(NSTimeInterval)delay;
-- (void)enableLocalServiceMode:(BOOL)enable serviceName:(nullable NSString *)serviceName;
 
 - (void)cleanup;
 - (void)stop;

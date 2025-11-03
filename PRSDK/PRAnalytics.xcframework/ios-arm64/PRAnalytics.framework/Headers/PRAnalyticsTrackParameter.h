@@ -94,6 +94,9 @@ extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterBookTitle; // St
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterBookGenres; // String
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterBookSlug; //String
 
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterSlug; // String
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterIssueId; // String
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterCategoryId; // String
 
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterAction;
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterPublication;

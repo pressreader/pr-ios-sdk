@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 NewspaperDirect. All rights reserved.
 //
 
-#import "PRTitleObject.h"
+#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, PRTitleItemExemplarState) {
     PRTitleItemExemplarStateUnknown = 0,
@@ -25,33 +25,23 @@ NS_ASSUME_NONNULL_BEGIN
 @class PRThumbnailSource;
 @class PRMyLibraryItem;
 @class PRSubscription;
+@protocol PRCatalogItem;
 
-@interface PRTitleItemExemplar : NSObject <PRTitleObject>
+@interface PRTitleItemExemplar : NSObject
 
-+ (nullable instancetype)titleItemExemplarWithCID:(NSString *)cid
-                                             date:(nullable NSDate *)date;
-
-+ (nullable PRTitleItemExemplar *)titleItemExemplarFromItem:(id)item;
++ (nullable instancetype)titleItemExemplarWithCID:(NSString *)cid date:(nullable NSDate *)date
+NS_SWIFT_NAME(item(cid:date:));
 
 - (void)pauseDownload;
 - (void)resumeDownload;
 - (void)cancelDownload;
 
 @property (nonatomic, strong, readonly) NSString *CID;
-@property (nonatomic, strong, readonly) NSDate *date;
+@property (nonatomic, strong, readonly) NSDate *issueDate;
 
-@property (nonatomic, strong, readonly) NSString *formattedDate;
-@property (nonatomic, strong, readonly) NSString *shortFormattedDate;
-@property (nonatomic, readonly) NSString *alternativeNames;
 @property (nonatomic, readonly) PRTitleItemExemplarState state;
-@property (nonatomic, readonly) BOOL isRecentlyRead;
-@property (nonatomic, readonly) PRSubscription *subscription;
-@property (nonatomic, readonly) BOOL isLatestExemplar;
-
-@property (nonatomic, readonly) BOOL hasRadio;
+@property (nullable, nonatomic, readonly) PRSubscription *subscription;
 
 @end
 
 NS_ASSUME_NONNULL_END
-
-#import "PRTitleItemExemplar+Thumbnail.h"

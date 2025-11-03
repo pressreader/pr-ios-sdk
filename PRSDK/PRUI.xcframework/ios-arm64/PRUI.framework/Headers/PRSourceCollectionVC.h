@@ -18,6 +18,8 @@
 @class PRTitleItem;
 @class PRCatalogSection;
 @class PRSourceList;
+@class PRLatestIssuesList;
+@class CatalogItem;
 
 @protocol PRCatalogItem;
 @protocol CatalogItemDataSourceProtocol;
@@ -78,24 +80,21 @@ NS_ASSUME_NONNULL_BEGIN
                           delegate:(nullable id<PRSourceCollectionControllerDelegate>)delegate;
 
 - (NSUInteger)groupCountForItem:(id)item;
-- (NSString *)accessoryTextForItem:(id)item;
 
 - (void)fillWithTitleItemExemplars:(NSArray<PRTitleItemExemplar *> *)tExemplars NS_SWIFT_NAME(fill(with:));
 - (void)fillWithSourceList:(PRSourceList *)list NS_SWIFT_NAME(fill(with:));
-- (void)fillWithDataSource:(id<CatalogItemDataSourceProtocol>)dataSource NS_SWIFT_NAME(fill(with:));
 
 - (void)setNeedsReloadDataAndScrollToCid:(NSString *)cid date:(NSDate *)date;
 - (void)loadAndScrollToTarget;
 
 - (void)completeDataLoading:(id)source;
 
-@property (nonatomic, readonly) PRTitleItemsCollectionDataProviderType dataProviderType;
+- (id<PRCatalogItem>)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 @property (nullable, nonatomic, strong, readonly) PRSourceList *sourceList;
+@property (nullable, nonatomic, strong) PRLatestIssuesList *latestIssues;
 
 @property (nonatomic) BOOL prefersOpeningReaderView;
-
-@property (nullable, nonatomic, strong, readonly) id<CatalogItemDataSourceProtocol> loadableDataSource;
 
 /// IMPORTANT: do not retain `section` as section itself might have strong reference to controller.
 @property (nullable, nonatomic, weak) PRCatalogSection *catalogSection;
@@ -119,11 +118,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface PRSourceCollectionVC (/*Protected*/)
+
+- (void)progressAction:(PRCollectionViewCell *)cell withExemplar:(PRTitleItemExemplar *)exemplar;
+- (void)progressAction:(PRCollectionViewCell *)cell withCatalogItem:(CatalogItem *)item;
+
 /// Contains raw data without banners, etc.
 @property (nullable, nonatomic, strong) NSArray *rawDataProvider;
 
 /// A formatted data provider with all the necessary additional elements (such as banners). Should be used as a data source for collection view
 @property (nullable, nonatomic, strong) NSArray *dataProvider;
+
+@property (nonatomic) PRTitleItemsCollectionDataProviderType dataProviderType;
+@property (nullable, nonatomic, strong) id<CatalogItemDataSourceProtocol> loadableDataSource;
 
 @end
 

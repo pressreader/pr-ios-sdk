@@ -21,8 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
                                  service:(PRAccountItem *)accountItem;
 - (void)removeTitleItemWithCID:(NSString *)CID;
 
-- (void)addToSpotlightSearch:(PRTitleItem *)item;
-
 @end
 
 NS_ASSUME_NONNULL_END

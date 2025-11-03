@@ -77,9 +77,9 @@ extern PRThumbnailCacheFieSizeSuffix const PRThumbnailCacheFieSizeSuffixWidth;
 /// This way we achieve the functionality of downloading visible thumbnails first.
 /// @param synchronously When set to YES, method attemts to prepare image synchronously with no delay if possible.
 /// @return YES if thumbnail is ready to show
-- (BOOL)prepareThumbnailSynchronously:(BOOL)synchronously;
+- (BOOL)prepareThumbnailSynchronously:(BOOL)synchronously NS_SWIFT_NAME(prepareSynchronously(_:));
 /// Calls `prepareThumbnailSynchronously` with NO synchrony.
-- (BOOL)prepareThumbnail;
+- (BOOL)prepareThumbnail NS_SWIFT_NAME(prepare());
 
 - (BOOL)hasCacheFile;
 
@@ -92,7 +92,7 @@ extern PRThumbnailCacheFieSizeSuffix const PRThumbnailCacheFieSizeSuffixWidth;
 @property (nonatomic, strong) PRThumbnailInfo *info;
 
 @property (nonatomic, strong) NSString *directoryPath;
-@property (nonatomic, strong) NSString *permanentStoreDirectoryPath;
+@property (nullable, nonatomic, strong) NSString *permanentStoreDirectoryPath;
 
 /// png by default
 @property (nonatomic, strong) NSString *originalFileExtension;
@@ -105,7 +105,7 @@ extern PRThumbnailCacheFieSizeSuffix const PRThumbnailCacheFieSizeSuffixWidth;
 
 @property (nonatomic, strong, readonly) NSString *downloadFilePath;
 @property (nonatomic, strong, readonly) NSString *cacheFilePath;
-@property (nonatomic, strong, readonly) NSString *permanentStoreFilePath;
+@property (nullable, nonatomic, strong, readonly) NSString *permanentStoreFilePath;
 
 @property (nonatomic, strong) NSString *placeholderFilePath;
 @property (nonatomic, assign) BOOL hasPlaceholderFile;
@@ -115,7 +115,7 @@ extern PRThumbnailCacheFieSizeSuffix const PRThumbnailCacheFieSizeSuffixWidth;
 @property (nullable, nonatomic) PRThumbnailGenerator imageGenerator;
 
 @property (nullable, nonatomic, strong, readonly) UIImage *image;
-@property (nonatomic, strong, readonly) UIImage *imagePlaceholder;
+@property (nullable, nonatomic, strong, readonly) UIImage *imagePlaceholder;
 
 @property (nonatomic) PRThumbnailOption options;
 

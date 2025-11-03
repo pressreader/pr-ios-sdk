@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PRTitleItemNestedTypes.h"
+#import <PRCatalogModel/PRTitleItemSchedule.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

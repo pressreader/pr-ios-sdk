@@ -8,7 +8,6 @@
 #import "PRHost.h"
 
 @interface PRHost (Service)
-- (void)requestWebTemplateInt:(NSString *)name locale:(NSString *)locale;
 - (void)requestBaseServicesInfoWithCompletionBlock:(void(^)(BOOL success, NSError *error))completionBlock;
 - (void)requestLocalServiceInfo:(void(^)(BOOL success, NSDictionary *serverInfo, NSError *error))completionBlock;
 @end

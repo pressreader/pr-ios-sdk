@@ -20,7 +20,6 @@ FOUNDATION_EXPORT const unsigned char PRConfigurationVersionString[];
 #import <PRConfiguration/PRConfig+Style.h>
 #import <PRConfiguration/PRConfig+RCU.h>
 #import <PRConfiguration/PRConfig+Presentation.h>
-#import <PRConfiguration/PRConfig+Networking.h>
 #import <PRConfiguration/PRConfig+AppPanels.h>
 #import <PRConfiguration/PRConfig+Analytics.h>
 #import <PRConfiguration/PRConfig+FetchIntervals.h>

@@ -379,6 +379,17 @@ SWIFT_CLASS("_TtC7PRUtils13HTMLFormatter")
 @property (nonatomic, readonly, copy) NSString * _Nonnull canonicalString;
 @end
 
+@interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(PRUtils))
+/// Returns object for Capitalisation Insensitive Key. F.e. in case of key = “accessKey”
+/// it checks “AccessKey” variant if original key doesn’t contain any value.
+- (id _Nullable)objectForCIKey:(NSString * _Nonnull)ciKey SWIFT_WARN_UNUSED_RESULT;
+/// Returns first match of Capitalisation Insensitive Key from array to an object
+- (id _Nullable)objectForCIKeys:(NSArray<NSString *> * _Nonnull)ciKeys SWIFT_WARN_UNUSED_RESULT;
+/// Returns object for Same Case Insensitive Key. F.e. in case of key = “9Fce” it also checks both
+/// uppercase “9FCE” lowercase “9fce” variants if original key doesn’t contain any value.
+- (id _Nullable)objectForSCKey:(NSString * _Nonnull)scKey SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @interface NSMutableArray<ObjectType> (SWIFT_EXTENSION(PRUtils))
 - (void)safeAddObject:(id _Nullable)object;
 @end

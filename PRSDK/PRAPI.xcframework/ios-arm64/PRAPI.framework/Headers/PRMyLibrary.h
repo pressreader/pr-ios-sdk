@@ -22,6 +22,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSNotificationName const PRMyLibraryInitializationDone;
+
 @interface PRMyLibrary : NSObject {
 	NSMutableDictionary<NSString *, PRMyLibraryItem *>*	m_mibymid;
 	
@@ -31,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 	NSOperationQueue*		m_pdfRenderingQueue;
 }
 
-- (void)initMyLibrary;
 - (void)loadMliByMID:(NSString *)MID;
 
 - (PRMyLibraryItem *)itemWithCID:(NSString *)cid date:(NSDate *)date preprocess:(BOOL)preprocess;
@@ -79,7 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) UIBackgroundFetchResult backgroundFetchResult;
 @property (nullable, strong) BGTask *bgAppRefreshTask;
 @property BOOL bgAppRefreshTaskResult;
-@property (nonatomic) BOOL deleteContentOnInit;
 @property (nonatomic) BOOL updateWithContentPush;
 @property (nonatomic, readonly) NSArray<PRMyLibraryItem *> *mliItems;
 @property (nonatomic, readonly) NSArray<id<LibraryItemProtocol>> *downloadedItems;
@@ -93,7 +93,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRMyLibrary (/*PROTECTED*/)
 - (void)releaseAggregatedCollections;
-@property (nonatomic, readonly) NSArray<id<LibraryItemProtocol>> *libItems;
 @end
 
 NS_ASSUME_NONNULL_END

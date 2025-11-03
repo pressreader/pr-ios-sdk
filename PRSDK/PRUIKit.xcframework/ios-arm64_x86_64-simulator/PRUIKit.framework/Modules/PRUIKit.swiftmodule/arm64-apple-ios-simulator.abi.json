@@ -986,6 +986,23 @@
         "moduleName": "PRUIKit"
       },
       {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRAccessibility",
+        "printedName": "PRAccessibility",
+        "declKind": "Import",
+        "moduleName": "PRUIKit"
+      },
+      {
         "kind": "TypeDecl",
         "name": "FlippableCollectionViewFlowLayout",
         "printedName": "FlippableCollectionViewFlowLayout",
@@ -4316,9 +4333,73 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "spacing",
+            "printedName": "spacing",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreGraphics.CGFloat?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUIKit5StackV7spacing14CoreFoundation7CGFloatVSgvp",
+            "mangledName": "$s7PRUIKit5StackV7spacing12CoreGraphics7CGFloatVSgvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "CoreGraphics.CGFloat?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUIKit5StackV7spacing14CoreFoundation7CGFloatVSgvg",
+                "mangledName": "$s7PRUIKit5StackV7spacing12CoreGraphics7CGFloatVSgvg",
+                "moduleName": "PRUIKit",
+                "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+                "sugared_genericSig": "<Content where Content : SwiftUI.View>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(direction:alignment:content:)",
+            "printedName": "init(direction:alignment:spacing:content:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -4347,6 +4428,21 @@
                 "usr": "s:7PRUIKit5StackV9AlignmentO"
               },
               {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreGraphics.CGFloat?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
                 "kind": "TypeFunc",
                 "name": "Function",
                 "printedName": "() -> τ_0_0",
@@ -4365,8 +4461,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:7PRUIKit5StackV9direction9alignment7contentACyxGAC9DirectionOyx_G_AC9AlignmentOyx_Gxyctcfc",
-            "mangledName": "$s7PRUIKit5StackV9direction9alignment7contentACyxGAC9DirectionOyx_G_AC9AlignmentOyx_Gxyctcfc",
+            "usr": "s:7PRUIKit5StackV9direction9alignment7spacing7contentACyxGAC9DirectionOyx_G_AC9AlignmentOyx_G14CoreFoundation7CGFloatVSgxyctcfc",
+            "mangledName": "$s7PRUIKit5StackV9direction9alignment7spacing7contentACyxGAC9DirectionOyx_G_AC9AlignmentOyx_G12CoreGraphics7CGFloatVSgxyctcfc",
             "moduleName": "PRUIKit",
             "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
             "sugared_genericSig": "<Content where Content : SwiftUI.View>",
@@ -4571,6 +4667,13 @@
         "kind": "Import",
         "name": "PRUtils",
         "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRUIKit"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
         "declKind": "Import",
         "moduleName": "PRUIKit"
       },
@@ -14260,6 +14363,248 @@
       },
       {
         "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DismissButton",
+        "printedName": "DismissButton",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "action",
+            "printedName": "action",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUIKit13DismissButtonV6actionyycvp",
+            "mangledName": "$s7PRUIKit13DismissButtonV6actionyycvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUIKit13DismissButtonV6actionyycvg",
+                "mangledName": "$s7PRUIKit13DismissButtonV6actionyycvg",
+                "moduleName": "PRUIKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(action:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DismissButton",
+                "printedName": "PRUIKit.DismissButton",
+                "usr": "s:7PRUIKit13DismissButtonV"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7PRUIKit13DismissButtonV6actionACyyc_tcfc",
+            "mangledName": "$s7PRUIKit13DismissButtonV6actionACyyc_tcfc",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "body",
+            "printedName": "body",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OpaqueTypeArchetype",
+                "printedName": "some SwiftUI.View",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "View",
+                    "printedName": "SwiftUI.View",
+                    "usr": "s:7SwiftUI4ViewP"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUIKit13DismissButtonV4bodyQrvp",
+            "mangledName": "$s7PRUIKit13DismissButtonV4bodyQrvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OpaqueTypeArchetype",
+                    "printedName": "some SwiftUI.View",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "View",
+                        "printedName": "SwiftUI.View",
+                        "usr": "s:7SwiftUI4ViewP"
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUIKit13DismissButtonV4bodyQrvg",
+                "mangledName": "$s7PRUIKit13DismissButtonV4bodyQrvg",
+                "moduleName": "PRUIKit",
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:7PRUIKit13DismissButtonV",
+        "mangledName": "$s7PRUIKit13DismissButtonV",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "View",
+            "printedName": "View",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OpaqueTypeArchetype",
+                    "printedName": "some SwiftUI.View",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "View",
+                        "printedName": "SwiftUI.View",
+                        "usr": "s:7SwiftUI4ViewP"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI4ViewP",
+            "mangledName": "$s7SwiftUI4ViewP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "PRAccessibility",
         "printedName": "PRAccessibility",
         "declKind": "Import",
@@ -16719,6 +17064,16 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
         "declKind": "Import",
         "moduleName": "PRUIKit",
         "declAttributes": [
@@ -19306,13 +19661,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "WeakStorage",
-                "printedName": "UIKit.UILabel?"
+                "name": "UILabel",
+                "printedName": "UIKit.UILabel",
+                "usr": "c:objc(cs)UILabel"
               }
             ],
             "declKind": "Var",
             "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(py)label",
-            "mangledName": "$s7PRUIKit16FollowHeaderViewC5labelSo7UILabelCSgvp",
+            "mangledName": "$s7PRUIKit16FollowHeaderViewC5labelSo7UILabelCvp",
             "moduleName": "PRUIKit",
             "declAttributes": [
               "HasInitialValue",
@@ -19320,14 +19676,11 @@
               "Preconcurrency",
               "Custom",
               "HasStorage",
-              "ReferenceOwnership",
               "SetterAccess",
               "AccessControl",
-              "IBOutlet",
-              "RawDocComment",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
-            "ownership": 1,
             "hasStorage": true,
             "accessors": [
               {
@@ -19337,22 +19690,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "UIKit.UILabel?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UILabel",
-                        "printedName": "UIKit.UILabel",
-                        "usr": "c:objc(cs)UILabel"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "UILabel",
+                    "printedName": "UIKit.UILabel",
+                    "usr": "c:objc(cs)UILabel"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)label",
-                "mangledName": "$s7PRUIKit16FollowHeaderViewC5labelSo7UILabelCSgvg",
+                "mangledName": "$s7PRUIKit16FollowHeaderViewC5labelSo7UILabelCvg",
                 "moduleName": "PRUIKit",
                 "implicit": true,
                 "declAttributes": [
@@ -19370,13 +19715,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "WeakStorage",
-                "printedName": "UIKit.UIImageView?"
+                "name": "UIImageView",
+                "printedName": "UIKit.UIImageView",
+                "usr": "c:objc(cs)UIImageView"
               }
             ],
             "declKind": "Var",
             "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(py)imageView",
-            "mangledName": "$s7PRUIKit16FollowHeaderViewC05imageD0So07UIImageD0CSgvp",
+            "mangledName": "$s7PRUIKit16FollowHeaderViewC05imageD0So07UIImageD0Cvp",
             "moduleName": "PRUIKit",
             "declAttributes": [
               "HasInitialValue",
@@ -19384,13 +19730,10 @@
               "Preconcurrency",
               "Custom",
               "HasStorage",
-              "ReferenceOwnership",
               "SetterAccess",
               "AccessControl",
-              "IBOutlet",
               "ObjC"
             ],
-            "ownership": 1,
             "hasStorage": true,
             "accessors": [
               {
@@ -19400,22 +19743,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "UIKit.UIImageView?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UIImageView",
-                        "printedName": "UIKit.UIImageView",
-                        "usr": "c:objc(cs)UIImageView"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "UIImageView",
+                    "printedName": "UIKit.UIImageView",
+                    "usr": "c:objc(cs)UIImageView"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)imageView",
-                "mangledName": "$s7PRUIKit16FollowHeaderViewC05imageD0So07UIImageD0CSgvg",
+                "mangledName": "$s7PRUIKit16FollowHeaderViewC05imageD0So07UIImageD0Cvg",
                 "moduleName": "PRUIKit",
                 "implicit": true,
                 "declAttributes": [
@@ -19433,13 +19768,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "WeakStorage",
-                "printedName": "PRUIKit.PRFollowButton?"
+                "name": "PRFollowButton",
+                "printedName": "PRUIKit.PRFollowButton",
+                "usr": "c:objc(cs)PRFollowButton"
               }
             ],
             "declKind": "Var",
             "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(py)button",
-            "mangledName": "$s7PRUIKit16FollowHeaderViewC6buttonSo14PRFollowButtonCSgvp",
+            "mangledName": "$s7PRUIKit16FollowHeaderViewC6buttonSo14PRFollowButtonCvp",
             "moduleName": "PRUIKit",
             "declAttributes": [
               "HasInitialValue",
@@ -19447,13 +19783,10 @@
               "Preconcurrency",
               "Custom",
               "HasStorage",
-              "ReferenceOwnership",
               "SetterAccess",
               "AccessControl",
-              "IBOutlet",
               "ObjC"
             ],
-            "ownership": 1,
             "hasStorage": true,
             "accessors": [
               {
@@ -19463,22 +19796,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "PRUIKit.PRFollowButton?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PRFollowButton",
-                        "printedName": "PRUIKit.PRFollowButton",
-                        "usr": "c:objc(cs)PRFollowButton"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "PRFollowButton",
+                    "printedName": "PRUIKit.PRFollowButton",
+                    "usr": "c:objc(cs)PRFollowButton"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)button",
-                "mangledName": "$s7PRUIKit16FollowHeaderViewC6buttonSo14PRFollowButtonCSgvg",
+                "mangledName": "$s7PRUIKit16FollowHeaderViewC6buttonSo14PRFollowButtonCvg",
                 "moduleName": "PRUIKit",
                 "implicit": true,
                 "declAttributes": [
@@ -19512,8 +19837,7 @@
               "Custom",
               "HasStorage",
               "AccessControl",
-              "ObjC",
-              "RawDocComment"
+              "ObjC"
             ],
             "hasStorage": true,
             "accessors": [
@@ -19592,32 +19916,108 @@
             ]
           },
           {
-            "kind": "Function",
-            "name": "awakeFromNib",
-            "printedName": "awakeFromNib()",
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "name": "FollowHeaderView",
+                "printedName": "PRUIKit.FollowHeaderView",
+                "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView"
               }
             ],
-            "declKind": "Func",
-            "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)awakeFromNib",
-            "mangledName": "$s7PRUIKit16FollowHeaderViewC12awakeFromNibyyF",
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)init",
+            "mangledName": "$s7PRUIKit16FollowHeaderViewCACycfc",
             "moduleName": "PRUIKit",
             "overriding": true,
-            "objc_name": "awakeFromNib",
+            "objc_name": "init",
             "declAttributes": [
-              "Final",
+              "Dynamic",
               "ObjC",
               "Preconcurrency",
               "Custom",
               "AccessControl",
-              "Override",
               "RawDocComment"
             ],
-            "funcSelfKind": "NonMutating"
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(frame:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FollowHeaderView",
+                "printedName": "PRUIKit.FollowHeaderView",
+                "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)initWithFrame:",
+            "mangledName": "$s7PRUIKit16FollowHeaderViewC5frameACSo6CGRectV_tcfc",
+            "moduleName": "PRUIKit",
+            "overriding": true,
+            "objc_name": "initWithFrame:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRUIKit.FollowHeaderView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FollowHeaderView",
+                    "printedName": "PRUIKit.FollowHeaderView",
+                    "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)initWithCoder:",
+            "mangledName": "$s7PRUIKit16FollowHeaderViewC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "PRUIKit",
+            "overriding": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "Required"
+            ],
+            "init_kind": "Designated"
           },
           {
             "kind": "Function",
@@ -19642,7 +20042,8 @@
               "Preconcurrency",
               "Custom",
               "Override",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -19728,82 +20129,6 @@
               "ObjC"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(frame:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "FollowHeaderView",
-                "printedName": "PRUIKit.FollowHeaderView",
-                "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CGRect",
-                "printedName": "CoreFoundation.CGRect",
-                "usr": "c:@S@CGRect"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)initWithFrame:",
-            "mangledName": "$s7PRUIKit16FollowHeaderViewC5frameACSo6CGRectV_tcfc",
-            "moduleName": "PRUIKit",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithFrame:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(coder:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "PRUIKit.FollowHeaderView?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "FollowHeaderView",
-                    "printedName": "PRUIKit.FollowHeaderView",
-                    "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NSCoder",
-                "printedName": "Foundation.NSCoder",
-                "usr": "c:objc(cs)NSCoder"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUIKit@objc(cs)FollowHeaderView(im)initWithCoder:",
-            "mangledName": "$s7PRUIKit16FollowHeaderViewC5coderACSgSo7NSCoderC_tcfc",
-            "moduleName": "PRUIKit",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithCoder:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Required"
-            ],
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
@@ -21060,6 +21385,26 @@
       },
       {
         "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -21209,6 +21554,16 @@
         "printedName": "Combine",
         "declKind": "Import",
         "moduleName": "PRUIKit"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -22323,6 +22678,300 @@
         "moduleName": "PRUIKit",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "PRUIKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PRUIKit"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "HostingView",
+        "printedName": "HostingView",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "content",
+            "printedName": "content",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUIKit11HostingViewC7contentxvp",
+            "mangledName": "$s7PRUIKit11HostingViewC7contentxvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Final",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUIKit11HostingViewC7contentxvg",
+                "mangledName": "$s7PRUIKit11HostingViewC7contentxvg",
+                "moduleName": "PRUIKit",
+                "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+                "sugared_genericSig": "<Content where Content : SwiftUI.View>",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(content:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "HostingView",
+                "printedName": "PRUIKit.HostingView<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:7PRUIKit11HostingViewC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7PRUIKit11HostingViewC7contentACyxGx_tcfc",
+            "mangledName": "$s7PRUIKit11HostingViewC7contentACyxGx_tcfc",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+            "sugared_genericSig": "<Content where Content : SwiftUI.View>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(frame:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "HostingView",
+                "printedName": "PRUIKit.HostingView<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:7PRUIKit11HostingViewC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7PRUIKit11HostingViewC5frameACyxGSo6CGRectV_tcfc",
+            "mangledName": "$s7PRUIKit11HostingViewC5frameACyxGSo6CGRectV_tcfc",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+            "sugared_genericSig": "<Content where Content : SwiftUI.View>",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithFrame:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:7PRUIKit11HostingViewC",
+        "mangledName": "$s7PRUIKit11HostingViewC",
+        "moduleName": "PRUIKit",
+        "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+        "sugared_genericSig": "<Content where Content : SwiftUI.View>",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl",
+          "Final",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)UIView",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "UIKit.UIView",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LayoutGuidable",
+            "printedName": "LayoutGuidable",
+            "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
+            "mangledName": "$s7PRUIKit14LayoutGuidableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "__DefaultCustomPlaygroundQuickLookable",
+            "printedName": "__DefaultCustomPlaygroundQuickLookable",
+            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
+            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
         ]
       },
       {
@@ -24048,6 +24697,59 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "containerCornerRadius",
+            "printedName": "containerCornerRadius",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUIKit@objc(cs)ContentMetrics(cpy)containerCornerRadius",
+            "mangledName": "$s7PRUIKit14ContentMetricsC21containerCornerRadius12CoreGraphics7CGFloatVvpZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUIKit@objc(cs)ContentMetrics(cm)containerCornerRadius",
+                "mangledName": "$s7PRUIKit14ContentMetricsC21containerCornerRadius12CoreGraphics7CGFloatVvgZ",
+                "moduleName": "PRUIKit",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "gridCellSize",
             "printedName": "gridCellSize(with:)",
@@ -24136,6 +24838,37 @@
             "declAttributes": [
               "Final",
               "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hotSpotBannerHeight",
+            "printedName": "hotSpotBannerHeight(horizontalSize:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIUserInterfaceSizeClass",
+                "printedName": "UIKit.UIUserInterfaceSizeClass",
+                "usr": "c:@E@UIUserInterfaceSizeClass"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUIKit@objc(cs)ContentMetrics(cm)hotSpotBannerHeightWithHorizontalSize:",
+            "mangledName": "$s7PRUIKit14ContentMetricsC19hotSpotBannerHeight14horizontalSize12CoreGraphics7CGFloatVSo015UIUserInterfaceI5ClassV_tFZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "objc_name": "hotSpotBannerHeightWithHorizontalSize:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -32216,57 +32949,6 @@
         "children": [
           {
             "kind": "Var",
-            "name": "hasBlurEffect",
-            "printedName": "hasBlurEffect",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUIKit@@objc(cs)UIView(py)hasBlurEffect",
-            "mangledName": "$sSo6UIViewC7PRUIKitE13hasBlurEffectSbvp",
-            "moduleName": "PRUIKit",
-            "declAttributes": [
-              "Dynamic",
-              "Preconcurrency",
-              "Custom",
-              "AccessControl",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUIKit@@objc(cs)UIView(im)hasBlurEffect",
-                "mangledName": "$sSo6UIViewC7PRUIKitE13hasBlurEffectSbvg",
-                "moduleName": "PRUIKit",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "blurContentView",
             "printedName": "blurContentView",
             "children": [
@@ -32294,6 +32976,7 @@
               "Preconcurrency",
               "Custom",
               "AccessControl",
+              "RawDocComment",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -32321,6 +33004,72 @@
                 "declKind": "Accessor",
                 "usr": "c:@CM@PRUIKit@@objc(cs)UIView(im)blurContentView",
                 "mangledName": "$sSo6UIViewC7PRUIKitE15blurContentViewABSgvg",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "blurSubview",
+            "printedName": "blurSubview",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIVisualEffectView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIVisualEffectView",
+                    "printedName": "UIKit.UIVisualEffectView",
+                    "usr": "c:objc(cs)UIVisualEffectView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UIView(py)blurSubview",
+            "mangledName": "$sSo6UIViewC7PRUIKitE11blurSubviewSo18UIVisualEffectViewCSgvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "UIKit.UIVisualEffectView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIVisualEffectView",
+                        "printedName": "UIKit.UIVisualEffectView",
+                        "usr": "c:objc(cs)UIVisualEffectView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUIKit@@objc(cs)UIView(im)blurSubview",
+                "mangledName": "$sSo6UIViewC7PRUIKitE11blurSubviewSo18UIVisualEffectViewCSgvg",
                 "moduleName": "PRUIKit",
                 "declAttributes": [
                   "Dynamic",
@@ -32806,72 +33555,6 @@
                 "printedName": "Escapable",
                 "usr": "s:s9EscapableP",
                 "mangledName": "$ss9EscapableP"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "inclusionConstraints",
-            "printedName": "inclusionConstraints",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[UIKit.NSLayoutConstraint]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSLayoutConstraint",
-                    "printedName": "UIKit.NSLayoutConstraint",
-                    "usr": "c:objc(cs)NSLayoutConstraint"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUIKit@@objc(cs)UIView(py)inclusionConstraints",
-            "mangledName": "$sSo6UIViewC7PRUIKitE20inclusionConstraintsSaySo18NSLayoutConstraintCGvp",
-            "moduleName": "PRUIKit",
-            "declAttributes": [
-              "Dynamic",
-              "Preconcurrency",
-              "Custom",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[UIKit.NSLayoutConstraint]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NSLayoutConstraint",
-                        "printedName": "UIKit.NSLayoutConstraint",
-                        "usr": "c:objc(cs)NSLayoutConstraint"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUIKit@@objc(cs)UIView(im)inclusionConstraints",
-                "mangledName": "$sSo6UIViewC7PRUIKitE20inclusionConstraintsSaySo18NSLayoutConstraintCGvg",
-                "moduleName": "PRUIKit",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
               }
             ]
           },
@@ -35369,6 +36052,31 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showSecureTextEntryToggle",
+            "printedName": "showSecureTextEntryToggle()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UITextField(im)showSecureTextEntryToggle",
+            "mangledName": "$sSo11UITextFieldC7PRUIKitE25showSecureTextEntryToggleyyF",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -35679,6 +36387,153 @@
         "declAttributes": [
           "ObjC",
           "Dynamic"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "View",
+        "printedName": "View",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "accessibilityId",
+            "printedName": "accessibilityId(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ModifiedContent",
+                "printedName": "SwiftUI.ModifiedContent<τ_0_0, SwiftUI.AccessibilityAttachmentModifier>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AccessibilityAttachmentModifier",
+                    "printedName": "SwiftUI.AccessibilityAttachmentModifier",
+                    "usr": "s:7SwiftUI31AccessibilityAttachmentModifierV"
+                  }
+                ],
+                "usr": "s:7SwiftUI15ModifiedContentV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AccessibilityId",
+                "printedName": "PRAccessibility.AccessibilityId",
+                "usr": "c:@M@PRAccessibility@objc(cs)AccessibilityId"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7SwiftUI4ViewP7PRUIKitE15accessibilityIdyAA15ModifiedContentVyxAA31AccessibilityAttachmentModifierVG15PRAccessibility0iF0CF",
+            "mangledName": "$s7SwiftUI4ViewP7PRUIKitE15accessibilityIdyAA15ModifiedContentVyxAA31AccessibilityAttachmentModifierVG15PRAccessibility0iF0CF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+            "sugared_genericSig": "<Self where Self : SwiftUI.View>",
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onHorizontalSizeChange",
+            "printedName": "onHorizontalSizeChange(threshold:action:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OpaqueTypeArchetype",
+                "printedName": "some SwiftUI.View",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "View",
+                    "printedName": "SwiftUI.View",
+                    "usr": "s:7SwiftUI4ViewP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "hasDefaultArg": true,
+                "usr": "s:14CoreFoundation7CGFloatV"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(SwiftUI.UserInterfaceSizeClass) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UserInterfaceSizeClass",
+                    "printedName": "SwiftUI.UserInterfaceSizeClass",
+                    "usr": "s:7SwiftUI22UserInterfaceSizeClassO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7SwiftUI4ViewP7PRUIKitE22onHorizontalSizeChange9threshold6actionQr14CoreFoundation7CGFloatV_yAA013UserInterfaceG5ClassOctF",
+            "mangledName": "$s7SwiftUI4ViewP7PRUIKitE22onHorizontalSizeChange9threshold6actionQr12CoreGraphics7CGFloatV_yAA013UserInterfaceG5ClassOctF",
+            "moduleName": "PRUIKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+            "sugared_genericSig": "<Self where Self : SwiftUI.View>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:7SwiftUI4ViewP",
+        "mangledName": "$s7SwiftUI4ViewP",
+        "moduleName": "SwiftUICore",
+        "genericSig": "<τ_0_0.Body : SwiftUI.View>",
+        "sugared_genericSig": "<Self.Body : SwiftUI.View>",
+        "intro_Macosx": "10.15",
+        "intro_iOS": "13.0",
+        "intro_tvOS": "13.0",
+        "intro_watchOS": "6.0",
+        "declAttributes": [
+          "Preconcurrency",
+          "TypeEraser",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "Available",
+          "Available",
+          "Available",
+          "Available",
+          "Custom"
         ],
         "isExternal": true,
         "conformances": [
@@ -38359,6 +39214,7 @@
               "Preconcurrency",
               "Custom",
               "Final",
+              "AccessControl",
               "ObjC",
               "RawDocComment"
             ],
@@ -38410,6 +39266,7 @@
               "Preconcurrency",
               "Custom",
               "Final",
+              "AccessControl",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -38473,7 +39330,42 @@
             "sugared_genericSig": "<T where T : UIKit.UIViewController>",
             "declAttributes": [
               "Preconcurrency",
-              "Custom"
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "topMost",
+            "printedName": "topMost(fullScreen:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UIViewController(im)topMostWithFullScreen:",
+            "mangledName": "$sSo16UIViewControllerC7PRUIKitE7topMost10fullScreenABSb_tF",
+            "moduleName": "PRUIKit",
+            "isOpen": true,
+            "objc_name": "topMostWithFullScreen:",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "ObjC"
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -38537,6 +39429,7 @@
               "Dynamic",
               "Preconcurrency",
               "Custom",
+              "AccessControl",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -46041,8 +46934,8 @@
         "children": [
           {
             "kind": "Function",
-            "name": "pushViewController",
-            "printedName": "pushViewController(_:animated:completion:)",
+            "name": "push",
+            "printedName": "push(_:animated:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -46060,51 +46953,26 @@
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "(() -> ())?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "() -> ()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUIKit@@objc(cs)UINavigationController(im)pushViewController:animated:completion:",
-            "mangledName": "$sSo22UINavigationControllerC7PRUIKitE08pushViewB0_8animated10completionySo06UIViewB0C_SbyycSgtF",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UINavigationController(im)push:animated:completionHandler:",
+            "mangledName": "$sSo22UINavigationControllerC7PRUIKitE4push_8animatedySo06UIViewB0C_SbtYaF",
             "moduleName": "PRUIKit",
             "declAttributes": [
               "Dynamic",
               "Preconcurrency",
               "Custom",
-              "RawDocComment",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
-            "name": "popViewController",
-            "printedName": "popViewController(animated:completion:)",
+            "name": "pop",
+            "printedName": "pop(animated:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -46116,37 +46984,13 @@
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "(() -> ())?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "() -> ()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUIKit@@objc(cs)UINavigationController(im)popViewControllerWithAnimated:completion:",
-            "mangledName": "$sSo22UINavigationControllerC7PRUIKitE07popViewB08animated10completionySb_yycSgtF",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UINavigationController(im)popAnimated:completion:",
+            "mangledName": "$sSo22UINavigationControllerC7PRUIKitE3pop8animatedySb_tYaF",
             "moduleName": "PRUIKit",
+            "objc_name": "popAnimated:completion:",
             "declAttributes": [
               "Dynamic",
               "Preconcurrency",
@@ -46158,8 +47002,8 @@
           },
           {
             "kind": "Function",
-            "name": "popToViewController",
-            "printedName": "popToViewController(_:animated:completion:)",
+            "name": "pop",
+            "printedName": "pop(to:animated:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -46177,37 +47021,13 @@
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "(() -> ())?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "() -> ()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRUIKit@@objc(cs)UINavigationController(im)popToViewController:animated:completion:",
-            "mangledName": "$sSo22UINavigationControllerC7PRUIKitE09popToViewB0_8animated10completionySo06UIViewB0C_SbyycSgtF",
+            "usr": "c:@CM@PRUIKit@@objc(cs)UINavigationController(im)popTo:animated:completionHandler:",
+            "mangledName": "$sSo22UINavigationControllerC7PRUIKitE3pop2to8animatedySo06UIViewB0C_SbtYaF",
             "moduleName": "PRUIKit",
+            "objc_name": "popTo:animated:completionHandler:",
             "declAttributes": [
               "Dynamic",
               "Preconcurrency",
@@ -47466,6 +48286,560 @@
             "printedName": "_CustomPlaygroundQuickLookable",
             "usr": "s:s30_CustomPlaygroundQuickLookableP",
             "mangledName": "$ss30_CustomPlaygroundQuickLookableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "WKWebView",
+        "printedName": "WKWebView",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(frame:configuration:css:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "hasDefaultArg": true,
+                "usr": "c:@S@CGRect"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "WebKit.WKWebViewConfiguration?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKWebViewConfiguration",
+                    "printedName": "WebKit.WKWebViewConfiguration",
+                    "usr": "c:objc(cs)WKWebViewConfiguration"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@CM@PRUIKit@@objc(cs)WKWebView(im)initWithFrame:configuration:css:",
+            "mangledName": "$sSo9WKWebViewC7PRUIKitE5frame13configuration3cssABSo6CGRectV_So0aB13ConfigurationCSgSStcfc",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "Convenience",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Function",
+            "name": "makeTransparent",
+            "printedName": "makeTransparent()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUIKit@@objc(cs)WKWebView(im)makeTransparent",
+            "mangledName": "$sSo9WKWebViewC7PRUIKitE15makeTransparentyyF",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "contentSizeObserver",
+            "printedName": "contentSizeObserver",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((CoreFoundation.CGSize) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(CoreFoundation.CGSize) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGSize",
+                        "printedName": "CoreFoundation.CGSize",
+                        "usr": "c:@S@CGSize"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUIKit@@objc(cs)WKWebView(py)contentSizeObserver",
+            "mangledName": "$sSo9WKWebViewC7PRUIKitE19contentSizeObserverySo6CGSizeVcSgvp",
+            "moduleName": "PRUIKit",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((CoreFoundation.CGSize) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(CoreFoundation.CGSize) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CGSize",
+                            "printedName": "CoreFoundation.CGSize",
+                            "usr": "c:@S@CGSize"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUIKit@@objc(cs)WKWebView(im)contentSizeObserver",
+                "mangledName": "$sSo9WKWebViewC7PRUIKitE19contentSizeObserverySo6CGSizeVcSgvg",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((CoreFoundation.CGSize) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(CoreFoundation.CGSize) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CGSize",
+                            "printedName": "CoreFoundation.CGSize",
+                            "usr": "c:@S@CGSize"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUIKit@@objc(cs)WKWebView(im)setContentSizeObserver:",
+                "mangledName": "$sSo9WKWebViewC7PRUIKitE19contentSizeObserverySo6CGSizeVcSgvs",
+                "moduleName": "PRUIKit",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)WKWebView",
+        "moduleName": "WebKit",
+        "isOpen": true,
+        "intro_iOS": "8.0",
+        "objc_name": "WKWebView",
+        "declAttributes": [
+          "Preconcurrency",
+          "Available",
+          "ObjC",
+          "Custom",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)UIView",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "UIKit.UIView",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObjectIdentifier",
+                    "printedName": "Swift.ObjectIdentifier",
+                    "usr": "s:SO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LayoutGuidable",
+            "printedName": "LayoutGuidable",
+            "usr": "c:@M@PRUIKit@objc(pl)LayoutGuidable",
+            "mangledName": "$s7PRUIKit14LayoutGuidableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "__DefaultCustomPlaygroundQuickLookable",
+            "printedName": "__DefaultCustomPlaygroundQuickLookable",
+            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
+            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Color",
+        "printedName": "Color",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "defaultBackground",
+            "printedName": "defaultBackground",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Color",
+                "printedName": "SwiftUI.Color",
+                "usr": "s:7SwiftUI5ColorV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7SwiftUI5ColorV7PRUIKitE17defaultBackgroundACvpZ",
+            "mangledName": "$s7SwiftUI5ColorV7PRUIKitE17defaultBackgroundACvpZ",
+            "moduleName": "PRUIKit",
+            "static": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Color",
+                    "printedName": "SwiftUI.Color",
+                    "usr": "s:7SwiftUI5ColorV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7SwiftUI5ColorV7PRUIKitE17defaultBackgroundACvgZ",
+                "mangledName": "$s7SwiftUI5ColorV7PRUIKitE17defaultBackgroundACvgZ",
+                "moduleName": "PRUIKit",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:7SwiftUI5ColorV",
+        "mangledName": "$s7SwiftUI5ColorV",
+        "moduleName": "SwiftUICore",
+        "intro_Macosx": "10.15",
+        "intro_iOS": "13.0",
+        "intro_tvOS": "13.0",
+        "intro_watchOS": "6.0",
+        "declAttributes": [
+          "Frozen",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ShapeStyle",
+            "printedName": "ShapeStyle",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Resolved",
+                "printedName": "Resolved",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Resolved",
+                    "printedName": "SwiftUI.Color.Resolved",
+                    "usr": "s:7SwiftUI5ColorV8ResolvedV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI10ShapeStyleP",
+            "mangledName": "$s7SwiftUI10ShapeStyleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "View",
+            "printedName": "View",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI4ViewP",
+            "mangledName": "$s7SwiftUI4ViewP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Transferable",
+            "printedName": "Transferable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Representation",
+                "printedName": "Representation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OpaqueTypeArchetype",
+                    "printedName": "some CoreTransferable.TransferRepresentation",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TransferRepresentation",
+                        "printedName": "CoreTransferable.TransferRepresentation",
+                        "usr": "s:16CoreTransferable22TransferRepresentationP"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "usr": "s:16CoreTransferable0B0P",
+            "mangledName": "$s16CoreTransferable0B0P"
           }
         ]
       },
@@ -52004,28 +53378,28 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIViewController\/UIViewController+Presentation.swift",
       "kind": "BooleanLiteral",
-      "offset": 373,
+      "offset": 388,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIViewController\/UIViewController+Presentation.swift",
       "kind": "BooleanLiteral",
-      "offset": 515,
+      "offset": 537,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIViewController\/UIViewController+Presentation.swift",
       "kind": "BooleanLiteral",
-      "offset": 590,
+      "offset": 619,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIViewController\/UIViewController+Presentation.swift",
       "kind": "BooleanLiteral",
-      "offset": 908,
+      "offset": 2165,
       "length": 4,
       "value": "true"
     },
@@ -52095,21 +53469,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIView\/UIView+Constraints.swift",
       "kind": "BooleanLiteral",
-      "offset": 762,
+      "offset": 1490,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIView\/UIView+Constraints.swift",
       "kind": "BooleanLiteral",
-      "offset": 1530,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIView\/UIView+Constraints.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5681,
+      "offset": 5822,
       "length": 5,
       "value": "false"
     },
@@ -52576,6 +53943,13 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/SwiftUI\/View+HorizontalSize.swift",
+      "kind": "IntegerLiteral",
+      "offset": 260,
+      "length": 3,
+      "value": "600"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "StringLiteral",
       "offset": 738,
@@ -52843,106 +54217,120 @@
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
+      "kind": "StringLiteral",
+      "offset": 3260,
+      "length": 9,
+      "value": "\"#F0F0F0\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
+      "kind": "StringLiteral",
+      "offset": 3272,
+      "length": 9,
+      "value": "\"#393939\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 3224,
+      "offset": 3371,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 3378,
+      "offset": 3539,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 3460,
+      "offset": 3621,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 3546,
+      "offset": 3707,
       "length": 4,
       "value": "0.36"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 3970,
+      "offset": 4131,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5028,
+      "offset": 5189,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 5038,
+      "offset": 5199,
       "length": 4,
       "value": "0.17"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5071,
+      "offset": 5232,
       "length": 3,
       "value": "217"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5075,
+      "offset": 5236,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5087,
+      "offset": 5248,
       "length": 3,
       "value": "225"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5091,
+      "offset": 5252,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5102,
+      "offset": 5263,
       "length": 3,
       "value": "232"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5106,
+      "offset": 5267,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 5118,
+      "offset": 5279,
       "length": 4,
       "value": "0.12"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Extensions\/UIColor\/UIColor+Theme.swift",
       "kind": "FloatLiteral",
-      "offset": 5477,
+      "offset": 5638,
       "length": 4,
       "value": "0.05"
     },
@@ -53099,6 +54487,55 @@
       "offset": 1169,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/FollowHeaderView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 359,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/FollowHeaderView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 403,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/FollowHeaderView.swift",
+      "kind": "FloatLiteral",
+      "offset": 443,
+      "length": 3,
+      "value": "0.7"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/FollowHeaderView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 472,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/FollowHeaderView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 652,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/FollowHeaderView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1180,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/FollowHeaderView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1233,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Components\/VisualControls\/Navigation\/Insetable\/UINavigationItem+Insetable.swift",
@@ -53446,28 +54883,35 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Style\/ContentMetrics.swift",
       "kind": "IntegerLiteral",
-      "offset": 2789,
+      "offset": 2681,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Style\/ContentMetrics.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2853,
       "length": 3,
       "value": "130"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Style\/ContentMetrics.swift",
       "kind": "IntegerLiteral",
-      "offset": 2802,
+      "offset": 2866,
       "length": 3,
       "value": "178"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Style\/ContentMetrics.swift",
       "kind": "IntegerLiteral",
-      "offset": 2865,
+      "offset": 2929,
       "length": 3,
       "value": "160"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUIKit\/Style\/ContentMetrics.swift",
       "kind": "IntegerLiteral",
-      "offset": 2878,
+      "offset": 2942,
       "length": 3,
       "value": "219"
     },

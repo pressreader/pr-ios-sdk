@@ -16,9 +16,6 @@
 
 + (PRPromise *)directURLWithCampaignId:(NSString *)campaignId;
 
-+ (PRPromise *)claimWithCampaignId:(NSString *)campaignId;
-+ (PRPromise *)claimWithCampaignId:(NSString *)campaignId profileId:(NSString *)profileId cid:(NSString *)cid;
-
 - (PRPromise *)directURL;
 
 - (PRPromise *)claim;

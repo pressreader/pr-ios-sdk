@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) UIScrollView *pagingScrollView;
 @property (nonatomic, strong) NSUserActivity *activity;
 @property (nonatomic, strong, readonly) NTFActionMenuProvider *actionMenuProvider;
+@property (nullable, nonatomic, strong) UIImageView *mastheadImageView;
 
 @end
 
@@ -54,7 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
                  forIndex:(NSUInteger)index
                     scale:(CGFloat)scale
                    offset:(CGPoint)offset;
+
 - (PRPDFScrollView *)pdfScrollViewWithCurrentItem;
+- (void)updateTitle;
 
 @property (nonatomic, readonly) BOOL isFullScreenDisabled;
 

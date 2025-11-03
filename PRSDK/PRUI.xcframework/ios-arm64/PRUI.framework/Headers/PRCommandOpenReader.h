@@ -7,16 +7,15 @@
 //
 
 @import PRCommands.PRCommand;
-@import PRAPI.NTFArticle;
 @import PRUtils;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRCommandOpenReader : PRCommand
-
-+ (void)executeWithArticle:(id<NTFArticle>)article completion:(nullable PRSimpleBlock)completion;
 + (void)executeWithParameters:(NSDictionary *)parameters completion:(nullable PRSimpleBlock)completion;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
+#import <PRUI/PRCommandOpenReader+Article.h>

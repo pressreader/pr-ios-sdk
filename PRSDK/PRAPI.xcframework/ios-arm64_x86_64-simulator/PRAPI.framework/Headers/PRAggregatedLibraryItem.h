@@ -7,20 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <PRAPI/PRCatalogItem.h>
+#import <PRAPI/PROpenableItem.h>
 @import PRCatalogModel.PRSourceItem_Basics;
 
 @class PRMyLibraryItem;
-@protocol PRCatalogItem;
-@protocol OpenedItem;
 
 @interface PRAggregatedLibraryItem : NSObject
 
-+ (instancetype)aggregatedLibraryItemFor:(PRMyLibraryItem *)myLibraryItem;
-- (instancetype)initWith:(id<PRCatalogItem, OpenedItem>)libraryItem sourceType:(PRSourceType)sourceType;
+- (instancetype)initWith:(id<PRCatalogItem, PROpenableItem>)libraryItem sourceType:(PRSourceType)sourceType;
 
 @property (nonatomic, strong) NSString *libItemCID;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, assign) PRSourceType sourceType;
-@property (nonatomic, strong) NSMutableArray<PRCatalogItem, OpenedItem> *libraryItems;
+@property (nonatomic, strong) NSMutableArray<PRCatalogItem, PROpenableItem> *libraryItems;
 
 @end

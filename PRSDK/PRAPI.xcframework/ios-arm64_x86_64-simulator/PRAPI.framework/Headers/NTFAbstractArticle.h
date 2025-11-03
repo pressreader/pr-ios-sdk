@@ -10,8 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol NTFArticle;
-@class PRTitleItem;
+@protocol NTFArticle, PRCatalogItem;
 @class PRTitleItemExemplar;
 @class PRAccountItem;
 @class PRSmartVideoPreviewRegion;
@@ -24,10 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, readonly) PRAccountItem *preferredAccount;
 
-@property (nullable, nonatomic, readonly) PRTitleItem *titleItem;
+@property (nullable, nonatomic, readonly) id<PRCatalogItem> titleItem;
 @property (nullable, nonatomic, readonly) PRTitleItemExemplar *issue;
 @property (nonatomic, readonly) BOOL hasBookmarks;
-@property (nonatomic, readonly) BOOL rightToLeft;
 @property (nonatomic, readonly) NSInteger pageIndex;
 @property (nonatomic, readonly) BOOL isVotable;
 @property (nonatomic, readonly) BOOL isTranslated;

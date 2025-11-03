@@ -11,7 +11,6 @@
 @interface PRMyLibrary (Store)
 
 - (void)deleteAllContent;
-- (void)deleteAllBooks;
 
 - (void)restore:(BOOL)preload;
 

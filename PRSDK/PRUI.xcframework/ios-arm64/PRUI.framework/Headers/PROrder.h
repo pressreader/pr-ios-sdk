@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import <PRAPI/PRCatalogItem.h>
 #import <PRThumbnail/PRThumbnail.h>
-#import "PROrderDelivery.h"
+#import <PRUI/PROrderDelivery.h>
 
 @class PRSubscription;
 @class PRTitleItem;
@@ -18,15 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PROrderUpdatedPaymentInfoNotification;
 
-typedef void(^ _Nullable PROrderCompletion)(BOOL success);
+typedef void(^ _Nullable PROrderCompletion)(BOOL success, NSError *_Nullable error);
 
 @interface PROrder : NSObject
 
 /// @param subscriptions set nil to make all linked services available for order
 - (_Nullable instancetype)initWithCID:(NSString *)cid
-                                 date:(NSDate *)date
-                        subscriptions:(NSArray<PRSubscription *> *)subscriptions
-                    thumbnailSizeType:(PRThumbnailSourceSizeType)thumbnailSizeType;
+                                 date:(nullable NSDate *)date
+                        subscriptions:(nullable NSArray<PRSubscription *> *)subscriptions;
 
 - (void)orderIssue:(PROrderCompletion)orderCompletion;
 - (void)orderIssueWithOptions:(PROrderDeliveryOption)deliveryOptions completion:(PROrderCompletion)orderCompletion;
@@ -49,7 +50,8 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success);
 - (void)updateWithDate:(NSDate *)date;
 - (void)updateWithCID:(NSString *)cid date:(NSDate *)date;
 
-- (void)setupCID;
+- (void)updateSubscriptions;
+- (void)onAvailableDatesUpdate;
 
 @property (nonatomic, strong, readonly) NSString *CID;
 @property (nonatomic, strong, readonly) NSDate *date;
@@ -58,27 +60,20 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success);
 @property (nonatomic, weak, readonly) PRSubscription *selectedSubscription;
 @property (nonatomic, strong, readonly) NSArray *acceptableServiceNames;
 
-@property (nonatomic, strong, readonly) NSString *mainCID;
-@property (nonatomic, strong, readonly) PRTitleItem *titleItem;
+@property (nullable, nonatomic, strong) id<PRCatalogItem> titleItem;
 @property (nonatomic, strong, readonly) PRTitleItemExemplar *titleExemplar;
 @property (nullable, nonatomic, weak, readonly) PRMyLibraryItem *mli;
-@property (nullable, nonatomic, copy, readonly) NSArray<NSDate *> *availableDates;
-@property (nonatomic, copy, readonly) NSDictionary *availableVersions;
-@property (nonatomic, assign) BOOL dontVerifyDateWithAvailableDates;
+@property (nullable, nonatomic, copy) NSArray<NSDate *> *availableDates;
 @property (nonatomic, strong, readonly) UIImage *image;
 @property (nonatomic, strong, readonly) UIImage *imagePlaceholder;
-@property (nonatomic, readonly) BOOL isIncludeSupplementsAllowed;
-@property (nonatomic, readonly) NSInteger supplementsCount;
-@property (nonatomic, strong, readonly) NSArray<PRTitleItem *> *supplements;
+@property (nonatomic) BOOL isIncludeSupplementsAllowed;
 @property (nonatomic, readonly) BOOL supplementsDownloaded;
 @property (nonatomic, readonly) BOOL supplementsRequested;
 
-@property (nonatomic, readonly) BOOL latestIssuesExists;
-
-@property (nonatomic, readonly) BOOL isAutoDelivery;
-@property (nonatomic, readonly) BOOL isSupplementsIncluded;
-@property (nonatomic) BOOL favorite;
-@property (nonatomic, getter=isFavoritesManagementSupported, readonly) BOOL favoritesManagementSupported;
+@property (nonatomic) BOOL isAutoDelivery;
+@property (nonatomic) BOOL isSupplementsIncluded;
+@property (nonatomic) BOOL following;
+@property (nonatomic, readonly) BOOL isFollowable;
 @property (nonatomic, readonly) BOOL downloaded;
 @property (nonatomic, readonly) BOOL mainIssueDownloaded;
 @property (nonatomic, readonly) BOOL readyToOpen;
@@ -98,8 +93,7 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success);
 @property (nullable, nonatomic, readonly) NSArray<NSString *> *productIdsForCurrentIssue;
 @property (nonatomic, readonly, getter=isPremiumProductAvailableForPurchase) BOOL premiumProductAvailableForPurchase;
 
-@property (nonatomic, readonly) BOOL latestIssueDatesRequestInProgress;
-@property (nonatomic, readonly) BOOL mightShowPaymentOptions;
+@property (nonatomic) BOOL latestIssueDatesRequestInProgress;
 
 @property (nonatomic, readonly) BOOL hasRadio;
 

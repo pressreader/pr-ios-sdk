@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
                                          size:(CGSize)size
                                        square:(BOOL)square
                                  issueVersion:(NSInteger)issueVersion
-                               expungeVersion:(NSString *)expungeVersion
+                               expungeVersion:(NSInteger)expungeVersion
                                        pageNo:(NSInteger)pageNo
                            permanentDirectory:(nullable NSString *)permanentDirectory;
 
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
                                          type:(PRThumbnailSourceType)type
                                          size:(CGSize)size
                                  issueVersion:(NSInteger)issueVersion
-                               expungeVersion:(NSString *)expungeVersion;
+                               expungeVersion:(NSInteger)expungeVersion;
 
 - (PRThumbnailSource *)sourceThumbnailWithCID:(NSString *)CID
                                     issueDate:(NSDate *)date

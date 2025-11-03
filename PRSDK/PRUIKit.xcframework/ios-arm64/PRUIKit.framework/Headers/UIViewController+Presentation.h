@@ -11,17 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Presentation)
-
-- (UIViewController *)topMostController:(BOOL)fullScreen NS_SWIFT_NAME(topMost(fullScreen:));
-
 @property (nonatomic, readonly) __kindof UIViewController *bottomMostController;
-
 @property (nonatomic, readonly) __kindof UIViewController *activeController;
-
 @property (nullable, nonatomic, readonly) UINavigationController *ownNavigationController;
-
 @property (nonatomic, readonly) UIModalPresentationStyle preferredModalPresentationStyle;
-
 @property (nonatomic, readonly) BOOL canPresent;
 
 @end

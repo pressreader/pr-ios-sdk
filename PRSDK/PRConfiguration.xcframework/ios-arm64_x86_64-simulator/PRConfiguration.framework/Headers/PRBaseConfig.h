@@ -7,6 +7,7 @@
 //
 
 #import <PRConfiguration/PRUserDefaults.h>
+#import <PRConfiguration/PRConfig.h>
 
 #pragma mark - Standard Defaults Accessors
 
@@ -30,21 +31,36 @@
 
 #pragma mark - General Defaults Accessors
 
-#define PR_DEFAULTS_BOOL_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB boolForKey:ARG] : DEFAULT_VALUE)
+#define PR_DEFAULTS_BOOL_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB boolForKey:ARG] : PRCONFIG_DEFAULTS_BOOL(ARG, DEFAULT_VALUE))
 #define PR_DEFAULTS_BOOL_SET_(DDB, ARG, VALUE) [DDB setBool:VALUE forKey:ARG]
 
-#define PR_DEFAULTS_INT_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB integerForKey:ARG] : DEFAULT_VALUE)
+#define PR_DEFAULTS_INT_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB integerForKey:ARG] : PRCONFIG_DEFAULTS_INT(ARG, DEFAULT_VALUE))
 #define PR_DEFAULTS_INT_SET_(DDB, ARG, VALUE) [DDB setInteger:VALUE forKey:ARG]
 
-#define PR_DEFAULTS_DOUBLE_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB doubleForKey:ARG] : DEFAULT_VALUE)
+#define PR_DEFAULTS_DOUBLE_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB doubleForKey:ARG] : PRCONFIG_DEFAULTS_DOUBLE(ARG, DEFAULT_VALUE))
 #define PR_DEFAULTS_DOUBLE_SET_(DDB, ARG, VALUE) [DDB setDouble:VALUE forKey:ARG]
 
-#define PR_DEFAULTS_STRING_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB stringForKey:ARG] : DEFAULT_VALUE)
+#define PR_DEFAULTS_STRING_(DDB, ARG, DEFAULT_VALUE)  ([DDB objectForKey:ARG] != nil ? [DDB stringForKey:ARG] : PRCONFIG_DEFAULTS_STRING(ARG, DEFAULT_VALUE))
+
 #define PR_DEFAULTS_STRING_SET_(DDB, ARG, VALUE) [DDB setObject:VALUE forKey:ARG]
 #define PR_DEFAULTS_STRING_SET_NONNULL_(DDB, ARG, VALUE) ([VALUE length] ? [DDB setObject:VALUE forKey:ARG] : nil)
 
-#define PR_DEFAULTS_OBJ_(DDB, ARG, DEFAULT_VALUE)  [DDB objectForKey:ARG] ? : DEFAULT_VALUE
+#define PR_DEFAULTS_OBJ_(DDB, ARG, DEFAULT_VALUE)  [DDB objectForKey:ARG] ? : PRCONFIG_DEFAULTS_OBJ(ARG, DEFAULT_VALUE)
 #define PR_DEFAULTS_OBJ_SET_(DDB, ARG, VALUE) [DDB setObject:VALUE forKey:ARG]
+
+#pragma mark - PRConfig Defaults Accessors
+
+#define PRCONFIG_DEFAULTS (PRConfig.configDefaults)
+
+#define PRCONFIG_DEFAULTS_STRING(ARG, DEFAULT_VALUE)  ([PRCONFIG_DEFAULTS objectForKey:ARG] != nil ? [NSString stringWithFormat:@"%@", [PRCONFIG_DEFAULTS objectForKey:ARG]] : DEFAULT_VALUE)
+
+#define PRCONFIG_DEFAULTS_INT(ARG, DEFAULT_VALUE)  ([PRCONFIG_DEFAULTS objectForKey:ARG] != nil ? [[PRCONFIG_DEFAULTS objectForKey:ARG] integerValue]  : DEFAULT_VALUE)
+
+#define PRCONFIG_DEFAULTS_BOOL(ARG, DEFAULT_VALUE)  ([PRCONFIG_DEFAULTS objectForKey:ARG] != nil ? [[PRCONFIG_DEFAULTS objectForKey:ARG] boolValue]  : DEFAULT_VALUE)
+
+#define PRCONFIG_DEFAULTS_DOUBLE(ARG, DEFAULT_VALUE)  ([PRCONFIG_DEFAULTS objectForKey:ARG] != nil ? [[PRCONFIG_DEFAULTS objectForKey:ARG] doubleValue]  : DEFAULT_VALUE)
+
+#define PRCONFIG_DEFAULTS_OBJ(ARG, DEFAULT_VALUE)  ([PRCONFIG_DEFAULTS objectForKey:ARG] != nil ? [PRCONFIG_DEFAULTS objectForKey:ARG]  : DEFAULT_VALUE)
 
 #pragma mark - Utils
 
