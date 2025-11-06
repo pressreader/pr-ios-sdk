@@ -20,7 +20,25 @@ final class RootModel {
     
     // MARK: - Public Properties
 
-    var serviceName: String {
+    var services: [String] {
+        var services = [
+            PRConfig.defaultServiceName,
+            "Multi titles + no Feed ",
+            "Kiosco Perfil Beta ",
+            " BE SingleTitle ",
+            "Single title and Feed BE",
+            "Single title  and sup and feed"
+        ]
+
+        let currentService = self.currentService
+        if !services.contains (where: { $0 == currentService }) {
+            services.append(currentService)
+        }
+            
+        return services
+    }
+    
+    var currentService: String {
         PressReader.serviceName
     }
 
@@ -276,14 +294,10 @@ extension RootModel: ReadingViewAnalyticsTracker {
     func trackIssuePage(issue: TrackingIssue, pageNumber: Int) {
         print("switching to page \(pageNumber) in \(issue.sourceType.rawValue) \(issue.title),\(issue.date ?? Date())")
     }
-//    func trackIssueTextFlow(issue: TrackingIssue) {}
+
     func trackArticleView(issue: TrackingIssue, article: TrackingArticle) {
         print("open article(\(article.id)) '\(article.headline)' from \(issue)")
     }
-//    func trackListenView(issue: TrackingIssue) {}
-//    func trackTranlated(article: TrackingArticle, languageFrom: String, laguageTo: String) {}
-//    func trackPrintedPages(issue: TrackingIssue, isFullPage: Bool, pageNumbers: [Int]) {}
-//    func trackPrintedArticle(issue: TrackingIssue, article: TrackingArticle, inReplicaPresentation: Bool) {}
 }
 
 extension RootModel: AnalyticsTracker {

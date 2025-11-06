@@ -9,6 +9,7 @@
 import UIKit
 import PRUI
 import PRUIKit
+import SwiftUI
 
 final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
@@ -16,6 +17,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     private class Sections {
         var service: Int?
+        var fullUI: Int?
         var auth: Int?
         var log: Int?
         var dismiss: Int?
@@ -53,7 +55,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.model.serviceName
+        self.title = "PRSDK Demo"
         
         let table: UITableView = self.tableView
         table.register(UITableViewCell.self, forCellReuseIdentifier: "actionCell")
@@ -63,7 +65,36 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
     
     // MARK: - Private Methods
-    
+
+    private func selectorCell(
+        _ tableView: UITableView,
+        indexPath: IndexPath,
+        title: String,
+        details: String,
+        accessibilityId: String? = nil
+    ) -> UITableViewCell {
+        let cellId = "selectorCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
+        ?? UITableViewCell(style: .value1, reuseIdentifier: cellId )
+
+        cell.accessoryType = .disclosureIndicator
+        
+        cell.textLabel.map {
+            $0.textColor = .label
+            $0.text = title
+        }
+        
+        cell.detailTextLabel.map {
+            $0.text = details
+        }
+
+        accessibilityId.map {
+            cell.accessibilityIdentifier = $0
+        }
+
+        return cell
+    }
+
     private func actionCell(
         _ tableView: UITableView,
         indexPath: IndexPath,
@@ -104,6 +135,36 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         textField.textColor = isEnabled ? .label : .secondaryLabel
     }
     
+    private func selectService() {
+        let serviceSelector = SelectionView(
+            options: self.model.services,
+            selectedOption: self.model.currentService
+        ) {
+            print($0)
+            //self.navigationController?.popViewController(animated: true)
+        }
+        
+        let hosting = UIHostingController(rootView: serviceSelector)
+        hosting.title = "Services"
+        
+        self.navigationController?.pushViewController(hosting, animated: true)
+    }
+    
+    @MainActor
+    private func openArticle(at indexPath: IndexPath) async {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.startAnimating()
+        
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.accessoryView = activityIndicator
+        
+        await PressReader.instance().openArticle(
+            id: model.articles[indexPath.row]
+        )
+        
+        activityIndicator.stopAnimating()
+    }
+    
     // MARK: - Reloadable
 
     func reloadData() {
@@ -116,38 +177,45 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         let sections = Sections()
-        var section = 0
+        var section = -1
+        
+        let increment = { () -> Int in
+            section += 1; return section
+        }
         
         let model = self.model
 
         if !model.isDismissed {
-            sections.service = section; section += 1
+            sections.service = increment()
+            if model.canPresentFullUI {
+                sections.fullUI = increment()
+            }
         }
         
         if !model.isFullUIOnly {
-            sections.dismiss = section; section += 1
+            sections.dismiss = increment()
             
             if model.isAuthEnabled {
-                sections.auth = section; section += 1
+                sections.auth = increment()
             }
             
             if model.isLoggingEnabled {
-                sections.log = section; section += 1
+                sections.log = increment()
             }
             
             if self.model.isCatalogEnabled {
-                sections.catalog = section; section += 1
-                sections.downloaded = section; section += 1
+                sections.catalog = increment()
+                sections.downloaded = increment()
             }
             
             if self.model.isArticleSetEnabled {
-                sections.articles = section; section += 1
+                sections.articles = increment()
             }
         }
         
         self.sections = sections
         
-        return section
+        return increment()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -188,10 +256,15 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             }
             
         case sections.service:
+            cell = self.selectorCell(tableView,
+                                     indexPath: indexPath,
+                                     title: "Service",
+                                     details: model.currentService)
+
+        case sections.fullUI:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
-                                   title: model.serviceName,
-                                   enabled: model.canPresentFullUI)
+                                   title: "Full UI")
 
         case sections.log:
             cell = self.actionCell(tableView,
@@ -244,11 +317,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         switch indexPath.section {
         case sections.auth:
             return indexPath.row > 0 && self.model.canAuthorise
-        case sections.log, sections.dismiss:
-            return true
-        case sections.service:
-            return self.model.canPresentFullUI
-        case sections.articles:
+        case sections.log, sections.dismiss, sections.service, sections.fullUI, sections.articles:
             return true
         default:
             return false
@@ -269,35 +338,26 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             let textField = cell.textField
             let token = textField.text
             model.authToken = token
-
+            
             if token?.count ?? 0 > 0 {
                 textField.isEnabled = false
-
+                
                 model.authorisePressreader()
             }
-
+            
         case sections.log:
             model.getLogs()
-
+            
         case sections.articles:
-            Task { @MainActor in
-                let activityIndicator = UIActivityIndicatorView(style: .medium)
-                activityIndicator.startAnimating()
-
-                let cell = tableView.cellForRow(at: indexPath)!
-                cell.accessoryView = activityIndicator
-
-                await PressReader.instance().openArticle(
-                    id: model.articles[indexPath.row]
-                )
-                
-                activityIndicator.stopAnimating()
-            }
+            Task { await self.openArticle(at: indexPath) }
             
         case sections.dismiss:
             model.isDismissed.toggle()
-
+            
         case sections.service:
+            self.selectService()
+        
+        case sections.fullUI:
             self.present(
                 PressReader.instance().rootViewController,
                 animated: true,
@@ -319,8 +379,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         switch section {
         case sections.auth:
             return "Authorisation"
-        case sections.service:
-            return "Service"
         case sections.log:
             return "Logs"
         case sections.catalog:
