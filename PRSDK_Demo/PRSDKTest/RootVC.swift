@@ -139,9 +139,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let serviceSelector = SelectionView(
             options: self.model.services,
             selectedOption: self.model.currentService
-        ) {
-            print($0)
-            //self.navigationController?.popViewController(animated: true)
+        ) { [weak self] in
+            guard let self else { return }
+            
+            self.model.currentService = $0
+            self.navigationController?.popViewController(animated: true)
         }
         
         let hosting = UIHostingController(rootView: serviceSelector)

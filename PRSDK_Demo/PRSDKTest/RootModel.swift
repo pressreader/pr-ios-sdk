@@ -39,7 +39,12 @@ final class RootModel {
     }
     
     var currentService: String {
-        PressReader.serviceName
+        get {
+            PressReader.serviceName
+        }
+        set {
+            PressReader.serviceName = newValue
+        }
     }
 
     var isEdition: Bool {
