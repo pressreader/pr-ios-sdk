@@ -106,7 +106,7 @@ final class RootModel {
     }
 
     var isArticleSetEnabled: Bool {
-        !self.isDismissed && !self.articles.isEmpty && !self.isLocalService
+        !self.isDismissed && !self.articles.isEmpty && !self.isLocalService && !self.isEdition
     }
 
     var catalogItemsCount: Int {

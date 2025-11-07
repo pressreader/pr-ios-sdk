@@ -7,16 +7,13 @@
 //
 
 import SwiftUI
+import PRSyntacticSugar
 
 public struct SelectionView: View {
-
-    // MARK: - Public Properties
 
     public let options: [String]
     public let selectedOption: String?
     public let completion: (String) -> Void
-
-    // MARK: - Init
 
     public init(
         options: [String],
@@ -28,13 +25,11 @@ public struct SelectionView: View {
         self.completion = completion
     }
 
-    // MARK: - Public Methods
-
     public var body: some View {
         List {
             ForEach(self.options.indices, id: \.self) {
                 let title = self.options[$0]
-                
+
                 return RowView(
                     title: title,
                     selected: title == self.selectedOption
@@ -42,8 +37,41 @@ public struct SelectionView: View {
                     self.completion($0)
                 }
             }
+            
+            Section {
+                CustomEntryView(completion: self.completion)
+            } header: {
+                Text("Custom Service")
+            }
         }
-        .accessibilityIdentifier("selection_list")
+    }
+}
+
+private struct CustomEntryView: View {
+    let completion: (String) -> Void
+
+    @State
+    private var text: String = ""
+
+    var body: some View {
+        HStack(spacing: 12) {
+            TextField("Enter custom option", text: self.$text, onCommit: self.onCompletion)
+                .textInputAutocapitalization(.words)
+                .disableAutocorrection(true)
+            Spacer()
+            Button {
+                self.onCompletion()
+            } label: {
+                Text("Apply")
+            }
+            .disabled(self.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+        }
+    }
+    
+    private func onCompletion() {
+        self.text.nonEmpty.map {
+            self.completion($0)
+        }
     }
 }
 
@@ -65,13 +93,11 @@ private struct RowView: View {
                 if selected {
                     Image(systemName: "checkmark")
                         .foregroundColor(.accentColor)
-                        .accessibilityIdentifier("selection_checkmark_\(title)")
                 }
             }
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .accessibilityIdentifier("selection_row_\(title)")
     }
 }
 
