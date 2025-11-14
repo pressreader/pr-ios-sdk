@@ -60,7 +60,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let table: UITableView = self.tableView
         table.register(UITableViewCell.self, forCellReuseIdentifier: "actionCell")
         table.register(TextFieldCell.self, forCellReuseIdentifier: "textFieldCell")
-        table.register(IssueCell.self, forCellReuseIdentifier: "issueCell")
+        table.register(IssueCell.self, forCellReuseIdentifier: .sdkTest.cells.issue)
         table.register(UITableViewCell.self, forCellReuseIdentifier: .sdkTest.cells.article)
     }
     
@@ -71,7 +71,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         indexPath: IndexPath,
         title: String,
         details: String,
-        accessibilityId: String? = nil
+        accessibilityId: AccessibilityId? = nil
     ) -> UITableViewCell {
         let cellId = "selectorCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
@@ -89,7 +89,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         }
 
         accessibilityId.map {
-            cell.accessibilityIdentifier = $0
+            cell.accessibilityId = $0
         }
 
         return cell
@@ -100,7 +100,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         indexPath: IndexPath,
         title: String? = nil,
         enabled: Bool = true,
-        accessibilityId: String? = nil
+        accessibilityId: AccessibilityId? = nil
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionCell", for: indexPath)
         cell.textLabel.map {
@@ -109,9 +109,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             $0.text = title
         }
 
-        accessibilityId.map {
-            cell.accessibilityIdentifier = $0
-        }
+        cell.accessibilityId = accessibilityId
 
         return cell
     }
@@ -121,7 +119,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
 
     private func issueCell(_ tableView: UITableView, indexPath: IndexPath) -> IssueCell {
-        tableView.dequeueReusableCell(withIdentifier: "issueCell", for: indexPath) as! IssueCell
+        
+        tableView.dequeueReusableCell(withIdentifier: .sdkTest.cells.issue, for: indexPath) as! IssueCell
     }
 
     private func updateTokenCell(_ cell: TextFieldCell) {
@@ -266,7 +265,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case sections.fullUI:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
-                                   title: "Full UI")
+                                   title: "Full UI",
+                                   accessibilityId: .sdkTest.cells.fullUI)
 
         case sections.log:
             cell = self.actionCell(tableView,
@@ -278,7 +278,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 tableView,
                 indexPath: indexPath,
                 title: model.isDismissed ? "Restore" : "Dismiss",
-                accessibilityId: "dismiss"
+                accessibilityId: .sdkTest.cells.dismiss
             )
 
         case sections.catalog:
@@ -303,7 +303,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             var content = cell.defaultContentConfiguration()
             content.text = "id: \(model.articles[indexPath.row])"
             cell.contentConfiguration = content
-            cell.accessibilityIdentifier = cell.reuseIdentifier
 
         default:
             cell = self.actionCell(tableView, indexPath: indexPath)
