@@ -46,7 +46,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case .notReachable:
             return "Service is unavailable"
         default:
-            return "Authorise"
+            return "Authorize"
         }
     }
     
@@ -125,7 +125,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
     private func updateTokenCell(_ cell: TextFieldCell) {
         let textField = cell.textField
-        textField.placeholder = "Enter token and tap Authorise"
+        textField.placeholder = "Enter token and tap Authorize"
         textField.clearButtonMode = .whileEditing
         textField.text = self.model.authToken
         
@@ -136,12 +136,12 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     private func selectService() {
         let serviceSelector = SelectionView(
-            options: self.model.services,
-            selectedOption: self.model.currentService
+            options: self.model.services.map ({ $0.rawValue }),
+            selectedOption: self.model.currentService.rawValue
         ) { [weak self] in
             guard let self else { return }
             
-            self.model.currentService = $0
+            self.model.currentService = .init(rawValue: $0)
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -260,7 +260,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             cell = self.selectorCell(tableView,
                                      indexPath: indexPath,
                                      title: "Service",
-                                     details: model.currentService)
+                                     details: model.currentService.rawValue)
 
         case sections.fullUI:
             cell = self.actionCell(tableView,
@@ -379,7 +379,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
         switch section {
         case sections.auth:
-            return "Authorisation"
+            return "Authorization"
         case sections.log:
             return "Logs"
         case sections.catalog:
@@ -403,8 +403,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         switch section {
         case sections.auth:
             return model.account.flatMap {
-                $0.state == .sponsorship
-                ? "Authorised till \(DateFormatter.localizedString(from: $0.sponsorshipExpiration ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
+                $0.state == .authorized
+                ? "Authorised till \(DateFormatter.localizedString(from: $0.expirationDate ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
                 : nil
             }
         case sections.catalog:

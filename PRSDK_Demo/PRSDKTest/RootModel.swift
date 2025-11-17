@@ -18,32 +18,74 @@ protocol Reloadable {
 
 final class RootModel {
     
+    // MARK: - Nested Types
+    
+    enum Service: RawRepresentable, Equatable {
+        case `default`
+        case multiTitlesNoFeed
+        case kioscoPerfilBeta
+        case beSingleTitle
+        case singleTitleAndFeedBE
+        case singleTitleAndSupAndFeed
+        case custom(name: RawValue)
+        
+        static var defaultServices = [Service.default,
+                                      .multiTitlesNoFeed,
+                                      .kioscoPerfilBeta,
+                                      .beSingleTitle,
+                                      .singleTitleAndFeedBE,
+                                      .singleTitleAndSupAndFeed]
+
+        var rawValue: String {
+            switch self {
+            case .default: PRConfig.defaultServiceName
+            case .multiTitlesNoFeed: "Multi titles + no Feed "
+            case .kioscoPerfilBeta: "Kiosco Perfil Beta "
+            case .beSingleTitle: " BE SingleTitle "
+            case .singleTitleAndFeedBE: "Single title and Feed BE"
+            case .singleTitleAndSupAndFeed: "Single title  and sup and feed"
+            case .custom(let name): name
+            }
+        }
+        
+        init(rawValue: RawValue) {
+            switch rawValue {
+            case PRConfig.defaultServiceName:
+                self = .default
+            case Service.multiTitlesNoFeed.rawValue:
+                self = .multiTitlesNoFeed
+            case Service.kioscoPerfilBeta.rawValue:
+                self = .kioscoPerfilBeta
+            case Service.beSingleTitle.rawValue:
+                self = .beSingleTitle
+            case Service.singleTitleAndFeedBE.rawValue:
+                self = .singleTitleAndFeedBE
+            case Service.singleTitleAndSupAndFeed.rawValue:
+                self = .singleTitleAndSupAndFeed
+            default:
+                self = .custom(name: rawValue)
+            }
+        }
+    }
+    
     // MARK: - Public Properties
 
-    var services: [String] {
-        var services = [
-            PRConfig.defaultServiceName,
-            "Multi titles + no Feed ",
-            "Kiosco Perfil Beta ",
-            " BE SingleTitle ",
-            "Single title and Feed BE",
-            "Single title  and sup and feed"
-        ]
-
+    var services: [Service] {
+        var services = Service.defaultServices
         let currentService = self.currentService
-        if !services.contains (where: { $0 == currentService }) {
+        if !services.contains(currentService) {
             services.append(currentService)
         }
             
         return services
     }
     
-    var currentService: String {
+    var currentService: Service {
         get {
-            PressReader.serviceName
+            Service(rawValue: PressReader.serviceName)
         }
         set {
-            PressReader.serviceName = newValue
+            PressReader.serviceName = newValue.rawValue
         }
     }
 
@@ -75,7 +117,7 @@ final class RootModel {
 
     var isReady: Bool {
         switch self.account?.state {
-        case .idle, .sponsorship: return true
+        case .idle, .authorized: return true
         default: return false
         }
     }
