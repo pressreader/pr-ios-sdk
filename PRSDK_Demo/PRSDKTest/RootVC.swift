@@ -40,7 +40,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             return ""
         }
         
-        switch account.state {
+        let state = account.state
+        switch state {
         case .authorising:
             return "Authorising..."
         case .notReachable:
@@ -48,9 +49,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         default:
             switch self.model.authData {
             case .token(_):
-                return "Authorize with token"
+                return "Authorize with Gift token"
             case .externalAuthToken(_, _):
-                return "Generate token and authorize"
+                return state == .authorized ? "Deuthorize account" : "Generate token and authorize"
             }
         }
     }
@@ -239,13 +240,19 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         }
     }
     
-    private func authWithExternalToken() {
+    private func toogleExternalAuth() {
         Task { @MainActor in
             do {
                 let model = self.model
-                model.authData = try await model.generateExternalAuthTokenMock()
+                if model.account?.state == .authorized {
+                    try await model.deauthorizeAccount()
+                }
+                else {
+                    model.authData = try await model.generateExternalAuthTokenMock()
+                    model.authorisePressreader()
+                }
+                
                 self.reloadData()
-                model.authorisePressreader()
             }
             catch {
                 UIAlertController.presentDismissableAlert(withTitle: "Auth Error",
@@ -448,7 +455,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             case .token(_):
                 self.authWithToken()
             case .externalAuthToken(_, _):
-                self.authWithExternalToken()
+                self.toogleExternalAuth()
             }
 
         case sections.log:

@@ -318,6 +318,10 @@ final class RootModel {
         }
     }
     
+    func deauthorizeAccount() async throws {
+        try await self.account?.signOut()
+    }
+    
     func catalogItem(at index: Int) -> TitleItem? {
         self.catalog?.item(cid: self.cids[index], date: nil)
     }
