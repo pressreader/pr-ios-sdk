@@ -68,6 +68,52 @@ final class RootModel {
         }
     }
     
+    enum AuthData: RawRepresentable {
+        case token(String)
+        case externalAuthToken(token: String, provider: String)
+                
+        var rawValue: [String: String] {
+            switch self {
+            case .token(let token):
+                ["type": "token",
+                 "token": token]
+            case .externalAuthToken(let token, let provider):
+                ["type": "externalToken",
+                 "token": token,
+                 "provider": provider]
+            }
+        }
+        
+        init?(rawValue: [String : String]) {
+            guard let type = rawValue["type"] else {
+                return nil
+            }
+            
+            switch type {
+            case "token":
+                guard let auth = rawValue["token"]
+                    .map({ AuthData.token($0) })
+                else {
+                    return nil
+                }
+                
+                self = auth
+                
+            case "externalToken":
+                guard let auth = lift(rawValue["token"], rawValue["provider"])
+                    .map({ AuthData.externalAuthToken(token: $0, provider: $1) })
+                else {
+                    return nil
+                }
+                
+                self = auth
+                
+            default:
+                return nil
+            }
+        }
+    }
+    
     // MARK: - Public Properties
 
     var services: [Service] {
@@ -114,7 +160,7 @@ final class RootModel {
     var isAuthEnabled: Bool {
         !self.isDismissed && !self.isLocalService
     }
-
+    
     var isReady: Bool {
         switch self.account?.state {
         case .idle, .authorized: return true
@@ -130,12 +176,27 @@ final class RootModel {
         self.pressreader?.account
     }
 
-    var authToken: String? {
+    var authData: AuthData {
         get {
-            UserDefaults.standard.string(forKey: "PRAuthToken")
+            if let rawData = UserDefaults.standard
+                .dictionary(forKey: "PRSDKTestAuthData") as? [String: String],
+                let authData = AuthData(rawValue: rawData)
+            {
+                return authData
+            }
+            
+            if let token = UserDefaults.standard.string(forKey: "PRAuthToken") {
+                UserDefaults.standard.setValue(nil, forKey: "PRAuthToken")
+                let auth = AuthData.token(token)
+                self.authData = auth
+                
+                return auth
+            }
+            
+            return .token("")
         }
         set {
-            UserDefaults.standard.setValue(newValue, forKey: "PRAuthToken")
+            UserDefaults.standard.set(newValue.rawValue, forKey: "PRSDKTestAuthData")
         }
     }
     
@@ -233,11 +294,7 @@ final class RootModel {
     // MARK: - Public Methods
     
     func authorisePressreader() {
-        guard let token = self.authToken, token.count > 0 else {
-            return
-        }
-
-        self.account?.authorize(token: token) { (success, error) in
+        let complete = { (success: Bool, error: Error?) in
             print("Auth result: \(success), \(String(describing: error))")
             
             if !success {
@@ -245,6 +302,19 @@ final class RootModel {
                     .presentDismissableAlert(withTitle: "Auth Error",
                                              message: error?.localizedDescription)
             }
+        }
+        
+        switch self.authData {
+        case .token(let token):
+            guard !token.isEmpty else { return }
+            
+            self.account?.authorize(token: token, completion: complete)
+        case .externalAuthToken(let token, let provider):
+            guard !token.isEmpty, !provider.isEmpty else { return }
+            
+            self.account?.authorize(externalToken: token,
+                                    provider: provider,
+                                    completion: complete)
         }
     }
     
@@ -281,6 +351,25 @@ final class RootModel {
             }
         }
 
+    }
+    
+    func generateExternalAuthTokenMock() async throws -> AuthData {
+        guard self.currentService == .singleTitleAndFeedBE else {
+            throw ServiceError.unknown
+        }
+        
+        guard let mockURL = URL(string: "https://services.pressreader.com/test/pr-mock-auth-server/token?sub=00u-\(Int.random(in: 1...Int.max))&aud=test-aud&minutes=36000")
+        else {
+            throw ServiceError.noServiceUrlProvided
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: mockURL)
+        let json = try JSONSerialization.jsonObject(with: data) as? [String: String]
+        guard let token = json?["token"] else {
+            throw ServiceError.unexpectedResponse
+        }
+        
+        return .externalAuthToken(token: token, provider: "pressreaderJwt")
     }
     
     // MARK: - Notifications

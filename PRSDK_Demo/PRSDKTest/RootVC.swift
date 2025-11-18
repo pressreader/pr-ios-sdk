@@ -12,7 +12,7 @@ import PRUIKit
 import SwiftUI
 
 final class RootVC: UITableViewController, Reloadable, IssueHandler {
-
+    
     // MARK: - Nested Types
     
     private class Sections {
@@ -25,16 +25,16 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         var downloaded: Int?
         var articles: Int?
     }
-
+    
     // MARK: - Private Properties
-
+    
     private lazy var model = {
         RootModel(delegate: self)
     }()
     
     private var isReloadingDisabled = false
     private var sections = Sections()
-
+    
     private var authoriseCellTitle: String {
         guard let account = self.model.account else {
             return ""
@@ -46,7 +46,12 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case .notReachable:
             return "Service is unavailable"
         default:
-            return "Authorize"
+            switch self.model.authData {
+            case .token(_):
+                return "Authorize with token"
+            case .externalAuthToken(_, _):
+                return "Generate token and authorize"
+            }
         }
     }
     
@@ -62,10 +67,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         table.register(TextFieldCell.self, forCellReuseIdentifier: "textFieldCell")
         table.register(IssueCell.self, forCellReuseIdentifier: .sdkTest.cells.issue)
         table.register(UITableViewCell.self, forCellReuseIdentifier: .sdkTest.cells.article)
+        table.register(SegmentedControlCell.self)
     }
     
     // MARK: - Private Methods
-
+    
     private func selectorCell(
         _ tableView: UITableView,
         indexPath: IndexPath,
@@ -76,7 +82,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let cellId = "selectorCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         ?? UITableViewCell(style: .value1, reuseIdentifier: cellId )
-
+        
         cell.accessoryType = .disclosureIndicator
         
         cell.textLabel.map {
@@ -87,11 +93,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         cell.detailTextLabel.map {
             $0.text = details
         }
-
+        
         accessibilityId.map {
             cell.accessibilityId = $0
         }
-
+        
         return cell
     }
 
@@ -122,14 +128,64 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         tableView.dequeueReusableCell(withIdentifier: .sdkTest.cells.issue, for: indexPath) as! IssueCell
     }
-
+    
+    private func updateAuthSelectionCell(_ cell: SegmentedControlCell) {
+        cell.items = [
+            UIAction(title: "Token", handler: {[weak self] _ in
+                self?.model.authData = .token("")
+                self?.reloadData()
+            }),
+            UIAction(title: "External token", handler: { _ in
+                self.model.authData = .externalAuthToken(token: "", provider: "")
+                self.reloadData()
+            })
+        ]
+        cell.selectedItemIndex = {
+            switch self.model.authData {
+            case .token(_):
+                return 0
+            case .externalAuthToken(_, _):
+                return 1
+            }
+        }()
+    }
+    
     private func updateTokenCell(_ cell: TextFieldCell) {
+        if case .token(let token) = self.model.authData {
+            self.configureAuthTextField(cell: cell,
+                                        text: token,
+                                        placeholder: "Token",
+                                        isEnabled: self.model.canAuthorise)
+        }
+        else if case .externalAuthToken(let token, _) = self.model.authData {
+            self.configureAuthTextField(cell: cell,
+                                        text: token,
+                                        placeholder: "External Token",
+                                        isEnabled: false)
+        }
+    }
+    
+    private func updateProviderCell(_ cell: TextFieldCell) {
+        var  text = ""
+        if case .externalAuthToken(_, let provider) = self.model.authData {
+            text = provider
+        }
+
+        self.configureAuthTextField(cell: cell,
+                                    text: text,
+                                    placeholder: "Provider",
+                                    isEnabled: false)
+    }
+    
+    private func configureAuthTextField(cell: TextFieldCell,
+                                        text: String,
+                                        placeholder: String,
+                                        isEnabled: Bool)
+    {
         let textField = cell.textField
-        textField.placeholder = "Enter token and tap Authorize"
+        textField.placeholder = placeholder
         textField.clearButtonMode = .whileEditing
-        textField.text = self.model.authToken
-        
-        let isEnabled = self.model.canAuthorise
+        textField.text = text
         textField.isEnabled = isEnabled
         textField.textColor = isEnabled ? .label : .secondaryLabel
     }
@@ -164,6 +220,38 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         )
         
         activityIndicator.stopAnimating()
+    }
+    
+    private func authWithToken() {
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 1,
+                                                           section: self.sections.auth!)) as? TextFieldCell
+        guard let cell else { return }
+        
+        let textField = cell.textField
+        let token = textField.text
+        let model = self.model
+        model.authData = .token(token ?? "")
+        
+        if token?.count ?? 0 > 0 {
+            textField.isEnabled = false
+            
+            model.authorisePressreader()
+        }
+    }
+    
+    private func authWithExternalToken() {
+        Task { @MainActor in
+            do {
+                let model = self.model
+                model.authData = try await model.generateExternalAuthTokenMock()
+                self.reloadData()
+                model.authorisePressreader()
+            }
+            catch {
+                UIAlertController.presentDismissableAlert(withTitle: "Auth Error",
+                                                          message: error.localizedDescription)
+            }
+        }
     }
     
     // MARK: - Reloadable
@@ -224,7 +312,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let model = self.model
         switch section {
         case sections.auth:
-            return 2
+            return switch model.authData {
+                case .token(_): 3
+                case .externalAuthToken(_, _): 4
+            }
         case sections.catalog:
             return model.catalogItemsCount
         case sections.downloaded:
@@ -244,16 +335,38 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         switch indexPath.section {
         case sections.auth:
-            if indexPath.row == 0 {
+            switch indexPath.row {
+                case 0:
+                let _cell = tableView.reusableCell(with: SegmentedControlCell.self,
+                                                   for: indexPath)
+                self.updateAuthSelectionCell(_cell)
+                cell = _cell
+                
+            case 1:
                 let _cell = self.textFieldCell(tableView, indexPath: indexPath)
                 self.updateTokenCell(_cell)
                 cell = _cell
-            }
-            else {
+
+            case 2:
+                if case .token(_) = model.authData {
+                    cell = self.actionCell(tableView,
+                                           indexPath: indexPath,
+                                           title: self.authoriseCellTitle,
+                                           enabled: model.canAuthorise)
+                }
+                else {
+                    let _cell = self.textFieldCell(tableView, indexPath: indexPath)
+                    self.updateProviderCell(_cell)
+                    cell = _cell
+                }
+            case 3:
                 cell = self.actionCell(tableView,
                                        indexPath: indexPath,
                                        title: self.authoriseCellTitle,
                                        enabled: model.canAuthorise)
+            
+            default:
+                cell = UITableViewCell()
             }
             
         case sections.service:
@@ -331,21 +444,13 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
         switch indexPath.section {
         case sections.auth:
-            guard let cell = tableView.cellForRow(at: IndexPath(row: indexPath.row - 1, section: indexPath.section)) as? TextFieldCell
-            else {
-                return
+            switch model.authData {
+            case .token(_):
+                self.authWithToken()
+            case .externalAuthToken(_, _):
+                self.authWithExternalToken()
             }
-            
-            let textField = cell.textField
-            let token = textField.text
-            model.authToken = token
-            
-            if token?.count ?? 0 > 0 {
-                textField.isEnabled = false
-                
-                model.authorisePressreader()
-            }
-            
+
         case sections.log:
             model.getLogs()
             
