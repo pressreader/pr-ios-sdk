@@ -241,7 +241,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         }
     }
     
-    private func toogleExternalAuth() {
+    private func toggleExternalAuth() {
         Task { @MainActor in
             do {
                 let model = self.model
@@ -458,7 +458,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             case .token(_):
                 self.authWithToken()
             case .externalAuthToken(_, _):
-                self.toogleExternalAuth()
+                self.toggleExternalAuth()
             }
 
         case sections.log:
