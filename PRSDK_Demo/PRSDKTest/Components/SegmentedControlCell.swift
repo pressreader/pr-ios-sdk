@@ -1,6 +1,6 @@
 //
 //  SegmentedControlCell.swift
-//  PRiphone
+//  PRSDKTest
 //
 //  Created by Vitalii Hudenko on 17.11.2025.
 //  Copyright © 2025 NewspaperDirect. All rights reserved.

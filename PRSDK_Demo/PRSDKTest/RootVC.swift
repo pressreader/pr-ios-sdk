@@ -235,8 +235,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         if token?.count ?? 0 > 0 {
             textField.isEnabled = false
-            
-            model.authorisePressreader()
+            Task {
+                await model.authorisePressreader()
+            }
         }
     }
     
@@ -249,7 +250,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 }
                 else {
                     model.authData = try await model.generateExternalAuthTokenMock()
-                    model.authorisePressreader()
+                    await model.authorisePressreader()
                 }
                 
                 self.reloadData()
@@ -437,7 +438,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let sections = self.sections
         switch indexPath.section {
         case sections.auth:
-            return indexPath.row > 0 && self.model.canAuthorise
+            return indexPath.row == self.tableView(tableView,
+                                                   numberOfRowsInSection: indexPath.section) - 1
+            && self.model.canAuthorise
         case sections.log, sections.dismiss, sections.service, sections.fullUI, sections.articles:
             return true
         default:

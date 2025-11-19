@@ -293,33 +293,32 @@ final class RootModel {
     
     // MARK: - Public Methods
     
-    func authorisePressreader() {
-        let complete = { (success: Bool, error: Error?) in
-            print("Auth result: \(success), \(String(describing: error))")
+    @MainActor
+    func authorisePressreader() async {
+        do {
+            guard let account else { return }
             
-            if !success {
-                UIAlertController
-                    .presentDismissableAlert(withTitle: "Auth Error",
-                                             message: error?.localizedDescription)
+            switch self.authData {
+            case .token(let token):
+                guard !token.isEmpty else { return }
+                
+                try await account.authorize(token: token)
+            case .externalAuthToken(let token, let provider):
+                guard !token.isEmpty, !provider.isEmpty else { return }
+                
+                try await account.authorize(externalToken: token,
+                                            provider: provider)
             }
         }
-        
-        switch self.authData {
-        case .token(let token):
-            guard !token.isEmpty else { return }
-            
-            self.account?.authorize(token: token, completion: complete)
-        case .externalAuthToken(let token, let provider):
-            guard !token.isEmpty, !provider.isEmpty else { return }
-            
-            self.account?.authorize(externalToken: token,
-                                    provider: provider,
-                                    completion: complete)
+        catch {
+            UIAlertController
+                .presentDismissableAlert(withTitle: "Auth Error",
+                                         message: error.localizedDescription)
         }
     }
     
     func deauthorizeAccount() async throws {
-        try await self.account?.signOut()
+        try await self.account?.deauthorize()
     }
     
     func catalogItem(at index: Int) -> TitleItem? {
