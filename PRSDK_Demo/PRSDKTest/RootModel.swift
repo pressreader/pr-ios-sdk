@@ -368,7 +368,7 @@ final class RootModel {
         
         let (data, _) = try await URLSession.shared.data(from: mockURL)
         let json = try JSONSerialization.jsonObject(with: data) as? [String: String]
-        guard let token = json?["token"] else {
+        guard let token = json?.nonEmptyString("token") else {
             throw ServiceError.unexpectedResponse
         }
         
