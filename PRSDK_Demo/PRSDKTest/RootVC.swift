@@ -224,19 +224,24 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
     
     private func authWithToken() {
-        let cell = self.tableView.cellForRow(at: IndexPath(row: 1,
-                                                           section: self.sections.auth!)) as? TextFieldCell
-        guard let cell else { return }
+        guard let indexPath = self.sections.auth.map({ IndexPath(row: 1, section: $0) }),
+              let cell = self.tableView.cellForRow(at: indexPath) as? TextFieldCell
+        else {
+            return
+        }
         
         let textField = cell.textField
-        let token = textField.text
+        let token = textField.text ?? ""
         let model = self.model
-        model.authData = .token(token ?? "")
+        model.authData = .token(token)
+        textField.isEnabled = false
         
-        if token?.count ?? 0 > 0 {
-            textField.isEnabled = false
-            Task {
-                await model.authorisePressreader()
+        Task {
+            do {
+                try await model.authorisePressreader()
+            }
+            catch {
+                self.presentAuthError(error: error)
             }
         }
     }
@@ -250,16 +255,21 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 }
                 else {
                     model.authData = try await model.generateExternalAuthTokenMock()
-                    await model.authorisePressreader()
+                    try await model.authorisePressreader()
                 }
                 
                 self.reloadData()
             }
             catch {
-                UIAlertController.presentDismissableAlert(withTitle: "Auth Error",
-                                                          message: error.localizedDescription)
+                self.presentAuthError(error: error)
             }
         }
+    }
+    
+    @MainActor
+    private func presentAuthError(error: Error) {
+        UIAlertController.presentDismissableAlert(withTitle: "Auth Error",
+                                                  message: error.localizedDescription)
     }
     
     // MARK: - Reloadable

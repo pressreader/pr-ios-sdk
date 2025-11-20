@@ -294,26 +294,23 @@ final class RootModel {
     // MARK: - Public Methods
     
     @MainActor
-    func authorisePressreader() async {
-        do {
-            guard let account else { return }
-            
-            switch self.authData {
-            case .token(let token):
-                guard !token.isEmpty else { return }
-                
-                try await account.authorize(token: token)
-            case .externalAuthToken(let token, let provider):
-                guard !token.isEmpty, !provider.isEmpty else { return }
-                
-                try await account.authorize(externalToken: token,
-                                            provider: provider)
+    func authorisePressreader() async throws {
+        guard let account else { return }
+        
+        switch self.authData {
+        case .token(let token):
+            guard !token.isEmpty else {
+                throw ServiceError.missingParameter
             }
-        }
-        catch {
-            UIAlertController
-                .presentDismissableAlert(withTitle: "Auth Error",
-                                         message: error.localizedDescription)
+            
+            try await account.authorize(token: token)
+        case .externalAuthToken(let token, let provider):
+            guard !token.isEmpty, !provider.isEmpty else {
+                throw ServiceError.missingParameter
+            }
+            
+            try await account.authorize(externalToken: token,
+                                        provider: provider)
         }
     }
     
