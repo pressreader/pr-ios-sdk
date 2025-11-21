@@ -136,9 +136,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 self?.model.authData = .token("")
                 self?.reloadData()
             }),
-            UIAction(title: "External token", handler: { _ in
-                self.model.authData = .externalAuthToken(token: "", provider: "")
-                self.reloadData()
+            UIAction(title: "External token", handler: { [weak self] _ in
+                self?.model.authData = .externalAuthToken(token: "", provider: "")
+                self?.reloadData()
             })
         ]
         cell.selectedItemIndex = {
