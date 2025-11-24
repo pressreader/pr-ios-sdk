@@ -36,6 +36,8 @@ public final class SegmentedControlCell: UITableViewCell {
     
     private let segmentControl = UISegmentedControl()
     
+    // MARK: - Init
+    
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
