@@ -116,6 +116,7 @@ extension RootModel {
         }
     }
     
+    @MainActor
     func toggleExternalAuth() async throws {
         if self.account?.state == .authorized {
             try await self.deauthorize()
@@ -128,6 +129,7 @@ extension RootModel {
         self.delegate.reloadData()
     }
     
+    @MainActor
     func deauthorize() async throws {
         try await self.account?.deauthorize()
     }
