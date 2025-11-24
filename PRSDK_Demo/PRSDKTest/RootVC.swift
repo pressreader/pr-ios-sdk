@@ -249,16 +249,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     private func toggleExternalAuth() {
         Task { @MainActor in
             do {
-                let model = self.model
-                if model.account?.state == .authorized {
-                    try await model.deauthorize()
-                }
-                else {
-                    model.authData = try await model.generateExternalAuthTokenMock()
-                    try await model.authorize()
-                }
-                
-                self.reloadData()
+                try await self.model.toggleExternalAuth()
             }
             catch {
                 self.presentAuthError(error: error)

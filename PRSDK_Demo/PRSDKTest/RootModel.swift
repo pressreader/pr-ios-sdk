@@ -151,9 +151,9 @@ final class RootModel {
         : []
     }
 
-    // MARK: - Private Properties
+    let delegate: Reloadable
 
-    private let delegate: Reloadable
+    // MARK: - Private Properties
 
     private var pressreader: PressReader? {
         guard !self.isDismissed else {

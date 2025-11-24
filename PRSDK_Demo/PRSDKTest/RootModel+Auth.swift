@@ -116,11 +116,25 @@ extension RootModel {
         }
     }
     
+    func toggleExternalAuth() async throws {
+        if self.account?.state == .authorized {
+            try await self.deauthorize()
+        }
+        else {
+            try await self.generateExternalAuthTokenMock()
+            try await self.authorize()
+        }
+        
+        self.delegate.reloadData()
+    }
+    
     func deauthorize() async throws {
         try await self.account?.deauthorize()
     }
 
-    func generateExternalAuthTokenMock() async throws -> AuthData {
+    // MARK: - Private Methods
+    
+    private func generateExternalAuthTokenMock() async throws {
         guard self.currentService == .singleTitleAndFeedBE else {
             throw ServiceError.unknown
         }
@@ -136,6 +150,6 @@ extension RootModel {
             throw ServiceError.unexpectedResponse
         }
         
-        return .externalAuthToken(token: token, provider: "pressreaderJwt")
+        self.authData = .externalAuthToken(token: token, provider: "pressreaderJwt")
     }
 }
