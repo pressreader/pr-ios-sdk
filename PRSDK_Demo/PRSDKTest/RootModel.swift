@@ -69,13 +69,13 @@ final class RootModel {
     }
     
     enum AuthData: RawRepresentable {
-        case token(String)
+        case giftToken(String)
         case externalAuthToken(token: String, provider: String)
                 
         var rawValue: [String: String] {
             switch self {
-            case .token(let token):
-                ["type": "token",
+            case .giftToken(let token):
+                ["type": "giftToken",
                  "token": token]
             case .externalAuthToken(let token, let provider):
                 ["type": "externalToken",
@@ -90,9 +90,9 @@ final class RootModel {
             }
             
             switch type {
-            case "token":
+            case "giftToken":
                 guard let auth = rawValue["token"]
-                    .map({ AuthData.token($0) })
+                    .map({ AuthData.giftToken($0) })
                 else {
                     return nil
                 }
@@ -187,13 +187,13 @@ final class RootModel {
             
             if let token = UserDefaults.standard.string(forKey: "PRAuthToken") {
                 UserDefaults.standard.setValue(nil, forKey: "PRAuthToken")
-                let auth = AuthData.token(token)
+                let auth = AuthData.giftToken(token)
                 self.authData = auth
                 
                 return auth
             }
             
-            return .token("")
+            return .giftToken("")
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: "PRSDKTestAuthData")
@@ -298,7 +298,7 @@ final class RootModel {
         guard let account else { return }
         
         switch self.authData {
-        case .token(let token):
+        case .giftToken(let token):
             guard !token.isEmpty else {
                 throw ServiceError.missingParameter
             }

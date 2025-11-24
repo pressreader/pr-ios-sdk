@@ -48,7 +48,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             return "Service is unavailable"
         default:
             switch self.model.authData {
-            case .token(_):
+            case .giftToken(_):
                 return "Authorize with Gift token"
             case .externalAuthToken(_, _):
                 return state == .authorized ? "Deuthorize account" : "Generate token and authorize"
@@ -133,7 +133,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     private func updateAuthSelectionCell(_ cell: SegmentedControlCell) {
         cell.items = [
             UIAction(title: "Token", handler: {[weak self] _ in
-                self?.model.authData = .token("")
+                self?.model.authData = .giftToken("")
                 self?.reloadData()
             }),
             UIAction(title: "External token", handler: { [weak self] _ in
@@ -143,7 +143,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         ]
         cell.selectedItemIndex = {
             switch self.model.authData {
-            case .token(_):
+            case .giftToken(_):
                 return 0
             case .externalAuthToken(_, _):
                 return 1
@@ -152,7 +152,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
     
     private func updateTokenCell(_ cell: TextFieldCell) {
-        if case .token(let token) = self.model.authData {
+        if case .giftToken(let token) = self.model.authData {
             self.configureAuthTextField(cell: cell,
                                         text: token,
                                         placeholder: "Token",
@@ -233,7 +233,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let textField = cell.textField
         let token = textField.text ?? ""
         let model = self.model
-        model.authData = .token(token)
+        model.authData = .giftToken(token)
         textField.isEnabled = false
         
         Task {
@@ -331,7 +331,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         switch section {
         case sections.auth:
             return switch model.authData {
-                case .token(_): 3
+                case .giftToken(_): 3
                 case .externalAuthToken(_, _): 4
             }
         case sections.catalog:
@@ -366,7 +366,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 cell = _cell
 
             case 2:
-                if case .token(_) = model.authData {
+                if case .giftToken(_) = model.authData {
                     cell = self.actionCell(tableView,
                                            indexPath: indexPath,
                                            title: self.authoriseCellTitle,
@@ -465,7 +465,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         switch indexPath.section {
         case sections.auth:
             switch model.authData {
-            case .token(_):
+            case .giftToken(_):
                 self.authWithToken()
             case .externalAuthToken(_, _):
                 self.toggleExternalAuth()
