@@ -24,6 +24,7 @@ In `Info.plist` of your app add [`PRConfig`](Configuration.md) dictionary with `
 <br><br>
 
 ## Deauthorization
+Only account authorized with external auth token could be deauthorized.
 
 ```swift
 try await account.deauthorize()
