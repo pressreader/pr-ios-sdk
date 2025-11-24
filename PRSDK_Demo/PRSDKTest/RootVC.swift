@@ -238,7 +238,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         Task {
             do {
-                try await model.authorisePressreader()
+                try await model.authorize()
             }
             catch {
                 self.presentAuthError(error: error)
@@ -251,11 +251,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             do {
                 let model = self.model
                 if model.account?.state == .authorized {
-                    try await model.deauthorizeAccount()
+                    try await model.deauthorize()
                 }
                 else {
                     model.authData = try await model.generateExternalAuthTokenMock()
-                    try await model.authorisePressreader()
+                    try await model.authorize()
                 }
                 
                 self.reloadData()

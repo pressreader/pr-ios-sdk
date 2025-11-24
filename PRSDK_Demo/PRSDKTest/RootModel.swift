@@ -294,7 +294,7 @@ final class RootModel {
     // MARK: - Public Methods
     
     @MainActor
-    func authorisePressreader() async throws {
+    func authorize() async throws {
         guard let account else { return }
         
         switch self.authData {
@@ -314,7 +314,7 @@ final class RootModel {
         }
     }
     
-    func deauthorizeAccount() async throws {
+    func deauthorize() async throws {
         try await self.account?.deauthorize()
     }
     
