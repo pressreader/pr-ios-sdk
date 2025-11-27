@@ -17,6 +17,8 @@ extension RootModel {
         case giftToken(String)
         case externalAuthToken(token: String, provider: String)
                 
+        // MARK: - RawRepresentable
+        
         var rawValue: [String: String] {
             switch self {
             case .giftToken(let token):
@@ -95,7 +97,6 @@ extension RootModel {
     
     // MARK: - Public Methods
     
-    @MainActor
     func authorize() async throws {
         guard let account else { return }
         
@@ -116,7 +117,6 @@ extension RootModel {
         }
     }
     
-    @MainActor
     func toggleExternalAuth() async throws {
         if self.account?.state == .authorized {
             try await self.deauthorize()
@@ -126,10 +126,11 @@ extension RootModel {
             try await self.authorize()
         }
         
-        self.delegate.reloadData()
+        await MainActor.run {
+            self.delegate.reloadData()
+        }
     }
     
-    @MainActor
     func deauthorize() async throws {
         try await self.account?.deauthorize()
     }
