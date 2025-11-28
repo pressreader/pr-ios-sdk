@@ -15,17 +15,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     // MARK: - Nested Types
     
-    private class Sections {
-        var service: Int?
-        var fullUI: Int?
-        var auth: Int?
-        var log: Int?
-        var dismiss: Int?
-        var catalog: Int?
-        var downloaded: Int?
-        var articles: Int?
+    private enum Section {
+        case service, fullUI, auth(RootModel.AuthData), log, dismiss, catalog, downloaded, articles
     }
-    
+        
     // MARK: - Private Properties
     
     private lazy var model = {
@@ -33,29 +26,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }()
     
     private var isReloadingDisabled = false
-    private var sections = Sections()
-    
-    private var authoriseCellTitle: String {
-        guard let account = self.model.account else {
-            return ""
-        }
+    private var sections = [Section]()
         
-        let state = account.state
-        switch state {
-        case .authorising:
-            return "Authorising..."
-        case .notReachable:
-            return "Service is unavailable"
-        default:
-            switch self.model.authData {
-            case .giftToken(_):
-                return "Authorize with Gift token"
-            case .externalAuthToken(_, _):
-                return state == .authorized ? "Deuthorize account" : "Generate token and authorize"
-            }
-        }
-    }
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -68,7 +40,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         table.register(TextFieldCell.self, forCellReuseIdentifier: "textFieldCell")
         table.register(IssueCell.self, forCellReuseIdentifier: .sdkTest.cells.issue)
         table.register(UITableViewCell.self, forCellReuseIdentifier: .sdkTest.cells.article)
-        table.register(SegmentedControlCell.self)
     }
     
     // MARK: - Private Methods
@@ -129,36 +100,15 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         tableView.dequeueReusableCell(withIdentifier: .sdkTest.cells.issue, for: indexPath) as! IssueCell
     }
-    
-    private func updateAuthSelectionCell(_ cell: SegmentedControlCell) {
-        cell.items = [
-            UIAction(title: "Token", handler: {[weak self] _ in
-                self?.model.authData = .giftToken("")
-                self?.reloadData()
-            }),
-            UIAction(title: "External token", handler: { [weak self] _ in
-                self?.model.authData = .externalAuthToken(token: "", provider: "")
-                self?.reloadData()
-            })
-        ]
-        cell.selectedItemIndex = {
-            switch self.model.authData {
-            case .giftToken(_):
-                return 0
-            case .externalAuthToken(_, _):
-                return 1
-            }
-        }()
-    }
-    
-    private func updateTokenCell(_ cell: TextFieldCell) {
-        if case .giftToken(let token) = self.model.authData {
+        
+    private func updateTokenCell(_ cell: TextFieldCell, authData: RootModel.AuthData) {
+        if case .giftToken(let token) = authData {
             self.configureAuthTextField(cell: cell,
                                         text: token,
                                         placeholder: "Token",
-                                        isEnabled: self.model.canAuthorise)
+                                        isEnabled: self.model.canAuthorize(authData: authData))
         }
-        else if case .externalAuthToken(let token, _) = self.model.authData {
+        else if case .externalAuthToken(let token, _) = authData {
             self.configureAuthTextField(cell: cell,
                                         text: token,
                                         placeholder: "External Token",
@@ -166,9 +116,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         }
     }
     
-    private func updateProviderCell(_ cell: TextFieldCell) {
+    private func updateProviderCell(_ cell: TextFieldCell, authData: RootModel.AuthData) {
         var  text = ""
-        if case .externalAuthToken(_, let provider) = self.model.authData {
+        if case .externalAuthToken(_, let provider) = authData {
             text = provider
         }
 
@@ -224,21 +174,25 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
     
     private func authWithToken() {
-        guard let indexPath = self.sections.auth.map({ IndexPath(row: 1, section: $0) }),
-              let cell = self.tableView.cellForRow(at: indexPath) as? TextFieldCell
+        let section = self.sections.firstIndex(where: {
+            if case .auth(.giftToken) = $0 {
+                return true
+            }
+            
+            return false
+        })
+        guard let section,
+              let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: section)) as? TextFieldCell
         else {
             return
         }
         
         let textField = cell.textField
         let token = textField.text ?? ""
-        let model = self.model
-        model.authData = .giftToken(token)
-        textField.isEnabled = false
         
         Task {
             do {
-                try await model.authorize()
+                try await self.model.authorize(giftToken: token)
             }
             catch {
                 self.presentAuthError(error: error)
@@ -247,9 +201,15 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
     
     private func toggleExternalAuth() {
-        Task { @MainActor in
+        Task {
             do {
-                try await self.model.toggleExternalAuth()
+                let model = self.model
+                if model.account?.state == .authorized {
+                    try await model.deauthorize()
+                }
+                else {
+                    try await model.authorizeWithExternalToken()
+                }
             }
             catch {
                 self.presentAuthError(error: error)
@@ -263,6 +223,87 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                                                   message: error.localizedDescription)
     }
     
+    private func updateSections() {
+        let model = self.model
+        var sections = [Section]()
+        
+        if !model.isDismissed {
+            sections.append(.service)
+            if model.canPresentFullUI {
+                sections.append(.fullUI)
+            }
+        }
+        
+        if !model.isFullUIOnly {
+            sections.append(.dismiss)
+            
+            model.availableAuthOptions.forEach {
+                sections.append(.auth($0))
+            }
+                        
+            if model.isLoggingEnabled {
+                sections.append(.log)
+            }
+            
+            if model.isCatalogEnabled {
+                sections.append(.catalog)
+                sections.append(.downloaded)
+            }
+            
+            if model.isArticleSetEnabled {
+                sections .append(.articles)
+            }
+        }
+        
+        self.sections = sections
+    }
+    
+    private func authoriseCellTitle(authData: RootModel.AuthData) -> String {
+        guard let account = self.model.account else {
+            return ""
+        }
+        
+        let state = account.state
+        switch state {
+        case .authorising:
+            return "Authorising..."
+        case .notReachable:
+            return "Service is unavailable"
+        case .localService:
+            return "Not available for local service"
+        default:
+            switch authData {
+            case .giftToken:
+                return "Authorize with Gift token"
+            case .externalAuthToken:
+                return state == .authorized
+                && self.model.authorizationData?.id == RootModel.AuthData
+                    .externalAuthToken(token: "", provider: "").id
+                ? "Deuthorize account"
+                : "Generate token and authorize"
+            }
+        }
+    }
+    
+    private func authorizationFooterText(authData: RootModel.AuthData) -> String {
+        let text = switch authData{
+        case .giftToken:
+            "Authorizes the account by requesting gifted access using the provided token."
+        case .externalAuthToken:
+            "Authorizes the user with an external authentication token from a third-party provider.\nToken and provider are generated automatically."
+        }
+        
+        let expiration = self.model.account.flatMap {
+            $0.state == .authorized
+            ? "Authorized till \(DateFormatter.localizedString(from: $0.expirationDate ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
+            : nil
+        }
+        
+        return [expiration, text]
+            .compactMap { $0 }
+            .joined(separator: "\n")
+    }
+    
     // MARK: - Reloadable
 
     func reloadData() {
@@ -274,62 +315,25 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     // MARK: - UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        let sections = Sections()
-        var section = -1
+        self.updateSections()
         
-        let increment = { () -> Int in
-            section += 1; return section
-        }
-        
-        let model = self.model
-
-        if !model.isDismissed {
-            sections.service = increment()
-            if model.canPresentFullUI {
-                sections.fullUI = increment()
-            }
-        }
-        
-        if !model.isFullUIOnly {
-            sections.dismiss = increment()
-            
-            if model.isAuthEnabled {
-                sections.auth = increment()
-            }
-            
-            if model.isLoggingEnabled {
-                sections.log = increment()
-            }
-            
-            if self.model.isCatalogEnabled {
-                sections.catalog = increment()
-                sections.downloaded = increment()
-            }
-            
-            if self.model.isArticleSetEnabled {
-                sections.articles = increment()
-            }
-        }
-        
-        self.sections = sections
-        
-        return increment()
+        return self.sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sections = self.sections
         let model = self.model
-        switch section {
-        case sections.auth:
-            return switch model.authData {
-                case .giftToken(_): 3
-                case .externalAuthToken(_, _): 4
+        switch sections[section] {
+        case .auth(let authData):
+            return switch authData {
+                case .giftToken(_): 2
+                case .externalAuthToken(_, _): 3
             }
-        case sections.catalog:
+        case .catalog:
             return model.catalogItemsCount
-        case sections.downloaded:
+        case .downloaded:
             return model.downloadedItemsCount
-        case sections.articles:
+        case .articles:
             return model.articles.count
         default:
             return 1
@@ -342,60 +346,54 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let sections = self.sections
         let model = self.model
         
-        switch indexPath.section {
-        case sections.auth:
+        switch sections[indexPath.section] {
+        case .auth(let authData):
             switch indexPath.row {
-                case 0:
-                let _cell = tableView.reusableCell(with: SegmentedControlCell.self,
-                                                   for: indexPath)
-                self.updateAuthSelectionCell(_cell)
-                cell = _cell
-                
-            case 1:
+            case 0:
                 let _cell = self.textFieldCell(tableView, indexPath: indexPath)
-                self.updateTokenCell(_cell)
+                self.updateTokenCell(_cell, authData: authData)
                 cell = _cell
 
-            case 2:
-                if case .giftToken(_) = model.authData {
+            case 1:
+                switch authData {
+                case .giftToken(_):
                     cell = self.actionCell(tableView,
                                            indexPath: indexPath,
-                                           title: self.authoriseCellTitle,
-                                           enabled: model.canAuthorise)
-                }
-                else {
+                                           title: self.authoriseCellTitle(authData: authData),
+                                           enabled: model.canAuthorize(authData: authData))
+                case .externalAuthToken(_, _):
                     let _cell = self.textFieldCell(tableView, indexPath: indexPath)
-                    self.updateProviderCell(_cell)
+                    self.updateProviderCell(_cell, authData: authData)
                     cell = _cell
                 }
-            case 3:
+            case 2:
                 cell = self.actionCell(tableView,
                                        indexPath: indexPath,
-                                       title: self.authoriseCellTitle,
-                                       enabled: model.canAuthorise)
+                                       title: self.authoriseCellTitle(authData: authData),
+                                       enabled: model.canAuthorize(authData: authData))
             
             default:
                 cell = UITableViewCell()
             }
             
-        case sections.service:
+        case .service:
             cell = self.selectorCell(tableView,
                                      indexPath: indexPath,
                                      title: "Service",
                                      details: model.currentService.rawValue)
 
-        case sections.fullUI:
+        case .fullUI:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: "Full UI",
                                    accessibilityId: .sdkTest.cells.fullUI)
 
-        case sections.log:
+        case .log:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: "Upload Logs and Get the link")
 
-        case sections.dismiss:
+        case .dismiss:
             cell = self.actionCell(
                 tableView,
                 indexPath: indexPath,
@@ -403,20 +401,20 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 accessibilityId: .sdkTest.cells.dismiss
             )
 
-        case sections.catalog:
+        case .catalog:
             let _cell = self.issueCell(tableView, indexPath: indexPath)
             _cell.issue = model.catalogItem(at: indexPath.row)
             _cell.delegate = self
 
             cell = _cell
 
-        case sections.downloaded:
+        case .downloaded:
             let _cell = self.issueCell(tableView, indexPath: indexPath)
             _cell.issue = model.downloadedItem(at: indexPath.row)
 
             cell = _cell
 
-        case sections.articles:
+        case .articles:
             cell = tableView.dequeueReusableCell(
                 withIdentifier: .sdkTest.cells.article,
                 for: indexPath
@@ -425,9 +423,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             var content = cell.defaultContentConfiguration()
             content.text = "id: \(model.articles[indexPath.row])"
             cell.contentConfiguration = content
-
-        default:
-            cell = self.actionCell(tableView, indexPath: indexPath)
         }
         
         return cell
@@ -436,13 +431,12 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     // MARK: - UITableViewDelegate
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        let sections = self.sections
-        switch indexPath.section {
-        case sections.auth:
+        switch self.sections[indexPath.section] {
+        case .auth(let authData):
             return indexPath.row == self.tableView(tableView,
                                                    numberOfRowsInSection: indexPath.section) - 1
-            && self.model.canAuthorise
-        case sections.log, sections.dismiss, sections.service, sections.fullUI, sections.articles:
+            && self.model.canAuthorize(authData: authData)
+        case .log, .dismiss, .service, .fullUI, .articles:
             return true
         default:
             return false
@@ -451,30 +445,28 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.model
-        let sections = self.sections
-
-        switch indexPath.section {
-        case sections.auth:
-            switch model.authData {
+        switch self.sections[indexPath.section] {
+        case .auth(let authData):
+            switch authData {
             case .giftToken(_):
                 self.authWithToken()
             case .externalAuthToken(_, _):
                 self.toggleExternalAuth()
             }
 
-        case sections.log:
+        case .log:
             model.getLogs()
             
-        case sections.articles:
+        case .articles:
             Task { await self.openArticle(at: indexPath) }
             
-        case sections.dismiss:
+        case .dismiss:
             model.isDismissed.toggle()
             
-        case sections.service:
+        case .service:
             self.selectService()
         
-        case sections.fullUI:
+        case .fullUI:
             self.present(
                 PressReader.instance().rootViewController,
                 animated: true,
@@ -491,21 +483,13 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func tableView(_ tableView: UITableView,
                             titleForHeaderInSection section: Int) -> String?
     {
-        let sections = self.sections
-
-        switch section {
-        case sections.auth:
-            return "Authorization"
-        case sections.log:
-            return "Logs"
-        case sections.catalog:
-            return "Catalog"
-        case sections.downloaded:
-            return "Downloaded"
-        case sections.articles:
-            return "Articles"
-        default:
-            return nil
+        switch self.sections[section] {
+        case .auth: "Authorization"
+        case .log: "Logs"
+        case .catalog: "Catalog"
+        case .downloaded: "Downloaded"
+        case .articles: "Articles"
+        default: nil
         }
     }
     
@@ -513,20 +497,15 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         _ tableView: UITableView,
         titleForFooterInSection section: Int
     ) -> String? {
-        let sections = self.sections
         let model = self.model
 
-        switch section {
-        case sections.auth:
-            return model.account.flatMap {
-                $0.state == .authorized
-                ? "Authorised till \(DateFormatter.localizedString(from: $0.expirationDate ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
-                : nil
-            }
-        case sections.catalog:
+        switch self.sections[section] {
+        case .auth(let authData):
+            return self.authorizationFooterText(authData: authData)
+        case .catalog:
             return model.catalogItemsCount > 0 ? nil : "Loading..."
 
-        case sections.downloaded:
+        case .downloaded:
             return "Downloaded (ordered) items will appear here"
 
         default:
@@ -538,17 +517,13 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         _ tableView: UITableView,
         editingStyleForRowAt indexPath: IndexPath
     ) -> UITableViewCell.EditingStyle {
-        let sections = self.sections
-        
-        switch indexPath.section {
-        case sections.downloaded:
-            return .delete
-        case sections.catalog:
-            return self.model.catalogItem(at: indexPath.row)?.download?.state ==  .ready
-                ? .delete
-                : .none
-        default:
-            return .none
+        switch self.sections[indexPath.section] {
+        case .downloaded: .delete
+        case .catalog:
+            self.model.catalogItem(at: indexPath.row)?.download?.state ==  .ready
+            ? .delete
+            : .none
+        default: .none
         }
     }
     
@@ -556,22 +531,22 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath)
     {
-        let sections = self.sections
-        if indexPath.section == sections.downloaded {
+        switch self.sections[indexPath.section] {
+        case .downloaded:
             self.isReloadingDisabled = true
-
+            
             self.model.deleteDownloadedItem(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
             self.isReloadingDisabled = false
-        }
-        else if indexPath.section == sections.catalog {
+        case .catalog:
             self.model.catalogItem(at: indexPath.row).map {
                 self.model.delete($0)
                 (self.tableView.cellForRow(at: indexPath) as? IssueCell).map {
                     $0.update()
                 }
             }
+        default: break
         }
     }
     
