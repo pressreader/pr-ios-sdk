@@ -127,7 +127,7 @@ extension RootModel {
         }
         
         switch self.currentService {
-        case .default:
+        case Service.default:
             return authData.id == AuthData.giftToken("").id
         default:
             return authData.id == AuthData.externalAuthToken(token: "", provider: "").id

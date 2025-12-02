@@ -20,58 +20,26 @@ final class RootModel {
     
     // MARK: - Nested Types
     
-    enum Service: RawRepresentable, Equatable {
-        case `default`
-        case multiTitlesNoFeed
-        case kioscoPerfilBeta
-        case beSingleTitle
-        case singleTitleAndFeedBE
-        case singleTitleAndSupAndFeed
-        case custom(name: RawValue)
-        
-        static var defaultServices = [Service.default,
-                                      .multiTitlesNoFeed,
-                                      .kioscoPerfilBeta,
-                                      .beSingleTitle,
-                                      .singleTitleAndFeedBE,
-                                      .singleTitleAndSupAndFeed]
-
-        var rawValue: String {
-            switch self {
-            case .default: PRConfig.defaultServiceName
-            case .multiTitlesNoFeed: "Multi titles + no Feed "
-            case .kioscoPerfilBeta: "Kiosco Perfil Beta "
-            case .beSingleTitle: " BE SingleTitle "
-            case .singleTitleAndFeedBE: "Single title and Feed BE"
-            case .singleTitleAndSupAndFeed: "Single title  and sup and feed"
-            case .custom(let name): name
-            }
-        }
-        
-        init(rawValue: RawValue) {
-            switch rawValue {
-            case PRConfig.defaultServiceName:
-                self = .default
-            case Service.multiTitlesNoFeed.rawValue:
-                self = .multiTitlesNoFeed
-            case Service.kioscoPerfilBeta.rawValue:
-                self = .kioscoPerfilBeta
-            case Service.beSingleTitle.rawValue:
-                self = .beSingleTitle
-            case Service.singleTitleAndFeedBE.rawValue:
-                self = .singleTitleAndFeedBE
-            case Service.singleTitleAndSupAndFeed.rawValue:
-                self = .singleTitleAndSupAndFeed
-            default:
-                self = .custom(name: rawValue)
-            }
-        }
+    struct Service {
+        static let `default` = PRConfig.defaultServiceName
+        static let multiTitlesNoFeed = "Multi titles + no Feed "
+        static let kioscoPerfilBeta = "Kiosco Perfil Beta "
+        static let beSingleTitle = " BE SingleTitle "
+        static let singleTitleAndFeedBE = "Single title and Feed BE"
+        static let singleTitleAndSupAndFeed = "Single title  and sup and feed"
     }
         
     // MARK: - Public Properties
 
-    var services: [Service] {
-        var services = Service.defaultServices
+    var services: [String] {
+        var services = [
+            Service.default,
+            Service.multiTitlesNoFeed,
+            Service.kioscoPerfilBeta,
+            Service.beSingleTitle,
+            Service.singleTitleAndFeedBE,
+            Service.singleTitleAndSupAndFeed
+        ]
         let currentService = self.currentService
         if !services.contains(currentService) {
             services.append(currentService)
@@ -80,12 +48,12 @@ final class RootModel {
         return services
     }
     
-    var currentService: Service {
+    var currentService: String {
         get {
-            Service(rawValue: PressReader.serviceName)
+            PressReader.serviceName
         }
         set {
-            PressReader.serviceName = newValue.rawValue
+            PressReader.serviceName = newValue
         }
     }
 

@@ -143,12 +143,12 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     private func selectService() {
         let serviceSelector = SelectionView(
-            options: self.model.services.map ({ $0.rawValue }),
-            selectedOption: self.model.currentService.rawValue
+            options: self.model.services,
+            selectedOption: self.model.currentService
         ) { [weak self] in
             guard let self else { return }
             
-            self.model.currentService = .init(rawValue: $0)
+            self.model.currentService = $0
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -380,7 +380,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             cell = self.selectorCell(tableView,
                                      indexPath: indexPath,
                                      title: "Service",
-                                     details: model.currentService.rawValue)
+                                     details: model.currentService)
 
         case .fullUI:
             cell = self.actionCell(tableView,
