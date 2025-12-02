@@ -98,26 +98,22 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         indexPath: IndexPath,
         title: String,
         details: String,
+        selectionEnabled: Bool = true,
         accessibilityId: AccessibilityId? = nil
     ) -> UITableViewCell {
         let cellId = "selectorCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         ?? UITableViewCell(style: .value1, reuseIdentifier: cellId )
         
-        cell.accessoryType = .disclosureIndicator
+        cell.accessoryType = selectionEnabled ? .disclosureIndicator : .none
         
         cell.textLabel.map {
             $0.textColor = .label
             $0.text = title
         }
         
-        cell.detailTextLabel.map {
-            $0.text = details
-        }
-        
-        accessibilityId.map {
-            cell.accessibilityId = $0
-        }
+        cell.detailTextLabel?.text = details
+        cell.accessibilityId = accessibilityId
         
         return cell
     }
@@ -197,9 +193,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
     
     private func selectService() {
+        let model = self.model
         let serviceSelector = SelectionView(
-            options: self.model.services,
-            selectedOption: self.model.currentService
+            options: model.services,
+            selectedOption: model.currentService
         ) { [weak self] in
             guard let self else { return }
             
@@ -382,7 +379,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             cell = self.selectorCell(tableView,
                                      indexPath: indexPath,
                                      title: "Service",
-                                     details: model.currentService)
+                                     details: model.currentService,
+                                     selectionEnabled: model.isServiceSelectionEnabled)
 
         case .fullUI:
             cell = self.actionCell(tableView,
@@ -435,13 +433,15 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         switch self.sections[indexPath.section] {
         case .auth:
-            return indexPath.row == self.tableView(tableView,
-                                                   numberOfRowsInSection: indexPath.section) - 1
+            indexPath.row == self.tableView(tableView,
+                                            numberOfRowsInSection: indexPath.section) - 1
             && self.model.canAuthorize
-        case .log, .dismiss, .service, .fullUI, .articles:
-            return true
+        case .log, .dismiss, .fullUI, .articles:
+            true
+        case .service:
+            self.model.isServiceSelectionEnabled
         default:
-            return false
+            false
         }
     }
     

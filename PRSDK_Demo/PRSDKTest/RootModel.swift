@@ -22,11 +22,11 @@ final class RootModel {
     
     struct Service {
         static let `default` = PRConfig.defaultServiceName
-        static let multiTitlesNoFeed = "Multi titles + no Feed "
-        static let kioscoPerfilBeta = "Kiosco Perfil Beta "
-        static let beSingleTitle = " BE SingleTitle "
-        static let singleTitleAndFeedBE = "Single title and Feed BE"
-        static let singleTitleAndSupAndFeed = "Single title  and sup and feed"
+        static let multiTitles = "Multi titles + no Feed "
+        static let kioscoPerfil = "Kiosco Perfil Beta "
+        static let singleTitle = " BE SingleTitle "
+        static let singleTitleAndFeed = "Single title and Feed BE"
+        static let singleTitleAndSupplementsAndFeed = "Single title  and sup and feed"
     }
         
     // MARK: - Public Properties
@@ -34,11 +34,11 @@ final class RootModel {
     var services: [String] {
         var services = [
             Service.default,
-            Service.multiTitlesNoFeed,
-            Service.kioscoPerfilBeta,
-            Service.beSingleTitle,
-            Service.singleTitleAndFeedBE,
-            Service.singleTitleAndSupAndFeed
+            Service.multiTitles,
+            Service.kioscoPerfil,
+            Service.singleTitle,
+            Service.singleTitleAndFeed,
+            Service.singleTitleAndSupplementsAndFeed
         ]
         let currentService = self.currentService
         if !services.contains(currentService) {
@@ -46,6 +46,10 @@ final class RootModel {
         }
             
         return services
+    }
+    
+    var isServiceSelectionEnabled: Bool {
+        PRConfig.configDefaults?.string("SERVICE_NAME") == nil
     }
     
     var currentService: String {
