@@ -15,8 +15,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     // MARK: - Nested Types
     
-    private enum Section {
-        case service, fullUI, auth(RootModel.AuthData), log, dismiss, catalog, downloaded, articles
+    private enum Section: Int {
+        case service, fullUI, auth, log, dismiss, catalog, downloaded, articles
     }
         
     // MARK: - Private Properties
@@ -27,7 +27,56 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     private var isReloadingDisabled = false
     private var sections = [Section]()
+    
+    private var authorizeCellTitle: String {
+        let model = self.model
+        guard let account = model.account else {
+            return ""
+        }
         
+        let state = account.state
+        switch state {
+        case .authorising:
+            return "Authorizing..."
+        case .notReachable:
+            return "Service is unavailable"
+        case .localService:
+            return "Not available for local service"
+        default:
+            switch model.authorizationData {
+            case .giftToken:
+                return "Authorize with Gift token"
+            case .externalAuthToken:
+                return state == .authorized
+                && model.authorizationData.id == RootModel.AuthData
+                    .externalAuthToken(token: "", provider: "").id
+                ? "Deuthorize account"
+                : "Generate token and authorize"
+            }
+        }
+    }
+    
+    private var authorizationFooterText: String {
+        let authorizationData = self.model.authorizationData
+        let text = switch authorizationData {
+        case .giftToken:
+            "Authorizes the account by requesting gifted access using the provided token."
+        case .externalAuthToken:
+            "Authorizes the user with an external authentication token from a third-party provider.\nToken and provider are generated automatically."
+        }
+        
+        let expiration = self.model.account.flatMap {
+            $0.state == .authorized
+            ? "Authorized till \(DateFormatter.localizedString(from: $0.expirationDate ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
+            : nil
+        }
+        
+        return [expiration, text]
+            .compactMap { $0 }
+            .joined(separator: "\n")
+    }
+
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -101,24 +150,30 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         tableView.dequeueReusableCell(withIdentifier: .sdkTest.cells.issue, for: indexPath) as! IssueCell
     }
         
-    private func updateTokenCell(_ cell: TextFieldCell, authData: RootModel.AuthData) {
-        if case .giftToken(let token) = authData {
+    private func updateTokenCell(_ cell: TextFieldCell) {
+        let model = self.model
+        let authData = model.authorizationData
+        lift({
+            if case .giftToken(let token) = authData {
+                return (token, "Token")
+            }
+            else if case .externalAuthToken(let token, _) = authData {
+                return (token, "External Token")
+            }
+            
+            return (nil, nil) }()
+        )
+        .map {
             self.configureAuthTextField(cell: cell,
-                                        text: token,
-                                        placeholder: "Token",
-                                        isEnabled: self.model.canAuthorize(authData: authData))
-        }
-        else if case .externalAuthToken(let token, _) = authData {
-            self.configureAuthTextField(cell: cell,
-                                        text: token,
-                                        placeholder: "External Token",
-                                        isEnabled: false)
+                                        text: $0,
+                                        placeholder: $1,
+                                        isEnabled: model.canAuthorize)
         }
     }
     
-    private func updateProviderCell(_ cell: TextFieldCell, authData: RootModel.AuthData) {
+    private func updateProviderCell(_ cell: TextFieldCell) {
         var  text = ""
-        if case .externalAuthToken(_, let provider) = authData {
+        if case .externalAuthToken(_, let provider) = model.authorizationData {
             text = provider
         }
 
@@ -174,14 +229,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
     
     private func authWithToken() {
-        let section = self.sections.firstIndex(where: {
-            if case .auth(.giftToken) = $0 {
-                return true
-            }
-            
-            return false
-        })
-        guard let section,
+        guard let section = self.sections.firstIndex(of: .auth),
               let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: section)) as? TextFieldCell
         else {
             return
@@ -192,7 +240,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         Task {
             do {
-                try await self.model.authorize(giftToken: token)
+                let model = self.model
+                model.authorizationData = .giftToken(token)
+                try await model.authorize()
             }
             catch {
                 self.presentAuthError(error: error)
@@ -208,7 +258,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                     try await model.deauthorize()
                 }
                 else {
-                    try await model.authorizeWithExternalToken()
+                    try await model.generateExternalAuthTokenMock()
+                    try await model.authorize()
                 }
             }
             catch {
@@ -236,11 +287,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         if !model.isFullUIOnly {
             sections.append(.dismiss)
+            sections.append(.auth)
             
-            model.availableAuthOptions.forEach {
-                sections.append(.auth($0))
-            }
-                        
             if model.isLoggingEnabled {
                 sections.append(.log)
             }
@@ -256,52 +304,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         }
         
         self.sections = sections
-    }
-    
-    private func authoriseCellTitle(authData: RootModel.AuthData) -> String {
-        guard let account = self.model.account else {
-            return ""
-        }
-        
-        let state = account.state
-        switch state {
-        case .authorising:
-            return "Authorising..."
-        case .notReachable:
-            return "Service is unavailable"
-        case .localService:
-            return "Not available for local service"
-        default:
-            switch authData {
-            case .giftToken:
-                return "Authorize with Gift token"
-            case .externalAuthToken:
-                return state == .authorized
-                && self.model.authorizationData?.id == RootModel.AuthData
-                    .externalAuthToken(token: "", provider: "").id
-                ? "Deuthorize account"
-                : "Generate token and authorize"
-            }
-        }
-    }
-    
-    private func authorizationFooterText(authData: RootModel.AuthData) -> String {
-        let text = switch authData{
-        case .giftToken:
-            "Authorizes the account by requesting gifted access using the provided token."
-        case .externalAuthToken:
-            "Authorizes the user with an external authentication token from a third-party provider.\nToken and provider are generated automatically."
-        }
-        
-        let expiration = self.model.account.flatMap {
-            $0.state == .authorized
-            ? "Authorized till \(DateFormatter.localizedString(from: $0.expirationDate ?? .distantFuture, dateStyle: .short, timeStyle: .short))"
-            : nil
-        }
-        
-        return [expiration, text]
-            .compactMap { $0 }
-            .joined(separator: "\n")
     }
     
     // MARK: - Reloadable
@@ -324,10 +326,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let sections = self.sections
         let model = self.model
         switch sections[section] {
-        case .auth(let authData):
-            return switch authData {
-                case .giftToken(_): 2
-                case .externalAuthToken(_, _): 3
+        case .auth:
+            return switch model.authorizationData {
+                case .giftToken: 2
+                case .externalAuthToken: 3
             }
         case .catalog:
             return model.catalogItemsCount
@@ -347,30 +349,30 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let model = self.model
         
         switch sections[indexPath.section] {
-        case .auth(let authData):
+        case .auth:
             switch indexPath.row {
             case 0:
                 let _cell = self.textFieldCell(tableView, indexPath: indexPath)
-                self.updateTokenCell(_cell, authData: authData)
+                self.updateTokenCell(_cell)
                 cell = _cell
 
             case 1:
-                switch authData {
-                case .giftToken(_):
+                switch model.authorizationData {
+                case .giftToken:
                     cell = self.actionCell(tableView,
                                            indexPath: indexPath,
-                                           title: self.authoriseCellTitle(authData: authData),
-                                           enabled: model.canAuthorize(authData: authData))
+                                           title: self.authorizeCellTitle,
+                                           enabled: model.canAuthorize)
                 case .externalAuthToken(_, _):
                     let _cell = self.textFieldCell(tableView, indexPath: indexPath)
-                    self.updateProviderCell(_cell, authData: authData)
+                    self.updateProviderCell(_cell)
                     cell = _cell
                 }
             case 2:
                 cell = self.actionCell(tableView,
                                        indexPath: indexPath,
-                                       title: self.authoriseCellTitle(authData: authData),
-                                       enabled: model.canAuthorize(authData: authData))
+                                       title: self.authorizeCellTitle,
+                                       enabled: model.canAuthorize)
             
             default:
                 cell = UITableViewCell()
@@ -432,10 +434,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         switch self.sections[indexPath.section] {
-        case .auth(let authData):
+        case .auth:
             return indexPath.row == self.tableView(tableView,
                                                    numberOfRowsInSection: indexPath.section) - 1
-            && self.model.canAuthorize(authData: authData)
+            && self.model.canAuthorize
         case .log, .dismiss, .service, .fullUI, .articles:
             return true
         default:
@@ -446,11 +448,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.model
         switch self.sections[indexPath.section] {
-        case .auth(let authData):
-            switch authData {
-            case .giftToken(_):
+        case .auth:
+            switch model.authorizationData {
+            case .giftToken:
                 self.authWithToken()
-            case .externalAuthToken(_, _):
+            case .externalAuthToken:
                 self.toggleExternalAuth()
             }
 
@@ -500,8 +502,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let model = self.model
 
         switch self.sections[section] {
-        case .auth(let authData):
-            return self.authorizationFooterText(authData: authData)
+        case .auth:
+            return self.authorizationFooterText
         case .catalog:
             return model.catalogItemsCount > 0 ? nil : "Loading..."
 

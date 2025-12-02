@@ -8,6 +8,7 @@
 
 import Foundation
 import PRUI
+import PRLogKit
 
 extension RootModel {
     
@@ -74,25 +75,15 @@ extension RootModel {
     
     // MARK: - Public Properties
     
-    var availableAuthOptions: [AuthData] {
-        var cases = AuthData.allCases
-        if let currentAuthData = self.authorizationData,
-           let index = cases.firstIndex(where: { $0.id == currentAuthData.id })
-        {
-            cases.remove(at: index)
-            cases.insert(currentAuthData, at: index)
-        }
-        
-        return cases.filter { self.isAuthorizationEnabled(authData: $0) }
-    }
-    
-    private(set) var authorizationData: AuthData? {
+    var authorizationData: AuthData {
         get {
+            var storedData: AuthData?
             if let rawData = UserDefaults.standard
                 .dictionary(forKey: "PRSDKTestAuthData") as? [String: String],
-                let authData = AuthData(rawValue: rawData)
+                let authData = AuthData(rawValue: rawData),
+               self.isAuthorizationEnabled(authData: authData)
             {
-                return authData
+                storedData = authData
             }
             
             if let token = UserDefaults.standard.string(forKey: "PRAuthToken") {
@@ -100,25 +91,42 @@ extension RootModel {
                 let auth = AuthData.giftToken(token)
                 self.authorizationData = auth
                 
-                return auth
+                if self.isAuthorizationEnabled(authData: auth) {
+                    storedData = auth
+                }
             }
             
-            return nil
+            if let storedData {
+                return storedData
+            }
+            
+            let newData = AuthData.allCases
+                .first(where: { self.isAuthorizationEnabled(authData: $0) })
+            ?? {
+                PRLog.debugCrash("No valid authorization data available")
+                
+                return AuthData.giftToken("")
+            }()
+            
+            self.authorizationData = newData
+            
+            return newData
+            
         }
         set {
-            UserDefaults.standard.set(newValue?.rawValue, forKey: "PRSDKTestAuthData")
+            UserDefaults.standard.set(newValue.rawValue, forKey: "PRSDKTestAuthData")
             PRMainThreadAsync {
                 self.delegate.reloadData()
             }
         }
     }
     
-    // MARK: - Public Methods
-    
-    func canAuthorize(authData: AuthData) -> Bool {
-        self.isReady && self.isAuthorizationEnabled(authData: authData)
+    var canAuthorize: Bool {
+        self.isReady && self.isAuthorizationEnabled(authData: self.authorizationData)
     }
-    
+
+    // MARK: - Public Methods
+        
     func isAuthorizationEnabled(authData: AuthData) -> Bool {
         guard !self.isDismissed,
               !self.isLocalService
@@ -134,33 +142,22 @@ extension RootModel {
         }
     }
     
-    func authorize(giftToken: String) async throws {
-        guard let account,
-              !giftToken.isEmpty
-        else {
-            throw ServiceError.missingParameter
-        }
-        
-        try await account.authorize(token: giftToken)
-        self.authorizationData = .giftToken(giftToken)
-    }
-    
-    func authorizeWithExternalToken() async throws {
+    func authorize() async throws {
         guard let account else { return }
         
-        let (token, provider) = try await self.generateExternalAuthTokenMock()
-        try await account.authorize(externalToken: token, provider: provider)
-        self.authorizationData = .externalAuthToken(token: token, provider: provider)
+        switch self.authorizationData {
+        case .giftToken(let token):
+            try await account.authorize(token: token)
+        case .externalAuthToken(let token, let provider):
+            try await account.authorize(externalToken: token, provider: provider)
+        }
     }
-        
+    
     func deauthorize() async throws {
         try await self.account?.deauthorize()
-        self.authorizationData = nil
     }
-
-    // MARK: - Private Methods
     
-    private func generateExternalAuthTokenMock() async throws -> (token: String, provider: String) {
+    func generateExternalAuthTokenMock() async throws {
         guard let mockURL = URL(string: "https://services.pressreader.com/test/pr-mock-auth-server/token?sub=00u-\(Int.random(in: 1...Int.max))&aud=test-aud&minutes=36000")
         else {
             throw ServiceError.noServiceUrlProvided
@@ -172,6 +169,6 @@ extension RootModel {
             throw ServiceError.unexpectedResponse
         }
         
-        return (token, "pressreaderJwt")
+        self.authorizationData = .externalAuthToken(token: token, provider: "pressreaderJwt")
     }
 }
