@@ -130,19 +130,6 @@ extension RootModel {
     }
 
     // MARK: - Public Methods
-        
-    func isAuthorizationEnabled(authData: AuthData) -> Bool {
-        guard self.isAuthorizationEnabled else {
-            return false
-        }
-        
-        switch self.currentService {
-        case Service.default:
-            return authData.id == AuthData.giftToken("").id
-        default:
-            return authData.id == AuthData.externalAuthToken(token: "", provider: "").id
-        }
-    }
     
     func authorize() async throws {
         guard let account else { return }
@@ -173,4 +160,20 @@ extension RootModel {
         
         self.authorizationData = .externalAuthToken(token: token, provider: "pressreaderJwt")
     }
+    
+    // MARK: - Private Methods
+    
+    private func isAuthorizationEnabled(authData: AuthData) -> Bool {
+        guard self.isAuthorizationEnabled else {
+            return false
+        }
+        
+        switch self.currentService {
+        case Service.default:
+            return authData.id == AuthData.giftToken("").id
+        default:
+            return authData.id == AuthData.externalAuthToken(token: "", provider: "").id
+        }
+    }
+
 }
