@@ -75,6 +75,10 @@ extension RootModel {
     
     // MARK: - Public Properties
     
+    var isAuthorizationEnabled: Bool {
+        !self.isDismissed && !self.isLocalService
+    }
+    
     var authorizationData: AuthData {
         get {
             var storedData: AuthData?
@@ -128,9 +132,7 @@ extension RootModel {
     // MARK: - Public Methods
         
     func isAuthorizationEnabled(authData: AuthData) -> Bool {
-        guard !self.isDismissed,
-              !self.isLocalService
-        else {
+        guard self.isAuthorizationEnabled else {
             return false
         }
         

@@ -284,7 +284,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         if !model.isFullUIOnly {
             sections.append(.dismiss)
-            sections.append(.auth)
+            
+            if model.isAuthorizationEnabled {
+                sections.append(.auth)
+            }
             
             if model.isLoggingEnabled {
                 sections.append(.log)
