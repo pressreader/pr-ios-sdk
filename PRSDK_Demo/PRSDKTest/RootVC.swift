@@ -49,7 +49,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             case .externalAuthToken:
                 return state == .authorized
                 ? "Deuthorize account"
-                : "Generate token and authorize"
+                : "Authorize with External token"
             }
         }
     }
@@ -60,7 +60,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case .giftToken:
             "Authorizes the account by requesting gifted access using the provided token."
         case .externalAuthToken:
-            "Authorizes the user with an external authentication token from a third-party provider.\nToken and provider are generated automatically."
+            "Authorizes the user with an external authentication token from a third-party provider."
         }
         
         let expiration = self.model.account.flatMap {
@@ -144,39 +144,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         tableView.dequeueReusableCell(withIdentifier: .sdkTest.cells.issue, for: indexPath) as! IssueCell
     }
         
-    private func updateTokenCell(_ cell: TextFieldCell) {
-        let model = self.model
-        let authData = model.authorizationData
-        lift({
-            if case .giftToken(let token) = authData {
-                return (token, "Token")
-            }
-            else if case .externalAuthToken(let token, _) = authData {
-                return (token, "External Token")
-            }
-            
-            return (nil, nil) }()
-        )
-        .map {
-            self.configureAuthTextField(cell: cell,
-                                        text: $0,
-                                        placeholder: $1,
-                                        isEnabled: model.canAuthorize)
-        }
-    }
-    
-    private func updateProviderCell(_ cell: TextFieldCell) {
-        var  text = ""
-        if case .externalAuthToken(_, let provider) = model.authorizationData {
-            text = provider
-        }
-
-        self.configureAuthTextField(cell: cell,
-                                    text: text,
-                                    placeholder: "Provider",
-                                    isEnabled: false)
-    }
-    
     private func configureAuthTextField(cell: TextFieldCell,
                                         text: String,
                                         placeholder: String,
@@ -253,7 +220,23 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                     try await model.deauthorize()
                 }
                 else {
-                    try await model.generateExternalAuthTokenMock()
+                    guard let authSection = self.sections.firstIndex(of: .auth) else {
+                        return
+                    }
+                    
+                    let textFieldAtRow = { (row: Int) -> UITextField? in
+                        (self.tableView.cellForRow(
+                            at: IndexPath(row: row, section: authSection)
+                        ) as? TextFieldCell)?.textField
+                    }
+                    
+                    guard let token = textFieldAtRow(0)?.text,
+                          let provider = textFieldAtRow(1)?.text
+                    else {
+                        return
+                    }
+                    
+                    model.authorizationData = .externalAuthToken(token: token, provider: provider)
                     try await model.authorize()
                 }
             }
@@ -304,6 +287,58 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         self.sections = sections
     }
     
+    private func authCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let model = self.model
+        let authData = model.authorizationData
+        
+        switch indexPath.row {
+        case 0:
+            let cell = self.textFieldCell(tableView, indexPath: indexPath)
+            let data = switch authData {
+            case .giftToken(let token):
+                (token, "Token")
+            case .externalAuthToken(let token, _):
+                (token, "External Token")
+            }
+            
+            self.configureAuthTextField(cell: cell,
+                                        text: data.0,
+                                        placeholder: data.1,
+                                        isEnabled: model.canAuthorize)
+            
+            return cell
+            
+        case 1:
+            switch authData {
+            case .giftToken:
+                return self.actionCell(tableView,
+                                       indexPath: indexPath,
+                                       title: self.authorizeCellTitle,
+                                       enabled: model.canAuthorize)
+            case .externalAuthToken(_, let provider):
+                let cell = self.textFieldCell(tableView, indexPath: indexPath)
+                self.configureAuthTextField(cell: cell,
+                                            text: provider,
+                                            placeholder: "Provider",
+                                            isEnabled: model.canAuthorize)
+                
+                return cell
+            }
+        case 2 where model.isTokenGenerationAvailable:
+            return self.actionCell(tableView,
+                                   indexPath: indexPath,
+                                   title: "Generate external token and provider",
+                                   enabled: model.canAuthorize)
+        case 2, 3:
+            return self.actionCell(tableView,
+                                   indexPath: indexPath,
+                                   title: self.authorizeCellTitle,
+                                   enabled: model.canAuthorize)
+        default:
+            return UITableViewCell()
+        }
+    }
+    
     // MARK: - Reloadable
 
     func reloadData() {
@@ -327,7 +362,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case .auth:
             return switch model.authorizationData {
                 case .giftToken: 2
-                case .externalAuthToken: 3
+            case .externalAuthToken: model.isTokenGenerationAvailable ? 4 : 3
             }
         case .catalog:
             return model.catalogItemsCount
@@ -348,34 +383,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         switch sections[indexPath.section] {
         case .auth:
-            switch indexPath.row {
-            case 0:
-                let _cell = self.textFieldCell(tableView, indexPath: indexPath)
-                self.updateTokenCell(_cell)
-                cell = _cell
-
-            case 1:
-                switch model.authorizationData {
-                case .giftToken:
-                    cell = self.actionCell(tableView,
-                                           indexPath: indexPath,
-                                           title: self.authorizeCellTitle,
-                                           enabled: model.canAuthorize)
-                case .externalAuthToken(_, _):
-                    let _cell = self.textFieldCell(tableView, indexPath: indexPath)
-                    self.updateProviderCell(_cell)
-                    cell = _cell
-                }
-            case 2:
-                cell = self.actionCell(tableView,
-                                       indexPath: indexPath,
-                                       title: self.authorizeCellTitle,
-                                       enabled: model.canAuthorize)
-            
-            default:
-                cell = UITableViewCell()
-            }
-            
+            cell = self.authCell(tableView: tableView, indexPath: indexPath)
         case .service:
             cell = self.selectorCell(tableView,
                                      indexPath: indexPath,
@@ -434,9 +442,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         switch self.sections[indexPath.section] {
         case .auth:
-            indexPath.row == self.tableView(tableView,
-                                            numberOfRowsInSection: indexPath.section) - 1
-            && self.model.canAuthorize
+            self.model.canAuthorize
+            && !(tableView.cellForRow(at: indexPath) is TextFieldCell)
         case .log, .dismiss, .fullUI, .articles:
             true
         case .service:
@@ -453,8 +460,13 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             switch model.authorizationData {
             case .giftToken:
                 self.authWithToken()
-            case .externalAuthToken:
+            case .externalAuthToken where indexPath.row == tableView
+                    .numberOfRows(inSection: indexPath.section) - 1:
                 self.toggleExternalAuth()
+            case .externalAuthToken:
+                Task {
+                    try await model.generateExternalAuthTokenMock()
+                }
             }
 
         case .log:

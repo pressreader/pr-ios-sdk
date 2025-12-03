@@ -107,6 +107,11 @@ extension RootModel {
     var canAuthorize: Bool {
         self.isReady
     }
+    
+    var isTokenGenerationAvailable: Bool {
+        self.currentService != Service.default
+        && self.isServiceSelectionEnabled
+    }
 
     // MARK: - Public Methods
     
