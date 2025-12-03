@@ -48,8 +48,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 return "Authorize with Gift token"
             case .externalAuthToken:
                 return state == .authorized
-                && model.authorizationData.id == RootModel.AuthData
-                    .externalAuthToken(token: "", provider: "").id
                 ? "Deuthorize account"
                 : "Generate token and authorize"
             }

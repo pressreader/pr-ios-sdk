@@ -14,20 +14,9 @@ extension RootModel {
     
     // MARK: - Nested Types
     
-    enum AuthData: RawRepresentable, CaseIterable, Identifiable {
+    enum AuthData: RawRepresentable {
         case giftToken(String)
         case externalAuthToken(token: String, provider: String)
-        
-        // MARK: - CaseIterable
-        
-        static let allCases = [AuthData.giftToken(""),
-                               .externalAuthToken(token: "", provider: "")]
-        
-        // MARK: - Identifiable
-        
-        var id: String {
-            self.rawValue.string("type")!
-        }
         
         // MARK: - RawRepresentable
         
@@ -44,11 +33,7 @@ extension RootModel {
         }
         
         init?(rawValue: [String : String]) {
-            guard let type = rawValue["type"] else {
-                return nil
-            }
-            
-            switch type {
+            switch rawValue["type"] {
             case "giftToken":
                 guard let auth = rawValue["token"]
                     .map({ AuthData.giftToken($0) })
@@ -81,41 +66,35 @@ extension RootModel {
     
     var authorizationData: AuthData {
         get {
-            var storedData: AuthData?
-            if let rawData = UserDefaults.standard
-                .dictionary(forKey: "PRSDKTestAuthData") as? [String: String],
-                let authData = AuthData(rawValue: rawData),
-               self.isAuthorizationEnabled(authData: authData)
-            {
-                storedData = authData
-            }
-            
-            if let token = UserDefaults.standard.string(forKey: "PRAuthToken") {
-                UserDefaults.standard.setValue(nil, forKey: "PRAuthToken")
-                let auth = AuthData.giftToken(token)
-                self.authorizationData = auth
-                
-                if self.isAuthorizationEnabled(authData: auth) {
-                    storedData = auth
+            let rawData = UserDefaults.standard
+                .dictionary(forKey: "PRSDKTestAuthData") as? [String: String]
+            let currentService = self.currentService
+            let authType = rawData
+                .flatMap {
+                    let data = AuthData(rawValue: $0)
+                    switch data {
+                    case .giftToken where currentService == Service.default:
+                        return data
+                    case .externalAuthToken where currentService != Service.default:
+                        return data
+                    default: return nil
+                    }
                 }
-            }
-            
-            if let storedData {
-                return storedData
-            }
-            
-            let newData = AuthData.allCases
-                .first(where: { self.isAuthorizationEnabled(authData: $0) })
             ?? {
-                PRLog.debugCrash("No valid authorization data available")
+                var newData: AuthData!
+                switch currentService {
+                case Service.default:
+                    newData = .giftToken("")
+                default:
+                    newData = .externalAuthToken(token: "", provider: "")
+                }
                 
-                return AuthData.giftToken("")
+                self.authorizationData = newData
+                
+                return newData
             }()
             
-            self.authorizationData = newData
-            
-            return newData
-            
+            return authType
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: "PRSDKTestAuthData")
@@ -126,7 +105,7 @@ extension RootModel {
     }
     
     var canAuthorize: Bool {
-        self.isReady && self.isAuthorizationEnabled(authData: self.authorizationData)
+        self.isReady
     }
 
     // MARK: - Public Methods
@@ -160,20 +139,4 @@ extension RootModel {
         
         self.authorizationData = .externalAuthToken(token: token, provider: "pressreaderJwt")
     }
-    
-    // MARK: - Private Methods
-    
-    private func isAuthorizationEnabled(authData: AuthData) -> Bool {
-        guard self.isAuthorizationEnabled else {
-            return false
-        }
-        
-        switch self.currentService {
-        case Service.default:
-            return authData.id == AuthData.giftToken("").id
-        default:
-            return authData.id == AuthData.externalAuthToken(token: "", provider: "").id
-        }
-    }
-
 }
