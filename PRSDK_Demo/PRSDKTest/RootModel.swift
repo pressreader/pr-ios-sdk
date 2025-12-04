@@ -50,6 +50,7 @@ final class RootModel {
     
     var isServiceSelectionEnabled: Bool {
         PRConfig.configDefaults?.string("SERVICE_NAME") == nil
+        && !PressReader.isLocalService
     }
     
     var currentService: String {
