@@ -18,24 +18,39 @@ protocol Reloadable {
 
 final class RootModel {
     
+    // MARK: - Nested Types
+    
+    struct Service {
+        static let `default` = PRConfig.defaultServiceName
+        static let multiTitles = "Multi titles + no Feed "
+        static let kioscoPerfil = "Kiosco Perfil Beta "
+        static let singleTitle = " BE SingleTitle "
+        static let singleTitleAndFeed = "Single title and Feed BE"
+        static let singleTitleAndSupplementsAndFeed = "Single title  and sup and feed"
+    }
+        
     // MARK: - Public Properties
 
     var services: [String] {
         var services = [
-            PRConfig.defaultServiceName,
-            "Multi titles + no Feed ",
-            "Kiosco Perfil Beta ",
-            " BE SingleTitle ",
-            "Single title and Feed BE",
-            "Single title  and sup and feed"
+            Service.default,
+            Service.multiTitles,
+            Service.kioscoPerfil,
+            Service.singleTitle,
+            Service.singleTitleAndFeed,
+            Service.singleTitleAndSupplementsAndFeed
         ]
-
         let currentService = self.currentService
-        if !services.contains (where: { $0 == currentService }) {
+        if !services.contains(currentService) {
             services.append(currentService)
         }
             
         return services
+    }
+    
+    var isServiceSelectionEnabled: Bool {
+        PRConfig.configDefaults?.string("SERVICE_NAME") == nil
+        && !PressReader.isLocalService
     }
     
     var currentService: String {
@@ -68,33 +83,16 @@ final class RootModel {
     var isLocalServiceActive: Bool {
         self.account?.state == .localService
     }
-
-    var isAuthEnabled: Bool {
-        !self.isDismissed && !self.isLocalService
-    }
-
+    
     var isReady: Bool {
         switch self.account?.state {
-        case .idle, .sponsorship: return true
+        case .idle, .authorized: return true
         default: return false
         }
-    }
-
-    var canAuthorise: Bool {
-        self.isReady
     }
     
     var account: Account? {
         self.pressreader?.account
-    }
-
-    var authToken: String? {
-        get {
-            UserDefaults.standard.string(forKey: "PRAuthToken")
-        }
-        set {
-            UserDefaults.standard.setValue(newValue, forKey: "PRAuthToken")
-        }
     }
     
     var isCatalogEnabled: Bool {
@@ -126,9 +124,9 @@ final class RootModel {
         : []
     }
 
-    // MARK: - Private Properties
+    let delegate: Reloadable
 
-    private let delegate: Reloadable
+    // MARK: - Private Properties
 
     private var pressreader: PressReader? {
         guard !self.isDismissed else {
@@ -189,23 +187,7 @@ final class RootModel {
     }
     
     // MARK: - Public Methods
-    
-    func authorisePressreader() {
-        guard let token = self.authToken, token.count > 0 else {
-            return
-        }
-
-        self.account?.authorize(token: token) { (success, error) in
-            print("Auth result: \(success), \(String(describing: error))")
-            
-            if !success {
-                UIAlertController
-                    .presentDismissableAlert(withTitle: "Auth Error",
-                                             message: error?.localizedDescription)
-            }
-        }
-    }
-    
+        
     func catalogItem(at index: Int) -> TitleItem? {
         self.catalog?.item(cid: self.cids[index], date: nil)
     }
@@ -240,7 +222,7 @@ final class RootModel {
         }
 
     }
-    
+        
     // MARK: - Notifications
     
     private func registerObservers() {
