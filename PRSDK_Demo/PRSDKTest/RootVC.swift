@@ -223,12 +223,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         try await model.authorize()
     }
         
-    @MainActor
-    private func presentAuthError(error: Error) {
-        UIAlertController.presentDismissableAlert(withTitle: "Auth Error",
-                                                  message: error.localizedDescription)
-    }
-    
     private func updateSections() {
         let model = self.model
         var sections = [Section]()
@@ -434,7 +428,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let model = self.model
         switch self.sections[indexPath.section] {
         case .auth:
-            Task {
+            Task { @MainActor in
                 do {
                     switch model.authorizationData {
                     case .giftToken:
@@ -449,13 +443,12 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                         }
                     case .externalAuthToken:
                         try await model.generateExternalAuthTokenMock()
-                        await MainActor.run {
-                            self.reloadData()
-                        }
+                        self.reloadData()
                     }
                 }
                 catch {
-                    self.presentAuthError(error: error)
+                    UIAlertController.presentDismissableAlert(withTitle: "Auth Error",
+                                                              message: error.localizedDescription)
                 }
             }
             
