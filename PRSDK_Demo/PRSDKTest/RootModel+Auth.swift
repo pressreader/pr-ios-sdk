@@ -98,9 +98,6 @@ extension RootModel {
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: "PRSDKTestAuthData")
-            PRMainThreadAsync {
-                self.delegate.reloadData()
-            }
         }
     }
     

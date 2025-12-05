@@ -44,12 +44,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             return "Not available for local service"
         default:
             switch model.authorizationData {
-            case .giftToken:
-                return "Authorize with Gift token"
-            case .externalAuthToken:
-                return state == .authorized
-                ? "Deuthorize account"
-                : "Authorize with External token"
+            case .externalAuthToken where state == .authorized:
+                return "Deauthorize"
+            default:
+                return "Authorize"
             }
         }
     }
@@ -190,62 +188,41 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         activityIndicator.stopAnimating()
     }
     
-    private func authWithToken() {
+    @MainActor
+    private func authTextField(at row: Int) -> UITextField? {
         guard let section = self.sections.firstIndex(of: .auth),
-              let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: section)) as? TextFieldCell
+              let cell = self.tableView.cellForRow(
+                at: IndexPath(row: row, section: section)
+              ) as? TextFieldCell
+        else {
+            return nil
+        }
+        
+        return cell.textField
+    }
+    
+    private func authWithToken() async throws {
+        guard let token = self.authTextField(at: 0)?.text else {
+            return
+        }
+        
+        let model = self.model
+        model.authorizationData = .giftToken(token)
+        try await model.authorize()
+    }
+    
+    private func authWithExternalToken() async throws{
+        guard let token = self.authTextField(at: 0)?.text,
+              let provider = self.authTextField(at: 1)?.text
         else {
             return
         }
         
-        let textField = cell.textField
-        let token = textField.text ?? ""
+        let model = self.model
+        model.authorizationData = .externalAuthToken(token: token, provider: provider)
+        try await model.authorize()
+    }
         
-        Task {
-            do {
-                let model = self.model
-                model.authorizationData = .giftToken(token)
-                try await model.authorize()
-            }
-            catch {
-                self.presentAuthError(error: error)
-            }
-        }
-    }
-    
-    private func toggleExternalAuth() {
-        Task {
-            do {
-                let model = self.model
-                if model.account?.state == .authorized {
-                    try await model.deauthorize()
-                }
-                else {
-                    guard let authSection = self.sections.firstIndex(of: .auth) else {
-                        return
-                    }
-                    
-                    let textFieldAtRow = { (row: Int) -> UITextField? in
-                        (self.tableView.cellForRow(
-                            at: IndexPath(row: row, section: authSection)
-                        ) as? TextFieldCell)?.textField
-                    }
-                    
-                    guard let token = textFieldAtRow(0)?.text,
-                          let provider = textFieldAtRow(1)?.text
-                    else {
-                        return
-                    }
-                    
-                    model.authorizationData = .externalAuthToken(token: token, provider: provider)
-                    try await model.authorize()
-                }
-            }
-            catch {
-                self.presentAuthError(error: error)
-            }
-        }
-    }
-    
     @MainActor
     private func presentAuthError(error: Error) {
         UIAlertController.presentDismissableAlert(withTitle: "Auth Error",
@@ -457,18 +434,31 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let model = self.model
         switch self.sections[indexPath.section] {
         case .auth:
-            switch model.authorizationData {
-            case .giftToken:
-                self.authWithToken()
-            case .externalAuthToken where indexPath.row == tableView
-                    .numberOfRows(inSection: indexPath.section) - 1:
-                self.toggleExternalAuth()
-            case .externalAuthToken:
-                Task {
-                    try await model.generateExternalAuthTokenMock()
+            Task {
+                do {
+                    switch model.authorizationData {
+                    case .giftToken:
+                        try await self.authWithToken()
+                    case .externalAuthToken where indexPath.row == tableView
+                            .numberOfRows(inSection: indexPath.section) - 1:
+                        if model.account?.state == .authorized {
+                            try await model.deauthorize()
+                        }
+                        else {
+                            try await self.authWithExternalToken()
+                        }
+                    case .externalAuthToken:
+                        try await model.generateExternalAuthTokenMock()
+                        await MainActor.run {
+                            self.reloadData()
+                        }
+                    }
+                }
+                catch {
+                    self.presentAuthError(error: error)
                 }
             }
-
+            
         case .log:
             model.getLogs()
             
