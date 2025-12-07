@@ -308,9 +308,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
+SWIFT_CLASS("_TtC7PRSmart17ArticleBylineItem")
+@interface ArticleBylineItem : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSAttributedString;
 @class NSString;
-@class NSObject;
 SWIFT_CLASS("_TtC7PRSmart16ArticleTextBlock")
 @interface ArticleTextBlock : PRArticleBlock
 @property (nonatomic, copy) NSDictionary<NSAttributedStringKey, id> * _Nullable generalAttributes;
@@ -320,6 +325,18 @@ SWIFT_CLASS("_TtC7PRSmart16ArticleTextBlock")
 - (nonnull instancetype)initWithType:(PRArticleBlockType)type text:(NSString * _Nullable)text info:(NSDictionary * _Nullable)info OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@interface PRSmartArticle (SWIFT_EXTENSION(PRSmart))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGSize windowSize;)
++ (CGSize)windowSize SWIFT_WARN_UNUSED_RESULT;
++ (void)updateWindowSize;
+@end
+
+@interface PRSmartArticle (SWIFT_EXTENSION(PRSmart))
+@property (nonatomic, readonly, strong) NSAttributedString * _Nullable byline;
+- (NSAttributedString * _Nullable)bylineWithISO:(NSString * _Nonnull)iso SWIFT_WARN_UNUSED_RESULT;
+- (void)processBylinesWithPayload:(SmartArticlePayload _Nonnull)payload iso:(NSString * _Nonnull)iso;
 @end
 
 SWIFT_CLASS("_TtC7PRSmart8PageInfo")

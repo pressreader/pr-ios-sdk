@@ -7,6 +7,7 @@
 //
 
 #import "PRiphoneAppDelegate.h"
+@import PRSyntacticSugar;
 
 @protocol NTFArticle;
 @class NTFArticleItem;
@@ -64,6 +65,7 @@ onSuccessCommandParameters:(nullable NSDictionary *)onSuccessCommandParameters
              linkToCurrentAccount:(BOOL)linkToCurrentAccount;
 
 - (BOOL)openCatalog;
+- (BOOL)_openCatalog:(PRSimpleBlock)block;
 - (BOOL)openDownloaded;
 - (BOOL)openHomeFeed;
 
@@ -76,7 +78,6 @@ onSuccessCommandParameters:(nullable NSDictionary *)onSuccessCommandParameters
 - (BOOL)openHotSpotsMapWithParameters:(nullable NSDictionary *)params;
 - (BOOL)openArticle:(id<NTFArticle>)article parameters:(nullable NSDictionary *)params;
 - (BOOL)openPublicationsWithParameters:(nullable NSDictionary *)parameters;
-- (BOOL)openBooksWithParameters:(nullable NSDictionary *)parameters;
 - (BOOL)openUrlWithParameters:(nullable NSDictionary *)params;
 - (BOOL)downloadItemWithParameters:(nullable NSDictionary *)parameters;
 - (BOOL)openGiftCampaignWithParameters:(nullable NSDictionary *)params;
@@ -95,7 +96,7 @@ onSuccessCommandParameters:(nullable NSDictionary *)onSuccessCommandParameters
 + (nullable NSString *)cidFromDictionary:(nullable NSDictionary *)params;
 + (NSDictionary *)normaliseParameters:(NSDictionary *)params;
 
-- (void)waitForAPanel:(void(^_Nonnull)(void))completion;
+- (void)waitForAPanel:(PRSimpleBlock)completion;
 
 @end
 

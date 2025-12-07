@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRCommandOpenReader (Article)
 + (BOOL)isEnabledForArticle:(id<NTFArticle>)article;
-+ (void)executeWithArticle:(id<NTFArticle>)article completion:(nullable PRSimpleBlock)completion;
++ (void)executeWithArticle:(id<NTFArticle>)article completion:(nullable PRCompletionBlock)completion;
 
 @end
 

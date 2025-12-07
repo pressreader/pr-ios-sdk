@@ -12,8 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSError (InvalidParameter)
 
-+ (instancetype)invalidParametersErrorWithDescription:(nullable NSString *)description;
 + (instancetype)invalidParametersError;
++ (instancetype)unavailableError;
++ (instancetype)timeoutError;
+
++ (instancetype)errorWithCode:(NSInteger)code description:(nullable NSString *)description;
 
 + (void)logParameterRequiredErrorForMethod:(SEL)selector
                                  parameter:(NSString *)parameter;

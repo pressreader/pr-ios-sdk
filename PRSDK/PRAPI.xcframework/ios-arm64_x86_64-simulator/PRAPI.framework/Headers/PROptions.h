@@ -167,7 +167,6 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 @property (class, nonatomic, readonly) PRAppMode appMode;
 @property (nonatomic, readonly) PRAppMode appMode;
 
-@property (nonatomic, readonly) NSString *serviceName;
 @property (nullable, nonatomic, readonly) NSString *displayServiceName;
 
 @property (nonatomic, strong, nullable) NSString *deviceToken;

@@ -946,6 +946,9 @@ extension PRConfiguration.PRConfig {
   public static var publisherConfigEnabled: Swift.Bool {
     get
   }
+  public static var isWebConfigEnabled: Swift.Bool {
+    get
+  }
   public static let widget: PRConfiguration.WidgetConfig
 }
 extension PRConfiguration.PRConfig {
@@ -1636,6 +1639,9 @@ extension PRConfiguration.PRAuthorizationConfig {
     @objc get
   }
   @objc dynamic public var externalAuthType: PRConfiguration.ExternalAuthType {
+    @objc get
+  }
+  @objc dynamic public var resetOnInvalidActivation: Swift.Bool {
     @objc get
   }
 }

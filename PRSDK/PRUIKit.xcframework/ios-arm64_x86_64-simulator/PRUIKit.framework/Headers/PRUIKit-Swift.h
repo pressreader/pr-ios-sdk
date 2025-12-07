@@ -939,14 +939,14 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
+@interface UIButton (SWIFT_EXTENSION(PRUIKit))
+- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class UIButtonConfiguration;
 SWIFT_UNAVAILABLE
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
 + (UIButtonConfiguration * _Nonnull)prDefaultConfiguration SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface UIButton (SWIFT_EXTENSION(PRUIKit))
-- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
@@ -961,11 +961,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIButton * _
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithStartColor:(UIColor * _Nonnull)startColor endColor:(UIColor * _Nonnull)endColor location:(CGFloat)location;
+- (NSString * _Nullable)rgbaString SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-- (NSString * _Nullable)rgbaString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithStartColor:(UIColor * _Nonnull)startColor endColor:(UIColor * _Nonnull)endColor location:(CGFloat)location;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
@@ -993,29 +993,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translationBackgroundColor;)
-+ (UIColor * _Nonnull)translationBackgroundColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull sampleContentTintColor;)
-+ (UIColor * _Nonnull)sampleContentTintColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull freeRibbonColor;)
-+ (UIColor * _Nonnull)freeRibbonColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalBlueColor;)
-+ (UIColor * _Nonnull)globalBlueColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalDestructiveColor;)
-+ (UIColor * _Nonnull)globalDestructiveColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nullable darkLogoColor;)
-+ (UIColor * _Nullable)darkLogoColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull menuBarTint;)
-+ (UIColor * _Nonnull)menuBarTint SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translucentMenuBarTint;)
-+ (UIColor * _Nonnull)translucentMenuBarTint SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull tableViewSectionHeaderFooterBackground;)
-+ (UIColor * _Nonnull)tableViewSectionHeaderFooterBackground SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull bylineTextColor;)
-+ (UIColor * _Nonnull)bylineTextColor SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface UIColor (SWIFT_EXTENSION(PRUIKit))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<UIColor *> * _Nonnull brandGradientColors;)
 + (NSArray<UIColor *> * _Nonnull)brandGradientColors SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull feedBackground;)
@@ -1036,6 +1013,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 + (UIColor * _Nullable)customBarTint SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull searchBarBackground;)
 + (UIColor * _Nonnull)searchBarBackground SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface UIColor (SWIFT_EXTENSION(PRUIKit))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translationBackgroundColor;)
++ (UIColor * _Nonnull)translationBackgroundColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull sampleContentTintColor;)
++ (UIColor * _Nonnull)sampleContentTintColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull freeRibbonColor;)
++ (UIColor * _Nonnull)freeRibbonColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalBlueColor;)
++ (UIColor * _Nonnull)globalBlueColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalDestructiveColor;)
++ (UIColor * _Nonnull)globalDestructiveColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nullable darkLogoColor;)
++ (UIColor * _Nullable)darkLogoColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull menuBarTint;)
++ (UIColor * _Nonnull)menuBarTint SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translucentMenuBarTint;)
++ (UIColor * _Nonnull)translucentMenuBarTint SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull tableViewSectionHeaderFooterBackground;)
++ (UIColor * _Nonnull)tableViewSectionHeaderFooterBackground SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull bylineTextColor;)
++ (UIColor * _Nonnull)bylineTextColor SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
@@ -1136,13 +1136,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRImageExten
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (void)updateAppearance;
-- (void)updateAppearanceOfLinks;
+- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+- (void)updateAppearance;
+- (void)updateAppearanceOfLinks;
 @end
 
 @class NSAttributedString;
@@ -1222,11 +1222,11 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 @interface UITextField (SWIFT_EXTENSION(PRUIKit))
-- (UIButton * _Nullable)getClearButton SWIFT_WARN_UNUSED_RESULT;
+- (void)showSecureTextEntryToggle;
 @end
 
 @interface UITextField (SWIFT_EXTENSION(PRUIKit))
-- (void)showSecureTextEntryToggle;
+- (UIButton * _Nullable)getClearButton SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UITraitCollection (SWIFT_EXTENSION(PRUIKit))
@@ -1248,7 +1248,8 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
+- (void)rightToLeftAllSubviews;
+- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
 @end
 
 SWIFT_UNAVAILABLE
@@ -1257,12 +1258,11 @@ SWIFT_UNAVAILABLE
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (void)rightToLeftAllSubviews;
-- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
+- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSLayoutConstraint;
@@ -1339,13 +1339,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @end
 
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) BOOL isAppContainer;
-@property (nonatomic, readonly, strong) UIViewController * _Nullable presenter;
+@property (nonatomic, readonly) BOOL isBranded;
+@property (nonatomic, readonly) BOOL isRootInNavigationStack;
 @end
 
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) BOOL isBranded;
-@property (nonatomic, readonly) BOOL isRootInNavigationStack;
+@property (nonatomic, readonly) BOOL isAppContainer;
+@property (nonatomic, readonly, strong) UIViewController * _Nullable presenter;
 @end
 
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
@@ -2339,14 +2339,14 @@ SWIFT_UNAVAILABLE
 @property (nonatomic, strong) AccessibilityId * _Nullable accessibilityId;
 @end
 
+@interface UIButton (SWIFT_EXTENSION(PRUIKit))
+- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class UIButtonConfiguration;
 SWIFT_UNAVAILABLE
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
 + (UIButtonConfiguration * _Nonnull)prDefaultConfiguration SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface UIButton (SWIFT_EXTENSION(PRUIKit))
-- (BOOL)isEasyTapPointInside:(CGPoint)point with:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIButton (SWIFT_EXTENSION(PRUIKit))
@@ -2361,11 +2361,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIButton * _
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithStartColor:(UIColor * _Nonnull)startColor endColor:(UIColor * _Nonnull)endColor location:(CGFloat)location;
+- (NSString * _Nullable)rgbaString SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-- (NSString * _Nullable)rgbaString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithStartColor:(UIColor * _Nonnull)startColor endColor:(UIColor * _Nonnull)endColor location:(CGFloat)location;
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
@@ -2393,29 +2393,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 @end
 
 @interface UIColor (SWIFT_EXTENSION(PRUIKit))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translationBackgroundColor;)
-+ (UIColor * _Nonnull)translationBackgroundColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull sampleContentTintColor;)
-+ (UIColor * _Nonnull)sampleContentTintColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull freeRibbonColor;)
-+ (UIColor * _Nonnull)freeRibbonColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalBlueColor;)
-+ (UIColor * _Nonnull)globalBlueColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalDestructiveColor;)
-+ (UIColor * _Nonnull)globalDestructiveColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nullable darkLogoColor;)
-+ (UIColor * _Nullable)darkLogoColor SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull menuBarTint;)
-+ (UIColor * _Nonnull)menuBarTint SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translucentMenuBarTint;)
-+ (UIColor * _Nonnull)translucentMenuBarTint SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull tableViewSectionHeaderFooterBackground;)
-+ (UIColor * _Nonnull)tableViewSectionHeaderFooterBackground SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull bylineTextColor;)
-+ (UIColor * _Nonnull)bylineTextColor SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface UIColor (SWIFT_EXTENSION(PRUIKit))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<UIColor *> * _Nonnull brandGradientColors;)
 + (NSArray<UIColor *> * _Nonnull)brandGradientColors SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull feedBackground;)
@@ -2436,6 +2413,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 + (UIColor * _Nullable)customBarTint SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull searchBarBackground;)
 + (UIColor * _Nonnull)searchBarBackground SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface UIColor (SWIFT_EXTENSION(PRUIKit))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translationBackgroundColor;)
++ (UIColor * _Nonnull)translationBackgroundColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull sampleContentTintColor;)
++ (UIColor * _Nonnull)sampleContentTintColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull freeRibbonColor;)
++ (UIColor * _Nonnull)freeRibbonColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalBlueColor;)
++ (UIColor * _Nonnull)globalBlueColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull globalDestructiveColor;)
++ (UIColor * _Nonnull)globalDestructiveColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nullable darkLogoColor;)
++ (UIColor * _Nullable)darkLogoColor SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull menuBarTint;)
++ (UIColor * _Nonnull)menuBarTint SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull translucentMenuBarTint;)
++ (UIColor * _Nonnull)translucentMenuBarTint SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull tableViewSectionHeaderFooterBackground;)
++ (UIColor * _Nonnull)tableViewSectionHeaderFooterBackground SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull bylineTextColor;)
++ (UIColor * _Nonnull)bylineTextColor SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UIFont (SWIFT_EXTENSION(PRUIKit))
@@ -2536,13 +2536,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRImageExten
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (void)updateAppearance;
-- (void)updateAppearanceOfLinks;
+- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
 @end
 
 @interface UILabel (SWIFT_EXTENSION(PRUIKit))
-- (nonnull instancetype)initWithFont:(UIFont * _Nonnull)font color:(UIColor * _Nullable)color numberOfLines:(NSInteger)numberOfLines;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text;
+- (void)updateAppearance;
+- (void)updateAppearanceOfLinks;
 @end
 
 @class NSAttributedString;
@@ -2622,11 +2622,11 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 @interface UITextField (SWIFT_EXTENSION(PRUIKit))
-- (UIButton * _Nullable)getClearButton SWIFT_WARN_UNUSED_RESULT;
+- (void)showSecureTextEntryToggle;
 @end
 
 @interface UITextField (SWIFT_EXTENSION(PRUIKit))
-- (void)showSecureTextEntryToggle;
+- (UIButton * _Nullable)getClearButton SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface UITraitCollection (SWIFT_EXTENSION(PRUIKit))
@@ -2648,7 +2648,8 @@ typedef SWIFT_ENUM(NSInteger, BackgroundType, open) {
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
+- (void)rightToLeftAllSubviews;
+- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
 @end
 
 SWIFT_UNAVAILABLE
@@ -2657,12 +2658,11 @@ SWIFT_UNAVAILABLE
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull dimensionParams;
 @end
 
 @interface UIView (SWIFT_EXTENSION(PRUIKit))
-- (void)rightToLeftAllSubviews;
-- (void)setRecursiveSemanticContentAttribute:(UISemanticContentAttribute)contentAttribute;
+- (UIView * _Nullable)superviewWithClass:(SWIFT_METATYPE(UIView) _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSLayoutConstraint;
@@ -2739,13 +2739,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @end
 
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) BOOL isAppContainer;
-@property (nonatomic, readonly, strong) UIViewController * _Nullable presenter;
+@property (nonatomic, readonly) BOOL isBranded;
+@property (nonatomic, readonly) BOOL isRootInNavigationStack;
 @end
 
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
-@property (nonatomic, readonly) BOOL isBranded;
-@property (nonatomic, readonly) BOOL isRootInNavigationStack;
+@property (nonatomic, readonly) BOOL isAppContainer;
+@property (nonatomic, readonly, strong) UIViewController * _Nullable presenter;
 @end
 
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))

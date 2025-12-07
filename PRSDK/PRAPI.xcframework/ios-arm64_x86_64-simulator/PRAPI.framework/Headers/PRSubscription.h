@@ -25,6 +25,7 @@ extern NSNotificationName const PRSubscriptionSourcesStatusChangedNotification;
 extern NSNotificationName const PRTitlesDidLoadNotification;
 extern NSNotificationName const PRSubscriptionFavouritesDidUpdate;
 extern NSNotificationName const PRSubscriptionIssuesOrderCompleted;
+extern NSNotificationName const PRSubscriptionReadingStatisticsUpdated;
 
 extern NSNotificationName const PRUserPostUpdatedNotification;
 extern NSNotificationName const PRUserPostDeletedNotification;

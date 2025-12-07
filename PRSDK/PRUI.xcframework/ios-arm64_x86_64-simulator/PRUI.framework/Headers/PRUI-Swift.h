@@ -341,17 +341,32 @@ enum State : NSInteger;
 SWIFT_CLASS("_TtC4PRUI7Account")
 @interface Account : NSObject
 @property (nonatomic) enum State state;
-@property (nonatomic, readonly, copy) NSDate * _Nullable sponsorshipExpiration;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expirationDate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)authorizeWithToken:(NSString * _Nonnull)token completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+/// Authorizes the user with a gift access token.
+/// This method authorizes the user by requesting gifted access using the provided token.
+/// \param token The gift access token string used to grant access.
+///
+- (void)authorizeWithToken:(NSString * _Nonnull)token completionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
+/// Authorizes the user with an external authentication token from a third-party provider.
+/// This method authorizes the user through an external authentication provider.
+/// \param externalToken The external authentication token string from the provider.
+///
+/// \param provider The identifier of the authentication provider.
+///
+///
+/// throws:
+/// An error if authorization fails.
+- (void)authorizeWithExternalToken:(NSString * _Nonnull)externalToken provider:(NSString * _Nonnull)provider completionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
+- (void)deauthorizeWithCompletionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
 @end
 
 typedef SWIFT_ENUM(NSInteger, State, open) {
   StateIdle = 0,
   StateNotReachable = 1,
   StateAuthorising = 2,
-  StateSponsorship = 3,
+  StateAuthorized = 3,
   StateLocalService = 4,
 };
 
@@ -2223,7 +2238,7 @@ SWIFT_CLASS("_TtC4PRUI11PRVotingBar")
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupApplicationShortcutItems;
+- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -2235,12 +2250,14 @@ SWIFT_CLASS("_TtC4PRUI11PRVotingBar")
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
+- (void)setupApplicationShortcutItems;
 @end
 
+@class UNNotificationResponse;
+SWIFT_UNAVAILABLE
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupHotSpotManager;
-- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIApplication;
@@ -2252,11 +2269,9 @@ SWIFT_UNAVAILABLE
 - (BOOL)_application:(UIApplication * _Nonnull)app open:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class UNNotificationResponse;
-SWIFT_UNAVAILABLE
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
+- (void)setupHotSpotManager;
+- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -2391,6 +2406,12 @@ SWIFT_CLASS("_TtC4PRUI17PremiumBannerView")
 
 @interface PressReader (SWIFT_EXTENSION(PRUI))
 - (void)getLogsWithCompletionHandler:(void (^ _Nonnull)(NSURL * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+@interface PressReader (SWIFT_EXTENSION(PRUI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull serviceName;)
++ (NSString * _Nonnull)serviceName SWIFT_WARN_UNUSED_RESULT;
++ (void)setServiceName:(NSString * _Nonnull)newValue;
 @end
 
 @interface PressReader (SWIFT_EXTENSION(PRUI)) <Singleton>
@@ -3166,17 +3187,32 @@ enum State : NSInteger;
 SWIFT_CLASS("_TtC4PRUI7Account")
 @interface Account : NSObject
 @property (nonatomic) enum State state;
-@property (nonatomic, readonly, copy) NSDate * _Nullable sponsorshipExpiration;
+@property (nonatomic, readonly, copy) NSDate * _Nullable expirationDate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)authorizeWithToken:(NSString * _Nonnull)token completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+/// Authorizes the user with a gift access token.
+/// This method authorizes the user by requesting gifted access using the provided token.
+/// \param token The gift access token string used to grant access.
+///
+- (void)authorizeWithToken:(NSString * _Nonnull)token completionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
+/// Authorizes the user with an external authentication token from a third-party provider.
+/// This method authorizes the user through an external authentication provider.
+/// \param externalToken The external authentication token string from the provider.
+///
+/// \param provider The identifier of the authentication provider.
+///
+///
+/// throws:
+/// An error if authorization fails.
+- (void)authorizeWithExternalToken:(NSString * _Nonnull)externalToken provider:(NSString * _Nonnull)provider completionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
+- (void)deauthorizeWithCompletionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
 @end
 
 typedef SWIFT_ENUM(NSInteger, State, open) {
   StateIdle = 0,
   StateNotReachable = 1,
   StateAuthorising = 2,
-  StateSponsorship = 3,
+  StateAuthorized = 3,
   StateLocalService = 4,
 };
 
@@ -5048,7 +5084,7 @@ SWIFT_CLASS("_TtC4PRUI11PRVotingBar")
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupApplicationShortcutItems;
+- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -5060,12 +5096,14 @@ SWIFT_CLASS("_TtC4PRUI11PRVotingBar")
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)openDeepLink:(NSURL * _Nonnull)url;
+- (void)setupApplicationShortcutItems;
 @end
 
+@class UNNotificationResponse;
+SWIFT_UNAVAILABLE
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupHotSpotManager;
-- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIApplication;
@@ -5077,11 +5115,9 @@ SWIFT_UNAVAILABLE
 - (BOOL)_application:(UIApplication * _Nonnull)app open:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class UNNotificationResponse;
-SWIFT_UNAVAILABLE
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
+- (void)setupHotSpotManager;
+- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -5216,6 +5252,12 @@ SWIFT_CLASS("_TtC4PRUI17PremiumBannerView")
 
 @interface PressReader (SWIFT_EXTENSION(PRUI))
 - (void)getLogsWithCompletionHandler:(void (^ _Nonnull)(NSURL * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+@interface PressReader (SWIFT_EXTENSION(PRUI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull serviceName;)
++ (NSString * _Nonnull)serviceName SWIFT_WARN_UNUSED_RESULT;
++ (void)setServiceName:(NSString * _Nonnull)newValue;
 @end
 
 @interface PressReader (SWIFT_EXTENSION(PRUI)) <Singleton>

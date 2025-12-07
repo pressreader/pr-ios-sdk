@@ -92,9 +92,6 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 - (NSString *)subtitle;
 - (NSString *)subtitleForISOLanguage:(NSString *)language;
 
-- (NSString *)byline;
-- (NSString *)bylineForISOLanguage:(NSString *)language;
-
 - (NSString *)copyright;
 - (NSString *)copyrightForISOLanguage:(NSString *)language;
 

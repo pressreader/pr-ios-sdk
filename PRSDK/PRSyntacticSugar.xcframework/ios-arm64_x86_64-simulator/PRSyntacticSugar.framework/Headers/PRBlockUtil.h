@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSErrorDomain const PRTryPerformBlockErrorDomain;
 
 typedef void(^PRSimpleBlock)(void);
+typedef void(^PRCompletionBlock)(NSError *_Nullable error);
 typedef id _Nullable(^PRReturnBlock)(void);
 
 @interface PRBlockUtil : NSObject

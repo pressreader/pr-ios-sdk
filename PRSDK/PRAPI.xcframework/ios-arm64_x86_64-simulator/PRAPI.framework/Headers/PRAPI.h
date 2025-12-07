@@ -106,7 +106,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRCatalogFilterItem.h>
 
 #import <PRAPI/PRModel.h>
-#import <PRAPI/PRModel+Settings.h>
 
 #import <PRAPI/PRHost+Service.h>
 

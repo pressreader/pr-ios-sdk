@@ -8,6 +8,7 @@
 
 #import <PRCommands/PRCommandNames.h>
 #import <PRCommands/PRContext.h>
+#import <PRSyntacticSugar/PRSyntacticSugar.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,14 +35,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) BOOL isEnabled;
 @property (nullable, nonatomic, strong) id result;
 @property (nullable, nonatomic, weak) PRContext *context;
+@property (nullable, nonatomic, copy) PRCompletionBlock completionHandler;
 
 @end
 
 @interface PRCommand (Global)
 
 + (void)execute;
+
 + (void)executeWithParameters:(nullable NSDictionary *)parameters
 NS_SWIFT_NAME(execute(parameters:));
+
++ (void)executeWithParameters:(nullable NSDictionary *)parameters
+            completionHandler:(nullable PRCompletionBlock)completionHandler
+NS_SWIFT_NAME(execute(parameters:completionHandler:));
+
 
 @property (class, nonatomic, readonly) BOOL isEnabled;
 

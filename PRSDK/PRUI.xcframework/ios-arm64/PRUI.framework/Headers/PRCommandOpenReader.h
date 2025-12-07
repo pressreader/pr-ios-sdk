@@ -12,7 +12,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRCommandOpenReader : PRCommand
-+ (void)executeWithParameters:(NSDictionary *)parameters completion:(nullable PRSimpleBlock)completion;
 
 @end
 

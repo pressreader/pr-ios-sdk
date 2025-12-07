@@ -58,5 +58,3 @@ extern NSNotificationName const PRCatalogLoadingErrorNotification;
 @end
 
 NS_ASSUME_NONNULL_END
-
-#import "PRCatalog+Promise.h"

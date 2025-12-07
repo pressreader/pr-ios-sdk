@@ -552,11 +552,11 @@ SWIFT_PROTOCOL("_TtP5PRAPI23BEHomeAnalyticsProvider_")
 @end
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) PRSourceType sourceType;
+@property (nonatomic, readonly) BOOL isNew;
 @end
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isNew;
+@property (nonatomic, readonly) PRSourceType sourceType;
 @end
 
 @class CatalogItemContentOption;
@@ -668,6 +668,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI19SectionalDataSource_")
 - (NSString * _Nullable)titleFor:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class PRPromise;
 @protocol DataSourceObserver;
 SWIFT_PROTOCOL("_TtP5PRAPI18LoadableDataSource_")
 @protocol LoadableDataSource <NSObject>
@@ -676,8 +677,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI18LoadableDataSource_")
 @property (nonatomic, readonly) BOOL isEmpty;
 @property (nonatomic, readonly) BOOL isLoading;
 @property (nonatomic, readonly) BOOL isFailed;
-- (BOOL)load;
-- (BOOL)loadMore;
+- (PRPromise * _Nonnull)load;
+- (PRPromise * _Nonnull)loadMore;
 - (void)addObserver:(id <DataSourceObserver> _Nonnull)observer;
 - (void)removeObserver:(id <DataSourceObserver> _Nonnull)observer;
 @end
@@ -699,8 +700,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @property (nonatomic, readonly) BOOL canLoadMore;
 @property (nonatomic, readonly) BOOL isLoading;
 @property (nonatomic, readonly) BOOL isFailed;
-- (BOOL)load;
-- (BOOL)loadMore;
+- (PRPromise * _Nonnull)load;
+- (PRPromise * _Nonnull)loadMore;
 - (void)addObserver:(id <DataSourceObserver> _Nonnull)observer;
 - (void)removeObserver:(id <DataSourceObserver> _Nonnull)observer;
 - (NSInteger)numberOfItemsIn:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -743,7 +744,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI)) <AnalyticsProvider>
 @end
 
-@class PRPromise;
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI))
 + (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -957,15 +957,15 @@ SWIFT_PROTOCOL("_TtP5PRAPI24CountryNavigationVariant_")
 @interface Country (SWIFT_EXTENSION(PRAPI)) <CountryNavigationVariant>
 @end
 
+@interface DIContainer (SWIFT_EXTENSION(PRAPI))
+- (void)removeAppDependencies;
+- (void)registerAppDependencies;
+@end
+
 SWIFT_UNAVAILABLE
 @interface DIContainer (SWIFT_EXTENSION(PRAPI))
 - (id _Nullable)twitterAuth SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)hasTwitterAuth SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface DIContainer (SWIFT_EXTENSION(PRAPI))
-- (void)removeAppDependencies;
-- (void)registerAppDependencies;
 @end
 
 @class PRAnalyticsService;
@@ -1394,6 +1394,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _N
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull hotSpotStatusUpdated;)
++ (NSNotificationName _Nonnull)hotSpotStatusUpdated SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSNotification (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
++ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSNotification (SWIFT_EXTENSION(PRAPI))
 /// Notification’s userInfo contains book ids for which license was updated.
 /// userInfo: [String: BookLicenseUpdateStatus]
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
@@ -1401,18 +1411,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull hotSpotStatusUpdated;)
-+ (NSNotificationName _Nonnull)hotSpotStatusUpdated SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface NSNotification (SWIFT_EXTENSION(PRAPI))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull translationPairsUpdated;)
 + (NSNotificationName _Nonnull)translationPairsUpdated SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
-+ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
@@ -1436,13 +1436,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
-- (void)_startServiceReachabilityObservation;
-- (void)_stopServiceReachabilityObservation;
+@property (nonatomic, readonly) BOOL isEligibleBrazeEntity;
 @end
 
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isEligibleBrazeEntity;
+- (void)_startServiceReachabilityObservation;
+- (void)_stopServiceReachabilityObservation;
 @end
 
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
@@ -1487,6 +1487,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DIExtension 
 @interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isCommentable;
 @property (nonatomic, readonly) BOOL isTranslatable;
+@end
+
+@class NSAttributedString;
+@interface NTFArticleUtil (SWIFT_EXTENSION(PRAPI))
++ (NSAttributedString * _Nonnull)bylineWithIssueTitle:(NSString * _Nullable)issueTitle attributedByline:(NSAttributedString * _Nullable)attributedByline issueDate:(NSString * _Nullable)issueDate lineBreak:(BOOL)lineBreak isShort:(BOOL)isShort SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NTFCollectionItem (SWIFT_EXTENSION(PRAPI))
@@ -1615,19 +1620,19 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 @interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isReachableAndReady;
-@property (nonatomic, readonly) BOOL emailPermissionsRequired;
-@property (nonatomic, readonly) BOOL isTranslationAvailable;
-@property (nonatomic, readonly) BOOL canTranslate;
-@property (nonatomic, readonly) BOOL needsUpdateEmailNotifications;
-@end
-
-@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isInitialTrialSubscription;
 @property (nonatomic, readonly) BOOL isInitialTrialSubscriptionExpired;
 @property (nonatomic, readonly) BOOL isInitialTrialBundle;
 @property (nonatomic, readonly, strong) PRUserBundle * _Nullable trialBundle;
 @property (nonatomic, readonly) BOOL isTrialBundleActive;
+@end
+
+@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly) BOOL isReachableAndReady;
+@property (nonatomic, readonly) BOOL emailPermissionsRequired;
+@property (nonatomic, readonly) BOOL isTranslationAvailable;
+@property (nonatomic, readonly) BOOL canTranslate;
+@property (nonatomic, readonly) BOOL needsUpdateEmailNotifications;
 @end
 
 @interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
@@ -1639,6 +1644,14 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 @interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
+/// Dangerous
++ (void)fullReset;
++ (void)processResetOptions;
+@end
+
+@interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
+- (void)signInExternalAuthToken:(NSString * _Nonnull)externalAuthToken provider:(NSString * _Nonnull)provider completionHandler:(void (^ _Nonnull)(PRAccountItem * _Nullable, NSError * _Nullable))completionHandler;
+- (void)deauthorizeRegisteredDefaultServiceAccountWithCompletionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
 - (void)postWillAuthorizeWithExternalTicket;
 @end
 
@@ -1681,11 +1694,15 @@ SWIFT_UNAVAILABLE
 @end
 
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
+- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) BOOL isReady;
+@end
+
+@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
+- (PRPromise * _Nonnull)getReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class PressCatalog;
@@ -1832,6 +1849,9 @@ SWIFT_CLASS("_TtC5PRAPI24PRLegacyTitleItemsSorter")
 @end
 
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL deleteContent;)
++ (BOOL)deleteContent SWIFT_WARN_UNUSED_RESULT;
++ (void)setDeleteContent:(BOOL)value;
 @property (nonatomic, readonly, copy) NSArray<id <LibraryItemProtocol>> * _Nonnull libItems;
 - (NSArray<id <PRCatalogItem>> * _Nonnull)sortedItemsIncludingPurchaseAdvises:(BOOL)includeAdvises SWIFT_WARN_UNUSED_RESULT;
 - (void)presentLibraryNotificationWithMid:(NSString * _Nonnull)mid body:(NSString * _Nullable)body type:(NSString * _Nonnull)type;
@@ -1850,11 +1870,11 @@ SWIFT_CLASS("_TtC5PRAPI24PRLegacyTitleItemsSorter")
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSString * _Nullable languageRegionCode;
+@property (nonatomic, readonly) BOOL isExpired;
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isExpired;
+@property (nonatomic, readonly, copy) NSString * _Nullable languageRegionCode;
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI)) <PROpenableItem>
@@ -1968,10 +1988,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI8PROAuth2_")
 @end
 
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
-- (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 - (void)enumerateThroughTitleItems:(NSArray<id <PRCatalogItem>> * _Nonnull)list action:(SWIFT_NOESCAPE BOOL (^ _Nonnull)(PRTitleItem * _Nonnull))action;
 @end
@@ -2026,22 +2042,22 @@ typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method",
   PRSponsorshipManagerServiceMethodGetNotificationTitles = 6,
 };
 
+@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
+- (void)requestGoogleAdsConfig:(void (^ _Nonnull)(SPNode * _Nullable, NSError * _Nullable))completion;
+@end
+
 SWIFT_UNAVAILABLE
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
 - (void)updateInSpotlight:(NSArray<id <PRCatalogItem>> * _Nonnull)items;
 @end
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
-- (void)requestGoogleAdsConfig:(void (^ _Nonnull)(SPNode * _Nullable, NSError * _Nullable))completion;
+/// Latest Read collection is used to determine if the issue was previously bought.
+- (void)updateLatestReadWithCompletionHandler:(void (^ _Nonnull)(NSArray<PRTitleItemExemplar *> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
 - (void)updateConfigsWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
-@end
-
-@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
-/// Latest Read collection is used to determine if the issue was previously bought.
-- (void)updateLatestReadWithCompletionHandler:(void (^ _Nonnull)(NSArray<PRTitleItemExemplar *> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
@@ -2249,7 +2265,7 @@ SWIFT_CLASS("_TtC5PRAPI24PublicationChannelsModel")
 @end
 
 @interface Query (SWIFT_EXTENSION(PRAPI))
-- (BOOL)load SWIFT_WARN_UNUSED_RESULT;
+- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_PROTOCOL("_TtP5PRAPI26RichMediaAnalyticsProvider_")
@@ -2287,11 +2303,11 @@ SWIFT_CLASS("_TtC5PRAPI17SearchHistoryItem")
 @end
 
 @interface Section (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSString * _Nullable localizedName;
+@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nullable presentedItems;
 @end
 
 @interface Section (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nullable presentedItems;
+@property (nonatomic, readonly, copy) NSString * _Nullable localizedName;
 @end
 
 SWIFT_PROTOCOL("_TtP5PRAPI27ServiceReachabilityObserver_")
@@ -3011,11 +3027,11 @@ SWIFT_PROTOCOL("_TtP5PRAPI23BEHomeAnalyticsProvider_")
 @end
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) PRSourceType sourceType;
+@property (nonatomic, readonly) BOOL isNew;
 @end
 
 @interface Book (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isNew;
+@property (nonatomic, readonly) PRSourceType sourceType;
 @end
 
 @class CatalogItemContentOption;
@@ -3127,6 +3143,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI19SectionalDataSource_")
 - (NSString * _Nullable)titleFor:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class PRPromise;
 @protocol DataSourceObserver;
 SWIFT_PROTOCOL("_TtP5PRAPI18LoadableDataSource_")
 @protocol LoadableDataSource <NSObject>
@@ -3135,8 +3152,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI18LoadableDataSource_")
 @property (nonatomic, readonly) BOOL isEmpty;
 @property (nonatomic, readonly) BOOL isLoading;
 @property (nonatomic, readonly) BOOL isFailed;
-- (BOOL)load;
-- (BOOL)loadMore;
+- (PRPromise * _Nonnull)load;
+- (PRPromise * _Nonnull)loadMore;
 - (void)addObserver:(id <DataSourceObserver> _Nonnull)observer;
 - (void)removeObserver:(id <DataSourceObserver> _Nonnull)observer;
 @end
@@ -3158,8 +3175,8 @@ SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @property (nonatomic, readonly) BOOL canLoadMore;
 @property (nonatomic, readonly) BOOL isLoading;
 @property (nonatomic, readonly) BOOL isFailed;
-- (BOOL)load;
-- (BOOL)loadMore;
+- (PRPromise * _Nonnull)load;
+- (PRPromise * _Nonnull)loadMore;
 - (void)addObserver:(id <DataSourceObserver> _Nonnull)observer;
 - (void)removeObserver:(id <DataSourceObserver> _Nonnull)observer;
 - (NSInteger)numberOfItemsIn:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -3202,7 +3219,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI17CatalogNavigation_")
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI)) <AnalyticsProvider>
 @end
 
-@class PRPromise;
 @interface CatalogItem (SWIFT_EXTENSION(PRAPI))
 + (PRPromise * _Nonnull)loadItemWithId:(NSString * _Nonnull)id catalog:(Catalog * _Nonnull)catalog SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -3416,15 +3432,15 @@ SWIFT_PROTOCOL("_TtP5PRAPI24CountryNavigationVariant_")
 @interface Country (SWIFT_EXTENSION(PRAPI)) <CountryNavigationVariant>
 @end
 
+@interface DIContainer (SWIFT_EXTENSION(PRAPI))
+- (void)removeAppDependencies;
+- (void)registerAppDependencies;
+@end
+
 SWIFT_UNAVAILABLE
 @interface DIContainer (SWIFT_EXTENSION(PRAPI))
 - (id _Nullable)twitterAuth SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)hasTwitterAuth SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface DIContainer (SWIFT_EXTENSION(PRAPI))
-- (void)removeAppDependencies;
-- (void)registerAppDependencies;
 @end
 
 @class PRAnalyticsService;
@@ -3853,6 +3869,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _N
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull hotSpotStatusUpdated;)
++ (NSNotificationName _Nonnull)hotSpotStatusUpdated SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSNotification (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
++ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSNotification (SWIFT_EXTENSION(PRAPI))
 /// Notification’s userInfo contains book ids for which license was updated.
 /// userInfo: [String: BookLicenseUpdateStatus]
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
@@ -3860,18 +3886,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull hotSpotStatusUpdated;)
-+ (NSNotificationName _Nonnull)hotSpotStatusUpdated SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface NSNotification (SWIFT_EXTENSION(PRAPI))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull translationPairsUpdated;)
 + (NSNotificationName _Nonnull)translationPairsUpdated SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
-+ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
@@ -3895,13 +3911,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
-- (void)_startServiceReachabilityObservation;
-- (void)_stopServiceReachabilityObservation;
+@property (nonatomic, readonly) BOOL isEligibleBrazeEntity;
 @end
 
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isEligibleBrazeEntity;
+- (void)_startServiceReachabilityObservation;
+- (void)_stopServiceReachabilityObservation;
 @end
 
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
@@ -3946,6 +3962,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DIExtension 
 @interface NTFArticleItem (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isCommentable;
 @property (nonatomic, readonly) BOOL isTranslatable;
+@end
+
+@class NSAttributedString;
+@interface NTFArticleUtil (SWIFT_EXTENSION(PRAPI))
++ (NSAttributedString * _Nonnull)bylineWithIssueTitle:(NSString * _Nullable)issueTitle attributedByline:(NSAttributedString * _Nullable)attributedByline issueDate:(NSString * _Nullable)issueDate lineBreak:(BOOL)lineBreak isShort:(BOOL)isShort SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NTFCollectionItem (SWIFT_EXTENSION(PRAPI))
@@ -4074,19 +4095,19 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 @interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isReachableAndReady;
-@property (nonatomic, readonly) BOOL emailPermissionsRequired;
-@property (nonatomic, readonly) BOOL isTranslationAvailable;
-@property (nonatomic, readonly) BOOL canTranslate;
-@property (nonatomic, readonly) BOOL needsUpdateEmailNotifications;
-@end
-
-@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly) BOOL isInitialTrialSubscription;
 @property (nonatomic, readonly) BOOL isInitialTrialSubscriptionExpired;
 @property (nonatomic, readonly) BOOL isInitialTrialBundle;
 @property (nonatomic, readonly, strong) PRUserBundle * _Nullable trialBundle;
 @property (nonatomic, readonly) BOOL isTrialBundleActive;
+@end
+
+@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly) BOOL isReachableAndReady;
+@property (nonatomic, readonly) BOOL emailPermissionsRequired;
+@property (nonatomic, readonly) BOOL isTranslationAvailable;
+@property (nonatomic, readonly) BOOL canTranslate;
+@property (nonatomic, readonly) BOOL needsUpdateEmailNotifications;
 @end
 
 @interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
@@ -4098,6 +4119,14 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @end
 
 @interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
+/// Dangerous
++ (void)fullReset;
++ (void)processResetOptions;
+@end
+
+@interface PRAccountManager (SWIFT_EXTENSION(PRAPI))
+- (void)signInExternalAuthToken:(NSString * _Nonnull)externalAuthToken provider:(NSString * _Nonnull)provider completionHandler:(void (^ _Nonnull)(PRAccountItem * _Nullable, NSError * _Nullable))completionHandler;
+- (void)deauthorizeRegisteredDefaultServiceAccountWithCompletionHandler:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
 - (void)postWillAuthorizeWithExternalTicket;
 @end
 
@@ -4140,11 +4169,15 @@ SWIFT_UNAVAILABLE
 @end
 
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
+- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PRCatalog (SWIFT_EXTENSION(PRAPI))
-- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) BOOL isReady;
+@end
+
+@interface PRCatalog (SWIFT_EXTENSION(PRAPI))
+- (PRPromise * _Nonnull)getReady SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class PressCatalog;
@@ -4291,6 +4324,9 @@ SWIFT_CLASS("_TtC5PRAPI24PRLegacyTitleItemsSorter")
 @end
 
 @interface PRMyLibrary (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL deleteContent;)
++ (BOOL)deleteContent SWIFT_WARN_UNUSED_RESULT;
++ (void)setDeleteContent:(BOOL)value;
 @property (nonatomic, readonly, copy) NSArray<id <LibraryItemProtocol>> * _Nonnull libItems;
 - (NSArray<id <PRCatalogItem>> * _Nonnull)sortedItemsIncludingPurchaseAdvises:(BOOL)includeAdvises SWIFT_WARN_UNUSED_RESULT;
 - (void)presentLibraryNotificationWithMid:(NSString * _Nonnull)mid body:(NSString * _Nullable)body type:(NSString * _Nonnull)type;
@@ -4309,11 +4345,11 @@ SWIFT_CLASS("_TtC5PRAPI24PRLegacyTitleItemsSorter")
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSString * _Nullable languageRegionCode;
+@property (nonatomic, readonly) BOOL isExpired;
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isExpired;
+@property (nonatomic, readonly, copy) NSString * _Nullable languageRegionCode;
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI)) <PROpenableItem>
@@ -4427,10 +4463,6 @@ SWIFT_PROTOCOL("_TtP5PRAPI8PROAuth2_")
 @end
 
 @interface PRSourceList (SWIFT_EXTENSION(PRAPI))
-- (PRPromise * _Nonnull)wait SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface PRSourceList (SWIFT_EXTENSION(PRAPI))
 @property (nonatomic, readonly, copy) NSArray<id <CatalogNavigation>> * _Nonnull types;
 - (void)enumerateThroughTitleItems:(NSArray<id <PRCatalogItem>> * _Nonnull)list action:(SWIFT_NOESCAPE BOOL (^ _Nonnull)(PRTitleItem * _Nonnull))action;
 @end
@@ -4485,22 +4517,22 @@ typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method",
   PRSponsorshipManagerServiceMethodGetNotificationTitles = 6,
 };
 
+@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
+- (void)requestGoogleAdsConfig:(void (^ _Nonnull)(SPNode * _Nullable, NSError * _Nullable))completion;
+@end
+
 SWIFT_UNAVAILABLE
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
 - (void)updateInSpotlight:(NSArray<id <PRCatalogItem>> * _Nonnull)items;
 @end
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
-- (void)requestGoogleAdsConfig:(void (^ _Nonnull)(SPNode * _Nullable, NSError * _Nullable))completion;
+/// Latest Read collection is used to determine if the issue was previously bought.
+- (void)updateLatestReadWithCompletionHandler:(void (^ _Nonnull)(NSArray<PRTitleItemExemplar *> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
 - (void)updateConfigsWithCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
-@end
-
-@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
-/// Latest Read collection is used to determine if the issue was previously bought.
-- (void)updateLatestReadWithCompletionHandler:(void (^ _Nonnull)(NSArray<PRTitleItemExemplar *> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
@@ -4708,7 +4740,7 @@ SWIFT_CLASS("_TtC5PRAPI24PublicationChannelsModel")
 @end
 
 @interface Query (SWIFT_EXTENSION(PRAPI))
-- (BOOL)load SWIFT_WARN_UNUSED_RESULT;
+- (PRPromise * _Nonnull)load SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_PROTOCOL("_TtP5PRAPI26RichMediaAnalyticsProvider_")
@@ -4746,11 +4778,11 @@ SWIFT_CLASS("_TtC5PRAPI17SearchHistoryItem")
 @end
 
 @interface Section (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSString * _Nullable localizedName;
+@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nullable presentedItems;
 @end
 
 @interface Section (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nullable presentedItems;
+@property (nonatomic, readonly, copy) NSString * _Nullable localizedName;
 @end
 
 SWIFT_PROTOCOL("_TtP5PRAPI27ServiceReachabilityObserver_")

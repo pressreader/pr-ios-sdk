@@ -1556,6 +1556,13 @@
         "moduleName": "PRUI"
       },
       {
+        "kind": "Import",
+        "name": "PRAPI",
+        "printedName": "PRAPI",
+        "declKind": "Import",
+        "moduleName": "PRUI"
+      },
+      {
         "kind": "TypeDecl",
         "name": "Account",
         "printedName": "Account",
@@ -1690,8 +1697,8 @@
               },
               {
                 "kind": "Var",
-                "name": "sponsorship",
-                "printedName": "sponsorship",
+                "name": "authorized",
+                "printedName": "authorized",
                 "children": [
                   {
                     "kind": "TypeFunc",
@@ -1721,8 +1728,8 @@
                   }
                 ],
                 "declKind": "EnumElement",
-                "usr": "s:4PRUI7AccountC5StateO11sponsorshipyA2EmF",
-                "mangledName": "$s4PRUI7AccountC5StateO11sponsorshipyA2EmF",
+                "usr": "s:4PRUI7AccountC5StateO10authorizedyA2EmF",
+                "mangledName": "$s4PRUI7AccountC5StateO10authorizedyA2EmF",
                 "moduleName": "PRUI",
                 "declAttributes": [
                   "ObjC"
@@ -2008,8 +2015,8 @@
           },
           {
             "kind": "Var",
-            "name": "sponsorshipExpiration",
-            "printedName": "sponsorshipExpiration",
+            "name": "expirationDate",
+            "printedName": "expirationDate",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2027,8 +2034,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@PRUI@objc(cs)Account(py)sponsorshipExpiration",
-            "mangledName": "$s4PRUI7AccountC21sponsorshipExpiration10Foundation4DateVSgvp",
+            "usr": "c:@M@PRUI@objc(cs)Account(py)expirationDate",
+            "mangledName": "$s4PRUI7AccountC14expirationDate10Foundation0D0VSgvp",
             "moduleName": "PRUI",
             "declAttributes": [
               "Final",
@@ -2057,8 +2064,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@PRUI@objc(cs)Account(im)sponsorshipExpiration",
-                "mangledName": "$s4PRUI7AccountC21sponsorshipExpiration10Foundation4DateVSgvg",
+                "usr": "c:@M@PRUI@objc(cs)Account(im)expirationDate",
+                "mangledName": "$s4PRUI7AccountC14expirationDate10Foundation0D0VSgvg",
                 "moduleName": "PRUI",
                 "declAttributes": [
                   "Final",
@@ -2071,7 +2078,38 @@
           {
             "kind": "Function",
             "name": "authorize",
-            "printedName": "authorize(token:completion:)",
+            "printedName": "authorize(token:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)Account(im)authorizeWithToken:completionHandler:",
+            "mangledName": "$s4PRUI7AccountC9authorize5tokenySS_tYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Custom",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "authorize",
+            "printedName": "authorize(externalToken:provider:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2085,55 +2123,48 @@
                 "usr": "s:SS"
               },
               {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.Bool, (any Swift.Error)?) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Tuple",
-                    "printedName": "(Swift.Bool, (any Swift.Error)?)",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Bool",
-                        "printedName": "Swift.Bool",
-                        "usr": "s:Sb"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "(any Swift.Error)?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Error",
-                            "printedName": "any Swift.Error",
-                            "usr": "s:s5ErrorP"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ]
-                  }
-                ]
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@PRUI@objc(cs)Account(im)authorizeWithToken:completion:",
-            "mangledName": "$s4PRUI7AccountC9authorize5token10completionySS_ySb_s5Error_pSgtctF",
+            "usr": "c:@M@PRUI@objc(cs)Account(im)authorizeWithExternalToken:provider:completionHandler:",
+            "mangledName": "$s4PRUI7AccountC9authorize13externalToken8providerySS_SStYaKF",
             "moduleName": "PRUI",
             "declAttributes": [
               "Final",
               "AccessControl",
+              "Custom",
               "RawDocComment",
               "ObjC"
             ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "deauthorize",
+            "printedName": "deauthorize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)Account(im)deauthorizeWithCompletionHandler:",
+            "mangledName": "$s4PRUI7AccountC11deauthorizeyyYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Custom",
+              "ObjC"
+            ],
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -5340,6 +5371,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRAPI",
+        "printedName": "PRAPI",
+        "declKind": "Import",
+        "moduleName": "PRUI"
       },
       {
         "kind": "Import",
@@ -15949,6 +15987,13 @@
       },
       {
         "kind": "Import",
+        "name": "PRLogKit",
+        "printedName": "PRLogKit",
+        "declKind": "Import",
+        "moduleName": "PRUI"
+      },
+      {
+        "kind": "Import",
         "name": "PRUIKit",
         "printedName": "PRUIKit",
         "declKind": "Import",
@@ -17220,6 +17265,30 @@
             "mangledName": "$s13PRDIContainer18DependencyResolverP"
           }
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRAPI",
+        "printedName": "PRAPI",
+        "declKind": "Import",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
+        "declKind": "Import",
+        "moduleName": "PRUI"
+      },
+      {
+        "kind": "Import",
+        "name": "PRLogKit",
+        "printedName": "PRLogKit",
+        "declKind": "Import",
+        "moduleName": "PRUI"
       },
       {
         "kind": "Import",
@@ -51408,8 +51477,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRAPI",
+        "printedName": "PRAPI",
         "declKind": "Import",
         "moduleName": "PRUI",
         "declAttributes": [
@@ -77901,8 +77970,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRPromiseKit",
+        "printedName": "PRPromiseKit",
         "declKind": "Import",
         "moduleName": "PRUI",
         "declAttributes": [
@@ -78607,14 +78676,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
-            "usr": "s:4PRUI23StoriesSearchDataSourceC4loadSbyF",
-            "mangledName": "$s4PRUI23StoriesSearchDataSourceC4loadSbyF",
+            "usr": "s:4PRUI23StoriesSearchDataSourceC4loadSo9PRPromiseCyF",
+            "mangledName": "$s4PRUI23StoriesSearchDataSourceC4loadSo9PRPromiseCyF",
             "moduleName": "PRUI",
             "objc_name": "load",
             "declAttributes": [
@@ -78632,14 +78701,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
-            "usr": "s:4PRUI23StoriesSearchDataSourceC8loadMoreSbyF",
-            "mangledName": "$s4PRUI23StoriesSearchDataSourceC8loadMoreSbyF",
+            "usr": "s:4PRUI23StoriesSearchDataSourceC8loadMoreSo9PRPromiseCyF",
+            "mangledName": "$s4PRUI23StoriesSearchDataSourceC8loadMoreSo9PRPromiseCyF",
             "moduleName": "PRUI",
             "objc_name": "loadMore",
             "declAttributes": [
@@ -92406,6 +92475,210 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "serviceName",
+            "printedName": "serviceName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cpy)serviceName",
+            "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvpZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)serviceName",
+                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvgZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)setServiceName:",
+                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvsZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE11serviceNameSSvMZ",
+                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvMZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isLocalService",
+            "printedName": "isLocalService",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So11PressReaderC4PRUIE14isLocalServiceSbvpZ",
+            "mangledName": "$sSo11PressReaderC4PRUIE14isLocalServiceSbvpZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE14isLocalServiceSbvgZ",
+                "mangledName": "$sSo11PressReaderC4PRUIE14isLocalServiceSbvgZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isEdition",
+            "printedName": "isEdition",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So11PressReaderC4PRUIE9isEditionSbvpZ",
+            "mangledName": "$sSo11PressReaderC4PRUIE9isEditionSbvpZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE9isEditionSbvgZ",
+                "mangledName": "$sSo11PressReaderC4PRUIE9isEditionSbvgZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           },
           {
             "kind": "Var",
@@ -110143,6 +110416,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "Readyable",
+            "printedName": "Readyable",
+            "usr": "s:5PRAPI9ReadyableP",
+            "mangledName": "$s5PRAPI9ReadyableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "ObservableModel",
             "printedName": "ObservableModel",
             "usr": "s:5PRAPI15ObservableModelP",
@@ -115520,42 +115800,42 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/PRSDK\/Account\/Account.swift",
       "kind": "StringLiteral",
-      "offset": 279,
+      "offset": 292,
       "length": 22,
       "value": "\"PRAuthStateDidChange\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/PRSDK\/Account\/Account.swift",
       "kind": "IntegerLiteral",
-      "offset": 458,
+      "offset": 475,
       "length": 12,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/PRSDK\/Account\/Account.swift",
       "kind": "IntegerLiteral",
-      "offset": 484,
+      "offset": 501,
       "length": 11,
       "value": "2"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/PRSDK\/Account\/Account.swift",
       "kind": "IntegerLiteral",
-      "offset": 509,
-      "length": 11,
+      "offset": 526,
+      "length": 10,
       "value": "3"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/PRSDK\/Account\/Account.swift",
       "kind": "IntegerLiteral",
-      "offset": 534,
+      "offset": 550,
       "length": 12,
       "value": "4"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/PRSDK\/Account\/Account.swift",
       "kind": "BooleanLiteral",
-      "offset": 1131,
+      "offset": 1212,
       "length": 5,
       "value": "false"
     },
@@ -115947,63 +116227,63 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "IntegerLiteral",
-      "offset": 562,
+      "offset": 574,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "StringLiteral",
-      "offset": 708,
+      "offset": 720,
       "length": 45,
       "value": "\"PR.iPad.SearchInterests.Suggestion.Activity\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "StringLiteral",
-      "offset": 805,
+      "offset": 817,
       "length": 42,
       "value": "\"PR.iPad.SearchInterests.Suggestion.Hobby\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "StringLiteral",
-      "offset": 899,
+      "offset": 911,
       "length": 44,
       "value": "\"PR.iPad.SearchInterests.Suggestion.Company\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "StringLiteral",
-      "offset": 995,
+      "offset": 1007,
       "length": 43,
       "value": "\"PR.iPad.SearchInterests.Suggestion.Person\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "StringLiteral",
-      "offset": 1090,
+      "offset": 1102,
       "length": 41,
       "value": "\"PR.iPad.SearchInterests.Suggestion.City\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "IntegerLiteral",
-      "offset": 1209,
+      "offset": 1221,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 1302,
+      "offset": 1314,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/Search\/InterestsSearchDataSource.swift",
       "kind": "Array",
-      "offset": 1375,
+      "offset": 1387,
       "length": 2,
       "value": "[]"
     },
@@ -117039,98 +117319,98 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Publications\/PublicationDataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 958,
+      "offset": 974,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 6194,
+      "offset": 6462,
       "length": 12,
       "value": "\"article_id\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 6352,
+      "offset": 6620,
       "length": 9,
       "value": "\"article\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "BooleanLiteral",
-      "offset": 6513,
+      "offset": 6781,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 6650,
+      "offset": 6918,
       "length": 13,
       "value": "\"document-id\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 6934,
+      "offset": 7202,
       "length": 9,
       "value": "\"book-id\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7395,
+      "offset": 7663,
       "length": 15,
       "value": "\"forceDownload\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "BooleanLiteral",
-      "offset": 7424,
+      "offset": 7692,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7494,
+      "offset": 7762,
       "length": 18,
       "value": "\"waitForIssueInDQ\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "BooleanLiteral",
-      "offset": 7526,
+      "offset": 7794,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7592,
+      "offset": 7860,
       "length": 11,
       "value": "\"pageIndex\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7620,
+      "offset": 7888,
       "length": 8,
       "value": "\"pageNo\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7702,
+      "offset": 7970,
       "length": 7,
       "value": "\"artID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "BooleanLiteral",
-      "offset": 7757,
+      "offset": 8025,
       "length": 5,
       "value": "false"
     },
@@ -117277,70 +117557,63 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "StringLiteral",
-      "offset": 1475,
+      "offset": 1459,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "StringLiteral",
-      "offset": 1480,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1516,
+      "offset": 1495,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 1550,
+      "offset": 1529,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 1622,
+      "offset": 1601,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 1667,
+      "offset": 1646,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 4737,
+      "offset": 4716,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 4961,
+      "offset": 4940,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 4966,
+      "offset": 4945,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Authorization\/EmailSignInVC.swift",
       "kind": "StringLiteral",
-      "offset": 5110,
+      "offset": 5089,
       "length": 14,
       "value": "\"PR.iPad.Skip\""
     },
@@ -121610,14 +121883,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/GlobalSearch\/Tabs\/Stories\/StoriesSearchDataSource.swift",
       "kind": "StringLiteral",
-      "offset": 2204,
+      "offset": 2548,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/GlobalSearch\/Tabs\/Stories\/StoriesSearchDataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 2947,
+      "offset": 3291,
       "length": 5,
       "value": "false"
     },

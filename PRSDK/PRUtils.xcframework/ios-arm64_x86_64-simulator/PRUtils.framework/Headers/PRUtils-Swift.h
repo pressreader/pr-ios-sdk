@@ -344,8 +344,8 @@ SWIFT_CLASS("_TtC7PRUtils12Synchronizer")
 SWIFT_CLASS("_TtC7PRUtils22ConcurrentSynchronizer")
 @interface ConcurrentSynchronizer : Synchronizer
 - (nonnull instancetype)initWithLabel:(NSString * _Nullable)label OBJC_DESIGNATED_INITIALIZER;
-- (void)barrierSync:(void (^ _Nonnull)(void))block;
-- (void)barrierAsync:(void (^ _Nonnull)(void))block;
+- (void)sync:(void (^ _Nonnull)(void))block;
+- (void)async:(void (^ _Nonnull)(void))block;
 @end
 
 @class UIFont;
@@ -368,6 +368,10 @@ SWIFT_CLASS("_TtC7PRUtils13HTMLFormatter")
 @interface NSAttributedString (SWIFT_EXTENSION(PRUtils))
 - (NSAttributedString * _Nonnull)attributedStringByAppendingAttributedString:(NSAttributedString * _Nonnull)aString SWIFT_WARN_UNUSED_RESULT;
 - (NSAttributedString * _Nonnull)trimmedEndWithSet:(NSCharacterSet * _Nonnull)set SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSAttributedString (SWIFT_EXTENSION(PRUtils))
+@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull stringWithHyphenation;
 @end
 
 @interface NSAttributedString (SWIFT_EXTENSION(PRUtils))
@@ -426,10 +430,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nonnull)sentenceShiftedToPhrases:(NSArray<NSString *> * _Nonnull)phrases maxBeginningCharactersCount:(NSInteger)maxBeginningCharactersCount SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class NSValue;
 @interface NSString (SWIFT_EXTENSION(PRUtils))
-- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases options:(PRStringSearchOption)options SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
 @end
 
 @interface NSString (SWIFT_EXTENSION(PRUtils))
@@ -437,8 +439,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSDictionary<NSString *, NSString *> * _Nonnull)urlParameters SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class NSValue;
 @interface NSString (SWIFT_EXTENSION(PRUtils))
-@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
+- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases options:(PRStringSearchOption)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NSString (SWIFT_EXTENSION(PRUtils))
@@ -849,8 +853,8 @@ SWIFT_CLASS("_TtC7PRUtils12Synchronizer")
 SWIFT_CLASS("_TtC7PRUtils22ConcurrentSynchronizer")
 @interface ConcurrentSynchronizer : Synchronizer
 - (nonnull instancetype)initWithLabel:(NSString * _Nullable)label OBJC_DESIGNATED_INITIALIZER;
-- (void)barrierSync:(void (^ _Nonnull)(void))block;
-- (void)barrierAsync:(void (^ _Nonnull)(void))block;
+- (void)sync:(void (^ _Nonnull)(void))block;
+- (void)async:(void (^ _Nonnull)(void))block;
 @end
 
 @class UIFont;
@@ -873,6 +877,10 @@ SWIFT_CLASS("_TtC7PRUtils13HTMLFormatter")
 @interface NSAttributedString (SWIFT_EXTENSION(PRUtils))
 - (NSAttributedString * _Nonnull)attributedStringByAppendingAttributedString:(NSAttributedString * _Nonnull)aString SWIFT_WARN_UNUSED_RESULT;
 - (NSAttributedString * _Nonnull)trimmedEndWithSet:(NSCharacterSet * _Nonnull)set SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSAttributedString (SWIFT_EXTENSION(PRUtils))
+@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull stringWithHyphenation;
 @end
 
 @interface NSAttributedString (SWIFT_EXTENSION(PRUtils))
@@ -931,10 +939,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nonnull)sentenceShiftedToPhrases:(NSArray<NSString *> * _Nonnull)phrases maxBeginningCharactersCount:(NSInteger)maxBeginningCharactersCount SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class NSValue;
 @interface NSString (SWIFT_EXTENSION(PRUtils))
-- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases options:(PRStringSearchOption)options SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
 @end
 
 @interface NSString (SWIFT_EXTENSION(PRUtils))
@@ -942,8 +948,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSDictionary<NSString *, NSString *> * _Nonnull)urlParameters SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class NSValue;
 @interface NSString (SWIFT_EXTENSION(PRUtils))
-@property (nonatomic, readonly, copy) NSDate * _Nullable canonicalDate;
+- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<NSValue *> * _Nonnull)rangesOfPhrases:(NSArray<NSString *> * _Nonnull)phrases options:(PRStringSearchOption)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NSString (SWIFT_EXTENSION(PRUtils))

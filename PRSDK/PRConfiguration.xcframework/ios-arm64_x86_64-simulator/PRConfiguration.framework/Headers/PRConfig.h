@@ -34,7 +34,6 @@
 
 #define delivery_auto_include_suppls        _PRCONFIG_BOOL_(@"delivery_auto_include_suppls", NO)
 #define autodelivery_on_subs_purchase       _PRCONFIG_BOOL_(@"autodelivery_on_subs_purchase", NO)
-#define auto_reset_on_invalid_activation    _PRCONFIG_BOOL_(@"auto_reset_on_invalid_activation", NO)
 
 #define show_save_money                     _PRCONFIG_BOOL_(@"show_save_money", NO)
 #define ALWAYS_SHOW_SAVE_MONEY              _PRCONFIG_BOOL_(@"ALWAYS_SHOW_SAVE_MONEY", NO)
@@ -283,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) BOOL isBrandEdition;
 @property (class, nonatomic, readonly) BOOL isStoreProductWithPrefixAppId;
 
-@property (class, nonatomic, readonly) NSString *serviceName;
+@property (class, nonatomic, copy) NSString *serviceName;
 @property (class, nonatomic, readonly) NSString *defaultServiceName;
 @property (class, nonatomic, readonly) NSString *publisherCopyright;
 

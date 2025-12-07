@@ -565,6 +565,7 @@ SWIFT_CLASS("_TtC15PRConfiguration22AuthorizationConfigKey")
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull frequencyDays;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull cleanWebView;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull externalAuthType;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull resetOnInvalidActivation;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1103,6 +1104,7 @@ SWIFT_CLASS("_TtC15PRConfiguration15PRArticleConfig")
 @property (nonatomic, readonly) enum AuthorizationType type;
 @property (nonatomic, readonly) BOOL cleanWebView;
 @property (nonatomic, readonly) enum ExternalAuthType externalAuthType;
+@property (nonatomic, readonly) BOOL resetOnInvalidActivation;
 @end
 
 @interface PRCatalogConfig (SWIFT_EXTENSION(PRConfiguration))
@@ -1290,6 +1292,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 + (PRConfigKey * _Nonnull)serviceErrorAlertDisabled SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull spotlightIndexingEnabled;)
 + (PRConfigKey * _Nonnull)spotlightIndexingEnabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull webConfigEnabled;)
++ (PRConfigKey * _Nonnull)webConfigEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 typedef SWIFT_ENUM(NSInteger, PRNewsFeedAPI, open) {

@@ -63,6 +63,13 @@
       },
       {
         "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
+        "declKind": "Import",
+        "moduleName": "PRUtils"
+      },
+      {
+        "kind": "Import",
         "name": "Combine",
         "printedName": "Combine",
         "declKind": "Import",
@@ -2707,7 +2714,6 @@
             "usr": "c:@M@PRUtils@objc(cs)ConcurrentSynchronizer(im)initWithLabel:",
             "mangledName": "$s7PRUtils22ConcurrentSynchronizerC5labelACSSSg_tcfc",
             "moduleName": "PRUtils",
-            "objc_name": "initWithLabel:",
             "declAttributes": [
               "AccessControl",
               "ObjC"
@@ -2716,8 +2722,8 @@
           },
           {
             "kind": "Function",
-            "name": "barrierSync",
-            "printedName": "barrierSync(_:)",
+            "name": "sync",
+            "printedName": "sync(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2743,20 +2749,23 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@PRUtils@objc(cs)ConcurrentSynchronizer(im)barrierSync:",
-            "mangledName": "$s7PRUtils22ConcurrentSynchronizerC11barrierSyncyyyycF",
+            "usr": "c:@M@PRUtils@objc(cs)ConcurrentSynchronizer(im)sync:",
+            "mangledName": "$s7PRUtils22ConcurrentSynchronizerC4syncyyyycF",
             "moduleName": "PRUtils",
+            "overriding": true,
+            "objc_name": "sync:",
             "declAttributes": [
               "Final",
+              "ObjC",
               "AccessControl",
-              "ObjC"
+              "Override"
             ],
             "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
-            "name": "barrierAsync",
-            "printedName": "barrierAsync(_:)",
+            "name": "async",
+            "printedName": "async(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2782,13 +2791,16 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@PRUtils@objc(cs)ConcurrentSynchronizer(im)barrierAsync:",
-            "mangledName": "$s7PRUtils22ConcurrentSynchronizerC12barrierAsyncyyyycF",
+            "usr": "c:@M@PRUtils@objc(cs)ConcurrentSynchronizer(im)async:",
+            "mangledName": "$s7PRUtils22ConcurrentSynchronizerC5asyncyyyycF",
             "moduleName": "PRUtils",
+            "overriding": true,
+            "objc_name": "async:",
             "declAttributes": [
               "Final",
+              "ObjC",
               "AccessControl",
-              "ObjC"
+              "Override"
             ],
             "funcSelfKind": "NonMutating"
           }
@@ -2800,6 +2812,7 @@
         "declAttributes": [
           "Final",
           "AccessControl",
+          "ObjCMembers",
           "RawDocComment",
           "ObjC"
         ],
@@ -5020,6 +5033,84 @@
             "declKind": "Func",
             "usr": "s:So18NSAttributedStringC7PRUtilsE6height17constrainingWidth7options14CoreFoundation7CGFloatVAI_So22NSStringDrawingOptionsVtF",
             "mangledName": "$sSo18NSAttributedStringC7PRUtilsE6height17constrainingWidth7options12CoreGraphics7CGFloatVAI_So22NSStringDrawingOptionsVtF",
+            "moduleName": "PRUtils",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "stringWithHyphenation",
+            "printedName": "stringWithHyphenation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSAttributedString",
+                "printedName": "Foundation.NSAttributedString",
+                "usr": "c:objc(cs)NSAttributedString"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUtils@@objc(cs)NSAttributedString(py)stringWithHyphenation",
+            "mangledName": "$sSo18NSAttributedStringC7PRUtilsE21stringWithHyphenationABvp",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSAttributedString",
+                    "printedName": "Foundation.NSAttributedString",
+                    "usr": "c:objc(cs)NSAttributedString"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUtils@@objc(cs)NSAttributedString(im)stringWithHyphenation",
+                "mangledName": "$sSo18NSAttributedStringC7PRUtilsE21stringWithHyphenationABvg",
+                "moduleName": "PRUtils",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "replaceString",
+            "printedName": "replaceString(target:replacement:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSAttributedString",
+                "printedName": "Foundation.NSAttributedString",
+                "usr": "c:objc(cs)NSAttributedString"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So18NSAttributedStringC7PRUtilsE07replaceB06target11replacementABSS_SStF",
+            "mangledName": "$sSo18NSAttributedStringC7PRUtilsE07replaceB06target11replacementABSS_SStF",
             "moduleName": "PRUtils",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -12397,9 +12488,23 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSAttributedString\/NSAttributedString+.swift",
       "kind": "Dictionary",
-      "offset": 2024,
+      "offset": 2047,
       "length": 3,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSAttributedString\/NSAttributedString+.swift",
+      "kind": "StringLiteral",
+      "offset": 3301,
+      "length": 10,
+      "value": "\"­\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Extensions\/NSAttributedString\/NSAttributedString+.swift",
+      "kind": "StringLiteral",
+      "offset": 3326,
+      "length": 2,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/Synchronizer\/ArrayActor.swift",

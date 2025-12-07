@@ -96,9 +96,9 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
 
 - (void)deleteRadiantHotSpotForAccount:(PRAccountItem *)accountItem;
 
-- (void)requestGiftedAccessWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
+- (void)requestGiftedAccessWithCompletion:(void(^ _Nullable)(NSError *_Nullable error))completion;
 - (void)requestGiftedAccessWithToken:(NSString *)token
-                          completion:(void(^)(BOOL success, NSError *error))completion;
+                          completion:(void(^)(NSError *_Nullable error))completion;
 - (void)requestDevicesWithAccount:(PRAccountItem *)account
                        completion:(void (^)(NSError *_Nullable error, NSArray<DeviceActivation *> * models))completionBlock;
 - (void)deauthorizeDeviceWith:(NSString *)username

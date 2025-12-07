@@ -70,6 +70,12 @@ extension Foundation.NSMutableAttributedString {
 extension Foundation.NSAttributedString {
   public func height(constrainingWidth width: CoreFoundation.CGFloat, options: UIKit.NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]) -> CoreFoundation.CGFloat
 }
+extension Foundation.NSAttributedString {
+  @objc dynamic public var stringWithHyphenation: Foundation.NSAttributedString {
+    @objc get
+  }
+  public func replaceString(target: Swift.String, replacement: Swift.String) -> Foundation.NSAttributedString
+}
 extension Combine.Publisher where Self.Failure == Swift.Never {
   public func weakAssign<Root>(to keyPath: Swift.ReferenceWritableKeyPath<Root, Self.Output>, on object: Root) -> Combine.AnyCancellable where Root : AnyObject
 }
@@ -329,10 +335,10 @@ extension Foundation.UUID {
   @objc public init(label: Swift.String? = nil)
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers final public class ConcurrentSynchronizer : PRUtils.Synchronizer {
+@objc @_hasMissingDesignatedInitializers @objcMembers final public class ConcurrentSynchronizer : PRUtils.Synchronizer {
   @objc public init(label: Swift.String? = nil)
-  @objc final public func barrierSync(_ block: @escaping () -> ())
-  @objc final public func barrierAsync(_ block: @escaping () -> ())
+  @objc override final public func sync(_ block: @escaping () -> ())
+  @objc override final public func async(_ block: @escaping () -> ())
   @objc deinit
 }
 extension Swift.String {

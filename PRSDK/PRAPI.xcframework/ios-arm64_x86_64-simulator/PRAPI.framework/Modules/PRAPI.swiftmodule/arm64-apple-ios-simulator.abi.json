@@ -1820,6 +1820,26 @@
       },
       {
         "kind": "Import",
+        "name": "PRPromiseKit",
+        "printedName": "PRPromiseKit",
+        "declKind": "Import",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRConfiguration",
+        "printedName": "PRConfiguration",
+        "declKind": "Import",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "PRCatalogModel",
         "printedName": "PRCatalogModel",
         "declKind": "Import",
@@ -7489,6 +7509,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "Readyable",
+            "printedName": "Readyable",
+            "usr": "s:5PRAPI9ReadyableP",
+            "mangledName": "$s5PRAPI9ReadyableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "CatalogFacade",
             "printedName": "CatalogFacade",
             "usr": "c:@M@PRAPI@objc(pl)CatalogFacade",
@@ -9333,6 +9360,13 @@
         "moduleName": "PRAPI"
       },
       {
+        "kind": "Import",
+        "name": "PRCoreDataUtils",
+        "printedName": "PRCoreDataUtils",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
         "kind": "TypeDecl",
         "name": "MultipleLatestIssueDataSource",
         "printedName": "MultipleLatestIssueDataSource",
@@ -9460,14 +9494,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
-            "usr": "s:5PRAPI29MultipleLatestIssueDataSourceC4loadSbyF",
-            "mangledName": "$s5PRAPI29MultipleLatestIssueDataSourceC4loadSbyF",
+            "usr": "s:5PRAPI29MultipleLatestIssueDataSourceC4loadSo9PRPromiseCyF",
+            "mangledName": "$s5PRAPI29MultipleLatestIssueDataSourceC4loadSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "overriding": true,
             "objc_name": "load",
@@ -17041,6 +17075,13 @@
         "kind": "Import",
         "name": "PRUtils",
         "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
+        "kind": "Import",
+        "name": "PRSmart",
+        "printedName": "PRSmart",
         "declKind": "Import",
         "moduleName": "PRAPI"
       },
@@ -24640,6 +24681,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "PRPromiseKit",
+        "printedName": "PRPromiseKit",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
         "kind": "TypeDecl",
         "name": "DataSourceObserver",
         "printedName": "DataSourceObserver",
@@ -25029,14 +25077,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
             "usr": "c:@M@PRAPI@objc(pl)LoadableDataSource(im)load",
-            "mangledName": "$s5PRAPI18LoadableDataSourceP4loadSbyF",
+            "mangledName": "$s5PRAPI18LoadableDataSourceP4loadSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableDataSource>",
             "sugared_genericSig": "<Self where Self : PRAPI.LoadableDataSource>",
@@ -25055,14 +25103,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
             "usr": "c:@M@PRAPI@objc(pl)LoadableDataSource(im)loadMore",
-            "mangledName": "$s5PRAPI18LoadableDataSourceP8loadMoreSbyF",
+            "mangledName": "$s5PRAPI18LoadableDataSourceP8loadMoreSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableDataSource>",
             "sugared_genericSig": "<Self where Self : PRAPI.LoadableDataSource>",
@@ -25132,6 +25180,30 @@
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadMe",
+            "printedName": "loadMe()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI18LoadableDataSourcePAAE6loadMeyyYaKF",
+            "mangledName": "$s5PRAPI18LoadableDataSourcePAAE6loadMeyyYaKF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.LoadableDataSource>",
+            "sugared_genericSig": "<Self where Self : PRAPI.LoadableDataSource>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -26780,14 +26852,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
-            "usr": "s:5PRAPI10DataSourceC4loadSbyF",
-            "mangledName": "$s5PRAPI10DataSourceC4loadSbyF",
+            "usr": "s:5PRAPI10DataSourceC4loadSo9PRPromiseCyF",
+            "mangledName": "$s5PRAPI10DataSourceC4loadSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<AnItem>",
@@ -26807,9 +26879,9 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               },
               {
                 "kind": "TypeNominal",
@@ -26819,8 +26891,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:5PRAPI10DataSourceC4load6forcedS2b_tF",
-            "mangledName": "$s5PRAPI10DataSourceC4load6forcedS2b_tF",
+            "usr": "s:5PRAPI10DataSourceC4load6forcedSo9PRPromiseCSb_tF",
+            "mangledName": "$s5PRAPI10DataSourceC4load6forcedSo9PRPromiseCSb_tF",
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<AnItem>",
@@ -26838,14 +26910,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
-            "usr": "s:5PRAPI10DataSourceC8loadMoreSbyF",
-            "mangledName": "$s5PRAPI10DataSourceC8loadMoreSbyF",
+            "usr": "s:5PRAPI10DataSourceC8loadMoreSo9PRPromiseCyF",
+            "mangledName": "$s5PRAPI10DataSourceC8loadMoreSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<AnItem>",
@@ -30603,6 +30675,16 @@
             "usr": "s:5PRAPI21LoadableModelObserverP",
             "mangledName": "$s5PRAPI21LoadableModelObserverP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -36924,6 +37006,13 @@
         "moduleName": "PRAPI"
       },
       {
+        "kind": "Import",
+        "name": "PRSyntacticSugar",
+        "printedName": "PRSyntacticSugar",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
         "kind": "TypeDecl",
         "name": "PublicationService",
         "printedName": "PublicationService",
@@ -40815,6 +40904,209 @@
       },
       {
         "kind": "Import",
+        "name": "PRPromiseKit",
+        "printedName": "PRPromiseKit",
+        "declKind": "Import",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRUtils",
+        "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Readyable",
+        "printedName": "Readyable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "readyNotificationName",
+            "printedName": "readyNotificationName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Name",
+                "printedName": "Foundation.NSNotification.Name",
+                "usr": "c:@T@NSNotificationName"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI9ReadyableP21readyNotificationNameSo014NSNotificationE0avpZ",
+            "mangledName": "$s5PRAPI9ReadyableP21readyNotificationNameSo014NSNotificationE0avpZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Name",
+                    "printedName": "Foundation.NSNotification.Name",
+                    "usr": "c:@T@NSNotificationName"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI9ReadyableP21readyNotificationNameSo014NSNotificationE0avgZ",
+                "mangledName": "$s5PRAPI9ReadyableP21readyNotificationNameSo014NSNotificationE0avgZ",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.Readyable>",
+                "sugared_genericSig": "<Self where Self : PRAPI.Readyable>",
+                "static": true,
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isReady",
+            "printedName": "isReady",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI9ReadyableP7isReadySbvp",
+            "mangledName": "$s5PRAPI9ReadyableP7isReadySbvp",
+            "moduleName": "PRAPI",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI9ReadyableP7isReadySbvg",
+                "mangledName": "$s5PRAPI9ReadyableP7isReadySbvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.Readyable>",
+                "sugared_genericSig": "<Self where Self : PRAPI.Readyable>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "getReady",
+            "printedName": "getReady()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI9ReadyableP8getReadySo9PRPromiseCyF",
+            "mangledName": "$s5PRAPI9ReadyableP8getReadySo9PRPromiseCyF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.Readyable>",
+            "sugared_genericSig": "<Self where Self : PRAPI.Readyable>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getReady",
+            "printedName": "getReady()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI9ReadyablePAARlzCrlE8getReadySo9PRPromiseCyF",
+            "mangledName": "$s5PRAPI9ReadyablePAARlzCrlE8getReadySo9PRPromiseCyF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyObject, τ_0_0 : PRAPI.Readyable>",
+            "sugared_genericSig": "<Self where Self : AnyObject, Self : PRAPI.Readyable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getReady",
+            "printedName": "getReady()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI9ReadyablePAAE8getReadyyyYaKF",
+            "mangledName": "$s5PRAPI9ReadyablePAAE8getReadyyyYaKF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.Readyable>",
+            "sugared_genericSig": "<Self where Self : PRAPI.Readyable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:5PRAPI9ReadyableP",
+        "mangledName": "$s5PRAPI9ReadyableP",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -44405,8 +44697,7 @@
             "mangledName": "$s5PRAPI14HotSpotManagerC7storageAC15PRConfiguration13KeyValueStore_p_tcfc",
             "moduleName": "PRAPI",
             "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
+              "AccessControl"
             ],
             "init_kind": "Designated"
           },
@@ -68362,16 +68653,6 @@
       },
       {
         "kind": "Import",
-        "name": "PRUtils.NSNotificationCenter_PRExtension",
-        "printedName": "PRUtils.NSNotificationCenter_PRExtension",
-        "declKind": "Import",
-        "moduleName": "PRAPI",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -86790,9 +87071,13 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:So16PRCatalogSectionC5PRAPIE5itemsSaySo0A4Item_pGSgvp",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRCatalogSection(py)items",
             "mangledName": "$sSo16PRCatalogSectionC5PRAPIE5itemsSaySo0A4Item_pGSgvp",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -86824,13 +87109,36 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:So16PRCatalogSectionC5PRAPIE5itemsSaySo0A4Item_pGSgvg",
+                "usr": "c:@CM@PRAPI@@objc(cs)PRCatalogSection(im)items",
                 "mangledName": "$sSo16PRCatalogSectionC5PRAPIE5itemsSaySo0A4Item_pGSgvg",
                 "moduleName": "PRAPI",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
                 "isFromExtension": true,
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So16PRCatalogSectionC5PRAPIE4loadSo9PRPromiseCyF",
+            "mangledName": "$sSo16PRCatalogSectionC5PRAPIE4loadSo9PRPromiseCyF",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Var",
@@ -87259,6 +87567,709 @@
             "printedName": "Emptiable",
             "usr": "s:16PRSyntacticSugar9EmptiableP",
             "mangledName": "$s16PRSyntacticSugar9EmptiableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PRAccountManager",
+        "printedName": "PRAccountManager",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "fullReset",
+            "printedName": "fullReset()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(cm)fullReset",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE9fullResetyyFZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "processResetOptions",
+            "printedName": "processResetOptions()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(cm)processResetOptions",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE19processResetOptionsyyFZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "AuthError",
+            "printedName": "AuthError",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "unknown",
+                "printedName": "unknown",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRAPI.PRAccountManager.AuthError.Type) -> PRAPI.PRAccountManager.AuthError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthError",
+                        "printedName": "PRAPI.PRAccountManager.AuthError",
+                        "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRAPI.PRAccountManager.AuthError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AuthError",
+                            "printedName": "PRAPI.PRAccountManager.AuthError",
+                            "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO7unknownyA2EmF",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO7unknownyA2EmF",
+                "moduleName": "PRAPI"
+              },
+              {
+                "kind": "Var",
+                "name": "accountIsAuthorized",
+                "printedName": "accountIsAuthorized",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRAPI.PRAccountManager.AuthError.Type) -> PRAPI.PRAccountManager.AuthError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthError",
+                        "printedName": "PRAPI.PRAccountManager.AuthError",
+                        "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRAPI.PRAccountManager.AuthError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AuthError",
+                            "printedName": "PRAPI.PRAccountManager.AuthError",
+                            "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO19accountIsAuthorizedyA2EmF",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO19accountIsAuthorizedyA2EmF",
+                "moduleName": "PRAPI"
+              },
+              {
+                "kind": "Var",
+                "name": "authKeyNotFound",
+                "printedName": "authKeyNotFound",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRAPI.PRAccountManager.AuthError.Type) -> PRAPI.PRAccountManager.AuthError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthError",
+                        "printedName": "PRAPI.PRAccountManager.AuthError",
+                        "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRAPI.PRAccountManager.AuthError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AuthError",
+                            "printedName": "PRAPI.PRAccountManager.AuthError",
+                            "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO15authKeyNotFoundyA2EmF",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO15authKeyNotFoundyA2EmF",
+                "moduleName": "PRAPI"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthError",
+                    "printedName": "PRAPI.PRAccountManager.AuthError",
+                    "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthError",
+                    "printedName": "PRAPI.PRAccountManager.AuthError",
+                    "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO2eeoiySbAE_AEtFZ",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO2eeoiySbAE_AEtFZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivp",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivp",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivg",
+                    "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivg",
+                    "moduleName": "PRAPI",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO4hash4intoys6HasherVz_tF",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO4hash4intoys6HasherVz_tF",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Error",
+                "printedName": "Error",
+                "usr": "s:s5ErrorP",
+                "mangledName": "$ss5ErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "signIn",
+            "printedName": "signIn(ticketKey:isNewUser:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRAccountItem",
+                "printedName": "PRAPI.PRAccountItem",
+                "usr": "c:objc(cs)PRAccountItem"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So16PRAccountManagerC5PRAPIE6signIn9ticketKey9isNewUserSo0A4ItemCSS_SbtYaKF",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE6signIn9ticketKey9isNewUserSo0A4ItemCSS_SbtYaKF",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signIn",
+            "printedName": "signIn(externalAuthToken:provider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PRAccountItem",
+                "printedName": "PRAPI.PRAccountItem",
+                "usr": "c:objc(cs)PRAccountItem"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)signInExternalAuthToken:provider:completionHandler:",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE6signIn17externalAuthToken8providerSo0A4ItemCSS_SStYaKF",
+            "moduleName": "PRAPI",
+            "objc_name": "signInExternalAuthToken:provider:completionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "DiscardableResult",
+              "Custom",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "deauthorizeRegisteredDefaultServiceAccount",
+            "printedName": "deauthorizeRegisteredDefaultServiceAccount()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)deauthorizeRegisteredDefaultServiceAccountWithCompletionHandler:",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE42deauthorizeRegisteredDefaultServiceAccountyyYaKF",
+            "moduleName": "PRAPI",
+            "objc_name": "deauthorizeRegisteredDefaultServiceAccountWithCompletionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "postWillAuthorizeWithExternalTicket",
+            "printedName": "postWillAuthorizeWithExternalTicket()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)postWillAuthorizeWithExternalTicket",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE35postWillAuthorizeWithExternalTicketyyF",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "isDefaultAccountUnregistered",
+            "printedName": "isDefaultAccountUnregistered",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvp",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvp",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvg",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvg",
+                "moduleName": "PRAPI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isDefaultAccountAuthorizationNeeded",
+            "printedName": "isDefaultAccountAuthorizationNeeded",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvp",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvp",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvg",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvg",
+                "moduleName": "PRAPI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "authorizationManager",
+            "printedName": "authorizationManager",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRAPI.AuthorizationManager?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthorizationManager",
+                    "printedName": "PRAPI.AuthorizationManager",
+                    "usr": "c:@M@PRAPI@objc(cs)AuthorizationManager"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(py)authorizationManager",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE013authorizationB0AC013AuthorizationB0CSgvp",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "Dynamic",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRAPI.AuthorizationManager?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthorizationManager",
+                        "printedName": "PRAPI.AuthorizationManager",
+                        "usr": "c:@M@PRAPI@objc(cs)AuthorizationManager"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)authorizationManager",
+                "mangledName": "$sSo16PRAccountManagerC5PRAPIE013authorizationB0AC013AuthorizationB0CSgvg",
+                "moduleName": "PRAPI",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "syncExternalAuthToken",
+            "printedName": "syncExternalAuthToken()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)syncExternalAuthToken",
+            "mangledName": "$sSo16PRAccountManagerC5PRAPIE21syncExternalAuthTokenyyF",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)PRAccountManager",
+        "moduleName": "PRAPI",
+        "isOpen": true,
+        "objc_name": "PRAccountManager",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)PRNotification",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "PRUtils.PRNotification",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
           }
         ]
       },
@@ -88906,6 +89917,54 @@
           },
           {
             "kind": "Var",
+            "name": "readyNotificationName",
+            "printedName": "readyNotificationName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Name",
+                "printedName": "Foundation.NSNotification.Name",
+                "usr": "c:@T@NSNotificationName"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So12PRSourceListC5PRAPIE21readyNotificationNameSo014NSNotificationF0avpZ",
+            "mangledName": "$sSo12PRSourceListC5PRAPIE21readyNotificationNameSo014NSNotificationF0avpZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Name",
+                    "printedName": "Foundation.NSNotification.Name",
+                    "usr": "c:@T@NSNotificationName"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So12PRSourceListC5PRAPIE21readyNotificationNameSo014NSNotificationF0avgZ",
+                "mangledName": "$sSo12PRSourceListC5PRAPIE21readyNotificationNameSo014NSNotificationF0avgZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "types",
             "printedName": "types",
             "children": [
@@ -89483,29 +90542,6 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "wait",
-            "printedName": "wait()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Promise",
-                "printedName": "PRPromiseKit.Promise",
-                "usr": "c:objc(cs)PRPromise"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRAPI@@objc(cs)PRSourceList(im)wait",
-            "mangledName": "$sSo12PRSourceListC5PRAPIE4waitSo9PRPromiseCyF",
-            "moduleName": "PRAPI",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -89610,6 +90646,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "Readyable",
+            "printedName": "Readyable",
+            "usr": "s:5PRAPI9ReadyableP",
+            "mangledName": "$s5PRAPI9ReadyableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "CatalogFacade",
             "printedName": "CatalogFacade",
             "usr": "c:@M@PRAPI@objc(pl)CatalogFacade",
@@ -89651,9 +90694,9 @@
         "printedName": "PRCatalog",
         "children": [
           {
-            "kind": "Function",
+            "kind": "Var",
             "name": "isReady",
-            "printedName": "isReady()",
+            "printedName": "isReady",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -89662,16 +90705,88 @@
                 "usr": "s:Sb"
               }
             ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRAPI@@objc(cs)PRCatalog(im)isReady",
-            "mangledName": "$sSo9PRCatalogC5PRAPIE7isReadySbyF",
+            "declKind": "Var",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRCatalog(py)isReady",
+            "mangledName": "$sSo9PRCatalogC5PRAPIE7isReadySbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
               "ObjC"
             ],
             "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAPI@@objc(cs)PRCatalog(im)isReady",
+                "mangledName": "$sSo9PRCatalogC5PRAPIE7isReadySbvg",
+                "moduleName": "PRAPI",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "readyNotificationName",
+            "printedName": "readyNotificationName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Name",
+                "printedName": "Foundation.NSNotification.Name",
+                "usr": "c:@T@NSNotificationName"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So9PRCatalogC5PRAPIE21readyNotificationNameSo014NSNotificationE0avpZ",
+            "mangledName": "$sSo9PRCatalogC5PRAPIE21readyNotificationNameSo014NSNotificationE0avpZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Name",
+                    "printedName": "Foundation.NSNotification.Name",
+                    "usr": "c:@T@NSNotificationName"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So9PRCatalogC5PRAPIE21readyNotificationNameSo014NSNotificationE0avgZ",
+                "mangledName": "$sSo9PRCatalogC5PRAPIE21readyNotificationNameSo014NSNotificationE0avgZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           },
           {
             "kind": "Subscript",
@@ -90658,6 +91773,13 @@
             "printedName": "DependencyResolver",
             "usr": "s:13PRDIContainer18DependencyResolverP",
             "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Readyable",
+            "printedName": "Readyable",
+            "usr": "s:5PRAPI9ReadyableP",
+            "mangledName": "$s5PRAPI9ReadyableP"
           },
           {
             "kind": "Conformance",
@@ -92437,565 +93559,6 @@
             "printedName": "NTFItem",
             "usr": "c:@M@PRAPI@objc(pl)NTFItem",
             "mangledName": "$s5PRAPI7NTFItemP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "PRAccountManager",
-        "printedName": "PRAccountManager",
-        "children": [
-          {
-            "kind": "TypeDecl",
-            "name": "AuthError",
-            "printedName": "AuthError",
-            "children": [
-              {
-                "kind": "Var",
-                "name": "accountIsAuthorized",
-                "printedName": "accountIsAuthorized",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(PRAPI.PRAccountManager.AuthError.Type) -> PRAPI.PRAccountManager.AuthError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AuthError",
-                        "printedName": "PRAPI.PRAccountManager.AuthError",
-                        "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Metatype",
-                        "printedName": "PRAPI.PRAccountManager.AuthError.Type",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "AuthError",
-                            "printedName": "PRAPI.PRAccountManager.AuthError",
-                            "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "declKind": "EnumElement",
-                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO19accountIsAuthorizedyA2EmF",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO19accountIsAuthorizedyA2EmF",
-                "moduleName": "PRAPI"
-              },
-              {
-                "kind": "Var",
-                "name": "authKeyNotFound",
-                "printedName": "authKeyNotFound",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(PRAPI.PRAccountManager.AuthError.Type) -> PRAPI.PRAccountManager.AuthError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AuthError",
-                        "printedName": "PRAPI.PRAccountManager.AuthError",
-                        "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Metatype",
-                        "printedName": "PRAPI.PRAccountManager.AuthError.Type",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "AuthError",
-                            "printedName": "PRAPI.PRAccountManager.AuthError",
-                            "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "declKind": "EnumElement",
-                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO15authKeyNotFoundyA2EmF",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO15authKeyNotFoundyA2EmF",
-                "moduleName": "PRAPI"
-              },
-              {
-                "kind": "Function",
-                "name": "==",
-                "printedName": "==(_:_:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AuthError",
-                    "printedName": "PRAPI.PRAccountManager.AuthError",
-                    "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AuthError",
-                    "printedName": "PRAPI.PRAccountManager.AuthError",
-                    "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO"
-                  }
-                ],
-                "declKind": "Func",
-                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO2eeoiySbAE_AEtFZ",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO2eeoiySbAE_AEtFZ",
-                "moduleName": "PRAPI",
-                "static": true,
-                "implicit": true,
-                "funcSelfKind": "NonMutating"
-              },
-              {
-                "kind": "Var",
-                "name": "hashValue",
-                "printedName": "hashValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Var",
-                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivp",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivp",
-                "moduleName": "PRAPI",
-                "implicit": true,
-                "accessors": [
-                  {
-                    "kind": "Accessor",
-                    "name": "Get",
-                    "printedName": "Get()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivg",
-                    "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO9hashValueSivg",
-                    "moduleName": "PRAPI",
-                    "implicit": true,
-                    "accessorKind": "get"
-                  }
-                ]
-              },
-              {
-                "kind": "Function",
-                "name": "hash",
-                "printedName": "hash(into:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Hasher",
-                    "printedName": "Swift.Hasher",
-                    "paramValueOwnership": "InOut",
-                    "usr": "s:s6HasherV"
-                  }
-                ],
-                "declKind": "Func",
-                "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO4hash4intoys6HasherVz_tF",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO4hash4intoys6HasherVz_tF",
-                "moduleName": "PRAPI",
-                "implicit": true,
-                "funcSelfKind": "NonMutating"
-              }
-            ],
-            "declKind": "Enum",
-            "usr": "s:So16PRAccountManagerC5PRAPIE9AuthErrorO",
-            "mangledName": "$sSo16PRAccountManagerC5PRAPIE9AuthErrorO",
-            "moduleName": "PRAPI",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "isFromExtension": true,
-            "conformances": [
-              {
-                "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Equatable",
-                "printedName": "Equatable",
-                "usr": "s:SQ",
-                "mangledName": "$sSQ"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Hashable",
-                "printedName": "Hashable",
-                "usr": "s:SH",
-                "mangledName": "$sSH"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Error",
-                "printedName": "Error",
-                "usr": "s:s5ErrorP",
-                "mangledName": "$ss5ErrorP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Sendable",
-                "printedName": "Sendable",
-                "usr": "s:s8SendableP",
-                "mangledName": "$ss8SendableP"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "signIn",
-            "printedName": "signIn(ticketKey:isNewUser:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "PRAPI.PRAccountItem?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PRAccountItem",
-                    "printedName": "PRAPI.PRAccountItem",
-                    "usr": "c:objc(cs)PRAccountItem"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "hasDefaultArg": true,
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So16PRAccountManagerC5PRAPIE6signIn9ticketKey9isNewUserSo0A4ItemCSgSS_SbtYaKF",
-            "mangledName": "$sSo16PRAccountManagerC5PRAPIE6signIn9ticketKey9isNewUserSo0A4ItemCSgSS_SbtYaKF",
-            "moduleName": "PRAPI",
-            "declAttributes": [
-              "AccessControl",
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "postWillAuthorizeWithExternalTicket",
-            "printedName": "postWillAuthorizeWithExternalTicket()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)postWillAuthorizeWithExternalTicket",
-            "mangledName": "$sSo16PRAccountManagerC5PRAPIE35postWillAuthorizeWithExternalTicketyyF",
-            "moduleName": "PRAPI",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "isDefaultAccountUnregistered",
-            "printedName": "isDefaultAccountUnregistered",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:So16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvp",
-            "mangledName": "$sSo16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvp",
-            "moduleName": "PRAPI",
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:So16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvg",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE28isDefaultAccountUnregisteredSbvg",
-                "moduleName": "PRAPI",
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "isDefaultAccountAuthorizationNeeded",
-            "printedName": "isDefaultAccountAuthorizationNeeded",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:So16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvp",
-            "mangledName": "$sSo16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvp",
-            "moduleName": "PRAPI",
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:So16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvg",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE35isDefaultAccountAuthorizationNeededSbvg",
-                "moduleName": "PRAPI",
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "authorizationManager",
-            "printedName": "authorizationManager",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "PRAPI.AuthorizationManager?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AuthorizationManager",
-                    "printedName": "PRAPI.AuthorizationManager",
-                    "usr": "c:@M@PRAPI@objc(cs)AuthorizationManager"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(py)authorizationManager",
-            "mangledName": "$sSo16PRAccountManagerC5PRAPIE013authorizationB0AC013AuthorizationB0CSgvp",
-            "moduleName": "PRAPI",
-            "declAttributes": [
-              "Dynamic",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "PRAPI.AuthorizationManager?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AuthorizationManager",
-                        "printedName": "PRAPI.AuthorizationManager",
-                        "usr": "c:@M@PRAPI@objc(cs)AuthorizationManager"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)authorizationManager",
-                "mangledName": "$sSo16PRAccountManagerC5PRAPIE013authorizationB0AC013AuthorizationB0CSgvg",
-                "moduleName": "PRAPI",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "syncExternalAuthToken",
-            "printedName": "syncExternalAuthToken()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountManager(im)syncExternalAuthToken",
-            "mangledName": "$sSo16PRAccountManagerC5PRAPIE21syncExternalAuthTokenyyF",
-            "moduleName": "PRAPI",
-            "declAttributes": [
-              "Dynamic",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:objc(cs)PRAccountManager",
-        "moduleName": "PRAPI",
-        "isOpen": true,
-        "objc_name": "PRAccountManager",
-        "declAttributes": [
-          "ObjC",
-          "Dynamic"
-        ],
-        "superclassUsr": "c:objc(cs)PRNotification",
-        "isExternal": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "PRUtils.PRNotification",
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
           }
         ]
       },
@@ -107141,42 +107704,6 @@
             "funcSelfKind": "NonMutating"
           },
           {
-            "kind": "Function",
-            "name": "getAspectRatio",
-            "printedName": "getAspectRatio(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(CoreGraphics.CGFloat) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CGFloat",
-                    "printedName": "CoreGraphics.CGFloat",
-                    "usr": "s:14CoreFoundation7CGFloatV"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So15PRMyLibraryItemC5PRAPIE14getAspectRatioyyy14CoreFoundation7CGFloatVcF",
-            "mangledName": "$sSo15PRMyLibraryItemC5PRAPIE14getAspectRatioyyy12CoreGraphics7CGFloatVcF",
-            "moduleName": "PRAPI",
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
             "kind": "Var",
             "name": "hotSpotInfo",
             "printedName": "hotSpotInfo",
@@ -109299,6 +109826,54 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "readyNotificationName",
+            "printedName": "readyNotificationName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Name",
+                "printedName": "Foundation.NSNotification.Name",
+                "usr": "c:@T@NSNotificationName"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So18PRLatestIssuesListC5PRAPIE21readyNotificationNameSo014NSNotificationG0avpZ",
+            "mangledName": "$sSo18PRLatestIssuesListC5PRAPIE21readyNotificationNameSo014NSNotificationG0avpZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Name",
+                    "printedName": "Foundation.NSNotification.Name",
+                    "usr": "c:@T@NSNotificationName"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So18PRLatestIssuesListC5PRAPIE21readyNotificationNameSo014NSNotificationG0avgZ",
+                "mangledName": "$sSo18PRLatestIssuesListC5PRAPIE21readyNotificationNameSo014NSNotificationG0avgZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Class",
@@ -109400,6 +109975,13 @@
             "printedName": "CatalogFacade",
             "usr": "c:@M@PRAPI@objc(pl)CatalogFacade",
             "mangledName": "$s5PRAPI13CatalogFacadeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Readyable",
+            "printedName": "Readyable",
+            "usr": "s:5PRAPI9ReadyableP",
+            "mangledName": "$s5PRAPI9ReadyableP"
           }
         ]
       },
@@ -111673,14 +112255,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
             "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)CatalogEntity(im)load",
-            "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE4loadSbyF",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE4loadSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "objc_name": "load",
             "declAttributes": [
@@ -111699,14 +112281,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
             "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)CatalogEntity(im)loadMore",
-            "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE8loadMoreSbyF",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE8loadMoreSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "objc_name": "loadMore",
             "declAttributes": [
@@ -113045,6 +113627,113 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "deleteContent",
+            "printedName": "deleteContent",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRMyLibrary(cpy)deleteContent",
+            "mangledName": "$sSo11PRMyLibraryC5PRAPIE13deleteContentSbvpZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAPI@@objc(cs)PRMyLibrary(cm)deleteContent",
+                "mangledName": "$sSo11PRMyLibraryC5PRAPIE13deleteContentSbvgZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAPI@@objc(cs)PRMyLibrary(cm)setDeleteContent:",
+                "mangledName": "$sSo11PRMyLibraryC5PRAPIE13deleteContentSbvsZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC",
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PRMyLibraryC5PRAPIE13deleteContentSbvMZ",
+                "mangledName": "$sSo11PRMyLibraryC5PRAPIE13deleteContentSbvMZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
           },
           {
             "kind": "Var",
@@ -118514,6 +119203,180 @@
         "moduleName": "PRAPI",
         "isOpen": true,
         "objc_name": "PRCatalogFilter",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NTFArticleUtil",
+        "printedName": "NTFArticleUtil",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "byline",
+            "printedName": "byline(issueTitle:attributedByline:issueDate:lineBreak:isShort:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSAttributedString",
+                "printedName": "Foundation.NSAttributedString",
+                "usr": "c:objc(cs)NSAttributedString"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSAttributedString?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSAttributedString",
+                    "printedName": "Foundation.NSAttributedString",
+                    "usr": "c:objc(cs)NSAttributedString"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)NTFArticleUtil(cm)bylineWithIssueTitle:attributedByline:issueDate:lineBreak:isShort:",
+            "mangledName": "$sSo14NTFArticleUtilC5PRAPIE6byline10issueTitle16attributedByline0E4Date9lineBreak7isShortSo18NSAttributedStringCSSSg_AKSgALS2btFZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "objc_name": "bylineWithIssueTitle:attributedByline:issueDate:lineBreak:isShort:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NTFArticleUtil",
+        "moduleName": "PRAPI",
+        "isOpen": true,
+        "objc_name": "NTFArticleUtil",
         "declAttributes": [
           "ObjC",
           "Dynamic"
@@ -129404,14 +130267,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
               }
             ],
             "declKind": "Func",
             "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)Query(im)load",
-            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE4loadSbyF",
+            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE4loadSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "overriding": true,
             "objc_name": "load",
@@ -130176,6 +131039,69 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "StringLiteral",
+      "offset": 316,
+      "length": 29,
+      "value": "\"settingsbundle.delete_cache\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "StringLiteral",
+      "offset": 388,
+      "length": 41,
+      "value": "\"settingsbundle.delete_cache_and_library\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "StringLiteral",
+      "offset": 461,
+      "length": 27,
+      "value": "\"settingsbundle.full_reset\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "IntegerLiteral",
+      "offset": 728,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "IntegerLiteral",
+      "offset": 733,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "IntegerLiteral",
+      "offset": 787,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "IntegerLiteral",
+      "offset": 792,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "IntegerLiteral",
+      "offset": 847,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Reset.swift",
+      "kind": "IntegerLiteral",
+      "offset": 852,
+      "length": 1,
+      "value": "2"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Extensions\/CoreData\/NSManagedObject+Notification.swift",
       "kind": "StringLiteral",
       "offset": 694,
@@ -130372,6 +131298,76 @@
       "value": "2"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "BooleanLiteral",
+      "offset": 605,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "Array",
+      "offset": 889,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "BooleanLiteral",
+      "offset": 977,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1079,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1157,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "StringLiteral",
+      "offset": 1183,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "StringLiteral",
+      "offset": 1288,
+      "length": 3,
+      "value": "\"1\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "StringLiteral",
+      "offset": 1294,
+      "length": 3,
+      "value": "\"0\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "StringLiteral",
+      "offset": 1441,
+      "length": 36,
+      "value": "\"Catalog isn't ready yet: \""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRCatalog+Readiness.swift",
+      "kind": "StringLiteral",
+      "offset": 1476,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sponsorship\/PartnerBanner.swift",
       "kind": "StringLiteral",
       "offset": 495,
@@ -130444,14 +131440,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Auth.swift",
       "kind": "BooleanLiteral",
-      "offset": 475,
+      "offset": 496,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountManager+Auth.swift",
       "kind": "BooleanLiteral",
-      "offset": 1002,
+      "offset": 1023,
       "length": 5,
       "value": "false"
     },
@@ -131403,49 +132399,49 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 1614,
+      "offset": 1765,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 1819,
+      "offset": 1970,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 1873,
+      "offset": 2024,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 5519,
+      "offset": 6477,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 5767,
+      "offset": 6725,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 6073,
+      "offset": 7031,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 6371,
+      "offset": 7329,
       "length": 4,
       "value": "true"
     },
@@ -131893,14 +132889,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ManagedObjects\/PressCatalog\/Service\/Publications\/PublicationService.swift",
       "kind": "BooleanLiteral",
-      "offset": 1798,
+      "offset": 1822,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ManagedObjects\/PressCatalog\/Service\/Publications\/PublicationService.swift",
       "kind": "BooleanLiteral",
-      "offset": 5313,
+      "offset": 5337,
       "length": 5,
       "value": "false"
     },
@@ -132271,7 +133267,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sources\/Library\/PRMyLibraryItem+.swift",
       "kind": "BooleanLiteral",
-      "offset": 3884,
+      "offset": 3154,
       "length": 4,
       "value": "true"
     },
@@ -132589,6 +133585,13 @@
       "offset": 636,
       "length": 12,
       "value": "\"expiryDate\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sources\/Library\/PRMyLibrary+.swift",
+      "kind": "BooleanLiteral",
+      "offset": 301,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ManagedObjects\/PressCatalog\/CatalogItem\/CatalogItem+LibraryItem.swift",

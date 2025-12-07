@@ -95,7 +95,7 @@ extension Foundation.NSNotification.Name {
     case idle
     case notReachable
     case authorising
-    case sponsorship
+    case authorized
     case localService
     public init?(rawValue: Swift.Int)
     public typealias RawValue = Swift.Int
@@ -107,10 +107,12 @@ extension Foundation.NSNotification.Name {
     @objc get
     @objc set
   }
-  @objc final public var sponsorshipExpiration: Foundation.Date? {
+  @objc final public var expirationDate: Foundation.Date? {
     @objc get
   }
-  @objc final public func authorize(token: Swift.String, completion: @escaping (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
+  @objc @_Concurrency.MainActor final public func authorize(token: Swift.String) async throws
+  @objc @_Concurrency.MainActor final public func authorize(externalToken: Swift.String, provider: Swift.String) async throws
+  @objc @_Concurrency.MainActor final public func deauthorize() async throws
   @objc deinit
 }
 @objc extension PRUI.PRBasePaymentOptionsVC : PRAnalytics.PaymentOptionsAnalyticsProvider {
@@ -866,6 +868,18 @@ extension PRUI.NTFFeedDataSource {
   @objc override final public func item(forActivityType activityType: UIKit.UIActivity.ActivityType) -> Any?
   @objc override final public func activityViewControllerLinkMetadata(_ activityViewController: UIKit.UIActivityViewController) -> LinkPresentation.LPLinkMetadata?
   @objc deinit
+}
+extension PRUI.PressReader {
+  @objc @_Concurrency.MainActor @preconcurrency public static var serviceName: Swift.String {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency public static var isLocalService: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var isEdition: Swift.Bool {
+    get
+  }
 }
 @objc extension PRUI.ModalVideoPlayerVC : PRAPI.RichMediaAnalyticsProvider {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var mediaType: Swift.String {
@@ -3147,9 +3161,9 @@ final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.
     @objc get
   }
   @discardableResult
-  @objc final public func load() -> Swift.Bool
+  @objc final public func load() -> PRPromiseKit.Promise
   @discardableResult
-  @objc final public func loadMore() -> Swift.Bool
+  @objc final public func loadMore() -> PRPromiseKit.Promise
   @objc deinit
 }
 @objc extension PRUI.PRArticleContainerVC : PRAds.AdDataSourceDelegate {

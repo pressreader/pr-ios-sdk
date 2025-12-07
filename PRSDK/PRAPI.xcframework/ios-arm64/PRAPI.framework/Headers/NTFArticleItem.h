@@ -49,7 +49,7 @@ extern NSString * const kPRPopularArticlesKey;
 
 // computed properties from smart-article
 @property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *byline;
+@property (nullable, nonatomic, readonly) NSString *byline;
 @property (nonatomic, readonly) NSString *subtitle;
 @property (nonatomic, readonly) NSString *annotation;
 @property (nonatomic, readonly) NSArray<PRSmartImageRegion *> *imageRegions;

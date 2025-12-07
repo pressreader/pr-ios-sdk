@@ -21,3 +21,12 @@ import _SwiftConcurrencyShims
   @objc override dynamic public init(type: PRSmart.PRArticleBlockType, text: Swift.String?, info: [Swift.AnyHashable : Any]?)
   @objc deinit
 }
+extension PRSmart.PRSmartArticle {
+  @objc public static var windowSize: CoreFoundation.CGSize {
+    get
+  }
+  @objc public static func updateWindowSize()
+}
+extension PRSmart.PRSmartArticle {
+  @objc dynamic public func byline(ISO iso: Swift.String) -> Foundation.NSAttributedString?
+}

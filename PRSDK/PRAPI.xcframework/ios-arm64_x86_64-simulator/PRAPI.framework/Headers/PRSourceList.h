@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSInteger const kPRNumberOfCategoriesInFeaturedSection;
 
-extern NSString *const PRSourcesListDidChangeNotification;
-extern NSString *const PRSourcesListDidSortingNotification;
-extern NSString *const PRSourcesListDidFilterNotification;
+extern NSNotificationName const PRSourcesListDidChangeNotification;
+extern NSNotificationName const PRSourcesListDidSortingNotification;
+extern NSNotificationName const PRSourcesListDidFilterNotification;
 
 @class PRCountableValue;
 @class PRSubscription;
