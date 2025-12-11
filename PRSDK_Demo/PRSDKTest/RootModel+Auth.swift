@@ -16,7 +16,7 @@ extension RootModel {
     
     enum AuthData: RawRepresentable {
         case giftToken(String)
-        case externalAuthToken(token: String, provider: String)
+        case externalAuthToken(userId: String, token: String, provider: String)
         
         // MARK: - RawRepresentable
         
@@ -25,8 +25,9 @@ extension RootModel {
             case .giftToken(let token):
                 ["type": "giftToken",
                  "token": token]
-            case .externalAuthToken(let token, let provider):
+            case .externalAuthToken(let userId, let token, let provider):
                 ["type": "externalToken",
+                 "userId": userId,
                  "token": token,
                  "provider": provider]
             }
@@ -44,8 +45,8 @@ extension RootModel {
                 self = auth
                 
             case "externalToken":
-                guard let auth = lift(rawValue["token"], rawValue["provider"])
-                    .map({ AuthData.externalAuthToken(token: $0, provider: $1) })
+                guard let auth = lift(rawValue["userId"], rawValue["token"], rawValue["provider"])
+                    .map({ AuthData.externalAuthToken(userId: $0, token: $1, provider: $2) })
                 else {
                     return nil
                 }
@@ -86,7 +87,7 @@ extension RootModel {
                 case Service.default:
                     newData = .giftToken("")
                 default:
-                    newData = .externalAuthToken(token: "", provider: "")
+                    newData = .externalAuthToken(userId: "", token: "", provider: "")
                 }
                 
                 self.authorizationData = newData
@@ -118,7 +119,7 @@ extension RootModel {
         switch self.authorizationData {
         case .giftToken(let token):
             try await account.authorize(token: token)
-        case .externalAuthToken(let token, let provider):
+        case .externalAuthToken(_, let token, let provider):
             try await account.authorize(externalToken: token, provider: provider)
         }
     }
@@ -127,8 +128,14 @@ extension RootModel {
         try await self.account?.deauthorize()
     }
     
-    func generateExternalAuthTokenMock() async throws {
-        guard let mockURL = URL(string: "https://services.pressreader.com/test/pr-mock-auth-server/token?sub=00u-\(Int.random(in: 1...Int.max))&aud=test-aud&minutes=36000")
+    func generateExternalAuthTokenMock(userId: String?) async throws {
+        let userId = userId
+            .flatMap { Int($0) }
+        ?? Int.random(in: 1...Int.max)
+        
+        guard let mockURL = URL(
+            string: "https://services.pressreader.com/test/pr-mock-auth-server/token?sub=00u-\(userId)&aud=test-aud&minutes=36000"
+        )
         else {
             throw ServiceError.noServiceUrlProvided
         }
@@ -139,6 +146,8 @@ extension RootModel {
             throw ServiceError.unexpectedResponse
         }
         
-        self.authorizationData = .externalAuthToken(token: token, provider: "pressreaderJwt")
+        self.authorizationData = .externalAuthToken(userId: String(userId),
+                                                    token: token,
+                                                    provider: "pressreaderJwt")
     }
 }

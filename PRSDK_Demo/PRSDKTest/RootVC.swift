@@ -213,16 +213,19 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     private func authWithExternalToken() async throws{
         guard let token = self.authTextField(at: 0)?.text,
-              let provider = self.authTextField(at: 1)?.text
+              let provider = self.authTextField(at: 1)?.text,
+              let userId = self.authTextField(at: 2)?.text
         else {
             return
         }
         
         let model = self.model
-        model.authorizationData = .externalAuthToken(token: token, provider: provider)
+        model.authorizationData = .externalAuthToken(userId: userId,
+                                                     token: token,
+                                                     provider: provider)
         try await model.authorize()
     }
-        
+    
     private func updateSections() {
         let model = self.model
         var sections = [Section]()
@@ -268,7 +271,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             let data = switch authData {
             case .giftToken(let token):
                 (token, "Token")
-            case .externalAuthToken(let token, _):
+            case .externalAuthToken(_, let token, _):
                 (token, "External Token")
             }
             
@@ -286,7 +289,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                                        indexPath: indexPath,
                                        title: self.authorizeCellTitle,
                                        enabled: model.canAuthorize)
-            case .externalAuthToken(_, let provider):
+            case .externalAuthToken(_, _, let provider):
                 let cell = self.textFieldCell(tableView, indexPath: indexPath)
                 self.configureAuthTextField(cell: cell,
                                             text: provider,
@@ -296,11 +299,23 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 return cell
             }
         case 2 where model.isTokenGenerationAvailable:
+            let cell = self.textFieldCell(tableView, indexPath: indexPath)
+            var userId = ""
+            if case .externalAuthToken(let id, _, _) = authData {
+                userId = id
+            }
+            
+            self.configureAuthTextField(cell: cell,
+                                        text: userId,
+                                        placeholder: "User Id",
+                                        isEnabled: model.canAuthorize)
+            return cell
+        case 3 where model.isTokenGenerationAvailable && model.account?.state != .authorized:
             return self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: "Generate external token and provider",
                                    enabled: model.canAuthorize)
-        case 2, 3:
+        case 2, 3, 4:
             return self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: self.authorizeCellTitle,
@@ -332,8 +347,12 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         switch sections[section] {
         case .auth:
             return switch model.authorizationData {
-                case .giftToken: 2
-            case .externalAuthToken: model.isTokenGenerationAvailable ? 4 : 3
+            case .giftToken:
+                2
+            case .externalAuthToken:
+                model.isTokenGenerationAvailable
+                ? model.account?.state == .authorized ? 4 : 5
+                : 3
             }
         case .catalog:
             return model.catalogItemsCount
@@ -442,7 +461,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                             try await self.authWithExternalToken()
                         }
                     case .externalAuthToken:
-                        try await model.generateExternalAuthTokenMock()
+                        try await model.generateExternalAuthTokenMock(
+                            userId: self.authTextField(at: 2)?.text
+                        )
                         self.reloadData()
                     }
                 }
