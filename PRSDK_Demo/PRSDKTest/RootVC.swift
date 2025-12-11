@@ -213,14 +213,13 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     
     private func authWithExternalToken() async throws{
         guard let token = self.authTextField(at: 0)?.text,
-              let provider = self.authTextField(at: 1)?.text,
-              let userId = self.authTextField(at: 2)?.text
+              let provider = self.authTextField(at: 1)?.text
         else {
             return
         }
         
         let model = self.model
-        model.authorizationData = .externalAuthToken(userId: userId,
+        model.authorizationData = .externalAuthToken(userId: self.authTextField(at: 2)?.text ?? "",
                                                      token: token,
                                                      provider: provider)
         try await model.authorize()
