@@ -2333,35 +2333,6 @@ extension PRUI.PressReader {
     @objc get
   }
 }
-public enum SearchableDataSourceSortingOrder {
-  case none
-  case relevance
-  case alphabet
-  case date
-  public static func == (a: PRUI.SearchableDataSourceSortingOrder, b: PRUI.SearchableDataSourceSortingOrder) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public protocol SearchableDataSource : PRAPI.LoadableDataSource {
-  var searchText: Swift.String { get set }
-  var availableSortOptions: [PRUI.SearchableDataSourceSortingOrder] { get }
-  var sortingOption: PRUI.SearchableDataSourceSortingOrder { get set }
-  var isOngoingSearchSupported: Swift.Bool { get }
-}
-extension PRUI.SearchableDataSource {
-  public var availableSortOptions: [PRUI.SearchableDataSourceSortingOrder] {
-    get
-  }
-  public var sortingOption: PRUI.SearchableDataSourceSortingOrder {
-    get
-    set
-  }
-  public var isOngoingSearchSupported: Swift.Bool {
-    get
-  }
-}
 @objc extension PRUI.PRBookmarkListVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateMasthead()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func update(presentationStyle: UIKit.UIModalPresentationStyle)
@@ -3125,7 +3096,7 @@ extension PRUI.PRBannerPresentationConfig {
 extension PRUI.PRSourceCollectionVC {
   @objc(fillWithDataSource:) @_Concurrency.MainActor @preconcurrency dynamic public func fill(with dataSource: any PRAPI.CatalogItemDataSourceProtocol)
 }
-final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.DataSourceObserver>, PRUI.SearchableDataSource {
+final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.DataSourceObserver>, PRAPI.SearchableDataSource {
   final public let articleDataSource: PRUI.NTFArticlesSearchDataSource
   final public var state: PRAPI.DataSourceState {
     get
@@ -3135,10 +3106,10 @@ final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.
     get
     set
   }
-  final public var availableSortOptions: [PRUI.SearchableDataSourceSortingOrder] {
+  final public var availableSortOptions: [PRAPI.SearchableDataSourceSortingOrder] {
     get
   }
-  final public var sortingOption: PRUI.SearchableDataSourceSortingOrder {
+  final public var sortingOption: PRAPI.SearchableDataSourceSortingOrder {
     get
     set
   }
@@ -3214,19 +3185,6 @@ final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.
   @objc public static func execute()
   @objc override dynamic public init()
   @objc deinit
-}
-extension PRCatalogModel.Query : PRUI.SearchableDataSource {
-  public var searchText: Swift.String {
-    get
-    set
-  }
-  public var availableSortOptions: [PRUI.SearchableDataSourceSortingOrder] {
-    get
-  }
-  public var sortingOption: PRUI.SearchableDataSourceSortingOrder {
-    get
-    set
-  }
 }
 @_hasMissingDesignatedInitializers final public class PRExternalLinkAccountManager {
   public static var isEnabled: Swift.Bool {
@@ -3333,8 +3291,6 @@ extension PRUI.CommandNavigateBooks : Swift.Sendable {}
 extension PRUI.PaymentOptionsMode : Swift.Equatable {}
 extension PRUI.PaymentOptionsMode : Swift.Hashable {}
 extension PRUI.PaymentOptionsMode : Swift.RawRepresentable {}
-extension PRUI.SearchableDataSourceSortingOrder : Swift.Equatable {}
-extension PRUI.SearchableDataSourceSortingOrder : Swift.Hashable {}
 extension PRUI.PremiumBannerView.Style : Swift.Equatable {}
 extension PRUI.PremiumBannerView.Style : Swift.Hashable {}
 extension PRUI.HotSpotBannerView : Swift.Sendable {}

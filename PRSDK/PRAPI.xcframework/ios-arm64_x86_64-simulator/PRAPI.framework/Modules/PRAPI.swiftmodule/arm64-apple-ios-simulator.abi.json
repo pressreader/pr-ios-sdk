@@ -10920,13 +10920,10 @@
             "mangledName": "$s5PRAPI11SponsorshipC13partnerBannerAA07PartnerD0VSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
-              "HasInitialValue",
               "Final",
-              "HasStorage",
               "AccessControl",
               "NonObjC"
             ],
-            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -10952,7 +10949,6 @@
                 "usr": "s:5PRAPI11SponsorshipC13partnerBannerAA07PartnerD0VSgvg",
                 "mangledName": "$s5PRAPI11SponsorshipC13partnerBannerAA07PartnerD0VSgvg",
                 "moduleName": "PRAPI",
-                "implicit": true,
                 "declAttributes": [
                   "Final"
                 ],
@@ -10987,7 +10983,6 @@
                 "usr": "s:5PRAPI11SponsorshipC13partnerBannerAA07PartnerD0VSgvs",
                 "mangledName": "$s5PRAPI11SponsorshipC13partnerBannerAA07PartnerD0VSgvs",
                 "moduleName": "PRAPI",
-                "implicit": true,
                 "declAttributes": [
                   "Final"
                 ],
@@ -23157,6 +23152,47 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "search",
+            "printedName": "search(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any PRAPI.PRCatalogItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogItem",
+                    "printedName": "any PRAPI.PRCatalogItem",
+                    "usr": "c:objc(pl)PRCatalogItem"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@objc(cs)CatalogPresenter(im)search:completionHandler:",
+            "mangledName": "$s5PRAPI16CatalogPresenterC6searchySaySo13PRCatalogItem_pGSSYaKF",
+            "moduleName": "PRAPI",
+            "objc_name": "search:completionHandler:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -26383,8 +26419,7 @@
               "HasInitialValue",
               "HasStorage",
               "SetterAccess",
-              "AccessControl",
-              "RawDocComment"
+              "AccessControl"
             ],
             "hasStorage": true,
             "accessors": [
@@ -46396,6 +46431,802 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SearchableDataSourceSortingOrder",
+        "printedName": "SearchableDataSourceSortingOrder",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAPI.SearchableDataSourceSortingOrder.Type) -> PRAPI.SearchableDataSourceSortingOrder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SearchableDataSourceSortingOrder",
+                        "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO4noneyA2CmF",
+            "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO4noneyA2CmF",
+            "moduleName": "PRAPI"
+          },
+          {
+            "kind": "Var",
+            "name": "relevance",
+            "printedName": "relevance",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAPI.SearchableDataSourceSortingOrder.Type) -> PRAPI.SearchableDataSourceSortingOrder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SearchableDataSourceSortingOrder",
+                        "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO9relevanceyA2CmF",
+            "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO9relevanceyA2CmF",
+            "moduleName": "PRAPI"
+          },
+          {
+            "kind": "Var",
+            "name": "alphabet",
+            "printedName": "alphabet",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAPI.SearchableDataSourceSortingOrder.Type) -> PRAPI.SearchableDataSourceSortingOrder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SearchableDataSourceSortingOrder",
+                        "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO8alphabetyA2CmF",
+            "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO8alphabetyA2CmF",
+            "moduleName": "PRAPI"
+          },
+          {
+            "kind": "Var",
+            "name": "date",
+            "printedName": "date",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PRAPI.SearchableDataSourceSortingOrder.Type) -> PRAPI.SearchableDataSourceSortingOrder",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SearchableDataSourceSortingOrder",
+                        "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO4dateyA2CmF",
+            "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO4dateyA2CmF",
+            "moduleName": "PRAPI"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SearchableDataSourceSortingOrder",
+                "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SearchableDataSourceSortingOrder",
+                "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO2eeoiySbAC_ACtFZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO9hashValueSivp",
+            "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO9hashValueSivp",
+            "moduleName": "PRAPI",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO9hashValueSivg",
+                "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO9hashValueSivg",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO4hash4intoys6HasherVz_tF",
+            "moduleName": "PRAPI",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO",
+        "mangledName": "$s5PRAPI32SearchableDataSourceSortingOrderO",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SearchableDataSource",
+        "printedName": "SearchableDataSource",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "searchText",
+            "printedName": "searchText",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI20SearchableDataSourceP10searchTextSSvp",
+            "mangledName": "$s5PRAPI20SearchableDataSourceP10searchTextSSvp",
+            "moduleName": "PRAPI",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP10searchTextSSvg",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP10searchTextSSvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP10searchTextSSvs",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP10searchTextSSvs",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP10searchTextSSvM",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP10searchTextSSvM",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "availableSortOptions",
+            "printedName": "availableSortOptions",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[PRAPI.SearchableDataSourceSortingOrder]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI20SearchableDataSourceP20availableSortOptionsSayAA0bcD12SortingOrderOGvp",
+            "mangledName": "$s5PRAPI20SearchableDataSourceP20availableSortOptionsSayAA0bcD12SortingOrderOGvp",
+            "moduleName": "PRAPI",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRAPI.SearchableDataSourceSortingOrder]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SearchableDataSourceSortingOrder",
+                        "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP20availableSortOptionsSayAA0bcD12SortingOrderOGvg",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP20availableSortOptionsSayAA0bcD12SortingOrderOGvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sortingOption",
+            "printedName": "sortingOption",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SearchableDataSourceSortingOrder",
+                "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvp",
+            "mangledName": "$s5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvp",
+            "moduleName": "PRAPI",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvg",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvs",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvs",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvM",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP13sortingOptionAA0bcD12SortingOrderOvM",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isOngoingSearchSupported",
+            "printedName": "isOngoingSearchSupported",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI20SearchableDataSourceP24isOngoingSearchSupportedSbvp",
+            "mangledName": "$s5PRAPI20SearchableDataSourceP24isOngoingSearchSupportedSbvp",
+            "moduleName": "PRAPI",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourceP24isOngoingSearchSupportedSbvg",
+                "mangledName": "$s5PRAPI20SearchableDataSourceP24isOngoingSearchSupportedSbvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "availableSortOptions",
+            "printedName": "availableSortOptions",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[PRAPI.SearchableDataSourceSortingOrder]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI20SearchableDataSourcePAAE20availableSortOptionsSayAA0bcD12SortingOrderOGvp",
+            "mangledName": "$s5PRAPI20SearchableDataSourcePAAE20availableSortOptionsSayAA0bcD12SortingOrderOGvp",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRAPI.SearchableDataSourceSortingOrder]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SearchableDataSourceSortingOrder",
+                        "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourcePAAE20availableSortOptionsSayAA0bcD12SortingOrderOGvg",
+                "mangledName": "$s5PRAPI20SearchableDataSourcePAAE20availableSortOptionsSayAA0bcD12SortingOrderOGvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sortingOption",
+            "printedName": "sortingOption",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SearchableDataSourceSortingOrder",
+                "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvp",
+            "mangledName": "$s5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvp",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvg",
+                "mangledName": "$s5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvs",
+                "mangledName": "$s5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvs",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvM",
+                "mangledName": "$s5PRAPI20SearchableDataSourcePAAE13sortingOptionAA0bcD12SortingOrderOvM",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isOngoingSearchSupported",
+            "printedName": "isOngoingSearchSupported",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI20SearchableDataSourcePAAE24isOngoingSearchSupportedSbvp",
+            "mangledName": "$s5PRAPI20SearchableDataSourcePAAE24isOngoingSearchSupportedSbvp",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI20SearchableDataSourcePAAE24isOngoingSearchSupportedSbvg",
+                "mangledName": "$s5PRAPI20SearchableDataSourcePAAE24isOngoingSearchSupportedSbvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.SearchableDataSource>",
+                "sugared_genericSig": "<Self where Self : PRAPI.SearchableDataSource>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:5PRAPI20SearchableDataSourceP",
+        "mangledName": "$s5PRAPI20SearchableDataSourceP",
+        "moduleName": "PRAPI",
+        "genericSig": "<τ_0_0 : PRAPI.LoadableDataSource>",
+        "sugared_genericSig": "<Self : PRAPI.LoadableDataSource>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LoadableDataSource",
+            "printedName": "LoadableDataSource",
+            "usr": "c:@M@PRAPI@objc(pl)LoadableDataSource",
+            "mangledName": "$s5PRAPI18LoadableDataSourceP"
           }
         ]
       },
@@ -66686,6 +67517,16 @@
       },
       {
         "kind": "Import",
+        "name": "PRCatalogModel",
+        "printedName": "PRCatalogModel",
+        "declKind": "Import",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -74028,6 +74869,46 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "search",
+            "printedName": "search(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any PRAPI.PRCatalogItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogItem",
+                    "printedName": "any PRAPI.PRCatalogItem",
+                    "usr": "c:objc(pl)PRCatalogItem"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRAPI@objc(pl)CatalogFacade(im)search:completionHandler:",
+            "mangledName": "$s5PRAPI13CatalogFacadeP6searchySaySo13PRCatalogItem_pGSSYaKF",
+            "moduleName": "PRAPI",
+            "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.CatalogFacade>",
+            "sugared_genericSig": "<Self where Self : PRAPI.CatalogFacade>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Var",
@@ -85900,17 +86781,31 @@
           {
             "kind": "Function",
             "name": "saveCoBrandingInfo",
-            "printedName": "saveCoBrandingInfo()",
+            "printedName": "saveCoBrandingInfo(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRAPI.PartnerBanner?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PartnerBanner",
+                    "printedName": "PRAPI.PartnerBanner",
+                    "usr": "s:5PRAPI13PartnerBannerV"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:So14PRSubscriptionC5PRAPIE18saveCoBrandingInfoyyKF",
-            "mangledName": "$sSo14PRSubscriptionC5PRAPIE18saveCoBrandingInfoyyKF",
+            "usr": "s:So14PRSubscriptionC5PRAPIE18saveCoBrandingInfoyyAC13PartnerBannerVSgKF",
+            "mangledName": "$sSo14PRSubscriptionC5PRAPIE18saveCoBrandingInfoyyAC13PartnerBannerVSgKF",
             "moduleName": "PRAPI",
             "declAttributes": [
               "RawDocComment"
@@ -90395,6 +91290,46 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "search",
+            "printedName": "search(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any PRAPI.PRCatalogItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogItem",
+                    "printedName": "any PRAPI.PRCatalogItem",
+                    "usr": "c:objc(pl)PRCatalogItem"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRSourceList(im)search:completionHandler:",
+            "mangledName": "$sSo12PRSourceListC5PRAPIE6searchySaySo13PRCatalogItem_pGSSYaKF",
+            "moduleName": "PRAPI",
+            "objc_name": "search:completionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Var",
@@ -109828,6 +110763,46 @@
             ]
           },
           {
+            "kind": "Function",
+            "name": "search",
+            "printedName": "search(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any PRAPI.PRCatalogItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRCatalogItem",
+                    "printedName": "any PRAPI.PRCatalogItem",
+                    "usr": "c:objc(pl)PRCatalogItem"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRLatestIssuesList(im)search:completionHandler:",
+            "mangledName": "$sSo18PRLatestIssuesListC5PRAPIE6searchySaySo13PRCatalogItem_pGSSYaKF",
+            "moduleName": "PRAPI",
+            "objc_name": "search:completionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Var",
             "name": "readyNotificationName",
             "printedName": "readyNotificationName",
@@ -128335,6 +129310,568 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "Query",
+        "printedName": "Query",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "searchText",
+            "printedName": "searchText",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel5QueryC5PRAPIE10searchTextSSvp",
+            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE10searchTextSSvp",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel5QueryC5PRAPIE10searchTextSSvg",
+                "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE10searchTextSSvg",
+                "moduleName": "PRAPI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel5QueryC5PRAPIE10searchTextSSvs",
+                "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE10searchTextSSvs",
+                "moduleName": "PRAPI",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel5QueryC5PRAPIE10searchTextSSvM",
+                "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE10searchTextSSvM",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "availableSortOptions",
+            "printedName": "availableSortOptions",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[PRAPI.SearchableDataSourceSortingOrder]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel5QueryC5PRAPIE20availableSortOptionsSayAD32SearchableDataSourceSortingOrderOGvp",
+            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE20availableSortOptionsSayAD32SearchableDataSourceSortingOrderOGvp",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[PRAPI.SearchableDataSourceSortingOrder]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SearchableDataSourceSortingOrder",
+                        "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                        "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel5QueryC5PRAPIE20availableSortOptionsSayAD32SearchableDataSourceSortingOrderOGvg",
+                "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE20availableSortOptionsSayAD32SearchableDataSourceSortingOrderOGvg",
+                "moduleName": "PRAPI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sortingOption",
+            "printedName": "sortingOption",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SearchableDataSourceSortingOrder",
+                "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvp",
+            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvp",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvg",
+                "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvg",
+                "moduleName": "PRAPI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SearchableDataSourceSortingOrder",
+                    "printedName": "PRAPI.SearchableDataSourceSortingOrder",
+                    "usr": "s:5PRAPI32SearchableDataSourceSortingOrderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvs",
+                "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvs",
+                "moduleName": "PRAPI",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvM",
+                "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvM",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load(query:order:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[PRCatalogModel.CatalogItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CatalogItem",
+                    "printedName": "PRCatalogModel.CatalogItem",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)CatalogItem"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadingOrder",
+                    "printedName": "PRCatalogModel.CatalogEntity.LoadingOrder",
+                    "usr": "s:14PRCatalogModel13CatalogEntityC12LoadingOrderO"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14PRCatalogModel5QueryC5PRAPIE4load5query5orderSayAA11CatalogItemCGSSSg_AA0H6EntityC12LoadingOrderOSgtYaKF",
+            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE4load5query5orderSayAA11CatalogItemCGSSSg_AA0H6EntityC12LoadingOrderOSgtYaKF",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Promise",
+                "printedName": "PRPromiseKit.Promise",
+                "usr": "c:objc(cs)PRPromise"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)Query(im)load",
+            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE4loadSo9PRPromiseCyF",
+            "moduleName": "PRAPI",
+            "overriding": true,
+            "objc_name": "load",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRCatalogModel@objc(cs)Query",
+        "mangledName": "$s14PRCatalogModel5QueryC",
+        "moduleName": "PRCatalogModel",
+        "objc_name": "Query",
+        "declAttributes": [
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "PRCatalogModel.CatalogEntity",
+          "CoreData.NSManagedObject",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CatalogNavigationVariant",
+            "printedName": "CatalogNavigationVariant",
+            "usr": "c:@M@PRAPI@objc(pl)CatalogNavigationVariant",
+            "mangledName": "$s5PRAPI24CatalogNavigationVariantP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CatalogItemDataSourceProtocol",
+            "printedName": "CatalogItemDataSourceProtocol",
+            "usr": "c:@M@PRAPI@objc(pl)CatalogItemDataSourceProtocol",
+            "mangledName": "$s5PRAPI29CatalogItemDataSourceProtocolP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableModel",
+            "printedName": "ObservableModel",
+            "usr": "s:5PRAPI15ObservableModelP",
+            "mangledName": "$s5PRAPI15ObservableModelP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LoadableDataSource",
+            "printedName": "LoadableDataSource",
+            "usr": "c:@M@PRAPI@objc(pl)LoadableDataSource",
+            "mangledName": "$s5PRAPI18LoadableDataSourceP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SectionalDataSource",
+            "printedName": "SectionalDataSource",
+            "usr": "c:@M@PRAPI@objc(pl)SectionalDataSource",
+            "mangledName": "$s5PRAPI19SectionalDataSourceP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SilentDataLoader",
+            "printedName": "SilentDataLoader",
+            "usr": "c:@M@PRAPI@objc(pl)SilentDataLoader",
+            "mangledName": "$s5PRAPI16SilentDataLoaderP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LoadableModel",
+            "printedName": "LoadableModel",
+            "usr": "s:5PRAPI13LoadableModelP",
+            "mangledName": "$s5PRAPI13LoadableModelP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LoadableModelObserver",
+            "printedName": "LoadableModelObserver",
+            "usr": "s:5PRAPI21LoadableModelObserverP",
+            "mangledName": "$s5PRAPI21LoadableModelObserverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CatalogableMO",
+            "printedName": "CatalogableMO",
+            "usr": "s:14PRCatalogModel13CatalogableMOP",
+            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "IdentifiableMO",
+            "printedName": "IdentifiableMO",
+            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
+            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NavigatableScope",
+            "printedName": "NavigatableScope",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Navigation",
+                "printedName": "Navigation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CompoundNavigation",
+                    "printedName": "PRCatalogModel.CompoundNavigation",
+                    "usr": "c:@M@PRCatalogModel@objc(cs)CompoundNavigation"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:14PRCatalogModel16NavigatableScopeP",
+            "mangledName": "$s14PRCatalogModel16NavigatableScopeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Identifiable",
+            "printedName": "Identifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ID",
+                "printedName": "ID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12IdentifiableP",
+            "mangledName": "$ss12IdentifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Emptiable",
+            "printedName": "Emptiable",
+            "usr": "s:16PRSyntacticSugar9EmptiableP",
+            "mangledName": "$s16PRSyntacticSugar9EmptiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SearchableDataSource",
+            "printedName": "SearchableDataSource",
+            "usr": "s:5PRAPI20SearchableDataSourceP",
+            "mangledName": "$s5PRAPI20SearchableDataSourceP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "PRLibraryProfile",
         "printedName": "PRLibraryProfile",
         "children": [
@@ -130257,271 +131794,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "Query",
-        "printedName": "Query",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "load",
-            "printedName": "load()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Promise",
-                "printedName": "PRPromiseKit.Promise",
-                "usr": "c:objc(cs)PRPromise"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)Query(im)load",
-            "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE4loadSo9PRPromiseCyF",
-            "moduleName": "PRAPI",
-            "overriding": true,
-            "objc_name": "load",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@PRCatalogModel@objc(cs)Query",
-        "mangledName": "$s14PRCatalogModel5QueryC",
-        "moduleName": "PRCatalogModel",
-        "objc_name": "Query",
-        "declAttributes": [
-          "ObjC"
-        ],
-        "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity",
-        "isExternal": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "PRCatalogModel.CatalogEntity",
-          "CoreData.NSManagedObject",
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CatalogNavigationVariant",
-            "printedName": "CatalogNavigationVariant",
-            "usr": "c:@M@PRAPI@objc(pl)CatalogNavigationVariant",
-            "mangledName": "$s5PRAPI24CatalogNavigationVariantP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CatalogItemDataSourceProtocol",
-            "printedName": "CatalogItemDataSourceProtocol",
-            "usr": "c:@M@PRAPI@objc(pl)CatalogItemDataSourceProtocol",
-            "mangledName": "$s5PRAPI29CatalogItemDataSourceProtocolP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableModel",
-            "printedName": "ObservableModel",
-            "usr": "s:5PRAPI15ObservableModelP",
-            "mangledName": "$s5PRAPI15ObservableModelP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "LoadableDataSource",
-            "printedName": "LoadableDataSource",
-            "usr": "c:@M@PRAPI@objc(pl)LoadableDataSource",
-            "mangledName": "$s5PRAPI18LoadableDataSourceP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "SectionalDataSource",
-            "printedName": "SectionalDataSource",
-            "usr": "c:@M@PRAPI@objc(pl)SectionalDataSource",
-            "mangledName": "$s5PRAPI19SectionalDataSourceP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "SilentDataLoader",
-            "printedName": "SilentDataLoader",
-            "usr": "c:@M@PRAPI@objc(pl)SilentDataLoader",
-            "mangledName": "$s5PRAPI16SilentDataLoaderP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "LoadableModel",
-            "printedName": "LoadableModel",
-            "usr": "s:5PRAPI13LoadableModelP",
-            "mangledName": "$s5PRAPI13LoadableModelP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "LoadableModelObserver",
-            "printedName": "LoadableModelObserver",
-            "usr": "s:5PRAPI21LoadableModelObserverP",
-            "mangledName": "$s5PRAPI21LoadableModelObserverP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CatalogableMO",
-            "printedName": "CatalogableMO",
-            "usr": "s:14PRCatalogModel13CatalogableMOP",
-            "mangledName": "$s14PRCatalogModel13CatalogableMOP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "IdentifiableMO",
-            "printedName": "IdentifiableMO",
-            "usr": "s:15PRCoreDataUtils14IdentifiableMOP",
-            "mangledName": "$s15PRCoreDataUtils14IdentifiableMOP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "NavigatableScope",
-            "printedName": "NavigatableScope",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Navigation",
-                "printedName": "Navigation",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CompoundNavigation",
-                    "printedName": "PRCatalogModel.CompoundNavigation",
-                    "usr": "c:@M@PRCatalogModel@objc(cs)CompoundNavigation"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:14PRCatalogModel16NavigatableScopeP",
-            "mangledName": "$s14PRCatalogModel16NavigatableScopeP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Identifiable",
-            "printedName": "Identifiable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ID",
-                "printedName": "ID",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s12IdentifiableP",
-            "mangledName": "$ss12IdentifiableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Emptiable",
-            "printedName": "Emptiable",
-            "usr": "s:16PRSyntacticSugar9EmptiableP",
-            "mangledName": "$s16PRSyntacticSugar9EmptiableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
         "name": "Magazine",
         "printedName": "Magazine",
         "children": [
@@ -131783,7 +133055,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "BooleanLiteral",
-      "offset": 2685,
+      "offset": 2742,
       "length": 4,
       "value": "true"
     },
@@ -132308,49 +133580,49 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/CatalogPresenter.swift",
       "kind": "BooleanLiteral",
-      "offset": 1669,
+      "offset": 1775,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/CatalogPresenter.swift",
       "kind": "Array",
-      "offset": 2418,
+      "offset": 2364,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/CatalogPresenter.swift",
       "kind": "BooleanLiteral",
-      "offset": 2760,
+      "offset": 2706,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/CatalogPresenter.swift",
       "kind": "StringLiteral",
-      "offset": 2888,
+      "offset": 2834,
       "length": 15,
       "value": "\"PR.iPad.Books\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/CatalogPresenter.swift",
       "kind": "BooleanLiteral",
-      "offset": 3432,
+      "offset": 3378,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/CatalogPresenter.swift",
       "kind": "StringLiteral",
-      "offset": 3643,
+      "offset": 3589,
       "length": 22,
       "value": "\"PR.iPad.Sources.Free\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/CatalogPresenter.swift",
       "kind": "StringLiteral",
-      "offset": 4446,
+      "offset": 4392,
       "length": 2,
       "value": "\"\""
     },
@@ -132420,28 +133692,28 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 6477,
+      "offset": 6432,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 6725,
+      "offset": 6680,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 7031,
+      "offset": 6986,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/DataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 7329,
+      "offset": 7284,
       "length": 4,
       "value": "true"
     },
@@ -132462,7 +133734,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/PRLatestIssuesList+.swift",
       "kind": "Array",
-      "offset": 2590,
+      "offset": 2594,
       "length": 2,
       "value": "[]"
     },

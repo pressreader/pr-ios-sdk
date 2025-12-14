@@ -1912,18 +1912,18 @@ SWIFT_CLASS("_TtC4PRUI32PRMyLibraryItemActionAccessActor")
 - (void)subscriptionChangeNotification:(NSNotification * _Nonnull)notification;
 @end
 
-@class PRUserBundle;
-@class SubscriptionCancellationAdvisory;
-@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
-- (SubscriptionCancellationAdvisory * _Nullable)subscriptionCancellationAdvisoryWithInferiorBundles:(NSArray<PRUserBundle *> * _Nonnull)inferiorBundles SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (BOOL)askUserForDownload SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
 - (void)showRegistrationAlertWithProductIDs:(NSSet<NSString *> * _Nonnull)productIDs descriptions:(NSObject * _Nonnull)descriptions info:(NSDictionary * _Nonnull)info;
+@end
+
+@class PRUserBundle;
+@class SubscriptionCancellationAdvisory;
+@interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
+- (SubscriptionCancellationAdvisory * _Nullable)subscriptionCancellationAdvisoryWithInferiorBundles:(NSArray<PRUserBundle *> * _Nonnull)inferiorBundles SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PROrderDelivery (SWIFT_EXTENSION(PRUI))
@@ -2158,20 +2158,20 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRSlidePrese
 - (void)_trackCatalogView SWIFT_UNAVAILABLE;
 @end
 
-@class CatalogEntity;
-@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
-@property (nonatomic, readonly) BOOL shouldAnimateDisclosure;
-- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc animated:(BOOL)animated;
-- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc;
-- (void)applyFilter:(CatalogEntity * _Nonnull)filter;
-@end
-
 enum PartnerBannerType : NSInteger;
 @interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
 + (enum PartnerBannerType)partnerBannerTypeWithIsEmbedded:(BOOL)isEmbedded SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) CGFloat partnerBannerHeight;
 - (UIViewController * _Nullable)partnerBannerController SWIFT_WARN_UNUSED_RESULT;
 - (UIStackView * _Nullable)partnerBannerStackView SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class CatalogEntity;
+@interface PRSourcesVC (SWIFT_EXTENSION(PRUI))
+@property (nonatomic, readonly) BOOL shouldAnimateDisclosure;
+- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc animated:(BOOL)animated;
+- (void)pushFilteredCollection:(UIViewController * _Nonnull)vc;
+- (void)applyFilter:(CatalogEntity * _Nonnull)filter;
 @end
 
 @interface PRSplashScreenVC (SWIFT_EXTENSION(PRUI)) <SplashScreenAnalyticsProvider>
@@ -2242,22 +2242,20 @@ SWIFT_CLASS("_TtC4PRUI11PRVotingBar")
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)openOrderViewWithCid:(NSString * _Nullable)cid date:(NSDate * _Nullable)date preferableServiceName:(NSString * _Nullable)preferableServiceName asSeparatePanel:(BOOL)asSeparatePanel forceDownload:(BOOL)forceDownload SWIFT_WARN_UNUSED_RESULT;
+- (void)setupThirdPartyLibrariesWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupThirdPartyLibrariesWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
+- (BOOL)openOrderViewWithCid:(NSString * _Nullable)cid date:(NSDate * _Nullable)date preferableServiceName:(NSString * _Nullable)preferableServiceName asSeparatePanel:(BOOL)asSeparatePanel forceDownload:(BOOL)forceDownload SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (void)setupApplicationShortcutItems;
 @end
 
-@class UNNotificationResponse;
-SWIFT_UNAVAILABLE
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
+- (void)setupHotSpotManager;
+- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIApplication;
@@ -2270,13 +2268,15 @@ SWIFT_UNAVAILABLE
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
-- (void)setupHotSpotManager;
-- (BOOL)findHotSpot SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
 - (BOOL)shouldRestoreIAP SWIFT_WARN_UNUSED_RESULT;
 - (void)restoreIAP;
+@end
+
+@class UNNotificationResponse;
+SWIFT_UNAVAILABLE
+@interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
+- (BOOL)brazeHandleBackgroundNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo handler:(void (^ _Nonnull)(UIBackgroundFetchResult))handler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)brazeHandleUserNotificationWithResponse:(UNNotificationResponse * _Nonnull)response handler:(void (^ _Nonnull)(void))handler SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface PRiphoneAppDelegate (SWIFT_EXTENSION(PRUI))
@@ -2752,13 +2752,13 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 @end
 
 @interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
-- (void)showActivityIndicator;
-- (void)hideActivityIndicator;
+- (void)registerUIStyleObserver;
+- (void)unregisterUIStyleObserver;
 @end
 
 @interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
-- (void)registerUIStyleObserver;
-- (void)unregisterUIStyleObserver;
+- (void)showActivityIndicator;
+- (void)hideActivityIndicator;
 @end
 
 @interface VerticalTextFlowArticleDetailsVC (SWIFT_EXTENSION(PRUI))
@@ -2781,6 +2781,14 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)hideActivityIndicator;
 @end
 
+@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
+- (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<id <NTFItem>> * _Nullable)articleSetWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+- (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NTFArticleSetCell;
 @interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
 - (void)updateContentInsets;
@@ -2788,14 +2796,6 @@ SWIFT_CLASS("_TtC4PRUI15URLActivityItem")
 - (void)registerFeedLayoutItemCells;
 - (SWIFT_METATYPE(NTFArticleSetCell) _Nullable)cellClassWithLayoutItem:(AbstractFeedLayoutItem * _Nonnull)layoutItem SWIFT_WARN_UNUSED_RESULT;
 - (void)setupCoBranding;
-@end
-
-@interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))
-- (id <NTFItem> _Nullable)singleArticleWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<id <NTFItem>> * _Nullable)articleSetWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
-- (id <NTFItem> _Nullable)singleArticleWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)columnsCountWithFli:(AbstractFeedLayoutItem * _Nullable)fli SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)shouldHighlightWithItem:(id _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface VerticalTextFlowVC (SWIFT_EXTENSION(PRUI))

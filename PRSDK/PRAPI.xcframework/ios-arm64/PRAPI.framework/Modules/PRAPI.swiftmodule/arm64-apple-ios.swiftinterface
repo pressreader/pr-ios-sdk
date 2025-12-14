@@ -1193,6 +1193,7 @@ extension PRAPI.PRSourceList : PRAPI.CatalogFacade {
   @objc dynamic public var countries: [any PRAPI.CountryNavigationVariant]? {
     @objc get
   }
+  @objc dynamic public func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 @objc @_inheritsConvenienceInitializers public class XCFCompatibilityResolver : ObjectiveC.NSObject {
   @objc public class func mergeUserInterests()
@@ -1427,6 +1428,7 @@ extension PRAPI.CatalogPresenter : PRAPI.ObservableCatalogFacade {
   @objc final public var countries: [any PRAPI.CountryNavigationVariant]? {
     @objc get
   }
+  @_Concurrency.MainActor @objc final public func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class ExternalAuthURLManager : ObjectiveC.NSObject {
   @objc public static var returnURL: Swift.String {
@@ -1626,6 +1628,7 @@ extension PRAPI.PRLatestIssuesList : PRAPI.CatalogFacade {
   @objc dynamic public var countries: [any PRAPI.CountryNavigationVariant]? {
     @objc get
   }
+  @objc dynamic public func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 extension PRAPI.PRLatestIssuesList : PRAPI.Readyable {
   public static var readyNotificationName: Foundation.Notification.Name {
@@ -2297,7 +2300,7 @@ extension PRAPI.PRMyLibraryItem : PRAPI.TitleItemDerivative {
   @objc deinit
 }
 extension PRAPI.PRSubscription {
-  public func saveCoBrandingInfo() throws
+  public func saveCoBrandingInfo(_ info: PRAPI.PartnerBanner?) throws
   @objc dynamic public func restoreCoBranding() throws
   public func saveHotSpotTitles() throws
   @objc dynamic public func restoreHotSpotTitles() throws
@@ -2755,6 +2758,35 @@ public struct BookReadingPosition : Swift.Codable {
   public let date: Foundation.Date
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum SearchableDataSourceSortingOrder {
+  case none
+  case relevance
+  case alphabet
+  case date
+  public static func == (a: PRAPI.SearchableDataSourceSortingOrder, b: PRAPI.SearchableDataSourceSortingOrder) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol SearchableDataSource : PRAPI.LoadableDataSource {
+  var searchText: Swift.String { get set }
+  var availableSortOptions: [PRAPI.SearchableDataSourceSortingOrder] { get }
+  var sortingOption: PRAPI.SearchableDataSourceSortingOrder { get set }
+  var isOngoingSearchSupported: Swift.Bool { get }
+}
+extension PRAPI.SearchableDataSource {
+  public var availableSortOptions: [PRAPI.SearchableDataSourceSortingOrder] {
+    get
+  }
+  public var sortingOption: PRAPI.SearchableDataSourceSortingOrder {
+    get
+    set
+  }
+  public var isOngoingSearchSupported: Swift.Bool {
+    get
+  }
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PRGoogleManager) @objcMembers final public class GoogleManager : ObjectiveC.NSObject {
   @objc public static let shared: PRAPI.GoogleManager?
@@ -3769,6 +3801,20 @@ extension PRAPI.Preloadable {
   @objc @_Concurrency.MainActor final public func translate(article: PRSmart.PRSmartArticle, language: Swift.String) async throws
   @_Concurrency.MainActor final public func translateShortContent(to language: Swift.String) async throws
 }
+extension PRCatalogModel.Query : PRAPI.SearchableDataSource {
+  public var searchText: Swift.String {
+    get
+    set
+  }
+  public var availableSortOptions: [PRAPI.SearchableDataSourceSortingOrder] {
+    get
+  }
+  public var sortingOption: PRAPI.SearchableDataSourceSortingOrder {
+    get
+    set
+  }
+  @_Concurrency.MainActor public func load(query: Swift.String? = nil, order: PRCatalogModel.CatalogEntity.LoadingOrder? = nil) async throws -> [PRCatalogModel.CatalogItem]
+}
 extension PRAPI.PRLibraryProfile {
   @objc public static func loadProfile() async throws -> PRAPI.PRLibraryProfile
 }
@@ -4051,6 +4097,7 @@ extension PRAPI.PRTitleItemExemplar {
   @objc var navigationFilters: [any PRAPI.CatalogNavigation] { get }
   @objc var categories: [any PRAPI.CatalogNavigationVariant]? { get }
   @objc var countries: [any PRAPI.CountryNavigationVariant]? { get }
+  @objc func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 extension PRAPI.CatalogFacade {
   public var parentPublications: [any PRAPI.PRCatalogItem]? {
@@ -4744,6 +4791,8 @@ extension PRCatalogModel.CatalogItemContent.Error : Swift.Equatable {}
 extension PRCatalogModel.CatalogItemContent.Error : Swift.Hashable {}
 extension PRCatalogModel.CatalogItemContent.DownloadingError : Swift.Equatable {}
 extension PRCatalogModel.CatalogItemContent.DownloadingError : Swift.Hashable {}
+extension PRAPI.SearchableDataSourceSortingOrder : Swift.Equatable {}
+extension PRAPI.SearchableDataSourceSortingOrder : Swift.Hashable {}
 extension PRAPI.EpubContent.ResourceEncryptionInfo : Swift.Equatable {}
 extension PRAPI.EpubContent.ResourceEncryptionInfo : Swift.Hashable {}
 extension PRAPI.EpubContent.ResourceEncryptionInfo : Swift.RawRepresentable {}
