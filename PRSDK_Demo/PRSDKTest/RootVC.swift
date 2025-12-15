@@ -143,7 +143,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
         
     private func configureAuthTextField(cell: TextFieldCell,
-                                        text: String,
+                                        text: String?,
                                         placeholder: String,
                                         isEnabled: Bool)
     {
@@ -219,9 +219,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         }
         
         let model = self.model
-        model.authorizationData = .externalAuthToken(userId: self.authTextField(at: 2)?.text ?? "",
-                                                     token: token,
-                                                     provider: provider)
+        model.authorizationData = .externalAuthToken(
+            token: token,
+            provider: provider,
+            userId: self.authTextField(at: 2)?.text?.nonEmpty
+        )
         try await model.authorize()
     }
     
@@ -270,7 +272,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             let data = switch authData {
             case .giftToken(let token):
                 (token, "Token")
-            case .externalAuthToken(_, let token, _):
+            case .externalAuthToken(let token, _, _):
                 (token, "External Token")
             }
             
@@ -288,7 +290,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                                        indexPath: indexPath,
                                        title: self.authorizeCellTitle,
                                        enabled: model.canAuthorize)
-            case .externalAuthToken(_, _, let provider):
+            case .externalAuthToken(_, let provider, _):
                 let cell = self.textFieldCell(tableView, indexPath: indexPath)
                 self.configureAuthTextField(cell: cell,
                                             text: provider,
@@ -299,8 +301,8 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             }
         case 2 where model.isTokenGenerationAvailable:
             let cell = self.textFieldCell(tableView, indexPath: indexPath)
-            var userId = ""
-            if case .externalAuthToken(let id, _, _) = authData {
+            var userId: String?
+            if case .externalAuthToken(_, _, let id) = authData {
                 userId = id
             }
             
