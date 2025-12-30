@@ -1817,6 +1817,9 @@ extension UIKit.UIUserInterfaceStyle : @retroactive Swift.CaseIterable {
   @objc final public class var publications: PRUI.CatalogSchemeProvider {
     @objc get
   }
+  @objc final public class var uncategorisedPublications: PRUI.CatalogSchemeProvider {
+    @objc get
+  }
   @objc final public class var home: PRUI.CatalogSchemeProvider {
     @objc get
   }
@@ -3229,6 +3232,7 @@ extension PRUI.PRPubHubDataSource {
   @objc dynamic public func topNewspapersSection(scheme: PRAPI.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
   @objc dynamic public func topMagazinesSection(scheme: PRAPI.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
   @objc dynamic public func partnerBannerSection() -> PRAPI.PRCatalogSection?
+  @objc dynamic public func allTitlesSection(scheme: PRAPI.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection
   @objc dynamic public func categorySections(scheme: PRAPI.CatalogSectionScheme, startIndex: Swift.Int) -> [PRAPI.PRCatalogSection]?
   @objc dynamic public func linkedServiceSection(service: PRAPI.PRAccountItem, scheme: PRAPI.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
   @objc dynamic public func favorites(order: PRConfiguration.PRCatalogSortingOrder) -> [any PRAPI.PRCatalogItem]?

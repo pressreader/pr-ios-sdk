@@ -264,6 +264,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRConfig: NSObject
 
++ (BOOL)defaultBoolForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
 + (BOOL)boolForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
 + (void)setBoolForKey:(NSString *)key value:(BOOL)value;
 

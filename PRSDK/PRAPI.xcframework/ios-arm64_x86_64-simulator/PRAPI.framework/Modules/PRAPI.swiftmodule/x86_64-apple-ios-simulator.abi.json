@@ -6875,6 +6875,41 @@
             ]
           },
           {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PartnerBanner",
+                "printedName": "PRAPI.PartnerBanner",
+                "usr": "s:5PRAPI13PartnerBannerV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PartnerBanner",
+                "printedName": "PRAPI.PartnerBanner",
+                "usr": "s:5PRAPI13PartnerBannerV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5PRAPI13PartnerBannerV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s5PRAPI13PartnerBannerV2eeoiySbAC_ACtFZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(from:)",
@@ -6953,6 +6988,13 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           },
           {
             "kind": "Conformance",
@@ -9904,6 +9946,23 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRUtils",
+        "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -10170,6 +10229,68 @@
                 "declKind": "Accessor",
                 "usr": "c:@M@PRAPI@objc(cs)Sponsorship(im)expiredHotSpotId",
                 "mangledName": "$s5PRAPI11SponsorshipC16expiredHotSpotIdSSSgvg",
+                "moduleName": "PRAPI",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "expiredHotSpotProvider",
+            "printedName": "expiredHotSpotProvider",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAPI@objc(cs)Sponsorship(py)expiredHotSpotProvider",
+            "mangledName": "$s5PRAPI11SponsorshipC22expiredHotSpotProviderSSSgvp",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAPI@objc(cs)Sponsorship(im)expiredHotSpotProvider",
+                "mangledName": "$s5PRAPI11SponsorshipC22expiredHotSpotProviderSSSgvg",
                 "moduleName": "PRAPI",
                 "declAttributes": [
                   "Final",
@@ -17741,6 +17862,37 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "PRUtils",
+        "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
+        "kind": "Import",
+        "name": "PRLogKit",
+        "printedName": "PRLogKit",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
+        "kind": "Import",
+        "name": "OpenIDFA",
+        "printedName": "OpenIDFA",
+        "declKind": "Import",
+        "moduleName": "PRAPI"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRAPI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "NTFActionConfig",
         "printedName": "NTFActionConfig",
@@ -21837,6 +21989,84 @@
           },
           {
             "kind": "Var",
+            "name": "includeSupplements",
+            "printedName": "includeSupplements",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAPI@objc(pl)CatalogItemDataSourceProtocol(py)includeSupplements",
+            "mangledName": "$s5PRAPI29CatalogItemDataSourceProtocolP18includeSupplementsSbvp",
+            "moduleName": "PRAPI",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAPI@objc(pl)CatalogItemDataSourceProtocol(im)includeSupplements",
+                "mangledName": "$s5PRAPI29CatalogItemDataSourceProtocolP18includeSupplementsSbvg",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.CatalogItemDataSourceProtocol>",
+                "sugared_genericSig": "<Self where Self : PRAPI.CatalogItemDataSourceProtocol>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAPI@objc(pl)CatalogItemDataSourceProtocol(im)setIncludeSupplements:",
+                "mangledName": "$s5PRAPI29CatalogItemDataSourceProtocolP18includeSupplementsSbvs",
+                "moduleName": "PRAPI",
+                "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.CatalogItemDataSourceProtocol>",
+                "sugared_genericSig": "<Self where Self : PRAPI.CatalogItemDataSourceProtocol>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "itemToExclude",
             "printedName": "itemToExclude",
             "children": [
@@ -22129,6 +22359,106 @@
                   "ObjC"
                 ],
                 "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "includeSupplements",
+            "printedName": "includeSupplements",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvp",
+            "mangledName": "$s5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvp",
+            "moduleName": "PRAPI",
+            "isOpen": true,
+            "objc_name": "includeSupplements",
+            "declAttributes": [
+              "HasInitialValue",
+              "ObjC",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvg",
+                "mangledName": "$s5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvg",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "isOpen": true,
+                "objc_name": "includeSupplements",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvs",
+                "mangledName": "$s5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvs",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "isOpen": true,
+                "objc_name": "setIncludeSupplements:",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvM",
+                "mangledName": "$s5PRAPI21CatalogItemDataSourceC18includeSupplementsSbvM",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -70289,6 +70619,59 @@
           },
           {
             "kind": "Var",
+            "name": "includeSupplements",
+            "printedName": "includeSupplements",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CatalogSectionSchemeOption",
+                "printedName": "PRAPI.CatalogSectionSchemeOption",
+                "usr": "c:@M@PRAPI@objc(cs)CatalogSectionSchemeOption"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRAPI@objc(cs)CatalogSectionSchemeOption(cpy)includeSupplements",
+            "mangledName": "$s5PRAPI26CatalogSectionSchemeOptionC18includeSupplementsACvpZ",
+            "moduleName": "PRAPI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CatalogSectionSchemeOption",
+                    "printedName": "PRAPI.CatalogSectionSchemeOption",
+                    "usr": "c:@M@PRAPI@objc(cs)CatalogSectionSchemeOption"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRAPI@objc(cs)CatalogSectionSchemeOption(cm)includeSupplements",
+                "mangledName": "$s5PRAPI26CatalogSectionSchemeOptionC18includeSupplementsACvgZ",
+                "moduleName": "PRAPI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "rawValue",
             "printedName": "rawValue",
             "children": [
@@ -99296,6 +99679,249 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "PRDeliveryQueueClient",
+        "printedName": "PRDeliveryQueueClient",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "postRequest",
+            "printedName": "postRequest(_:accountItem:xmlFragment:responseFields:options:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SPNode",
+                "printedName": "PRUtils.SPNode",
+                "usr": "c:objc(cs)SPNode"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRAccountItem",
+                "printedName": "PRAPI.PRAccountItem",
+                "usr": "c:objc(cs)PRAccountItem"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSMutableDictionary",
+                "printedName": "Foundation.NSMutableDictionary",
+                "usr": "c:objc(cs)NSMutableDictionary"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[PRAPI.PRServiceRequestOption : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRServiceRequestOption",
+                    "printedName": "PRAPI.PRServiceRequestOption",
+                    "usr": "c:PRService_Constants.h@T@PRServiceRequestOption"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So21PRDeliveryQueueClientC5PRAPIE11postRequest_11accountItem11xmlFragment14responseFields7optionsSo6SPNodeCSS_So09PRAccountH0CSSSo19NSMutableDictionaryCSDySo09PRServiceF6OptionaypGtYaKF",
+            "mangledName": "$sSo21PRDeliveryQueueClientC5PRAPIE11postRequest_11accountItem11xmlFragment14responseFields7optionsSo6SPNodeCSS_So09PRAccountH0CSSSo19NSMutableDictionaryCSDySo09PRServiceF6OptionaypGtYaKF",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getPath",
+            "printedName": "getPath(_:parameters:requestType:responseFields:options:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRUtils.SPNode?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SPNode",
+                    "printedName": "PRUtils.SPNode",
+                    "usr": "c:objc(cs)SPNode"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSMutableDictionary",
+                "printedName": "Foundation.NSMutableDictionary",
+                "usr": "c:objc(cs)NSMutableDictionary"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[PRAPI.PRServiceRequestOption : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PRServiceRequestOption",
+                    "printedName": "PRAPI.PRServiceRequestOption",
+                    "usr": "c:PRService_Constants.h@T@PRServiceRequestOption"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So21PRDeliveryQueueClientC5PRAPIE7getPath_10parameters11requestType14responseFields7optionsSo6SPNodeCSgSS_SDySSypGSSSo19NSMutableDictionaryCSDySo22PRServiceRequestOptionaypGtYaKF",
+            "mangledName": "$sSo21PRDeliveryQueueClientC5PRAPIE7getPath_10parameters11requestType14responseFields7optionsSo6SPNodeCSgSS_SDySSypGSSSo19NSMutableDictionaryCSDySo22PRServiceRequestOptionaypGtYaKF",
+            "moduleName": "PRAPI",
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)PRDeliveryQueueClient",
+        "moduleName": "PRAPI",
+        "isOpen": true,
+        "objc_name": "PRDeliveryQueueClient",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)PRServiceClient",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "PRAPI.PRServiceClient",
+          "NetworkingKit.AFHTTPClient",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "UIAlertController",
         "printedName": "UIAlertController",
         "children": [
@@ -102785,6 +103411,231 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Method",
+            "printedName": "Method",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "getHotspotStatus",
+                "printedName": "getHotspotStatus",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRAPI.PRAccountItem.Method.Type) -> PRAPI.PRAccountItem.Method",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Method",
+                        "printedName": "PRAPI.PRAccountItem.Method",
+                        "usr": "s:So13PRAccountItemC5PRAPIE6MethodO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRAPI.PRAccountItem.Method.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Method",
+                            "printedName": "PRAPI.PRAccountItem.Method",
+                            "usr": "s:So13PRAccountItemC5PRAPIE6MethodO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So13PRAccountItemC5PRAPIE6MethodO16getHotspotStatusyA2EmF",
+                "mangledName": "$sSo13PRAccountItemC5PRAPIE6MethodO16getHotspotStatusyA2EmF",
+                "moduleName": "PRAPI"
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PRAPI.PRAccountItem.Method?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Method",
+                        "printedName": "PRAPI.PRAccountItem.Method",
+                        "usr": "s:So13PRAccountItemC5PRAPIE6MethodO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:So13PRAccountItemC5PRAPIE6MethodO8rawValueAESgSS_tcfc",
+                "mangledName": "$sSo13PRAccountItemC5PRAPIE6MethodO8rawValueAESgSS_tcfc",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "rawValue",
+                "printedName": "rawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:So13PRAccountItemC5PRAPIE6MethodO8rawValueSSvp",
+                "mangledName": "$sSo13PRAccountItemC5PRAPIE6MethodO8rawValueSSvp",
+                "moduleName": "PRAPI",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:So13PRAccountItemC5PRAPIE6MethodO8rawValueSSvg",
+                    "mangledName": "$sSo13PRAccountItemC5PRAPIE6MethodO8rawValueSSvg",
+                    "moduleName": "PRAPI",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:So13PRAccountItemC5PRAPIE6MethodO",
+            "mangledName": "$sSo13PRAccountItemC5PRAPIE6MethodO",
+            "moduleName": "PRAPI",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "enumRawTypeName": "String",
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "RawRepresentable",
+                "printedName": "RawRepresentable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "RawValue",
+                    "printedName": "RawValue",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:SY",
+                "mangledName": "$sSY"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "requestHotSpotStatus",
+            "printedName": "requestHotSpotStatus(hotSpotId:forced:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRAPI@@objc(cs)PRAccountItem(im)requestHotSpotStatusWithHotSpotId:forced:completionHandler:",
+            "mangledName": "$sSo13PRAccountItemC5PRAPIE20requestHotSpotStatus03hotF2Id6forcedSdSSSg_SbtYaKF",
+            "moduleName": "PRAPI",
+            "objc_name": "requestHotSpotStatusWithHotSpotId:forced:completionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "Custom",
+              "DiscardableResult",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -112935,6 +113786,85 @@
                 "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE13itemToExcludeSo0A4Item_pSgvs",
                 "moduleName": "PRAPI",
                 "objc_name": "setItemToExclude:",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "includeSupplements",
+            "printedName": "includeSupplements",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)CatalogEntity(py)includeSupplements",
+            "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE18includeSupplementsSbvp",
+            "moduleName": "PRAPI",
+            "objc_name": "includeSupplements",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)CatalogEntity(im)includeSupplements",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE18includeSupplementsSbvg",
+                "moduleName": "PRAPI",
+                "objc_name": "includeSupplements",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRAPI@PRCatalogModel@objc(cs)CatalogEntity(im)setIncludeSupplements:",
+                "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE18includeSupplementsSbvs",
+                "moduleName": "PRAPI",
+                "objc_name": "setIncludeSupplements:",
                 "declAttributes": [
                   "Dynamic",
                   "ObjC"
@@ -132642,42 +133572,42 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sponsorship\/PartnerBanner.swift",
       "kind": "StringLiteral",
-      "offset": 495,
+      "offset": 683,
       "length": 6,
       "value": "\"Logo\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sponsorship\/PartnerBanner.swift",
       "kind": "StringLiteral",
-      "offset": 522,
+      "offset": 710,
       "length": 12,
       "value": "\"BannerText\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sponsorship\/PartnerBanner.swift",
       "kind": "StringLiteral",
-      "offset": 556,
+      "offset": 744,
       "length": 7,
       "value": "\"Style\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sponsorship\/PartnerBanner.swift",
       "kind": "StringLiteral",
-      "offset": 654,
+      "offset": 842,
       "length": 15,
       "value": "\"PartnerBanner\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sponsorship\/PartnerBanner.swift",
       "kind": "StringLiteral",
-      "offset": 770,
+      "offset": 958,
       "length": 12,
       "value": "\"Background\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/Sponsorship\/PartnerBanner.swift",
       "kind": "StringLiteral",
-      "offset": 808,
+      "offset": 996,
       "length": 11,
       "value": "\"TextColor\""
     },
@@ -132984,78 +133914,85 @@
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
+      "kind": "StringLiteral",
+      "offset": 686,
+      "length": 30,
+      "value": "\"expired-sponsorship-provider\""
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "BooleanLiteral",
-      "offset": 805,
+      "offset": 940,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "BooleanLiteral",
-      "offset": 1221,
+      "offset": 1356,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "StringLiteral",
-      "offset": 1286,
+      "offset": 1421,
       "length": 22,
       "value": "\"notification-enabled\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "BooleanLiteral",
-      "offset": 1313,
+      "offset": 1448,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "BooleanLiteral",
-      "offset": 1753,
+      "offset": 1888,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "StringLiteral",
-      "offset": 1795,
+      "offset": 1930,
       "length": 17,
       "value": "\"hotzone-enabled\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "BooleanLiteral",
-      "offset": 1817,
+      "offset": 1952,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "StringLiteral",
-      "offset": 1911,
+      "offset": 2046,
       "length": 21,
       "value": "\"hotzone-geofence-id\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "StringLiteral",
-      "offset": 2018,
+      "offset": 2153,
       "length": 18,
       "value": "\"hotzone-industry\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "StringLiteral",
-      "offset": 2118,
+      "offset": 2253,
       "length": 14,
       "value": "\"hotzone-name\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/PRAccount\/PRAccountItem+Sponsorship.swift",
       "kind": "BooleanLiteral",
-      "offset": 2742,
+      "offset": 2877,
       "length": 4,
       "value": "true"
     },
@@ -133487,6 +134424,13 @@
       "value": "\"\""
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/_services\/PRAccountItem+Service.swift",
+      "kind": "StringLiteral",
+      "offset": 353,
+      "length": 20,
+      "value": "\"get-hotspot-status\""
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Catalog\/Filters\/PRCountableValue+CatalogNavigationVariant.swift",
       "kind": "StringLiteral",
       "offset": 338,
@@ -133552,9 +134496,23 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/CatalogItemDataSource.swift",
       "kind": "IntegerLiteral",
-      "offset": 773,
+      "offset": 823,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/CatalogItemDataSource.swift",
+      "kind": "Array",
+      "offset": 1304,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/DataSource\/CatalogItemDataSource.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1538,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ManagedObjects\/PressCatalog\/Books\/Book+Load.swift",
@@ -135314,6 +136272,20 @@
       "value": "7"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSectionSchemeOption.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1031,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Business\/Scheme\/CatalogSectionSchemeOption.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1036,
+      "length": 1,
+      "value": "8"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ManagedObjects\/PressCatalog\/Books\/Book+LibraryItem.swift",
       "kind": "BooleanLiteral",
       "offset": 290,
@@ -136037,7 +137009,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ManagedObjects\/PressCatalog\/CatalogEntity\/CatalogEntity+CatalogItemDataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 768,
+      "offset": 838,
       "length": 4,
       "value": "true"
     },

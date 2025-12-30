@@ -815,6 +815,8 @@ SWIFT_CLASS("_TtC4PRUI21CatalogSchemeProvider")
 @interface CatalogSchemeProvider : PRSchemeProvider
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull publications;)
 + (CatalogSchemeProvider * _Nonnull)publications SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull uncategorisedPublications;)
++ (CatalogSchemeProvider * _Nonnull)uncategorisedPublications SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home;)
 + (CatalogSchemeProvider * _Nonnull)home SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home2;)
@@ -1993,6 +1995,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 - (PRCatalogSection * _Nullable)topNewspapersSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (PRCatalogSection * _Nullable)topMagazinesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (PRCatalogSection * _Nullable)partnerBannerSection SWIFT_WARN_UNUSED_RESULT;
+- (PRCatalogSection * _Nonnull)allTitlesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<PRCatalogSection *> * _Nullable)categorySectionsWithScheme:(CatalogSectionScheme * _Nonnull)scheme startIndex:(NSInteger)startIndex SWIFT_WARN_UNUSED_RESULT;
 - (PRCatalogSection * _Nullable)linkedServiceSectionWithService:(PRAccountItem * _Nonnull)service scheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<id <PRCatalogItem>> * _Nullable)favoritesWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;
@@ -3661,6 +3664,8 @@ SWIFT_CLASS("_TtC4PRUI21CatalogSchemeProvider")
 @interface CatalogSchemeProvider : PRSchemeProvider
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull publications;)
 + (CatalogSchemeProvider * _Nonnull)publications SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull uncategorisedPublications;)
++ (CatalogSchemeProvider * _Nonnull)uncategorisedPublications SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home;)
 + (CatalogSchemeProvider * _Nonnull)home SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSchemeProvider * _Nonnull home2;)
@@ -4839,6 +4844,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat partnerBanne
 - (PRCatalogSection * _Nullable)topNewspapersSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (PRCatalogSection * _Nullable)topMagazinesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (PRCatalogSection * _Nullable)partnerBannerSection SWIFT_WARN_UNUSED_RESULT;
+- (PRCatalogSection * _Nonnull)allTitlesSectionWithScheme:(CatalogSectionScheme * _Nonnull)scheme index:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<PRCatalogSection *> * _Nullable)categorySectionsWithScheme:(CatalogSectionScheme * _Nonnull)scheme startIndex:(NSInteger)startIndex SWIFT_WARN_UNUSED_RESULT;
 - (PRCatalogSection * _Nullable)linkedServiceSectionWithService:(PRAccountItem * _Nonnull)service scheme:(CatalogSectionScheme * _Nonnull)scheme SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<id <PRCatalogItem>> * _Nullable)favoritesWithOrder:(PRCatalogSortingOrder)order SWIFT_WARN_UNUSED_RESULT;

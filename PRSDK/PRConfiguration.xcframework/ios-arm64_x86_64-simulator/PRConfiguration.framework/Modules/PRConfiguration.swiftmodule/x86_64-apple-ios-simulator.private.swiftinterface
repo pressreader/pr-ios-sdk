@@ -954,6 +954,7 @@ extension PRConfiguration.PRConfig {
 extension PRConfiguration.PRConfig {
   public static func bool(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Bool) -> Swift.Bool
   public static func set(_ value: Swift.Bool, forKey: PRConfiguration.PRConfigKey)
+  public static func resolvedBool(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Bool) -> Swift.Bool
   public static func value(forKey key: PRConfiguration.PRConfigKey, defaultValue: Any? = nil) -> Any?
   public static func integer(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Int) -> Swift.Int
   public static func set(_ value: Swift.Int, forKey key: PRConfiguration.PRConfigKey)

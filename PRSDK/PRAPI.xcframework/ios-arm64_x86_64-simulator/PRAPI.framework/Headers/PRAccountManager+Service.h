@@ -84,12 +84,12 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
                failure:(void (^)(NSError *error))failureBlock;
 
 - (void)sendDownloadCompletedRequest:(NSString *)accountName;
-- (void)requestHotZoneStatus;
-- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem;
-- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
+- (void)requestHotSpotStatus;
+- (void)requestHotSpotStatusForAccount:(PRAccountItem *)accountItem;
+- (void)requestHotSpotStatusForAccount:(PRAccountItem *)accountItem
                                 forced:(BOOL)forced
                             completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
-- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
+- (void)requestHotSpotStatusForAccount:(PRAccountItem *)accountItem
                              hotSpotId:(nullable NSString *)hotSpotId
                                 forced:(BOOL)forced
                             completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;

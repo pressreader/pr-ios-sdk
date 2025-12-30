@@ -108,6 +108,9 @@ public actor ArrayActor<T> {
     get
   }
 }
+extension ObjectiveC.NSObject {
+  @objc(unsubscribeFromNotification:) dynamic public func unsubscribe(notification: Foundation.NSNotification)
+}
 extension Foundation.Data {
   public func inflated() -> Foundation.Data?
 }
@@ -154,9 +157,6 @@ extension Swift.Dictionary where Key : Swift.RawRepresentable, Key.RawValue : Sw
     @objc get
   }
   @objc dynamic public func character(at index: Swift.Int) -> Swift.String?
-}
-extension ObjectiveC.NSObject {
-  @objc(unsubscribeFromNotification:) dynamic public func unsubscribe(notification: Foundation.NSNotification)
 }
 public protocol DefaultLocalizedError : Foundation.LocalizedError {
 }

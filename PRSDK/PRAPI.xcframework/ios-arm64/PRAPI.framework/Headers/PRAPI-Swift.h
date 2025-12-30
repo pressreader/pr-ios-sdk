@@ -686,6 +686,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI18LoadableDataSource_")
 SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @protocol CatalogItemDataSourceProtocol <LoadableDataSource, SectionalDataSource, SilentDataLoader>
 @property (nonatomic, readonly, copy) NSArray<NSArray<id <PRCatalogItem>> *> * _Nonnull dataProvider;
+@property (nonatomic) BOOL includeSupplements;
 @property (nonatomic, strong) id <PRCatalogItem> _Nullable itemToExclude;
 - (PRLayoutType)layoutTypeFor:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)showDatesOnlyFor:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -694,6 +695,7 @@ SWIFT_PROTOCOL("_TtP5PRAPI29CatalogItemDataSourceProtocol_")
 @interface CatalogEntity (SWIFT_EXTENSION(PRAPI)) <CatalogItemDataSourceProtocol>
 @property (nonatomic, readonly, copy) NSArray<NSArray<id <PRCatalogItem>> *> * _Nonnull dataProvider;
 @property (nonatomic, strong) id <PRCatalogItem> _Nullable itemToExclude;
+@property (nonatomic) BOOL includeSupplements;
 - (PRLayoutType)layoutTypeFor:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)showDatesOnlyFor:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) NSError * _Nullable loadingError;
@@ -922,6 +924,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSecti
 + (CatalogSectionSchemeOption * _Nonnull)promoteLocals SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSectionSchemeOption * _Nonnull openReader;)
 + (CatalogSectionSchemeOption * _Nonnull)openReader SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CatalogSectionSchemeOption * _Nonnull includeSupplements;)
++ (CatalogSectionSchemeOption * _Nonnull)includeSupplements SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) NSInteger rawValue;
 @property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
@@ -1396,18 +1400,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _N
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
-+ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface NSNotification (SWIFT_EXTENSION(PRAPI))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull translationPairsUpdated;)
-+ (NSNotificationName _Nonnull)translationPairsUpdated SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface NSNotification (SWIFT_EXTENSION(PRAPI))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull hotSpotStatusUpdated;)
 + (NSNotificationName _Nonnull)hotSpotStatusUpdated SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSNotification (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull catalogPreloaded;)
++ (NSNotificationName _Nonnull)catalogPreloaded SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
@@ -1415,6 +1414,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 /// userInfo: [String: BookLicenseUpdateStatus]
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull bookLicensesUpdated;)
 + (NSNotificationName _Nonnull)bookLicensesUpdated SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSNotification (SWIFT_EXTENSION(PRAPI))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull translationPairsUpdated;)
++ (NSNotificationName _Nonnull)translationPairsUpdated SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NSNotification (SWIFT_EXTENSION(PRAPI))
@@ -1438,6 +1442,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 
 SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
+@property (nonatomic, readonly) BOOL isEligibleBrazeEntity;
+@end
+
+SWIFT_UNAVAILABLE
+@interface NSObject (SWIFT_EXTENSION(PRAPI))
 - (void)_startServiceReachabilityObservation;
 - (void)_stopServiceReachabilityObservation;
 @end
@@ -1445,11 +1454,6 @@ SWIFT_UNAVAILABLE
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
 - (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object;
 - (void)observeLibraryNotificationsWithSelector:(SEL _Nonnull)selector object:(id <LibraryItemProtocol> _Nullable)object observe:(BOOL)observe;
-@end
-
-SWIFT_UNAVAILABLE
-@interface NSObject (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isEligibleBrazeEntity;
 @end
 
 @interface NSObject (SWIFT_EXTENSION(PRAPI))
@@ -1600,6 +1604,10 @@ SWIFT_PROTOCOL("_TtP5PRAPI20PDVAnalyticsProvider_")
 @interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
 - (NSArray<PRSubscriptionBundle *> * _Nullable)activeSubscriptionBundles SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<PRUserBundle *> * _Nonnull)inferiorActiveBundlesWithProductId:(NSString * _Nonnull)productId SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface PRAccountItem (SWIFT_EXTENSION(PRAPI))
+- (void)requestHotSpotStatusWithHotSpotId:(NSString * _Nullable)hotSpotId forced:(BOOL)forced completionHandler:(void (^ _Nonnull)(double, NSError * _Nullable))completionHandler;
 @end
 
 @class Sponsorship;
@@ -1873,11 +1881,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL deleteContent;)
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSString * _Nullable languageRegionCode;
+@property (nonatomic, readonly) BOOL isExpired;
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly) BOOL isExpired;
+@property (nonatomic, readonly, copy) NSString * _Nullable languageRegionCode;
 @end
 
 @interface PRMyLibraryItem (SWIFT_EXTENSION(PRAPI)) <PROpenableItem>
@@ -2046,13 +2054,13 @@ typedef SWIFT_ENUM_NAMED(NSInteger, PRSponsorshipManagerServiceMethod, "Method",
   PRSponsorshipManagerServiceMethodGetNotificationTitles = 6,
 };
 
+@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
+- (void)requestGoogleAdsConfig:(void (^ _Nonnull)(SPNode * _Nullable, NSError * _Nullable))completion;
+@end
+
 SWIFT_UNAVAILABLE
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
 - (void)updateInSpotlight:(NSArray<id <PRCatalogItem>> * _Nonnull)items;
-@end
-
-@interface PRSubscription (SWIFT_EXTENSION(PRAPI))
-- (void)requestGoogleAdsConfig:(void (^ _Nonnull)(SPNode * _Nullable, NSError * _Nullable))completion;
 @end
 
 @interface PRSubscription (SWIFT_EXTENSION(PRAPI))
@@ -2307,11 +2315,11 @@ SWIFT_CLASS("_TtC5PRAPI17SearchHistoryItem")
 @end
 
 @interface Section (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nullable presentedItems;
+@property (nonatomic, readonly, copy) NSString * _Nullable localizedName;
 @end
 
 @interface Section (SWIFT_EXTENSION(PRAPI))
-@property (nonatomic, readonly, copy) NSString * _Nullable localizedName;
+@property (nonatomic, readonly, copy) NSArray<id <PRCatalogItem>> * _Nullable presentedItems;
 @end
 
 SWIFT_PROTOCOL("_TtP5PRAPI27ServiceReachabilityObserver_")
@@ -2327,6 +2335,7 @@ SWIFT_CLASS("_TtC5PRAPI11Sponsorship")
 @interface Sponsorship : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nullable hotSpotId;
 @property (nonatomic, readonly, copy) NSString * _Nullable expiredHotSpotId;
+@property (nonatomic, readonly, copy) NSString * _Nullable expiredHotSpotProvider;
 @property (nonatomic, readonly) BOOL isAvailable;
 @property (nonatomic, readonly) BOOL expirationNotificationEnabled;
 @property (nonatomic, readonly) BOOL isReconnectAvailable;

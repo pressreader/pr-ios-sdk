@@ -14,6 +14,7 @@ import CoreLocation
 import CoreSpotlight
 import Foundation
 import GCDWebServers
+import OpenIDFA
 @_exported import PRAPI
 import PRAlertKit
 import PRAnalytics
@@ -367,6 +368,9 @@ public struct PartnerBanner {
   public let textColor: UIKit.UIColor
   public let background: PRAPI.Background
 }
+extension PRAPI.PartnerBanner : Swift.Equatable {
+  public static func == (lhs: PRAPI.PartnerBanner, rhs: PRAPI.PartnerBanner) -> Swift.Bool
+}
 extension PRAPI.PartnerBanner : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
@@ -600,6 +604,10 @@ extension PRAPI.PRAccountManager {
   @objc override dynamic public init()
   @objc deinit
 }
+extension PRAPI.PRDeliveryQueueClient {
+  public func postRequest(_ request: Swift.String, accountItem: PRAPI.PRAccountItem, xmlFragment: Swift.String, responseFields: Foundation.NSMutableDictionary, options: [PRAPI.PRServiceRequestOption : Any]) async throws -> PRUtils.SPNode
+  public func getPath(_ path: Swift.String, parameters: [Swift.String : Any], requestType: Swift.String, responseFields: Foundation.NSMutableDictionary, options: [PRAPI.PRServiceRequestOption : Any]) async throws -> PRUtils.SPNode?
+}
 extension UIKit.UIAlertController {
   @objc @_Concurrency.MainActor @preconcurrency public static func showNetworkNotReachableAlert()
   @_Concurrency.MainActor @preconcurrency public static func showNoResultAlert()
@@ -756,6 +764,9 @@ extension PRAPI.PRSocialSignInManager {
     @objc get
   }
   @objc final public var expiredHotSpotId: Swift.String? {
+    @objc get
+  }
+  @objc final public var expiredHotSpotProvider: Swift.String? {
     @objc get
   }
   @objc final public var isAvailable: Swift.Bool {
@@ -1201,6 +1212,18 @@ extension PRAPI.PRSourceList : PRAPI.CatalogFacade {
   @objc override dynamic public init()
   @objc deinit
 }
+extension PRAPI.PRAccountItem {
+  public enum Method : Swift.String {
+    case getHotspotStatus
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  @discardableResult
+  @objc @_Concurrency.MainActor dynamic public func requestHotSpotStatus(hotSpotId: Swift.String?, forced: Swift.Bool) async throws -> Foundation.TimeInterval
+}
 @objc public protocol NTFActionConfig {
   @objc var generalActionConfig: [Swift.AnyHashable : Any] { get }
   @objc var articleActionConfig: [Swift.AnyHashable : Any] { get }
@@ -1369,6 +1392,7 @@ extension PRAPI.SearchAnalyticsProvider {
 }
 @objc public protocol CatalogItemDataSourceProtocol : PRAPI.LoadableDataSource, PRAPI.SectionalDataSource, PRAPI.SilentDataLoader {
   @objc var dataProvider: [[any PRAPI.PRCatalogItem]] { get }
+  @objc var includeSupplements: Swift.Bool { get set }
   @objc var itemToExclude: (any PRAPI.PRCatalogItem)? { get set }
   @objc func layoutType(for section: Swift.Int) -> PRAPI.PRLayoutType
   @objc func showDatesOnly(for section: Swift.Int) -> Swift.Bool
@@ -1377,6 +1401,7 @@ extension PRAPI.SearchAnalyticsProvider {
   @objc public var dataProvider: [[any PRAPI.PRCatalogItem]] {
     @objc get
   }
+  @objc open var includeSupplements: Swift.Bool
   @objc open var itemToExclude: (any PRAPI.PRCatalogItem)?
   @objc override open var isEmpty: Swift.Bool {
     @objc get
@@ -3914,6 +3939,7 @@ extension PRAPI.PRSubscription {
   @objc public static let formFromFavorites: PRAPI.CatalogSectionSchemeOption
   @objc public static let promoteLocals: PRAPI.CatalogSectionSchemeOption
   @objc public static let openReader: PRAPI.CatalogSectionSchemeOption
+  @objc public static let includeSupplements: PRAPI.CatalogSectionSchemeOption
   @objc final public let rawValue: Swift.Int
   @objc override dynamic public var hash: Swift.Int {
     @objc get
@@ -4446,6 +4472,10 @@ extension PRCatalogModel.CatalogEntity : PRAPI.CatalogItemDataSourceProtocol, PR
     @objc get
     @objc set
   }
+  @objc dynamic public var includeSupplements: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc dynamic public func layoutType(for section: Swift.Int) -> PRAPI.PRLayoutType
   @objc dynamic public func showDatesOnly(for section: Swift.Int) -> Swift.Bool
   @objc dynamic public var loadingError: (any Swift.Error)? {
@@ -4766,6 +4796,9 @@ extension PRAPI.PRAccountManager.AuthError : Swift.Equatable {}
 extension PRAPI.PRAccountManager.AuthError : Swift.Hashable {}
 extension PRAPI.NTFDataService.DataServiceError : Swift.Equatable {}
 extension PRAPI.NTFDataService.DataServiceError : Swift.Hashable {}
+extension PRAPI.PRAccountItem.Method : Swift.Equatable {}
+extension PRAPI.PRAccountItem.Method : Swift.Hashable {}
+extension PRAPI.PRAccountItem.Method : Swift.RawRepresentable {}
 extension PRAPI.BookSubservice : Swift.Sendable {}
 extension PRAPI.ObservableModelError : Swift.Equatable {}
 extension PRAPI.ObservableModelError : Swift.Hashable {}

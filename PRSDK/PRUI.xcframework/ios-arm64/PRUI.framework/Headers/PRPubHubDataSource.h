@@ -59,6 +59,8 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 @property (nonatomic, readonly) BOOL isReady;
 @property (nonatomic, readonly) BOOL isValid;
 
+@property (nonatomic, strong, readonly) CatalogSchemeProvider *schemeProvider;
+
 @end
 
 @interface PRPubHubDataSource (/*PROTECTED*/) <DataSourceObserver>
@@ -90,7 +92,6 @@ NS_SWIFT_NAME(dataSection(scheme:title:dataSource:));
     
 - (void)subscribeToNotifications;
 
-@property (nonatomic, strong) CatalogSchemeProvider *schemeProvider;
 @property (nullable, nonatomic, strong) PRBannerProvider *bannerProvider;
 
 @property (nullable, nonatomic, strong) AdBannerPresentation *topScrollableAdBanner;
