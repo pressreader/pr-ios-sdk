@@ -242,8 +242,7 @@ extension UIKit.UIViewController {
   @objc(topMostFullScreenController) @_Concurrency.MainActor @preconcurrency final public var topMostFullScreen: UIKit.UIViewController {
     @objc get
   }
-  @_Concurrency.MainActor @preconcurrency public func topMost<T>(ignoreAlerts: Swift.Bool = false) -> T? where T : UIKit.UIViewController
-  @objc @_Concurrency.MainActor @preconcurrency dynamic open func topMost(fullScreen: Swift.Bool) -> UIKit.UIViewController
+  @objc @_Concurrency.MainActor @preconcurrency dynamic open func topMost(fullScreen: Swift.Bool = false, ignoreAlerts: Swift.Bool = false) -> UIKit.UIViewController
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func dismiss(keepTopAlert: Swift.Bool, animated: Swift.Bool = true, completion: (() -> ())? = nil)
 }
 extension UIKit.UIView : @retroactive Swift.Identifiable {
@@ -553,7 +552,7 @@ extension UIKit.UITableViewCell {
 @objc extension PRUIKit.PRActivityVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility()
 }
-@objc extension MBProgressHUD.MBProgressHUD {
+@objc extension MBProgressHUD {
   @objc @_Concurrency.MainActor @preconcurrency public static func showLoading() -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func showLoading(graceTime: Foundation.TimeInterval) -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func showKeyWindowHud(title: Swift.String?, message: Swift.String?, animated: Swift.Bool) -> Self

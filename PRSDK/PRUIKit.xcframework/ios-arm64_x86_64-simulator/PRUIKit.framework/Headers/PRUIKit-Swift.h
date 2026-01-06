@@ -1351,7 +1351,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostController;
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostFullScreenController;
-- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen ignoreAlerts:(BOOL)ignoreAlerts SWIFT_WARN_UNUSED_RESULT;
 - (void)dismissWithKeepTopAlert:(BOOL)keepTopAlert animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
 @end
 
@@ -2751,7 +2751,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) CGFloat scaleCoeffic
 @interface UIViewController (SWIFT_EXTENSION(PRUIKit))
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostController;
 @property (nonatomic, readonly, strong) UIViewController * _Nonnull topMostFullScreenController;
-- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen ignoreAlerts:(BOOL)ignoreAlerts SWIFT_WARN_UNUSED_RESULT;
 - (void)dismissWithKeepTopAlert:(BOOL)keepTopAlert animated:(BOOL)animated completion:(void (^ _Nullable)(void))completion;
 @end
 

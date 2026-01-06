@@ -2306,7 +2306,7 @@ extension PRUI.PRCommentComposeVC : PRUIKit.NavigationBarAppearanceProvider {
 }
 extension PRUI.PRMainVC {
   @objc @_Concurrency.MainActor @preconcurrency weak public static var currentInstance: PRUI.PRMainVC?
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func topMost(fullScreen: Swift.Bool) -> UIKit.UIViewController
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func topMost(fullScreen: Swift.Bool = false, ignoreAlerts: Swift.Bool = false) -> UIKit.UIViewController
 }
 @objc extension UIKit.UIApplication {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var mainVC: PRUI.PRMainVC? {

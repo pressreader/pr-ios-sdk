@@ -1829,7 +1829,7 @@ SWIFT_CLASS("_TtC4PRUI13PRIssuesGroup")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, weak) PRMainVC * _Nullable currentInstance;)
 + (PRMainVC * _Nullable)currentInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setCurrentInstance:(PRMainVC * _Nullable)value;
-- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nonnull)topMostWithFullScreen:(BOOL)fullScreen ignoreAlerts:(BOOL)ignoreAlerts SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class PRMenuVC;
