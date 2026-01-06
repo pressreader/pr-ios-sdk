@@ -49,7 +49,7 @@ final class IssueCell: UITableViewCell {
         let button = UIButton(type: .system)
         
         button.addHandler(forEvent: .touchUpInside) { [weak self] in
-            guard let self = self,
+            guard let self,
                   let issue = self.issue
             else { return }
             

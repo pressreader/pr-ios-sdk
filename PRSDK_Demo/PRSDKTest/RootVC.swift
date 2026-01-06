@@ -138,8 +138,13 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     }
 
     private func issueCell(_ tableView: UITableView, indexPath: IndexPath) -> IssueCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: .sdkTest.cells.issue, for: indexPath
+        ) as! IssueCell
         
-        tableView.dequeueReusableCell(withIdentifier: .sdkTest.cells.issue, for: indexPath) as! IssueCell
+        cell.delegate = self
+        
+        return cell
     }
         
     private func configureAuthTextField(cell: TextFieldCell,
@@ -404,7 +409,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case .catalog:
             let _cell = self.issueCell(tableView, indexPath: indexPath)
             _cell.issue = model.catalogItem(at: indexPath.row)
-            _cell.delegate = self
 
             cell = _cell
 
