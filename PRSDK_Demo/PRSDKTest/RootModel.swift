@@ -10,7 +10,7 @@ import Foundation
 import PRUI
 import PRAlertKit
 import MBProgressHUD
-
+import PRUtils
 
 protocol Reloadable {
     func reloadData()
@@ -189,7 +189,9 @@ final class RootModel {
     // MARK: - Public Methods
         
     func catalogItem(at index: Int) -> TitleItem? {
-        self.catalog?.item(cid: self.cids[index], date: nil)
+        self.cids.safeObject(at: index).flatMap {
+            self.catalog?.item(cid: $0, date: nil)
+        }
     }
 
     func downloadedItem(at index: Int) -> TitleItem? {
