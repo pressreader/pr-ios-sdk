@@ -153,7 +153,7 @@ final class RootModel {
     }
 
     private var cids: [String] {
-        // Never rely on `catalog.sources` property in your implementation.
+        // Don't rely on `catalog.loadedPublications` in your implementation.
         // It's used only for demonstration and a subject to change.
         // Instead obtain `cids` using provided PressReader Public API.
         self.catalog?.loadedPublications()?.prefix(20).map { $0.cid } ?? []
