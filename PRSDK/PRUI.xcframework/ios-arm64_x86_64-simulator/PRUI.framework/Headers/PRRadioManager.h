@@ -6,14 +6,13 @@
 //  Copyright © 2015 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol NTFArticle, PRRadioDataSource;
-@class PRSourceItem;
 @class PRSmartArticle;
-@class PRMyLibraryItem;
+@class PRMyLibraryItem, PRTitleItemExemplar;
 
 @protocol PRRadioManagerDelegate <NSObject>
 
@@ -34,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRRadioManager : NSObject
 
-- (instancetype)initWithSourceItem:(PRSourceItem *)sourceItem;
+- (instancetype)initWithSourceItem:(PRTitleItemExemplar *)sourceItem;
 - (instancetype)initWithDataSource:(id<PRRadioDataSource>)dataSource;
 
 /// must be called before releasing manager to finish remote command's observation
@@ -66,13 +65,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playInDirection:(CGSize)direction;
 
 @property (nullable, nonatomic, weak) id<PRRadioManagerDelegate> delegate;
-@property (nonatomic, strong) id<PRRadioDataSource> dataSource;
+@property (nullable, nonatomic, strong) id<PRRadioDataSource> dataSource;
 @property (nonatomic, strong) id<NTFArticle> beginningArticle;
 @property (nonatomic, strong) NSString *beginningArticleUid;
 
 /// `sourceItem` is nil if the class was initialized with `dataSource`
-@property (nullable, nonatomic, strong) PRSourceItem *sourceItem;
-@property (nullable, nonatomic, readonly) PRMyLibraryItem *libraryItem;
+@property (nullable, nonatomic, strong) PRTitleItemExemplar *sourceItem;
 
 @property (nonatomic, readonly) BOOL isPlaying;
 @property (nonatomic, readonly) BOOL isStreamingPlaying;
@@ -83,7 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSArray *currentSectionArticles;
 @property (nonatomic, readonly) NSDictionary *currentArticle;
 @property (nonatomic, readonly) NSString *currentArticleUid;
-@property (nonatomic, readonly) NSString *currentLanguageISO;
 @property (nonatomic, readonly) NSArray *sections;
 @property (nonatomic, readonly) NSArray *pages;
 @property (nonatomic, readonly) NSString *pageImageBaseUrl;
@@ -95,6 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSUInteger numberOfFreeArticlesToListen;
 @property (nonatomic, readonly) NSTimeInterval freePlayDuration;
+@property (nullable, nonatomic, readonly) PRSmartArticle *currentMLISmartArticle;
 
 @end
 

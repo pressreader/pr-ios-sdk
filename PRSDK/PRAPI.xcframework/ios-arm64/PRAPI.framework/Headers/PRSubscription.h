@@ -6,6 +6,7 @@
 //  Copyright 2008 NewspaperDirect. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 @import PRUtils.PRNotification;
 
 #import <PRAPI/PRSubscriptionCatalogProtocol.h>
@@ -15,15 +16,16 @@
 @class PRTitleItemExemplar;
 @class PRSourceItem;
 @class PRPromise;
+@class PRSubscriptionItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PRSubscriptionUpdatedNotification;
-extern NSNotificationName const PRSubscriptionLatestReadExemplarsUpdatedNotification;
 extern NSNotificationName const PRSubscriptionSourcesStatusChangedNotification;
 extern NSNotificationName const PRTitlesDidLoadNotification;
 extern NSNotificationName const PRSubscriptionFavouritesDidUpdate;
 extern NSNotificationName const PRSubscriptionIssuesOrderCompleted;
+extern NSNotificationName const PRSubscriptionReadingStatisticsUpdated;
 
 extern NSNotificationName const PRUserPostUpdatedNotification;
 extern NSNotificationName const PRUserPostDeletedNotification;
@@ -60,14 +62,10 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
     NSMutableDictionary<NSString *, PRTitleItem *> *allTitles;
     dispatch_queue_t        _allTitlesAccessQ;
     
-    NSMutableDictionary    *subscribed;
     BOOL                   subscribedUpdated;
     
     NSDateFormatter        *latestAvDateFormatter;
     NSDateFormatter        *activationTimeFormatter;
-    
-    // cids available for download for current subscription
-    NSMutableArray<NSString *> *accessibleCids;
     
     NSArray<PRTitleItem *> *m_titlesSortedByParentName;
     NSMutableDictionary    *onProcessBackgroundResponseActions;
@@ -279,9 +277,10 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
                                                               NSError * _Nullable error))completionBlock;
 
 - (void)titlesDidLoad:(nullable NSDictionary *)userInfo;
-- (void)updateRadioInfoForTitleItem:(PRTitleItem *)titleItem
-                               date:(NSDate *)date
-                       onCompletion:(void(^ _Nullable)(BOOL success))completionBlock;
+
+- (void)updateRadioInfoForItem:(PRTitleItemExemplar *)item
+             completionHandler:(void(^ _Nullable)(BOOL success))completionHandler;
+
 - (void)resetCaches;
 - (void)unlinkTitles;
 - (void)updateCatalog;
@@ -291,19 +290,17 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
 - (void)setNeedsUpdatePressCatalog;
 - (void)updateCatalogAfterDelay:(NSTimeInterval)delay;
 - (void)updateCustomCatalog:(void(^ _Nullable)(BOOL))completion;
-- (void)updateTitlesSpotlight;
 - (void)updateAll;
-- (void)updateLatestReadExemplars;
 - (void)updateLatestAvailableDates:(BOOL)force completion:(void(^_Nullable)(void))completion;
 - (void)updateRemainingCredits;
-- (void)updateConfigsIfNeeded;
 
 @property (class, nonatomic, readonly) PRSubscription *defaultSubscription;
 @property (nullable, class, nonatomic, readonly) PRSubscription *defaultOnlineSubscription;
 
 @property (nullable, nonatomic, weak) PRAccountItem *account;
 @property (nonatomic, readonly) BOOL sourceDatesObtained;
-@property (nullable, nonatomic, strong) NSMutableArray *accessibleCids;
+/// cids available to download for current subscription
+@property (nullable, nonatomic, strong) NSMutableArray<NSString *> *accessibleCids;
 @property (nullable, nonatomic, readonly) id updateLaterObserver;
 @property (nonatomic, readonly) BOOL sourcesUpToDate;
 
@@ -316,6 +313,8 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
 @property (nonatomic, strong, readonly) NSString *name;
 @property (null_resettable, nonatomic, strong) PRPromise *onlineTokenRequest;
 @property (nonatomic, readonly) BOOL hasOnlineToken;
+/// A storage, never access directly, use async api instead.
+@property (nullable, nonatomic, strong) NSString *_bearerToken;
 @property (nullable, nonatomic, strong) NSString *deviceAccountOnlineToken;
 @property (nullable, nonatomic, strong) NSString *preloadToken;
 @property (nullable, nonatomic, strong) NSDate *onlineTokenExpiration;
@@ -329,9 +328,8 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
 @property (nullable, nonatomic, strong) NSArray *featuredTitles;
 
 /// nil or array (can be empty) in case of info was retrieved
-@property (nullable, nonatomic, strong, readonly) NSArray<PRTitleItemExemplar *> *latestReadExemplars;
+@property (nullable, nonatomic, strong) NSArray<PRTitleItemExemplar *> *latestReadExemplars;
 
-@property (nullable, nonatomic, strong, readonly) NSSet<NSString *> *latestReadCIDs;
 @property (nonatomic) PRSubscriptionSourcesStatus sourcesStatus;
 @property (nonatomic) PRSubscriptionResourceStatus resourceStatus;
 
@@ -341,6 +339,8 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
 @property (nullable, nonatomic, strong) NSArray<PRBundle *> *bundlesWithCIDs;
 
 @property (nonatomic, strong, readonly) PRSponsorshipManagerService *sponsorshipManagerService;
+
+@property (nonatomic, strong) NSDictionary<NSString *, PRSubscriptionItem *>  *subscriptionOrders;
 
 @end
 

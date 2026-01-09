@@ -31,6 +31,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NSObject<ReadingViewItem, PRCatalogItem>* PRReadableCatalogItem;
+
 @interface ReadingViewBaseController : PRVC <UIScrollViewDelegate, NavigationBarDismissable>
 {
 	BOOL			m_pageChangeFromEvent;
@@ -42,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 	NSUInteger		prevPageSeg;
 }
 
-- (instancetype)initWithItem:(NSObject<ReadingViewItem> * _Nonnull)item;
+- (instancetype)initWithItem:(PRReadableCatalogItem)item;
 - (void)switchToPage:(NSUInteger)page;
 - (NSUInteger)currentPageIndex;
 - (NSUInteger)numberOfPageViews;
@@ -54,7 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
 - (void)removeRecycledPages;
 - (void)hideSmartMarkers:(BOOL)hide;
-- (void)dismiss;
 
 @property (nonatomic) NSUInteger currentPage;
 @property (nonatomic) NSUInteger numberOfPages;
@@ -66,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong) PDFDoc *pdfDoc;
 @property (nullable, nonatomic, strong) NSMutableSet<PRPDFScrollView *> *visiblePages;
 @property (nullable, nonatomic, readwrite, strong) NSMutableSet<PRPDFScrollView *> *recycledPages;
-@property (nonatomic, strong, readonly) NSObject<ReadingViewItem> *item;
+@property (nonatomic, strong, readonly) PRReadableCatalogItem item;
 @property (nullable, nonatomic, strong, readonly) NSObject<PRSmartLayoutItem> *smartLayoutItem;
 @property (nullable ,nonatomic, strong, readonly) PRMyLibraryItem *mli;
 

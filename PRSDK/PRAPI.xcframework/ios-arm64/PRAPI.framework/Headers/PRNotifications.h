@@ -44,7 +44,6 @@ extern NSNotificationName const PRPerformSmartSearchNotification;
 
 extern NSNotificationName const PRDownloadedOrderByValueChangedNotification;
 extern NSNotificationName const PRPurchaseAdvicesDidRefreshNotification;
-extern NSNotificationName const PRMyLibraryInitializationDone;
 
 extern NSNotificationName const PRImageURLUpdateNotification;
 
@@ -58,12 +57,9 @@ extern NSNotificationName const PRFinalizePageReadingMapNotification;
 extern NSNotificationName const PRShowSendFeedbackNotification;
 extern NSNotificationName const PRBaseServiceURLsUpdatedNotification;
 
-extern NSNotificationName const PRConfigHasBeenUpdatedNotification;
 extern NSNotificationName const PRConfigUnableToUpdatedNotification;
 extern NSNotificationName const PRFirebaseRemoteConfigRefreshedNotification;
 extern NSNotificationName const PRModelDidResumeNotification;
-
-extern NSNotificationName const PRUserDefaultstateRefreshedNotification;
 
 extern NSNotificationName const PRCommentPostNotification;
 
@@ -96,8 +92,6 @@ extern NSNotificationName const PRServiceHostDidUpdate;
 
 extern NSNotificationName const PRLaunchCommandNotification;
 extern NSNotificationName const PRActionCommandNotification;
-
-extern NSNotificationName const PRUpdateHZStatus;
 
 #define PRSmartProcessed @"PRSmartProcessed"
 #define PRSFIsReady   @"PRSFIsReady"

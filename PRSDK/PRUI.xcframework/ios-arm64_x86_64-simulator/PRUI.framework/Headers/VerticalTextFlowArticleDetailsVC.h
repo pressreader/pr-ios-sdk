@@ -41,6 +41,7 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 - (void)setupTransitionalNavigationBarAppearance;
 
 - (PRMenu *)horizontalActionMenu;
+- (void)cleanupNavigationTitle;
 
 @property (nullable, nonatomic, readonly) VerticalTextFlowArticleDetailsView *rootView;
 
@@ -63,6 +64,7 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 @property (nonatomic, assign) CGFloat topContentOffset;
 @property (nullable, nonatomic, readonly) NSArray<NSString *> *highlightedPhrases;
 @property (nonatomic, strong) NSArray<AdBannerPresentation *> *contentAds;
+@property (nonatomic, readonly) BOOL isTitleHidden;
 
 @end
 

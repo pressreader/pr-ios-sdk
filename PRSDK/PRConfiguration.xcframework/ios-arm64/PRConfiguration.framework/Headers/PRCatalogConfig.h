@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class CatalogAppearanceConfig;
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, PRCatalogMode) {
@@ -26,7 +28,6 @@ typedef NS_ENUM(NSInteger, PRCatalogSortingOrder) {
     PRCatalogSortingOrderMostCurrent,
     /// activation time
     PRCatalogSortingOrderMostCurrentOnPressreader,
-    PRCatalogSortingOrderMostCurrentRecentlyRead,
     PRCatalogSortingOrderReadAndMostPopular,
     /// preserves order as in server response
     PRCatalogSortingOrderNone
@@ -35,7 +36,7 @@ typedef NS_ENUM(NSInteger, PRCatalogSortingOrder) {
 @interface PRCatalogConfig : NSObject
 
 - (void)adjustWithParentSourceCount:(NSInteger)parentSourceCount
-                     hasSupplements:(BOOL)hasSupplements;
+                     hasSupplements:(BOOL)hasSupplements NS_SWIFT_NAME(adjust(parentSourceCount:hasSupplements:));
 
 @property (nonatomic, readonly) BOOL thumbClickCatalogItemOpenRead;
 
@@ -43,7 +44,7 @@ typedef NS_ENUM(NSInteger, PRCatalogSortingOrder) {
 @property (nonatomic, readonly) BOOL catalogIssueClickOpenOrder;
 @property (nonatomic, readonly) BOOL latestIssuesMixEnabled;
 @property (nonatomic, readonly) BOOL presentIssueAsExemplar;
-@property (nonatomic, readonly) BOOL useOnlineServicesAPI;
+@property (nonatomic, readonly) BOOL useModernServiceAPI;
 @property (nonatomic, readonly) BOOL customCatalog;
 @property (nonatomic, readonly) BOOL showImagesForCategories;
 @property (nonatomic, readonly) BOOL isThumbnailStretchingEnabled;
@@ -58,6 +59,8 @@ typedef NS_ENUM(NSInteger, PRCatalogSortingOrder) {
 @property (nonatomic, readonly) BOOL isSingleTitleMode;
 
 @property (nonatomic, readonly) BOOL pressCatalogUpdateDisabled;
+
+@property (nonatomic, strong, readonly) CatalogAppearanceConfig *appearanceConfig NS_SWIFT_NAME(appearance);
 
 @end
 

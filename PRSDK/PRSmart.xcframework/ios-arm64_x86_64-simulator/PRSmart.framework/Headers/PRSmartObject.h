@@ -47,7 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithData:(NSData *)data sourceZip:(NSString *)source MID:(NSString *)aMID;
 - (void)addSmartArticle:(PRSmartArticle *)article;
-- (void)setNewId:(NSString *)newId forArticle:(PRSmartArticle *)article;
 - (void)setRootId:(NSString *)rootId forArticle:(PRSmartArticle *)article;
 - (nullable PRSmartPage *)pageAtIndex:(NSUInteger)pageIndex;
 - (void)addSmartPage:(PRSmartPage *)page;

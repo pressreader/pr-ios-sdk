@@ -10,11 +10,17 @@
 
 @import PRAPI.PRCatalogSection;
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString *const PRCommandOpenCatalogHomeConfigurationSchemeKey;
 extern NSString *const PRCommandOpenCatalogSectionKey;
 
 @interface PRCommandOpenCatalog : PRCommand
 
-+ (void)executeWithSection:(PRCatalogSectionType)sectionType;
++ (void)executeWithSection:(PRCatalogSectionType)sectionType
+                parameters:(nullable NSDictionary<NSString *, id> *)parameters
+NS_SWIFT_NAME(execute(section:parameters:));
 
 @end
+
+NS_ASSUME_NONNULL_END

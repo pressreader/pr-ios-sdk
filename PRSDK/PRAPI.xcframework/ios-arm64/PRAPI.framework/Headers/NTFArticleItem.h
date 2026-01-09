@@ -44,13 +44,12 @@ extern NSString * const kPRPopularArticlesKey;
 @property (nullable, nonatomic, readonly) NTFUserItem *source;
 @property (nonatomic, readonly) BOOL isUserPost;
 @property (nonatomic, readonly) BOOL isPublicationPost;
-@property (nonatomic, readonly) NSDictionary *articleContext;
 @property (nonatomic, readonly) PRSubscription *preferredSubscription;
 @property (nonatomic, readonly) NSString *shortContentLanguage;
 
 // computed properties from smart-article
 @property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *byline;
+@property (nullable, nonatomic, readonly) NSString *byline;
 @property (nonatomic, readonly) NSString *subtitle;
 @property (nonatomic, readonly) NSString *annotation;
 @property (nonatomic, readonly) NSArray<PRSmartImageRegion *> *imageRegions;

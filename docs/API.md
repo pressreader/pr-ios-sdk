@@ -7,8 +7,14 @@ let account = PressReader.instance().account
 
 ## Authorization by  token
 
+```swift
+try await account.authorize(token: String)
 ```
-account.authorize(token: String, completion: Callback)
+
+## Authorization by external authorization token and provider
+
+```swift
+try await account.authorize(externalToken: String, provider: String)
 ```
 
 ## Authorization by  service name
@@ -16,6 +22,13 @@ Authorization by service name allows working with SDK based on service name only
 
 In `Info.plist` of your app add [`PRConfig`](Configuration.md) dictionary with `SERVICE_NAME` string type entry with your service name value.
 <br><br>
+
+## Deauthorization
+Only account authorized with external auth token can be deauthorized.
+
+```swift
+try await account.deauthorize()
+```
 
 # Observing SDK state
 

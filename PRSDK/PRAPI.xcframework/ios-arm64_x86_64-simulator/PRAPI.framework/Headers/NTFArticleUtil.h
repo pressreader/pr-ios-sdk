@@ -27,12 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
                    cacheKey:(nullable NSString *)cacheKey
                  completion:(void(^_Nonnull)(UIImage *imageWithVideoIcon))completion;
 
-+ (NSString *)bylineWithLineBreak:(BOOL)lineBreak
-                        issueDate:(nullable NSString *)issueDate
-                       issueTitle:(nullable NSString *)issueTitle
-                           byline:(nullable NSString *)byline
-                          isShort:(BOOL)isShort;
-
 @end
 
 NS_ASSUME_NONNULL_END

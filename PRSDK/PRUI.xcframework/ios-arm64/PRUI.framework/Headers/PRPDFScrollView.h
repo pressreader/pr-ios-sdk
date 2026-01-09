@@ -40,7 +40,7 @@ typedef enum _PAGE_CONTENT_MODE {
 
 @interface PRPDFScrollView : UIScrollView <UIScrollViewDelegate, ReadingMapOperations, UIGestureRecognizerDelegate> 
 
-@property (nonatomic, readonly, strong) NSObject<ReadingViewItem> *item;
+@property (nonatomic, readonly, strong) NSObject<ReadingViewItem, PRCatalogItem> *item;
 @property (nonatomic, readonly, strong) PRMyLibraryItem *mli;
 
 // Base view contains all other views
@@ -67,7 +67,7 @@ typedef enum _PAGE_CONTENT_MODE {
 @property (assign) CGPoint restorePoint;
 @property (nonatomic, readonly) PRSmartMarkerViewController *biggestArticleMarker;
 
-- (instancetype)initWithItem:(NSObject<ReadingViewItem> *)item;
+- (instancetype)initWithItem:(NSObject<ReadingViewItem, PRCatalogItem> *)item;
 
 - (CGRect)frameForPage:(NSUInteger)page inBounds:(CGSize)boundSize scale:(CGFloat)scale;
 - (void)loadPage:(NSUInteger)pageIndex withFrame:(CGRect)frame scale:(CGFloat)scale offset:(CGPoint)offset smartMarkerDelegate:(id<PRPageSmartMarkerDelegate>)newDelegate;

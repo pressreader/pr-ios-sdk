@@ -10,7 +10,7 @@ import Foundation
 import PRUI
 import PRAlertKit
 import MBProgressHUD
-
+import PRUtils
 
 protocol Reloadable {
     func reloadData()
@@ -18,10 +18,48 @@ protocol Reloadable {
 
 final class RootModel {
     
+    // MARK: - Nested Types
+    
+    struct Service {
+        static let `default` = PRConfig.defaultServiceName
+        static let multiTitles = "Multi titles + no Feed "
+        static let kioscoPerfil = "Kiosco Perfil Beta "
+        static let singleTitle = " BE SingleTitle "
+        static let singleTitleAndFeed = "Single title and Feed BE"
+        static let singleTitleAndSupplementsAndFeed = "Single title  and sup and feed"
+    }
+        
     // MARK: - Public Properties
 
-    var serviceName: String {
-        PressReader.serviceName
+    var services: [String] {
+        var services = [
+            Service.default,
+            Service.multiTitles,
+            Service.kioscoPerfil,
+            Service.singleTitle,
+            Service.singleTitleAndFeed,
+            Service.singleTitleAndSupplementsAndFeed
+        ]
+        let currentService = self.currentService
+        if !services.contains(currentService) {
+            services.append(currentService)
+        }
+            
+        return services
+    }
+    
+    var isServiceSelectionEnabled: Bool {
+        PRConfig.configDefaults?.string("SERVICE_NAME") == nil
+        && !PressReader.isLocalService
+    }
+    
+    var currentService: String {
+        get {
+            PressReader.serviceName
+        }
+        set {
+            PressReader.serviceName = newValue
+        }
     }
 
     var isEdition: Bool {
@@ -45,33 +83,16 @@ final class RootModel {
     var isLocalServiceActive: Bool {
         self.account?.state == .localService
     }
-
-    var isAuthEnabled: Bool {
-        !self.isDismissed && !self.isLocalService
-    }
-
+    
     var isReady: Bool {
         switch self.account?.state {
-        case .idle, .sponsorship: return true
+        case .idle, .authorized: return true
         default: return false
         }
-    }
-
-    var canAuthorise: Bool {
-        self.isReady
     }
     
     var account: Account? {
         self.pressreader?.account
-    }
-
-    var authToken: String? {
-        get {
-            UserDefaults.standard.string(forKey: "PRAuthToken")
-        }
-        set {
-            UserDefaults.standard.setValue(newValue, forKey: "PRAuthToken")
-        }
     }
     
     var isCatalogEnabled: Bool {
@@ -83,7 +104,7 @@ final class RootModel {
     }
 
     var isArticleSetEnabled: Bool {
-        !self.isDismissed && !self.articles.isEmpty && !self.isLocalService
+        !self.isDismissed && !self.articles.isEmpty && !self.isLocalService && !self.isEdition
     }
 
     var catalogItemsCount: Int {
@@ -103,9 +124,9 @@ final class RootModel {
         : []
     }
 
-    // MARK: - Private Properties
+    let delegate: Reloadable
 
-    private let delegate: Reloadable
+    // MARK: - Private Properties
 
     private var pressreader: PressReader? {
         guard !self.isDismissed else {
@@ -132,10 +153,10 @@ final class RootModel {
     }
 
     private var cids: [String] {
-        // Never rely on `catalog.sources` property in your implementation.
+        // Don't rely on `catalog.loadedPublications` in your implementation.
         // It's used only for demonstration and a subject to change.
         // Instead obtain `cids` using provided PressReader Public API.
-        self.catalog?.sources?.prefix(20).map { $0.cid } ?? []
+        self.catalog?.loadedPublications()?.prefix(20).map { $0.cid } ?? []
     }
     
     private var canShowCatalog = false {
@@ -166,28 +187,14 @@ final class RootModel {
     }
     
     // MARK: - Public Methods
-    
-    func authorisePressreader() {
-        guard let token = self.authToken, token.count > 0 else {
-            return
-        }
-
-        self.account?.authorize(token: token) { (success, error) in
-            print("Auth result: \(success), \(String(describing: error))")
-            
-            if !success {
-                UIAlertController
-                    .presentDismissableAlert(withTitle: "Auth Error",
-                                             message: error?.localizedDescription)
-            }
+        
+    func catalogItem(at index: Int) -> TitleItem? {
+        self.cids.safeObject(at: index).flatMap {
+            self.catalog?.item(cid: $0, date: nil)
         }
     }
-    
-    func catalogItem(at index: Int) -> PRCatalogItem? {
-        self.catalog?.item(cid: self.cids[index], date: nil)
-    }
 
-    func downloadedItem(at index: Int) -> PRCatalogItem? {
+    func downloadedItem(at index: Int) -> TitleItem? {
         self.catalog?.downloaded.items[index]
     }
     
@@ -197,7 +204,7 @@ final class RootModel {
         }
     }
 
-    func delete(_ item: PRCatalogItem) {
+    func delete(_ item: TitleItem) {
         self.downloaded?.delete(item)
     }
 
@@ -217,7 +224,7 @@ final class RootModel {
         }
 
     }
-    
+        
     // MARK: - Notifications
     
     private func registerObservers() {
@@ -276,14 +283,10 @@ extension RootModel: ReadingViewAnalyticsTracker {
     func trackIssuePage(issue: TrackingIssue, pageNumber: Int) {
         print("switching to page \(pageNumber) in \(issue.sourceType.rawValue) \(issue.title),\(issue.date ?? Date())")
     }
-//    func trackIssueTextFlow(issue: TrackingIssue) {}
+
     func trackArticleView(issue: TrackingIssue, article: TrackingArticle) {
         print("open article(\(article.id)) '\(article.headline)' from \(issue)")
     }
-//    func trackListenView(issue: TrackingIssue) {}
-//    func trackTranlated(article: TrackingArticle, languageFrom: String, laguageTo: String) {}
-//    func trackPrintedPages(issue: TrackingIssue, isFullPage: Bool, pageNumbers: [Int]) {}
-//    func trackPrintedArticle(issue: TrackingIssue, article: TrackingArticle, inReplicaPresentation: Bool) {}
 }
 
 extension RootModel: AnalyticsTracker {

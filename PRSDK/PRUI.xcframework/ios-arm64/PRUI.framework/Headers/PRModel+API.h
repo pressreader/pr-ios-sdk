@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)resumeModel;
 + (void)pauseModel;
 + (void)stopModel;
-+ (void)fullReset;
 
 @end
 

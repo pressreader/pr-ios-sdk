@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRUtils
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+import Combine
 import Compression
 import CoreLocation
 import CryptoKit
@@ -17,6 +18,9 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 extension CoreLocation.CLLocationCoordinate2D : @retroactive Swift.Equatable {
   public static func == (left: CoreLocation.CLLocationCoordinate2D, right: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+}
+extension Foundation.TimeZone {
+  public func minutesFromGMT(for date: Foundation.Date = Date()) -> Swift.Int
 }
 @objc extension ObjectiveC.NSObject {
   @objc dynamic public class var className: Swift.String {
@@ -35,6 +39,8 @@ extension CoreLocation.CLLocationCoordinate2D : @retroactive Swift.Equatable {
   }
 }
 extension Swift.Bool {
+  public static func > (lhs: Swift.Bool, rhs: Swift.Bool) -> Swift.Bool
+  public static func < (lhs: Swift.Bool, rhs: Swift.Bool) -> Swift.Bool
   public init(_ obj: Any?, defaultValue: Swift.Bool = false)
 }
 @objc extension Foundation.Bundle {
@@ -63,6 +69,15 @@ extension Foundation.NSMutableAttributedString {
 }
 extension Foundation.NSAttributedString {
   public func height(constrainingWidth width: CoreFoundation.CGFloat, options: UIKit.NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]) -> CoreFoundation.CGFloat
+}
+extension Foundation.NSAttributedString {
+  @objc dynamic public var stringWithHyphenation: Foundation.NSAttributedString {
+    @objc get
+  }
+  public func replaceString(target: Swift.String, replacement: Swift.String) -> Foundation.NSAttributedString
+}
+extension Combine.Publisher where Self.Failure == Swift.Never {
+  public func weakAssign<Root>(to keyPath: Swift.ReferenceWritableKeyPath<Root, Self.Output>, on object: Root) -> Combine.AnyCancellable where Root : AnyObject
 }
 public protocol Observable {
   associatedtype Callback
@@ -93,8 +108,16 @@ public actor ArrayActor<T> {
     get
   }
 }
+extension ObjectiveC.NSObject {
+  @objc(unsubscribeFromNotification:) dynamic public func unsubscribe(notification: Foundation.NSNotification)
+}
 extension Foundation.Data {
   public func inflated() -> Foundation.Data?
+}
+extension Foundation.Locale {
+  public var languageTag: Swift.String? {
+    get
+  }
 }
 extension Foundation.NSLocking {
   @discardableResult
@@ -123,9 +146,6 @@ extension Swift.String {
     get
   }
 }
-extension Foundation.JSONSerialization {
-  public static func item<T>(json: Any) throws -> T where T : Swift.Decodable
-}
 extension Swift.Dictionary where Key : Swift.RawRepresentable, Key.RawValue : Swift.Hashable {
   public func rawKeyRepresentation() -> [Swift.Dictionary<Key, Value>.Key.RawValue : Swift.Dictionary<Key, Value>.Value]
 }
@@ -137,9 +157,6 @@ extension Swift.Dictionary where Key : Swift.RawRepresentable, Key.RawValue : Sw
     @objc get
   }
   @objc dynamic public func character(at index: Swift.Int) -> Swift.String?
-}
-extension ObjectiveC.NSObject {
-  @objc(unsubscribeFromNotification:) dynamic public func unsubscribe(notification: Foundation.NSNotification)
 }
 public protocol DefaultLocalizedError : Foundation.LocalizedError {
 }
@@ -247,10 +264,21 @@ extension Swift.String {
 }
 extension Swift.String {
   public func url() -> Foundation.URL?
+  public func appendingPathComponent(_ component: Swift.String) -> Swift.String
 }
 @objc extension Foundation.NSString {
   @objc dynamic public func url() -> Foundation.URL?
   @objc dynamic public func urlParameters() -> [Swift.String : Swift.String]
+}
+extension Swift.Dictionary where Key == Swift.String {
+  public func object(ciKey: Swift.String) -> Value?
+  public func object(ciKeys: [Swift.String]) -> Value?
+  public func object(scKey: Swift.String) -> Value?
+}
+extension Foundation.NSDictionary {
+  @objc(objectForCIKey:) dynamic public func object(ciKey: Swift.String) -> Any?
+  @objc(objectForCIKeys:) dynamic public func object(ciKeys: [Swift.String]) -> Any?
+  @objc(objectForSCKey:) dynamic public func object(scKey: Swift.String) -> Any?
 }
 @objc extension Foundation.Bundle {
   @objc dynamic public func containsURLScheme(_ urlScheme: Swift.String?) -> Swift.Bool
@@ -289,6 +317,12 @@ extension Swift.Result where Success == () {
     get
   }
 }
+extension Foundation.NSLocale {
+  public func countryName(isoCode: Swift.String) -> Swift.String?
+}
+extension Foundation.Locale {
+  public func countryName(isoCode: Swift.String) -> Swift.String?
+}
 extension Foundation.UUID {
   public init(number: Swift.Int64)
 }
@@ -301,10 +335,10 @@ extension Foundation.UUID {
   @objc public init(label: Swift.String? = nil)
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers final public class ConcurrentSynchronizer : PRUtils.Synchronizer {
+@objc @_hasMissingDesignatedInitializers @objcMembers final public class ConcurrentSynchronizer : PRUtils.Synchronizer {
   @objc public init(label: Swift.String? = nil)
-  @objc final public func barrierSync(_ block: @escaping () -> ())
-  @objc final public func barrierAsync(_ block: @escaping () -> ())
+  @objc override final public func sync(_ block: @escaping () -> ())
+  @objc override final public func async(_ block: @escaping () -> ())
   @objc deinit
 }
 extension Swift.String {

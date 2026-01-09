@@ -1,6 +1,6 @@
 //
 //  PRCompactLayoutManager.h
-//  PR-UI
+//  PRUI
 //
 //  Created by Viacheslav Soroka on 7/5/18.
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class NTFFeedDataSource;
+@protocol NTFSection;
 
 @interface PRCompactLayoutManager : NSObject<PRFeedLayoutManager>
 
@@ -23,6 +24,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
 
-#import <PRUI/PRCompactLayoutManager_Protected.h>
+@interface PRCompactLayoutManager (/*PROTECTED*/)
+
+- (NSArray *)compileDataProviderWithItems:(NSArray *)items
+                                  context:(nullable NSManagedObjectContext *)context
+                            targetContext:(nullable NSManagedObjectContext *)targetContext
+                               moreFollow:(BOOL)moreFollow;
+
+- (void)insertMoreItemForSection:(id<NTFSection>)section
+                    dataProvider:(NSMutableArray *)dataProvider
+           preferredColumnsCount:(NSInteger)preferredColumnsCount;
+
+@end
+
+NS_ASSUME_NONNULL_END

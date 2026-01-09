@@ -13,13 +13,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol NTFDataSourceBase <NSObject>
-@property (nonatomic, readonly) PRAccountItem *defaultAccount;
 
 - (nullable NSString *)idForItem:(id)item;
-
 - (NSDictionary *)contextForItemAtIndex:(NSInteger)idx;
-
 - (void)suspendReadingFrameWithAction:(NSString *)actionType forItem:(id)item;
+
+@property (nullable, nonatomic, readonly) PRAccountItem *defaultAccount;
 
 @end
 

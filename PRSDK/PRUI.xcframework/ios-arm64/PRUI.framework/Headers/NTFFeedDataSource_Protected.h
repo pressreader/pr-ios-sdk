@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  Initial state is "resolved"
  */
 @property (nonatomic, strong) PRPromise *waitBeforeReloadPromise;
-@property (nonatomic, readonly) PRSubscription *defaultSubscription;
+@property (nullable, nonatomic, readonly) PRSubscription *defaultSubscription;
 
 @end
 

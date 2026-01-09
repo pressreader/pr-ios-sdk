@@ -17,17 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initFromXmlItem:(SPNode*)xmlItem userName:(NSString*)user clientName:(NSString*)client;
 
-- (void)requestHotZoneStatus;
-- (void)requestHotZoneStatusForced:(BOOL)forced
-                        completion:(void(^_Nullable)(BOOL success,
-                                                     NSError  *_Nullable error,
-                                                     NSTimeInterval repeatInterval))completion;
-- (void)requestHotZoneStatusWithHotSpotId:(nullable NSString *)hotSpotId
-                                   forced:(BOOL)forced
-                               completion:(void(^_Nullable)(BOOL success,
-                                                            NSError *_Nullable error,
-                                                            NSTimeInterval repeatInterval))completion;
-
 /// `then` block will provide NSString *ticket
 - (PRPromise *)getAuthTicket;
 - (void)processAccountStatusResponse:(SPNode*)resp;
@@ -45,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateNotificationSettings:(NSDictionary *)properties completion:(nullable void(^)(id _Nullable responseObject, NSError * _Nullable error))completionBlock;
 - (void)requestUserProfile:(nullable void(^)(BOOL success, NSError * _Nullable error))completionBlock;
 - (void) requestPremiumTrialEligibility;
+
+@property (nonatomic, readonly) PRPromise *initialHotspotStatusRequest;
 
 @end
 

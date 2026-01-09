@@ -23,8 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)didReceiveMemoryWarning;
 
-- (PRPromise *)updateFirstPanelWhenReady;
-
 - (void)openPreferredPanel;
 - (void)openPreferredPanelForced:(BOOL)forced;
 - (void)setCurrentPanelId:(PRPanelId)current popToRootIfSame:(BOOL)popToRoot;
@@ -35,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) AppPanelsManagerAlertsCoordinator *alertsCoordinator;
 
 @property (nullable, nonatomic, copy) void(^openFirstPanelPreprocessor)(void);
+@property (nonatomic, strong, readonly) PRPromise *updateFirstPanelWhenReady;
 
 @end
 

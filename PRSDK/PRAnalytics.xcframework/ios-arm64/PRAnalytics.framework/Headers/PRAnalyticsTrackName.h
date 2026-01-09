@@ -138,6 +138,8 @@ extern PRAnalyticsTrackName const PRAnalyticsTrackBookDownloadLimitExceeded;
 extern PRAnalyticsTrackName const PRAnalyticsTrackBookRead;
 extern PRAnalyticsTrackName const PRAnalyticsTrackBookOrder;
 
+extern PRAnalyticsTrackName const PRAnalyticsTrackGamePlay;
+
 extern PRAnalyticsTrackName const PRAnalyticsTrackExternalLinkAccount;
 extern PRAnalyticsTrackName const PRAnalyticsTrackCancelRegistration;
 extern PRAnalyticsTrackName const PRAnalyticsTrackRegistrationAlertPresented;

@@ -14,6 +14,9 @@
 @class PRBannerPresentationConfig;
 @class CatalogSchemeProvider;
 @class CatalogSectionScheme;
+@class PRSourceList;
+@class AdBannerPresentation;
+@class PRBannerProvider;
 
 @protocol PRPubHubDataSourceDelegate;
 @protocol CatalogItemDataSourceProtocol;
@@ -26,8 +29,7 @@ extern NSNotificationName const PRPubHubDataSourceDidUpdateNotification;
 typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
     PRPubHubDataSourceOptionShowBanners = 1 << 0,
     PRPubHubDataSourceOptionSkipWaitForCatalogReadiness = 1 << 1,
-    PRPubHubDataSourceOptionWaitForCatalogUpdate = 1 << 2,
-    PRPubHubDataSourceOptionDisplayEmptySections = 1 << 3
+    PRPubHubDataSourceOptionDisplayEmptySections = 1 << 2
 };
 
 @interface PRPubHubDataSource : NSObject
@@ -48,7 +50,8 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 - (void)stopSectionObservation:(PRCatalogSection *)section;
 
 @property (nullable, nonatomic, weak) UIViewController<PRPubHubDataSourceDelegate> *delegate;
-@property (nonatomic, strong) id<CatalogFacade> sourceList;
+@property (nonatomic, readonly) id<CatalogFacade> sourceList;
+@property (nullable, nonatomic, readonly) PRSourceList *legacySourceList;
 
 @property (nonatomic, strong) PRBannerPresentationConfig *bannerConfig;
 
@@ -56,26 +59,24 @@ typedef NS_OPTIONS(NSUInteger, PRPubHubDataSourceOption) {
 @property (nonatomic, readonly) BOOL isReady;
 @property (nonatomic, readonly) BOOL isValid;
 
+@property (nonatomic, strong, readonly) CatalogSchemeProvider *schemeProvider;
+
 @end
 
 @interface PRPubHubDataSource (/*PROTECTED*/) <DataSourceObserver>
 
 - (void)updateContentSize;
 
-- (PRCatalogSection *)sectionWithScheme:(CatalogSectionScheme *)scheme NS_SWIFT_NAME(section(scheme:));
-
-- (PRCatalogSection *)sectionWithScheme:(CatalogSectionScheme *)scheme
-                                  title:(nullable NSString *)title
-                                 prompt:(nullable NSString *)prompt
-                               subtitle:(nullable NSString *)subtitle
-                             dataSource:(nullable id)dataSource
-NS_SWIFT_NAME(section(scheme:title:prompt:subtitle:dataSource:));
-
 - (PRCatalogSection *)sectionWithScheme:(CatalogSectionScheme *)scheme
                        titlePlaceholder:(nullable NSString *)titlePlaceholder
                              dataSource:(nullable id)dataSource
-                                  index:(NSInteger)index NS_SWIFT_NAME(section(scheme:title:dataSource:index:));
+                                  index:(NSInteger)index
+NS_SWIFT_NAME(section(scheme:title:dataSource:index:));
 
+- (PRCatalogSection *)dataSectionWithScheme:(CatalogSectionScheme *)scheme
+                                      title:(nullable NSString *)title
+                                 dataSource:(nullable id<CatalogItemDataSourceProtocol>)dataSource
+NS_SWIFT_NAME(dataSection(scheme:title:dataSource:));
 
 - (nullable PRCatalogSection *)sectionOfType:(PRCatalogSectionType)sectionType;
 - (nullable PRCatalogSection *)hotspotSectionWithIndex:(NSInteger)index;
@@ -89,6 +90,13 @@ NS_SWIFT_NAME(section(scheme:title:prompt:subtitle:dataSource:));
 - (void)updateSection:(PRCatalogSection *)section title:(nullable NSString *)title show:(BOOL)shouldShow;
 - (void)updateSection:(PRCatalogSection *)section source:(id<CatalogItemDataSourceProtocol>)source;
     
+- (void)subscribeToNotifications;
+
+@property (nullable, nonatomic, strong) PRBannerProvider *bannerProvider;
+
+@property (nullable, nonatomic, strong) AdBannerPresentation *topScrollableAdBanner;
+@property (nullable, nonatomic, strong) AdBannerPresentation *inlineAdBanner;
+
 @property (nullable, nonatomic, strong) NSArray<PRCatalogSection *> *sections;
 @property (nonatomic) PRPubHubDataSourceOption options;
 @property (nonatomic, readonly) BOOL isItemsSizeFixed;

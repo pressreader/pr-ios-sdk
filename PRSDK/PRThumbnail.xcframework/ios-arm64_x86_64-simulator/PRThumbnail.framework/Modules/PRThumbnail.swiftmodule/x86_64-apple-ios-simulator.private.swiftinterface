@@ -1,10 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRThumbnail
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import DeveloperToolsSupport
 import Foundation
 import PRConfiguration
+import PRImageProcessing
+import PRLogKit
 @_exported import PRThumbnail
 import PRUtils
 import Swift
@@ -24,7 +26,13 @@ public enum PRThumbnailObjectError : Swift.Error {
 extension PRThumbnail.PRThumbnailObject {
   public func getImage() async throws -> UIKit.UIImage
 }
+extension PRThumbnail.PRThumbnailsManager {
+  public func hotSpotLogo(url: Foundation.URL) -> PRThumbnail.HotSpotLogo
+}
 @objc @_hasMissingDesignatedInitializers final public class ContentCardThumbnail : PRThumbnail.PRThumbnailObject {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class HotSpotLogo : PRThumbnail.PRThumbnailObject {
   @objc deinit
 }
 @objc public enum PRArticleThumbnailURLType : Swift.Int, Swift.Codable {
@@ -43,6 +51,21 @@ extension PRThumbnail.PRThumbnailObject {
   @objc public init(storePath: Swift.String, downloadUrls: [Swift.String]? = nil, urlType: PRThumbnail.PRArticleThumbnailURLType, scaleLimit: CoreFoundation.CGFloat)
   override final public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
+}
+@objc extension PRThumbnail.PRThumbnailFlag {
+  public enum GenerationError : Swift.Error {
+    case invalidISOCode
+    case invalidImageData
+    public static func == (a: PRThumbnail.PRThumbnailFlag.GenerationError, b: PRThumbnail.PRThumbnailFlag.GenerationError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc dynamic public var canGenerate: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor dynamic public func generateImage(width: CoreFoundation.CGFloat) async throws
 }
 extension PRThumbnail.PRThumbnailsManager {
   public func thumbnail(imageId: Swift.String, url: Swift.String) -> PRThumbnail.ContentCardThumbnail
@@ -85,6 +108,8 @@ extension PRThumbnail.PRThumbnailObjectError : Swift.Hashable {}
 extension PRThumbnail.PRArticleThumbnailURLType : Swift.Equatable {}
 extension PRThumbnail.PRArticleThumbnailURLType : Swift.Hashable {}
 extension PRThumbnail.PRArticleThumbnailURLType : Swift.RawRepresentable {}
+extension PRThumbnail.PRThumbnailFlag.GenerationError : Swift.Equatable {}
+extension PRThumbnail.PRThumbnailFlag.GenerationError : Swift.Hashable {}
 extension PRThumbnail.PRThumbnailInfo.ImageSource : Swift.Equatable {}
 extension PRThumbnail.PRThumbnailInfo.ImageSource : Swift.Hashable {}
 extension PRThumbnail.PRThumbnailInfo.ImageSource : Swift.RawRepresentable {}

@@ -19,11 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRUINavigationController (/*PROTECTED*/)
 
-+ (NSArray *)updateLeftBarButtonItems:(NSArray *)items
-                              hotzone:(BOOL)hotzone
-                              enabled:(BOOL)enabled
-                    reachableAndValid:(BOOL)reachableAndValid;
-
 @property (nonatomic, assign) BOOL popGestureDisabled;
 @property (nonatomic, assign) BOOL pushAnimationInProgress;
 @property (nonatomic, weak) UIViewController *willShowViewController;

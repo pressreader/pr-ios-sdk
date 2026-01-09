@@ -17,6 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIColor (PRExtensions)
 
 + (instancetype)intermediateColorFrom:(UIColor *)from to:(UIColor *)to progress:(CGFloat)progress;
+
+/// Supported color encoded string formats are:
+/// "UIDeviceRGBColorSpace 0.5 0 0.25 1",
+/// "UIDeviceWhiteColorSpace 1 1",
+/// "UIExtendedGrayColorSpace 1 1",
++ (instancetype)colorWithString:(NSString *)string;
+
 - (instancetype)colorWithBlendedColor:(UIColor *)color NS_SWIFT_NAME(blendedWith(_:));
 
 @end

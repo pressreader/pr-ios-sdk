@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSErrorDomain const PRAccountManagerErrorDomain;
 typedef NS_ERROR_ENUM(PRAccountManagerErrorDomain, PRAccountManagerError) {
-    PRAccountManagerErrorUnknown
+    PRAccountManagerErrorUnknown,
+    PRAccountManagerErrorVerificationRequired = 617
 };
 
 extern NSErrorDomain const PRRegisterGiftAccessErrorDomain;

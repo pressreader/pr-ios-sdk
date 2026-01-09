@@ -49,8 +49,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 - (BOOL) IsFileDestinationOlderOrDoesNotExist:(NSString*)srcPath dstPath:(NSString*)dstPath;
 - (BOOL) ReplaceFileIfOlderOrDoesNotExist:(NSString*)src dst:(NSString*)dst;
 
-- (nullable UIColor*)colorFromNSString:(NSString *)string;
-
 - (void)restartNetworkNotifiers;
 - (void)stopNetworkNotifiers;
 - (void)addNetworkObserver:(id)observer selector:(SEL)selector;
@@ -64,16 +62,11 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 
 #pragma mark global utils
 
-- (void) SwapObjects:(NSObject *_Nonnull *_Nonnull)o1 o2:(NSObject *_Nonnull *_Nonnull)o2;
 - (nullable NSString*)DateStringFromIssueId:(NSString*)issueId format:(NSString*)format;
 - (nullable NSString*)IsoDateStringFromIssueId:(NSString*)issueId;
 - (nullable NSDate*)NSDateFromIssueId:(NSString*)issueId;
 - (NSString*)GetJSONSystemParameters;
 - (NSString*)GetURLSystemParameters;
-
-#pragma mark - localized Language And Country Names
-- (nullable NSString *)localizedCountryNameForISOCode:(NSString *)countryISOCode;
-- (nullable NSString *)localizedLanguageNameForISOCode:(NSString *)languageISOCode;
 
 @property (nonatomic, readonly) BOOL isNetworkReachable;
 

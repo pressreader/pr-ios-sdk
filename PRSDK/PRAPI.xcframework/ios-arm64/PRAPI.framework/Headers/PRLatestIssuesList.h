@@ -1,30 +1,38 @@
 //
 //  PRLatestIssuesList.h
-//  PR-API
+//  PRAPI
 //
 //  Created by Viacheslav Soroka on 12/3/19.
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSourceList.h"
+#import <PRConfiguration/PRCatalogConfig.h>
+#import <PRAPI/PRCatalogItem.h>
+#import <PRAPI/PRTitleItemExemplar.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRLatestIssuesList : PRSourceList
+@class PRLatestIssuesList;
 
-- (instancetype)initWithCIDs:(nullable NSArray<NSString *> *)cids order:(PRCatalogSortingOrder)order;
+@protocol PRLatestIssuesListDelegate <NSObject>
+- (void)latestIssuesListDidUpdate:(PRLatestIssuesList *)list;
+@end
+
+@interface PRLatestIssuesList : NSObject
+
+- (instancetype)initWithCIDs:(nullable NSArray<NSString *> *)cids
+                       order:(PRCatalogSortingOrder)order;
+
 - (instancetype)initWithCIDs:(nullable NSArray<NSString *> *)cids
                        order:(PRCatalogSortingOrder)order
                          mix:(BOOL)mix;
 
 - (instancetype)initWithCID:(NSString *)cid;
 
-- (instancetype)initWithSourceList:(PRSourceList *)sourceList
-                             order:(PRCatalogSortingOrder)order;
-
-- (instancetype)initWithSourceList:(PRSourceList *)sourceList NS_UNAVAILABLE;
-- (instancetype)initWithList:(NSArray<id<PRCatalogItem>> *)list NS_UNAVAILABLE;
-- (instancetype)initWithCIDs:(NSArray<NSString *> *)cids NS_UNAVAILABLE;
+@property (nullable, nonatomic, strong) NSArray<CID> *cids;
+@property (nullable, nonatomic, strong, readonly) NSArray<PRTitleItemExemplar *> *list;
+@property (nonatomic, assign, readonly) BOOL isReady;
+@property (nonatomic, weak) id<PRLatestIssuesListDelegate> delegate;
 
 @end
 

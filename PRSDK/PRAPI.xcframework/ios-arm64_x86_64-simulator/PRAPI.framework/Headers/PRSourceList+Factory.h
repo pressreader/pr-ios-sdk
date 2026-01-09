@@ -7,6 +7,7 @@
 //
 
 #import "PRSourceList.h"
+#import <PRCatalogModel/PRSourceItem_Basics.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

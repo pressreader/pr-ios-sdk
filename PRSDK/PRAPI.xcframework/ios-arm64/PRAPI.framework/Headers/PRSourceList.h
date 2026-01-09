@@ -7,21 +7,19 @@
 //
 
 #import "PRSourceListFilter.h"
-#import "PROptions.h"
 #import <PRAPI/PRCatalog.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSInteger const kPRNumberOfCategoriesInFeaturedSection;
 
-extern NSString *const PRSourcesListDidChangeNotification;
-extern NSString *const PRSourcesListDidSortingNotification;
-extern NSString *const PRSourcesListDidFilterNotification;
+extern NSNotificationName const PRSourcesListDidChangeNotification;
+extern NSNotificationName const PRSourcesListDidSortingNotification;
+extern NSNotificationName const PRSourcesListDidFilterNotification;
 
 @class PRCountableValue;
 @class PRSubscription;
 
-@protocol PRTitleObject;
 @protocol PRCatalogItem;
 @protocol CatalogFacade;
 
@@ -94,20 +92,20 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 @property (nonatomic, readonly, getter = isLimitReached) BOOL limitReached;
 
 // filter stack filters
-@property (nonatomic, strong, readonly) PRCountableValue *isFavorite;
-@property (nonatomic, strong, readonly) PRCountableValue *isFree;
-@property (nonatomic, strong, readonly) PRCountableValue *isCustomCatalogTitle;
-@property (nonatomic, strong, readonly) PRCountableValue *type;
-@property (nonatomic, strong, readonly) PRCountableValue *language;
-@property (nonatomic, strong, readonly) PRCountableValue *country;
-@property (nonatomic, strong, readonly) PRCountableValue *mainCID;
-@property (nonatomic, strong, readonly) PRCountableValue *minRate;
-@property (nonatomic, strong, readonly) PRCountableValue *issueDate;
-@property (nonatomic, strong, readonly) NSString *group;
-@property (nonatomic, strong, readonly) NSArray<NSString *> *cids;
-@property (nonatomic, copy, readonly) NSArray<PRSubscription *> *subscriptionFilters;
-@property (nonatomic, strong, readonly) NSArray<NSDictionary<NSString *, id> *> *categoryFilters;
-@property (nonatomic, strong, readonly) NSArray<NSDictionary<NSString *, id> *> *regionFilters;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *isFavorite;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *isFree;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *isCustomCatalogTitle;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *type;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *language;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *country;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *mainCID;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *minRate;
+@property (nullable, nonatomic, strong, readonly) PRCountableValue *issueDate;
+@property (nullable, nonatomic, strong, readonly) NSString *group;
+@property (nullable, nonatomic, strong, readonly) NSArray<NSString *> *cids;
+@property (nullable, nonatomic, copy, readonly) NSArray<PRSubscription *> *subscriptionFilters;
+@property (nullable, nonatomic, strong, readonly) NSArray<NSDictionary<NSString *, id> *> *categoryFilters;
+@property (nullable, nonatomic, strong, readonly) NSArray<NSDictionary<NSString *, id> *> *regionFilters;
 
 // filters not included into filter stack
 @property (nullable, nonatomic, copy) NSString *text;
@@ -121,7 +119,23 @@ typedef NS_OPTIONS(NSUInteger, PRSourceListOption) {
 
 @end
 
+
+@interface PRSourceList (/*PROTECTED*/)
+- (void)updateWithCustomList:(nullable NSArray<id<PRCatalogItem>> *)list;
+- (void)resetComputedLists;
+- (void)addFilter:(PRSourceListFilter *)filter;
+
+- (NSArray<id<PRCatalogItem>> *)refilter;
+- (NSArray<id<PRCatalogItem>> *)sort:(NSArray *)sourceList;
+- (NSArray<id<PRCatalogItem>> *)sort:(NSArray *)sourceList order:(PRCatalogSortingOrder)order;
+
+@property (nonatomic, unsafe_unretained) PRCatalog *catalog;
+@property (nonatomic, strong) NSArray<NSString *> *services;
+@property (nonatomic, readonly) BOOL customDataSet;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
-#import "PRSourceList+Info.h"
-#import "PRSourceList+Factory.h"
+#import <PRAPI/PRSourceList+Info.h>
+#import <PRAPI/PRSourceList+Factory.h>

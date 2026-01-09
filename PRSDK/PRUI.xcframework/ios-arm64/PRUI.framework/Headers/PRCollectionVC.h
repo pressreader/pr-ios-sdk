@@ -97,6 +97,7 @@ typedef NS_OPTIONS(NSUInteger, PRCollectionOption) {
 @property (nullable, nonatomic, readonly) PRCollectionViewFlowLayout *layoutForCurrentPresentationStyle;
 
 @property (nonatomic, readonly) UIColor *backgroundColor;
+@property (nonatomic) CGFloat itemHeightToWidthRatio;
 
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForRegularList;
 @property (nonatomic, readonly) PRCollectionViewFlowLayout *layoutForRegularSmallGrid;

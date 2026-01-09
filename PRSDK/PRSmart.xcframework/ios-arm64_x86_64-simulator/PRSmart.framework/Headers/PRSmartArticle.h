@@ -18,6 +18,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PRSmartArticleCollectionsUpdatedNotification;
+extern PRSmartRegionType const PRSmartRegionTypeArticle;
 
 typedef NSDictionary<NSString *, id> * SmartArticlePayload;
 
@@ -42,18 +43,24 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
     int m_articleIndexOnPage;
 }
 
-+ (nullable NSString *)articleIdFromDictionary:(SmartArticlePayload)dictionary;
-+ (nullable instancetype)cashedArticleWithId:(NSString *)articleKey;
++ (nullable instancetype)cachedArticleWithId:(NSString *)articleKey;
 
 + (instancetype)articleWithDictionary:(SmartArticlePayload)dictionary;
 + (instancetype)articleWithDictionary:(SmartArticlePayload)dictionary
-                          isoLanguage:(nullable NSString *)language
-                          updateCache:(BOOL)updateCache;
+                             language:(nullable NSString *)language;
++ (instancetype)articleWithDictionary:(SmartArticlePayload)dictionary
+                                 page:(NSUInteger)page
+                               parent:(PRSmartBaseObject *)parentObject;
 
-+ (instancetype)articleWithType:(NSString *)type
-                           page:(NSUInteger)page
-                         parent:(PRSmartBaseObject *)parentObject
-                     dictionary:(SmartArticlePayload)dictionary;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithRoot:(nullable PRSmartBaseObject *)root NS_UNAVAILABLE;
+- (instancetype)initWithType:(PRSmartRegionType)type
+                        page:(NSUInteger)page
+                      parent:(PRSmartBaseObject *)parentObject NS_UNAVAILABLE;
+- (instancetype)initWithRoot:(nullable PRSmartBaseObject *)root
+                  attributes:(nullable NSDictionary<PRSmartObjectAttribute, id> *)attributes
+         originalISOLanguage:(nullable NSString *)language NS_UNAVAILABLE;
+
 
 - (void)addSmartRegion:(PRSmartRegion *)region;
 
@@ -70,11 +77,10 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 - (void)setAssignedCollections:(NSArray<NSDictionary<NSString *, id> *> *)assignedCollections;
 - (void)setRate:(NSString *)rate;
 
-@property (nullable, nonatomic, readonly) NSString *articleId;
+@property (nonatomic, strong, readonly) NSString *articleId;
 @property (nullable, nonatomic, readonly) NSString *articleUid;
-@property (nullable, nonatomic, readonly) NSString *articleUidOrId;
-@property (nullable, nonatomic, readonly) NSString *articleIdOrRegionId;
-@property (nullable, nonatomic, readonly) NSString *rootKey;
+@property (nonatomic, readonly) NSString *articleUidOrId;
+@property (nonatomic, readonly) NSString *rootKey;
 @property (nullable, nonatomic, readonly) NSString *rate;
 
 - (NSString *)shortContentForLanguage:(NSString *)language;
@@ -85,9 +91,6 @@ typedef NS_OPTIONS(NSUInteger, PRSmartArticleStatus) {
 
 - (NSString *)subtitle;
 - (NSString *)subtitleForISOLanguage:(NSString *)language;
-
-- (NSString *)byline;
-- (NSString *)bylineForISOLanguage:(NSString *)language;
 
 - (NSString *)copyright;
 - (NSString *)copyrightForISOLanguage:(NSString *)language;

@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (Notification)
 
-- (void)subscribeToNotifications:(NSArray<NSNotificationName> *)notifications selector:(SEL)selector;
+- (void)subscribeToNotifications:(NSArray<NSNotificationName> *)notifications selector:(SEL)selector
+NS_SWIFT_NAME(subscribe(to:selector:));
 - (void)subscribeTo:(NSNotificationName)notificationName
            selector:(SEL)selector
              object:(nullable id)object;

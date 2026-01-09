@@ -8,6 +8,7 @@
 
 @import UIKit;
 
+#import <PRAPI/PRCatalogItem.h>
 #import "PRSubscription.h"
 #import "PRService_Constants.h"
 
@@ -27,11 +28,11 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
 
 @interface PRSubscription (Service)
 
-- (void) postRequest:(NSString *)requestType
-             options:(NSDictionary *)options
-             success:(BOOL (^)(AFHTTPRequestOperation *, SPNode *))success;
+- (void)postRequest:(NSString *)requestType
+            options:(nullable NSDictionary *)options
+            success:(BOOL (^_Nullable)(AFHTTPRequestOperation *, SPNode *))success;
 
-- (void) postRequest:(NSString *)requestType options:(NSDictionary *)options;
+- (void)postRequest:(NSString *)requestType options:(NSDictionary *)options;
 
 - (void)postRequest:(NSString *)requestType
         requestData:(nullable NSString *)xmlFragment
@@ -70,7 +71,6 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
                               failure:(void (^_Nullable)(NSError *_Nullable error))failure;
 
 - (nullable NSDictionary *)updateRequestParameters:(nullable NSDictionary *)parameters token:(NSString *)token;
-- (void)requestOnlineConfig;
 - (void) SendReadingStatistics;
 - (void) changeSubscription:(PRSubscriptionItem *)si delete:(BOOL)doDelete includeSupplements:(BOOL)include keepParent:(BOOL)keep successBlock:(void(^)(void))successBlock failureBlock:(void(^)(NSError *))failureBlock;
 
@@ -110,13 +110,15 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
                             date:(NSDate *)date;
 
 - (void) RequestTemplateInfoInt:(NSString *)locale;
-- (void) RequestNewspaperRadioListIntWithCID:(NSString *)CID issueDate:(NSDate *)issueDate onCompletion:(void(^_Nullable)(BOOL success))completionBlock;
-- (void) SendVoteInt:(BOOL)hateVote article:(NSDictionary *)article CID:(NSString *)CID issueDate:(NSDate *)issueDate;
+
+- (void)requestNewspaperRadioInfoWithIssue:(PRTitleItemExemplar *)issue
+                              onCompletion:(void(^)(BOOL success))completionBlock;
 
 /// completionBlock returns list of those titles which dates were updated (changed)
-- (void)requestLatestAvailableIssueDatesForTitles:(NSArray*)titles
-                                           forced:(BOOL)forced
-                                       completion:(void(^_Nullable)(NSArray *_Nullable updatedTitleList, NSError *_Nullable error))completion;
+- (void)requestLatestIssueDatesForTitles:(nullable NSArray<id<PRCatalogItem>> *)titles
+                                  forced:(BOOL)forced
+                              completion:(void(^_Nullable)(NSArray<id<PRCatalogItem>> *_Nullable updatedTitleList,
+                                                           NSError *_Nullable error))completion;
 - (void)resetTitleItemsAvailableDatesUpdateDate;
 
 - (void)requestCIDsInUsersSubscriptions:(void(^)(NSArray<NSString *> *_Nullable, NSError *_Nullable))completion;
@@ -129,8 +131,9 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
 - (void)requestPublisherConfigUrl;
 - (void)requestCatalogForced:(BOOL)forced completion:(PRSimpleResult)handler;
 - (void)requestCustomCatalog:(nullable PRSimpleResult)handler;
-- (void)requestAppConfig;
-- (void)requestClientConfig;
+- (void)requestAppConfigWithCompletionHandler:(void(^_Nullable)(NSError *_Nullable error))completion;
+- (void)requestClientConfigWithCompletionHandler:(void(^_Nullable)(NSError *_Nullable error))completion;
+- (void)requestOnlineConfigWithCompletionHandler:(void(^_Nullable)(NSError *_Nullable error))completion;
 - (void)getManageBehaviourForProvider:(NSString *)provider
                            completion:(void(^_Nullable)(NSString *_Nullable url, NSString *_Nullable title, NSError *_Nullable error))completion;
 - (void) RequestValidatePayments:(nullable NSDictionary<NSString*,SKPaymentTransaction *> *)paymentTransactions;

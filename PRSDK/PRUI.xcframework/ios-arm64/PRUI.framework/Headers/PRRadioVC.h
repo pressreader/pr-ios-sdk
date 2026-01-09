@@ -21,29 +21,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)startWithLibraryItem:(PRMyLibraryItem *)mli
                 presentingVC:(UIViewController *)presentingVC
-                        page:(NSUInteger)initPage
+                        page:(NSInteger)initPage
                   articleUid:(nullable NSString *)initArticle;
 
 + (void)startWithDataSource:(id<PRRadioDataSource>)dataSource
                     article:(nullable id<NTFArticle>)article
                presentingVC:(UIViewController *)presentingVC;
 
-+ (void)startForTitleItem:(PRTitleItem *)titleItem
-             presentingVC:(UIViewController *)presentingVC;
++ (void)startWithItem:(PRTitleItemExemplar *)item
+         presentingVC:(UIViewController *)presentingVC;
 
-+ (void)startForTitleItem:(PRTitleItem *)titleItem
-             subscription:(PRSubscription *)subscription
-                issueDate:(NSDate *)date
-             presentingVC:(UIViewController *)presentingVC;
++ (void)startWithItem:(PRTitleItemExemplar *)item
+         subscription:(PRSubscription *)subscription
+         presentingVC:(UIViewController *)presentingVC;
 
 - (nullable instancetype)initWithLibraryItem:(PRMyLibraryItem *)libraryItem;
-- (nullable instancetype)initWithTitleItem:(PRTitleItem *)titleItem
-                              subscription:(PRSubscription *)subscription
-                                 issueDate:(NSDate *)date;
+- (nullable instancetype)initWithItem:(PRTitleItemExemplar *)item
+                         subscription:(PRSubscription *)subscription;
 
 @property (nonatomic, readonly) NSUInteger currentPageNumber;
 @property (nonatomic, strong, readonly) PRRadioManager *radioManager;
 @property (nonatomic, strong, readonly) UIView *bottomBar;
+@property (nonatomic, strong, readonly) UILabel *issueLabel;
+@property (nonatomic, strong, readonly) UILabel *sectionLabel;
+@property (nullable, nonatomic, strong, readonly) NSString *issueDate;
+@property (nullable, nonatomic, strong, readonly) PRMyLibraryItem *libraryItem;
+@property (nullable, nonatomic, strong, readonly) UIView *defaultTextTitleView;
 
 @end
 

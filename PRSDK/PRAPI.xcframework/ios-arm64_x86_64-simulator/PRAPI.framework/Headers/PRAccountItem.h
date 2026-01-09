@@ -197,7 +197,6 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 /// Account is registered or doesn't require registration.
 @property (nonatomic, readonly) BOOL isSufficient;
 @property (nonatomic, readonly) BOOL isUnlimited;
-@property (nonatomic, readonly) BOOL notificationEnabled;
 
 @property (nonatomic, readonly) BOOL isPremiumTrial;
 @property (nonatomic, readonly) BOOL isBalanceInIssues;

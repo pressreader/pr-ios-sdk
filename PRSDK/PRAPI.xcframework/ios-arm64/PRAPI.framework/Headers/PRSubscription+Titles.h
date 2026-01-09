@@ -9,19 +9,18 @@
 #import "PRSubscription.h"
 #import "PROptions.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface PRSubscription (Titles)
 
+/// Legacy DQ Catalog API storage. Use PRCatalog for normal accessing items instead.
+- (nullable NSArray<PRTitleItem *> *)titles;
 - (NSUInteger)titlesCount;
-- (NSArray<NSString *> *)allTitleCIDs;
-- (NSArray<PRTitleItem *> *)titles;
-- (PRTitleItem *)titleForCID:(NSString *)CID;
-- (void)setTitle:(PRTitleItem *)titleItem forCID:(NSString *)CID;
-- (void)enumerateCIDsAndTitlesUsingBlock:(void (NS_NOESCAPE ^)(NSString* CID, PRTitleItem *titleItem, BOOL *stop))block;
-- (NSArray<PRTitleItem *> *)parentTitles;
+- (nullable NSArray<NSString *> *)allTitleCIDs;
 
-#pragma mark - Supplements
-- (NSArray<PRTitleItem *> *)supplementsForCID:(NSString *)CID sorted:(PRCatalogSortingOrder)sortingOrder;
-- (PRTitleItem *)regionalParentForTitleWithCID:(NSString *)CID;
+- (nullable PRTitleItem *)titleWithCID:(NSString *)CID NS_SWIFT_NAME(title(cid:));
+- (void)setTitle:(PRTitleItem *)titleItem;
 
-- (void)searchForSources:(NSString *)searchString count:(NSUInteger)count success:(void (^)(NSArray<PRTitleItem *> *sources))success failure:(void (^)(NSError *error))failure;
 @end
+
+NS_ASSUME_NONNULL_END

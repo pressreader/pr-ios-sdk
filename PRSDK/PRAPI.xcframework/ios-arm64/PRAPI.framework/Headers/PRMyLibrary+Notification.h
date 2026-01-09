@@ -16,9 +16,3 @@ extern NSNotificationName const PRMyLibraryGetMessagesProcessedNotification;
 extern NSNotificationName const PRMyLibraryPurchaseAdviseUpdatedNotification;
 extern NSNotificationName const PRMyLibraryDidReceiveMessages;
 extern NSNotificationName const PRMyLibraryItemLicenseUpdatedNotification;
-
-@interface PRMyLibrary (Notification)
-
-- (void)presentLibraryNotification:(NSString *)body mid:(NSString *)MID type:(NSString *)type;
-
-@end

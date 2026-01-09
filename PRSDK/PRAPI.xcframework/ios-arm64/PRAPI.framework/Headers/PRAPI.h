@@ -32,16 +32,14 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRSubscriptionCatalogProtocol.h>
 #import <PRAPI/PRWebServerBookRegister.h>
 #import <PRAPI/PRAppUIReadyDelegate.h>
-#import <PRAPI/OpenedItem.h>
+#import <PRAPI/PROpenableItem.h>
 
 #pragma mark - Consts
 #import <PRAPI/PRAPIRequests.h>
-#import <PRAPI/PRDictionaryKeys.h>
 #import <PRAPI/PRNotifications.h>
 #import <PRAPI/PRUserDefaultsKeys.h>
 #import <PRAPI/PRConstants.h>
 #import <PRAPI/PRAccountNotifications.h>
-#import <PRAPI/PRTitleItemNestedTypes.h>
 #import <PRAPI/PRService_Constants.h>
 
 #pragma mark - Model
@@ -55,7 +53,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PROptions.h>
 #import <PRAPI/PROptions+Speech.h>
 #import <PRAPI/PROptions+Downloaded.h>
-#import <PRAPI/PROptions+NewsFeed.h>
 #import <PRAPI/PROptions+UserDefaults.h>
 
 #import <PRAPI/PRCountry.h>
@@ -82,9 +79,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRLink.h>
 
 #import <PRAPI/PRCollectionsModel.h>
-
-#import <PRAPI/PRTitleObject.h>
-
 #import <PRAPI/PRSourceItem.h>
 
 #import <PRAPI/PRTitleItem.h>
@@ -105,8 +99,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRAccountItem+KYM.h>
 
 #import <PRAPI/PRSourceList.h>
-#import <PRAPI/PRSourceList_Protected.h>
-#import <PRAPI/PRSourceList+Info.h>
 
 #import <PRAPI/PRLatestIssuesList.h>
 
@@ -114,12 +106,10 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRCatalogFilterItem.h>
 
 #import <PRAPI/PRModel.h>
-#import <PRAPI/PRModel+Settings.h>
 
 #import <PRAPI/PRHost+Service.h>
 
 #import <PRAPI/PRLibraryProfile.h>
-#import <PRAPI/PRLibraryProfile+Service.h>
 
 #import <PRAPI/NTFDataService.h>
 #import <PRAPI/NTFDataService+Filter.h>
@@ -212,9 +202,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/NTFBannersItem.h>
 
 #import <PRAPI/NTFSocialInfoItem.h>
-
-#import <PRAPI/PRDownloadedSourceList.h>
-
 #import <PRAPI/PRAskReviewUtil.h>
 
 #import <PRAPI/PRBrazeAnalytics.h>
@@ -238,15 +225,14 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRMyLibrary.h>
 #import <PRAPI/PRCatalog.h>
 #import <PRAPI/PROptions.h>
-#import <PRAPI/PROptions+NewsFeed.h>
 #import <PRAPI/PROnlineContentUpdater.h>
 #import <PRAPI/PRCoreUtil.h>
 
 #import <PRAPI/PRTitleItemsManager.h>
-#import <PRAPI/PRCoreGlobalImpl.h>
+#import <PRAPI/PRSpotlightSearch.h>
+#import <PRAPI/UIImage+Spotlight.h>
 #import <PRAPI/PRWebServer.h>
 #import <PRAPI/PRSocialSignInManager.h>
-#import <PRAPI/PRHotSpotStatus.h>
 #import <PRAPI/PRSuggestionsManager.h>
 #import <PRAPI/PRImageLoader.h>
 
@@ -256,6 +242,5 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRNSBundle+Updatable.h>
 #import <PRAPI/PRAnalyticsProfileManager.h>
 #import <PRAPI/ConsoleAnalytics.h>
-#import <PRAPI/GoogleAnalytics.h>
 #import <PRAPI/GeoHasher.h>
 #import <PRAPI/NTFHomeFeedDataService.h>

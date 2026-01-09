@@ -27,7 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
                              stamp:(nullable NSString *)stamp
                         socialData:(nullable NSString *)socialData
                         completion:(void(^_Nullable)(BOOL success, NSError * _Nullable error))completion;
-- (void)sendAuthorizeUserByExternalAuthTicketRequest:(NSString *)externalAuthTicket isNewUser:(BOOL)isNewUser onComplete:(void(^)(BOOL success, NSError *error))onCompleteBlock;
+- (void)sendAuthorizeUserByExternalAuthTicketRequest:(NSString *)externalAuthTicket
+                                           isNewUser:(BOOL)isNewUser
+                                          onComplete:(void(^)(BOOL success, NSError * _Nullable error))onCompleteBlock;
 
 - (void)deauthorizeAccount:(PRAccountItem *)ai
                    options:(PRAccountDeauthorizationOption)options
@@ -82,20 +84,21 @@ useMultipartFormRequest:(BOOL)useMultipartFormRequest
                failure:(void (^)(NSError *error))failureBlock;
 
 - (void)sendDownloadCompletedRequest:(NSString *)accountName;
-- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem;
-- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
+- (void)requestHotSpotStatus;
+- (void)requestHotSpotStatusForAccount:(PRAccountItem *)accountItem;
+- (void)requestHotSpotStatusForAccount:(PRAccountItem *)accountItem
                                 forced:(BOOL)forced
                             completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
-- (void)requestHotZoneStatusForAccount:(PRAccountItem *)accountItem
+- (void)requestHotSpotStatusForAccount:(PRAccountItem *)accountItem
                              hotSpotId:(nullable NSString *)hotSpotId
                                 forced:(BOOL)forced
                             completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
 
 - (void)deleteRadiantHotSpotForAccount:(PRAccountItem *)accountItem;
 
-- (void)requestGiftedAccessWithCompletion:(void(^ _Nullable)(BOOL success, NSError *error))completion;
+- (void)requestGiftedAccessWithCompletion:(void(^ _Nullable)(NSError *_Nullable error))completion;
 - (void)requestGiftedAccessWithToken:(NSString *)token
-                          completion:(void(^)(BOOL success, NSError *error))completion;
+                          completion:(void(^)(NSError *_Nullable error))completion;
 - (void)requestDevicesWithAccount:(PRAccountItem *)account
                        completion:(void (^)(NSError *_Nullable error, NSArray<DeviceActivation *> * models))completionBlock;
 - (void)deauthorizeDeviceWith:(NSString *)username

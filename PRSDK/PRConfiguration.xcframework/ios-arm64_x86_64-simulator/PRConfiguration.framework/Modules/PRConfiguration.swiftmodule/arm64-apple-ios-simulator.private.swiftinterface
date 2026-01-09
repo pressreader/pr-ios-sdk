@@ -7,6 +7,7 @@ import CoreData
 import Foundation
 @_exported import PRConfiguration
 import PRDIContainer
+import PRLogKit
 import PRSyntacticSugar
 import Swift
 import UIKit
@@ -31,10 +32,28 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class GlobalSearchConfig : ObjectiveC.NSObject {
+  public struct Scope : Swift.OptionSet {
+    public let rawValue: Swift.Int
+    public static let publication: PRConfiguration.GlobalSearchConfig.Scope
+    public static let book: PRConfiguration.GlobalSearchConfig.Scope
+    public static let game: PRConfiguration.GlobalSearchConfig.Scope
+    public static let article: PRConfiguration.GlobalSearchConfig.Scope
+    public static let interest: PRConfiguration.GlobalSearchConfig.Scope
+    public init(rawValue: Swift.Int)
+    public typealias ArrayLiteralElement = PRConfiguration.GlobalSearchConfig.Scope
+    public typealias Element = PRConfiguration.GlobalSearchConfig.Scope
+    public typealias RawValue = Swift.Int
+  }
   @objc final public var isEnabled: Swift.Bool {
     @objc get
   }
   @objc final public var isOngoingStoriesSearchEnabled: Swift.Bool {
+    @objc get
+  }
+  final public var scope: PRConfiguration.GlobalSearchConfig.Scope {
+    get
+  }
+  @objc final public var historyEnabled: Swift.Bool {
     @objc get
   }
   @objc override dynamic public init()
@@ -44,11 +63,20 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 extension PRConfiguration.PRConfigKey {
-  public static let autoTranslation: PRConfiguration.AutoTranslationConfigKey
+  public static let translation: PRConfiguration.TranslationConfigKey
 }
-public struct AutoTranslationConfigKey {
-  public let zones: PRConfiguration.PRConfigKey
-  public let pairsLimit: PRConfiguration.PRConfigKey
+public struct TranslationConfigKey {
+  public struct Auto {
+    public let zones: PRConfiguration.PRConfigKey
+    public let pairsLimit: PRConfiguration.PRConfigKey
+  }
+  public struct Native {
+    public let enabled: PRConfiguration.PRConfigKey
+  }
+  public let auto: PRConfiguration.TranslationConfigKey.Auto
+  public let native: PRConfiguration.TranslationConfigKey.Native
+  public let enabled: PRConfiguration.PRConfigKey
+  public let showAutoTranslateSettings: PRConfiguration.PRConfigKey
 }
 @_hasMissingDesignatedInitializers final public class MarfeelAnalyticsConfigKey {
   @objc deinit
@@ -158,6 +186,16 @@ public struct CoBrandingConfig {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers final public class ConfigMapper : ObjectiveC.NSObject {
+  @objc final public var webConfig: [Swift.String : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc final public func applyWebConfig()
+  @objc final public func recoverConfigs()
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public enum PRCatalogSectionType : Swift.Int {
   case begin = -2
   case none
@@ -170,6 +208,7 @@ public struct CoBrandingConfig {
   case topMagazines
   case topNewspapers
   case books
+  case games
   case justAdded
   case newReleases
   case topFree
@@ -192,7 +231,7 @@ public struct CoBrandingConfig {
   case latestPublishDay
   case topAdBanner
   case inlineAdBanner
-  case coBrandingBanner
+  case partnerBanner
   case end
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
@@ -204,13 +243,15 @@ extension PRConfiguration.PRCatalogConfig {
   @objc dynamic public var books: PRConfiguration.BookConfig? {
     @objc get
   }
+  public var games: PRConfiguration.GameConfig {
+    get
+  }
   @objc dynamic public var localPromotionsCount: Swift.Int {
     @objc get
   }
   @objc dynamic public var isFreeIndicatorEnabled: Swift.Bool {
     @objc get
   }
-  public func isModernAPISupported(by section: PRConfiguration.PRCatalogSectionType) -> Swift.Bool
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class DirectExternalLinkAccountConfig : ObjectiveC.NSObject {
   @objc public var isEnabled: Swift.Bool {
@@ -227,6 +268,9 @@ extension PRConfiguration.PRCatalogConfig {
     @objc get
   }
   @objc final public var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc final public var isEnabledForPurchasedItemsOnly: Swift.Bool {
     @objc get
   }
   @objc override dynamic public init()
@@ -265,13 +309,8 @@ extension PRConfiguration.PRCatalogConfig {
   @objc final public let related: PRConfiguration.ArticleRelatedConfig
   @objc final public let details: PRConfiguration.ArticleDetailsViewConfig
   @objc final public let byline: PRConfiguration.ArticleBylineConfig
+  @objc final public let comments: PRConfiguration.ArticleCommentsConfig
   @objc final public var hasSimilars: Swift.Bool {
-    @objc get
-  }
-  @objc final public var hasComments: Swift.Bool {
-    @objc get
-  }
-  @objc final public var canComment: Swift.Bool {
     @objc get
   }
   @objc final public var hasVotes: Swift.Bool {
@@ -390,6 +429,35 @@ extension PRConfiguration.PRCatalogConfig {
   @objc override dynamic public init()
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc(PRArticleCommentsConfig) @objcMembers final public class ArticleCommentsConfig : ObjectiveC.NSObject {
+  @_inheritsConvenienceInitializers @objc(PRArticleCommentsNewPostConfig) @objcMembers final public class NewPostConfig : ObjectiveC.NSObject {
+    @objc final public var isEnabled: Swift.Bool {
+      @objc get
+    }
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @objc(PRArticleCommentsAttachmentConfig) @objcMembers final public class AttachmentConfig : ObjectiveC.NSObject {
+    @objc final public var isEnabled: Swift.Bool {
+      @objc get
+    }
+    @objc final public var isVideoEnabled: Swift.Bool {
+      @objc get
+    }
+    @objc final public var isImageEnabled: Swift.Bool {
+      @objc get
+    }
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc final public let newPost: PRConfiguration.ArticleCommentsConfig.NewPostConfig
+  @objc final public let attachment: PRConfiguration.ArticleCommentsConfig.AttachmentConfig
+  @objc final public var enabled: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 public struct KeyValueStoreKey : Swift.RawRepresentable {
   public var rawValue: Swift.String
   public init(rawValue: Swift.String)
@@ -466,6 +534,13 @@ public struct AppsFlyerConfig {
     get
   }
   public var oneLink: PRConfiguration.AppsFlyerConfig.OneLinkConfig
+}
+public struct WidgetConfig {
+  public let feed: PRConfiguration.WidgetFeedConfig
+}
+public struct WidgetFeedConfig {
+  public let news: PRConfiguration.NewsFeedConfig
+  public let moreStoriesCollection: Swift.String?
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class ReadingAnalyticsConfig : ObjectiveC.NSObject {
   @objc final public var frameDebounce: Foundation.TimeInterval {
@@ -568,6 +643,7 @@ public struct PRUbiquitousKeyValueStore {
     @objc get
   }
   @objc final public let relatedArticles: PRConfiguration.RelatedArticlesConfig
+  @objc final public let news: PRConfiguration.NewsFeedConfig
   @objc override dynamic public init()
   @objc deinit
 }
@@ -623,9 +699,38 @@ extension PRConfiguration.PRConfig {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers final public class TranslationConfig : ObjectiveC.NSObject {
+  final public let auto: PRConfiguration.AutoTranslationConfig
+  final public let native: PRConfiguration.NativeTranslationConfig
+  final public var enabled: Swift.Bool {
+    get
+  }
+  final public var showAutoTranslateSettings: Swift.Bool {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class AutoTranslationConfig : ObjectiveC.NSObject {
+  final public var pairsLimit: Swift.Int {
+    get
+  }
+  final public var zones: Swift.Int {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class NativeTranslationConfig : ObjectiveC.NSObject {
+  final public var enabled: Swift.Bool {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class HotSpotConfig : ObjectiveC.NSObject {
-  @_inheritsConvenienceInitializers @objc(HotSpotNotificationsConfig) @objcMembers final public class NotificationsConfig : ObjectiveC.NSObject {
-    @_inheritsConvenienceInitializers @objc(HotSpotLocalNotificationsConfig) @objcMembers final public class LocalConfig : ObjectiveC.NSObject {
+  @_inheritsConvenienceInitializers @objc(PRHotSpotNotificationsConfig) @objcMembers final public class NotificationConfig : ObjectiveC.NSObject {
+    @_inheritsConvenienceInitializers @objc(PRHotSpotLocalNotificationConfig) @objcMembers final public class LocalConfig : ObjectiveC.NSObject {
       @objc final public var timeInterval: Foundation.TimeInterval {
         @objc get
       }
@@ -638,7 +743,7 @@ extension PRConfiguration.PRConfig {
       @objc override dynamic public init()
       @objc deinit
     }
-    @_inheritsConvenienceInitializers @objc(HotSpotWelcomeNotificationsConfig) @objcMembers final public class WelcomeConfig : ObjectiveC.NSObject {
+    @_inheritsConvenienceInitializers @objc(PRHotSpotWelcomeNotificationConfig) @objcMembers final public class WelcomeConfig : ObjectiveC.NSObject {
       @objc final public var timeInterval: Foundation.TimeInterval {
         @objc get
       }
@@ -651,8 +756,22 @@ extension PRConfiguration.PRConfig {
       @objc override dynamic public init()
       @objc deinit
     }
-    @objc final public let local: PRConfiguration.HotSpotConfig.NotificationsConfig.LocalConfig
-    @objc final public let welcome: PRConfiguration.HotSpotConfig.NotificationsConfig.WelcomeConfig
+    @_inheritsConvenienceInitializers @objc(PRHotSpotExpirationNotificationConfig) @objcMembers final public class ExpirationConfig : ObjectiveC.NSObject {
+      @objc final public var isEnabled: Swift.Bool {
+        @objc get
+      }
+      @objc final public var remindDuration: Foundation.TimeInterval {
+        @objc get
+      }
+      @objc final public var remindInterval: Foundation.TimeInterval {
+        @objc get
+      }
+      @objc override dynamic public init()
+      @objc deinit
+    }
+    @objc final public let local: PRConfiguration.HotSpotConfig.NotificationConfig.LocalConfig
+    @objc final public let welcome: PRConfiguration.HotSpotConfig.NotificationConfig.WelcomeConfig
+    @objc final public let expiration: PRConfiguration.HotSpotConfig.NotificationConfig.ExpirationConfig
     @objc final public var isEnabled: Swift.Bool {
       @objc get
     }
@@ -677,7 +796,13 @@ extension PRConfiguration.PRConfig {
   @objc final public var isGeoFencingEnabled: Swift.Bool {
     @objc get
   }
-  @objc final public let notifications: PRConfiguration.HotSpotConfig.NotificationsConfig
+  @objc final public let notification: PRConfiguration.HotSpotConfig.NotificationConfig
+  @objc final public var isRequired: Swift.Bool {
+    @objc get
+  }
+  @objc final public var useNativeUI: Swift.Bool {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -773,6 +898,12 @@ extension Foundation.Bundle {
   final public var useIdToken: Swift.Bool {
     get
   }
+  final public var audience: Swift.String? {
+    get
+  }
+  final public var scope: Swift.String? {
+    get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -801,14 +932,29 @@ extension PRConfiguration.PRConfig {
   @objc(appInfoConfig) public static var appInfo: PRConfiguration.AppInfoConfig
   public static let braze: PRConfiguration.BrazeConfig
   @objc(directExternalLinkAccountConfig) public static let directExternalLinkAccount: PRConfiguration.DirectExternalLinkAccountConfig
+  @PRDIContainer.Inject public static var translation: PRConfiguration.TranslationConfig? {
+    get
+  }
   @objc public static var showTestServer: Swift.Bool {
     @objc get
     @objc set
   }
+  @objc public static let configMapper: PRConfiguration.ConfigMapper
+  @objc public static var spotlightIndexingEnabled: Swift.Bool {
+    @objc get
+  }
+  public static var publisherConfigEnabled: Swift.Bool {
+    get
+  }
+  public static var isWebConfigEnabled: Swift.Bool {
+    get
+  }
+  public static let widget: PRConfiguration.WidgetConfig
 }
 extension PRConfiguration.PRConfig {
   public static func bool(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Bool) -> Swift.Bool
   public static func set(_ value: Swift.Bool, forKey: PRConfiguration.PRConfigKey)
+  public static func resolvedBool(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Bool) -> Swift.Bool
   public static func value(forKey key: PRConfiguration.PRConfigKey, defaultValue: Any? = nil) -> Any?
   public static func integer(forKey key: PRConfiguration.PRConfigKey, defaultValue: Swift.Int) -> Swift.Int
   public static func set(_ value: Swift.Int, forKey key: PRConfiguration.PRConfigKey)
@@ -1021,25 +1167,41 @@ public enum WidgetKind : Swift.String, Swift.Codable, Swift.CaseIterable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension Foundation.UserDefaults {
-  @objc(sharedUserDefaults) dynamic public class var shared: Foundation.UserDefaults? {
-    @objc get
+@objc @_inheritsConvenienceInitializers public class CatalogAppearanceConfig : ObjectiveC.NSObject {
+  public struct FilterConfig {
+    public struct CountryConfig {
+      public struct FlagConfig {
+        public var hidden: Swift.Bool {
+          get
+        }
+      }
+      public let flag: PRConfiguration.CatalogAppearanceConfig.FilterConfig.CountryConfig.FlagConfig
+    }
+    public let country: PRConfiguration.CatalogAppearanceConfig.FilterConfig.CountryConfig
   }
-  @objc dynamic public var accessToken: Swift.String? {
-    @objc get
-    @objc set
+  public struct FilterButtonConfig {
+    public struct CountryConfig {
+      public struct FlagConfig {
+        public var hidden: Swift.Bool {
+          get
+        }
+      }
+      public let flag: PRConfiguration.CatalogAppearanceConfig.FilterButtonConfig.CountryConfig.FlagConfig
+    }
+    public let country: PRConfiguration.CatalogAppearanceConfig.FilterButtonConfig.CountryConfig
   }
-  @objc dynamic public var baseServices: [Swift.String : Any]? {
-    @objc get
-    @objc set
-  }
-  public var deepLinkScheme: Swift.String? {
-    get
-    set
-  }
+  final public let filter: PRConfiguration.CatalogAppearanceConfig.FilterConfig
+  final public let filterButton: PRConfiguration.CatalogAppearanceConfig.FilterButtonConfig
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Foundation.NSNotification.Name {
+  public static let PRConfigHasBeenUpdated: Foundation.Notification.Name
+}
+@objc extension Foundation.NSNotification {
+  @objc public static let PRConfigHasBeenUpdated: Foundation.Notification.Name
 }
 @objc extension Foundation.NSLocale {
-  @objc dynamic public func languageName(isoCode: Swift.String) -> Swift.String?
   @objc public static func hasCountry(forLocaleIdentifier localeIdentifier: Swift.String) -> Swift.Bool
   @objc public static func languageAndScript(fromLocaleIdentifier localeIdentifier: Swift.String) -> Swift.String
   @objc public static func canonicalValidatedLanguageIdentifier(fromComponents components: [Swift.String : Swift.String]) -> Swift.String
@@ -1052,6 +1214,7 @@ extension Foundation.UserDefaults {
   @objc dynamic public var validatedLanguageIdentifier: Swift.String {
     @objc get
   }
+  @objc dynamic public func languageName(isoCode: Swift.String) -> Swift.String?
 }
 extension Foundation.Locale {
   public func languageName(isoCode: Swift.String) -> Swift.String?
@@ -1116,6 +1279,21 @@ extension Foundation.Locale {
     @objc get
   }
   @objc dynamic public var shouldSendAnalyticsEventForPremiumAvailable: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var includeSupplements: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var showAuthButtonWhenBuyingRequired: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var showOtherIssues: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var showRelated: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var showSellInseparablyAlert: Swift.Bool {
     @objc get
   }
 }
@@ -1192,11 +1370,9 @@ extension Foundation.Locale {
   }
   @objc final public var imageDownloadURL: Swift.String {
     @objc get
-    @objc set
   }
   @objc final public var imageUploadURL: Swift.String {
     @objc get
-    @objc set
   }
   @objc final public var manageAccountURL: Swift.String {
     @objc get
@@ -1224,9 +1400,6 @@ extension PRConfiguration.PRConfig {
   }
   @objc public static let dqRequestSimulation: PRConfiguration.RequestSimulation
   @objc public static let baseRequestSimulation: PRConfiguration.RequestSimulation
-  @objc public static var requestCachesDisabled: Swift.Bool {
-    @objc get
-  }
 }
 @objc @objcMembers final public class Font : ObjectiveC.NSObject {
   @objc final public let name: Swift.String
@@ -1271,6 +1444,81 @@ extension PRConfiguration.PRConfig {
     @objc get
   }
   @objc override dynamic public init()
+  @objc deinit
+}
+extension Foundation.UserDefaults {
+  @objc(sharedUserDefaults) dynamic public class var shared: Foundation.UserDefaults? {
+    @objc get
+  }
+  @objc dynamic public var accessToken: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var baseServices: [Swift.String : Any]? {
+    @objc get
+    @objc set
+  }
+  public var deepLinkScheme: Swift.String? {
+    get
+    set
+  }
+}
+@objc public enum PRNewsFeedAPI : Swift.Int {
+  case none = 0
+  case homeFeed = 1
+  case publicationsRSSFeed = 2
+  case channel = 3
+  case bookmarks = 4
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum FeedTarget : Swift.Int {
+  case home
+  case widget
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class NewsFeedConfig : ObjectiveC.NSObject {
+  @objc public var serviceAPI: PRConfiguration.PRNewsFeedAPI {
+    @objc get
+  }
+  @objc public var viewType: Swift.String {
+    @objc get
+  }
+  @objc public var isSingleChannelApp: Swift.Bool {
+    @objc get
+  }
+  @objc public var channel: Swift.String? {
+    @objc get
+  }
+  @objc public var channelSecret: Swift.String {
+    @objc get
+  }
+  @objc public var collection: Swift.String? {
+    @objc get
+  }
+  public var newsFeedAPI: PRConfiguration.PRNewsFeedAPI {
+    get
+  }
+  public var needsFullDataToBeRequested: Swift.Bool {
+    get
+  }
+  public var defaultLanguage: Swift.String? {
+    get
+  }
+  @objc public init(feedTarget: PRConfiguration.FeedTarget)
+  @objc public func requestPath() -> Swift.String?
+  @objc public func tokenKey() -> Swift.String?
+  @objc public func limitKey() -> Swift.String?
+  @objc public func accessTokenEncodingSecret() -> Swift.String?
+  @objc public func items(json: [Swift.String : Any]) -> [Any]
+  @objc public func tailToken(json: [Swift.String : Any]) -> Swift.String
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class AppMenuConfig : ObjectiveC.NSObject {
@@ -1323,6 +1571,11 @@ extension PRConfiguration.PRConfig {
   }
   @objc override dynamic public init()
   @objc deinit
+}
+public struct GameConfig {
+  public var isEnabled: Swift.Bool {
+    get
+  }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleFontConfig : ObjectiveC.NSObject {
   @objc final public let preview: PRConfiguration.ArticlePreviewFontConfig
@@ -1389,6 +1642,9 @@ extension PRConfiguration.PRAuthorizationConfig {
   @objc dynamic public var externalAuthType: PRConfiguration.ExternalAuthType {
     @objc get
   }
+  @objc dynamic public var resetOnInvalidActivation: Swift.Bool {
+    @objc get
+  }
 }
 @objc public enum AuthorizationType : Swift.Int {
   case optional
@@ -1427,6 +1683,12 @@ extension PRConfiguration.WidgetKind : Swift.RawRepresentable {}
 extension PRConfiguration.IAPConfig.SortingOrder : Swift.Equatable {}
 extension PRConfiguration.IAPConfig.SortingOrder : Swift.Hashable {}
 extension PRConfiguration.IAPConfig.SortingOrder : Swift.RawRepresentable {}
+extension PRConfiguration.PRNewsFeedAPI : Swift.Equatable {}
+extension PRConfiguration.PRNewsFeedAPI : Swift.Hashable {}
+extension PRConfiguration.PRNewsFeedAPI : Swift.RawRepresentable {}
+extension PRConfiguration.FeedTarget : Swift.Equatable {}
+extension PRConfiguration.FeedTarget : Swift.Hashable {}
+extension PRConfiguration.FeedTarget : Swift.RawRepresentable {}
 extension PRConfiguration.AuthorizationType : Swift.Equatable {}
 extension PRConfiguration.AuthorizationType : Swift.Hashable {}
 extension PRConfiguration.AuthorizationType : Swift.RawRepresentable {}

@@ -19,7 +19,8 @@ typedef NS_ERROR_ENUM(PRRSubscriptionErrorDomain, PRSubscriptionError) {
     PRSubscriptionErrorMethodNotSupported,
     PRSubscriptionErrorLocalServerPriority,
     PRSubscriptionErrorInvalidSubscription,
-    PRSubscriptionErrorInactiveSubscription
+    PRSubscriptionErrorInactiveSubscription,
+    PRSubscriptionErrorUnexpectedResponse
 };
 
 @interface PRSubscription (Error) <PRErrorProvider>

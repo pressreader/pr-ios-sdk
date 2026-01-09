@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PRMapAnnotation.h"
-#import "PRHotSpotStatus.h"
+@import PRAnalytics;
 
 // dictionary's keys
 extern NSString *const kHSId;
@@ -70,7 +70,7 @@ extern NSString *const kLocationsRegionSWLng;
 @property (nonatomic, readonly) NSString *hotSpotId;
 @property (nonatomic, readonly) BOOL enabled;
 @property (nonatomic, readonly) BOOL restricted;
-@property (nonatomic, readonly) PRHotSpotStatus status;
+@property (nonatomic, readonly) PRSponsorshipStatus status;
 @property (nonatomic, readonly) NSUInteger distance;
 @property (nonatomic, readonly) NSString *address;
 @property (nonatomic, readonly) NSString *phone;

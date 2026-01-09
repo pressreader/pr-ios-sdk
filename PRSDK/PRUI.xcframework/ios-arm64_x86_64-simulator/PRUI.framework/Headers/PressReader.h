@@ -45,10 +45,6 @@ typedef NS_OPTIONS(NSUInteger, PRState) {
 /// It makes sense only if state hasn't turned to .catalogLoaded  due to a network error.
 - (void)reloadCatalog;
 
-@property (class, nonatomic, readonly) NSString *serviceName;
-@property (class, nonatomic, readonly) BOOL isLocalService;
-@property (class, nonatomic, readonly) BOOL isEdition;
-
 /// Assign before first time accessing PressReader singleton `instance` when it's create or after calling `dismiss` class method
 @property (class, nullable, nonatomic, copy) NSDictionary<UIApplicationLaunchOptionsKey, id> *launchOptions;
 

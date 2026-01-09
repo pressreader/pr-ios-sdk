@@ -43,6 +43,7 @@ typedef NS_ENUM (NSUInteger, PRSourcesListType) {
 
 - (void)displayFilters;
 - (void)removeFilters;
+- (void)updateHeaderView;
 
 @property (nonatomic, getter=isWaitingForCatalog) BOOL waitingForCatalog;
 @property (nonatomic, readonly) BOOL isSearchAvailable;

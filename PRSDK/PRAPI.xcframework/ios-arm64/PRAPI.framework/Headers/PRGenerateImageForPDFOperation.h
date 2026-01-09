@@ -7,45 +7,52 @@
 //
 
 @import UIKit;
+#import <PRAPI/PRCatalogItem.h>
 
 @class PRMyLibraryItem;
 @class PDFDoc;
 @protocol ReadingViewItem;
 
+typedef NSObject<ReadingViewItem, PRCatalogItem> * PRPDFItem;
+
 @interface PRGenerateImageForPDFOperation : NSOperation
 
 + (void)queueForReadingOperation:(PRGenerateImageForPDFOperation *)operation;
 
-+ (instancetype)generateImageForPdfOperationWithItem:(NSObject<ReadingViewItem> *)item page:(NSUInteger)page imageSize:(CGSize)imageSize;
++ (instancetype)generateImageForPdfOperationWithItem:(PRPDFItem)item 
+                                                page:(NSUInteger)page
+                                           imageSize:(CGSize)imageSize;
 
 + (void)queueOperation:(PRGenerateImageForPDFOperation *)operation;
 
-+ (instancetype)createAndQueueGenerateImageForPdfOperationWithItem:(NSObject<ReadingViewItem> *)item
++ (instancetype)createAndQueueGenerateImageForPdfOperationWithItem:(PRPDFItem)item
                                                               page:(NSUInteger)page
                                                         imageWidth:(CGFloat)imageWidth
                                                      queuePriority:(NSOperationQueuePriority)priority
                                     imageGenerationCompletionBlock:(void(^)(UIImage * image, BOOL storeToCache))imageGenerationCompletionBlock
                                                    completionBlock:(void(^)(void))completionBlock;
 
-+ (instancetype)createAndQueueGenerateImageForPdfOperationWithItem:(NSObject<ReadingViewItem> *)item
++ (instancetype)createAndQueueGenerateImageForPdfOperationWithItem:(PRPDFItem)item
                                                               page:(NSUInteger)page
                                                        imageHeight:(CGFloat)imageHeight
                                                      queuePriority:(NSOperationQueuePriority)priority
                                     imageGenerationCompletionBlock:(void(^)(UIImage * image, BOOL storeToCache))imageGenerationCompletionBlock
                                                    completionBlock:(void(^)(void))completionBlock;
 
-+ (instancetype)createAndQueueGenerateImageForPdfOperationWithItem:(NSObject<ReadingViewItem> *)item
++ (instancetype)createAndQueueGenerateImageForPdfOperationWithItem:(PRPDFItem)item
                                                               page:(NSUInteger)page
                                                          imageSize:(CGSize)imageSize
                                                      queuePriority:(NSOperationQueuePriority)priority
                                     imageGenerationCompletionBlock:(void(^)(UIImage * image, BOOL storeToCache))imageGenerationCompletionBlock
                                                    completionBlock:(void(^)(void))completionBlock;
 
-- (instancetype)initWithItem:(NSObject<ReadingViewItem> *)item page:(NSUInteger)page imageSize:(CGSize)imageSize;
+- (instancetype)initWithItem:(PRPDFItem)item
+                        page:(NSUInteger)page
+                   imageSize:(CGSize)imageSize;
 
 @property (copy) void (^imageGenerationCompletionBlock)(UIImage * image, BOOL storeToCache);
 
-@property (nonatomic, strong) NSObject<ReadingViewItem> *item;
+@property (nonatomic, strong) PRPDFItem item;
 @property (nonatomic) NSUInteger page;
 @property (nonatomic, strong) PDFDoc *pdfDoc;
 @property (nonatomic) CGFloat pdfScale;

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSFetchRequest<NTFDataItem *> *)fetchRequest;
 
 @property (nonatomic) BOOL bookmarked;
-@property (nullable, nonatomic, copy) NSString *itemId;
+@property (nonatomic, copy) NSString *itemId;
 @property (nonatomic, copy) NSString *language;
 @property (nullable, nonatomic, copy) NSString *token;
 @property (nonatomic, retain) NSSet<DataItemContent *> *contents;

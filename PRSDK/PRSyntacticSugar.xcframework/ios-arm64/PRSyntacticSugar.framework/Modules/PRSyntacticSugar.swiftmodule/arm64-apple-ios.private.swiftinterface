@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRSyntacticSugar
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import Foundation
 @_exported import PRSyntacticSugar
 import Swift
@@ -29,21 +29,32 @@ public func lift<A, B, C>(_ tuple: (A?, B?, C?)) -> (A, B, C)?
 public func lift<A, B>(_ a: A?, _ b: B?) -> (A, B)?
 public func lift<A, B, C>(_ a: A?, _ b: B?, _ c: C?) -> (A, B, C)?
 public func isSequenceLiftable(args: Any?...) -> Swift.Bool
-extension Swift.Dictionary {
-  public func bool(_ key: Key) -> Swift.Bool?
+extension Swift.Dictionary where Key == Swift.String, Value == Any {
+  public enum DictionaryValuePathError : Swift.Error {
+    case invalidType
+    public static func == (a: Swift.Dictionary<Key, Value>.DictionaryValuePathError, b: Swift.Dictionary<Key, Value>.DictionaryValuePathError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func value<T>(path: Swift.String) throws -> T?
 }
 extension Swift.Dictionary {
   public func int(_ key: Key) -> Swift.Int?
-}
-extension Swift.Dictionary {
+  public func int(keys: [Key]) -> Swift.Int?
+  public func bool(_ key: Key) -> Swift.Bool?
+  public func bool(keys: [Key]) -> Swift.Bool?
   public func string(_ key: Key) -> Swift.String?
+  public func string(keys: [Key]) -> Swift.String?
   public func nonEmptyString(_ key: Key) -> Swift.String?
-  public func string(_ keys: [Key]) -> Swift.String?
 }
-@objc extension Foundation.NSDictionary {
-  @objc dynamic public func string(_ key: Foundation.NSString) -> Swift.String?
-  @objc dynamic public func nonEmptyString(_ key: Foundation.NSString) -> Swift.String?
-  @objc dynamic public func string(keys: [Foundation.NSString]) -> Swift.String?
+extension Foundation.NSDictionary {
+  @objc(stringForKey:) dynamic public func string(_ key: Foundation.NSString) -> Swift.String?
+  @objc(nonEmptyStringForKey:) dynamic public func nonEmptyString(_ key: Foundation.NSString) -> Swift.String?
+  @objc(stringForKeys:) dynamic public func string(keys: [Foundation.NSString]) -> Swift.String?
+  @objc(boolForKey:) dynamic public func bool(_ key: Foundation.NSString) -> Swift.Bool
+  @objc(intForKey:) dynamic public func int(_ key: Foundation.NSString) -> Swift.Int
 }
 public func typeString<T>(_ type: T.Type) -> Swift.String
 public func typeString<T>(_ value: T) -> Swift.String
@@ -96,4 +107,14 @@ extension Foundation.NSString : PRSyntacticSugar.Countable {
 }
 extension Swift.SetAlgebra {
   public mutating func update(_ member: Self.Element, _ set: Swift.Bool)
+}
+extension Swift.Dictionary where Key == Swift.String, Value == Any {
+  public func typified<T>(key keyType: T.Type) -> PRSyntacticSugar.TypifiedDictionaryWrapper<T> where T : Swift.RawRepresentable, T.RawValue == Swift.String
+}
+public struct TypifiedDictionaryWrapper<T> where T : Swift.RawRepresentable, T.RawValue == Swift.String {
+  public subscript<Result>(key: T) -> Result? {
+    get
+  }
+  public let dictionary: [Swift.String : Any]
+  public init(_ dictionary: [Swift.String : Any], keyType: T.Type)
 }

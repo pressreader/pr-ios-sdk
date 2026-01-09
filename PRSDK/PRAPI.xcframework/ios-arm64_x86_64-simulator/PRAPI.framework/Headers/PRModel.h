@@ -25,14 +25,6 @@ typedef NS_ENUM(NSInteger, PRModelStatus) {
     PRModelStatusStopped,
 };
 
-typedef NS_OPTIONS(uint8_t, PRModelResetOption) {
-    PRModelResetOptionNone = 0,
-    PRModelResetOptionCache = 1 << 0,
-    PRModelResetOptionLibrary = 1 << 1,
-    PRModelResetOptionAccounts = 1 << 2,
-    PRModelResetOptionAll = PRModelResetOptionCache | PRModelResetOptionLibrary | PRModelResetOptionAccounts
-};
-
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PRModelDismissNotification;
@@ -43,7 +35,6 @@ extern NSNotificationName const PRModelDismissNotification;
 - (void)updateLastActiveInterval;
 - (void)enableScreenSaver;
 - (void)postponeScreenSaver:(NSTimeInterval)delay;
-- (void)enableLocalServiceMode:(BOOL)enable serviceName:(nullable NSString *)serviceName;
 
 - (void)cleanup;
 - (void)stop;
@@ -76,7 +67,6 @@ id DebugConfig(NSString *key);
 @end
 
 @interface PRModel (/*LAUNCH_OPTIONS*/)
-@property (class, nonatomic) PRModelResetOption removeContentOnStartOptions;
 @property (nonatomic, strong) UIApplication *application;
 @property (nonatomic) BOOL firstAppLaunch;
 @property (nonatomic) BOOL firstAppLaunchAfterUpdate;

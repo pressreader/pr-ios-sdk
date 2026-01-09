@@ -6,15 +6,21 @@
 //  Copyright (c) 2015 NewspaperDirect. All rights reserved.
 //
 
-#import "PRTitleObject.h"
+#import <Foundation/Foundation.h>
+#import <PRAPI/PRCatalogItem.h>
 
-#import "PRTitleItemExemplar.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface PRTitleGroup : NSObject <PRTitleObject>
-+ (instancetype)titleGroupWithName:(NSString *)name items:(NSArray *)list title:(NSString *)title;
-@property (nonatomic, strong) NSString *title;
+@interface PRTitleGroup : NSObject
+
++ (instancetype)titleGroupWithName:(NSString *)name 
+                             items:(NSArray<id<PRCatalogItem>> *)list
+                             title:(nullable NSString *)title;
+
+@property (nullable, nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSArray *list;
-@property (nonatomic, weak, readonly) PRTitleItemExemplar *exemplar;
+@property (nonatomic, strong) NSArray<id<PRCatalogItem>> *list;
 
 @end
+
+NS_ASSUME_NONNULL_END

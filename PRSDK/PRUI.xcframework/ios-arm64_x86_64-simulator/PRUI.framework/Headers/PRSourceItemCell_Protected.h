@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)refreshRibbonMargin:(BOOL)supplements;
 - (void)refreshDownload:(NSInteger)progress;
 - (BOOL)isCurrentItem:(NSObject *)item;
+- (void)setupThumbnailAsynchronouslyWithOptions:(PRSourceThumbnailOption)options
+NS_SWIFT_NAME(setupThumbnailAsynchronously(options:));
 
 @property (nonatomic, readonly) BOOL shouldShowActionButton;
 

@@ -1,52 +1,68 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRCoreDataUtils
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import CoreData
 import Foundation
 @_exported import PRCoreDataUtils
 import PRLogKit
 import Swift
+import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 extension CoreData.NSManagedObjectContext {
+  @objc dynamic public func verboseSave()
+  @objc(performBlockAndSave:) dynamic public func performAndSave(_ block: @escaping () -> ())
+  @objc(performBlockAndWaitAndSave:) dynamic public func performAndWaitAndSave(_ block: () -> ())
+  public func performAndSave_(_ block: @escaping (CoreData.NSManagedObjectContext) -> ())
+  public func performAndWaitAndSave_<T>(_ block: (CoreData.NSManagedObjectContext) throws -> T) rethrows -> T
   public func performAndWaitAndSave<T>(_ block: () throws -> T) rethrows -> T
   @discardableResult
+  public func performAndSave_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) throws -> T) async rethrows -> T
+  @discardableResult
   public func performAndSave<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping () throws -> T) async rethrows -> T
+  @discardableResult
+  public func perform_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) throws -> T) async rethrows -> T
+  @discardableResult
+  public func perform_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) -> T) async -> T
+  @discardableResult
+  public func performAndWait_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) -> T) -> T
+}
+@_inheritsConvenienceInitializers public class DataTransformer<T, T1> : Foundation.ValueTransformer where T1 : ObjectiveC.NSObject, T1 : Foundation.NSCoding {
+  @objc override public static func transformedValueClass() -> Swift.AnyClass
+  @objc override public static func allowsReverseTransformation() -> Swift.Bool
+  @objc override dynamic public func transformedValue(_ value: Any?) -> Any?
+  @objc override dynamic public func reverseTransformedValue(_ value: Any?) -> Any?
+  @objc override dynamic public init()
+  @objc deinit
 }
 extension Foundation.NSValueTransformerName {
   public static let stringAnyDictionaryTransformer: Foundation.NSValueTransformerName
   public static let stringArrayTransformer: Foundation.NSValueTransformerName
+  public static let stringSetTransformer: Foundation.NSValueTransformerName
 }
-@objc @_inheritsConvenienceInitializers final public class StringAnyDictionaryTransformer : Foundation.ValueTransformer, PRCoreDataUtils.DataValueTransformer {
-  public typealias Value = [Swift.String : Any]
-  @objc override final public func transformedValue(_ value: Any?) -> Any?
-  @objc override final public func reverseTransformedValue(_ value: Any?) -> Any?
+@_inheritsConvenienceInitializers final public class StringAnyDictionaryTransformer : PRCoreDataUtils.DataTransformer<[Swift.String : Any], Foundation.NSDictionary> {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class StringArrayTransformer : Foundation.ValueTransformer, PRCoreDataUtils.DataValueTransformer {
-  public typealias Value = [Swift.String]
-  @objc override final public func transformedValue(_ value: Any?) -> Any?
-  @objc override final public func reverseTransformedValue(_ value: Any?) -> Any?
+@_inheritsConvenienceInitializers final public class StringArrayTransformer : PRCoreDataUtils.DataTransformer<[Swift.String], Foundation.NSArray> {
   @objc override dynamic public init()
   @objc deinit
 }
-public protocol DataValueTransformer : Foundation.ValueTransformer {
-  associatedtype Value
-  func archive(_ value: Any?) -> Foundation.Data?
-  func unarchive<T>(_ data: Any?, type: T.Type) -> Self.Value? where T : ObjectiveC.NSObject, T : Foundation.NSCoding
+@_inheritsConvenienceInitializers final public class StringSetTransformer : PRCoreDataUtils.DataTransformer<Swift.Set<Swift.String>, Foundation.NSSet> {
+  @objc override dynamic public init()
+  @objc deinit
 }
-extension PRCoreDataUtils.DataValueTransformer {
-  public static func transformedValueClass() -> Swift.AnyClass
-  public static func allowsReverseTransformation() -> Swift.Bool
-  public func archive(_ value: Any?) -> Foundation.Data?
-  public func unarchive<T>(_ data: Any?, type: T.Type) -> Self.Value? where T : ObjectiveC.NSObject, T : Foundation.NSCoding
+extension Foundation.JSONSerialization {
+  public static func item<T>(json: Any) throws -> T where T : Swift.Decodable
+  public static func jsonObject<T>(with stringRepresentation: Swift.String) -> T?
+  public static func stringRepresentation(json: Any) -> Swift.String?
 }
 extension CoreData.NSManagedObjectContext {
   public func object<T>(predicate: Foundation.NSPredicate?) -> T where T : CoreData.NSManagedObject
   public func object<T>(predicate: Foundation.NSPredicate?) -> T? where T : CoreData.NSManagedObject
+  public func objects<T>(predicate: Foundation.NSPredicate?) -> [T]? where T : CoreData.NSManagedObject
 }
 extension CoreData.NSManagedObjectContext {
   public func object(entityName: Swift.String, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil) -> CoreData.NSManagedObject?
@@ -59,6 +75,16 @@ extension Swift.FixedWidthInteger {
   public func cast<T>() -> T where T : Swift.FixedWidthInteger
 }
 @objc extension CoreData.NSManagedObject {
+  public enum MOError : Swift.Error {
+    case noContext
+    case invalidData
+    case unexpected
+    public static func == (a: CoreData.NSManagedObject.MOError, b: CoreData.NSManagedObject.MOError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
   @objc dynamic public class var entityName: Swift.String {
     @objc get
   }
@@ -69,7 +95,7 @@ extension Swift.FixedWidthInteger {
   @objc dynamic public var isAvailable: Swift.Bool {
     @objc get
   }
-  @objc dynamic public func restore(context: CoreData.NSManagedObjectContext) -> Self
+  @objc dynamic public func restore(context: CoreData.NSManagedObjectContext) throws -> Self
   @objc dynamic public func delete()
 }
 public enum UpdatableMOError : Swift.Error {
@@ -96,10 +122,19 @@ extension PRCoreDataUtils.UpdatableMO where Self : PRCoreDataUtils.IdentifiableM
   public static func object(payload: Self.Payload, context: CoreData.NSManagedObjectContext) -> Self
 }
 extension CoreData.NSManagedObjectContext {
+  public enum RequestError : Swift.Error {
+    case objectDeleted
+    public static func == (a: CoreData.NSManagedObjectContext.RequestError, b: CoreData.NSManagedObjectContext.RequestError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func validObject(with objectID: CoreData.NSManagedObjectID) throws -> CoreData.NSManagedObject
   public func fetchItems<T>(predicate: Foundation.NSPredicate? = nil, sortDecriptors: [Foundation.NSSortDescriptor]? = nil, limit: Swift.UInt = .max) -> [T]? where T : CoreData.NSManagedObject
   public func fetchItem<T>(predicate: Foundation.NSPredicate) -> T? where T : CoreData.NSManagedObject
   public func fetchAndDeleteItems<T>(request: CoreData.NSFetchRequest<T>) -> [T] where T : CoreData.NSManagedObject
-  public func deleteItems<T>(request: CoreData.NSFetchRequest<T>) where T : CoreData.NSManagedObject
+  public func deleteItems<T>(request: CoreData.NSFetchRequest<T>) throws where T : CoreData.NSManagedObject
 }
 @propertyWrapper public struct CDOrderedSetArrayRepresentation<Item> where Item : CoreData.NSManagedObject {
   public static subscript<T>(_enclosingInstance instance: T, wrapped wrappedKeyPath: Swift.ReferenceWritableKeyPath<T, [Item]>, storage storageKeyPath: Swift.ReferenceWritableKeyPath<T, PRCoreDataUtils.CDOrderedSetArrayRepresentation<Item>>) -> [Item] where T : CoreData.NSManagedObject {
@@ -134,5 +169,9 @@ extension PRCoreDataUtils.IdentifiableMO {
   public static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self
   public static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self?
 }
+extension CoreData.NSManagedObject.MOError : Swift.Equatable {}
+extension CoreData.NSManagedObject.MOError : Swift.Hashable {}
 extension PRCoreDataUtils.UpdatableMOError : Swift.Equatable {}
 extension PRCoreDataUtils.UpdatableMOError : Swift.Hashable {}
+extension CoreData.NSManagedObjectContext.RequestError : Swift.Equatable {}
+extension CoreData.NSManagedObjectContext.RequestError : Swift.Hashable {}

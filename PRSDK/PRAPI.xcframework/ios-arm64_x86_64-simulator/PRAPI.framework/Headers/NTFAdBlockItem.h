@@ -17,9 +17,6 @@
 @property (nonatomic, readonly) NSArray<PRTitleItemExemplar *> *backIssueExemplars;
 
 @property (nonatomic, readonly, getter=isValid) BOOL valid;
-@property (nonatomic, readonly, getter=isFavorite) BOOL favorite;
-
-- (void)preloadImagesWithImageWidth:(CGFloat)width;
 
 @end
 

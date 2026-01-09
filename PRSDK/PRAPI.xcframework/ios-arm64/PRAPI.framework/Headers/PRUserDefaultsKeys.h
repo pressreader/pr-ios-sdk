@@ -41,7 +41,4 @@ extern NSString *const kPRShowHighlightsInFullScreen;
 
 extern NSString *const kPRNumberOfOpenedArticleInHomeFeed;
 extern NSString *const kPROpenedIssues;
-
-extern NSString *const kPRResetOptions;
-
 extern NSString *const kPRLastAuthorizationAttemptDate;

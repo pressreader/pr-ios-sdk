@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adjustFonts;
 
 @property (nullable, nonatomic, strong) NSString *title;
-@property (nullable, nonatomic, strong) NSString *byline;
+@property (nullable, nonatomic, strong) NSAttributedString *byline;
 @property (nullable, nonatomic, strong) UIImage *masthead;
 
 @end

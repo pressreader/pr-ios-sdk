@@ -603,6 +603,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRSyntacticSugar",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Function",
         "name": "typeString",
         "printedName": "typeString(_:)",
@@ -1234,6 +1244,242 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "TypifiedDictionaryWrapper",
+        "printedName": "TypifiedDictionaryWrapper",
+        "children": [
+          {
+            "kind": "Subscript",
+            "name": "subscript",
+            "printedName": "subscript(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_1_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Subscript",
+            "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperVyqd__Sgxcluip",
+            "mangledName": "$s16PRSyntacticSugar25TypifiedDictionaryWrapperVyqd__Sgxcluip",
+            "moduleName": "PRSyntacticSugar",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.String>",
+            "sugared_genericSig": "<T, Result where T : Swift.RawRepresentable, T.RawValue == Swift.String>",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "τ_1_0?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperVyqd__Sgxcluig",
+                "mangledName": "$s16PRSyntacticSugar25TypifiedDictionaryWrapperVyqd__Sgxcluig",
+                "moduleName": "PRSyntacticSugar",
+                "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.String>",
+                "sugared_genericSig": "<T, Result where T : Swift.RawRepresentable, T.RawValue == Swift.String>",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dictionary",
+            "printedName": "dictionary",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperV10dictionarySDySSypGvp",
+            "mangledName": "$s16PRSyntacticSugar25TypifiedDictionaryWrapperV10dictionarySDySSypGvp",
+            "moduleName": "PRSyntacticSugar",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperV10dictionarySDySSypGvg",
+                "mangledName": "$s16PRSyntacticSugar25TypifiedDictionaryWrapperV10dictionarySDySSypGvg",
+                "moduleName": "PRSyntacticSugar",
+                "genericSig": "<τ_0_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.String>",
+                "sugared_genericSig": "<T where T : Swift.RawRepresentable, T.RawValue == Swift.String>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:keyType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TypifiedDictionaryWrapper",
+                "printedName": "PRSyntacticSugar.TypifiedDictionaryWrapper<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperV_7keyTypeACyxGSDySSypG_xmtcfc",
+            "mangledName": "$s16PRSyntacticSugar25TypifiedDictionaryWrapperV_7keyTypeACyxGSDySSypG_xmtcfc",
+            "moduleName": "PRSyntacticSugar",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.String>",
+            "sugared_genericSig": "<T where T : Swift.RawRepresentable, T.RawValue == Swift.String>",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperV",
+        "mangledName": "$s16PRSyntacticSugar25TypifiedDictionaryWrapperV",
+        "moduleName": "PRSyntacticSugar",
+        "genericSig": "<τ_0_0 where τ_0_0 : Swift.RawRepresentable, τ_0_0.RawValue == Swift.String>",
+        "sugared_genericSig": "<T where T : Swift.RawRepresentable, T.RawValue == Swift.String>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "PRBlockUtil",
         "printedName": "PRBlockUtil",
         "children": [
@@ -1532,6 +1778,317 @@
         "printedName": "Dictionary",
         "children": [
           {
+            "kind": "TypeDecl",
+            "name": "DictionaryValuePathError",
+            "printedName": "DictionaryValuePathError",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "invalidType",
+                "printedName": "invalidType",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "GenericFunction",
+                    "printedName": "<τ_0_0, τ_0_1 where τ_0_0 == Swift.String, τ_0_1 == Any> (Swift.Dictionary<Swift.String, Any>.DictionaryValuePathError.Type) -> Swift.Dictionary<Swift.String, Any>.DictionaryValuePathError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DictionaryValuePathError",
+                        "printedName": "Swift.Dictionary<Swift.String, Any>.DictionaryValuePathError",
+                        "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "Swift.Dictionary<Swift.String, Any>.DictionaryValuePathError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "DictionaryValuePathError",
+                            "printedName": "Swift.Dictionary<Swift.String, Any>.DictionaryValuePathError",
+                            "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO11invalidTypeyACySSyp_GAEmSSRszypRs_r0_lF",
+                "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO11invalidTypeyACySSyp_GAEmSSRszypRs_r0_lF",
+                "moduleName": "PRSyntacticSugar"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DictionaryValuePathError",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.DictionaryValuePathError",
+                    "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DictionaryValuePathError",
+                    "printedName": "Swift.Dictionary<τ_0_0, τ_0_1>.DictionaryValuePathError",
+                    "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO2eeoiySbACySSyp_G_AEtFZ",
+                "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO2eeoiySbACySSyp_G_AEtFZ",
+                "moduleName": "PRSyntacticSugar",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == Swift.String, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == Swift.String, Value == Any>",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO04hashD0Sivp",
+                "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO04hashD0Sivp",
+                "moduleName": "PRSyntacticSugar",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO04hashD0Sivg",
+                    "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO04hashD0Sivg",
+                    "moduleName": "PRSyntacticSugar",
+                    "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == Swift.String, τ_0_1 == Any>",
+                    "sugared_genericSig": "<Key, Value where Key == Swift.String, Value == Any>",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO4hash4intoys6HasherVz_tF",
+                "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO4hash4intoys6HasherVz_tF",
+                "moduleName": "PRSyntacticSugar",
+                "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == Swift.String, τ_0_1 == Any>",
+                "sugared_genericSig": "<Key, Value where Key == Swift.String, Value == Any>",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO",
+            "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE24DictionaryValuePathErrorO",
+            "moduleName": "PRSyntacticSugar",
+            "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 == Swift.String, τ_0_1 == Any>",
+            "sugared_genericSig": "<Key, Value where Key == Swift.String, Value == Any>",
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Error",
+                "printedName": "Error",
+                "usr": "s:s5ErrorP",
+                "mangledName": "$ss5ErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "value",
+            "printedName": "value(path:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_1_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE5value4pathqd__SgSS_tKlF",
+            "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE5value4pathqd__SgSS_tKlF",
+            "moduleName": "PRSyntacticSugar",
+            "genericSig": "<τ_0_0, τ_0_1, τ_1_0 where τ_0_0 == Swift.String, τ_0_1 == Any>",
+            "sugared_genericSig": "<Key, Value, T where Key == Swift.String, Value == Any>",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "int",
+            "printedName": "int(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD16PRSyntacticSugarE3intySiSgxF",
+            "mangledName": "$sSD16PRSyntacticSugarE3intySiSgxF",
+            "moduleName": "PRSyntacticSugar",
+            "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
+            "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "int",
+            "printedName": "int(keys:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD16PRSyntacticSugarE3int4keysSiSgSayxG_tF",
+            "mangledName": "$sSD16PRSyntacticSugarE3int4keysSiSgSayxG_tF",
+            "moduleName": "PRSyntacticSugar",
+            "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
+            "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Function",
             "name": "bool",
             "printedName": "bool(_:)",
@@ -1567,32 +2124,40 @@
           },
           {
             "kind": "Function",
-            "name": "int",
-            "printedName": "int(_:)",
+            "name": "bool",
+            "printedName": "bool(keys:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Swift.Int?",
+                "printedName": "Swift.Bool?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
                   }
                 ],
                 "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
               }
             ],
             "declKind": "Func",
-            "usr": "s:SD16PRSyntacticSugarE3intySiSgxF",
-            "mangledName": "$sSD16PRSyntacticSugarE3intySiSgxF",
+            "usr": "s:SD16PRSyntacticSugarE4bool4keysSbSgSayxG_tF",
+            "mangledName": "$sSD16PRSyntacticSugarE4bool4keysSbSgSayxG_tF",
             "moduleName": "PRSyntacticSugar",
             "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
             "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
@@ -1635,6 +2200,48 @@
           },
           {
             "kind": "Function",
+            "name": "string",
+            "printedName": "string(keys:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SD16PRSyntacticSugarE6string4keysSSSgSayxG_tF",
+            "mangledName": "$sSD16PRSyntacticSugarE6string4keysSSSgSayxG_tF",
+            "moduleName": "PRSyntacticSugar",
+            "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
+            "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "nonEmptyString",
             "printedName": "nonEmptyString(_:)",
             "children": [
@@ -1669,43 +2276,41 @@
           },
           {
             "kind": "Function",
-            "name": "string",
-            "printedName": "string(_:)",
+            "name": "typified",
+            "printedName": "typified(key:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[τ_0_0]",
+                "name": "TypifiedDictionaryWrapper",
+                "printedName": "PRSyntacticSugar.TypifiedDictionaryWrapper<τ_1_0>",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
+                    "printedName": "τ_1_0"
                   }
                 ],
-                "usr": "s:Sa"
+                "usr": "s:16PRSyntacticSugar25TypifiedDictionaryWrapperV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_1_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ]
               }
             ],
             "declKind": "Func",
-            "usr": "s:SD16PRSyntacticSugarE6stringySSSgSayxGF",
-            "mangledName": "$sSD16PRSyntacticSugarE6stringySSSgSayxGF",
+            "usr": "s:SD16PRSyntacticSugarSSRszypRs_rlE8typified3keyAA25TypifiedDictionaryWrapperVyqd__Gqd__m_tSYRd__SS8RawValueRtd__lF",
+            "mangledName": "$sSD16PRSyntacticSugarSSRszypRs_rlE8typified3keyAA25TypifiedDictionaryWrapperVyqd__Gqd__m_tSYRd__SS8RawValueRtd__lF",
             "moduleName": "PRSyntacticSugar",
-            "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
-            "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
+            "genericSig": "<τ_0_0, τ_0_1, τ_1_0 where τ_0_0 == Swift.String, τ_0_1 == Any, τ_1_0 : Swift.RawRepresentable, τ_1_0.RawValue == Swift.String>",
+            "sugared_genericSig": "<Key, Value, T where Key == Swift.String, Value == Any, T : Swift.RawRepresentable, T.RawValue == Swift.String>",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
@@ -2073,9 +2678,10 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)string:",
+            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)stringForKey:",
             "mangledName": "$sSo12NSDictionaryC16PRSyntacticSugarE6stringySSSgSo8NSStringCF",
             "moduleName": "PRSyntacticSugar",
+            "objc_name": "stringForKey:",
             "declAttributes": [
               "Dynamic",
               "ObjC"
@@ -2110,9 +2716,10 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)nonEmptyString:",
+            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)nonEmptyStringForKey:",
             "mangledName": "$sSo12NSDictionaryC16PRSyntacticSugarE14nonEmptyStringySSSgSo8NSStringCF",
             "moduleName": "PRSyntacticSugar",
+            "objc_name": "nonEmptyStringForKey:",
             "declAttributes": [
               "Dynamic",
               "ObjC"
@@ -2155,9 +2762,70 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)stringWithKeys:",
+            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)stringForKeys:",
             "mangledName": "$sSo12NSDictionaryC16PRSyntacticSugarE6string4keysSSSgSaySo8NSStringCG_tF",
             "moduleName": "PRSyntacticSugar",
+            "objc_name": "stringForKeys:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "bool",
+            "printedName": "bool(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSString",
+                "printedName": "Foundation.NSString",
+                "usr": "c:objc(cs)NSString"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)boolForKey:",
+            "mangledName": "$sSo12NSDictionaryC16PRSyntacticSugarE4boolySbSo8NSStringCF",
+            "moduleName": "PRSyntacticSugar",
+            "objc_name": "boolForKey:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "int",
+            "printedName": "int(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSString",
+                "printedName": "Foundation.NSString",
+                "usr": "c:objc(cs)NSString"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRSyntacticSugar@@objc(cs)NSDictionary(im)intForKey:",
+            "mangledName": "$sSo12NSDictionaryC16PRSyntacticSugarE3intySiSo8NSStringCF",
+            "moduleName": "PRSyntacticSugar",
+            "objc_name": "intForKey:",
             "declAttributes": [
               "Dynamic",
               "ObjC"
@@ -3624,6 +4292,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
             "name": "Encodable",
             "printedName": "Encodable",
             "usr": "s:SE",
@@ -3793,13 +4468,6 @@
             ],
             "usr": "s:Sl",
             "mangledName": "$sSl"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
           },
           {
             "kind": "Conformance",

@@ -96,6 +96,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 #import "NSMutableAttributedString+PRExtensions.h"
 
+#import "WKWebView+Clean.h"
 #import "PRSafariVC.h"
 #import "PRActivityVC.h"
 

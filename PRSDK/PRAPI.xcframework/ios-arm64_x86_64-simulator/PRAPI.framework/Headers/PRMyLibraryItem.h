@@ -7,8 +7,7 @@
 //
 
 #import "PRSourceItem.h"
-#import "PRTitleObject.h"
-#import "OpenedItem.h"
+#import "PROpenableItem.h"
 #import "ReadingViewItem.h"
 
 @class PRSmartObject, PRDownload;
@@ -33,37 +32,35 @@ extern NSString *const kHotSpotIndustryKey;
 extern NSNotificationName const PRLibraryItemWiFiDownloadNotAvailableNotification;
 extern NSNotificationName const PRLibraryItemCurrentArticleDidChange;
 extern NSNotificationName const PRLibraryItemGotoPage;
-extern NSNotificationName const PRLibraryItemVote;
 
-@interface PRMyLibraryItem : PRSourceItem <PRTitleObject, _ReadingViewItem, PRSmartLayoutItem>
+@interface PRMyLibraryItem : PRSourceItem <PRSmartLayoutItem, _ReadingViewItem>
 
 + (NSString *)cidFromIssueId:(NSString *)issueId;
 + (NSString *)issueDateStringFromIssueId:(NSString *)issueId;
 + (nullable NSDate *)issueDateFromIssueId:(NSString *)issueId;
 
-- (id)getParameter:(NSString*)pname;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithMID:(NSString *)mid NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithMID:(NSString *)mid file:(NSString*)filePath;
+
+- (id)parameter:(NSString *)pname;
 - (void)setParameter:(NSString*)name value:(nullable id)v;
 - (void)removeParameter:(NSString*)name;
 
-- (id)getItemParameter:(NSString*)pname;
+- (id)itemParameter:(NSString*)pname;
 - (void)setItemParameter:(NSString*)name value:(id)v;
 - (void)removeItemParameter:(NSString*)name;
 
-// searches for parameter in both parameters and itemParameters dictionaries
+/// Searches for parameter in both parameters and itemParameters dictionaries.
 - (nullable id)findParameter:(NSString*)pname;
 
-@property (nonatomic, weak, readonly) PRMyLibrary *library;
-@property (nonatomic, readonly) PRTitleItemExemplar *exemplar;
-@property (nonatomic, readonly) NSDate *expirationDateAndTime;
-
-@property (nonatomic) BOOL isReading;
+- (void)setNeedsSaveToPersistentStore;
 
 - (NSString*)getStringParameter:(NSString*)pname;
-- (NSString*) messageType;
 - (NSString*) GetIssueDate;
 - (NSString*) IssueId;
 - (NSString*) IssueKey;
-- (NSString*) ExpungeVersion;
 - (NSString*) Status;
 - (NSDate*) ExpirationDate;
 - (BOOL)rightToLeft;
@@ -78,8 +75,6 @@ extern NSNotificationName const PRLibraryItemVote;
 - (BOOL)requestingLicense;
 - (BOOL)isForced;
 - (BOOL)isWordIndexAvailable;
-- (BOOL)isSampleIssue;
-- (BOOL)isFreeIssue;
 - (BOOL)failed;
 - (BOOL)readyToOpen;
 - (BOOL)preparedToOpen;
@@ -91,7 +86,6 @@ extern NSNotificationName const PRLibraryItemVote;
 - (BOOL)imgPacksDownloaded;
 - (BOOL)pdnFailed;
 - (BOOL)imgPacksFailed;
-@property (nonatomic, readonly) BOOL hasErrorStatus;
 - (BOOL) isUnauthorized;
 
 - (NSRange)downloadableRangeForPage:(NSUInteger)pageNumber;
@@ -108,7 +102,6 @@ extern NSNotificationName const PRLibraryItemVote;
 - (BOOL)isTextFlowViewAvailable;
 - (BOOL)translationDisabled;
 - (BOOL)isTranslationSupported;
-- (BOOL)smartFlowDisabled;
 - (BOOL)voteDisabled;
 - (BOOL)commentsDisabled;
 - (BOOL)isSharingRestricted;
@@ -126,11 +119,6 @@ extern NSNotificationName const PRLibraryItemVote;
 - (BOOL)copyToPasteboardDisabled;
 - (BOOL)printingAsBitmap;
 - (NSString *)licenseStatus;
-
-@property (nullable, nonatomic, readonly) NSString *errorMessage;
-@property (nonatomic, readonly) NSString *statusMessage;
-@property (nonatomic, readonly) NSString *progressMessage;
-@property (nonatomic) BOOL isMarkedToDeleteContent;
 
 - (int) pdnPercents;
 - (int) totalPercents;
@@ -155,11 +143,6 @@ extern NSNotificationName const PRLibraryItemVote;
 - (NSArray *)sections;
 - (NSInteger)sectionIndexByPage:(NSInteger)pageNumber;
 - (int) maxPageHeight;
-- (BOOL) isOpen;
-- (NSString *) currentArtIdToListen;
-- (void) setCurrentArtIdToListen:(NSString *)artID;
-
-@property (readonly, nonatomic) NSString *imageFolderPath;
 
 - (BOOL) processSmart;
 - (void) getArtAudioUrl:(NSString*)artID completed:(void (^)(NSString * url))completionBlock;
@@ -195,7 +178,6 @@ extern NSNotificationName const PRLibraryItemVote;
 - (void) updateArticleData:(NSString *)artID
                   language:(NSString *)language
                  completed:(void(^)(BOOL updated, NSError *error))completionBlock;
-- (void) SendVote:(NSInteger)userVote forArticle:(NSString *)artID;
 - (void) requestVoteForArticle:(NSString *)artID completed:(void(^)(NSError *error))completionBlock;
 - (void) getDirectLinkForArticle:(NSString *)artID
                          success:(void (^)(NSString *articleURL))success
@@ -249,12 +231,8 @@ extern NSNotificationName const PRLibraryItemVote;
 
 - (NSDictionary*) GetIssue;
 
-
-- (instancetype) initFromFile:(NSString*)filePath;
-- (void) markForDeletion;
 - (BOOL) iOS7BackgroundDownload;
 
-- (NSString*) GetGregorianIssueDateWithFormat:(NSString*)format;
 - (NSString*) pathToPdn;
 - (NSString*) pdnFolderPath;
 - (NSString*) pathToPdnInPageRange:(NSRange)pageRange;
@@ -272,14 +250,22 @@ extern NSNotificationName const PRLibraryItemVote;
 - (NSComparisonResult) issueDateComparator:(PRMyLibraryItem *) aMli;
 - (void)setupFromCatalog;
 
-- (void)getAspectRatio:(void(^ _Nullable)(CGFloat))completion;
-
 - (nullable NSDateComponents *)licenseDurationInUnits:(NSCalendarUnit)unit;
+- (nullable PRPage *)getPage:(NSUInteger)pageNumber;
 
+- (void)markForDeletion;
+
+@property (nonatomic, readonly) NSString *serverFormattedIssueDate;
+@property (nonatomic, weak, readonly) PRMyLibrary *library;
+@property (nullable, nonatomic, strong) NSDate *issueDate;
+@property (nullable, nonatomic) NSDate *orderDate;
 @property (nonatomic, getter=isSuspended) BOOL suspended;
 @property (nonatomic, assign, readonly) NSString *IssueIdDate;
+
 @property (nonatomic, readonly) NSInteger issueVersion;
-@property (nonatomic, readonly) NSInteger smartVersion;
+@property (nonatomic, readonly) NSInteger layoutVersion;
+@property (nonatomic, readonly) NSInteger expungeVersion;
+
 @property (nonatomic, assign) NSDate *originalOrderDate;
 @property (nonatomic, readonly) NSDate *availableInDQDate;
 @property (nonatomic, readonly) NSDate *deliveryDate;
@@ -289,20 +275,20 @@ extern NSNotificationName const PRLibraryItemVote;
 @property (nonatomic, readonly) NSInteger downloadProgressUnedited;
 @property (nonatomic, readonly) BOOL urlExpired;
 @property (nonatomic, getter = isThumbSizeUpdated) BOOL thumbSizeUpdated;
-@property (nonatomic, readonly) BOOL isSupplement;
-@property (nonatomic, readonly) BOOL isOpen;
+@property (nonatomic) BOOL isOpen;
 @property (nonatomic, readonly) BOOL done;
-@property (nonatomic, readonly) unsigned long long itemSizeBytes;
+@property (nonatomic, readonly) NSUInteger itemSizeBytes;
 @property (nonatomic) BOOL wasDownloaded;
-@property (nonatomic, readonly) NSString *accountName;
+@property (nullable, nonatomic, readonly) NSString *accountName;
 @property (nonatomic) BOOL isSelected; // transient property for ediding the library
 @property (nonatomic, readonly) BOOL isLocked;
 @property (nonatomic, strong, readonly) NSProgress* progress;
-@property (nonatomic, copy) NSString *MID;
+@property (nonatomic, readonly) NSString *MID;
 @property (nonatomic, strong, readonly) NSArray<PRSmartPageset *> *pagesets;
 @property (nullable, nonatomic, strong) NSArray<NSString *> *analyticsProfileIDs;
 @property (nonatomic) BOOL requestingRadioInfo;
-@property (nonatomic, readonly) CGFloat aspectRatio;
+@property (nonatomic) CGFloat aspectRatio;
+@property (nonatomic, readonly) BOOL isSmartAvailable;
 
 @property (nullable, nonatomic, strong) NSString *currentArticleUid;
 
@@ -310,8 +296,21 @@ extern NSNotificationName const PRLibraryItemVote;
 @property (nonatomic, readonly) BOOL isLicenseLimited;
 
 @property (nullable, nonatomic, strong, readonly) MLIFeedDataService *feedDataService;
+@property (nullable, nonatomic, readonly) PRSubscription *subscription;
 @property (nullable, nonatomic, strong) NSArray<NSString *> *layoutPackageUrls;
 @property (nullable, nonatomic, readonly) NSString *layoutPackageFilePath;
+
+@property (readonly, nonatomic) NSString *imageFolderPath;
+@property (nullable, nonatomic, readonly) NSString *errorMessage;
+@property (nonatomic, readonly) NSString *statusMessage;
+@property (nonatomic, readonly) NSString *progressMessage;
+@property (nonatomic, readonly) BOOL isMarkedForDeletion;
+@property (nonatomic, readonly) BOOL ttsDisabled;
+@property (nonatomic, readonly) BOOL hasErrorStatus;
+@property (nonatomic, readonly) NSDate *expirationDateAndTime;
+
+@property (nonatomic) BOOL isReading;
+@property (nonatomic, strong) NSString *messageType;
 
 @end
 

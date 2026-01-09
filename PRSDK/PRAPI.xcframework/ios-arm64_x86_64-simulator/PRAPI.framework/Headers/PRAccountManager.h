@@ -12,9 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
-    PRAccountDeauthorizationOptionAuthorizeIfNeeded = 1 << 0,
-    PRAccountDeauthorizationOptionDeleteAccount = 1 << 1,
-    PRAccountDeauthorizationOptionRequestless = 1 << 2
+    PRAccountDeauthorizationOptionDeleteAccount = 1 << 0,
+    PRAccountDeauthorizationOptionRequestless = 1 << 1
 };
 
 @class PRSignInOption;
@@ -49,9 +48,6 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
 
 - (void)deauthorize:(PRAccountItem *)accountItem;
 - (void)deleteAccount:(PRAccountItem *)accountItem;
-- (void)deauthorize:(PRAccountItem *)accountItem
-            options:(PRAccountDeauthorizationOption)options
-         completion:(void(^ _Nullable)(BOOL success, NSError * _Nullable error))completion;
 
 - (void)signUpUser:(NSString *)usr pwd:(NSString *)pwd firstName:(NSString *)firstName lastName:(NSString *)lastName completionBlock:(void (^)(BOOL success, NSError *error))completionBlock;
 
@@ -64,9 +60,11 @@ typedef NS_OPTIONS(NSUInteger, PRAccountDeauthorizationOption) {
 - (BOOL)isAnyOnlineAccountReachable;
 - (BOOL)isAnyAccountReachable;
 
-- (PRAccountItem*) AccountByName:(NSString*)accountName;
-- (PRAccountItem*) AccountByIdx:(NSUInteger)idx;
-- (PRAccountItem*) GetFirstAvailableAccount;
+- (nullable PRAccountItem *)accountWithName:(NSString *)accountName
+NS_SWIFT_NAME(account(name:));
+- (nullable PRAccountItem *)accountWithIndex:(NSUInteger)idx
+NS_SWIFT_NAME(account(index:));
+- (nullable PRAccountItem *)firstAvailableAccount;
 
 - (BOOL) isAuthorizationRequired;
 - (BOOL) isUserAuthorizationRequired;

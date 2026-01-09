@@ -442,6 +442,30 @@ SWIFT_CLASS("_TtC15PRConfiguration19ArticleBylineConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class PRArticleCommentsNewPostConfig;
+@class PRArticleCommentsAttachmentConfig;
+SWIFT_CLASS_NAMED("ArticleCommentsConfig")
+@interface PRArticleCommentsConfig : NSObject
+@property (nonatomic, readonly, strong) PRArticleCommentsNewPostConfig * _Nonnull newPost;
+@property (nonatomic, readonly, strong) PRArticleCommentsAttachmentConfig * _Nonnull attachment;
+@property (nonatomic, readonly) BOOL enabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("NewPostConfig")
+@interface PRArticleCommentsNewPostConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("AttachmentConfig")
+@interface PRArticleCommentsAttachmentConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) BOOL isVideoEnabled;
+@property (nonatomic, readonly) BOOL isImageEnabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 SWIFT_CLASS("_TtC15PRConfiguration16ArticleConfigKey")
 @interface ArticleConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull numberOfLinesForPreview;
@@ -541,6 +565,7 @@ SWIFT_CLASS("_TtC15PRConfiguration22AuthorizationConfigKey")
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull frequencyDays;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull cleanWebView;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull externalAuthType;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull resetOnInvalidActivation;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -548,6 +573,11 @@ typedef SWIFT_ENUM(NSInteger, AuthorizationType, open) {
   AuthorizationTypeOptional = 0,
   AuthorizationTypeMandatory = 1,
 };
+
+SWIFT_CLASS("_TtC15PRConfiguration21AutoTranslationConfig")
+@interface AutoTranslationConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 SWIFT_CLASS("_TtC15PRConfiguration10BookConfig")
 @interface BookConfig : NSObject
@@ -586,10 +616,16 @@ SWIFT_CLASS("_TtC15PRConfiguration29CancellationAdvisoryConfigKey")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+SWIFT_CLASS("_TtC15PRConfiguration23CatalogAppearanceConfig")
+@interface CatalogAppearanceConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 SWIFT_CLASS("_TtC15PRConfiguration16CatalogConfigKey")
 @interface CatalogConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull presscatalogUpdateDisabled;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull thumbnailStretchingEnabled;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull useModernServiceAPI;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -601,6 +637,17 @@ SWIFT_CLASS("_TtC15PRConfiguration23ComScoreAnalyticsConfig")
 
 SWIFT_CLASS("_TtC15PRConfiguration6Config")
 @interface Config : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS("_TtC15PRConfiguration12ConfigMapper")
+@interface ConfigMapper : NSObject
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable webConfig;
+/// Web config has the highest priority that’s why this method must be called
+/// each time new RC configs get registered.
+- (void)applyWebConfig;
+/// One time solution to recover defective settings.
+- (void)recoverConfigs;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -684,6 +731,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FeedNavigati
 - (nonnull instancetype)initWithRawValue:(NSInteger)rawValue OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, FeedTarget, open) {
+  FeedTargetHome = 0,
+  FeedTargetWidget = 1,
+};
+
 SWIFT_CLASS("_TtC15PRConfiguration23FirebaseAnalyticsConfig")
 @interface FirebaseAnalyticsConfig : NSObject
 @property (nonatomic, readonly) BOOL isAnalyticsEnabled;
@@ -728,13 +780,16 @@ SWIFT_CLASS("_TtC15PRConfiguration18GlobalSearchConfig")
 @interface GlobalSearchConfig : NSObject
 @property (nonatomic, readonly) BOOL isEnabled;
 @property (nonatomic, readonly) BOOL isOngoingStoriesSearchEnabled;
+@property (nonatomic, readonly) BOOL historyEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_CLASS("_TtC15PRConfiguration21GlobalSearchConfigKey")
 @interface GlobalSearchConfigKey : NSObject
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull enabled;
-@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull isOngoingStoriesSearchEnabled;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull ongoingStoriesSearchEnabled;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull scope;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull historyEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -753,10 +808,12 @@ SWIFT_CLASS("_TtC15PRConfiguration10HomeConfig")
 @end
 
 @class RelatedArticlesConfig;
+@class NewsFeedConfig;
 SWIFT_CLASS("_TtC15PRConfiguration14HomeFeedConfig")
 @interface HomeFeedConfig : NSObject
 @property (nonatomic, readonly, strong) FeedNavigation * _Nonnull navigation;
 @property (nonatomic, readonly, strong) RelatedArticlesConfig * _Nonnull relatedArticles;
+@property (nonatomic, readonly, strong) NewsFeedConfig * _Nonnull news;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -768,7 +825,7 @@ SWIFT_CLASS("_TtC15PRConfiguration17HomeSourcesConfig")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class HotSpotNotificationsConfig;
+@class PRHotSpotNotificationsConfig;
 SWIFT_CLASS("_TtC15PRConfiguration13HotSpotConfig")
 @interface HotSpotConfig : NSObject
 @property (nonatomic, readonly) BOOL isEnabled;
@@ -777,22 +834,26 @@ SWIFT_CLASS("_TtC15PRConfiguration13HotSpotConfig")
 @property (nonatomic, readonly) BOOL isOptOut;
 @property (nonatomic, readonly, copy) NSString * _Nonnull proximityUUID;
 @property (nonatomic, readonly) BOOL isGeoFencingEnabled;
-@property (nonatomic, readonly, strong) HotSpotNotificationsConfig * _Nonnull notifications;
+@property (nonatomic, readonly, strong) PRHotSpotNotificationsConfig * _Nonnull notification;
+@property (nonatomic, readonly) BOOL isRequired;
+@property (nonatomic, readonly) BOOL useNativeUI;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class HotSpotLocalNotificationsConfig;
-@class HotSpotWelcomeNotificationsConfig;
-SWIFT_CLASS_NAMED("NotificationsConfig")
-@interface HotSpotNotificationsConfig : NSObject
-@property (nonatomic, readonly, strong) HotSpotLocalNotificationsConfig * _Nonnull local;
-@property (nonatomic, readonly, strong) HotSpotWelcomeNotificationsConfig * _Nonnull welcome;
+@class PRHotSpotLocalNotificationConfig;
+@class PRHotSpotWelcomeNotificationConfig;
+@class PRHotSpotExpirationNotificationConfig;
+SWIFT_CLASS_NAMED("NotificationConfig")
+@interface PRHotSpotNotificationsConfig : NSObject
+@property (nonatomic, readonly, strong) PRHotSpotLocalNotificationConfig * _Nonnull local;
+@property (nonatomic, readonly, strong) PRHotSpotWelcomeNotificationConfig * _Nonnull welcome;
+@property (nonatomic, readonly, strong) PRHotSpotExpirationNotificationConfig * _Nonnull expiration;
 @property (nonatomic, readonly) BOOL isEnabled;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_CLASS_NAMED("LocalConfig")
-@interface HotSpotLocalNotificationsConfig : NSObject
+@interface PRHotSpotLocalNotificationConfig : NSObject
 @property (nonatomic, readonly) NSTimeInterval timeInterval;
 @property (nonatomic, readonly) NSTimeInterval requestReminderTimeInterval;
 @property (nonatomic, readonly) BOOL showOnSwitch;
@@ -800,10 +861,24 @@ SWIFT_CLASS_NAMED("LocalConfig")
 @end
 
 SWIFT_CLASS_NAMED("WelcomeConfig")
-@interface HotSpotWelcomeNotificationsConfig : NSObject
+@interface PRHotSpotWelcomeNotificationConfig : NSObject
 @property (nonatomic, readonly) NSTimeInterval timeInterval;
 @property (nonatomic, readonly) BOOL showOnSwitch;
 @property (nonatomic, readonly) BOOL showOnStart;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("ExpirationConfig")
+@interface PRHotSpotExpirationNotificationConfig : NSObject
+@property (nonatomic, readonly) BOOL isEnabled;
+/// Time duration (in seconds) during which the expiration screen can be presented
+/// after the hotspot expires and the screen is shown for the first time.
+/// Default: 7 days (604,800 seconds)
+@property (nonatomic, readonly) NSTimeInterval remindDuration;
+/// Time interval (in seconds) between successive presentations of the expiration screen.
+/// This determines how frequently the expiration reminder is shown to the user.
+/// Default: 1 day (86,400 seconds)
+@property (nonatomic, readonly) NSTimeInterval remindInterval;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -897,7 +972,6 @@ SWIFT_CLASS("_TtC15PRConfiguration18MigrationConfigKey")
 @end
 
 @interface NSLocale (SWIFT_EXTENSION(PRConfiguration))
-- (NSString * _Nullable)languageNameWithIsoCode:(NSString * _Nonnull)isoCode SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)hasCountryForLocaleIdentifier:(NSString * _Nonnull)localeIdentifier SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)languageAndScriptFromLocaleIdentifier:(NSString * _Nonnull)localeIdentifier SWIFT_WARN_UNUSED_RESULT;
 /// based on provided combination of language-script-country
@@ -920,6 +994,17 @@ SWIFT_CLASS("_TtC15PRConfiguration18MigrationConfigKey")
 + (NSString * _Nullable)validatedPreferredLanguageIdentifierMatching:(NSString * _Nonnull)languageIdentifier SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)validatedLanguageIdentifierWithLanguageCode:(NSString * _Nonnull)languageCode countryCode:(NSString * _Nullable)countryCode SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, copy) NSString * _Nonnull validatedLanguageIdentifier;
+- (NSString * _Nullable)languageNameWithIsoCode:(NSString * _Nonnull)isoCode SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface NSNotification (SWIFT_EXTENSION(PRConfiguration))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull PRConfigHasBeenUpdated;)
++ (NSNotificationName _Nonnull)PRConfigHasBeenUpdated SWIFT_WARN_UNUSED_RESULT;
+@end
+
+SWIFT_CLASS("_TtC15PRConfiguration23NativeTranslationConfig")
+@interface NativeTranslationConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_CLASS("_TtC15PRConfiguration16NetworkingConfig")
@@ -930,12 +1015,32 @@ SWIFT_CLASS("_TtC15PRConfiguration16NetworkingConfig")
 @interface NetworkingConfig (SWIFT_EXTENSION(PRConfiguration))
 @property (nonatomic, readonly, copy) NSString * _Nonnull testServiceURL;
 @property (nonatomic, readonly, copy) NSString * _Nonnull devServiceURL;
-@property (nonatomic, copy) NSString * _Nonnull imageDownloadURL;
-@property (nonatomic, copy) NSString * _Nonnull imageUploadURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull imageDownloadURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull imageUploadURL;
 @property (nonatomic, readonly, copy) NSString * _Nonnull manageAccountURL;
 @property (nonatomic) BOOL shouldDownloadOnWiFiOnly;
 /// When this parameter is YES, we show alert each time when user tries download some title via WWAN
 @property (nonatomic, readonly) BOOL shouldAlertBeforeDownloadViaWWAN;
+@end
+
+enum PRNewsFeedAPI : NSInteger;
+SWIFT_CLASS("_TtC15PRConfiguration14NewsFeedConfig")
+@interface NewsFeedConfig : NSObject
+@property (nonatomic, readonly) enum PRNewsFeedAPI serviceAPI;
+@property (nonatomic, readonly, copy) NSString * _Nonnull viewType;
+@property (nonatomic, readonly) BOOL isSingleChannelApp;
+@property (nonatomic, readonly, copy) NSString * _Nullable channel;
+@property (nonatomic, readonly, copy) NSString * _Nonnull channelSecret;
+@property (nonatomic, readonly, copy) NSString * _Nullable collection;
+- (nonnull instancetype)initWithFeedTarget:(enum FeedTarget)feedTarget OBJC_DESIGNATED_INITIALIZER;
+- (NSString * _Nullable)requestPath SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)tokenKey SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)limitKey SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)accessTokenEncodingSecret SWIFT_WARN_UNUSED_RESULT;
+- (NSArray * _Nonnull)itemsWithJson:(NSDictionary<NSString *, id> * _Nonnull)json SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)tailTokenWithJson:(NSDictionary<NSString *, id> * _Nonnull)json SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 SWIFT_CLASS("_TtC15PRConfiguration12OAuth2Config")
@@ -958,6 +1063,11 @@ SWIFT_CLASS("_TtC15PRConfiguration14OrderConfigKey")
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull followDisabled;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull hidePrimiumButton;
 @property (nonatomic, readonly, strong) PRConfigKey * _Nonnull shouldSendAnalyticsEventForPremiumAvailable;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull includeSupplements;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull showAuthButtonWhenBuyingRequired;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull showOtherIssues;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull showRelated;
+@property (nonatomic, readonly, strong) PRConfigKey * _Nonnull showSellInseparablyAlert;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -967,9 +1077,8 @@ SWIFT_CLASS("_TtC15PRConfiguration15PRArticleConfig")
 @property (nonatomic, readonly, strong) ArticleRelatedConfig * _Nonnull related;
 @property (nonatomic, readonly, strong) ArticleDetailsViewConfig * _Nonnull details;
 @property (nonatomic, readonly, strong) ArticleBylineConfig * _Nonnull byline;
+@property (nonatomic, readonly, strong) PRArticleCommentsConfig * _Nonnull comments;
 @property (nonatomic, readonly) BOOL hasSimilars;
-@property (nonatomic, readonly) BOOL hasComments;
-@property (nonatomic, readonly) BOOL canComment;
 @property (nonatomic, readonly) BOOL hasVotes;
 @property (nonatomic, readonly) BOOL isAuthRequiredToListen;
 @property (nonatomic, readonly) BOOL isAuthRequiredToPrint;
@@ -995,6 +1104,7 @@ SWIFT_CLASS("_TtC15PRConfiguration15PRArticleConfig")
 @property (nonatomic, readonly) enum AuthorizationType type;
 @property (nonatomic, readonly) BOOL cleanWebView;
 @property (nonatomic, readonly) enum ExternalAuthType externalAuthType;
+@property (nonatomic, readonly) BOOL resetOnInvalidActivation;
 @end
 
 @interface PRCatalogConfig (SWIFT_EXTENSION(PRConfiguration))
@@ -1015,31 +1125,32 @@ typedef SWIFT_ENUM(NSInteger, PRCatalogSectionType, open) {
   PRCatalogSectionTypeTopMagazines = 6,
   PRCatalogSectionTypeTopNewspapers = 7,
   PRCatalogSectionTypeBooks = 8,
-  PRCatalogSectionTypeJustAdded = 9,
-  PRCatalogSectionTypeNewReleases = 10,
-  PRCatalogSectionTypeTopFree = 11,
-  PRCatalogSectionTypeDownloaded = 12,
-  PRCatalogSectionTypeLatestIssues = 13,
-  PRCatalogSectionTypeBannerBegin = 14,
-  PRCatalogSectionTypeBannerHotspotServices = 15,
-  PRCatalogSectionTypeBannerPremiumSubscription = 16,
-  PRCatalogSectionTypeBannerImproveExperience = 17,
-  PRCatalogSectionTypeBannerPersonalizationCompleted = 18,
-  PRCatalogSectionTypeBannerBooks = 19,
-  PRCatalogSectionTypeBannerBrazeContentCard = 20,
-  PRCatalogSectionTypeBannerAll = 21,
-  PRCatalogSectionTypeBannerEnd = 22,
-  PRCatalogSectionTypeCategories = 23,
-  PRCatalogSectionTypeFullCatalog = 24,
-  PRCatalogSectionTypeCategoryContent = 25,
+  PRCatalogSectionTypeGames = 9,
+  PRCatalogSectionTypeJustAdded = 10,
+  PRCatalogSectionTypeNewReleases = 11,
+  PRCatalogSectionTypeTopFree = 12,
+  PRCatalogSectionTypeDownloaded = 13,
+  PRCatalogSectionTypeLatestIssues = 14,
+  PRCatalogSectionTypeBannerBegin = 15,
+  PRCatalogSectionTypeBannerHotspotServices = 16,
+  PRCatalogSectionTypeBannerPremiumSubscription = 17,
+  PRCatalogSectionTypeBannerImproveExperience = 18,
+  PRCatalogSectionTypeBannerPersonalizationCompleted = 19,
+  PRCatalogSectionTypeBannerBooks = 20,
+  PRCatalogSectionTypeBannerBrazeContentCard = 21,
+  PRCatalogSectionTypeBannerAll = 22,
+  PRCatalogSectionTypeBannerEnd = 23,
+  PRCatalogSectionTypeCategories = 24,
+  PRCatalogSectionTypeFullCatalog = 25,
+  PRCatalogSectionTypeCategoryContent = 26,
 /// Special categories for custom catalog. Might support rows in the future.
-  PRCatalogSectionTypeSections = 26,
-  PRCatalogSectionTypeHotSpot = 27,
-  PRCatalogSectionTypeLatestPublishDay = 28,
-  PRCatalogSectionTypeTopAdBanner = 29,
-  PRCatalogSectionTypeInlineAdBanner = 30,
-  PRCatalogSectionTypeCoBrandingBanner = 31,
-  PRCatalogSectionTypeEnd = 32,
+  PRCatalogSectionTypeSections = 27,
+  PRCatalogSectionTypeHotSpot = 28,
+  PRCatalogSectionTypeLatestPublishDay = 29,
+  PRCatalogSectionTypeTopAdBanner = 30,
+  PRCatalogSectionTypeInlineAdBanner = 31,
+  PRCatalogSectionTypePartnerBanner = 32,
+  PRCatalogSectionTypeEnd = 33,
 };
 
 @interface PRConfig (SWIFT_EXTENSION(PRConfiguration))
@@ -1086,8 +1197,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RequestSimul
 /// Base online service methods to be simulated.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RequestSimulation * _Nonnull baseRequestSimulation;)
 + (RequestSimulation * _Nonnull)baseRequestSimulation SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL requestCachesDisabled;)
-+ (BOOL)requestCachesDisabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class PrintConfig;
@@ -1114,6 +1223,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) DirectExtern
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL showTestServer;)
 + (BOOL)showTestServer SWIFT_WARN_UNUSED_RESULT;
 + (void)setShowTestServer:(BOOL)newValue;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ConfigMapper * _Nonnull configMapper;)
++ (ConfigMapper * _Nonnull)configMapper SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL spotlightIndexingEnabled;)
++ (BOOL)spotlightIndexingEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_CLASS("_TtC15PRConfiguration11PRConfigKey")
@@ -1177,7 +1290,19 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 + (PRConfigKey * _Nonnull)unconditionalPremiumEligibility SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull serviceErrorAlertDisabled;)
 + (PRConfigKey * _Nonnull)serviceErrorAlertDisabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull spotlightIndexingEnabled;)
++ (PRConfigKey * _Nonnull)spotlightIndexingEnabled SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey * _Nonnull webConfigEnabled;)
++ (PRConfigKey * _Nonnull)webConfigEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
+
+typedef SWIFT_ENUM(NSInteger, PRNewsFeedAPI, open) {
+  PRNewsFeedAPINone = 0,
+  PRNewsFeedAPIHomeFeed = 1,
+  PRNewsFeedAPIPublicationsRSSFeed = 2,
+  PRNewsFeedAPIChannel = 3,
+  PRNewsFeedAPIBookmarks = 4,
+};
 
 @interface PROnboardingConfig (SWIFT_EXTENSION(PRConfiguration))
 @property (nonatomic, readonly) BOOL showTrialSubscriptionIntro;
@@ -1194,6 +1319,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PRConfigKey 
 @property (nonatomic, readonly) BOOL isFollowEnabled;
 @property (nonatomic, readonly) BOOL hidePremiumButton;
 @property (nonatomic, readonly) BOOL shouldSendAnalyticsEventForPremiumAvailable;
+@property (nonatomic, readonly) BOOL includeSupplements;
+@property (nonatomic, readonly) BOOL showAuthButtonWhenBuyingRequired;
+@property (nonatomic, readonly) BOOL showOtherIssues;
+@property (nonatomic, readonly) BOOL showRelated;
+@property (nonatomic, readonly) BOOL showSellInseparablyAlert;
 @end
 
 SWIFT_CLASS("_TtC15PRConfiguration15PagePrintConfig")
@@ -1223,6 +1353,7 @@ SWIFT_CLASS("_TtC15PRConfiguration11RadioConfig")
 @interface RadioConfig : NSObject
 @property (nonatomic, readonly, strong) FeaturedRadioConfig * _Nullable featured;
 @property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) BOOL isEnabledForPurchasedItemsOnly;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1340,6 +1471,11 @@ SWIFT_CLASS("_TtC15PRConfiguration23SpoorAnalyticsConfigKey")
 SWIFT_CLASS("_TtC15PRConfiguration16TermsOfUseConfig")
 @interface TermsOfUseConfig : NSObject
 @property (nonatomic, readonly) BOOL isUserConfirmationRequired;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS("_TtC15PRConfiguration17TranslationConfig")
+@interface TranslationConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

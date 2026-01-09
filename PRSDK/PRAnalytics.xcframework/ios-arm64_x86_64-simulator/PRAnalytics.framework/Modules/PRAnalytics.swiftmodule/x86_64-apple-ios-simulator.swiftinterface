@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRAnalytics
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import Combine
 import Foundation
 @_exported import PRAnalytics
@@ -67,7 +67,7 @@ extension PRAnalytics.WidgetsAnalyticsProvider {
   public func trackWidgetsInfo()
   public func trackWidgetsInstallation()
 }
-extension WidgetKit.WidgetFamily : Swift.Codable, @retroactive Swift.CaseIterable {
+extension WidgetKit.WidgetFamily : @retroactive Swift.Codable, @retroactive Swift.CaseIterable {
   public static var allCases: [WidgetKit.WidgetFamily] {
     get
   }
@@ -76,13 +76,16 @@ extension WidgetKit.WidgetFamily : Swift.Codable, @retroactive Swift.CaseIterabl
   public typealias AllCases = [WidgetKit.WidgetFamily]
 }
 public typealias AnalyticsAccountProvider = Combine.CurrentValueSubject<(any PRAnalytics.AnalyticsAccount)?, Swift.Never>
-@objc public enum SponsorshipStatus : Swift.Int {
+@objc(PRSponsorshipStatus) public enum SponsorshipStatus : Swift.Int {
   case none
   case active
   case nonActive
   case restricted
   case disabled
   case invalid
+  case cooldown
+  case expired = 999
+  case loginRequired = 9999
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -137,6 +140,15 @@ extension Swift.Dictionary where Key == PRAnalytics.PRAnalyticsTrackParameter, V
     set
   }
   public func context<C>() -> C?
+}
+public protocol GameAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  var id: Swift.String { get }
+  var title: Swift.String? { get }
+  var slug: Swift.String { get }
+  var categoryId: Swift.String? { get }
+}
+extension PRAnalytics.GameAnalyticsProvider {
+  public func trackGamePlay()
 }
 @objc open class PRAnalyticsService : ObjectiveC.NSObject {
   @objc final public let services: [any PRAnalytics.AnalyticsService]

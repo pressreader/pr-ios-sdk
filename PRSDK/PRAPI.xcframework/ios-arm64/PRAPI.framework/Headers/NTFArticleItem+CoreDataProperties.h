@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSSet<NTFArticleItem *> *parentArticles;
 @property (nullable, nonatomic, retain) NSOrderedSet<NTFArticleItem *> *relatedArticles;
 @property (nullable, nonatomic, retain) NSOrderedSet<ArticleLink *> *links;
+@property (nullable, nonatomic, retain) NTFArticleItem *rootArticle;
+@property (nullable, nonatomic, retain) NSSet<NTFArticleItem *> *continuations;
 
 @end
 
@@ -64,6 +66,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeLinksObject:(ArticleLink *)value;
 - (void)addLinks:(NSOrderedSet<ArticleLink *> *)values;
 - (void)removeLinks:(NSOrderedSet<ArticleLink *> *)values;
+
+- (void)addContinuationsObject:(NTFArticleItem *)value;
+- (void)removeContinuationsObject:(NTFArticleItem *)value;
+- (void)addContinuations:(NSSet<NTFArticleItem *> *)values;
+- (void)removeContinuations:(NSSet<NTFArticleItem *> *)values;
 
 @end
 
