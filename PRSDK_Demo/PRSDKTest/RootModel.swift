@@ -12,10 +12,12 @@ import PRAlertKit
 import MBProgressHUD
 import PRUtils
 
+@MainActor
 protocol Reloadable {
     func reloadData()
 }
 
+@MainActor
 final class RootModel {
     
     // MARK: - Nested Types
@@ -276,7 +278,7 @@ final class RootModel {
     }
 }
 
-extension RootModel: ReadingViewAnalyticsTracker {
+extension RootModel: @MainActor ReadingViewAnalyticsTracker {
     func trackOpenIssueForReading(issue: TrackingIssue) {
         print("opening \(issue.sourceType.rawValue) \(issue.title),\(issue.date ?? Date()) for reading")
     }
@@ -289,7 +291,7 @@ extension RootModel: ReadingViewAnalyticsTracker {
     }
 }
 
-extension RootModel: AnalyticsTracker {
+extension RootModel: @MainActor AnalyticsTracker {
     func track(_ name: PRAnalyticsTrackName,
                parameters: AnalyticsParameters?)
     {

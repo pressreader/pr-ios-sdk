@@ -10,6 +10,7 @@ import UIKit
 import PRAPI
 import PRUI
 
+@MainActor
 protocol IssueHandler: AnyObject {
     func openIssue(_ issue: PRCatalogItem)
 }
