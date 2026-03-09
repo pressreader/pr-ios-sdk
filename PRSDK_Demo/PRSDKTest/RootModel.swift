@@ -154,11 +154,17 @@ final class RootModel {
         self.catalog?.downloaded
     }
 
-    private var cids: [String] {
+    private var cids: [(cid: String, date: Date?)] {
         // Don't rely on `catalog.loadedPublications` in your implementation.
         // It's used only for demonstration and a subject to change.
         // Instead obtain `cids` using provided PressReader Public API.
-        self.catalog?.loadedPublications()?.prefix(20).map { $0.cid } ?? []
+        self.catalog?.loadedPublications()?.prefix(20).map { ($0.cid, nil) } ?? []
+        
+        /*let formatter = PRDateFormatter.canonicalDateFormatter
+        return [
+            ("2962", formatter.date(from: "20260309")),
+            ("2923", formatter.date(from: "20260305"))
+        ]*/
     }
     
     private var canShowCatalog = false {
@@ -192,7 +198,7 @@ final class RootModel {
         
     func catalogItem(at index: Int) -> TitleItem? {
         self.cids.safeObject(at: index).flatMap {
-            self.catalog?.item(cid: $0, date: nil)
+            self.catalog?.item(cid: $0.cid, date: $0.date)
         }
     }
 
