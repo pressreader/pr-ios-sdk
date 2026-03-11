@@ -1815,6 +1815,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -2781,6 +2788,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -5660,6 +5674,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -19682,6 +19703,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -24353,7 +24381,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "CLLocation",
-                "printedName": "CoreLocation.CLLocation",
+                "printedName": "_LocationEssentials.CLLocation",
                 "usr": "c:objc(cs)CLLocation"
               }
             ],
@@ -24376,7 +24404,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "CLLocation",
-                    "printedName": "CoreLocation.CLLocation",
+                    "printedName": "_LocationEssentials.CLLocation",
                     "usr": "c:objc(cs)CLLocation"
                   }
                 ],
@@ -27853,6 +27881,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -27901,6 +27930,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "Override",
               "AccessControl"
             ],
@@ -27973,6 +28003,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override"
             ],
             "init_kind": "Designated"
@@ -28015,6 +28046,7 @@
         "moduleName": "PRAPI",
         "objc_name": "NTFPersonalizationItem",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "AccessControl",
           "ObjC"
@@ -28119,6 +28151,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -30480,6 +30526,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "BookPurchaseAnalyticsProvider",
             "printedName": "BookPurchaseAnalyticsProvider",
             "usr": "s:5PRAPI29BookPurchaseAnalyticsProviderP",
@@ -31311,12 +31364,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[CoreLocation.CLLocation]",
+                "printedName": "[_LocationEssentials.CLLocation]",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "CLLocation",
-                    "printedName": "CoreLocation.CLLocation",
+                    "printedName": "_LocationEssentials.CLLocation",
                     "usr": "c:objc(cs)CLLocation"
                   }
                 ],
@@ -37730,6 +37783,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "NavigableCatalogService",
             "printedName": "NavigableCatalogService",
             "usr": "s:5PRAPI23NavigableCatalogServiceP",
@@ -41904,6 +41964,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override"
             ],
             "init_kind": "Designated"
@@ -41971,6 +42032,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "NSManaged",
               "ObjC"
@@ -42076,6 +42138,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "NSManaged",
               "ObjC"
@@ -42155,6 +42218,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "NSManaged",
               "ObjC"
@@ -42223,6 +42287,7 @@
         "moduleName": "PRAPI",
         "objc_name": "DataItemContent",
         "declAttributes": [
+          "Nonisolated",
           "AccessControl",
           "ObjC"
         ],
@@ -42324,6 +42389,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -44281,6 +44360,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -50102,6 +50188,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -62844,6 +62937,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -66201,7 +66301,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "CLLocationCoordinate2D",
-                "printedName": "CoreLocation.CLLocationCoordinate2D",
+                "printedName": "_LocationEssentials.CLLocationCoordinate2D",
                 "usr": "c:@S@CLLocationCoordinate2D"
               }
             ],
@@ -66226,7 +66326,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "CLLocationCoordinate2D",
-                    "printedName": "CoreLocation.CLLocationCoordinate2D",
+                    "printedName": "_LocationEssentials.CLLocationCoordinate2D",
                     "usr": "c:@S@CLLocationCoordinate2D"
                   }
                 ],
@@ -66251,7 +66351,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "CLLocationCoordinate2D",
-                "printedName": "CoreLocation.CLLocationCoordinate2D",
+                "printedName": "_LocationEssentials.CLLocationCoordinate2D",
                 "usr": "c:@S@CLLocationCoordinate2D"
               }
             ],
@@ -66276,7 +66376,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "CLLocationCoordinate2D",
-                    "printedName": "CoreLocation.CLLocationCoordinate2D",
+                    "printedName": "_LocationEssentials.CLLocationCoordinate2D",
                     "usr": "c:@S@CLLocationCoordinate2D"
                   }
                 ],
@@ -66315,13 +66415,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "CLLocationCoordinate2D",
-                "printedName": "CoreLocation.CLLocationCoordinate2D",
+                "printedName": "_LocationEssentials.CLLocationCoordinate2D",
                 "usr": "c:@S@CLLocationCoordinate2D"
               },
               {
                 "kind": "TypeNominal",
                 "name": "CLLocationCoordinate2D",
-                "printedName": "CoreLocation.CLLocationCoordinate2D",
+                "printedName": "_LocationEssentials.CLLocationCoordinate2D",
                 "usr": "c:@S@CLLocationCoordinate2D"
               }
             ],
@@ -70174,6 +70274,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -85080,6 +85187,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -87323,6 +87437,7 @@
             "objc_name": "updateConfigsWithCompletionHandler:",
             "declAttributes": [
               "Dynamic",
+              "Custom",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -88082,6 +88197,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Country",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity",
@@ -88305,6 +88421,20 @@
             "printedName": "Emptiable",
             "usr": "s:16PRSyntacticSugar9EmptiableP",
             "mangledName": "$s16PRSyntacticSugar9EmptiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -89167,6 +89297,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -89582,6 +89719,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment",
               "ObjC"
@@ -89676,6 +89814,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override",
               "AccessControl"
             ],
@@ -89693,6 +89832,8 @@
           "Available",
           "RequiresStoredPropertyInits",
           "ObjC",
+          "NonSendable",
+          "Nonisolated",
           "Dynamic"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
@@ -89793,6 +89934,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -90023,6 +90178,13 @@
             "printedName": "DependencyResolver",
             "usr": "s:13PRDIContainer18DependencyResolverP",
             "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -90498,6 +90660,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC",
               "RawDocComment"
             ],
@@ -90552,6 +90715,7 @@
             "objc_name": "preloadImagesWithWidth:",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC",
               "RawDocComment"
             ],
@@ -90565,6 +90729,7 @@
         "isOpen": true,
         "objc_name": "NTFAdBlockItem",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -90669,6 +90834,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -93153,6 +93332,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "RawDocComment",
               "ObjC"
             ],
@@ -93217,6 +93397,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -93286,6 +93467,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "RawDocComment",
               "ObjC"
             ],
@@ -93324,6 +93506,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -93371,6 +93554,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -93383,6 +93567,7 @@
         "isOpen": true,
         "objc_name": "NTFDataItem",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -93485,6 +93670,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -94274,6 +94473,13 @@
             "printedName": "_HasCustomAnyHashableRepresentation",
             "usr": "s:s35_HasCustomAnyHashableRepresentationP",
             "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -94299,6 +94505,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -94328,6 +94535,7 @@
             "mangledName": "$sSo14NTFArticleItemC5PRAPIE19updateAccessibility20saveToPersitentStoreySb_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -94350,6 +94558,7 @@
             "mangledName": "$sSo14NTFArticleItemC5PRAPIE11hasMastheadSbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -94450,6 +94659,7 @@
             "mangledName": "$sSo14NTFArticleItemC5PRAPIE8masthead6height5style7handlery12CoreGraphics7CGFloatV_So20UIUserInterfaceStyleVySo7UIImageCSg_s5Error_pSgtctF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -94485,6 +94695,9 @@
             "usr": "s:So14NTFArticleItemC5PRAPIE11fullContent8languageAC04DatabE0CSgSS_tF",
             "mangledName": "$sSo14NTFArticleItemC5PRAPIE11fullContent8languageAC04DatabE0CSgSS_tF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -94518,6 +94731,9 @@
             "usr": "s:So14NTFArticleItemC5PRAPIE18fullContentPayload8languageSo21NSDictionaryCIWrapperCSgSS_tF",
             "mangledName": "$sSo14NTFArticleItemC5PRAPIE18fullContentPayload8languageSo21NSDictionaryCIWrapperCSgSS_tF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -94546,6 +94762,7 @@
             "mangledName": "$sSo14NTFArticleItemC5PRAPIE06sourceB0AC05TitleB0_pSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "RawDocComment"
             ],
             "isFromExtension": true,
@@ -94597,6 +94814,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -94644,6 +94862,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -94691,6 +94910,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -94746,6 +94966,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -94759,6 +94980,7 @@
         "isOpen": true,
         "objc_name": "NTFArticleItem",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -94866,6 +95088,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "MastheadProvider",
             "printedName": "MastheadProvider",
             "usr": "s:5PRAPI16MastheadProviderP",
@@ -94905,6 +95141,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -94955,6 +95192,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -95013,6 +95251,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -95079,6 +95318,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -95142,6 +95382,7 @@
             "objc_name": "isEqualToItem:",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95166,6 +95407,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95214,6 +95456,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95290,6 +95533,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95338,6 +95582,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95386,6 +95631,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95703,6 +95949,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -95767,6 +96020,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95798,6 +96052,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95837,6 +96092,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -95871,6 +96127,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -95929,6 +96186,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96007,6 +96265,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96085,6 +96344,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96172,6 +96432,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96230,6 +96491,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96280,6 +96542,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96335,6 +96598,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96360,6 +96624,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96409,6 +96674,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -96432,6 +96698,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -96479,6 +96746,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -96515,6 +96783,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "CatalogItem",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSManagedObject",
@@ -96616,6 +96885,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -97866,6 +98149,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "RawDocComment"
             ],
             "isFromExtension": true,
@@ -97926,6 +98210,7 @@
             "mangledName": "$s14PRCatalogModel13CatalogFilterC5PRAPIE5splitSayAD0C10Navigation_pGyF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "Final",
               "RawDocComment"
             ],
@@ -97960,6 +98245,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -98018,6 +98304,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -98068,6 +98355,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -98125,6 +98413,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -98182,6 +98471,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -98219,6 +98509,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "CatalogFilter",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -98324,6 +98615,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "CatalogNavigation",
             "printedName": "CatalogNavigation",
             "usr": "c:@M@PRAPI@objc(pl)CatalogNavigation",
@@ -98375,6 +98680,7 @@
             "mangledName": "$sSo8InterestC5PRAPIE7getFeedSo7NTFFeedCyF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -98397,6 +98703,7 @@
             "mangledName": "$sSo8InterestC5PRAPIE9titleHashSivp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -98903,6 +99210,7 @@
             "mangledName": "$sSo8InterestC5PRAPIE6followyySbF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "RawDocComment"
             ],
             "isFromExtension": true,
@@ -99027,6 +99335,7 @@
             "mangledName": "$sSo8InterestC5PRAPIE10selectableSbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -99084,6 +99393,7 @@
             "mangledName": "$sSo8InterestC5PRAPIE8imageURL3for10Foundation0D0VSg12CoreGraphics7CGFloatV_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -99097,6 +99407,7 @@
         "isOpen": true,
         "objc_name": "Interest",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -99199,6 +99510,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -99403,6 +99728,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -100333,6 +100665,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Books",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -100494,6 +100827,20 @@
             "printedName": "Emptiable",
             "usr": "s:16PRSyntacticSugar9EmptiableP",
             "mangledName": "$s16PRSyntacticSugar9EmptiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -105636,6 +105983,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Encodable",
             "printedName": "Encodable",
             "usr": "s:SE",
@@ -105654,35 +106008,6 @@
             "printedName": "_HasContiguousBytes",
             "usr": "s:s19_HasContiguousBytesP",
             "mangledName": "$ss19_HasContiguousBytesP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_ObjectiveCBridgeable",
-            "printedName": "_ObjectiveCBridgeable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "_ObjectiveCType",
-                "printedName": "_ObjectiveCType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSArray",
-                    "printedName": "Foundation.NSArray",
-                    "usr": "c:objc(cs)NSArray"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s21_ObjectiveCBridgeableP",
-            "mangledName": "$ss21_ObjectiveCBridgeableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
           },
           {
             "kind": "Conformance",
@@ -105777,6 +106102,35 @@
             ],
             "usr": "s:10Foundation26DecodableWithConfigurationP",
             "mangledName": "$s10Foundation26DecodableWithConfigurationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSArray",
+                    "printedName": "Foundation.NSArray",
+                    "usr": "c:objc(cs)NSArray"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
           },
           {
             "kind": "Conformance",
@@ -105906,6 +106260,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Content",
+            "printedName": "Content",
+            "usr": "s:So17CMSampleBufferRefa9CoreMediaE7ContentP",
+            "mangledName": "$sSo17CMSampleBufferRefa9CoreMediaE7ContentP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ContentWithFormatDescription",
+            "printedName": "ContentWithFormatDescription",
+            "usr": "s:So17CMSampleBufferRefa9CoreMediaE28ContentWithFormatDescriptionP",
+            "mangledName": "$sSo17CMSampleBufferRefa9CoreMediaE28ContentWithFormatDescriptionP"
+          },
+          {
+            "kind": "Conformance",
             "name": "TrimmableCollection",
             "printedName": "TrimmableCollection",
             "usr": "s:7PRUtils19TrimmableCollectionP",
@@ -105936,6 +106304,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -105989,6 +106358,9 @@
             "usr": "s:So18PublicationChannelC5PRAPIE16mastheadProviderAC08MastheadE0_pSgvp",
             "mangledName": "$sSo18PublicationChannelC5PRAPIE16mastheadProviderAC08MastheadE0_pSgvp",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -106052,6 +106424,9 @@
             "usr": "s:So18PublicationChannelC5PRAPIE15publicationCIDsSaySSGSgyF",
             "mangledName": "$sSo18PublicationChannelC5PRAPIE15publicationCIDsSaySSGSgyF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
@@ -106062,6 +106437,7 @@
         "isOpen": true,
         "objc_name": "PublicationChannel",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -106165,6 +106541,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -106202,6 +106592,9 @@
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0 where τ_0_0 : CoreData.NSManagedObject>",
             "sugared_genericSig": "<T where T : CoreData.NSManagedObject>",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -106242,6 +106635,9 @@
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0 where τ_0_0 : CoreData.NSManagedObject>",
             "sugared_genericSig": "<T where T : CoreData.NSManagedObject>",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -106273,6 +106669,9 @@
             "usr": "s:So10NTFSessionC5PRAPIE11publication3cid7contextSo11PublicationCSo8NSStringC_So22NSManagedObjectContextCtF",
             "mangledName": "$sSo10NTFSessionC5PRAPIE11publication3cid7contextSo11PublicationCSo8NSStringC_So22NSManagedObjectContextCtF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -106318,6 +106717,7 @@
             "mangledName": "$sSo10NTFSessionC5PRAPIE25updatePublicationChannelsyyySaySo0D7ChannelCGcF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -106353,6 +106753,9 @@
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.Channel>",
             "sugared_genericSig": "<ChannelType where ChannelType : PRAPI.Channel>",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -106393,6 +106796,9 @@
             "moduleName": "PRAPI",
             "genericSig": "<τ_0_0 where τ_0_0 : PRAPI.Channel>",
             "sugared_genericSig": "<ChannelType where ChannelType : PRAPI.Channel>",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
@@ -106403,6 +106809,7 @@
         "isOpen": true,
         "objc_name": "NTFSession",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -106505,6 +106912,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -106697,6 +107118,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "AnalyticsProvider",
             "printedName": "AnalyticsProvider",
             "usr": "c:@M@PRAnalytics@objc(pl)AnalyticsProvider",
@@ -106727,6 +107155,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -106773,6 +107202,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "RawDocComment",
               "ObjC"
             ],
@@ -106831,6 +107261,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "Override",
               "RawDocComment"
             ],
@@ -106858,6 +107289,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "Override",
               "AccessControl"
             ],
@@ -106911,6 +107343,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "Override"
             ],
             "isFromExtension": true,
@@ -106949,6 +107382,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Book",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -107102,6 +107536,20 @@
             "printedName": "LibraryItemProtocol",
             "usr": "c:@M@PRAPI@objc(pl)LibraryItemProtocol",
             "mangledName": "$s5PRAPI19LibraryItemProtocolP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -107884,6 +108332,9 @@
             "usr": "s:So7NTFFeedC5PRAPIE7isEmptySbvp",
             "mangledName": "$sSo7NTFFeedC5PRAPIE7isEmptySbvp",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -107922,6 +108373,9 @@
             "usr": "s:So7NTFFeedC5PRAPIE19updateAccessibilityyyF",
             "mangledName": "$sSo7NTFFeedC5PRAPIE19updateAccessibilityyyF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
@@ -107932,6 +108386,7 @@
         "isOpen": true,
         "objc_name": "NTFFeed",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -108034,6 +108489,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -110818,6 +111287,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -112030,6 +112506,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Copyable",
             "printedName": "Copyable",
             "usr": "s:s8CopyableP",
@@ -112464,6 +112947,9 @@
             "usr": "s:14PRCatalogModel11BookContentC5PRAPIE34bookmarksIntersectingWithLocations13startPosition03endK0SayAA8BookmarkCGSgSi_SitF",
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE34bookmarksIntersectingWithLocations13startPosition03endK0SayAA8BookmarkCGSgSi_SitF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -112496,6 +112982,9 @@
             "usr": "s:14PRCatalogModel11BookContentC5PRAPIE15removeBookmarksyySayAA8BookmarkCGF",
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE15removeBookmarksyySayAA8BookmarkCGF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -112533,6 +113022,9 @@
             "usr": "s:14PRCatalogModel11BookContentC5PRAPIE15removeBookmarks5whereySbAA8BookmarkCc_tF",
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE15removeBookmarks5whereySbAA8BookmarkCc_tF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -112561,6 +113053,7 @@
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE8filePathSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -112620,6 +113113,7 @@
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE3url10Foundation3URLVSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -112670,6 +113164,7 @@
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE17isLicenseRequiredSbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -112720,6 +113215,7 @@
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE11contentPathSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -112770,6 +113266,7 @@
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE18prepareForDownloadSo9PRPromiseCyF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl",
               "DiscardableResult",
               "RawDocComment"
@@ -112808,6 +113305,7 @@
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE9highlight2idAA9HighlightCSgSS_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "RawDocComment"
             ],
             "isFromExtension": true,
@@ -112840,6 +113338,9 @@
             "usr": "s:14PRCatalogModel11BookContentC5PRAPIE15updateHighlight2id5colorySS_SStF",
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE15updateHighlight2id5colorySS_SStF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -112864,6 +113365,9 @@
             "usr": "s:14PRCatalogModel11BookContentC5PRAPIE15removeHighlightyyAA0G0CF",
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE15removeHighlightyyAA0G0CF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -112888,6 +113392,9 @@
             "usr": "s:14PRCatalogModel11BookContentC5PRAPIE15removeHighlight2idySS_tF",
             "mangledName": "$s14PRCatalogModel11BookContentC5PRAPIE15removeHighlight2idySS_tF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
@@ -112898,6 +113405,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "BookContent",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogItemContent",
@@ -113007,6 +113515,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -113275,6 +113797,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -113340,6 +113863,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -113398,6 +113922,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -113456,6 +113981,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -113511,6 +114037,7 @@
             "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE08loadableC0AD16PressCatalogable_pSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "Final",
               "RawDocComment"
             ],
@@ -113573,6 +114100,7 @@
             "mangledName": "$s14PRCatalogModel13CatalogEntityC5PRAPIE7serviceAD08LoadableC0_pSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "Final"
             ],
             "isFromExtension": true,
@@ -113645,6 +114173,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -113720,6 +114249,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -113815,6 +114345,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -113900,6 +114431,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -113931,6 +114463,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -113964,6 +114497,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -114023,6 +114557,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -114073,6 +114608,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -114123,6 +114659,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -114173,6 +114710,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl",
               "DiscardableResult"
             ],
@@ -114199,6 +114737,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl",
               "DiscardableResult"
             ],
@@ -114230,6 +114769,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -114260,6 +114800,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -114291,6 +114832,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -114317,6 +114859,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -114356,6 +114899,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -114381,6 +114925,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -114419,6 +114964,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "CatalogEntity",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSManagedObject",
@@ -114520,6 +115066,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -114686,6 +115246,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "Override"
             ],
             "isFromExtension": true,
@@ -114762,6 +115323,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "Override",
               "AccessControl"
             ],
@@ -114809,6 +115371,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Section",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -114912,6 +115475,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -115078,6 +115655,7 @@
             "declAttributes": [
               "Final",
               "ObjC",
+              "Nonisolated",
               "Override"
             ],
             "isFromExtension": true,
@@ -115132,6 +115710,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "IssueCollection",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -115235,6 +115814,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -116016,6 +116609,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116074,6 +116668,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116133,6 +116728,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl",
               "Override"
             ],
@@ -116159,6 +116755,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116190,6 +116787,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116229,6 +116827,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116253,6 +116852,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116278,6 +116878,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116311,6 +116912,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116344,6 +116946,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116383,6 +116986,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116416,6 +117020,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116455,6 +117060,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116492,6 +117098,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116518,6 +117125,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116549,6 +117157,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116600,6 +117209,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116659,6 +117269,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116690,6 +117301,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116739,6 +117351,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116765,6 +117378,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116815,6 +117429,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116873,6 +117488,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116939,6 +117555,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -116996,6 +117613,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -117062,6 +117680,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override"
             ],
             "isFromExtension": true,
@@ -117100,6 +117719,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Document",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogItem",
@@ -117202,6 +117822,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -117731,6 +118365,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "RawDocComment",
               "ObjC"
             ],
@@ -117744,6 +118379,7 @@
         "isOpen": true,
         "objc_name": "NTFCollectionItem",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -117846,6 +118482,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -118374,6 +119024,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE05titleD0AdB_pSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118432,6 +119083,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE09localizedC0SSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118490,6 +119142,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE14countryISOCodeSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118548,6 +119201,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE16originalMastheadSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118657,6 +119311,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE16templateMastheadSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118766,6 +119421,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE7serviceAD0cD7Service_pSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118816,6 +119472,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE16isSmartAvailableSbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118858,6 +119515,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE9isAudibleSbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -118951,6 +119609,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE13primaryParentAdB_pSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119009,6 +119668,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE9parentCIDSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119067,6 +119727,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE10parentNameSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119125,6 +119786,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE14supplementNameSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119191,6 +119853,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE18displaySupplementsSayAdB_pGSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119257,6 +119920,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE17regionalParentCIDSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119307,6 +119971,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE4rateSivp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119357,6 +120022,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE16alternativeNamesSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119415,6 +120081,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE15languageISOCodeSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119481,6 +120148,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE11supplementsSayAdB_pGSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119555,6 +120223,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE12regionalCIDsSaySSGSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119621,6 +120290,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE24latestAvailableIssueDate10Foundation0I0VSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119738,6 +120408,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE14availableDatesSay10Foundation4DateVGSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119863,6 +120534,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE24availableDatesUpdateDate10Foundation0I0VSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -119964,6 +120636,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE11aspectRatio12CoreGraphics7CGFloatVvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120049,6 +120722,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE27latestAvailableIssueVersionSivp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120134,6 +120808,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE29latestAvailableExpungeVersionSivp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120219,6 +120894,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE28latestAvailableLayoutVersionSivp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120312,6 +120988,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE19linkedSubscriptionsSaySo14PRSubscriptionCGvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120370,6 +121047,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE21preferableServiceNameSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120471,6 +121149,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE10paperColorSo7UIColorCvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120513,6 +121192,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE12scheduleTypeSo07PRTitled8ScheduleG0Vvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120555,6 +121235,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE5isRTLSbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120605,6 +121286,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE15nightEditionCIDSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120655,6 +121337,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE19isLanguageSupportedSbvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120765,6 +121448,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE12issueVersion4dateSi10Foundation4DateV_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120793,6 +121477,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE14expungeVersion4dateSi10Foundation4DateV_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120821,6 +121506,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE13layoutVersion4dateSi10Foundation4DateV_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120857,6 +121543,7 @@
             "mangledName": "$s14PRCatalogModel9TitleItemC5PRAPIE10isFavorite7serviceSbSSSg_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -120869,6 +121556,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "TitleItem",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogItem",
@@ -120971,6 +121659,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -121598,6 +122300,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl",
               "ObjC",
               "RawDocComment"
@@ -121663,6 +122366,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -121726,6 +122430,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -121770,6 +122475,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "PressCatalog",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -121872,6 +122578,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -122429,6 +123149,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Games",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)Catalog",
@@ -122531,6 +123252,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -122754,6 +123489,9 @@
             "usr": "s:So7ChannelC5PRAPIE16collectionsCountSivp",
             "mangledName": "$sSo7ChannelC5PRAPIE16collectionsCountSivp",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -122793,6 +123531,9 @@
             "usr": "s:So7ChannelC5PRAPIE14hasCollectionsSbvp",
             "mangledName": "$sSo7ChannelC5PRAPIE14hasCollectionsSbvp",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -122844,6 +123585,9 @@
             "usr": "s:So7ChannelC5PRAPIE10collection2id7contextSo17NTFCollectionItemCSS_So22NSManagedObjectContextCtF",
             "mangledName": "$sSo7ChannelC5PRAPIE10collection2id7contextSo17NTFCollectionItemCSS_So22NSManagedObjectContextCtF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -122883,6 +123627,9 @@
             "usr": "s:So7ChannelC5PRAPIE10collection2id7contextSo17NTFCollectionItemCSgSS_So22NSManagedObjectContextCtF",
             "mangledName": "$sSo7ChannelC5PRAPIE10collection2id7contextSo17NTFCollectionItemCSgSS_So22NSManagedObjectContextCtF",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
@@ -122921,6 +123668,7 @@
             "mangledName": "$sSo7ChannelC5PRAPIE6update4withySDySSypG_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -122933,6 +123681,7 @@
         "isOpen": true,
         "objc_name": "Channel",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -123035,6 +123784,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -123226,6 +123989,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "RawDocComment",
               "ObjC"
@@ -123333,6 +124097,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "AccessControl",
               "ObjC"
             ],
@@ -123346,6 +124111,7 @@
         "isOpen": true,
         "objc_name": "NTFPageSetItem",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -123453,6 +124219,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "NTFItem",
             "printedName": "NTFItem",
             "usr": "c:@M@PRAPI@objc(pl)NTFItem",
@@ -123489,6 +124269,9 @@
             "usr": "s:So11PublicationC5PRAPIE9titleItemAC05TitleD0_pSgvp",
             "mangledName": "$sSo11PublicationC5PRAPIE9titleItemAC05TitleD0_pSgvp",
             "moduleName": "PRAPI",
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -123527,6 +124310,7 @@
         "isOpen": true,
         "objc_name": "Publication",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -123629,6 +124413,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -125160,6 +125958,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -125180,6 +125985,7 @@
             "mangledName": "$s14PRCatalogModel9GameIssueC5PRAPIE8gamePlay10Foundation10URLRequestVvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "RawDocComment"
             ],
             "isFromExtension": true,
@@ -125231,6 +126037,7 @@
             "mangledName": "$s14PRCatalogModel9GameIssueC5PRAPIE5titleSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -125281,6 +126088,7 @@
             "mangledName": "$s14PRCatalogModel9GameIssueC5PRAPIE4slugSSvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -125331,6 +126139,7 @@
             "mangledName": "$s14PRCatalogModel9GameIssueC5PRAPIE10categoryIdSSSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -125371,6 +126180,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "GameIssue",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogIssue",
@@ -125473,6 +126283,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -125817,6 +126641,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -126134,6 +126965,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -126153,6 +126991,7 @@
             "mangledName": "$s14PRCatalogModel18CatalogItemContentC5PRAPIE7cleanUpyyYaKF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -126176,6 +127015,7 @@
             "mangledName": "$s14PRCatalogModel18CatalogItemContentC5PRAPIE16cleanUpDownloadsyyYaKF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -126189,6 +127029,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "CatalogItemContent",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSManagedObject",
@@ -126297,6 +127138,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -126333,6 +127188,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override"
             ],
             "isFromExtension": true,
@@ -126345,6 +127201,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Game",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogItem",
@@ -126447,6 +127304,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -126564,6 +127435,7 @@
             "objc_name": "updateWith:",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -126576,6 +127448,7 @@
         "isOpen": true,
         "objc_name": "ArticleLink",
         "declAttributes": [
+          "Nonisolated",
           "ObjC",
           "Dynamic"
         ],
@@ -126678,6 +127551,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -127000,6 +127887,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "HotSpot",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSManagedObject",
@@ -127111,6 +127999,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "HotSpotInfo",
             "printedName": "HotSpotInfo",
             "usr": "c:@M@PRAPI@objc(pl)HotSpotInfo",
@@ -127193,6 +128095,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Publications",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -127354,6 +128257,20 @@
             "printedName": "Emptiable",
             "usr": "s:16PRSyntacticSugar9EmptiableP",
             "mangledName": "$s16PRSyntacticSugar9EmptiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -127527,6 +128444,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -127589,6 +128507,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -127651,6 +128570,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -127713,6 +128633,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Final",
+              "Nonisolated",
               "SetterAccess"
             ],
             "isFromExtension": true,
@@ -127765,6 +128686,7 @@
             "mangledName": "$s14PRCatalogModel15DocumentContentC5PRAPIE12processSmartyyF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "Final"
             ],
             "isFromExtension": true,
@@ -127777,6 +128699,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "DocumentContent",
         "declAttributes": [
+          "Nonisolated",
           "Final",
           "ObjC"
         ],
@@ -127887,6 +128810,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -128911,6 +129848,7 @@
             "moduleName": "PRAPI",
             "declAttributes": [
               "Dynamic",
+              "Nonisolated",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -128955,6 +129893,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Catalog",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSManagedObject",
@@ -129056,6 +129995,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -129580,6 +130533,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "BookLicense",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSManagedObject",
@@ -129681,6 +130635,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -130260,6 +131228,7 @@
             "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE10searchTextSSvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -130353,6 +131322,7 @@
             "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE20availableSortOptionsSayAD32SearchableDataSourceSortingOrderOGvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -130403,6 +131373,7 @@
             "mangledName": "$s14PRCatalogModel5QueryC5PRAPIE13sortingOptionAD32SearchableDataSourceSortingOrderOvp",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl"
             ],
             "isFromExtension": true,
@@ -130554,6 +131525,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override",
               "AccessControl"
             ],
@@ -130567,6 +131539,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Query",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)CatalogEntity",
@@ -130669,6 +131642,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -131080,6 +132067,7 @@
             "mangledName": "$s14PRCatalogModel14ContentLicenseC5PRAPIE6update7payloadyAcDE3DTOV_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
+              "Nonisolated",
               "AccessControl",
               "RawDocComment"
             ],
@@ -131093,6 +132081,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "ContentLicense",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSManagedObject",
@@ -131201,6 +132190,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -131753,6 +132756,13 @@
             "printedName": "_HasCustomAnyHashableRepresentation",
             "usr": "s:s35_HasCustomAnyHashableRepresentationP",
             "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -132748,6 +133758,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override",
               "AccessControl"
             ],
@@ -132787,6 +133798,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Magazine",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)TitleItem",
@@ -132890,6 +133902,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -133005,6 +134031,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Nonisolated",
               "Override",
               "AccessControl"
             ],
@@ -133044,6 +134071,7 @@
         "moduleName": "PRCatalogModel",
         "objc_name": "Newspaper",
         "declAttributes": [
+          "Nonisolated",
           "ObjC"
         ],
         "superclassUsr": "c:@M@PRCatalogModel@objc(cs)TitleItem",
@@ -133147,6 +134175,20 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",

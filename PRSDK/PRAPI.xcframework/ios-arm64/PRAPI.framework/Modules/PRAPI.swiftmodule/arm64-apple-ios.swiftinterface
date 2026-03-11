@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
 // swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRAPI
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
 import AVFAudio
 import AVFoundation
 import AppTrackingTransparency
@@ -43,7 +43,9 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 import _Translation_SwiftUI
 @objc @_Concurrency.MainActor @preconcurrency final public class WebAuthenticationSession : AuthenticationServices.ASWebAuthenticationSession {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @_Concurrency.MainActor @preconcurrency public init?(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, linkToCurrentAccount: Swift.Bool, completion: @escaping (_ success: Swift.Bool, _ isNewUser: Swift.Bool, (any Swift.Error)?) -> ())
+  #endif
   @objc deinit
 }
 extension AuthenticationServices.ASWebAuthenticationSession : @retroactive AuthenticationServices.ASWebAuthenticationPresentationContextProviding {
@@ -51,8 +53,12 @@ extension AuthenticationServices.ASWebAuthenticationSession : @retroactive Authe
 }
 @objc public protocol RichMediaAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   @objc var mediaType: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var issue: (any PRAPI.IssueAnalyticsProvider)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var mediaTitle: Swift.String? { get }
+  #endif
 }
 @objc public protocol RichMediaPhotoAnalyticsProvider : PRAPI.RichMediaAnalyticsProvider {
   @objc var photosCount: Swift.Int { get }
@@ -98,9 +104,11 @@ public enum ServiceError : Swift.Error {
   @objc public static let unexpectedResponse: Foundation.NSError
 }
 extension PRAPI.PRCatalogSection {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var items: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
   public func load() -> PRPromiseKit.Promise
 }
 extension PRAPI.PRAccountManager {
@@ -108,20 +116,28 @@ extension PRAPI.PRAccountManager {
   @objc public static func processResetOptions()
 }
 @_inheritsConvenienceInitializers final public class BookSectionDataSource : PRAPI._CatalogSectionDataSource<PRCatalogModel.Books> {
+  #if compiler(>=5.3) && $NonescapableTypes
   override public init?(entity: PRCatalogModel.CatalogEntity)
+  #endif
   @objc deinit
 }
 @objc @objcMembers final public class FacebookSignInResult : PRAPI.SignInResult {
   @objc final public let isNewUser: Swift.Bool
   @objc final public let isSuccess: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(isNewUser: Swift.Bool, isSuccess: Swift.Bool, accessToken: Swift.String? = nil, error: (any Swift.Error)? = nil)
+  #endif
   @objc deinit
 }
 @objc extension CoreData.NSManagedObject {
-  @objc dynamic public var coreDataController: PRAPI.PRCoreDataController? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var coreDataController: PRAPI.PRCoreDataController? {
     @objc get
   }
-  @objc override dynamic open func post(_ notificationName: Foundation.NSNotification.Name, userInfo: [Swift.AnyHashable : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override nonisolated dynamic open func post(_ notificationName: Foundation.NSNotification.Name, userInfo: [Swift.AnyHashable : Any]? = nil)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class CatalogItemDownloadService : ObjectiveC.NSObject {
   public enum LoadingError : Swift.Error {
@@ -147,9 +163,11 @@ extension PRAPI.BookService {
   @_Concurrency.MainActor final public func loadEntity<T>(id: Swift.String, type: T.Type, context: CoreData.NSManagedObjectContext) async throws -> T where T : PRCatalogModel.CatalogEntity
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AppleSignInStorage : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public class var storedCredential: AuthenticationServices.ASAuthorizationAppleIDCredential? {
     @objc get
   }
+  #endif
   @objc final public class func saveCredentials(_ credentials: AuthenticationServices.ASAuthorizationAppleIDCredential)
   @objc final public class func removeStoredCredentials()
   @objc final public class func validateStoredCredentials()
@@ -175,7 +193,9 @@ extension PRAPI.BookService {
   @objc override final public var debugDescription: Swift.String {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(name: Swift.String, sortingOrder: PRConfiguration.PRCatalogSortingOrder, sortingOrderForSubsection: PRConfiguration.PRCatalogSortingOrder, layoutType: PRAPI.PRLayoutType, options: PRAPI.CatalogSectionSchemeOption, customTitle: Swift.String? = nil, cids: [Swift.String]? = nil, categories: [Swift.String]? = nil)
+  #endif
   @objc deinit
 }
 extension PRAPI.PRSubscription {
@@ -189,15 +209,21 @@ extension PRAPI.PRSubscription {
     public typealias Element = PRAPI.PRSubscription.TokenType
     public typealias RawValue = Swift.Int
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public func signedRequest(url: Foundation.URL, type: PRAPI.PRSubscription.TokenType) async -> Foundation.URLRequest?
+  #endif
 }
 @objc extension Foundation.NSError {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var serviceErrorResourceKey: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var localizedServiceMessage: Swift.String? {
     @objc get
   }
+  #endif
 }
 extension PRAPI.PRSubscription {
   @objc dynamic public func updateLatestRead() async throws -> [PRAPI.PRTitleItemExemplar]
@@ -209,16 +235,20 @@ extension PRAPI.PRSubscription {
   @objc override dynamic public var databaseName: Swift.String {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public var managedObjectModelBundle: Foundation.Bundle? {
     @objc get
   }
+  #endif
   public func getDownloads(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.Downloads
   @objc override dynamic public init()
   @objc deinit
 }
 @objc public enum ArticleTranslationState : Swift.Int {
   case none = 0, shortContent, full
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -255,10 +285,10 @@ public enum MastheadLoadingError : Swift.Error {
   }
 }
 extension PRAPI.NTFAdBlockItem {
-  @objc dynamic public var isFavorite: Swift.Bool {
+  @objc nonisolated dynamic public var isFavorite: Swift.Bool {
     @objc get
   }
-  @objc dynamic public func preloadImages(width: CoreFoundation.CGFloat)
+  @objc nonisolated dynamic public func preloadImages(width: CoreFoundation.CGFloat)
 }
 @objc(PRSourceListProtocol) public protocol SourceList : ObjectiveC.NSObjectProtocol {
   @objc var presentationOptions: PRAPI.CatalogPresentationOption { get }
@@ -272,16 +302,22 @@ extension PRAPI.PRSourceList : PRAPI.SourceList {
   }
   @objc dynamic public func sortList()
   @objc dynamic public func filterList()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func filter(id: PRAPI.CatalogNavigationType) -> PRAPI.PRSourceListFilter?
+  #endif
   @objc dynamic public func copyMe() -> Self
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func catalogSlice(filter: any PRAPI.CatalogNavigation, scheme: PRAPI.CatalogSectionScheme?) -> Self
+  #endif
   @objc dynamic public func customCatalogCatalogSlice() -> Self
   @objc dynamic public func semiplainSlice() -> Self
   @objc dynamic public func favouritesSlice(order: PRConfiguration.PRCatalogSortingOrder) -> Self
   @objc dynamic public func linkedServiceSlice(_ service: PRAPI.PRSubscription, order: PRConfiguration.PRCatalogSortingOrder) -> Self
   @objc dynamic public func latestPublishDaySlice(order: PRConfiguration.PRCatalogSortingOrder) -> Self
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @available(swift, obsoleted: 1.0)
   dynamic public func titleItem(item: any PRAPI.PRCatalogItem) -> PRAPI.PRTitleItem?
+  #endif
   @objc dynamic public func notifyAboutDataChange()
   @objc @available(*, unavailable)
   dynamic public func collectionContainsEdition(_ collection: Swift.Array<any PRAPI.PRCatalogItem>, of item: any PRAPI.PRCatalogItem) -> Swift.Bool
@@ -293,7 +329,9 @@ extension PRAPI.PRSourceList {
   @objc dynamic public var containsTitleItems: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public func titleItem(at index: Swift.Int) -> (any PRAPI.TitleItem)?
+  #endif
 }
 extension PRAPI.PRSourceList : PRSyntacticSugar.Emptiable {
 }
@@ -318,7 +356,9 @@ public enum FeaturedAudioAction : Swift.String {
   case swipe
   case play
   case read
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -327,40 +367,62 @@ public enum FeaturedAudioAction : Swift.String {
 public protocol FeaturedAudioAnalyticsProvider : PRAnalytics.AnalyticsProvider {
 }
 extension PRAPI.FeaturedAudioAnalyticsProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func trackFeaturedAudio(action: PRAPI.FeaturedAudioAction, article: (any PRAPI.NTFArticle)?)
+  #endif
 }
 extension PRAPI.PublicationService : PRAPI.NavigableCatalogService {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public func loadFilters(scope: PRCatalogModel.CatalogEntity?) async throws -> [PRCatalogModel.CatalogFilter]
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public func processNavigationInfo(_ json: [Swift.String : Any], scope: PRCatalogModel.CatalogEntity?) throws -> [PRCatalogModel.CatalogFilter]
+  #endif
 }
 @objc extension PRAPI.NTFDataItem {
-  @objc dynamic public var defaultContent: PRAPI.DataItemContent? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var defaultContent: PRAPI.DataItemContent? {
     @objc get
   }
-  @objc dynamic public var defaultPayload: PRUtils.NSDictionaryCIWrapper? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var defaultPayload: PRUtils.NSDictionaryCIWrapper? {
     @objc get
   }
-  @objc dynamic public func content(language: Swift.String) -> PRAPI.DataItemContent?
-  @objc dynamic public func payload(language: Swift.String) -> PRUtils.NSDictionaryCIWrapper?
-  @objc dynamic public func updateContent(json: [Swift.String : Any], language: Swift.String)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func content(language: Swift.String) -> PRAPI.DataItemContent?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func payload(language: Swift.String) -> PRUtils.NSDictionaryCIWrapper?
+  #endif
+  @objc nonisolated dynamic public func updateContent(json: [Swift.String : Any], language: Swift.String)
 }
 public enum RadioAction : Swift.String {
   case firstStart
   case pauseRestart
   case complete
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
 }
 public protocol RadioAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
   var dataSourceItem: (any PRAPI.TitleItem)? { get }
+  #endif
   var currentSmartArticle: PRSmart.PRSmartArticle { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var currentFeedArticle: (any PRAPI.NTFArticle)? { get }
+  #endif
 }
 extension PRAPI.RadioAnalyticsProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func trackRadio(action: PRAPI.RadioAction? = nil)
+  #endif
 }
 public struct PartnerBanner {
   public let logoId: Swift.String
@@ -410,8 +472,8 @@ extension PRAPI.AppleSignInManager : PRAPI.SignInManagerProtocol {
   @objc @_Concurrency.MainActor @preconcurrency final public func signIn(_ handler: @escaping (PRAPI.AppleSignInResult) -> ())
 }
 extension PRAPI.NTFArticleItem {
-  @objc dynamic public func updateAccessibility()
-  public func updateAccessibility(saveToPersitentStore: Swift.Bool = false)
+  @objc nonisolated dynamic public func updateAccessibility()
+  nonisolated public func updateAccessibility(saveToPersitentStore: Swift.Bool = false)
 }
 extension PRAPI.PRAccountManager {
   public enum AuthError : Swift.Error {
@@ -439,8 +501,12 @@ extension PRAPI.PRAccountManager {
     public typealias Element = PRAPI.BookUserService.RefreshOption
     public typealias RawValue = Swift.Int
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor override public init?(bookService: PRAPI.BookService)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public func loadBookReadingPosition(bookId: Swift.String) async throws -> PRAPI.BookReadingPosition?
+  #endif
   @_Concurrency.MainActor final public func uploadBookReadingPosition(_ position: PRAPI.BookReadingPosition.Position, bookId: Swift.String) async throws
   @_Concurrency.MainActor final public func refreshBookLibrary(options: PRAPI.BookUserService.RefreshOption = []) async throws -> Swift.Bool
   @_Concurrency.MainActor override final public func preload() async
@@ -452,81 +518,107 @@ extension PRAPI.BookUserService : PRAPI.LibraryService {
   @_Concurrency.MainActor final public func removeItemFromLibrary(_ item: PRAPI.BookUserService.Item) async throws
 }
 @objc extension PRCatalogModel.CatalogItem : PRAPI.PRCatalogItem {
-  @objc dynamic public var sourceType: PRCatalogModel.PRSourceType {
+  @objc nonisolated dynamic public var sourceType: PRCatalogModel.PRSourceType {
     @objc get
   }
-  @objc dynamic public var cid: Swift.String {
+  @objc nonisolated dynamic public var cid: Swift.String {
     @objc get
   }
-  @objc dynamic public var sortingDate: Foundation.Date? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var sortingDate: Foundation.Date? {
     @objc get
   }
-  @objc dynamic public var ti: PRAPI.PRTitleItemExposer? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var ti: PRAPI.PRTitleItemExposer? {
     @objc get
   }
+  #endif
 }
 extension PRCatalogModel.CatalogItem : @retroactive PRAnalytics.AnalyticsProvider {
 }
 extension PRAPI.PRTitleItemExemplar : PRAPI.PRCatalogItem {
 }
 extension PRAPI.PRTitleItemExemplar : PRAPI.TitleItemDerivative {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var ti: PRAPI.PRTitleItemExposer? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var date: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var sortingDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var activationTime: Foundation.Date? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var title: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var localizedTitle: Swift.String? {
     get
   }
+  #endif
   @objc dynamic public var isAudible: Swift.Bool {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var currentRadioArticleId: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
 }
 @available(swift, obsoleted: 1.0)
 extension PRAPI.PRTitleItemExemplar {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var defaultSubscription: PRAPI.PRSubscription? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc(libraryItem) dynamic public var _libraryItem: PRAPI.PRMyLibraryItem? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc(thumbnailWithSize:) dynamic public func _thumbnail(size: CoreFoundation.CGSize) -> PRThumbnail.PRThumbnailSource?
+  #endif
 }
 extension PRCatalogModel.CatalogFilter {
-  final public var variantType: PRCatalogModel.CatalogEntity.Type {
+  nonisolated final public var variantType: PRCatalogModel.CatalogEntity.Type {
     get
   }
-  final public func split() -> [any PRAPI.CatalogNavigation]
+  final nonisolated public func split() -> [any PRAPI.CatalogNavigation]
 }
 extension PRCatalogModel.CatalogFilter : PRAPI.CatalogNavigation {
-  @objc final public var options: [PRAPI.CatalogNavigationSection] {
+  @objc nonisolated final public var options: [PRAPI.CatalogNavigationSection] {
     @objc get
   }
-  @objc final public var name: Swift.String {
+  @objc nonisolated final public var name: Swift.String {
     @objc get
   }
-  @objc final public var type: PRAPI.CatalogNavigationType {
+  @objc nonisolated final public var type: PRAPI.CatalogNavigationType {
     @objc get
   }
-  @objc final public var value: Any? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated final public var value: Any? {
     @objc get
   }
-  @objc final public var catalogType: PRAPI.CatalogType {
+  #endif
+  @objc nonisolated final public var catalogType: PRAPI.CatalogType {
     @objc get
   }
 }
@@ -548,19 +640,21 @@ extension PRAPI.PRTitleItemExemplar {
   @objc final public func signIn(_ completion: @escaping PRAPI.PianoManager.SignInCompletion)
   @objc final public func signOut(_ completion: @escaping PRAPI.PianoManager.SignOutCompletion)
   @objc final public func application(_ application: UIKit.UIApplication, open url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any]) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @discardableResult
   final public func application(_ application: UIKit.UIApplication, didFinishLaunchingWithOptions launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]?) -> Swift.Bool
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
 extension PRAPI.NTFArticleItem : PRAPI.MastheadProvider {
-  public var hasMasthead: Swift.Bool {
+  nonisolated public var hasMasthead: Swift.Bool {
     get
   }
-  public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
+  nonisolated public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
 }
 extension PRAPI.Interest {
-  public func getFeed() -> PRAPI.NTFFeed
+  nonisolated public func getFeed() -> PRAPI.NTFFeed
 }
 extension PRAPI.NTFDataService {
   public enum DataServiceError : Swift.Error {
@@ -575,11 +669,17 @@ extension PRAPI.NTFDataService {
   @objc dynamic public func waitForOtherDataSuppliers() async
   public func requestData() async throws
   @objc dynamic public func deleteFeed()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func feed(context: CoreData.NSManagedObjectContext) -> PRAPI.NTFFeed?
+  #endif
 }
 extension PRAPI.DQCatalog {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func category(name: Swift.String) -> [Swift.String : Any]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func topCategory(forCategoryWithName name: Swift.String, ceilingCategory: [Swift.String : Any]?) -> [Swift.String : Any]?
+  #endif
 }
 @_hasMissingDesignatedInitializers final public class MultipleLatestIssueDataSource : PRAPI.CatalogItemDataSource {
   @objc override final public var canLoadMore: Swift.Bool {
@@ -606,7 +706,9 @@ extension PRAPI.PRAccountManager {
 }
 extension PRAPI.PRDeliveryQueueClient {
   public func postRequest(_ request: Swift.String, accountItem: PRAPI.PRAccountItem, xmlFragment: Swift.String, responseFields: Foundation.NSMutableDictionary, options: [PRAPI.PRServiceRequestOption : Any]) async throws -> PRUtils.SPNode
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getPath(_ path: Swift.String, parameters: [Swift.String : Any], requestType: Swift.String, responseFields: Foundation.NSMutableDictionary, options: [PRAPI.PRServiceRequestOption : Any]) async throws -> PRUtils.SPNode?
+  #endif
 }
 extension UIKit.UIAlertController {
   @objc @_Concurrency.MainActor @preconcurrency public static func showNetworkNotReachableAlert()
@@ -622,23 +724,31 @@ extension PRAPI.Sponsorship {
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var expirationReminderInfo: PRAPI.Sponsorship.ExpirationReminderInfo? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var welcomeMessagePresentationDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var lastPresentedWelcomeMessageHotSpotId: Swift.String? {
     @objc get
   }
+  #endif
   @objc final public func updateWelcomeMessagePresentationState()
   @objc final public func updateExpirationReminderInfo()
 }
 extension PRCatalogModel.Books : PRAPI.PressCatalogable {
   public typealias Service = PRAPI.BookService
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public var service: PRAPI.BookService? {
     get
   }
+  #endif
 }
 @objc extension PRAPI.PROptions {
   @objc dynamic public var appBundle: Foundation.Bundle {
@@ -653,57 +763,83 @@ extension PRCatalogModel.Books : PRAPI.PressCatalogable {
   @objc dynamic public func deleteDocuments() throws
 }
 extension PRAPI.PRTitleItem : PRAPI.TitleItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var ti: PRAPI.PRTitleItemExposer? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var titleItem: (any PRAPI.TitleItem)? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var service: (any PRAPI.TitleItemService)? {
     get
   }
+  #endif
   @objc dynamic public var rate: Swift.Int {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var date: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var sortingDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var countryCodes: [Swift.String]? {
     get
   }
+  #endif
   @objc dynamic public var sourceType: PRCatalogModel.PRSourceType {
     @objc get
   }
   @objc dynamic public var isFree: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var countryName: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var countryISOCode: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var languageISOCode: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var languageName: Swift.String? {
     @objc get
   }
+  #endif
   public var isLanguageSupported: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var parentCID: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var regionalParentCID: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var nightEditionCID: Swift.String? {
     get
   }
+  #endif
   public var paperColor: UIKit.UIColor {
     get
   }
@@ -713,31 +849,43 @@ extension PRAPI.PRTitleItem : PRAPI.TitleItem {
   @objc dynamic public var isSmartAvailable: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var supplements: [any PRAPI.TitleItem]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var displaySupplements: [any PRAPI.TitleItem]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var alternativeNames: Swift.String? {
     @objc get
   }
+  #endif
   public var isAudible: Swift.Bool {
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var currentRadioArticleId: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
   public var isMastheadInfoLoadable: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var preferableServiceName: Swift.String? {
     get
     set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func isFavorite(service: Swift.String?) -> Swift.Bool
+  #endif
   @_Concurrency.MainActor public func updateIssueInfo(_ info: [Foundation.Date : [Swift.String : Any]], resetAvailability: Swift.Bool) async throws
   @objc dynamic public func issueVersion(date: Foundation.Date) -> Swift.Int
   @objc dynamic public func expungeVersion(date: Foundation.Date) -> Swift.Int
@@ -745,9 +893,11 @@ extension PRAPI.PRTitleItem : PRAPI.TitleItem {
 }
 @available(swift, obsoleted: 1.0)
 extension PRAPI.PRTitleItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc(latestEditionExemplar) dynamic public var _latestEditionExemplar: PRAPI.PRTitleItemExemplar? {
     @objc get
   }
+  #endif
   @objc dynamic public var supplementsCount: Swift.Int {
     @objc get
   }
@@ -760,15 +910,21 @@ extension PRAPI.PRSocialSignInManager {
   @objc dynamic public func appleRequestPublishPermission(_ ai: PRAPI.PRAccountItem, linkToCurrentAccount: Swift.Bool, completion handler: @escaping PRAPI.ExternalAuthCompletion)
 }
 @objc @objcMembers final public class Sponsorship : ObjectiveC.NSObject, PRAnalytics.Sponsorship {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var hotSpotId: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var expiredHotSpotId: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var expiredHotSpotProvider: Swift.String? {
     @objc get
   }
+  #endif
   @objc final public var isAvailable: Swift.Bool {
     @objc get
   }
@@ -802,19 +958,25 @@ extension PRAPI.PRSocialSignInManager {
   @objc final public var isGeoFence: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var industry: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var hotSpotName: Swift.String? {
     @objc get
   }
+  #endif
   @objc final public var expirationDate: Foundation.Date {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @nonobjc final public var partnerBanner: PRAPI.PartnerBanner? {
     get
     set
   }
+  #endif
   @objc final public var hotSpotTitles: PRAPI.HotSpotTitles? {
     @objc get
     @objc set
@@ -846,12 +1008,14 @@ extension Swift.Array where Element == any PRAPI.NTFArticle {
   }
 }
 extension PRAPI.PublicationChannel {
-  @objc dynamic public var isFollowed: Swift.Bool {
+  @objc nonisolated dynamic public var isFollowed: Swift.Bool {
     @objc get
   }
-  public var mastheadProvider: (any PRAPI.MastheadProvider)? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var mastheadProvider: (any PRAPI.MastheadProvider)? {
     get
   }
+  #endif
 }
 @objc extension PRSmart.PRSmartArticle {
   @objc dynamic public var isPreview: Swift.Bool {
@@ -863,23 +1027,31 @@ extension PRAPI.PublicationChannel {
   @objc dynamic public var hasDownloadedContent: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var titleExemplar: PRAPI.PRTitleItemExemplar? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var mli: PRAPI.PRMyLibraryItem? {
     @objc get
   }
+  #endif
   @objc(needsDataUpdateForLanguage:) dynamic public func needsDataUpdate(for languageISO: Swift.String) -> Swift.Bool
 }
 extension PRAPI.NTFSession {
-  public func object<T>(predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T where T : CoreData.NSManagedObject
-  public func object<T>(predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T? where T : CoreData.NSManagedObject
+  nonisolated public func object<T>(predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T where T : CoreData.NSManagedObject
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func object<T>(predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T? where T : CoreData.NSManagedObject
+  #endif
 }
 extension StoreKit.SKProduct : @retroactive PRAnalytics.AnalyticsProvider {
   public func track()
 }
 @objc @_inheritsConvenienceInitializers final public class GoogleSignInResult : PRAPI.SignInResult {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: (any Swift.Error)? = nil)
+  #endif
   @objc deinit
 }
 final public class BookLicenseProduct : Swift.Decodable, Swift.Hashable {
@@ -934,12 +1106,12 @@ extension PRAPI.ColoredEntity {
   }
 }
 extension PRAPI.Interest : PRAPI.ColoredEntity {
-  public var titleHash: Swift.Int {
+  nonisolated public var titleHash: Swift.Int {
     get
   }
 }
 extension PRCatalogModel.Book : PRAPI.ColoredEntity {
-  final public var titleHash: Swift.Int {
+  nonisolated final public var titleHash: Swift.Int {
     get
   }
 }
@@ -953,13 +1125,17 @@ extension PRCatalogModel.Book : PRAPI.ColoredEntity {
   @objc deinit
 }
 extension PRAPI.PRCatalog {
+  #if compiler(>=5.3) && $NonescapableTypes
   public subscript(key: Swift.String) -> (any PRAPI.TitleItem)? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
   @objc dynamic public subscript(key: Swift.String) -> (any PRAPI.PRCatalogItem)? {
     @objc get
   }
+  #endif
   @objc dynamic public var useModernServiceAPI: Swift.Bool {
     @objc get
   }
@@ -973,31 +1149,49 @@ extension PRAPI.PRCatalog {
   public var favoriteCountries: [any PRAPI.CountryNavigationVariant] {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public func favorites(order: PRConfiguration.PRCatalogSortingOrder = .notDefined) -> [any PRAPI.TitleItem]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func source(cid: Swift.String) -> (any PRAPI.TitleItem)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func publication(cid: Swift.String, service: Swift.String? = nil) async throws -> (any PRAPI.TitleItem)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func loadedPublications(context: CoreData.NSManagedObjectContext? = nil) -> [any PRAPI.TitleItem]?
+  #endif
   @objc dynamic public func publicationsUpdateDate() -> Foundation.Date
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
   @objc(sourceByCid:) dynamic public func _source(cid: Swift.String) -> (any PRAPI.PRCatalogItem)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
   @objc(publicationWithCID:service:completionHandler:) dynamic public func _publication(cid: Swift.String, service: Swift.String? = nil) async throws -> (any PRAPI.PRCatalogItem)?
+  #endif
   @available(swift, obsoleted: 1.0)
   @objc(adjustCatalogConfig) dynamic public func _adjustCatalogConfig()
 }
 public protocol DeviceTimeTweakProtected : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   var lastPermissionRequestDate: Foundation.Date? { get set }
+  #endif
   func updateLastPermissionRequestDateIfValid() -> Swift.Bool
 }
 extension PRAPI.DeviceTimeTweakProtected {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var lastPermissionRequestDate: Foundation.Date? {
     get
     set
   }
+  #endif
   public func updateLastPermissionRequestDateIfValid() -> Swift.Bool
 }
 public protocol BrazeEntity {
+  #if compiler(>=5.3) && $NonescapableTypes
   var extras: [Swift.AnyHashable : Any]? { get }
+  #endif
 }
 extension PRAPI.BrazeEntity {
   public var isEligible: Swift.Bool {
@@ -1015,7 +1209,9 @@ public protocol ContentCard : PRAPI.BrazeEntity {
   var title: Swift.String { get }
   var details: Swift.String { get }
   var imageUrl: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var url: Swift.String? { get }
+  #endif
   func logImpression()
   func logClick()
   func logDismission()
@@ -1073,7 +1269,9 @@ extension Foundation.NSNotification.Name {
 }
 extension PRAPI._CatalogService : @preconcurrency PRAPI.LoadableCatalog {
   @_Concurrency.MainActor public func catalog(context: CoreData.NSManagedObjectContext) throws -> any PRAPI.PressCatalogable
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public func catalog(context: CoreData.NSManagedObjectContext, service: Swift.String?) throws -> any PRAPI.PressCatalogable
+  #endif
 }
 public protocol SearchHistoryAnalyticsProvider : PRAnalytics.AnalyticsProvider {
 }
@@ -1081,7 +1279,7 @@ extension PRAPI.SearchHistoryAnalyticsProvider {
   public func trackHistoryItemSelected()
 }
 extension PRAPI.NTFFeed {
-  public var isEmpty: Swift.Bool {
+  nonisolated public var isEmpty: Swift.Bool {
     get
   }
 }
@@ -1094,9 +1292,11 @@ extension PRAPI.NTFFeed {
   }
 }
 @objc @_inheritsConvenienceInitializers final public class OAuth2Manager : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static var shared: (any PRAPI.PROAuth2)? {
     @objc get
   }
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1110,8 +1310,12 @@ extension PRAPI.NTFPersonalizationItem {
   @objc deinit
 }
 extension PRAPI.Interest {
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func interest(with json: [Swift.String : Any], session: PRAPI.NTFSession) -> PRAPI.Interest?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func interest(with id: Swift.Int, name: Swift.String, subtitle: Swift.String? = nil, imageId: Swift.String? = nil, selected: Swift.Bool = false, session: PRAPI.NTFSession) -> PRAPI.Interest
+  #endif
 }
 extension PRAPI.PRGoogleSignInManager : PRAPI.SignInManagerProtocol {
   public typealias ResultType = PRAPI.GoogleSignInResult
@@ -1136,8 +1340,12 @@ extension PRAPI.HotSpotManager {
   final public func notifyAboutHotSpotLeaving(_ hotSpot: PRAPI.GeoFencingHotSpot)
 }
 extension PRAPI.NTFArticleItem {
-  public func fullContent(language: Swift.String) -> PRAPI.DataItemContent?
-  public func fullContentPayload(language: Swift.String) -> PRUtils.NSDictionaryCIWrapper?
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func fullContent(language: Swift.String) -> PRAPI.DataItemContent?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func fullContentPayload(language: Swift.String) -> PRUtils.NSDictionaryCIWrapper?
+  #endif
 }
 @objc extension PRAPI.PRSourceList {
   @objc dynamic public var types: [any PRAPI.CatalogNavigation] {
@@ -1149,17 +1357,25 @@ extension PRAPI.Interest {
   public typealias ReturnType = PRAPI.Interest
   @discardableResult
   public class func getRecommendedInterests() -> PRPromiseKit.Promise
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   public class func getRecommendedInterests(with displayedInterests: [Swift.Int]?) -> PRPromiseKit.Promise
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   public class func getRecommendedInterests(with displayedInterests: [Swift.Int]?, selectedInterests: [Swift.Int]?) -> PRPromiseKit.Promise
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func searchForInterests(with query: Swift.String, offset: Swift.Int?, completion: @escaping ([PRAPI.Interest.ReturnType]?, (any Swift.Error)?) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   public class func getUserInterests(token: Swift.String? = nil) -> PRPromiseKit.Promise
+  #endif
   @discardableResult
   public class func replaceUserInterests(with interests: [PRAPI.Interest]) -> PRPromiseKit.Promise
   public class func mergeUserInterests()
-  public func follow(_ follow: Swift.Bool)
+  nonisolated public func follow(_ follow: Swift.Bool)
 }
 public protocol CatalogViewAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   var catalogPath: Swift.String { get }
@@ -1168,61 +1384,91 @@ extension PRAPI.CatalogViewAnalyticsProvider {
   public func trackCatalogView()
 }
 @objc extension PRAPI.PRMyLibraryItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var printing: (any PRAPI.PrintableItem)? {
     @objc get
   }
+  #endif
 }
 extension PRAPI.TitleItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func catalogSubscriptions(filter: [PRAPI.PRSubscription]? = nil) -> [PRAPI.PRSubscription]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func defaultSubscription(among subscriptions: [PRAPI.PRSubscription]? = nil) -> PRAPI.PRSubscription?
+  #endif
   public func isAutoDeliverable() -> (hasSubscription: Swift.Bool, includingSupplements: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func setAutodelivery(_ isOn: Swift.Bool, applyToSupplements: Swift.Bool = false, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)? = nil)
+  #endif
 }
 @available(swift, obsoleted: 1.0)
 @objc extension PRAPI.PRTitleItemExposer {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func catalogSubscriptions(filter: [PRAPI.PRSubscription]? = nil) -> [PRAPI.PRSubscription]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func catalogSubscriptions() -> [PRAPI.PRSubscription]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc(defaultSubscriptionAmongSubscriptions:) final public func defaultSubscription(among subscriptions: [PRAPI.PRSubscription]?) -> PRAPI.PRSubscription?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func defaultSubscription() -> PRAPI.PRSubscription?
+  #endif
 }
 @_inheritsConvenienceInitializers final public class PublicationSectionDataSource : PRAPI._CatalogSectionDataSource<PRCatalogModel.Publications> {
+  #if compiler(>=5.3) && $NonescapableTypes
   override public init?(entity: PRCatalogModel.CatalogEntity)
+  #endif
   @objc deinit
 }
 extension PRAPI.PRSourceList : PRAPI.CatalogFacade {
 }
 @objc extension PRAPI.PRSourceList : PRAPI.ObservableCatalogFacade {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var loadedPublications: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
   @objc dynamic public var navigationFilters: [any PRAPI.CatalogNavigation] {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var categories: [any PRAPI.CatalogNavigationVariant]? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var countries: [any PRAPI.CountryNavigationVariant]? {
     @objc get
   }
+  #endif
   @objc dynamic public func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 @objc @_inheritsConvenienceInitializers public class XCFCompatibilityResolver : ObjectiveC.NSObject {
   @objc public class func mergeUserInterests()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public class func interest(with json: [Swift.String : Any], session: PRAPI.NTFSession) -> PRAPI.Interest?
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
 extension PRAPI.PRAccountItem {
   public enum Method : Swift.String {
     case getHotspotStatus
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
     }
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc @_Concurrency.MainActor dynamic public func requestHotSpotStatus(hotSpotId: Swift.String?, forced: Swift.Bool) async throws -> Foundation.TimeInterval
+  #endif
 }
 @objc public protocol NTFActionConfig {
   @objc var generalActionConfig: [Swift.AnyHashable : Any] { get }
@@ -1231,22 +1477,30 @@ extension PRAPI.PRAccountItem {
 @objc public protocol FlowArticle : PRAPI.NTFActionConfig, PRAPI.NTFArticle, PRAPI.NTFItem {
 }
 @objc @_Concurrency.MainActor public class BookSubservice : ObjectiveC.NSObject, PRAPI.Preloadable {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public init?(bookService: PRAPI.BookService)
+  #endif
   @_Concurrency.MainActor public var preloadTask: _Concurrency.Task<(), any Swift.Error>?
   @_Concurrency.MainActor public func preload() async
   @objc deinit
 }
 public protocol LoadableModel : ObjectiveC.NSObjectProtocol {
   var state: PRAPI.ModelState { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   func finishLoading(_ result: PRUtils.VoidResult)
+  #endif
 }
 public protocol LoadableModelObserver : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
+  #endif
 }
 public protocol ObservableModel : PRAPI.LoadableModel, PRAPI.LoadableModelObserver {
   func load() async throws
   func addObserver(_ observer: any PRAPI.LoadableModelObserver)
+  #if compiler(>=5.3) && $NonescapableTypes
   func removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
+  #endif
   func triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
 }
 public enum ObservableModelError : Swift.Error {
@@ -1262,12 +1516,16 @@ extension PRAPI.ObservableModel {
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public func removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
+  #endif
   public func addObserver(_ observer: any PRAPI.LoadableModelObserver)
   public func triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
   public func forEachObserver(_ action: (any PRAPI.LoadableModelObserver) -> Swift.Bool)
   public func _triggerObservers(_ action: @escaping (any PRAPI.LoadableModelObserver) -> ())
+  #if compiler(>=5.3) && $NonescapableTypes
   public func _removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
+  #endif
   public func _addObserver(_ observer: any PRAPI.LoadableModelObserver)
 }
 extension PRAPI.ObservableModel {
@@ -1275,21 +1533,27 @@ extension PRAPI.ObservableModel {
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public func finishLoading(_ result: PRUtils.VoidResult)
+  #endif
 }
 extension PRAPI.ObservableModel {
   public func load() async throws
 }
 extension PRAPI.ObservableModel {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
+  #endif
 }
 @objc extension PRAPI.PRCountableValue : PRAPI.CatalogNavigationVariant {
   @objc dynamic public var categoryId: Swift.Int {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var localizedName: Swift.String? {
     @objc get
   }
+  #endif
 }
 extension PRAPI.PRCountableCountry : PRAPI.CountryNavigationVariant {
   @objc dynamic public var iso: Swift.String {
@@ -1297,9 +1561,11 @@ extension PRAPI.PRCountableCountry : PRAPI.CountryNavigationVariant {
   }
 }
 @objc extension PRAPI.PRAccountManager {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var authorizationManager: PRAPI.AuthorizationManager? {
     @objc get
   }
+  #endif
 }
 @objc public protocol BEHomeAnalyticsProvider : PRAnalytics.AnalyticsProvider {
 }
@@ -1313,7 +1579,9 @@ extension Foundation.FileManager {
     case attributesUnavailable
     case incorrectSize(Swift.String)
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func validateFile(path: Swift.String, size: Swift.UInt64) -> Swift.Result<Swift.Bool, Foundation.FileManager.FileError>
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class EventAnalytics : PRAPI.Analytics {
   @objc deinit
@@ -1321,12 +1589,16 @@ extension Foundation.FileManager {
 extension PRAPI.NTFArticleItem : PRAPI.NTFItem {
 }
 extension PRAPI.NTFSession {
-  public func publication(cid: PRAPI.CID, context: CoreData.NSManagedObjectContext) -> PRAPI.Publication
+  nonisolated public func publication(cid: PRAPI.CID, context: CoreData.NSManagedObjectContext) -> PRAPI.Publication
 }
 public protocol NavigableCatalogService {
   var canBatchResponseContainNavigationInfo: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   func loadFilters(scope: PRCatalogModel.CatalogEntity?) async throws -> [PRCatalogModel.CatalogFilter]
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func processNavigationInfo(_ json: [Swift.String : Any], scope: PRCatalogModel.CatalogEntity?) throws -> [PRCatalogModel.CatalogFilter]
+  #endif
 }
 extension PRAPI.NavigableCatalogService {
   public var canBatchResponseContainNavigationInfo: Swift.Bool {
@@ -1366,11 +1638,19 @@ extension PRAPI.BookOrderAnalyticsProvider {
   @objc deinit
 }
 extension PRAPI.PRAccountItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func catalog<T>() -> T? where T : PRCatalogModel.Catalog
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func publications() -> PRCatalogModel.Publications?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func titleItem(cid: Swift.String) -> (any PRAPI.TitleItem)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
   @objc(titleItemWithCid:) dynamic public func _titleItem(cid: Swift.String) -> (any PRAPI.PRCatalogItem)?
+  #endif
 }
 public enum SearchAnalyticsTab {
   case publications, interests, stories, books
@@ -1381,19 +1661,25 @@ public enum SearchAnalyticsTab {
   }
 }
 public protocol SearchAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
   var analyticsTrackTab: PRAPI.SearchAnalyticsTab? { get }
+  #endif
 }
 extension PRAPI.SearchAnalyticsProvider {
   public func trackSearchPresented()
   public func trackSearchDismissed()
+  #if compiler(>=5.3) && $NonescapableTypes
   public func trackItemSelected(_ item: Any?, isAllTab: Swift.Bool)
+  #endif
   public func trackSearchSeeAllTap()
   public func trackSearchTabSelected()
 }
 @objc public protocol CatalogItemDataSourceProtocol : PRAPI.LoadableDataSource, PRAPI.SectionalDataSource, PRAPI.SilentDataLoader {
   @objc var dataProvider: [[any PRAPI.PRCatalogItem]] { get }
   @objc var includeSupplements: Swift.Bool { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var itemToExclude: (any PRAPI.PRCatalogItem)? { get set }
+  #endif
   @objc func layoutType(for section: Swift.Int) -> PRAPI.PRLayoutType
   @objc func showDatesOnly(for section: Swift.Int) -> Swift.Bool
 }
@@ -1410,7 +1696,9 @@ extension PRAPI.SearchAnalyticsProvider {
   @objc open func layoutType(for section: Swift.Int) -> PRAPI.PRLayoutType
   @objc open func showDatesOnly(for section: Swift.Int) -> Swift.Bool
   @objc required dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   override public init(observer: (any PRAPI.DataSourceObserver)? = nil)
+  #endif
   @objc deinit
 }
 @objc public protocol SplashScreenAnalyticsProvider : PRAnalytics.AnalyticsProvider {
@@ -1429,10 +1717,10 @@ extension PRAPI.SplashScreenAnalyticsProvider {
   }
 }
 @objc extension PRCatalogModel.Book {
-  @objc final public var needsUpdatedDetails: Swift.Bool {
+  @objc nonisolated final public var needsUpdatedDetails: Swift.Bool {
     @objc get
   }
-  @objc override final public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
+  @objc override nonisolated final public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
 }
 @objc @_hasMissingDesignatedInitializers final public class CatalogPresenter : ObjectiveC.NSObject {
   @objc deinit
@@ -1441,50 +1729,68 @@ extension PRAPI.CatalogPresenter : PRAPI.ObservableCatalogFacade {
   @objc final public var isEmpty: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var loadedPublications: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
   @objc final public var navigationFilters: [any PRAPI.CatalogNavigation] {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var categories: [any PRAPI.CatalogNavigationVariant]? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var countries: [any PRAPI.CountryNavigationVariant]? {
     @objc get
   }
+  #endif
   @_Concurrency.MainActor @objc final public func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class ExternalAuthURLManager : ObjectiveC.NSObject {
   @objc public static var returnURL: Swift.String {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func url(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil) -> Foundation.URL?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func url(provider: Swift.String, extKey: Swift.String, onlineToken: Swift.String, authType: Swift.String = "signup", linkToCurrentAccount: Swift.Bool = false, command: Swift.String? = nil, returnURLAction: Swift.String? = nil) -> Foundation.URL?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func info(url: Foundation.URL) -> (success: Swift.Bool, isNewUser: Swift.Bool, error: (any Swift.Error)?)
+  #endif
   @objc public static func isReturnURL(_ url: Foundation.URL) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func error(url: Foundation.URL) -> (any Swift.Error)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func error(params: [Swift.AnyHashable : Any]) -> (any Swift.Error)?
+  #endif
   @objc public static func isNewUser(url: Foundation.URL) -> Swift.Bool
   @objc public static func isNewUser(params: [Swift.AnyHashable : Any]) -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
 }
 extension PRAPI.NTFArticleItem {
-  public var sourceItem: (any PRAPI.TitleItem)? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var sourceItem: (any PRAPI.TitleItem)? {
     get
   }
-  @objc dynamic public var isCommentable: Swift.Bool {
+  #endif
+  @objc nonisolated dynamic public var isCommentable: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var isTranslatable: Swift.Bool {
+  @objc nonisolated dynamic public var isTranslatable: Swift.Bool {
     @objc get
   }
 }
 public struct GeoFencingHotSpot : Swift.Identifiable, Swift.Hashable, Swift.Codable {
   public let id: Swift.String
-  public let location: CoreLocation.CLLocation
-  public let radius: CoreLocation.CLLocationDistance
+  public let location: _LocationEssentials.CLLocation
+  public let radius: _LocationEssentials.CLLocationDistance
   public let url: Foundation.URL?
   public let title: Swift.String?
   public let description: Swift.String?
@@ -1507,7 +1813,9 @@ public struct GeoFencingHotSpot : Swift.Identifiable, Swift.Hashable, Swift.Coda
   @objc optional func dataSourceDidChange(_ source: Any)
 }
 @objc public protocol LoadableDataSource : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var loadingError: (any Swift.Error)? { get }
+  #endif
   @objc var canLoadMore: Swift.Bool { get }
   @objc var isEmpty: Swift.Bool { get }
   @objc var isLoading: Swift.Bool { get }
@@ -1528,7 +1836,9 @@ extension PRAPI.LoadableDataSource {
 @objc public protocol SectionalDataSource : ObjectiveC.NSObjectProtocol {
   @objc func numberOfItems(in section: Swift.Int) -> Swift.Int
   @objc func numberOfSections() -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func title(for section: Swift.Int) -> Swift.String?
+  #endif
 }
 public enum DataSourceState {
   case unloaded
@@ -1576,13 +1886,23 @@ public enum DataSourceLoadingType {
     get
   }
   @objc required override dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(observer: (any PRAPI.DataSourceObserver)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func item(at indexPath: Foundation.IndexPath) -> AnItem?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   open func indexPath(of item: AnItem) -> Foundation.IndexPath?
+  #endif
   @objc open func numberOfItems(in section: Swift.Int) -> Swift.Int
   @objc public func numberOfSections() -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc open func title(for section: Swift.Int) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   open func subtitle(for section: Swift.Int) -> Swift.String?
+  #endif
   public func fill(with items: [Swift.Int : [AnItem]])
   public func removeItem(at indexPath: Foundation.IndexPath)
   public func insertItem(_ item: AnItem, at indexPath: Foundation.IndexPath)
@@ -1595,10 +1915,18 @@ public enum DataSourceLoadingType {
   @objc open func loadMore() -> PRPromiseKit.Promise
   public func allItems() -> [AnItem]
   open func startLoading()
+  #if compiler(>=5.3) && $NonescapableTypes
   public func completeLoading(result: [AnItem]?, error: (any Swift.Error)?, notify: Swift.Bool = true)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func completeLoading(sections: [Swift.Int : [AnItem]]?, error: (any Swift.Error)?, notify: Swift.Bool = true)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func completeLoading(result: [AnItem]?, state: PRAPI.DataSourceState, notify: Swift.Bool = true)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func completeLoading(sections: [Swift.Int : [AnItem]]?, state: PRAPI.DataSourceState, notify: Swift.Bool = true)
+  #endif
   public func notifyOfChanges()
   @objc final public var canLoadMoreSilently: Swift.Bool {
     @objc get
@@ -1606,24 +1934,32 @@ public enum DataSourceLoadingType {
   @objc deinit
 }
 extension PRAPI.PRAccountItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func activeSubscriptionBundles() -> [PRAPI.PRSubscriptionBundle]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func backIssueStartDate(productId: Swift.String) -> Foundation.Date?
+  #endif
   @objc dynamic public func inferiorActiveBundles(productId: Swift.String) -> [PRAPI.PRUserBundle]
 }
-@_inheritsConvenienceInitializers @objc(NTFPersonalizationItem) final public class NTFPersonalizationItem : PRAPI.NTFFeedItem {
-  final public var onboardingStatus: PRAPI.PROnboardingStatus {
+@_inheritsConvenienceInitializers @objc(NTFPersonalizationItem) final nonisolated public class NTFPersonalizationItem : PRAPI.NTFFeedItem {
+  nonisolated final public var onboardingStatus: PRAPI.PROnboardingStatus {
     get
   }
-  @objc override final public var type: PRAPI.NTFDataItemType {
+  @objc override nonisolated final public var type: PRAPI.NTFDataItemType {
     @objc get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
   @objc deinit
 }
 extension PRAPI.PRLatestIssuesList {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var presentCIDs: [PRAPI.CID]? {
     @objc get
   }
+  #endif
   @objc dynamic public var isOffline: Swift.Bool {
     @objc get
   }
@@ -1641,18 +1977,24 @@ extension PRAPI.PRLatestIssuesList : PRAPI.CatalogFacade {
   @objc dynamic public var isEmpty: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var loadedPublications: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
   @objc dynamic public var navigationFilters: [any PRAPI.CatalogNavigation] {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var categories: [any PRAPI.CatalogNavigationVariant]? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var countries: [any PRAPI.CountryNavigationVariant]? {
     @objc get
   }
+  #endif
   @objc dynamic public func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 extension PRAPI.PRLatestIssuesList : PRAPI.Readyable {
@@ -1679,7 +2021,9 @@ extension PRConfiguration.PROnboardingConfig {
   @objc func recordIssuePrinted()
 }
 @objc public protocol ReadingViewItem : PRAPI._ReadingViewItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var printing: (any PRAPI.PrintableItem)? { get }
+  #endif
   @objc var paperColor: UIKit.UIColor { get }
   @objc(isEqualToItem:) func isEqual(_ item: any PRAPI.ReadingViewItem) -> Swift.Bool
 }
@@ -1687,7 +2031,7 @@ extension Foundation.Date {
   public func formatted(schedule: PRCatalogModel.PRTitleItemScheduleType) -> Swift.String
 }
 extension PRAPI.NTFSession {
-  public func updatePublicationChannels(_ completion: @escaping ([PRAPI.PublicationChannel]) -> Swift.Void)
+  nonisolated public func updatePublicationChannels(_ completion: @escaping ([PRAPI.PublicationChannel]) -> Swift.Void)
 }
 extension PRAPI.TitleItem {
   @discardableResult
@@ -1702,9 +2046,11 @@ extension PRAPI.TitleItem {
 @_Concurrency.MainActor public class MOService<T, Controller> : ObjectiveC.NSObject where T : CoreData.NSManagedObject, Controller : PRAPI.PRCoreDataController {
   nonisolated final public let mainContext: CoreData.NSManagedObjectContext
   nonisolated final public let privateContext: CoreData.NSManagedObjectContext
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var item: T? {
     get
   }
+  #endif
   nonisolated public init(item: T)
   @objc deinit
 }
@@ -1721,30 +2067,40 @@ extension PRAPI.BookReadingEvent {
   @objc public static var isEnabled: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func signIn(_ completion: @escaping (Swift.Bool, (any Swift.Error)?) -> ())
+  #endif
   final public func syncToken()
   @objc deinit
 }
 @objc extension PRCatalogModel.BookContent : PRAPI.DeviceTimeTweakProtected {
 }
 extension PRAPI.PRCollectionsModel {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func loadFromCache() -> [PRAPI.NTFCollectionItem]?
+  #endif
 }
 extension PRCatalogModel.CatalogEntity {
   public typealias PresentationType = PRAPI.PRCatalogItem
-  @objc dynamic public var presentedItems: [any PRAPI.PRCatalogItem]? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var presentedItems: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
 }
 extension PRCatalogModel.Section {
-  @objc override final public var presentedItems: [any PRAPI.PRCatalogItem]? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override nonisolated final public var presentedItems: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
 }
 extension PRCatalogModel.IssueCollection {
-  @objc override final public var presentedItems: [any PRAPI.PRCatalogItem]? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override nonisolated final public var presentedItems: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
 }
 extension PRAPI.PRMyLibrary {
   public var catalogItems: [any PRAPI.TitleItem] {
@@ -1761,45 +2117,67 @@ extension PRAPI.PRMyLibrary : PRUtils.Observable {
   @objc @_Concurrency.MainActor dynamic public func observeItems()
 }
 @objc extension PRCatalogModel.Document : PRAPI.ReadingViewItem {
-  @objc dynamic public var paperColor: UIKit.UIColor {
+  @objc nonisolated dynamic public var paperColor: UIKit.UIColor {
     @objc get
   }
-  @objc dynamic public var printing: (any PRAPI.PrintableItem)? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var printing: (any PRAPI.PrintableItem)? {
     @objc get
   }
-  @objc override dynamic public func done() -> Swift.Bool
-  @objc dynamic public func pdnDone() -> Swift.Bool
-  @objc dynamic public func pdnDownloaded(forPage pageNumber: Swift.UInt) -> Swift.Bool
-  @objc dynamic public func getPage(_ pageNumber: Swift.UInt) -> PRAPI.PRPage?
-  @objc dynamic public func saveToPersistentStore()
-  @objc dynamic public func encryptionKey() -> Swift.String
-  @objc dynamic public func progress() -> Foundation.Progress?
-  @objc dynamic public func pdnProgress() -> Foundation.Progress?
-  @objc dynamic public func pdnProgress(forPage page: Swift.UInt) -> Foundation.Progress?
-  @objc dynamic public func pdfDoc() -> PRAPI.PDFDoc?
-  @objc dynamic public func pdfDoc(forPage pageNo: Swift.UInt) -> PRAPI.PDFDoc?
-  @objc dynamic public func pdfDoc(forPage pageNo: Swift.UInt, loadPdfIfNotAvailable: Swift.Bool) throws -> PRAPI.PDFDoc
-  @objc dynamic public func printingAsBitmap() -> Swift.Bool
-  @objc dynamic public func defaultImagePath(forPage page: Swift.UInt) -> Swift.String
-  @objc dynamic public func imagePath(forPage page: Swift.UInt, width: CoreFoundation.CGFloat, useDefaultIfNotExist useDefault: Swift.Bool) -> Swift.String?
-  @objc dynamic public func imagePath(forPage page: Swift.UInt, width: CoreFoundation.CGFloat, defaultIfNotExist pUseDefault: Swift.UnsafeMutablePointer<ObjectiveC.ObjCBool>) -> Swift.String?
-  @objc dynamic public func fgImagePath(forPath path: Swift.String) -> Swift.String
-  @objc dynamic public func image(fromPdfPage pageNo: Swift.UInt, pdfRect: CoreFoundation.CGRect, imageSize: CoreFoundation.CGSize, contentScaleFactor contentScale: CoreFoundation.CGFloat) throws -> UIKit.UIImage
+  #endif
+  @objc override nonisolated dynamic public func done() -> Swift.Bool
+  @objc nonisolated dynamic public func pdnDone() -> Swift.Bool
+  @objc nonisolated dynamic public func pdnDownloaded(forPage pageNumber: Swift.UInt) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func getPage(_ pageNumber: Swift.UInt) -> PRAPI.PRPage?
+  #endif
+  @objc nonisolated dynamic public func saveToPersistentStore()
+  @objc nonisolated dynamic public func encryptionKey() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func progress() -> Foundation.Progress?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func pdnProgress() -> Foundation.Progress?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func pdnProgress(forPage page: Swift.UInt) -> Foundation.Progress?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func pdfDoc() -> PRAPI.PDFDoc?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func pdfDoc(forPage pageNo: Swift.UInt) -> PRAPI.PDFDoc?
+  #endif
+  @objc nonisolated dynamic public func pdfDoc(forPage pageNo: Swift.UInt, loadPdfIfNotAvailable: Swift.Bool) throws -> PRAPI.PDFDoc
+  @objc nonisolated dynamic public func printingAsBitmap() -> Swift.Bool
+  @objc nonisolated dynamic public func defaultImagePath(forPage page: Swift.UInt) -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func imagePath(forPage page: Swift.UInt, width: CoreFoundation.CGFloat, useDefaultIfNotExist useDefault: Swift.Bool) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func imagePath(forPage page: Swift.UInt, width: CoreFoundation.CGFloat, defaultIfNotExist pUseDefault: Swift.UnsafeMutablePointer<ObjectiveC.ObjCBool>) -> Swift.String?
+  #endif
+  @objc nonisolated dynamic public func fgImagePath(forPath path: Swift.String) -> Swift.String
+  @objc nonisolated dynamic public func image(fromPdfPage pageNo: Swift.UInt, pdfRect: CoreFoundation.CGRect, imageSize: CoreFoundation.CGSize, contentScaleFactor contentScale: CoreFoundation.CGFloat) throws -> UIKit.UIImage
 }
 @objc extension PRCatalogModel.Document : PRAPI.PRSmartLayoutItem {
-  @objc dynamic public var isSmartDone: Swift.Bool {
+  @objc nonisolated dynamic public var isSmartDone: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var isSmartUpdated: Swift.Bool {
+  @objc nonisolated dynamic public var isSmartUpdated: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var smart: PRSmart.PRSmartObject? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var smart: PRSmart.PRSmartObject? {
     @objc get
   }
-  @objc dynamic public var processedSmart: PRSmart.PRSmartObject? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var processedSmart: PRSmart.PRSmartObject? {
     @objc get
   }
-  @objc dynamic public func processSmart()
+  #endif
+  @objc nonisolated dynamic public func processSmart()
 }
 public struct BookReadingFrame : Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
@@ -1811,16 +2189,22 @@ extension PRAPI.BookService : PRAPI.NavigableCatalogService {
   @_Concurrency.MainActor final public var canBatchResponseContainNavigationInfo: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public func loadFilters(scope: PRCatalogModel.CatalogEntity?) async throws -> [PRCatalogModel.CatalogFilter]
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public func processNavigationInfo(_ json: [Swift.String : Any], scope: PRCatalogModel.CatalogEntity?) throws -> [PRCatalogModel.CatalogFilter]
+  #endif
 }
 extension PRAPI.NTFAbstractArticle {
   @objc dynamic public var isTranslatable: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var url: Foundation.URL? {
     @objc get
   }
+  #endif
   @objc dynamic public var isRTL: Swift.Bool {
     @objc get
   }
@@ -1836,17 +2220,23 @@ extension Foundation.NSNotification.Name {
 }
 @objc public enum BookLicenseUpdateStatus : Swift.Int {
   case added, deleted
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class BookLicenseService : PRAPI.BookSubservice {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor override public init?(bookService: PRAPI.BookService)
+  #endif
   @_Concurrency.MainActor final public func loadEffectiveLicenses() async throws
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor final public func loadEffectiveLicense(bookId id: Swift.String) async throws -> PRCatalogModel.BookLicense?
+  #endif
   @_Concurrency.MainActor final public func renewLicense(bookId: Swift.String) async throws -> PRAPI.BookLicenseRenewResult
   @_Concurrency.MainActor final public func loadLicenseProducts(bookPRN prn: Swift.String) async throws -> [PRAPI.BookLicenseProduct]
   @_Concurrency.MainActor final public func checkoutFreeProduct(_ product: PRAPI.BookLicenseProduct) async throws -> PRAPI.BookLicenseCheckoutResult
@@ -1856,21 +2246,27 @@ extension Foundation.NSNotification.Name {
 extension PRAPI.BookLicenseService : PRAPI.BookPurchaseAnalyticsProvider {
 }
 @objc extension PRAPI.PRCollectionsModel {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var channel: PRAPI.Channel? {
     @objc get
   }
+  #endif
 }
 @objc extension PRAPI.NTFCollectionItem {
   @objc public static func collections(with info: [[Swift.String : Any]], channelId: Swift.String) -> [PRAPI.NTFCollectionItem]
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func collection(with info: [Swift.String : Any], channelId: Swift.String, forceUpdate: Swift.Bool = false) -> PRAPI.NTFCollectionItem?
-  @objc dynamic public func update(with info: [Swift.String : Any])
+  #endif
+  @objc nonisolated dynamic public func update(with info: [Swift.String : Any])
 }
 @objc extension PRAPI.PRCatalogFilterItem {
   @objc dynamic public var sourceListFilterId: PRAPI.CatalogNavigationType {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func filter(id: PRAPI.CatalogNavigationType) -> PRAPI.PRSourceListFilter?
+  #endif
 }
 @objc extension PRAPI.PRCatalogFilterItem : PRAPI.CatalogNavigation {
   @objc dynamic public var options: [PRAPI.CatalogNavigationSection] {
@@ -1882,15 +2278,19 @@ extension PRAPI.BookLicenseService : PRAPI.BookPurchaseAnalyticsProvider {
   @objc dynamic public var type: PRAPI.CatalogNavigationType {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var value: Any? {
     @objc get
   }
+  #endif
   @objc dynamic public var catalogType: PRAPI.CatalogType {
     @objc get
   }
 }
 extension PRAPI.PRTitleItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func getRecommendedCIDs(with displayedCIDs: [Swift.String]?, selectedCIDs: [Swift.String]?, selectedInterests: [PRAPI.Interest]?) -> PRPromiseKit.Promise
+  #endif
 }
 public protocol AutoTranslationPromtAnalyticsProvider : PRAnalytics.AnalyticsProvider {
 }
@@ -1915,10 +2315,14 @@ extension PRAPI.ListenHighlightsModel : CoreData.NSFetchedResultsControllerDeleg
   @objc final public func controller(_ controller: CoreData.NSFetchedResultsController<any CoreData.NSFetchRequestResult>, didChangeContentWith diff: Swift.CollectionDifference<CoreData.NSManagedObjectID>)
 }
 @objc extension PRAPI.PRCatalogFilter {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func filter(id: PRAPI.CatalogNavigationType) -> PRAPI.PRSourceListFilter?
+  #endif
 }
 extension PRAPI.NTFArticleUtil {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func byline(issueTitle: Swift.String?, attributedByline: Foundation.NSAttributedString?, issueDate: Swift.String?, lineBreak: Swift.Bool, isShort: Swift.Bool) -> Foundation.NSAttributedString
+  #endif
 }
 extension PRAPI.PRFacebookSignInManager : PRAPI.SignInManagerProtocol {
   public typealias ResultType = PRAPI.FacebookSignInResult
@@ -1927,16 +2331,24 @@ extension PRAPI.PRFacebookSignInManager : PRAPI.SignInManagerProtocol {
   }
 }
 extension PRCatalogModel.PressCatalog {
+  #if compiler(>=5.3) && $NonescapableTypes
   final public class func getCatalog(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.PressCatalog?
-  @objc final public var publications: PRCatalogModel.Publications? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated final public var publications: PRCatalogModel.Publications? {
     @objc get
   }
-  final public var books: PRCatalogModel.Books? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated final public var books: PRCatalogModel.Books? {
     get
   }
-  final public var games: PRCatalogModel.Games? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated final public var games: PRCatalogModel.Games? {
     get
   }
+  #endif
 }
 @objc extension PRCatalogModel.Document {
   @objc override dynamic public class func loadItem(id: Swift.String, catalog: PRCatalogModel.Catalog) -> PRPromiseKit.Promise
@@ -1947,11 +2359,13 @@ extension PRCatalogModel.PressCatalog {
 }
 extension PRAPI.LocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc final public func locationManagerDidChangeAuthorization(_ manager: CoreLocation.CLLocationManager)
-  @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
+  @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [_LocationEssentials.CLLocation])
   @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
   @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didStartMonitoringFor region: CoreLocation.CLRegion)
   @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didDetermineState state: CoreLocation.CLRegionState, for region: CoreLocation.CLRegion)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, monitoringDidFailFor region: CoreLocation.CLRegion?, withError error: any Swift.Error)
+  #endif
 }
 @objc public protocol AccountAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   @objc var accountViewType: PRAnalytics.PRAnalyticsAccountView { get }
@@ -1961,40 +2375,60 @@ extension PRAPI.AccountAnalyticsProvider {
   public func trackDeleteAccount(_ success: Swift.Bool)
 }
 @objc extension PRAPI.PRSubscription {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func requestGoogleAdsConfig(_ completion: @escaping (PRUtils.SPNode?, (any Swift.Error)?) -> ())
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SpoorAnalytics : PRAPI.EventAnalytics {
   @objc override public static var isEnabled: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override final public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class DIExtension : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var analytics: PRAnalytics.PRAnalyticsService? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var util: PRAPI.PRCoreUtil? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var options: PRAPI.PROptions? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var catalog: PRAPI.PRCatalog? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var library: PRAPI.PRMyLibrary? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var accountManager: PRAPI.PRAccountManager? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var hotSpotManager: PRAPI.HotSpotManager? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @PRDIContainer.Inject final public var widgetManager: PRAPI.WidgetsManager? {
     @objc get
   }
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -2012,14 +2446,18 @@ extension PRAPI.AccountAnalyticsProvider {
 public protocol PressCatalogable : PRCatalogModel.Catalog {
   associatedtype Service : PRAPI.LoadableCatalog
   var pressCatalog: PRCatalogModel.PressCatalog { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   var service: Self.Service? { get }
+  #endif
 }
 @objc extension PRAPI.PRCatalog {
   @objc dynamic public var dataController: PRAPI.CatalogCoreDataController {
     @objc get
   }
   @objc dynamic public func updatePressCatalogForced(_ forced: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func pressCatalog(context: CoreData.NSManagedObjectContext? = nil) -> PRCatalogModel.PressCatalog?
+  #endif
   @objc dynamic public func downloads(context: CoreData.NSManagedObjectContext) -> PRCatalogModel.Downloads
 }
 extension PRAPI.PRAccountManager {
@@ -2027,22 +2465,26 @@ extension PRAPI.PRAccountManager {
 }
 extension PRCatalogModel.Games : PRAPI.PressCatalogable {
   public typealias Service = PRAPI.GameService
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var service: PRAPI.GameService? {
     get
   }
+  #endif
 }
 extension CoreSpotlight.CSSearchableItemAttributeSet {
   @objc dynamic public func prepareThumbnail()
 }
 extension PRAPI.Channel {
-  public var collectionsCount: Swift.Int {
+  nonisolated public var collectionsCount: Swift.Int {
     get
   }
-  public var hasCollections: Swift.Bool {
+  nonisolated public var hasCollections: Swift.Bool {
     get
   }
-  public func collection(id: Swift.String, context: CoreData.NSManagedObjectContext) -> PRAPI.NTFCollectionItem
-  public func collection(id: Swift.String, context: CoreData.NSManagedObjectContext) -> PRAPI.NTFCollectionItem?
+  nonisolated public func collection(id: Swift.String, context: CoreData.NSManagedObjectContext) -> PRAPI.NTFCollectionItem
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func collection(id: Swift.String, context: CoreData.NSManagedObjectContext) -> PRAPI.NTFCollectionItem?
+  #endif
 }
 @objc @_inheritsConvenienceInitializers final public class WidgetsManager : ObjectiveC.NSObject {
   @objc final public func start()
@@ -2058,7 +2500,9 @@ extension PRAPI.NTFCoreDataController {
   @objc dynamic public func processOnlineSessionHandlers()
 }
 extension PRAPI.PRCatalog {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func item(cid: Swift.String, date: Foundation.Date? = nil) -> (any PRAPI.TitleItem)?
+  #endif
 }
 extension PRAPI.TitleItem {
   public var isCommentable: Swift.Bool {
@@ -2085,16 +2529,20 @@ extension PRAPI.TitleItem {
   @objc override dynamic public init()
   public static let bookLocalAssetsBaseUrlPath: Swift.String
   @objc public func setupHandler(for server: GCDWebServers.GCDWebServer)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func addBook(id: Swift.String, baseFileUrl: Foundation.URL) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func addBook(id: Swift.String, resourceDataProvider: @escaping PRAPI.BookResponseHandler.BookResourceDataProviderBlock) -> Swift.String?
+  #endif
   @objc public func removeBook(id: Swift.String)
   @objc deinit
 }
 @objc extension PRAPI.NTFPageSetItem : PRAPI.NTFItem {
-  @objc dynamic public var hasMasthead: Swift.Bool {
+  @objc nonisolated dynamic public var hasMasthead: Swift.Bool {
     @objc get
   }
-  @objc dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
+  @objc nonisolated dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
 }
 @objc extension PRAPI.PRAccountItem {
   @objc dynamic public var isReachableAndReady: Swift.Bool {
@@ -2122,23 +2570,33 @@ extension PRAPI.BannerAnalyticsProvider {
   public func trackBannerAction(_ action: PRAnalytics.PRAnalyticsBannerAction)
 }
 extension PRAPI.EpubContent {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func data(resourcePath: Swift.String) -> Foundation.Data?
+  #endif
 }
 @_Concurrency.MainActor extension PRAPI.PRCatalog {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var publicationService: PRAPI.PublicationService? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var bookService: PRAPI.BookService? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var gameService: PRAPI.GameService? {
     get
   }
+  #endif
 }
 extension PRAPI.Publication {
-  public var titleItem: (any PRAPI.TitleItem)? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var titleItem: (any PRAPI.TitleItem)? {
     get
   }
+  #endif
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class ComScoreAnalytics : PRAPI.DictionaryAnalytics {
   @objc override final public class var isEnabled: Swift.Bool {
@@ -2150,8 +2608,12 @@ extension PRAPI.Publication {
   @objc final public let date: Foundation.Date
   @objc final public let labels: [PRAPI.NTFSocialInfoBookmarkLabel]
   @objc final public let userProfile: PRAPI.NTFSocialInfoBookmarkUser
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init?(info: [Swift.String : Any])
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func label(id: Swift.String) -> PRAPI.NTFSocialInfoBookmarkLabel?
+  #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers final public class NTFSocialInfoBookmarkLabel : ObjectiveC.NSObject, Swift.Identifiable {
@@ -2195,7 +2657,9 @@ extension PRAPI.PRSponsorshipManagerService {
     case setHotzoneStatus
     case getCobranding
     case getNotificationTitles
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -2212,38 +2676,58 @@ public protocol PRBraze {
   var brazeUser: any PRAPI.PRBrazeUser { get }
   var brazeNotifications: any PRAPI.PRBrazeNotifications { get }
   var brazeContentCards: any PRAPI.PRBrazeContentCards { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   func logCustomEvent(_ eventName: Swift.String, withProperties properties: [Swift.AnyHashable : Any]?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func changeUser(userId: Swift.String, sdkAuthSignature: Swift.String?, fileID: Swift.StaticString, line: Swift.UInt)
+  #endif
 }
 extension PRAPI.PRBraze {
   public func changeUser(userId: Swift.String)
 }
 public protocol PRBrazeContentCards {
+  #if compiler(>=5.3) && $NonescapableTypes
   var contentCards: [any PRAPI.ContentCard]? { get }
+  #endif
   func subscribeToContentCardUpdates(handler: @escaping ([any PRAPI.ContentCard]) -> Swift.Void) -> any PRAPI.PRBrazeCancellable
 }
 public protocol PRBrazeUser {
+  #if compiler(>=5.3) && $NonescapableTypes
   var userID: Swift.String? { get }
+  #endif
   func subscribeToEmails(_ subscribe: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   func set(firstName: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func set(lastName: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func set(email: Swift.String?, fileID: Swift.StaticString, line: Swift.UInt)
+  #endif
   func setCustomAttribute(key: Swift.String, value: Swift.Bool, fileID: Swift.StaticString, line: Swift.UInt)
   func setCustomAttribute(key: Swift.String, value: Swift.Double, fileID: Swift.StaticString, line: Swift.UInt)
   func setCustomAttribute(key: Swift.String, value: Swift.Int, fileID: Swift.StaticString, line: Swift.UInt)
   func setCustomAttribute(key: Swift.String, value: Swift.String, fileID: Swift.StaticString, line: Swift.UInt)
   func setCustomAttribute(key: Swift.String, value: Foundation.Date, fileID: Swift.StaticString, line: Swift.UInt)
+  #if compiler(>=5.3) && $NonescapableTypes
   func setCustomAttribute(key: Swift.String, array: [Swift.String]?, fileID: Swift.StaticString, line: Swift.UInt)
+  #endif
   func unsetCustomAttribute(key: Swift.String, fileID: Swift.StaticString, line: Swift.UInt)
 }
 extension PRAPI.PRBrazeUser {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func set(email: Swift.String?)
+  #endif
   public func setCustomAttribute(key: Swift.String, value: Swift.Bool)
   public func setCustomAttribute(key: Swift.String, value: Swift.Double)
   public func setCustomAttribute(key: Swift.String, value: Swift.Int)
   public func setCustomAttribute(key: Swift.String, value: Swift.String)
   public func setCustomAttribute(key: Swift.String, value: Foundation.Date)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func setCustomAttribute(key: Swift.String, array: [Swift.String]?)
+  #endif
   public func unsetCustomAttribute(key: Swift.String)
 }
 public protocol PRBrazeNotifications {
@@ -2258,36 +2742,52 @@ public protocol PRBrazeCancellable {
   func cancel()
 }
 extension PRAPI.PRMyLibraryItem : PRAPI.TitleItemDerivative {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var ti: PRAPI.PRTitleItemExposer? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var libraryItem: PRAPI.PRMyLibraryItem? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var date: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var sortingDate: Foundation.Date? {
     @objc get
   }
+  #endif
   @objc dynamic public var sourceType: PRCatalogModel.PRSourceType {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var countryName: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var countryISOCode: Swift.String? {
     @objc get
   }
+  #endif
   @objc dynamic public var languageISOCode: Swift.String {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var languageName: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var parentCID: Swift.String? {
     @objc get
   }
+  #endif
   @objc dynamic public var paperColor: UIKit.UIColor {
     @objc get
   }
@@ -2295,37 +2795,49 @@ extension PRAPI.PRMyLibraryItem : PRAPI.TitleItemDerivative {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var currentRadioArticleId: Swift.String? {
     get
     set
   }
+  #endif
   @objc dynamic public var isCommentable: Swift.Bool {
     @objc get
   }
   @objc dynamic public var isTranslatable: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var account: PRAPI.PRAccountItem? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func defaultSubscription() -> PRAPI.PRSubscription?
+  #endif
 }
 @available(swift, obsoleted: 1.0)
 @objc extension PRAPI.PRMyLibraryItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc(languageRegionCode) dynamic public var _languageRegionCode: Swift.String? {
     @objc get
   }
+  #endif
 }
 @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class PublicationService : PRAPI._CatalogService<PRCatalogModel.Publications> {
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor final public func loadPublication(cid: Swift.String, service: Swift.String? = nil) async throws -> any PRAPI.TitleItem
+  #endif
   @_Concurrency.MainActor final public func setNeedsMergeFavories()
   @_Concurrency.MainActor override final public func preload() async
   override nonisolated public init(item: PRCatalogModel.Publications)
   @objc deinit
 }
 extension PRAPI.PRSubscription {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func saveCoBrandingInfo(_ info: PRAPI.PartnerBanner?) throws
+  #endif
   @objc dynamic public func restoreCoBranding() throws
   public func saveHotSpotTitles() throws
   @objc dynamic public func restoreHotSpotTitles() throws
@@ -2335,35 +2847,51 @@ extension PRCatalogModel.BookContent {
   public static let PREDICATE_START_POSITION: Swift.String
   public static let PREDICATE_END_POSITION: Swift.String
   public static let checkIntersectPredicate: Foundation.NSPredicate
-  public func bookmarksIntersectingWithLocations(startPosition: Swift.Int, endPosition: Swift.Int) -> [PRCatalogModel.Bookmark]?
-  public func removeBookmarks(_ bookmarks: [PRCatalogModel.Bookmark])
-  public func removeBookmarks(where shouldBeRemoved: @escaping (PRCatalogModel.Bookmark) -> Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func bookmarksIntersectingWithLocations(startPosition: Swift.Int, endPosition: Swift.Int) -> [PRCatalogModel.Bookmark]?
+  #endif
+  nonisolated public func removeBookmarks(_ bookmarks: [PRCatalogModel.Bookmark])
+  nonisolated public func removeBookmarks(where shouldBeRemoved: @escaping (PRCatalogModel.Bookmark) -> Swift.Bool)
 }
 extension PRAPI.PRTitleGroup : PRAPI.TitleItemDerivative {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var titleItem: (any PRAPI.TitleItem)? {
     get
   }
+  #endif
   @objc dynamic public var cid: Swift.String {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var localizedTitle: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var activationTime: Foundation.Date? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var sortingDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var date: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var exemplar: PRAPI.PRTitleItemExemplar? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var ti: PRAPI.PRTitleItemExposer? {
     @objc get
   }
+  #endif
 }
 extension PRCatalogModel.GameIssue {
   public enum GamePlayError : Swift.Error {
@@ -2378,7 +2906,7 @@ extension PRCatalogModel.GameIssue {
       get
     }
   }
-  public var gamePlay: Foundation.URLRequest {
+  nonisolated public var gamePlay: Foundation.URLRequest {
     get async throws
   }
 }
@@ -2390,7 +2918,9 @@ extension PRCatalogModel.GameIssue {
   case restricted
   case denied
   case authorized
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt)
+  #endif
   public typealias RawValue = Swift.UInt
   public var rawValue: Swift.UInt {
     get
@@ -2426,45 +2956,53 @@ extension PRCatalogModel.CatalogItemContent {
       get
     }
   }
-  public func cleanUp() async throws
-  public func cleanUpDownloads() async throws
+  nonisolated public func cleanUp() async throws
+  nonisolated public func cleanUpDownloads() async throws
 }
 extension PRCatalogModel.Game {
-  @objc override dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
+  @objc override nonisolated dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
 }
 @objc extension PRCatalogModel.CatalogItem {
-  @objc(isEqualToItem:) dynamic public func isEqual(_ item: any PRAPI.ReadingViewItem) -> Swift.Bool
-  @objc dynamic public var isPurchaseAdvise: Swift.Bool {
+  @objc(isEqualToItem:) nonisolated dynamic public func isEqual(_ item: any PRAPI.ReadingViewItem) -> Swift.Bool
+  @objc nonisolated dynamic public var isPurchaseAdvise: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var viewerPage: Swift.UInt {
+  @objc nonisolated dynamic public var viewerPage: Swift.UInt {
     @objc get
     @objc set
   }
-  @objc dynamic public var numberOfPages: Swift.UInt {
+  @objc nonisolated dynamic public var numberOfPages: Swift.UInt {
     @objc get
   }
-  @objc dynamic public var pagesCount: Swift.UInt {
+  @objc nonisolated dynamic public var pagesCount: Swift.UInt {
     @objc get
   }
-  @objc dynamic public func done() -> Swift.Bool
+  @objc nonisolated dynamic public func done() -> Swift.Bool
 }
 extension PRAPI.ArticleLink {
-  @objc dynamic public func update(with info: [Swift.String : Any])
+  @objc nonisolated dynamic public func update(with info: [Swift.String : Any])
 }
 @objc @objcMembers final public class TextLink : ObjectiveC.NSObject {
   @objc final public let text: Swift.String
   @objc final public let link: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(text: Swift.String, link: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public class var termsOfUse: PRAPI.TextLink? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public class var privacyPolicy: PRAPI.TextLink? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public class var cookiePolicy: PRAPI.TextLink? {
     @objc get
   }
+  #endif
   @objc final public class var policies: [PRAPI.TextLink] {
     @objc get
   }
@@ -2481,7 +3019,9 @@ extension PRAPI.ArticleLink {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience dynamic public init(type: PRAPI.CatalogNavigationType, value: Any?, title: Swift.String?)
+  #endif
 }
 @objc extension PRAPI.PRAccountItem {
   @objc dynamic public func showDeleteConfirmationAlert(_ completion: @escaping (Swift.Bool) -> ())
@@ -2497,18 +3037,28 @@ extension PRAPI.EpubContent {
   public func checkHash() -> Swift.Bool
 }
 extension PRAPI.PublicationChannel {
-  public func publicationCIDs() -> [Swift.String]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func publicationCIDs() -> [Swift.String]?
+  #endif
 }
 extension PRAPI.DQCatalog {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func topRegion(forRegionWithName name: Swift.String, ceilingRegion: [Swift.String : Any]?) -> [Swift.String : Any]?
+  #endif
   @objc(region:complyWithFilterRegion:) final public func region(_ region: [Swift.String : Any], complyWith filterRegion: [Swift.String : Any]) -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @objc(PRStreamingOptions) final public class StreamingOptions : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var streamingURL: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func streamingURL(articleId: Swift.String, language: Swift.String, originalLanguage: Swift.String, country: Swift.String?, premium: Swift.Bool = false) -> Foundation.URL?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func streamingURL(article: any PRAPI.NTFArticle, premium: Swift.Bool = false) -> Foundation.URL?
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -2520,7 +3070,9 @@ extension PRAPI.PROptions {
 @objc public protocol IssueAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   @objc var issueDate: Foundation.Date { get }
   @objc var page: Swift.Int { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var pageName: Swift.String? { get }
+  #endif
 }
 final public class AutoTranslationAnalyticsTracker : PRAPI.AutoTranslationAnalyticsProvider {
   public init(sourceISO: Swift.String, destinationISO: Swift.String, zone: PRAnalytics.PRAnalyticsAutoTranslationZoneType)
@@ -2554,16 +3106,24 @@ extension PRAPI.BackgroundTaskRunner {
   @objc final public let clientName: Swift.String
   @objc final public let lastActivationDate: Foundation.Date
   @objc final public let createDate: Foundation.Date
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init?(with node: PRUtils.SPNode, userName: Swift.String?)
+  #endif
   @objc deinit
 }
 @objc public protocol HotSpotInfo {
   @objc var id: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var name: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var industry: Swift.String? { get }
+  #endif
 }
 extension PRAPI.PRMyLibraryItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func renewDownloadLicenseIfNeeded(_ completion: ((Swift.Bool) -> ())?)
+  #endif
 }
 public protocol Readyable {
   static var readyNotificationName: Foundation.Notification.Name { get }
@@ -2587,31 +3147,35 @@ extension PRAPI.AutoTranslationAnalyticsProvider {
   public func trackMLITranslated(_ mli: PRAPI.PRMyLibraryItem)
 }
 extension PRAPI.Channel {
-  public func update(with info: [Swift.String : Any])
+  nonisolated public func update(with info: [Swift.String : Any])
 }
 extension PRCatalogModel.HotSpot : PRAPI.HotSpotInfo {
 }
 extension PRCatalogModel.HotSpot {
   @objc public static func isActive(account: PRAPI.PRAccountItem) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func object(account: PRAPI.PRAccountItem, context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool = true) -> PRCatalogModel.HotSpot?
+  #endif
 }
-@_inheritsConvenienceInitializers @objc(DataItemContent) public class DataItemContent : CoreData.NSManagedObject {
+@_inheritsConvenienceInitializers @objc(DataItemContent) nonisolated public class DataItemContent : CoreData.NSManagedObject {
   @discardableResult
   public class func item(json: [Swift.String : Any], language: Swift.String, dataItem: PRAPI.NTFDataItem, context: CoreData.NSManagedObjectContext) -> PRAPI.DataItemContent
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
   @objc deinit
 }
 extension PRAPI.DataItemContent {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRAPI.DataItemContent>
-  @objc @NSManaged dynamic public var json: [Swift.String : Any] {
+  @objc @NSManaged nonisolated dynamic public var json: [Swift.String : Any] {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var language: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var language: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var item: PRAPI.NTFDataItem {
+  @objc @NSManaged nonisolated dynamic public var item: PRAPI.NTFDataItem {
     @objc get
     @objc set
   }
@@ -2631,17 +3195,25 @@ extension PRAPI.DataItemContent : Swift.Identifiable {
 }
 extension PRAPI.Interest {
   public class func selectedItems() -> [PRAPI.Interest]
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func updateUserInterests(forced: Swift.Bool? = nil, completion: (([PRAPI.Interest]) -> Swift.Void)?)
-  public var selectable: Swift.Bool {
+  #endif
+  nonisolated public var selectable: Swift.Bool {
     get
   }
-  public func imageURL(for width: CoreFoundation.CGFloat) -> Foundation.URL?
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func imageURL(for width: CoreFoundation.CGFloat) -> Foundation.URL?
+  #endif
 }
 public protocol DownloadableItemContent {
   var isDownloaded: Swift.Bool { get }
   var isDownloading: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var downloadProgress: Swift.Int? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var progressObject: Foundation.Progress? { get }
+  #endif
   var isValidContentInStorage: Swift.Bool { get }
   var isLicenseRequired: Swift.Bool { get }
   @discardableResult
@@ -2650,9 +3222,15 @@ public protocol DownloadableItemContent {
   func cleanStorage() async throws
 }
 public protocol SingleFileDownloadableItemContent : PRAPI.DownloadableItemContent {
+  #if compiler(>=5.3) && $NonescapableTypes
   var filePath: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var url: Foundation.URL? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var contentPath: Swift.String? { get }
+  #endif
   func prepareForDownload() -> PRPromiseKit.Promise
   func processAfterDownload() -> PRPromiseKit.Promise
 }
@@ -2666,15 +3244,21 @@ extension PRAPI.SingleFileDownloadableItemContent where Self : PRCatalogModel.Ca
   public var isDownloading: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var downloadProgress: Swift.Int? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var progressObject: Foundation.Progress? {
     get
   }
+  #endif
   public func download() -> PRPromiseKit.Promise
   public func cancelDownload()
+  #if compiler(>=5.3) && $NonescapableTypes
   public func validateStorageContent() -> Swift.Result<Swift.Bool, Foundation.FileManager.FileError>
+  #endif
   public func prepareForDownload() -> PRPromiseKit.Promise
   public func processAfterDownload() -> PRPromiseKit.Promise
   public func cleanStorage() async throws
@@ -2685,7 +3269,9 @@ public protocol HotSpotManagerUIDelegate {
   func hotSpotManagerDidStart(_ manager: PRAPI.HotSpotManager)
   func hotSpotManager(_ manager: PRAPI.HotSpotManager, didUpdateHotSpotsList hotSpots: [PRAPI.GeoFencingHotSpot])
   func hotSpotManager(_ manager: PRAPI.HotSpotManager, didEnterHotSpot hotSpot: PRAPI.GeoFencingHotSpot)
+  #if compiler(>=5.3) && $NonescapableTypes
   func hotSpotManager(_ manager: PRAPI.HotSpotManager, didExitHotSpot hotSpot: PRAPI.GeoFencingHotSpot?)
+  #endif
   func hotSpotManager(_ manager: PRAPI.HotSpotManager, didFail error: PRAPI.HotSpotManager.ManagerError)
 }
 @objc final public class HotSpotManager : ObjectiveC.NSObject, PRAPI.BackgroundTaskRunner {
@@ -2714,15 +3300,21 @@ public protocol HotSpotManagerUIDelegate {
   @objc final public var isLocationPermissionsRequired: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @Combine.Published @_projectedValueProperty($activeHotSpot) final public var activeHotSpot: PRAPI.GeoFencingHotSpot? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var $activeHotSpot: Combine.Published<PRAPI.GeoFencingHotSpot?>.Publisher {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var activeHotSpotId: Swift.String? {
     @objc get
   }
+  #endif
   final public var hotSpots: [PRAPI.GeoFencingHotSpot] {
     get
   }
@@ -2736,13 +3328,17 @@ public protocol HotSpotManagerUIDelegate {
   @objc final public func validateHotSpotLocations(info: [PRUtils.SPNode])
 }
 extension PRAPI.PRMyLibraryItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var longFormattedDate: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var downloads: PRCatalogModel.Downloads? {
     @objc get
     @objc set
   }
+  #endif
   @objc dynamic public var isLayoutPackageUpdated: Swift.Bool {
     @objc get
     @objc set
@@ -2750,9 +3346,11 @@ extension PRAPI.PRMyLibraryItem {
   @objc dynamic public func loadThumbnail()
 }
 extension PRAPI.PRMyLibraryItem : PRAPI.LibraryItemProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var hotSpotInfo: (any PRAPI.HotSpotInfo)? {
     @objc get
   }
+  #endif
   @objc dynamic public var isRadioSupported: Swift.Bool {
     @objc get
   }
@@ -2774,7 +3372,9 @@ public struct BookReadingPosition : Swift.Codable {
     public let relativePosition: Swift.Int
     public let mediaType: Swift.String?
     public let deviceName: Swift.String?
+    #if compiler(>=5.3) && $NonescapableTypes
     public init(href: Swift.String?, partialCfi: Swift.String?, position: Swift.Int, relativePosition: Swift.Int, mediaType: Swift.String?, deviceName: Swift.String?)
+    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -2820,7 +3420,9 @@ extension PRAPI.SearchableDataSource {
   }
   @objc final public func setup()
   @objc final public func handleURL(_ url: Foundation.URL) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc(signInWithPresenter:completion:) final public func signIn(presenter: UIKit.UIViewController?, completion: @escaping (PRAPI.GoogleSignInResult) -> ())
+  #endif
   @objc deinit
 }
 extension PRAPI.PRMyLibraryItem {
@@ -2842,22 +3444,28 @@ extension PRAPI.PRMyLibraryItem {
   @objc dynamic public var isInitialTrialBundle: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var trialBundle: PRAPI.PRUserBundle? {
     @objc get
   }
+  #endif
   @objc dynamic public var isTrialBundleActive: Swift.Bool {
     @objc get
   }
 }
 extension PRCatalogModel.Publications : PRAPI.PressCatalogable {
   public typealias Service = PRAPI.PublicationService
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public var service: PRAPI.PublicationService? {
     get
   }
+  #endif
 }
 extension PRAPI.NTFSession {
-  public func channel<ChannelType>(id: Swift.String, context: CoreData.NSManagedObjectContext) -> ChannelType where ChannelType : PRAPI.Channel
-  public func channel<ChannelType>(name: Swift.String, context: CoreData.NSManagedObjectContext) -> ChannelType? where ChannelType : PRAPI.Channel
+  nonisolated public func channel<ChannelType>(id: Swift.String, context: CoreData.NSManagedObjectContext) -> ChannelType where ChannelType : PRAPI.Channel
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func channel<ChannelType>(name: Swift.String, context: CoreData.NSManagedObjectContext) -> ChannelType? where ChannelType : PRAPI.Channel
+  #endif
 }
 @objc public protocol PROAuth2 {
   @objc func signIn() async throws -> Swift.Bool
@@ -2870,7 +3478,9 @@ extension PRAPI.NTFHomeFeedDataService {
   final public var latestNewsChannels: [PRAPI.PublicationChannel]? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func channel(cid: Swift.String) -> PRAPI.PublicationChannel?
+  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class BrazeAnalytics : PRAPI.EventAnalytics {
@@ -2881,7 +3491,7 @@ extension PRAPI.NTFHomeFeedDataService {
 }
 extension PRAPI.PRSubscription {
   public func hasSubscription(cid: Swift.String) -> (main: Swift.Bool, supplements: Swift.Bool)
-  @objc dynamic public func updateConfigs() async
+  @objc @_Concurrency.MainActor dynamic public func updateConfigs() async
 }
 @available(*, unavailable)
 @objc extension PRAPI.PRSubscription {
@@ -2906,44 +3516,58 @@ extension PRAPI.PRCatalog : PRAPI.ObservableModel {
   @objc dynamic public func removeResumableData(path: Swift.String, extension: Swift.String, resumableExtension: Swift.String = "resumeData")
 }
 extension PRCatalogModel.DocumentContent : PRAPI.SingleFileDownloadableItemContent {
-  final public var url: Foundation.URL? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated final public var url: Foundation.URL? {
     get
   }
-  final public var filePath: Swift.String? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated final public var filePath: Swift.String? {
     get
   }
-  final public var contentPath: Swift.String? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated final public var contentPath: Swift.String? {
     get
   }
+  #endif
 }
 extension PRCatalogModel.DocumentContent {
-  final public var smart: PRSmart.PRSmartObject? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated final public var smart: PRSmart.PRSmartObject? {
     get
   }
-  final public func processSmart()
+  #endif
+  final nonisolated public func processSmart()
 }
 extension PRCatalogModel.CatalogEntity : PRAPI.CatalogNavigationVariant {
-  @objc dynamic public var categoryId: Swift.Int {
+  @objc nonisolated dynamic public var categoryId: Swift.Int {
     @objc get
   }
-  @objc dynamic public var localizedName: Swift.String? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var localizedName: Swift.String? {
     @objc get
   }
-  @objc dynamic public var count: Swift.Int {
+  #endif
+  @objc nonisolated dynamic public var count: Swift.Int {
     @objc get
   }
 }
 extension PRCatalogModel.Section {
-  @objc override final public var localizedName: Swift.String? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override nonisolated final public var localizedName: Swift.String? {
     @objc get
   }
+  #endif
 }
 @objc public class EpubContent : ObjectiveC.NSObject {
   public enum ResourceEncryptionInfo : Swift.Int {
     case unencrypted
     case encrypted
     case compressedAndEncrypted
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -2965,8 +3589,12 @@ extension PRCatalogModel.Section {
   public var book: PRCatalogModel.Book {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(license: PRAPI.EpubContent.BookLicense, resourceEncryptedInfo: [Swift.String : PRAPI.EpubContent.ResourceEncryptionInfo]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func content(context: CoreData.NSManagedObjectContext? = nil) -> PRCatalogModel.BookContent
+  #endif
   @objc deinit
 }
 @objc extension PRAPI.PRMyLibraryItem : PRAPI.ReadingViewItem {
@@ -2985,105 +3613,185 @@ extension Swift.Array where Element == any PRAPI.TitleItem {
 public protocol TitleItem : PRAPI.MastheadProvider, PRAPI.PRCatalogItem {
   var sourceType: PRCatalogModel.PRSourceType { get }
   var rate: Swift.Int { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var activationTime: Foundation.Date? { get set }
+  #endif
   var isRead: Swift.Bool { get }
   var scheduleType: PRCatalogModel.PRTitleItemScheduleType { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var alternativeNames: Swift.String? { get }
+  #endif
   var isRTL: Swift.Bool { get }
   var isFree: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var localizedTitle: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var countryCodes: [Swift.String]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var countryISOCode: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var countryName: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var languageISOCode: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var languageName: Swift.String? { get }
+  #endif
   var isLanguageSupported: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var titleItem: (any PRAPI.TitleItem)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var exemplar: PRAPI.PRTitleItemExemplar? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var libraryItem: PRAPI.PRMyLibraryItem? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var parentCID: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var parentName: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var regionalParentCID: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var regionalCIDs: [Swift.String]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var nightEditionCID: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var supplements: [any PRAPI.TitleItem]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var supplementName: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var displaySupplements: [any PRAPI.TitleItem]? { get }
+  #endif
   var slug: Swift.String { get }
   var aspectRatio: CoreFoundation.CGFloat { get set }
   var isSmartAvailable: Swift.Bool { get }
   var paperColor: UIKit.UIColor { get }
   var formattedDate: Swift.String { get }
   var shortFormattedDate: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var latestAvailableIssueDate: Foundation.Date? { get set }
+  #endif
   var latestAvailableIssueVersion: Swift.Int { get set }
   var latestAvailableExpungeVersion: Swift.Int { get set }
   var latestAvailableLayoutVersion: Swift.Int { get set }
   var isAudible: Swift.Bool { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   var currentRadioArticleId: Swift.String? { get set }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var availableDates: [Foundation.Date]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var availableDatesUpdateDate: Foundation.Date? { get set }
+  #endif
   var linkedSubscriptions: [PRAPI.PRSubscription] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var preferableServiceName: Swift.String? { get set }
+  #endif
   var isCommentable: Swift.Bool { get }
   var isTranslatable: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var originalMasthead: Swift.String? { get set }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var templateMasthead: Swift.String? { get set }
+  #endif
   var allowCellularDownload: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var service: (any PRAPI.TitleItemService)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var account: PRAPI.PRAccountItem? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func isFavorite(service: Swift.String?) -> Swift.Bool
+  #endif
   func issueVersion(date: Foundation.Date) -> Swift.Int
   func expungeVersion(date: Foundation.Date) -> Swift.Int
   func layoutVersion(date: Foundation.Date) -> Swift.Int
   func updateIssueInfo(_ info: [Foundation.Date : [Swift.String : Any]], resetAvailability: Swift.Bool) async throws
 }
 extension PRAPI.TitleItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var exemplar: PRAPI.PRTitleItemExemplar? {
     get
   }
+  #endif
   public var latestEdition: any PRAPI.TitleItem {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var latestEditionExemplar: PRAPI.PRTitleItemExemplar? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var latestExemplar: PRAPI.PRTitleItemExemplar? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var libraryItem: PRAPI.PRMyLibraryItem? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var size: Swift.UInt? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var languageRegionCode: Swift.String? {
     get
   }
+  #endif
   public var isSupplement: Swift.Bool {
     get
   }
   public var hasSupplements: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var displaySupplementIssues: [PRAPI.PRTitleItemExemplar]? {
     get
   }
+  #endif
   public var isReadyForDownload: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var _languageName: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var languageName: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var _countryName: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var countryName: Swift.String? {
     get
   }
+  #endif
   public var formattedDate: Swift.String {
     get
   }
@@ -3093,34 +3801,46 @@ extension PRAPI.TitleItem {
   public var isRead: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var defaultServiceAccount: PRAPI.PRAccountItem? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var account: PRAPI.PRAccountItem? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var currentRadioArticleId: Swift.String? {
     get
     set
   }
+  #endif
   public func isFavorite() -> Swift.Bool
 }
 public protocol TitleItemDerivative : PRAPI.TitleItem {
 }
 extension PRAPI.TitleItemDerivative {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var titleItem: (any PRAPI.TitleItem)? {
     get
   }
+  #endif
   public var rate: Swift.Int {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var countryCodes: [Swift.String]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var activationTime: Foundation.Date? {
     get
     set
   }
+  #endif
   public var isFree: Swift.Bool {
     get
   }
@@ -3130,23 +3850,31 @@ extension PRAPI.TitleItemDerivative {
   public var sourceType: PRCatalogModel.PRSourceType {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var alternativeNames: Swift.String? {
     get
   }
+  #endif
   public var scheduleType: PRCatalogModel.PRTitleItemScheduleType {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var availableDates: [Foundation.Date]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var availableDatesUpdateDate: Foundation.Date? {
     get
     set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var latestAvailableIssueDate: Foundation.Date? {
     get
     set
   }
+  #endif
   public var latestAvailableIssueVersion: Swift.Int {
     get
     set
@@ -3162,15 +3890,21 @@ extension PRAPI.TitleItemDerivative {
   public var linkedSubscriptions: [PRAPI.PRSubscription] {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var supplementName: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var supplements: [any PRAPI.TitleItem]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var displaySupplements: [any PRAPI.TitleItem]? {
     get
   }
+  #endif
   public var isAudible: Swift.Bool {
     get
     set
@@ -3181,30 +3915,44 @@ extension PRAPI.TitleItemDerivative {
   public var paperColor: UIKit.UIColor {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var countryISOCode: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var languageISOCode: Swift.String? {
     get
   }
+  #endif
   public var isLanguageSupported: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var parentCID: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var parentName: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var regionalParentCID: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var regionalCIDs: [Swift.String]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var nightEditionCID: Swift.String? {
     get
   }
+  #endif
   public var latestEdition: any PRAPI.TitleItem {
     get
   }
@@ -3215,34 +3963,44 @@ extension PRAPI.TitleItemDerivative {
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var preferableServiceName: Swift.String? {
     get
     set
   }
+  #endif
   public var isCommentable: Swift.Bool {
     get
   }
   public var isTranslatable: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var originalMasthead: Swift.String? {
     get
     set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var templateMasthead: Swift.String? {
     get
     set
   }
+  #endif
   public var allowCellularDownload: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var service: (any PRAPI.TitleItemService)? {
     get
   }
+  #endif
   public func issueVersion(date: Foundation.Date) -> Swift.Int
   public func expungeVersion(date: Foundation.Date) -> Swift.Int
   public func layoutVersion(date: Foundation.Date) -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   public func isFavorite(service: Swift.String?) -> Swift.Bool
+  #endif
   public func updateIssueInfo(_ info: [Foundation.Date : [Swift.String : Any]], resetAvailability: Swift.Bool) async throws
 }
 @_hasMissingDesignatedInitializers @objc final public class PRTitleItemExposer : ObjectiveC.NSObject {
@@ -3250,45 +4008,69 @@ extension PRAPI.TitleItemDerivative {
 }
 @available(swift, obsoleted: 1.0)
 @objc extension PRAPI.PRTitleItemExposer {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var CID: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var parentCID: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var parentName: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var supplementName: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var supplements: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var localizedTitle: Swift.String? {
     @objc get
   }
+  #endif
   @objc final public var isRTL: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var titleItem: (any PRAPI.PRCatalogItem)? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var libraryItem: PRAPI.PRMyLibraryItem? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var exemplar: PRAPI.PRTitleItemExemplar? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var countryName: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var languageISOCode: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var languageName: Swift.String? {
     @objc get
   }
+  #endif
   @objc final public var isLanguageSupported: Swift.Bool {
     @objc get
   }
@@ -3306,21 +4088,29 @@ extension PRAPI.TitleItemDerivative {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var activationTime: Foundation.Date? {
     @objc get
     @objc set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var availableDates: [Foundation.Date]? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var latestAvailableIssueDate: Foundation.Date? {
     @objc get
     @objc set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var availableDatesUpdateDate: Foundation.Date? {
     @objc get
     @objc set
   }
+  #endif
   @objc final public var latestAvailableIssueVersion: Swift.Int {
     @objc get
     @objc set
@@ -3333,16 +4123,20 @@ extension PRAPI.TitleItemDerivative {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var latestEditionExemplar: PRAPI.PRTitleItemExemplar? {
     @objc get
   }
+  #endif
   @objc final public var linkedSubscriptions: [PRAPI.PRSubscription] {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var preferableServiceName: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
   @objc final public var isFree: Swift.Bool {
     @objc get
   }
@@ -3362,7 +4156,9 @@ extension PRAPI.TitleItemDerivative {
     @objc get
   }
   @objc final public func isFavorite() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func isFavorite(service: Swift.String?) -> Swift.Bool
+  #endif
   @objc final public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
   @objc @_Concurrency.MainActor final public func updateIssueInfo(_ info: [Foundation.Date : [Swift.String : Any]], resetAvailability: Swift.Bool) async throws
 }
@@ -3370,9 +4166,11 @@ public protocol CatalogSectionDataSource {
   var entity: PRCatalogModel.CatalogEntity { get }
 }
 extension PRAPI.CatalogSectionDataSource {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var sectionName: Swift.String? {
     get
   }
+  #endif
 }
 @_hasMissingDesignatedInitializers public class _CatalogSectionDataSource<T> : PRAPI.CatalogItemDataSource, PRAPI.CatalogSectionDataSource where T : PRCatalogModel.Catalog {
   public var entity: PRCatalogModel.CatalogEntity {
@@ -3385,14 +4183,22 @@ extension PRAPI.CatalogSectionDataSource {
     @objc get
   }
   @objc override public func numberOfItems(in section: Swift.Int) -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(entity: PRCatalogModel.CatalogEntity)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init?(sectionType: PRConfiguration.PRCatalogSectionType)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init?(id: Swift.String, serviceName: Swift.String? = nil)
+  #endif
   override public func startLoading()
   @objc deinit
 }
 @objc @objcMembers final public class AppleSignInResult : PRAPI.SignInResult {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(nameComponent: Foundation.PersonNameComponents? = nil, email: Swift.String? = nil, user: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, error: (any Swift.Error)? = nil)
+  #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers final public class MyLibraryItemPrintActor : ObjectiveC.NSObject, PRAPI.PrintableItem {
@@ -3420,17 +4226,23 @@ extension PRAPI.CatalogSectionDataSource {
   @objc deinit
 }
 @objc public protocol AnalyticsTracker {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+  #endif
 }
 extension PRAPI.AnalyticsTracker {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+  #endif
 }
 public enum TrackingSourceType : Swift.String {
   case notDefined
   case newspaper
   case magazine
   case document
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -3474,30 +4286,44 @@ extension PRAPI.ReadingViewAnalyticsTracker {
   public func trackPrintedArticle(issue: PRAPI.TrackingIssue, article: PRAPI.TrackingArticle, inReplicaPresentation: Swift.Bool)
 }
 extension PRAPI.PRBundle {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var realCIDs: [Swift.String]? {
     @objc get
   }
+  #endif
   @objc dynamic public func containsCIDs(_ cids: Swift.Set<Swift.String>) -> Swift.Bool
 }
 @objc extension PRAPI.PRBrazeAnalytics {
   @objc dynamic public class var isUserAvailable: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public class var userId: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public class func logCustomEvent(_ name: Swift.String, properties: [Swift.AnyHashable : Any]?)
+  #endif
   @objc dynamic public class func subscribeToEmails(subscribe: Swift.Bool)
   @objc(setCustomAttributeWithKey:boolValue:) dynamic public class func setCustomAttribute(_ key: Swift.String, value: Swift.Bool)
   @objc(setCustomAttributeWithKey:doubleValue:) dynamic public class func setCustomAttribute(_ key: Swift.String, value: Swift.Double)
   @objc(setCustomAttributeWithKey:intValue:) dynamic public class func setCustomAttribute(_ key: Swift.String, value: Swift.Int)
   @objc(setCustomAttributeWithKey:stringValue:) dynamic public class func setCustomAttribute(_ key: Swift.String, value: Swift.String)
   @objc(setCustomAttributeWithKey:dateValue:) dynamic public class func setCustomAttribute(_ key: Swift.String, value: Foundation.Date)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public class func setCustomAttribute(_ key: Swift.String, array: [Swift.String]?)
+  #endif
   @objc dynamic public class func unsetCustomAttribute(_ key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public class func setEmail(_ email: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public class func setFirstName(_ firstName: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public class func setLastName(_ lastName: Swift.String?)
+  #endif
   @objc dynamic public class func changeUser(userId: Swift.String)
 }
 public enum AccessError : PRUtils.DefaultLocalizedError {
@@ -3517,15 +4343,23 @@ public enum AccessError : PRUtils.DefaultLocalizedError {
   @_Concurrency.MainActor override final public var updateInterval: Foundation.TimeInterval {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public var license: PRAPI.BookLicenseService? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public var user: PRAPI.BookUserService? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor final public func loadBookDetails(id: Swift.String, context: CoreData.NSManagedObjectContext? = nil) async throws -> PRCatalogModel.Book
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor final public func loadBooks(ids: [Swift.String], context: CoreData.NSManagedObjectContext? = nil) async throws -> [PRCatalogModel.Book]
+  #endif
   @_Concurrency.MainActor final public func purchaseBook(id: Swift.String, options: PRCatalogModel.CatalogItemContentOption, preloadDetails: Swift.Bool = false, itemInfo: inout PRAPI.CatalogServiceItemInfo) async throws
   @_Concurrency.MainActor override final public func preload() async
   @_Concurrency.MainActor override final public func cancelPreloading()
@@ -3533,20 +4367,26 @@ public enum AccessError : PRUtils.DefaultLocalizedError {
   @objc deinit
 }
 extension PRCatalogModel.BookContent : PRAPI.SingleFileDownloadableItemContent {
-  public var filePath: Swift.String? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var filePath: Swift.String? {
     get
   }
-  public var url: Foundation.URL? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var url: Foundation.URL? {
     get
   }
-  public var isLicenseRequired: Swift.Bool {
+  #endif
+  nonisolated public var isLicenseRequired: Swift.Bool {
     get
   }
-  public var contentPath: Swift.String? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var contentPath: Swift.String? {
     get
   }
+  #endif
   @discardableResult
-  public func prepareForDownload() -> PRPromiseKit.Promise
+  nonisolated public func prepareForDownload() -> PRPromiseKit.Promise
 }
 @objc @objcMembers open class SignInResult : ObjectiveC.NSObject {
   @objc final public let userId: Swift.String?
@@ -3558,49 +4398,75 @@ extension PRCatalogModel.BookContent : PRAPI.SingleFileDownloadableItemContent {
   @objc final public let displayName: Swift.String?
   @objc final public let profileImageUrl: Swift.String?
   @objc final public let error: (any Swift.Error)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(userId: Swift.String? = nil, accessToken: Swift.String? = nil, identityToken: Swift.String? = nil, email: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, displayName: Swift.String? = nil, profileImageUrl: Swift.String? = nil, error: (any Swift.Error)? = nil)
+  #endif
   @objc deinit
 }
 extension PRCatalogModel.Catalog {
-  @objc dynamic public var account: PRAPI.PRAccountItem? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var account: PRAPI.PRAccountItem? {
     @objc get
   }
+  #endif
 }
 public protocol TitleItemService {
+  #if compiler(>=5.3) && $NonescapableTypes
   var item: (any PRAPI.TitleItem)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func setFavorite(_ favorite: Swift.Bool, service: PRAPI.PRAccountItem?, userInfo: [Swift.String : Any]?) async throws
+  #endif
 }
 @_Concurrency.MainActor extension PRAPI.TitleItemService {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public func setFavorite(_ favorite: Swift.Bool, service: PRAPI.PRAccountItem? = nil) async throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public func getRecentTitleExemplars(amount: Swift.Int, lastAvailableDate: Foundation.Date? = nil, subscription: PRAPI.PRSubscription? = nil) async throws -> [PRAPI.PRTitleItemExemplar]
+  #endif
 }
 extension PRAPI.TitleItemService {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getRecentTitleExemplars(amount: Swift.Int, lastAvailableDate: Foundation.Date? = nil, subscription: PRAPI.PRSubscription? = nil) -> PRPromiseKit.Promise
+  #endif
 }
 extension PRCatalogModel.GameIssue : @retroactive PRAnalytics.GameAnalyticsProvider {
-  public var title: Swift.String? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var title: Swift.String? {
     get
   }
-  public var slug: Swift.String {
+  #endif
+  nonisolated public var slug: Swift.String {
     get
   }
-  public var categoryId: Swift.String? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var categoryId: Swift.String? {
     get
   }
+  #endif
 }
 extension StoreKit.SKProduct {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var prBundle: PRAPI.PRBundle? {
     @objc get
   }
+  #endif
 }
 extension PRAPI.PROptions {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func helpCenterUrl(section: Swift.String?, isOnline: Swift.UnsafeMutablePointer<Swift.Bool>?) -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var gamePlayURL: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var bookReadingCollectorServiceUrl: Swift.String? {
     @objc get
   }
+  #endif
 }
 @available(swift, obsoleted: 1.0)
 @objc extension PRAPI.PRTitleItemExposer {
@@ -3623,9 +4489,11 @@ extension PRAPI.PROptions {
   @objc dynamic public class func loadItem(id: Swift.String, catalog: PRCatalogModel.Catalog) -> PRPromiseKit.Promise
 }
 @objc extension PRCatalogModel.CatalogItem {
-  @objc dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
-  @objc dynamic public func downloadProgress(options: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Int
-  @objc dynamic public func downloadProgressObject(options: PRCatalogModel.CatalogItemContentOption = []) -> Foundation.Progress?
+  @objc nonisolated dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
+  @objc nonisolated dynamic public func downloadProgress(options: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func downloadProgressObject(options: PRCatalogModel.CatalogItemContentOption = []) -> Foundation.Progress?
+  #endif
 }
 extension PRAPI.PRSourceItem {
   @objc dynamic public var isServiceAvailable: Swift.Bool {
@@ -3672,8 +4540,10 @@ extension PRCatalogModel.BookLicense {
     public let endDate: Foundation.Date?
     public init(from decoder: any Swift.Decoder) throws
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   public class func instance(info: PRCatalogModel.BookLicense.DTO, context: CoreData.NSManagedObjectContext) -> Self?
+  #endif
 }
 @objc public protocol AutoTranslationStateAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   @objc var isAutoTranslationOn: Swift.Bool { get }
@@ -3687,11 +4557,17 @@ extension PRAPI.PRMyLibrary {
     @objc get
   }
   @objc(sortedItemsIncludingPurchaseAdvises:) dynamic public func sortedItems(includeAdvises: Swift.Bool) -> [any PRAPI.PRCatalogItem]
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func presentLibraryNotification(mid: Swift.String, body: Swift.String?, type: Swift.String)
+  #endif
 }
 extension PRAPI.PRWebServer : PRAPI.PRWebServerBookRegister {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func registerBook(withId bookId: Swift.String, bookFileDirURL: Foundation.URL) -> Foundation.URL?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func registerBook(withId bookId: Swift.String, resourceDataProvider dataProvider: @escaping PRAPI.BookResourceDataProviderBlock) -> Foundation.URL?
+  #endif
   @objc dynamic public func unregisterBook(withId bookId: Swift.String)
 }
 @objc public protocol PDVAnalyticsProvider : PRAnalytics.AnalyticsProvider {
@@ -3704,46 +4580,54 @@ extension PRAPI.PDVAnalyticsProvider {
   public func trackPDVLatestIssuesTab()
 }
 extension PRCatalogModel.CatalogItem : PRAPI.LibraryItemProtocol {
-  @objc dynamic public var orderDate: Foundation.Date? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var orderDate: Foundation.Date? {
     @objc get
   }
-  @objc dynamic public var isLocked: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isMarkedForDeletion: Swift.Bool {
+  #endif
+  @objc nonisolated dynamic public var isLocked: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc dynamic public var isSelected: Swift.Bool {
+  @objc nonisolated dynamic public var isMarkedForDeletion: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc dynamic public var hotSpotInfo: (any PRAPI.HotSpotInfo)? {
+  @objc nonisolated dynamic public var isSelected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var hotSpotInfo: (any PRAPI.HotSpotInfo)? {
     @objc get
   }
-  @objc dynamic public var isDownloaded: Swift.Bool {
+  #endif
+  @objc nonisolated dynamic public var isDownloaded: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var isRadioSupported: Swift.Bool {
+  @objc nonisolated dynamic public var isRadioSupported: Swift.Bool {
     @objc get
   }
-  @objc dynamic public func lock(_ locked: Swift.Bool)
+  @objc nonisolated dynamic public func lock(_ locked: Swift.Bool)
 }
 extension PRCatalogModel.CatalogItem : PRAPI.PROpenableItem {
-  @objc dynamic public var isNew: Swift.Bool {
+  @objc nonisolated dynamic public var isNew: Swift.Bool {
     @objc get
   }
-  @objc dynamic public func markAsOpened()
+  @objc nonisolated dynamic public func markAsOpened()
 }
 @objc @objcMembers final public class LocationRect : ObjectiveC.NSObject {
-  @objc final public let northEast: CoreLocation.CLLocationCoordinate2D
-  @objc final public let southWest: CoreLocation.CLLocationCoordinate2D
-  @objc public init?(northEast: CoreLocation.CLLocationCoordinate2D, southWest: CoreLocation.CLLocationCoordinate2D)
+  @objc final public let northEast: _LocationEssentials.CLLocationCoordinate2D
+  @objc final public let southWest: _LocationEssentials.CLLocationCoordinate2D
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init?(northEast: _LocationEssentials.CLLocationCoordinate2D, southWest: _LocationEssentials.CLLocationCoordinate2D)
+  #endif
   @objc deinit
 }
 @objc extension PRAPI.PRServiceClient {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func wrappedResponse(json: Any) -> Any?
+  #endif
 }
 extension PRAPI.PRMyLibrary {
   @objc dynamic public var downloads: PRCatalogModel.Downloads {
@@ -3752,10 +4636,12 @@ extension PRAPI.PRMyLibrary {
   }
 }
 extension PRAPI.NTFFeed {
-  public func updateAccessibility()
+  nonisolated public func updateAccessibility()
 }
 extension PRThumbnail.PRThumbnailsManager {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func thumbnail(mastheadOriginalId: Swift.String, mastheadTemplateId: Swift.String, height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle) -> PRThumbnail.PRThumbnailMasthead?
+  #endif
 }
 public protocol ObservableViewModel : PRAPI.ObservableModel {
 }
@@ -3768,7 +4654,9 @@ extension PRAPI.PRSourceList : PRAPI.ObservableModel {
     set
   }
   public func addObserver(_ observer: any PRAPI.LoadableModelObserver)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func removeObserver(_ observer: (any PRAPI.LoadableModelObserver)?)
+  #endif
 }
 @_inheritsConvenienceInitializers open class DataSourceSelectable<AnItem> : PRAPI.DataSource<AnItem> {
   open var hasSelectedItems: Swift.Bool {
@@ -3776,7 +4664,9 @@ extension PRAPI.PRSourceList : PRAPI.ObservableModel {
   }
   open func selectItem(_ item: AnItem, select: Swift.Bool)
   @objc required dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   override public init(observer: (any PRAPI.DataSourceObserver)? = nil)
+  #endif
   @objc deinit
 }
 extension PRAPI.PRSubscription {
@@ -3784,30 +4674,42 @@ extension PRAPI.PRSubscription {
   public enum ArticleFields : Swift.String {
     case snippets
     case all
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
     }
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public func requestArticles(ids: [Swift.String], language: Swift.String? = nil, fields: PRAPI.PRSubscription.ArticleFields = .all) -> PRPromiseKit.Promise
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func requestArticles(ids: [Swift.String], language: Swift.String? = nil, fields: PRAPI.PRSubscription.ArticleFields = .all) async throws -> [[Swift.String : Any]]
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func saveAccessTokenToSharedUserDefaults(_ accessToken: Swift.String?)
+  #endif
 }
 @_inheritsConvenienceInitializers final public class GameSectionDataSource : PRAPI._CatalogSectionDataSource<PRCatalogModel.Games> {
+  #if compiler(>=5.3) && $NonescapableTypes
   override public init?(entity: PRCatalogModel.CatalogEntity)
+  #endif
   @objc deinit
 }
 @objc extension PRCatalogModel.CatalogItem {
-  @objc dynamic public var isReadyToBuy: Swift.Bool {
+  @objc nonisolated dynamic public var isReadyToBuy: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var isBought: Swift.Bool {
+  @objc nonisolated dynamic public var isBought: Swift.Bool {
     @objc get
   }
 }
 @_Concurrency.MainActor public protocol Preloadable : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor var preloadTask: _Concurrency.Task<(), any Swift.Error>? { get set }
+  #endif
   @_Concurrency.MainActor func preload() async
   @_Concurrency.MainActor func cancelPreloading()
 }
@@ -3819,7 +4721,9 @@ extension PRAPI.Preloadable {
   @objc public init(mid: Swift.String)
   @objc override final public func requestData() -> PRPromiseKit.Promise
   @objc final public func updateArticlesWithDefaultLanguageLayoutPackage() throws
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override final public func feed(context: CoreData.NSManagedObjectContext) -> PRAPI.NTFFeed?
+  #endif
   @objc deinit
 }
 @_Concurrency.MainActor extension PRAPI.MLIFeedDataService {
@@ -3827,18 +4731,20 @@ extension PRAPI.Preloadable {
   @_Concurrency.MainActor final public func translateShortContent(to language: Swift.String) async throws
 }
 extension PRCatalogModel.Query : PRAPI.SearchableDataSource {
-  public var searchText: Swift.String {
+  nonisolated public var searchText: Swift.String {
     get
     set
   }
-  public var availableSortOptions: [PRAPI.SearchableDataSourceSortingOrder] {
+  nonisolated public var availableSortOptions: [PRAPI.SearchableDataSourceSortingOrder] {
     get
   }
-  public var sortingOption: PRAPI.SearchableDataSourceSortingOrder {
+  nonisolated public var sortingOption: PRAPI.SearchableDataSourceSortingOrder {
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public func load(query: Swift.String? = nil, order: PRCatalogModel.CatalogEntity.LoadingOrder? = nil) async throws -> [PRCatalogModel.CatalogItem]
+  #endif
 }
 extension PRAPI.PRLibraryProfile {
   @objc public static func loadProfile() async throws -> PRAPI.PRLibraryProfile
@@ -3876,7 +4782,9 @@ extension PRAPI.PRLibraryProfile {
     case PR_Signed_Up, PR_Signed_In
     case PR_Gifted_Issue_Adget
     case PR_Gifted_Issue_Video_Played
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -3885,16 +4793,22 @@ extension PRAPI.PRLibraryProfile {
   @objc public class var isEnabled: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+  #endif
   @objc deinit
 }
 extension PRCatalogModel.CatalogEntity {
-  final public var loadableCatalog: (any PRAPI.PressCatalogable)? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  final nonisolated public var loadableCatalog: (any PRAPI.PressCatalogable)? {
     get
   }
-  final public var service: (any PRAPI.LoadableCatalog)? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final nonisolated public var service: (any PRAPI.LoadableCatalog)? {
     get
   }
+  #endif
 }
 @objc extension PRAPI.PRAccountItem {
   @objc dynamic public var remainingFreeCredits: Swift.Int {
@@ -3914,7 +4828,9 @@ extension PRCatalogModel.CatalogEntity {
   @objc public static var isEnabled: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+  #endif
   @objc deinit
 }
 extension PRAPI.PRSubscription {
@@ -3922,7 +4838,9 @@ extension PRAPI.PRSubscription {
   public func requestOwnerInfo(cid: Swift.String, completion: @escaping PRAPI.PRSubscription.Response)
 }
 @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class NTFArticleItemService : PRAPI.MOService<PRAPI.NTFArticleItem, PRAPI.NTFCoreDataController>, PRAPI.ArticleService {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @objc final public func contentRestrictions() async -> PRAPI.NTFContentRestrictions?
+  #endif
   @_Concurrency.MainActor @objc final public func updateRelatedArticles() async throws -> Swift.Bool
   @_Concurrency.MainActor @objc final public func loadFullContent() async throws
   @_Concurrency.MainActor @objc final public func translate(language: Swift.String) async throws
@@ -3945,7 +4863,9 @@ extension PRAPI.PRSubscription {
     @objc get
   }
   @objc required public init(rawValue: Swift.Int)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   public typealias ArrayLiteralElement = PRAPI.CatalogSectionSchemeOption
   public typealias Element = PRAPI.CatalogSectionSchemeOption
   public typealias RawValue = Swift.Int
@@ -3957,19 +4877,21 @@ extension PRAPI.PRSubscription {
   func signIn(_ handler: @escaping (Self.ResultType) -> ())
 }
 extension PRCatalogModel.Book {
-  @objc override final public var isNew: Swift.Bool {
+  @objc override nonisolated final public var isNew: Swift.Bool {
     @objc get
   }
 }
 @objc public protocol ArticleService {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func contentRestrictions() async -> PRAPI.NTFContentRestrictions?
+  #endif
   @objc func updateRelatedArticles() async throws -> Swift.Bool
   @objc func loadFullContent() async throws
   @objc func translate(language: Swift.String) async throws
   @objc func updateListenDuration() async throws
 }
 @objc extension PRAPI.NTFArticleItem {
-  @objc dynamic public var service: any PRAPI.ArticleService {
+  @objc nonisolated dynamic public var service: any PRAPI.ArticleService {
     @objc get
   }
 }
@@ -3984,7 +4906,9 @@ extension PRAPI.BookPurchaseAnalyticsProvider {
   @objc deinit
 }
 extension PRAPI.NTFArticleItem {
-  @objc dynamic public func channel() -> PRAPI.PublicationChannel?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func channel() -> PRAPI.PublicationChannel?
+  #endif
 }
 public struct BookLicenseRenewResult : Swift.Decodable {
   public enum Status : Swift.String, Swift.Decodable {
@@ -3992,7 +4916,9 @@ public struct BookLicenseRenewResult : Swift.Decodable {
     case renewed
     case purchaseRequired
     case gracePeriodAdded
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -4025,9 +4951,13 @@ extension Foundation.NSNotification.Name {
   @_Concurrency.MainActor public func catalog() throws -> any PRAPI.PressCatalogable
   @discardableResult
   @_Concurrency.MainActor public func load(entity: PRCatalogModel.CatalogEntity) async throws -> [PRCatalogModel.CatalogItem]
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor public func load(sectionId: PRCatalogModel.Section.Id, data: Swift.String? = nil, order: PRCatalogModel.CatalogEntity.LoadingOrder? = nil) async throws -> [PRCatalogModel.CatalogItem]
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   nonisolated public func logLoadingResult(_ result: Swift.Result<[PRCatalogModel.CatalogItem], any Swift.Error>, source: Swift.String)
+  #endif
 }
 @objc(PRFacebookSharingDelegate) public protocol FacebookSharingDelegate : ObjectiveC.NSObjectProtocol {
   @objc func facebookSharingDidComplete(results: [Swift.String : Any])
@@ -4039,14 +4969,22 @@ extension Foundation.NSNotification.Name {
   @objc public static var isEnabled: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func application(_ application: UIKit.UIApplication, open url: Foundation.URL, sourceApplication: Swift.String?, annotation: Any?) -> Swift.Bool
+  #endif
   @objc final public func setup()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @discardableResult
   final public func application(_ application: UIKit.UIApplication, didFinishLaunchingWithOptions launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]? = nil) -> Swift.Bool
+  #endif
   @objc final public func resetCurrentTokenAndProfile()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func requestAccessToAccount(permissions: [Swift.String], presenter: UIKit.UIViewController?, completion: @escaping (_ signInResult: PRAPI.SignInResult?, _ tokenRefreshed: Swift.Bool, _ error: (any Swift.Error)?) -> ())
+  #endif
   @objc final public func logOut()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func share(url: Swift.String, text: Swift.String?, presenter: UIKit.UIViewController?, delegate: any PRAPI.FacebookSharingDelegate)
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AutoTranslationZone : PRSyntacticSugar.PROptionSet {
@@ -4068,24 +5006,38 @@ extension Foundation.NSNotification.Name {
 public struct AuthAnalyticsContext {
   public let product: PRAPI.PRProduct?
   public let containerId: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(product: PRAPI.PRProduct?, containerId: Swift.String?)
+  #endif
 }
 public protocol SignInAnalyticsProvider : PRAnalytics.AnalyticsProvider {
   var authView: PRAnalytics.PRAnalyticsAuthView { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var authMethod: PRAnalytics.PRAnalyticsAuthMethod? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var authType: PRAnalytics.PRAnalyticsAuthType? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var authContext: PRAPI.AuthAnalyticsContext? { get }
+  #endif
 }
 extension PRAPI.SignInAnalyticsProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var authMethod: PRAnalytics.PRAnalyticsAuthMethod? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var authType: PRAnalytics.PRAnalyticsAuthType? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var authContext: PRAPI.AuthAnalyticsContext? {
     get
   }
+  #endif
   public func trackSignInDidAppear()
   public func trackSignInTap()
   public func trackSignUpTap()
@@ -4093,61 +5045,89 @@ extension PRAPI.SignInAnalyticsProvider {
   public func trackAuthorize(state: PRAnalytics.OperationState)
 }
 extension PRAPI.PRTitleItemExemplar {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func item(item: any PRAPI.PRCatalogItem) -> Self?
+  #endif
   @objc override dynamic public var debugDescription: Swift.String {
     @objc get
   }
   public var isLatest: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var newspaperRadioInfo: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc dynamic public var isRecentlyRead: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var issue: PRCatalogModel.TitleIssue? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func thumbnail(size: CoreFoundation.CGSize, page: Swift.Int) -> PRThumbnail.PRThumbnailSource?
+  #endif
 }
 @objc extension PRCatalogModel.Book {
-  @objc override final public var sourceType: PRCatalogModel.PRSourceType {
+  @objc override nonisolated final public var sourceType: PRCatalogModel.PRSourceType {
     @objc get
   }
 }
 @objc public protocol CatalogFacade {
   @objc var isEmpty: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var loadedPublications: [any PRAPI.PRCatalogItem]? { get }
+  #endif
   @objc var navigationFilters: [any PRAPI.CatalogNavigation] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var categories: [any PRAPI.CatalogNavigationVariant]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var countries: [any PRAPI.CountryNavigationVariant]? { get }
+  #endif
   @objc func search(_ text: Swift.String) async throws -> [any PRAPI.PRCatalogItem]
 }
 extension PRAPI.CatalogFacade {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var parentPublications: [any PRAPI.PRCatalogItem]? {
     get
   }
+  #endif
 }
 public protocol ObservableCatalogFacade : PRAPI.CatalogFacade, PRAPI.ObservableModel {
 }
 extension PRAPI.TitleItem {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var latestDownloadedThumbnailDate: Foundation.Date? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func latestDownloadedThumbnailDate(size: CoreFoundation.CGSize) -> Foundation.Date?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func thumbnail(issueDate: Foundation.Date, size: CoreFoundation.CGSize, page: Swift.Int = 1, square: Swift.Bool = false) -> PRThumbnail.PRThumbnailSource?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func latestIssueThumbnail(size: CoreFoundation.CGSize) -> PRThumbnail.PRThumbnailSource?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func thumbnail(issueDate: Foundation.Date? = nil, size: CoreFoundation.CGSize = PRThumbnailSource.goodEnoughSize(), useAvailable: Swift.Bool = false, prepare: Swift.Bool = false) -> PRThumbnail.PRThumbnailSource?
+  #endif
 }
 extension PRCatalogModel.ContentLicense : @retroactive PRCoreDataUtils.UpdatableMO {
   public typealias Payload = PRCatalogModel.ContentLicense.DTO
   public struct DTO : PRCoreDataUtils.StringIdentifiable {
     public let id: Swift.String
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func payload(with info: [Swift.String : Any]) -> PRCatalogModel.ContentLicense.DTO?
-  public func update(payload: PRCatalogModel.ContentLicense.DTO)
+  #endif
+  nonisolated public func update(payload: PRCatalogModel.ContentLicense.DTO)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AnalyticsTrackerAdapter : ObjectiveC.NSObject {
   @objc public init(tracker: any PRAPI.AnalyticsTracker)
@@ -4157,7 +5137,9 @@ extension PRAPI.AnalyticsTrackerAdapter : PRAnalytics.AnalyticsService {
   @objc public static var isEnabled: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func track(_ name: PRAnalytics.PRAnalyticsTrackName, parameters: PRAnalytics.AnalyticsParameters?)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers final public class AnalyticsValueProvider : ObjectiveC.NSObject {
   @objc(valueForMainMenuParameter:) final public class func value(parameter: PRAnalytics.PRAnalyticsMainMenu) -> Swift.String
@@ -4171,18 +5153,24 @@ extension PRAPI.AnalyticsTrackerAdapter : PRAnalytics.AnalyticsService {
 extension PRDIContainer.DIContainer {
   public enum DIKey : Swift.String {
     case twitterAuth
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
     }
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func resolve<T>(key: PRDIContainer.DIContainer.DIKey) -> T?
+  #endif
   final public func hasDependency(key: PRDIContainer.DIContainer.DIKey) -> Swift.Bool
 }
 @available(*, unavailable)
 @objc extension PRDIContainer.DIContainer {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func twitterAuth() -> Any?
+  #endif
   @objc final public func hasTwitterAuth() -> Swift.Bool
 }
 public protocol UnitTestDIRegistrar {
@@ -4201,7 +5189,9 @@ extension Foundation.NSNotification.Name {
 }
 @objc public protocol TranslationLanguagesInfo {
   @objc var isTranslationEnabled: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var translationLanguages: [Swift.String : Any]? { get }
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class TranslateOptions : PRAPI.BaseTranslateOptions {
   @objc(autoTranslate) final public let auto: PRAPI.AutoTranslateOptions
@@ -4224,9 +5214,11 @@ extension Foundation.NSNotification.Name {
   @objc final public var isAvailable: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var zones: PRAPI.AutoTranslationZone? {
     @objc get
   }
+  #endif
   @objc final public var languagePairsLimit: Swift.Int {
     @objc get
   }
@@ -4235,17 +5227,23 @@ extension Foundation.NSNotification.Name {
   @objc deinit
 }
 @objc public class BaseTranslateOptions : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var lastSelectedLanguageISOCode: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
   public var isNativeTranslationEnabled: Swift.Bool {
     get
   }
   public init(languagesInfo: any PRAPI.TranslationLanguagesInfo)
   @objc public func isLanguageSupported(isoCode: Swift.String) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func translationLanguageISOCodes(sourceLanguageISOCode isoCode: Swift.String) -> [Swift.String]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func languageName(isoCode: Swift.String) -> Swift.String?
+  #endif
   @objc public func translationLanguageNames(sourceLanguageISOCode: Swift.String) -> [Swift.String]
   @objc deinit
 }
@@ -4253,9 +5251,11 @@ extension Foundation.NSNotification.Name {
   @objc dynamic public var isTranslationEnabled: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var translationLanguages: [Swift.String : Any]? {
     @objc get
   }
+  #endif
 }
 extension PRAPI.PRBaseBundle {
   @objc override dynamic open var debugDescription: Swift.String {
@@ -4304,23 +5304,33 @@ extension Foundation.NSNotification.Name {
 }
 @objc public protocol LibraryItemProtocol : PRAPI.PRCatalogItem, PRAPI.PROpenableItem {
   @objc var sourceType: PRCatalogModel.PRSourceType { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var orderDate: Foundation.Date? { get }
+  #endif
   @objc var isDownloaded: Swift.Bool { get }
   @objc var isLocked: Swift.Bool { get }
   @objc var isMarkedForDeletion: Swift.Bool { get }
   @objc var isSelected: Swift.Bool { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var hotSpotInfo: (any PRAPI.HotSpotInfo)? { get }
+  #endif
   @objc var isRadioSupported: Swift.Bool { get }
   @objc func lock(_ locked: Swift.Bool)
 }
 @objc extension ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func observeLibraryNotifications(selector: ObjectiveC.Selector, object: (any PRAPI.LibraryItemProtocol)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func observeLibraryNotifications(selector: ObjectiveC.Selector, object: (any PRAPI.LibraryItemProtocol)? = nil, observe: Swift.Bool)
+  #endif
 }
 extension PRAPI.PRAccountItem : PRAnalytics.AnalyticsAccount {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var enablePromotional: Swift.Bool? {
     get
   }
+  #endif
   public var isOnboardingStarted: Swift.Bool {
     get
   }
@@ -4367,7 +5377,9 @@ extension PRAPI.PRAccountItem : PRAnalytics.AnalyticsAccount {
   public var isDropdown: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -4377,7 +5389,9 @@ extension PRAPI.PRAccountItem : PRAnalytics.AnalyticsAccount {
   case unknown
   case publication
   case book
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -4387,7 +5401,9 @@ extension PRAPI.PRAccountItem : PRAnalytics.AnalyticsAccount {
   @objc var name: Swift.String { get }
   @objc var options: [PRAPI.CatalogNavigationSection] { get }
   @objc var type: PRAPI.CatalogNavigationType { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var value: Any? { get }
+  #endif
   @objc var catalogType: PRAPI.CatalogType { get }
 }
 @objc public class CatalogNavigationSection : ObjectiveC.NSObject {
@@ -4402,18 +5418,24 @@ extension PRAPI.PRAccountItem : PRAnalytics.AnalyticsAccount {
   }
   @objc public var name: Swift.String?
   @objc public var variants: [any PRAPI.CatalogNavigationVariant]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(name: Swift.String? = nil, variants: [any PRAPI.CatalogNavigationVariant], order: PRAPI.CatalogNavigationSection.VariantSortOrder = .none)
+  #endif
   @objc deinit
 }
 @objc public protocol CatalogNavigationVariant : ObjectiveC.NSObjectProtocol {
   @objc var categoryId: Swift.Int { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var localizedName: Swift.String? { get }
+  #endif
   @objc var count: Swift.Int { get }
 }
 extension PRAPI.CatalogNavigationVariant {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var categoryIdString: Swift.String? {
     get
   }
+  #endif
 }
 @objc public protocol CountryNavigationVariant : PRAPI.CatalogNavigationVariant {
   @objc var iso: Swift.String { get }
@@ -4425,7 +5447,9 @@ extension PRAPI.CatalogNavigationVariant {
   @objc final public let value: Any?
   @objc final public let catalogType: PRAPI.CatalogType
   public init(name: Swift.String, options: [PRAPI.CatalogNavigationSection] = [])
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(name: Swift.String, type: PRAPI.CatalogNavigationType, value: Any? = nil)
+  #endif
   convenience public init(name: Swift.String, variants: [any PRAPI.CatalogNavigationVariant], order: PRAPI.CatalogNavigationSection.VariantSortOrder = .none)
   @objc deinit
 }
@@ -4438,10 +5462,12 @@ extension PRAPI.CatalogNavigationVariant {
 extension PRAPI.PRProduct : PRAnalytics.PaymentOptionsProduct {
 }
 @objc extension PRAPI.PRCatalogSection {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var dataSource: (any PRAPI.CatalogItemDataSourceProtocol)? {
     @objc get
     @objc set
   }
+  #endif
   @objc dynamic public var count: Swift.Int {
     @objc get
   }
@@ -4453,73 +5479,87 @@ extension PRAPI.PRCatalogSection : PRSyntacticSugar.Emptiable {
   public var isEmpty: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
   @objc(nonEmpty) dynamic public var _nonEmpty: PRAPI.PRCatalogSection? {
     @objc get
   }
+  #endif
 }
 @objc extension PRAPI.PRCatalogSection {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var entity: PRCatalogModel.CatalogEntity? {
     @objc get
     @objc set
   }
+  #endif
 }
 extension PRCatalogModel.CatalogEntity : PRAPI.CatalogItemDataSourceProtocol, PRAPI.ObservableModel {
-  @objc dynamic public var dataProvider: [[any PRAPI.PRCatalogItem]] {
+  @objc nonisolated dynamic public var dataProvider: [[any PRAPI.PRCatalogItem]] {
     @objc get
   }
-  @objc dynamic public var itemToExclude: (any PRAPI.PRCatalogItem)? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var includeSupplements: Swift.Bool {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var itemToExclude: (any PRAPI.PRCatalogItem)? {
     @objc get
     @objc set
   }
-  @objc dynamic public func layoutType(for section: Swift.Int) -> PRAPI.PRLayoutType
-  @objc dynamic public func showDatesOnly(for section: Swift.Int) -> Swift.Bool
-  @objc dynamic public var loadingError: (any Swift.Error)? {
+  #endif
+  @objc nonisolated dynamic public var includeSupplements: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc nonisolated dynamic public func layoutType(for section: Swift.Int) -> PRAPI.PRLayoutType
+  @objc nonisolated dynamic public func showDatesOnly(for section: Swift.Int) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public var loadingError: (any Swift.Error)? {
     @objc get
   }
-  @objc dynamic public var canLoadMore: Swift.Bool {
+  #endif
+  @objc nonisolated dynamic public var canLoadMore: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var isLoading: Swift.Bool {
+  @objc nonisolated dynamic public var isLoading: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var isFailed: Swift.Bool {
+  @objc nonisolated dynamic public var isFailed: Swift.Bool {
     @objc get
   }
   @discardableResult
-  @objc dynamic public func load() -> PRPromiseKit.Promise
+  @objc nonisolated dynamic public func load() -> PRPromiseKit.Promise
   @discardableResult
-  @objc dynamic public func loadMore() -> PRPromiseKit.Promise
-  @objc dynamic public func addObserver(_ observer: any PRAPI.DataSourceObserver)
-  @objc dynamic public func removeObserver(_ observer: any PRAPI.DataSourceObserver)
-  @objc dynamic public func numberOfItems(in section: Swift.Int) -> Swift.Int
-  @objc dynamic public func numberOfSections() -> Swift.Int
-  @objc dynamic public func title(for section: Swift.Int) -> Swift.String?
-  @objc dynamic public var canLoadMoreSilently: Swift.Bool {
+  @objc nonisolated dynamic public func loadMore() -> PRPromiseKit.Promise
+  @objc nonisolated dynamic public func addObserver(_ observer: any PRAPI.DataSourceObserver)
+  @objc nonisolated dynamic public func removeObserver(_ observer: any PRAPI.DataSourceObserver)
+  @objc nonisolated dynamic public func numberOfItems(in section: Swift.Int) -> Swift.Int
+  @objc nonisolated dynamic public func numberOfSections() -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc nonisolated dynamic public func title(for section: Swift.Int) -> Swift.String?
+  #endif
+  @objc nonisolated dynamic public var canLoadMoreSilently: Swift.Bool {
     @objc get
   }
 }
 extension PRCatalogModel.Query {
-  @objc override dynamic public func load() -> PRPromiseKit.Promise
+  @objc override nonisolated dynamic public func load() -> PRPromiseKit.Promise
 }
 extension PRCatalogModel.BookContent {
-  public func highlight(id: Swift.String) -> PRCatalogModel.Highlight?
-  public func updateHighlight(id: Swift.String, color: Swift.String)
-  public func removeHighlight(_ highlight: PRCatalogModel.Highlight)
-  public func removeHighlight(id: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func highlight(id: Swift.String) -> PRCatalogModel.Highlight?
+  #endif
+  nonisolated public func updateHighlight(id: Swift.String, color: Swift.String)
+  nonisolated public func removeHighlight(_ highlight: PRCatalogModel.Highlight)
+  nonisolated public func removeHighlight(id: Swift.String)
 }
 public struct BookReadingFragment : Swift.Encodable {
   public init(filename: Swift.String, fragmentStartOffset: Swift.Int, fragmentEndOffset: Swift.Int, absoluteStartOffset: Swift.Int, absoluteEndOffset: Swift.Int)
   public func encode(to encoder: any Swift.Encoder) throws
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class DQCatalog : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public subscript(key: Swift.String) -> PRAPI.PRTitleItem? {
     @objc get
   }
+  #endif
   @objc final public var featuredSourcesCIDs: [Swift.String]?
   @objc final public var sourcesByCID: [Swift.String : PRAPI.PRTitleItem]?
   @objc final public var groupsByName: [Swift.String : [Swift.String]]?
@@ -4529,9 +5569,15 @@ public struct BookReadingFragment : Swift.Encodable {
   @objc final public var parentSources: [PRAPI.PRTitleItem]?
   @objc final public var topCategoriesByName: [Swift.String : [Swift.String : Any]]?
   @objc final public var regions: [[Swift.String : Any]]?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func source(cid: Swift.String) -> PRAPI.PRTitleItem?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func supplements(cid: Swift.String) -> [PRAPI.PRTitleItem]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func relatedPublications(cid: Swift.String) -> [PRAPI.PRTitleItem]?
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -4539,35 +5585,55 @@ public struct BookReadingFragment : Swift.Encodable {
 }
 public protocol PRAppsFlyer {
   func start()
+  #if compiler(>=5.3) && $NonescapableTypes
   func logEvent(_ eventName: Swift.String, withValues values: [Swift.AnyHashable : Any]?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func registerUninstall(_ deviceToken: Foundation.Data?)
+  #endif
   func setDeepLinkDelegate(_ delegate: ObjectiveC.NSObject)
+  #if compiler(>=5.3) && $NonescapableTypes
   func handleOpen(_ url: Foundation.URL?, options: [Swift.AnyHashable : Any]?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func `continue`(_ userActivity: Foundation.NSUserActivity?, restorationHandler: (([Any]?) -> Swift.Void)?) -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func shareArticleUrl(id: Swift.String?) async -> Swift.String?
+  #endif
   func setDelegate(_ delegate: ObjectiveC.NSObject)
 }
 extension PRAPI.PRAppsFlyer {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func handleOpen(_ url: Foundation.URL? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func `continue`(_ userActivity: Foundation.NSUserActivity?) -> Swift.Bool
+  #endif
 }
 @objc @objcMembers public class AutoTranslateLanguagePair : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let sourceISOCode: Swift.String
   @objc final public let destinationISOCode: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var sourceLanguage: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var destinationLanguage: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
   @objc public var title: Swift.String {
     @objc get
     @objc set
   }
   @objc public init(sourceISOLanguage: Swift.String, destinationISOLanguage: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -4580,7 +5646,7 @@ extension PRAPI.SearchHistoryItem {
   @objc final public class func getSuggestions(pattern: Swift.String, completion: @escaping PRAPI.SearchHistoryItem.SearchHistoryCompletion)
 }
 @objc extension PRCatalogModel.Document {
-  @objc override dynamic public var sourceType: PRCatalogModel.PRSourceType {
+  @objc override nonisolated dynamic public var sourceType: PRCatalogModel.PRSourceType {
     @objc get
   }
 }
@@ -4601,129 +5667,173 @@ extension PRAPI.SearchHistoryItem {
   @objc deinit
 }
 extension PRCatalogModel.TitleItem : PRAPI.TitleItem {
-  public var titleItem: (any PRAPI.TitleItem)? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var titleItem: (any PRAPI.TitleItem)? {
     get
   }
-  public var localizedTitle: Swift.String? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var localizedTitle: Swift.String? {
     get
   }
-  public var countryISOCode: Swift.String? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var countryISOCode: Swift.String? {
     get
   }
-  public var originalMasthead: Swift.String? {
-    get
-    set
-  }
-  public var templateMasthead: Swift.String? {
-    get
-    set
-  }
-  public var service: (any PRAPI.TitleItemService)? {
-    get
-  }
-  public var isSmartAvailable: Swift.Bool {
-    get
-  }
-  public var isAudible: Swift.Bool {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var originalMasthead: Swift.String? {
     get
     set
   }
-  public var primaryParent: (any PRAPI.TitleItem)? {
-    get
-  }
-  public var parentCID: Swift.String? {
-    get
-  }
-  public var parentName: Swift.String? {
-    get
-  }
-  public var supplementName: Swift.String? {
-    get
-  }
-  public var displaySupplements: [any PRAPI.TitleItem]? {
-    get
-  }
-  public var regionalParentCID: Swift.String? {
-    get
-  }
-  public var rate: Swift.Int {
-    get
-  }
-  public var alternativeNames: Swift.String? {
-    get
-  }
-  public var languageISOCode: Swift.String? {
-    get
-  }
-  public var supplements: [any PRAPI.TitleItem]? {
-    get
-  }
-  public var regionalCIDs: [Swift.String]? {
-    get
-  }
-  public var latestAvailableIssueDate: Foundation.Date? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var templateMasthead: Swift.String? {
     get
     set
   }
-  public var availableDates: [Foundation.Date]? {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var service: (any PRAPI.TitleItemService)? {
+    get
+  }
+  #endif
+  nonisolated public var isSmartAvailable: Swift.Bool {
+    get
+  }
+  nonisolated public var isAudible: Swift.Bool {
     get
     set
   }
-  public var availableDatesUpdateDate: Foundation.Date? {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var primaryParent: (any PRAPI.TitleItem)? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var parentCID: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var parentName: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var supplementName: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var displaySupplements: [any PRAPI.TitleItem]? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var regionalParentCID: Swift.String? {
+    get
+  }
+  #endif
+  nonisolated public var rate: Swift.Int {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var alternativeNames: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var languageISOCode: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var supplements: [any PRAPI.TitleItem]? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var regionalCIDs: [Swift.String]? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var latestAvailableIssueDate: Foundation.Date? {
     get
     set
   }
-  public var aspectRatio: CoreFoundation.CGFloat {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var availableDates: [Foundation.Date]? {
     get
     set
   }
-  public var latestAvailableIssueVersion: Swift.Int {
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var availableDatesUpdateDate: Foundation.Date? {
     get
     set
   }
-  public var latestAvailableExpungeVersion: Swift.Int {
+  #endif
+  nonisolated public var aspectRatio: CoreFoundation.CGFloat {
     get
     set
   }
-  public var latestAvailableLayoutVersion: Swift.Int {
+  nonisolated public var latestAvailableIssueVersion: Swift.Int {
     get
     set
   }
-  public var linkedSubscriptions: [PRAPI.PRSubscription] {
-    get
-  }
-  public var preferableServiceName: Swift.String? {
+  nonisolated public var latestAvailableExpungeVersion: Swift.Int {
     get
     set
   }
-  public var paperColor: UIKit.UIColor {
+  nonisolated public var latestAvailableLayoutVersion: Swift.Int {
+    get
+    set
+  }
+  nonisolated public var linkedSubscriptions: [PRAPI.PRSubscription] {
     get
   }
-  public var scheduleType: PRCatalogModel.PRTitleItemScheduleType {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var preferableServiceName: Swift.String? {
+    get
+    set
+  }
+  #endif
+  nonisolated public var paperColor: UIKit.UIColor {
     get
   }
-  public var isRTL: Swift.Bool {
+  nonisolated public var scheduleType: PRCatalogModel.PRTitleItemScheduleType {
     get
   }
-  public var nightEditionCID: Swift.String? {
+  nonisolated public var isRTL: Swift.Bool {
     get
   }
-  public var isLanguageSupported: Swift.Bool {
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public var nightEditionCID: Swift.String? {
+    get
+  }
+  #endif
+  nonisolated public var isLanguageSupported: Swift.Bool {
     get
   }
   @_Concurrency.MainActor public func updateIssueInfo(_ info: [Foundation.Date : [Swift.String : Any]], resetAvailability: Swift.Bool) async throws
-  public func issueVersion(date: Foundation.Date) -> Swift.Int
-  public func expungeVersion(date: Foundation.Date) -> Swift.Int
-  public func layoutVersion(date: Foundation.Date) -> Swift.Int
-  public func isFavorite(service: Swift.String?) -> Swift.Bool
+  nonisolated public func issueVersion(date: Foundation.Date) -> Swift.Int
+  nonisolated public func expungeVersion(date: Foundation.Date) -> Swift.Int
+  nonisolated public func layoutVersion(date: Foundation.Date) -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
+  nonisolated public func isFavorite(service: Swift.String?) -> Swift.Bool
+  #endif
 }
 extension PRCatalogModel.Magazine {
-  @objc override dynamic public var sourceType: PRCatalogModel.PRSourceType {
+  @objc override nonisolated dynamic public var sourceType: PRCatalogModel.PRSourceType {
     @objc get
   }
 }
 extension PRCatalogModel.Newspaper {
-  @objc override dynamic public var sourceType: PRCatalogModel.PRSourceType {
+  @objc override nonisolated dynamic public var sourceType: PRCatalogModel.PRSourceType {
     @objc get
   }
 }
@@ -4766,7 +5876,9 @@ extension PRCatalogModel.Newspaper {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(type: PRAPI.CatalogBanner.BannerType, title: Swift.String? = nil, subtitle: Swift.String? = nil, attributedSubtitle: Foundation.NSAttributedString? = nil, image: UIKit.UIImage? = nil, thumbnail: PRThumbnail.PRThumbnailObject? = nil, impression: (() -> ())? = nil, action: (() -> ())? = nil)
+  #endif
   @objc deinit
 }
 extension PRAPI.PRSubscription {

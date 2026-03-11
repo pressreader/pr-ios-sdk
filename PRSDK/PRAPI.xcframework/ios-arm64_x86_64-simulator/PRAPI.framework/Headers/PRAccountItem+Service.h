@@ -35,8 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestUserProfile:(nullable void(^)(BOOL success, NSError * _Nullable error))completionBlock;
 - (void) requestPremiumTrialEligibility;
 
-@property (nonatomic, readonly) PRPromise *initialHotspotStatusRequest;
-
 @end
 
 NS_ASSUME_NONNULL_END

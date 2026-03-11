@@ -120,6 +120,7 @@ typedef NS_ENUM(NSUInteger, PRSubscriptionStatus) {
 @property (nonatomic, readonly, getter=isPremiumProductWithTrial) BOOL premiumProductWithTrial;
 @property (nonatomic, readonly) NSInteger accountNumber;
 @property (null_resettable, nonatomic, strong) PRPromise *authTicketRequest;
+@property (nonatomic, strong) PRPromise *initialHotspotStatusRequest;
 @property (nonatomic, readonly) BOOL hasAuthTicket;
 @property (nullable, nonatomic, strong) NSDate * ticketExpirationDate;
 @property (nullable, nonatomic, strong) NSDate *requestingNewMessagesDate;
