@@ -100,6 +100,14 @@ final class RootModel {
     var isCatalogEnabled: Bool {
         !self.isDismissed && !self.cids.isEmpty && !self.isLocalService
     }
+    
+    var booksEnabled: Bool {
+        true
+    }
+
+    var gamesEnabled: Bool {
+        true
+    }
 
     var isLoggingEnabled: Bool {
         !self.isDismissed
@@ -115,6 +123,14 @@ final class RootModel {
 
     var downloadedItemsCount: Int {
         self.downloaded?.items.count ?? 0
+    }
+    
+    var books: [Book] {
+        []
+    }
+    
+    var games: [Games] {
+        []
     }
     
     var articles: [String] {
@@ -217,20 +233,34 @@ final class RootModel {
     }
 
     func getLogs() {
+        guard let pressreader else { return }
+        
         let hud = MBProgressHUD.showWindowHUD(withTitle: "Uploading...", message: nil, animated: true)
-        self.pressreader?
-            .getLogs { (result: Result<(linkToUploadedLogs: URL,
-                                        additionalInfo: String), Error>) in
+        
+        Task {
+            @MainActor
+            func presentResults(title: String, message: String) {
                 hud.hide(animated: false)
-
-                switch result {
-                case .success (let (link, extraInfo)):
-                    UIAlertController.presentDismissableAlert(withTitle: "Logs uploaded", message: "\(link.absoluteString)\n\n\(extraInfo)")
-                case .failure(let error):
-                    UIAlertController.presentDismissableAlert(withTitle: "Error", message: error.localizedDescription)
+                UIAlertController.presentDismissableAlert(
+                    withTitle: title,
+                    message: message
+                )
+            }
+            
+            do {
+                let logInfo = try await pressreader.getLogs()
+                presentResults(
+                    title: "Logs uploaded",
+                    message: "\(logInfo.linkToUploadedLogs.absoluteString)\n\n\(logInfo.additionalInfo)"
+                )
+            }
+            catch {
+                presentResults(
+                    title: "Error",
+                    message: error.localizedDescription
+                )
             }
         }
-
     }
         
     // MARK: - Notifications

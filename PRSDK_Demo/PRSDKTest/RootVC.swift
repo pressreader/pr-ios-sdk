@@ -16,7 +16,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     // MARK: - Nested Types
     
     private enum Section: Int {
-        case service, fullUI, auth, log, dismiss, catalog, downloaded, articles
+        case service, fullUI, auth, log, dismiss
+        case catalog, downloaded
+        case articles
+        case books
+        case games
     }
         
     // MARK: - Private Properties
@@ -262,6 +266,9 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             if model.isArticleSetEnabled {
                 sections .append(.articles)
             }
+            
+            sections.append(.books)
+            sections.append(.games)
         }
         
         self.sections = sections
@@ -350,9 +357,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sections = self.sections
         let model = self.model
-        switch sections[section] {
+        
+        return switch sections[section] {
         case .auth:
-            return switch model.authorizationData {
+            switch model.authorizationData {
             case .giftToken:
                 2
             case .externalAuthToken:
@@ -361,13 +369,17 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 : 3
             }
         case .catalog:
-            return model.catalogItemsCount
+            model.catalogItemsCount
         case .downloaded:
-            return model.downloadedItemsCount
+            model.downloadedItemsCount
         case .articles:
-            return model.articles.count
+            model.articles.count
+        case .books:
+            model.books.count
+        case .games:
+            model.games.count
         default:
-            return 1
+            1
         }
     }
     
@@ -427,6 +439,18 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             var content = cell.defaultContentConfiguration()
             content.text = "id: \(model.articles[indexPath.row])"
             cell.contentConfiguration = content
+            
+        case .books:
+            let _cell = self.issueCell(tableView, indexPath: indexPath)
+            //_cell.issue = model.catalogItem(at: indexPath.row)
+
+            cell = _cell
+
+        case .games:
+            let _cell = self.issueCell(tableView, indexPath: indexPath)
+            //_cell.issue = model.catalogItem(at: indexPath.row)
+
+            cell = _cell
         }
         
         return cell
@@ -507,12 +531,17 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func tableView(_ tableView: UITableView,
                             titleForHeaderInSection section: Int) -> String?
     {
-        switch self.sections[section] {
+        let model = self.model
+        let disabled = " (disabled by config)"
+        
+        return switch self.sections[section] {
         case .auth: "Authorization"
         case .log: "Logs"
         case .catalog: "Catalog"
         case .downloaded: "Downloaded"
         case .articles: "Articles"
+        case .books: "Books" + (model.booksEnabled ? "" : disabled)
+        case .games: "Games" + (model.gamesEnabled ? "" : disabled)
         default: nil
         }
     }
