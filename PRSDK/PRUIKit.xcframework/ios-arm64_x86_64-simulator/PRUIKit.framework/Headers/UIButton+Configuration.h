@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@import PRSyntacticSugar;
+#import <PRSyntacticSugar/PRSyntacticSugar.h>
 
 typedef void (^PRButtonConfigurationBlock)(UIButtonConfiguration * _Nonnull config);
 

@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
 // swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRDIContainer
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
 import Foundation
 @_exported import PRDIContainer
 import Swift
@@ -10,19 +10,29 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public protocol DependencyResolver {
+  #if compiler(>=5.3) && $NonescapableTypes
   static func resolveDependency<T>() -> T?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func resolveDependency<T>() -> T?
+  #endif
 }
 extension PRDIContainer.DependencyResolver {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func resolveDependency<T>() -> T?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func resolveDependency<T>() -> T?
+  #endif
 }
 extension ObjectiveC.NSObject : PRDIContainer.DependencyResolver {
 }
 @propertyWrapper public struct Inject<T> {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var wrappedValue: T? {
     get
   }
+  #endif
   public init()
 }
 @available(*, unavailable)
@@ -36,8 +46,12 @@ extension ObjectiveC.NSObject : PRDIContainer.DependencyResolver {
 }
 @available(*, unavailable)
 @objc extension PRDIContainer.DIContainer {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func resolveForKey(_ key: PRDIContainer.DIContainer.Key) -> Any?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func resolveForType(_ type: Swift.AnyClass) -> Any?
+  #endif
 }
 @objc @_inheritsConvenienceInitializers final public class DIContainer : ObjectiveC.NSObject {
   public typealias Key = Swift.String
@@ -58,19 +72,27 @@ extension ObjectiveC.NSObject : PRDIContainer.DependencyResolver {
   @objc deinit
 }
 extension PRDIContainer.DIContainer {
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func register<T>(_ type: T.Type, key: PRDIContainer.DIContainer.Key? = nil, overrideRegistered: Swift.Bool = true, memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong) where T : ObjectiveC.NSObject
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func register<T>(_ key: PRDIContainer.DIContainer.Key? = nil, memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong, overrideRegistered: Swift.Bool = true, initializer: @escaping PRDIContainer.DIContainer.Initializer<T>)
+  #endif
   final public func registerMock<T>(_ type: T.Type = T.self, memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong, overrideRegistered: Swift.Bool = true) where T : ObjectiveC.NSObject
   final public func registerMock<T>(memoryManagement: PRDIContainer.DIContainer.MemoryManagement = .strong, overrideRegistered: Swift.Bool = true, initializer: @escaping PRDIContainer.DIContainer.Initializer<T>) where T : ObjectiveC.NSObject
 }
 extension PRDIContainer.DIContainer {
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func resolve<T>(key: PRDIContainer.DIContainer.Key? = nil) -> T?
+  #endif
   final public func enumerateRegisteredDependencies(_ handler: (Any) -> ())
 }
 extension PRDIContainer.DIContainer {
   @objc(hasDependencyForKey:) final public func hasDependency(key: PRDIContainer.DIContainer.Key) -> Swift.Bool
   final public func hasDependency<T>(type: T.Type) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func resolvedStrongDependency<T>(key: PRDIContainer.DIContainer.Key) -> T?
+  #endif
 }
 extension PRDIContainer.DIContainer {
   @objc(removeDependencyForKey:) final public func remove(key: PRDIContainer.DIContainer.Key)

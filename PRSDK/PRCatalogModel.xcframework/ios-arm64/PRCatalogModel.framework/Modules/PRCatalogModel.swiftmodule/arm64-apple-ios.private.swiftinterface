@@ -1,12 +1,13 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRCatalogModel
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios17.6 -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRCatalogModel
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import Combine
 import CoreData
 import CoreGraphics
 import Foundation
 @_exported import PRCatalogModel
+import PRConfiguration
 import PRCoreDataUtils
 import PRLogKit
 import PRSyntacticSugar
@@ -14,8 +15,8 @@ import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@_inheritsConvenienceInitializers @objc(PressCatalog) final public class PressCatalog : CoreData.NSManagedObject {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(PressCatalog) final nonisolated public class PressCatalog : CoreData.NSManagedObject {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Supplier {
@@ -23,54 +24,54 @@ extension PRCatalogModel.Supplier {
 }
 extension PRCatalogModel.CatalogItemContent {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CatalogItemContent>
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var type: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var type: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var options: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var options: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var isDownloaded: Swift.Bool {
+  @objc @NSManaged nonisolated dynamic public var isDownloaded: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var viewerPage: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var viewerPage: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalogItem: PRCatalogModel.CatalogItem {
+  @objc @NSManaged nonisolated dynamic public var catalogItem: PRCatalogModel.CatalogItem {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var offlineAccessDate: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var offlineAccessDate: Foundation.Date? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.EPubLocator {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.EPubLocator>
-  @objc @NSManaged dynamic public var href: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var href: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var type: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var type: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var position: Swift.Int64 {
+  @objc @NSManaged nonisolated dynamic public var position: Swift.Int64 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var relativePosition: Swift.Int64 {
+  @objc @NSManaged nonisolated dynamic public var relativePosition: Swift.Int64 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var partialCfi: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var partialCfi: Swift.String? {
     @objc get
     @objc set
   }
@@ -79,37 +80,37 @@ extension PRCatalogModel.EPubLocator : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
 extension PRCatalogModel.CatalogItem {
-  public var allContents: [PRCatalogModel.CatalogItemContent]? {
+  nonisolated public var allContents: [PRCatalogModel.CatalogItemContent]? {
     get
   }
-  public func content<T>(options: PRCatalogModel.CatalogItemContentOption = []) -> T? where T : PRCatalogModel.CatalogItemContent
-  @objc dynamic public func content(options: PRCatalogModel.CatalogItemContentOption) -> PRCatalogModel.CatalogItemContent?
-  public func setContent(_ content: PRCatalogModel.CatalogItemContent?, options: PRCatalogModel.CatalogItemContentOption = [])
-  public func markContentLicenseExpired(_ isExpired: Swift.Bool, options: PRCatalogModel.CatalogItemContentOption)
-  @objc dynamic public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Bool
+  nonisolated public func content<T>(options: PRCatalogModel.CatalogItemContentOption = []) -> T? where T : PRCatalogModel.CatalogItemContent
+  @objc nonisolated dynamic public func content(options: PRCatalogModel.CatalogItemContentOption) -> PRCatalogModel.CatalogItemContent?
+  nonisolated public func setContent(_ content: PRCatalogModel.CatalogItemContent?, options: PRCatalogModel.CatalogItemContentOption = [])
+  nonisolated public func markContentLicenseExpired(_ isExpired: Swift.Bool, options: PRCatalogModel.CatalogItemContentOption)
+  @objc nonisolated dynamic public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Bool
 }
 extension PRCatalogModel.Genre {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Genre>
 }
 extension PRCatalogModel.Book {
-  @objc override final public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Bool
+  @objc override nonisolated final public func isInMyLibrary(contentOptions: PRCatalogModel.CatalogItemContentOption = []) -> Swift.Bool
 }
 extension PRCatalogModel.PageHyperlink {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PageHyperlink>
-  @objc @NSManaged dynamic public var url: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var url: Swift.String {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.FragmentEndLocator {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.FragmentEndLocator>
-  @objc @NSManaged dynamic public var fragment: PRCatalogModel.BookFragment {
+  @objc @NSManaged nonisolated dynamic public var fragment: PRCatalogModel.BookFragment {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(Section) final public class Section : PRCatalogModel.CatalogEntity {
-  public enum Id : Swift.String, Swift.CaseIterable {
+@_inheritsConvenienceInitializers @objc(Section) final nonisolated public class Section : PRCatalogModel.CatalogEntity {
+  public enum Id : Swift.String, Swift.CaseIterable, Swift.Sendable {
     case all
     case featured
     case free
@@ -131,44 +132,44 @@ extension PRCatalogModel.FragmentEndLocator {
   public static func item(id: PRCatalogModel.Section.Id, data: Swift.String? = nil, order: PRCatalogModel.CatalogEntity.LoadingOrder? = nil, catalog: PRCatalogModel.Catalog) throws -> Self
   public static func item(id: PRCatalogModel.Section.Id, cids: [Swift.String]?, order: PRCatalogModel.CatalogEntity.LoadingOrder? = nil, catalog: PRCatalogModel.Catalog) throws -> Self
   public static func item(id: PRCatalogModel.Section.Id, catalog: PRCatalogModel.Catalog) throws -> Self?
-  override final public var recommendedBatchSize: Swift.Int {
+  override nonisolated final public var recommendedBatchSize: Swift.Int {
     get
   }
-  final public var sectionId: PRCatalogModel.Section.Id? {
+  nonisolated final public var sectionId: PRCatalogModel.Section.Id? {
     get
   }
-  override final public var loadingPath: Swift.String {
+  override nonisolated final public var loadingPath: Swift.String {
     get
   }
-  override final public var navigationTypes: [PRCatalogModel.CatalogNavigationScope] {
+  override nonisolated final public var navigationTypes: [PRCatalogModel.CatalogNavigationScope] {
     get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.PageArea {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PageArea>
-  @objc @NSManaged dynamic public var type: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var type: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var x: Swift.Double {
+  @objc @NSManaged nonisolated dynamic public var x: Swift.Double {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var y: Swift.Double {
+  @objc @NSManaged nonisolated dynamic public var y: Swift.Double {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var width: Swift.Double {
+  @objc @NSManaged nonisolated dynamic public var width: Swift.Double {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var height: Swift.Double {
+  @objc @NSManaged nonisolated dynamic public var height: Swift.Double {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var element: PRCatalogModel.PageElement {
+  @objc @NSManaged nonisolated dynamic public var element: PRCatalogModel.PageElement {
     @objc get
     @objc set
   }
@@ -198,7 +199,7 @@ public enum CatalogNavigationScope : Swift.String, Swift.CaseIterable {
     get
   }
 }
-public struct CatalogNavigationDTO {
+public struct CatalogNavigationDTO : Swift.Sendable {
   public let id: Swift.String
   public let displayName: Swift.String
   public let name: Swift.String
@@ -214,83 +215,83 @@ extension PRCatalogModel.CatalogNavigationDTO : Swift.Decodable {
 }
 extension PRCatalogModel.PressCatalog {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PressCatalog>
-  @objc @NSManaged dynamic final public var catalogs: Swift.Set<PRCatalogModel.Catalog>? {
+  @objc @NSManaged nonisolated dynamic final public var catalogs: Swift.Set<PRCatalogModel.Catalog>? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.PressCatalog {
-  @objc(addCatalogsObject:) @NSManaged dynamic final public func addToCatalogs(_ value: PRCatalogModel.Catalog)
-  @objc(removeCatalogsObject:) @NSManaged dynamic final public func removeFromCatalogs(_ value: PRCatalogModel.Catalog)
+  @objc(addCatalogsObject:) @NSManaged nonisolated dynamic final public func addToCatalogs(_ value: PRCatalogModel.Catalog)
+  @objc(removeCatalogsObject:) @NSManaged nonisolated dynamic final public func removeFromCatalogs(_ value: PRCatalogModel.Catalog)
 }
 extension PRCatalogModel.PressCatalog : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
-@_inheritsConvenienceInitializers @objc(FragmentStartLocator) public class FragmentStartLocator : PRCatalogModel.EPubLocator {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(FragmentStartLocator) nonisolated public class FragmentStartLocator : PRCatalogModel.EPubLocator {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(Genre) final public class Genre : PRCatalogModel.CatalogEntity {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Genre) final nonisolated public class Genre : PRCatalogModel.CatalogEntity {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.ContentLicense {
   public struct AttributeName {
   }
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.ContentLicense>
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var start: Foundation.Date {
+  @objc @NSManaged nonisolated dynamic public var start: Foundation.Date {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var end: Foundation.Date {
+  @objc @NSManaged nonisolated dynamic public var end: Foundation.Date {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var statusUrl: Foundation.URL? {
+  @objc @NSManaged nonisolated dynamic public var statusUrl: Foundation.URL? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var content: PRCatalogModel.CatalogItemContent {
+  @objc @NSManaged nonisolated dynamic public var content: PRCatalogModel.CatalogItemContent {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var contentUrl: Foundation.URL {
+  @objc @NSManaged nonisolated dynamic public var contentUrl: Foundation.URL {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var encryptionKey: Foundation.Data? {
+  @objc @NSManaged nonisolated dynamic public var encryptionKey: Foundation.Data? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var contentHash: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var contentHash: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var userContext: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var userContext: Swift.String? {
     @objc get
     @objc set
   }
-  public var contentLength: Swift.UInt64! {
+  nonisolated public var contentLength: Swift.UInt64! {
     get
     set
   }
-  public var contentId: Swift.String {
+  nonisolated public var contentId: Swift.String {
     get
   }
 }
 extension PRCatalogModel.Section {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Section>
 }
-@_inheritsConvenienceInitializers @objc(Author) public class Author : PRCatalogModel.CatalogEntity {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Author) nonisolated public class Author : PRCatalogModel.CatalogEntity {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(HubNavigation) public class HubNavigation : PRCatalogModel.CatalogNavigation {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(HubNavigation) nonisolated public class HubNavigation : PRCatalogModel.CatalogNavigation {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.HubNavigation : PRCatalogModel.ScopeNavigation {
@@ -300,7 +301,7 @@ extension PRCatalogModel.Catalog : PRCatalogModel.NavigatableScope {
   public typealias Navigation = PRCatalogModel.HubNavigation
 }
 extension PRCatalogModel.CatalogItem {
-  public struct State : Swift.OptionSet {
+  public struct State : Swift.OptionSet, Swift.Sendable {
     public let rawValue: Swift.Int32
     public init(rawValue: Swift.Int32)
     public static let locked: PRCatalogModel.CatalogItem.State
@@ -313,7 +314,7 @@ extension PRCatalogModel.CatalogItem {
     public typealias Element = PRCatalogModel.CatalogItem.State
     public typealias RawValue = Swift.Int32
   }
-  public var itemState: PRCatalogModel.CatalogItem.State {
+  nonisolated public var itemState: PRCatalogModel.CatalogItem.State {
     get
     set
   }
@@ -323,42 +324,42 @@ extension PRCatalogModel.Books {
 }
 extension PRCatalogModel.ContentPage {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.ContentPage>
-  @objc @NSManaged dynamic public var height: Swift.Int32 {
+  @objc @NSManaged nonisolated dynamic public var height: Swift.Int32 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var imageId: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var imageId: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var number: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var number: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var width: Swift.Int32 {
+  @objc @NSManaged nonisolated dynamic public var width: Swift.Int32 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var documentContent: PRCatalogModel.DocumentContent {
+  @objc @NSManaged nonisolated dynamic public var documentContent: PRCatalogModel.DocumentContent {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var elements: Swift.Set<PRCatalogModel.PageElement>? {
+  @objc @NSManaged nonisolated dynamic public var elements: Swift.Set<PRCatalogModel.PageElement>? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.ContentPage {
-  @objc(addElementsObject:) @NSManaged dynamic public func addToElements(_ value: PRCatalogModel.PageElement)
-  @objc(removeElementsObject:) @NSManaged dynamic public func removeFromElements(_ value: PRCatalogModel.PageElement)
-  @objc(addElements:) @NSManaged dynamic public func addToElements(_ values: Swift.Set<PRCatalogModel.PageElement>)
-  @objc(removeElements:) @NSManaged dynamic public func removeFromElements(_ values: Swift.Set<PRCatalogModel.PageElement>)
+  @objc(addElementsObject:) @NSManaged nonisolated dynamic public func addToElements(_ value: PRCatalogModel.PageElement)
+  @objc(removeElementsObject:) @NSManaged nonisolated dynamic public func removeFromElements(_ value: PRCatalogModel.PageElement)
+  @objc(addElements:) @NSManaged nonisolated dynamic public func addToElements(_ values: Swift.Set<PRCatalogModel.PageElement>)
+  @objc(removeElements:) @NSManaged nonisolated dynamic public func removeFromElements(_ values: Swift.Set<PRCatalogModel.PageElement>)
 }
 extension PRCatalogModel.ContentPage : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
-@_inheritsConvenienceInitializers @objc(Region) public class Region : PRCatalogModel.CatalogEntity {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Region) nonisolated public class Region : PRCatalogModel.CatalogEntity {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Region {
@@ -366,7 +367,11 @@ extension PRCatalogModel.Region {
 }
 extension PRCatalogModel.CatalogFilter {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CatalogFilter>
-  @objc @NSManaged dynamic final public var navigator: PRCatalogModel.CatalogNavigation {
+  @objc @NSManaged nonisolated dynamic final public var variants_: Foundation.NSOrderedSet? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic final public var navigator: PRCatalogModel.CatalogNavigation {
     @objc get
     @objc set
   }
@@ -377,69 +382,71 @@ extension PRCatalogModel.CatalogFilter : Swift.Identifiable {
 extension PRCatalogModel.Publisher {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Publisher>
 }
-@_inheritsConvenienceInitializers @objc(BookFragment) public class BookFragment : CoreData.NSManagedObject {
-  @objc override dynamic public func awakeFromInsert()
-  public func update(startLocator: PRCatalogModel.FragmentStartLocator, endLocator: PRCatalogModel.FragmentEndLocator, text: Swift.String? = nil, resourceTitle: Swift.String? = nil, pageLabel: Swift.String? = nil)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(BookFragment) nonisolated public class BookFragment : CoreData.NSManagedObject {
+  @objc override nonisolated dynamic public func awakeFromInsert()
+  nonisolated public func update(startLocator: PRCatalogModel.FragmentStartLocator, endLocator: PRCatalogModel.FragmentEndLocator, text: Swift.String? = nil, resourceTitle: Swift.String? = nil, pageLabel: Swift.String? = nil)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Catalog {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Catalog>
-  @objc @NSManaged dynamic public var created: Foundation.Date {
+  @objc @NSManaged nonisolated dynamic public var created: Foundation.Date {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var preloaded: Swift.Bool {
+  @objc @NSManaged nonisolated dynamic public var preloaded: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var entities: Swift.Set<PRCatalogModel.CatalogEntity>? {
+  @objc @NSManaged nonisolated dynamic public var entities: Swift.Set<PRCatalogModel.CatalogEntity>? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var navigation: PRCatalogModel.HubNavigation? {
+  @objc @NSManaged nonisolated dynamic public var hubEntities_: Foundation.NSOrderedSet? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var items: Swift.Set<PRCatalogModel.CatalogItem>? {
+  @objc @NSManaged nonisolated dynamic public var navigation: PRCatalogModel.HubNavigation? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var preferringItems: Swift.Set<PRCatalogModel.CatalogItem>? {
+  @objc @NSManaged nonisolated dynamic public var items: Swift.Set<PRCatalogModel.CatalogItem>? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var pressCatalog: PRCatalogModel.PressCatalog {
+  @objc @NSManaged nonisolated dynamic public var preferringItems: Swift.Set<PRCatalogModel.CatalogItem>? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var serviceName: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var pressCatalog: PRCatalogModel.PressCatalog {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var serviceName: Swift.String {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.Catalog {
-  @objc(addEntitiesObject:) @NSManaged dynamic public func addToEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(removeEntitiesObject:) @NSManaged dynamic public func removeFromEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(addEntities:) @NSManaged dynamic public func addToEntities(_ values: Foundation.NSSet)
-  @objc(removeEntities:) @NSManaged dynamic public func removeFromEntities(_ values: Foundation.NSSet)
+  @objc(addEntitiesObject:) @NSManaged nonisolated dynamic public func addToEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(removeEntitiesObject:) @NSManaged nonisolated dynamic public func removeFromEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(addEntities:) @NSManaged nonisolated dynamic public func addToEntities(_ values: Foundation.NSSet)
+  @objc(removeEntities:) @NSManaged nonisolated dynamic public func removeFromEntities(_ values: Foundation.NSSet)
 }
 extension PRCatalogModel.Catalog {
-  @objc(addItemsObject:) @NSManaged dynamic public func addToItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(removeItemsObject:) @NSManaged dynamic public func removeFromItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(addItems:) @NSManaged dynamic public func addToItems(_ values: Foundation.NSSet)
-  @objc(removeItems:) @NSManaged dynamic public func removeFromItems(_ values: Foundation.NSSet)
+  @objc(addItemsObject:) @NSManaged nonisolated dynamic public func addToItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(removeItemsObject:) @NSManaged nonisolated dynamic public func removeFromItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(addItems:) @NSManaged nonisolated dynamic public func addToItems(_ values: Foundation.NSSet)
+  @objc(removeItems:) @NSManaged nonisolated dynamic public func removeFromItems(_ values: Foundation.NSSet)
 }
 extension PRCatalogModel.Catalog : Swift.Identifiable {
   public typealias ID = Swift.String
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogItemContentOption : PRSyntacticSugar.PROptionSet {
-  @objc @available(swift, obsoleted: 1.0)
-  public static let none: PRCatalogModel.CatalogItemContentOption
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogItemContentOption : PRSyntacticSugar.PROptionSet, @unchecked Swift.Sendable {
   @objc public static let sample: PRCatalogModel.CatalogItemContentOption
   @objc(newContent) public static let new: PRCatalogModel.CatalogItemContentOption
   @objc required public init(rawValue: Swift.Int)
@@ -449,22 +456,22 @@ extension PRCatalogModel.Catalog : Swift.Identifiable {
   @objc deinit
 }
 extension PRCatalogModel.CatalogItemContent {
-  public var contentOptions: PRCatalogModel.CatalogItemContentOption {
+  nonisolated public var contentOptions: PRCatalogModel.CatalogItemContentOption {
     get
     set
   }
 }
 extension PRCatalogModel.Book {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Book>
-  @objc @NSManaged dynamic final public var isbn: Swift.String? {
+  @objc @NSManaged nonisolated dynamic final public var isbn: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic final public var subtitle: Swift.String? {
+  @objc @NSManaged nonisolated dynamic final public var subtitle: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic final public var prn: Swift.String? {
+  @objc @NSManaged nonisolated dynamic final public var prn: Swift.String? {
     @objc get
     @objc set
   }
@@ -472,32 +479,32 @@ extension PRCatalogModel.Book {
 extension PRCatalogModel.Country {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Country>
 }
-@_inheritsConvenienceInitializers @objc(ItemSeriesMetadata) public class ItemSeriesMetadata : PRCatalogModel.RelationshipMetadata {
+@_inheritsConvenienceInitializers @objc(ItemSeriesMetadata) nonisolated public class ItemSeriesMetadata : PRCatalogModel.RelationshipMetadata {
   public struct DTO {
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.ItemSeriesMetadata : PRCoreDataUtils.UpdatableMO {
   public typealias Payload = PRCatalogModel.ItemSeriesMetadata.DTO
   public static func payload(with info: [Swift.String : Any]) -> PRCatalogModel.ItemSeriesMetadata.Payload?
-  public func update(payload: PRCatalogModel.ItemSeriesMetadata.Payload)
+  nonisolated public func update(payload: PRCatalogModel.ItemSeriesMetadata.Payload)
 }
-@_inheritsConvenienceInitializers @objc(Books) final public class Books : PRCatalogModel.Catalog {
-  override final public var slug: Swift.String {
+@_inheritsConvenienceInitializers @objc(Books) final nonisolated public class Books : PRCatalogModel.Catalog {
+  override nonisolated final public var slug: Swift.String {
     get
   }
-  override final public func item(from json: [Swift.String : Any], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  override nonisolated final public func item(from json: [Swift.String : any Swift.Sendable], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 public protocol Issuable : PRCatalogModel.CatalogItem {
   associatedtype IssueType : PRCatalogModel.CatalogIssue, PRCatalogModel.Issue
   var date: Foundation.Date? { get set }
-  func issue(info: [Swift.String : Any]) throws -> Self.IssueType
+  func issue(info: [Swift.String : any Swift.Sendable]) throws -> Self.IssueType
 }
 extension PRCatalogModel.Issuable {
-  public func issue(info: [Swift.String : Any]) throws -> Self.IssueType
+  public func issue(info: [Swift.String : any Swift.Sendable]) throws -> Self.IssueType
 }
 extension PRCatalogModel.Issuable {
   public var latest: Self.IssueType? {
@@ -506,11 +513,11 @@ extension PRCatalogModel.Issuable {
   }
   public func issue(date: Foundation.Date, id: Swift.String) throws -> Self.IssueType
   public func issue(date: Foundation.Date) throws -> Self.IssueType?
-  public func _issue(info: [Swift.String : Any]) throws -> Self.IssueType
+  public func _issue(info: [Swift.String : any Swift.Sendable]) throws -> Self.IssueType
 }
 extension PRCatalogModel.Document {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Document>
-  @objc @NSManaged dynamic public var ownerId: Swift.Int64 {
+  @objc @NSManaged nonisolated dynamic public var ownerId: Swift.Int64 {
     @objc get
     @objc set
   }
@@ -518,71 +525,76 @@ extension PRCatalogModel.Document {
 extension PRCatalogModel.Game {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Game>
 }
-@_inheritsConvenienceInitializers @objc(GameIssue) public class GameIssue : PRCatalogModel.CatalogIssue {
-  public func updateProgress(json: [Swift.String : Any]?)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(GameIssue) nonisolated public class GameIssue : PRCatalogModel.CatalogIssue {
+  nonisolated public func updateProgress(json: [Swift.String : Any]?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.GameIssue : PRCatalogModel.Issue {
   public typealias IssueType = PRCatalogModel.GameIssue
 }
-@_inheritsConvenienceInitializers @objc(Games) public class Games : PRCatalogModel.Catalog {
-  override public var slug: Swift.String {
+@_inheritsConvenienceInitializers @objc(Games) nonisolated public class Games : PRCatalogModel.Catalog {
+  override nonisolated public var slug: Swift.String {
     get
   }
-  override public var featuredSection: PRCatalogModel.CatalogEntity? {
+  override nonisolated public var featuredSection: PRCatalogModel.CatalogEntity? {
     get
   }
-  override public func item(from json: [Swift.String : Any], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  override nonisolated public func item(from json: [Swift.String : any Swift.Sendable], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Games {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Games>
 }
-@_inheritsConvenienceInitializers @objc(Game) public class Game : PRCatalogModel.CatalogItem {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Game) nonisolated public class Game : PRCatalogModel.CatalogItem {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Series {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Series>
 }
 extension PRCatalogModel.CatalogEntity : PRCatalogModel.CatalogableMO {
-  public func setCatalog(_ catalog: PRCatalogModel.Catalog)
+  nonisolated public func setCatalog(_ catalog: PRCatalogModel.Catalog)
 }
 extension PRCatalogModel.CatalogEntity : PRCoreDataUtils.IdentifiableMO {
   public static func item(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) throws -> Self
   public static func item(info: PRCatalogModel.CatalogNavigationDTO, catalog: PRCatalogModel.Catalog, scope: PRCatalogModel.CatalogEntity? = nil, forceUpdate: Swift.Bool = false) throws -> Self
-  public func metadata<T>(catalogItem: PRCatalogModel.CatalogItem) -> T? where T : PRCatalogModel.RelationshipMetadata
+  nonisolated public func metadata<T>(catalogItem: PRCatalogModel.CatalogItem) -> T? where T : PRCatalogModel.RelationshipMetadata
   @discardableResult
-  public func processLoadedItems(info: [Swift.String : Any]) throws -> [PRCatalogModel.CatalogItem]
+  nonisolated public func processLoadedItems(info: [Swift.String : any Swift.Sendable]) throws -> [PRCatalogModel.CatalogItem]
 }
-@_inheritsConvenienceInitializers @objc(Downloads) public class Downloads : CoreData.NSManagedObject {
+@_inheritsConvenienceInitializers @objc(Downloads) nonisolated public class Downloads : CoreData.NSManagedObject {
   @objc public static func instance(_ context: CoreData.NSManagedObjectContext) -> PRCatalogModel.Downloads
-  @objc public var catalogItems: [PRCatalogModel.CatalogItem]? {
+  @objc nonisolated public var catalogItems: [PRCatalogModel.CatalogItem]? {
     @objc get
   }
-  public func filteredItems<T>(_ isIncluded: ((T) -> Swift.Bool)? = nil) -> [T] where T : PRCatalogModel.CatalogItem
-  public func filteredItems<T>(_ isIncluded: ((T) -> Swift.Bool)? = nil) -> [T]? where T : PRCatalogModel.CatalogItem
-  @objc public func deleteAllItems()
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  nonisolated public func filteredItems<T>(_ isIncluded: ((T) -> Swift.Bool)? = nil) -> [T] where T : PRCatalogModel.CatalogItem
+  nonisolated public func filteredItems<T>(_ isIncluded: ((T) -> Swift.Bool)? = nil) -> [T]? where T : PRCatalogModel.CatalogItem
+  @objc nonisolated public func deleteAllItems()
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(Document) public class Document : PRCatalogModel.CatalogItem {
-  @objc public var documentContent: PRCatalogModel.DocumentContent? {
+extension PRCatalogModel.TitleIssue {
+  nonisolated public var restrictions: PRCatalogModel.TitleIssue.Capabilities {
+    get
+  }
+  nonisolated public func update(restrictions: [Swift.String : any Swift.Sendable])
+}
+@_inheritsConvenienceInitializers @objc(Document) nonisolated public class Document : PRCatalogModel.CatalogItem {
+  @objc nonisolated public var documentContent: PRCatalogModel.DocumentContent? {
     @objc get
   }
-  public func update(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  nonisolated public func update(info: [Swift.String : any Swift.Sendable], catalog: PRCatalogModel.Catalog)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(CatalogNavigation) public class CatalogNavigation : CoreData.NSManagedObject {
-  @PRCoreDataUtils.CDOrderedSetArrayRepresentation public var filters: [PRCatalogModel.CatalogFilter] {
+@_inheritsConvenienceInitializers @objc(CatalogNavigation) nonisolated public class CatalogNavigation : CoreData.NSManagedObject {
+  nonisolated public var filters: [PRCatalogModel.CatalogFilter] {
     get
     set
-    _modify
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 public protocol ScopeNavigation : CoreData.NSManagedObject {
@@ -598,71 +610,71 @@ public protocol NavigatableScope : CoreData.NSManagedObject {
 }
 extension PRCatalogModel.TitleItem : PRCatalogModel.Issuable {
   public typealias IssueType = PRCatalogModel.TitleIssue
-  public func issue(info: [Swift.String : Any]) throws -> PRCatalogModel.TitleItem.IssueType
+  nonisolated public func issue(info: [Swift.String : any Swift.Sendable]) throws -> PRCatalogModel.TitleItem.IssueType
 }
 extension PRCatalogModel.HubNavigation {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.HubNavigation>
-  @objc @NSManaged dynamic public var scope: PRCatalogModel.Catalog {
+  @objc @NSManaged nonisolated dynamic public var scope: PRCatalogModel.Catalog {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.Highlight {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Highlight>
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var color: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var color: Swift.String {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(PageHyperlink) public class PageHyperlink : PRCatalogModel.PageElement {
+@_inheritsConvenienceInitializers @objc(PageHyperlink) nonisolated public class PageHyperlink : PRCatalogModel.PageElement {
   override public class func create(with info: [Swift.String : Any], context: CoreData.NSManagedObjectContext?) -> Self?
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(CatalogLoading) final public class CatalogLoading : PRCatalogModel.Loading {
+@_inheritsConvenienceInitializers @objc(CatalogLoading) final nonisolated public class CatalogLoading : PRCatalogModel.Loading {
   final public class func item(entity: PRCatalogModel.CatalogEntity) throws -> PRCatalogModel.CatalogLoading
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(Publications) final public class Publications : PRCatalogModel.Catalog {
-  override final public var slug: Swift.String {
+@_inheritsConvenienceInitializers @objc(Publications) final nonisolated public class Publications : PRCatalogModel.Catalog {
+  override nonisolated final public var slug: Swift.String {
     get
   }
-  override final public func item(from json: [Swift.String : Any], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  override nonisolated final public func item(from json: [Swift.String : any Swift.Sendable], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.DocumentContent {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.DocumentContent>
-  @objc @NSManaged dynamic final public var pages: Foundation.NSOrderedSet? {
+  @objc @NSManaged nonisolated dynamic final public var pages: Foundation.NSOrderedSet? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.DocumentContent {
-  @objc(insertObject:inPagesAtIndex:) @NSManaged dynamic final public func insertIntoPages(_ value: PRCatalogModel.ContentPage, at idx: Swift.Int)
-  @objc(removeObjectFromPagesAtIndex:) @NSManaged dynamic final public func removeFromPages(at idx: Swift.Int)
-  @objc(insertPages:atIndexes:) @NSManaged dynamic final public func insertIntoPages(_ values: [PRCatalogModel.ContentPage], at indexes: Foundation.NSIndexSet)
-  @objc(removePagesAtIndexes:) @NSManaged dynamic final public func removeFromPages(at indexes: Foundation.NSIndexSet)
-  @objc(replaceObjectInPagesAtIndex:withObject:) @NSManaged dynamic final public func replacePages(at idx: Swift.Int, with value: PRCatalogModel.ContentPage)
-  @objc(replacePagesAtIndexes:withPages:) @NSManaged dynamic final public func replacePages(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.ContentPage])
-  @objc(addPagesObject:) @NSManaged dynamic final public func addToPages(_ value: PRCatalogModel.ContentPage)
-  @objc(removePagesObject:) @NSManaged dynamic final public func removeFromPages(_ value: PRCatalogModel.ContentPage)
-  @objc(addPages:) @NSManaged dynamic final public func addToPages(_ values: Foundation.NSOrderedSet)
-  @objc(removePages:) @NSManaged dynamic final public func removeFromPages(_ values: Foundation.NSOrderedSet)
+  @objc(insertObject:inPagesAtIndex:) @NSManaged nonisolated dynamic final public func insertIntoPages(_ value: PRCatalogModel.ContentPage, at idx: Swift.Int)
+  @objc(removeObjectFromPagesAtIndex:) @NSManaged nonisolated dynamic final public func removeFromPages(at idx: Swift.Int)
+  @objc(insertPages:atIndexes:) @NSManaged nonisolated dynamic final public func insertIntoPages(_ values: [PRCatalogModel.ContentPage], at indexes: Foundation.NSIndexSet)
+  @objc(removePagesAtIndexes:) @NSManaged nonisolated dynamic final public func removeFromPages(at indexes: Foundation.NSIndexSet)
+  @objc(replaceObjectInPagesAtIndex:withObject:) @NSManaged nonisolated dynamic final public func replacePages(at idx: Swift.Int, with value: PRCatalogModel.ContentPage)
+  @objc(replacePagesAtIndexes:withPages:) @NSManaged nonisolated dynamic final public func replacePages(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.ContentPage])
+  @objc(addPagesObject:) @NSManaged nonisolated dynamic final public func addToPages(_ value: PRCatalogModel.ContentPage)
+  @objc(removePagesObject:) @NSManaged nonisolated dynamic final public func removeFromPages(_ value: PRCatalogModel.ContentPage)
+  @objc(addPages:) @NSManaged nonisolated dynamic final public func addToPages(_ values: Foundation.NSOrderedSet)
+  @objc(removePages:) @NSManaged nonisolated dynamic final public func removeFromPages(_ values: Foundation.NSOrderedSet)
 }
 extension PRCatalogModel.ContentLocator {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.ContentLocator>
-  @objc @NSManaged dynamic public var content: PRCatalogModel.BookContent {
+  @objc @NSManaged nonisolated dynamic public var content: PRCatalogModel.BookContent {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(IssueCollection) final public class IssueCollection : PRCatalogModel.CatalogEntity {
+@_inheritsConvenienceInitializers @objc(IssueCollection) final nonisolated public class IssueCollection : PRCatalogModel.CatalogEntity {
   public enum Id : Swift.String, Swift.CaseIterable {
     case recentlyRead
     public init?(rawValue: Swift.String)
@@ -677,52 +689,55 @@ extension PRCatalogModel.ContentLocator {
   }
   public static func item(id: PRCatalogModel.IssueCollection.Id, info: [(cid: Swift.String, date: Foundation.Date)], catalog: PRCatalogModel.Catalog) throws -> Self
   final public class func item(id: PRCatalogModel.IssueCollection.Id, catalog: PRCatalogModel.Catalog) throws -> Self?
-  @PRCoreDataUtils.CDOrderedSetArrayRepresentation final public var issues: [PRCatalogModel.CatalogIssue] {
+  nonisolated final public var issues: [PRCatalogModel.CatalogIssue] {
     get
     set
-    _modify
   }
-  override final public var navigationTypes: [PRCatalogModel.CatalogNavigationScope] {
+  override nonisolated final public var navigationTypes: [PRCatalogModel.CatalogNavigationScope] {
     get
   }
-  final public var collectionId: PRCatalogModel.IssueCollection.Id? {
+  nonisolated final public var collectionId: PRCatalogModel.IssueCollection.Id? {
     get
   }
-  override final public var recommendedBatchSize: Swift.Int {
+  override nonisolated final public var recommendedBatchSize: Swift.Int {
     get
   }
-  final public func insertIssues(_ issues: [PRCatalogModel.CatalogIssue])
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  final nonisolated public func insertIssues(_ issues: [PRCatalogModel.CatalogIssue])
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.PageElement {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PageElement>
-  @objc @NSManaged dynamic public var page: PRCatalogModel.ContentPage {
+  @objc @NSManaged nonisolated dynamic public var page: PRCatalogModel.ContentPage {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var areas: Foundation.NSOrderedSet? {
+  @objc @NSManaged nonisolated dynamic public var areas: Foundation.NSOrderedSet? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.PageElement {
-  @objc(insertObject:inAreasAtIndex:) @NSManaged dynamic public func insertIntoAreas(_ value: PRCatalogModel.PageArea, at idx: Swift.Int)
-  @objc(removeObjectFromAreasAtIndex:) @NSManaged dynamic public func removeFromAreas(at idx: Swift.Int)
-  @objc(insertAreas:atIndexes:) @NSManaged dynamic public func insertIntoAreas(_ values: [PRCatalogModel.PageArea], at indexes: Foundation.NSIndexSet)
-  @objc(removeAreasAtIndexes:) @NSManaged dynamic public func removeFromAreas(at indexes: Foundation.NSIndexSet)
-  @objc(replaceObjectInAreasAtIndex:withObject:) @NSManaged dynamic public func replaceAreas(at idx: Swift.Int, with value: PRCatalogModel.PageArea)
-  @objc(replaceAreasAtIndexes:withAreas:) @NSManaged dynamic public func replaceAreas(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.PageArea])
-  @objc(addAreasObject:) @NSManaged dynamic public func addToAreas(_ value: PRCatalogModel.PageArea)
-  @objc(removeAreasObject:) @NSManaged dynamic public func removeFromAreas(_ value: PRCatalogModel.PageArea)
-  @objc(addAreas:) @NSManaged dynamic public func addToAreas(_ values: Foundation.NSOrderedSet)
-  @objc(removeAreas:) @NSManaged dynamic public func removeFromAreas(_ values: Foundation.NSOrderedSet)
+  @objc(insertObject:inAreasAtIndex:) @NSManaged nonisolated dynamic public func insertIntoAreas(_ value: PRCatalogModel.PageArea, at idx: Swift.Int)
+  @objc(removeObjectFromAreasAtIndex:) @NSManaged nonisolated dynamic public func removeFromAreas(at idx: Swift.Int)
+  @objc(insertAreas:atIndexes:) @NSManaged nonisolated dynamic public func insertIntoAreas(_ values: [PRCatalogModel.PageArea], at indexes: Foundation.NSIndexSet)
+  @objc(removeAreasAtIndexes:) @NSManaged nonisolated dynamic public func removeFromAreas(at indexes: Foundation.NSIndexSet)
+  @objc(replaceObjectInAreasAtIndex:withObject:) @NSManaged nonisolated dynamic public func replaceAreas(at idx: Swift.Int, with value: PRCatalogModel.PageArea)
+  @objc(replaceAreasAtIndexes:withAreas:) @NSManaged nonisolated dynamic public func replaceAreas(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.PageArea])
+  @objc(addAreasObject:) @NSManaged nonisolated dynamic public func addToAreas(_ value: PRCatalogModel.PageArea)
+  @objc(removeAreasObject:) @NSManaged nonisolated dynamic public func removeFromAreas(_ value: PRCatalogModel.PageArea)
+  @objc(addAreas:) @NSManaged nonisolated dynamic public func addToAreas(_ values: Foundation.NSOrderedSet)
+  @objc(removeAreas:) @NSManaged nonisolated dynamic public func removeFromAreas(_ values: Foundation.NSOrderedSet)
 }
 extension PRCatalogModel.PageElement : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
 extension PRCatalogModel.CatalogNavigation {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CatalogNavigation>
+  @objc @NSManaged nonisolated dynamic public var filters_: Foundation.NSOrderedSet? {
+    @objc get
+    @objc set
+  }
 }
 extension PRCatalogModel.CatalogNavigation : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
@@ -730,62 +745,61 @@ extension PRCatalogModel.CatalogNavigation : Swift.Identifiable {
 extension Foundation.NSNotification.Name {
   public static let catalogWillBeDeleted: Foundation.Notification.Name
 }
-@_inheritsConvenienceInitializers @objc(Catalog) public class Catalog : CoreData.NSManagedObject {
+@_inheritsConvenienceInitializers @objc(Catalog) nonisolated public class Catalog : CoreData.NSManagedObject {
   public static func lookupItem(service: Swift.String, pressCatalog: PRCatalogModel.PressCatalog) -> Self?
   public static func item(service: Swift.String, pressCatalog: PRCatalogModel.PressCatalog) throws -> Self
-  @PRCoreDataUtils.CDOrderedSetArrayRepresentation public var hubEntities: [PRCatalogModel.CatalogEntity] {
+  nonisolated public var hubEntities: [PRCatalogModel.CatalogEntity] {
     get
     set
-    _modify
   }
-  public var slug: Swift.String {
+  nonisolated public var slug: Swift.String {
     get
   }
-  public var featuredSection: PRCatalogModel.CatalogEntity? {
+  nonisolated public var featuredSection: PRCatalogModel.CatalogEntity? {
     get
   }
-  required convenience public init(service: Swift.String, pressCatalog: PRCatalogModel.PressCatalog) throws
-  @objc override dynamic public func awakeFromInsert()
-  @objc override dynamic public func prepareForDeletion()
-  public func catalog(service: Swift.String) -> Self?
-  public func catalog(service: Swift.String) throws -> Self
-  public func item(from json: [Swift.String : Any], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  required convenience nonisolated public init(service: Swift.String, pressCatalog: PRCatalogModel.PressCatalog) throws
+  @objc override nonisolated dynamic public func awakeFromInsert()
+  @objc override nonisolated dynamic public func prepareForDeletion()
+  nonisolated public func catalog(service: Swift.String) -> Self?
+  nonisolated public func catalog(service: Swift.String) throws -> Self
+  nonisolated public func item(from json: [Swift.String : any Swift.Sendable], forceUpdate: Swift.Bool) throws -> PRCatalogModel.CatalogItem
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Catalog : PRCoreDataUtils.IdentifiableMO {
-  public func item<T>(with type: T.Type, predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T where T : CoreData.NSManagedObject
-  public func item<T>(with type: T.Type, predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T? where T : CoreData.NSManagedObject
-  public func query() -> PRCatalogModel.Query?
+  nonisolated public func item<T>(with type: T.Type, predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T where T : CoreData.NSManagedObject
+  nonisolated public func item<T>(with type: T.Type, predicate: Swift.String, context: CoreData.NSManagedObjectContext) -> T? where T : CoreData.NSManagedObject
+  nonisolated public func query() -> PRCatalogModel.Query?
 }
 extension PRCatalogModel.Catalog : PRSyntacticSugar.Emptiable {
-  @objc dynamic public var isEmpty: Swift.Bool {
+  @objc nonisolated dynamic public var isEmpty: Swift.Bool {
     @objc get
   }
 }
-@_inheritsConvenienceInitializers @objc(Book) final public class Book : PRCatalogModel.CatalogItem {
-  final public var license: PRCatalogModel.BookLicense? {
+@_inheritsConvenienceInitializers @objc(Book) final nonisolated public class Book : PRCatalogModel.CatalogItem {
+  nonisolated final public var license: PRCatalogModel.BookLicense? {
     get
   }
-  final public var hasValidLicense: Swift.Bool {
+  nonisolated final public var hasValidLicense: Swift.Bool {
     get
   }
-  final public func update(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  nonisolated final public func update(info: [Swift.String : any Swift.Sendable], catalog: PRCatalogModel.Catalog)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(ContentLicense) public class ContentLicense : CoreData.NSManagedObject, PRCoreDataUtils.IdentifiableMO {
-  public var isExpired: Swift.Bool {
+@_inheritsConvenienceInitializers @objc(ContentLicense) nonisolated public class ContentLicense : CoreData.NSManagedObject, PRCoreDataUtils.IdentifiableMO {
+  nonisolated public var isExpired: Swift.Bool {
     get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Game : PRCatalogModel.Issuable {
   public typealias IssueType = PRCatalogModel.GameIssue
 }
 extension PRCatalogModel.ContentLicense {
-  public struct State : Swift.OptionSet {
+  public struct State : Swift.OptionSet, Swift.Sendable {
     public let rawValue: Swift.Int32
     public init(rawValue: Swift.Int32)
     public static let expired: PRCatalogModel.ContentLicense.State
@@ -793,115 +807,133 @@ extension PRCatalogModel.ContentLicense {
     public typealias Element = PRCatalogModel.ContentLicense.State
     public typealias RawValue = Swift.Int32
   }
-  public var licenseState: PRCatalogModel.ContentLicense.State {
+  nonisolated public var licenseState: PRCatalogModel.ContentLicense.State {
+    get
+    set
+  }
+}
+extension PRCatalogModel.TitleIssue {
+  public struct Capabilities : Swift.OptionSet, Swift.Sendable {
+    public let rawValue: Swift.Int64
+    public init(rawValue: Swift.Int64)
+    public static let nominal: PRCatalogModel.TitleIssue.Capabilities
+    public static let sound: PRCatalogModel.TitleIssue.Capabilities
+    public static let translation: PRCatalogModel.TitleIssue.Capabilities
+    public static let sharing: PRCatalogModel.TitleIssue.Capabilities
+    public static let commenting: PRCatalogModel.TitleIssue.Capabilities
+    public static let replica: PRCatalogModel.TitleIssue.Capabilities
+    public typealias ArrayLiteralElement = PRCatalogModel.TitleIssue.Capabilities
+    public typealias Element = PRCatalogModel.TitleIssue.Capabilities
+    public typealias RawValue = Swift.Int64
+  }
+  nonisolated public var capabilities: PRCatalogModel.TitleIssue.Capabilities {
     get
     set
   }
 }
 extension PRCatalogModel.FragmentStartLocator {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.FragmentStartLocator>
-  @objc @NSManaged dynamic public var fragment: PRCatalogModel.BookFragment {
+  @objc @NSManaged nonisolated dynamic public var fragment: PRCatalogModel.BookFragment {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(Supplier) public class Supplier : PRCatalogModel.CatalogEntity {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Supplier) nonisolated public class Supplier : PRCatalogModel.CatalogEntity {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.BookContent {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.BookContent>
-  @objc @NSManaged dynamic public var currentLocator: PRCatalogModel.ContentLocator? {
+  @objc @NSManaged nonisolated dynamic public var currentLocator: PRCatalogModel.ContentLocator? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var fragments: Swift.Set<PRCatalogModel.BookFragment>? {
+  @objc @NSManaged nonisolated dynamic public var fragments: Swift.Set<PRCatalogModel.BookFragment>? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.BookContent {
-  @objc(addFragmentsObject:) @NSManaged dynamic public func addToFragments(_ value: PRCatalogModel.BookFragment)
-  @objc(removeFragmentsObject:) @NSManaged dynamic public func removeFromFragments(_ value: PRCatalogModel.BookFragment)
-  @objc(addFragments:) @NSManaged dynamic public func addToFragments(_ values: Swift.Set<PRCatalogModel.BookFragment>)
-  @objc(removeFragments:) @NSManaged dynamic public func removeFromFragments(_ values: Swift.Set<PRCatalogModel.BookFragment>)
+  @objc(addFragmentsObject:) @NSManaged nonisolated dynamic public func addToFragments(_ value: PRCatalogModel.BookFragment)
+  @objc(removeFragmentsObject:) @NSManaged nonisolated dynamic public func removeFromFragments(_ value: PRCatalogModel.BookFragment)
+  @objc(addFragments:) @NSManaged nonisolated dynamic public func addToFragments(_ values: Swift.Set<PRCatalogModel.BookFragment>)
+  @objc(removeFragments:) @NSManaged nonisolated dynamic public func removeFromFragments(_ values: Swift.Set<PRCatalogModel.BookFragment>)
 }
 extension PRCatalogModel.BookFragment {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.BookFragment>
-  @objc @NSManaged dynamic public var startLocator: PRCatalogModel.FragmentStartLocator {
+  @objc @NSManaged nonisolated dynamic public var startLocator: PRCatalogModel.FragmentStartLocator {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var endLocator: PRCatalogModel.FragmentEndLocator {
+  @objc @NSManaged nonisolated dynamic public var endLocator: PRCatalogModel.FragmentEndLocator {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var resourceTitle: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var resourceTitle: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var pageLabel: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var pageLabel: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var text: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var text: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var created: Foundation.Date {
+  @objc @NSManaged nonisolated dynamic public var created: Foundation.Date {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var content: PRCatalogModel.BookContent {
+  @objc @NSManaged nonisolated dynamic public var content: PRCatalogModel.BookContent {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(PageElement) public class PageElement : CoreData.NSManagedObject {
+@_inheritsConvenienceInitializers @objc(PageElement) nonisolated public class PageElement : CoreData.NSManagedObject {
   public class func create(with info: [Swift.String : Any], context: CoreData.NSManagedObjectContext?) -> Self?
-  public var pageAreas: [PRCatalogModel.PageArea]? {
+  nonisolated public var pageAreas: [PRCatalogModel.PageArea]? {
     get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(CatalogFilter) final public class CatalogFilter : CoreData.NSManagedObject {
-  @PRCoreDataUtils.CDOrderedSetArrayRepresentation final public var variants: [PRCatalogModel.CatalogEntity] {
+@_inheritsConvenienceInitializers @objc(CatalogFilter) final nonisolated public class CatalogFilter : CoreData.NSManagedObject {
+  nonisolated final public var variants: [PRCatalogModel.CatalogEntity] {
     get
     set
-    _modify
   }
-  convenience public init?(variants: [PRCatalogModel.CatalogEntity], navigation: PRCatalogModel.CatalogNavigation)
-  convenience public init(variants: [PRCatalogModel.CatalogEntity], navigation: PRCatalogModel.CatalogNavigation, context: CoreData.NSManagedObjectContext)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  convenience nonisolated public init?(variants: [PRCatalogModel.CatalogEntity], navigation: PRCatalogModel.CatalogNavigation)
+  convenience nonisolated public init(variants: [PRCatalogModel.CatalogEntity], navigation: PRCatalogModel.CatalogNavigation, context: CoreData.NSManagedObjectContext)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(CatalogIssue) public class CatalogIssue : CoreData.NSManagedObject {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(CatalogIssue) nonisolated public class CatalogIssue : CoreData.NSManagedObject {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CatalogIssue {
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var date: Foundation.Date {
+  @objc @NSManaged nonisolated dynamic public var date: Foundation.Date {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var progress: Swift.Float {
+  @objc @NSManaged nonisolated dynamic public var progress: Swift.Float {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalogItem: PRCatalogModel.CatalogItem {
+  @objc @NSManaged nonisolated dynamic public var catalogItem: PRCatalogModel.CatalogItem {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalogItemForLatest: PRCatalogModel.CatalogItem? {
+  @objc @NSManaged nonisolated dynamic public var catalogItemForLatest: PRCatalogModel.CatalogItem? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var collections: Swift.Set<PRCatalogModel.IssueCollection>? {
+  @objc @NSManaged nonisolated dynamic public var collections: Swift.Set<PRCatalogModel.IssueCollection>? {
     @objc get
     @objc set
   }
@@ -911,24 +943,30 @@ extension PRCatalogModel.CatalogIssue : Swift.Identifiable {
 }
 extension PRCatalogModel.CatalogLoading {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CatalogLoading>
-  @objc @NSManaged dynamic final public var catalogEntity: PRCatalogModel.CatalogEntity {
+  @objc @NSManaged nonisolated dynamic final public var catalogEntity: PRCatalogModel.CatalogEntity {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic final public var continuationToken: Swift.String? {
+  @objc @NSManaged nonisolated dynamic final public var continuationToken: Swift.String? {
     @objc get
     @objc set
   }
+}
+extension PRCatalogModel.PRSourceType : Swift.CaseIterable {
+  public static var allCases: [PRCatalogModel.PRSourceType] {
+    get
+  }
+  public typealias AllCases = [PRCatalogModel.PRSourceType]
 }
 extension PRCatalogModel.ItemSeriesMetadata {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.ItemSeriesMetadata>
-  @objc @NSManaged dynamic public var position: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var position: Swift.String {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(EPubLocator) public class EPubLocator : CoreData.NSManagedObject {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(EPubLocator) nonisolated public class EPubLocator : CoreData.NSManagedObject {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 public protocol Issue {
@@ -936,53 +974,53 @@ public protocol Issue {
   var catalogItem: PRCatalogModel.CatalogItem { get }
   var date: Foundation.Date { get }
 }
-@_inheritsConvenienceInitializers @objc(DocumentContent) final public class DocumentContent : PRCatalogModel.CatalogItemContent {
-  override final public var isSupportedContentType: Swift.Bool {
+@_inheritsConvenienceInitializers @objc(DocumentContent) final nonisolated public class DocumentContent : PRCatalogModel.CatalogItemContent {
+  override nonisolated final public var isSupportedContentType: Swift.Bool {
     get
   }
-  override final public func update(info: [Swift.String : Any])
-  @objc override final public func didTurnIntoFault()
-  final public func updatePages(with info: [[Swift.String : Any]])
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  override nonisolated final public func update(info: [Swift.String : Any])
+  @objc override nonisolated final public func didTurnIntoFault()
+  final nonisolated public func updatePages(with info: [[Swift.String : Any]])
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CatalogItemContent {
-  public var size: Swift.UInt64! {
+  nonisolated public var size: Swift.UInt64! {
     get
     set
   }
-  public var license: PRCatalogModel.ContentLicense? {
+  nonisolated public var license: PRCatalogModel.ContentLicense? {
     get
     set
   }
 }
-@_inheritsConvenienceInitializers @objc(ContentPage) public class ContentPage : CoreData.NSManagedObject {
-  public var hypelinks: [PRCatalogModel.PageHyperlink]? {
+@_inheritsConvenienceInitializers @objc(ContentPage) nonisolated public class ContentPage : CoreData.NSManagedObject {
+  nonisolated public var hypelinks: [PRCatalogModel.PageHyperlink]? {
     get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Bookmark {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Bookmark>
 }
 extension PRCatalogModel.Catalog {
-  public func section(_ id: PRCatalogModel.Section.Id) throws -> PRCatalogModel.Section
-  public func section(_ id: PRCatalogModel.Section.Id) throws -> PRCatalogModel.Section?
-  public func hasItems(sectionId: PRCatalogModel.Section.Id) -> Swift.Bool
+  nonisolated public func section(_ id: PRCatalogModel.Section.Id) throws -> PRCatalogModel.Section
+  nonisolated public func section(_ id: PRCatalogModel.Section.Id) throws -> PRCatalogModel.Section?
+  nonisolated public func hasItems(sectionId: PRCatalogModel.Section.Id) -> Swift.Bool
 }
-@_inheritsConvenienceInitializers @objc(Series) final public class Series : PRCatalogModel.CatalogEntity {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Series) final nonisolated public class Series : PRCatalogModel.CatalogEntity {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Query {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Query>
-  @objc @NSManaged dynamic public var text: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var text: Swift.String {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(PurchaseInfo) public class PurchaseInfo : CoreData.NSManagedObject {
+@_inheritsConvenienceInitializers @objc(PurchaseInfo) nonisolated public class PurchaseInfo : CoreData.NSManagedObject {
   public enum State : Swift.Int {
     case `default`, inProgress, failed
     public init?(rawValue: Swift.Int)
@@ -993,24 +1031,24 @@ extension PRCatalogModel.Query {
   }
   @discardableResult
   public static func item(catalogItem: PRCatalogModel.CatalogItem, context: CoreData.NSManagedObjectContext) -> PRCatalogModel.PurchaseInfo
-  @PRCoreDataUtils.CDRawRepresentablePrimitive public var state: PRCatalogModel.PurchaseInfo.State {
+  nonisolated public var state: PRCatalogModel.PurchaseInfo.State {
     get
     set
-    _modify
   }
-  @PRCoreDataUtils.CDRawRepresentablePrimitive public var contentOptions: PRCatalogModel.CatalogItemContentOption {
+  nonisolated public var contentOptions: PRCatalogModel.CatalogItemContentOption {
     get
     set
-    _modify
   }
-  required convenience public init(catalogItem: PRCatalogModel.CatalogItem, context: CoreData.NSManagedObjectContext)
-  @objc override dynamic public func awakeFromInsert()
+  required convenience nonisolated public init(catalogItem: PRCatalogModel.CatalogItem, context: CoreData.NSManagedObjectContext)
+  @objc override nonisolated dynamic public func awakeFromInsert()
   @discardableResult
-  public func update(info: PRCatalogModel.BookLibraryItem) -> Swift.Bool
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  nonisolated public func update(info: PRCatalogModel.BookLibraryItem) -> Swift.Bool
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-public struct BookLibraryItem : Swift.Decodable {
+extension PRCatalogModel.PurchaseInfo.State : Swift.Sendable {
+}
+public struct BookLibraryItem : Swift.Decodable, Swift.Sendable {
   public let bookId: Swift.String
   public let addingDate: Foundation.Date
   public let isSample: Swift.Bool
@@ -1018,12 +1056,12 @@ public struct BookLibraryItem : Swift.Decodable {
 }
 extension PRCatalogModel.IssueLoading {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.IssueLoading>
-  @objc @NSManaged dynamic public var catalogItem: PRCatalogModel.CatalogItem {
+  @objc @NSManaged nonisolated dynamic public var catalogItem: PRCatalogModel.CatalogItem {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(Loading) public class Loading : CoreData.NSManagedObject {
+@_inheritsConvenienceInitializers @objc(Loading) nonisolated public class Loading : CoreData.NSManagedObject {
   public enum State : Swift.Int16 {
     case idle
     case busy
@@ -1034,34 +1072,38 @@ extension PRCatalogModel.IssueLoading {
       get
     }
   }
-  public var isBusy: Swift.Bool {
+  nonisolated public var isBusy: Swift.Bool {
     get
   }
-  public var canLoadMore: Swift.Bool {
+  nonisolated public var canLoadMore: Swift.Bool {
     get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Loading {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Loading>
-  @objc @NSManaged dynamic public var date: Foundation.Date {
+  @objc @NSManaged nonisolated dynamic public var sessionDate: Foundation.Date {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var offset: Swift.Int32 {
+  @objc @NSManaged nonisolated dynamic public var date: Foundation.Date {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var totalCount: Swift.Int32 {
+  @objc @NSManaged nonisolated dynamic public var offset: Swift.Int32 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var failureCount: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var totalCount: Swift.Int32 {
     @objc get
     @objc set
   }
-  public var state: PRCatalogModel.Loading.State {
+  @objc @NSManaged nonisolated dynamic public var failureCount: Swift.Int16 {
+    @objc get
+    @objc set
+  }
+  nonisolated public var state: PRCatalogModel.Loading.State {
     get
     set
   }
@@ -1069,19 +1111,19 @@ extension PRCatalogModel.Loading {
 extension PRCatalogModel.Loading : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
-@_inheritsConvenienceInitializers @objc(IssueLoading) public class IssueLoading : PRCatalogModel.Loading {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(IssueLoading) nonisolated public class IssueLoading : PRCatalogModel.Loading {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CompoundNavigation {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CompoundNavigation>
-  @objc @NSManaged dynamic public var scope: PRCatalogModel.CatalogEntity {
+  @objc @NSManaged nonisolated dynamic public var scope: PRCatalogModel.CatalogEntity {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(CompoundNavigation) public class CompoundNavigation : PRCatalogModel.CatalogNavigation {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(CompoundNavigation) nonisolated public class CompoundNavigation : PRCatalogModel.CatalogNavigation {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CompoundNavigation : PRCatalogModel.ScopeNavigation {
@@ -1100,56 +1142,60 @@ extension PRCatalogModel.CatalogableMO where Self : PRCoreDataUtils.Identifiable
   public static func item(entityName: Swift.String, id: Swift.String, catalog: PRCatalogModel.Catalog) -> Self?
 }
 extension PRCatalogModel.CatalogItem {
-  public var authors: [PRCatalogModel.Author]? {
+  nonisolated public var authors: [PRCatalogModel.Author]? {
     get
   }
-  public var publisher: PRCatalogModel.Publisher? {
-    get
-    set
-  }
-  public var series: [PRCatalogModel.Series]? {
-    get
-  }
-  public var genres: [PRCatalogModel.Genre]? {
-    get
-  }
-  public var supplier: PRCatalogModel.Supplier? {
+  nonisolated public var publisher: PRCatalogModel.Publisher? {
     get
     set
   }
-  public var allEntities: [PRCatalogModel.CatalogEntity]? {
+  nonisolated public var series: [PRCatalogModel.Series]? {
+    get
+  }
+  nonisolated public var genres: [PRCatalogModel.Genre]? {
+    get
+  }
+  nonisolated public var supplier: PRCatalogModel.Supplier? {
+    get
+    set
+  }
+  nonisolated public var allEntities: [PRCatalogModel.CatalogEntity]? {
     get
   }
 }
-@_inheritsConvenienceInitializers @objc(Language) final public class Language : PRCatalogModel.CatalogEntity {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Language) final nonisolated public class Language : PRCatalogModel.CatalogEntity {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(Country) public class Country : PRCatalogModel.CatalogEntity {
-  @objc public var iso: Swift.String {
+@_inheritsConvenienceInitializers @objc(Country) nonisolated public class Country : PRCatalogModel.CatalogEntity {
+  @objc nonisolated public var iso: Swift.String {
     @objc get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.IssueCollection {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.IssueCollection>
+  @objc @NSManaged nonisolated dynamic final public var issues_: Foundation.NSOrderedSet? {
+    @objc get
+    @objc set
+  }
 }
-@_inheritsConvenienceInitializers @objc(Highlight) public class Highlight : PRCatalogModel.BookFragment {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Highlight) nonisolated public class Highlight : PRCatalogModel.BookFragment {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Highlight : PRCoreDataUtils.IdentifiableMO {
   public class func object(id: Swift.String, content: PRCatalogModel.BookContent, context: CoreData.NSManagedObjectContext) -> Self?
 }
 extension PRCatalogModel.Highlight {
-  public func updateColor(_ color: Swift.String)
+  nonisolated public func updateColor(_ color: Swift.String)
 }
-@_inheritsConvenienceInitializers @objc(Publisher) public class Publisher : PRCatalogModel.CatalogEntity {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Publisher) nonisolated public class Publisher : PRCatalogModel.CatalogEntity {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(CatalogItemContent) public class CatalogItemContent : CoreData.NSManagedObject, PRCoreDataUtils.IdentifiableMO {
+@_inheritsConvenienceInitializers @objc(CatalogItemContent) nonisolated public class CatalogItemContent : CoreData.NSManagedObject, PRCoreDataUtils.IdentifiableMO {
   public enum ContentType : Swift.Int16 {
     case unsupported
     case epub_zip
@@ -1161,163 +1207,171 @@ extension PRCatalogModel.Highlight {
       get
     }
   }
-  public var isSupportedContentType: Swift.Bool {
+  nonisolated public var isSupportedContentType: Swift.Bool {
     get
   }
   public var _url: Foundation.URL?
   public var _filePath: Swift.String?
-  public func update(info: [Swift.String : Any])
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  nonisolated public func update(info: [Swift.String : Any])
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(ContentLocator) public class ContentLocator : PRCatalogModel.EPubLocator {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(ContentLocator) nonisolated public class ContentLocator : PRCatalogModel.EPubLocator {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CatalogEntity {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.CatalogEntity>
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var name: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var name: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var details: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var details: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var data: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var data: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalog: PRCatalogModel.Catalog? {
+  @objc @NSManaged nonisolated dynamic public var loadingOrder_: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var navigation: PRCatalogModel.CompoundNavigation? {
+  @objc @NSManaged nonisolated dynamic public var catalog: PRCatalogModel.Catalog? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var filter: PRCatalogModel.CatalogFilter? {
+  @objc @NSManaged nonisolated dynamic public var navigation: PRCatalogModel.CompoundNavigation? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var hub: PRCatalogModel.Catalog? {
+  @objc @NSManaged nonisolated dynamic public var filter: PRCatalogModel.CatalogFilter? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var items: Swift.Set<PRCatalogModel.CatalogItem>? {
+  @objc @NSManaged nonisolated dynamic public var hub: PRCatalogModel.Catalog? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var itemsMetadata: Foundation.NSSet? {
+  @objc @NSManaged nonisolated dynamic public var items: Swift.Set<PRCatalogModel.CatalogItem>? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var loadedItems: Foundation.NSOrderedSet? {
+  @objc @NSManaged nonisolated dynamic public var itemsMetadata: Foundation.NSSet? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var loading: PRCatalogModel.CatalogLoading? {
+  @objc @NSManaged nonisolated dynamic public var loadedItems: Foundation.NSOrderedSet? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var subEntities: Swift.Set<PRCatalogModel.CatalogEntity>? {
+  @objc @NSManaged nonisolated dynamic public var loading: PRCatalogModel.CatalogLoading? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var superEntities: Foundation.NSOrderedSet? {
+  @objc @NSManaged nonisolated dynamic public var subEntities: Swift.Set<PRCatalogModel.CatalogEntity>? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var superEntities: Foundation.NSOrderedSet? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var includeSupplements: Swift.Bool {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.CatalogEntity {
-  @objc(addItemsObject:) @NSManaged dynamic public func addToItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(removeItemsObject:) @NSManaged dynamic public func removeFromItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(addItems:) @NSManaged dynamic public func addToItems(_ values: Foundation.NSSet)
-  @objc(removeItems:) @NSManaged dynamic public func removeFromItems(_ values: Foundation.NSSet)
+  @objc(addItemsObject:) @NSManaged nonisolated dynamic public func addToItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(removeItemsObject:) @NSManaged nonisolated dynamic public func removeFromItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(addItems:) @NSManaged nonisolated dynamic public func addToItems(_ values: Foundation.NSSet)
+  @objc(removeItems:) @NSManaged nonisolated dynamic public func removeFromItems(_ values: Foundation.NSSet)
 }
 extension PRCatalogModel.CatalogEntity {
-  @objc(addItemsMetadataObject:) @NSManaged dynamic public func addToItemsMetadata(_ value: PRCatalogModel.RelationshipMetadata)
-  @objc(removeItemsMetadataObject:) @NSManaged dynamic public func removeFromItemsMetadata(_ value: PRCatalogModel.RelationshipMetadata)
-  @objc(addItemsMetadata:) @NSManaged dynamic public func addToItemsMetadata(_ values: Foundation.NSSet)
-  @objc(removeItemsMetadata:) @NSManaged dynamic public func removeFromItemsMetadata(_ values: Foundation.NSSet)
+  @objc(addItemsMetadataObject:) @NSManaged nonisolated dynamic public func addToItemsMetadata(_ value: PRCatalogModel.RelationshipMetadata)
+  @objc(removeItemsMetadataObject:) @NSManaged nonisolated dynamic public func removeFromItemsMetadata(_ value: PRCatalogModel.RelationshipMetadata)
+  @objc(addItemsMetadata:) @NSManaged nonisolated dynamic public func addToItemsMetadata(_ values: Foundation.NSSet)
+  @objc(removeItemsMetadata:) @NSManaged nonisolated dynamic public func removeFromItemsMetadata(_ values: Foundation.NSSet)
 }
 extension PRCatalogModel.CatalogEntity {
-  @objc(insertObject:inLoadedItemsAtIndex:) @NSManaged dynamic public func insertIntoLoadedItems(_ value: PRCatalogModel.CatalogItem, at idx: Swift.Int)
-  @objc(removeObjectFromLoadedItemsAtIndex:) @NSManaged dynamic public func removeFromLoadedItems(at idx: Swift.Int)
-  @objc(insertLoadedItems:atIndexes:) @NSManaged dynamic public func insertIntoLoadedItems(_ values: [PRCatalogModel.CatalogItem], at indexes: Foundation.NSIndexSet)
-  @objc(removeLoadedItemsAtIndexes:) @NSManaged dynamic public func removeFromLoadedItems(at indexes: Foundation.NSIndexSet)
-  @objc(replaceObjectInLoadedItemsAtIndex:withObject:) @NSManaged dynamic public func replaceLoadedItems(at idx: Swift.Int, with value: PRCatalogModel.CatalogItem)
-  @objc(replaceLoadedItemsAtIndexes:withLoadedItems:) @NSManaged dynamic public func replaceLoadedItems(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogItem])
-  @objc(addLoadedItemsObject:) @NSManaged dynamic public func addToLoadedItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(removeLoadedItemsObject:) @NSManaged dynamic public func removeFromLoadedItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(addLoadedItems:) @NSManaged dynamic public func addToLoadedItems(_ values: Foundation.NSOrderedSet)
-  @objc(removeLoadedItems:) @NSManaged dynamic public func removeFromLoadedItems(_ values: Foundation.NSOrderedSet)
+  @objc(insertObject:inLoadedItemsAtIndex:) @NSManaged nonisolated dynamic public func insertIntoLoadedItems(_ value: PRCatalogModel.CatalogItem, at idx: Swift.Int)
+  @objc(removeObjectFromLoadedItemsAtIndex:) @NSManaged nonisolated dynamic public func removeFromLoadedItems(at idx: Swift.Int)
+  @objc(insertLoadedItems:atIndexes:) @NSManaged nonisolated dynamic public func insertIntoLoadedItems(_ values: [PRCatalogModel.CatalogItem], at indexes: Foundation.NSIndexSet)
+  @objc(removeLoadedItemsAtIndexes:) @NSManaged nonisolated dynamic public func removeFromLoadedItems(at indexes: Foundation.NSIndexSet)
+  @objc(replaceObjectInLoadedItemsAtIndex:withObject:) @NSManaged nonisolated dynamic public func replaceLoadedItems(at idx: Swift.Int, with value: PRCatalogModel.CatalogItem)
+  @objc(replaceLoadedItemsAtIndexes:withLoadedItems:) @NSManaged nonisolated dynamic public func replaceLoadedItems(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogItem])
+  @objc(addLoadedItemsObject:) @NSManaged nonisolated dynamic public func addToLoadedItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(removeLoadedItemsObject:) @NSManaged nonisolated dynamic public func removeFromLoadedItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(addLoadedItems:) @NSManaged nonisolated dynamic public func addToLoadedItems(_ values: Foundation.NSOrderedSet)
+  @objc(removeLoadedItems:) @NSManaged nonisolated dynamic public func removeFromLoadedItems(_ values: Foundation.NSOrderedSet)
 }
 extension PRCatalogModel.CatalogEntity {
-  @objc(addSubEntitiesObject:) @NSManaged dynamic public func addToSubEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(removeSubEntitiesObject:) @NSManaged dynamic public func removeFromSubEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(addSubEntities:) @NSManaged dynamic public func addToSubEntities(_ values: Foundation.NSSet)
-  @objc(removeSubEntities:) @NSManaged dynamic public func removeFromSubEntities(_ values: Foundation.NSSet)
+  @objc(addSubEntitiesObject:) @NSManaged nonisolated dynamic public func addToSubEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(removeSubEntitiesObject:) @NSManaged nonisolated dynamic public func removeFromSubEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(addSubEntities:) @NSManaged nonisolated dynamic public func addToSubEntities(_ values: Foundation.NSSet)
+  @objc(removeSubEntities:) @NSManaged nonisolated dynamic public func removeFromSubEntities(_ values: Foundation.NSSet)
 }
 extension PRCatalogModel.CatalogEntity {
-  @objc(insertObject:inSuperEntitiesAtIndex:) @NSManaged dynamic public func insertIntoSuperEntities(_ value: PRCatalogModel.CatalogEntity, at idx: Swift.Int)
-  @objc(removeObjectFromSuperEntitiesAtIndex:) @NSManaged dynamic public func removeFromSuperEntities(at idx: Swift.Int)
-  @objc(insertSuperEntities:atIndexes:) @NSManaged dynamic public func insertIntoSuperEntities(_ values: [PRCatalogModel.CatalogEntity], at indexes: Foundation.NSIndexSet)
-  @objc(removeSuperEntitiesAtIndexes:) @NSManaged dynamic public func removeFromSuperEntities(at indexes: Foundation.NSIndexSet)
-  @objc(replaceObjectInSuperEntitiesAtIndex:withObject:) @NSManaged dynamic public func replaceSuperEntities(at idx: Swift.Int, with value: PRCatalogModel.CatalogEntity)
-  @objc(replaceSuperEntitiesAtIndexes:withSuperEntities:) @NSManaged dynamic public func replaceSuperEntities(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogEntity])
-  @objc(addSuperEntitiesObject:) @NSManaged dynamic public func addToSuperEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(removeSuperEntitiesObject:) @NSManaged dynamic public func removeFromSuperEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(addSuperEntities:) @NSManaged dynamic public func addToSuperEntities(_ values: Foundation.NSOrderedSet)
-  @objc(removeSuperEntities:) @NSManaged dynamic public func removeFromSuperEntities(_ values: Foundation.NSOrderedSet)
+  @objc(insertObject:inSuperEntitiesAtIndex:) @NSManaged nonisolated dynamic public func insertIntoSuperEntities(_ value: PRCatalogModel.CatalogEntity, at idx: Swift.Int)
+  @objc(removeObjectFromSuperEntitiesAtIndex:) @NSManaged nonisolated dynamic public func removeFromSuperEntities(at idx: Swift.Int)
+  @objc(insertSuperEntities:atIndexes:) @NSManaged nonisolated dynamic public func insertIntoSuperEntities(_ values: [PRCatalogModel.CatalogEntity], at indexes: Foundation.NSIndexSet)
+  @objc(removeSuperEntitiesAtIndexes:) @NSManaged nonisolated dynamic public func removeFromSuperEntities(at indexes: Foundation.NSIndexSet)
+  @objc(replaceObjectInSuperEntitiesAtIndex:withObject:) @NSManaged nonisolated dynamic public func replaceSuperEntities(at idx: Swift.Int, with value: PRCatalogModel.CatalogEntity)
+  @objc(replaceSuperEntitiesAtIndexes:withSuperEntities:) @NSManaged nonisolated dynamic public func replaceSuperEntities(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogEntity])
+  @objc(addSuperEntitiesObject:) @NSManaged nonisolated dynamic public func addToSuperEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(removeSuperEntitiesObject:) @NSManaged nonisolated dynamic public func removeFromSuperEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(addSuperEntities:) @NSManaged nonisolated dynamic public func addToSuperEntities(_ values: Foundation.NSOrderedSet)
+  @objc(removeSuperEntities:) @NSManaged nonisolated dynamic public func removeFromSuperEntities(_ values: Foundation.NSOrderedSet)
 }
 extension PRCatalogModel.CatalogEntity : Swift.Identifiable {
   public typealias ID = Swift.String
 }
 extension PRCatalogModel.HotSpot {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.HotSpot>
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var industry: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var industry: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var name: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var name: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalogItems: Foundation.NSSet? {
+  @objc @NSManaged nonisolated dynamic public var catalogItems: Foundation.NSSet? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.HotSpot {
-  @objc(addCatalogItemsObject:) @NSManaged dynamic public func addToCatalogItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(removeCatalogItemsObject:) @NSManaged dynamic public func removeFromCatalogItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(addCatalogItems:) @NSManaged dynamic public func addToCatalogItems(_ values: Foundation.NSSet)
-  @objc(removeCatalogItems:) @NSManaged dynamic public func removeFromCatalogItems(_ values: Foundation.NSSet)
+  @objc(addCatalogItemsObject:) @NSManaged nonisolated dynamic public func addToCatalogItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(removeCatalogItemsObject:) @NSManaged nonisolated dynamic public func removeFromCatalogItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(addCatalogItems:) @NSManaged nonisolated dynamic public func addToCatalogItems(_ values: Foundation.NSSet)
+  @objc(removeCatalogItems:) @NSManaged nonisolated dynamic public func removeFromCatalogItems(_ values: Foundation.NSSet)
 }
-@_inheritsConvenienceInitializers @objc(Query) public class Query : PRCatalogModel.CatalogEntity {
-  override public var loadingOrderValue: Swift.String? {
+@_inheritsConvenienceInitializers @objc(Query) nonisolated public class Query : PRCatalogModel.CatalogEntity {
+  override nonisolated public var loadingOrderValue: Swift.String? {
     get
   }
-  convenience public init(catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  convenience nonisolated public init(catalog: PRCatalogModel.Catalog, context: CoreData.NSManagedObjectContext)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.RelationshipMetadata {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.RelationshipMetadata>
-  @objc @NSManaged dynamic public var catalogEntity: PRCatalogModel.CatalogEntity? {
+  @objc @NSManaged nonisolated dynamic public var catalogEntity: PRCatalogModel.CatalogEntity? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalogItem: PRCatalogModel.CatalogItem? {
+  @objc @NSManaged nonisolated dynamic public var catalogItem: PRCatalogModel.CatalogItem? {
     @objc get
     @objc set
   }
@@ -1325,49 +1379,49 @@ extension PRCatalogModel.RelationshipMetadata {
 extension PRCatalogModel.RelationshipMetadata : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
-@_inheritsConvenienceInitializers @objc(CatalogItem) public class CatalogItem : CoreData.NSManagedObject {
-  public var authorsShortList: Swift.String? {
+@_inheritsConvenienceInitializers @objc(CatalogItem) nonisolated public class CatalogItem : CoreData.NSManagedObject {
+  nonisolated public var authorsShortList: Swift.String? {
     get
   }
-  public var isDangled: Swift.Bool {
+  nonisolated public var isDangled: Swift.Bool {
     get
   }
-  @objc override dynamic public func prepareForDeletion()
-  public func setDownloads(_ downloads: PRCatalogModel.Downloads?)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public func prepareForDeletion()
+  nonisolated public func setDownloads(_ downloads: PRCatalogModel.Downloads?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CatalogItem : PRCatalogModel.CatalogableMO {
   public static func item(id: Swift.String, pressCatalog: PRCatalogModel.PressCatalog) throws -> Self?
   public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog) throws -> Self?
   public static func item(id: Swift.String, catalog: PRCatalogModel.Catalog) throws -> Self
-  public func setCatalog(_ catalog: PRCatalogModel.Catalog)
+  nonisolated public func setCatalog(_ catalog: PRCatalogModel.Catalog)
 }
 extension PRCatalogModel.CatalogItem : PRCoreDataUtils.IdentifiableMO {
-  public class func item(id: Swift.String, catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], forceUpdate: Swift.Bool = false) throws -> Self
-  public class func item(catalog: PRCatalogModel.Catalog, info: [Swift.String : Any], forceUpdate: Swift.Bool = false) throws -> Self
+  public class func item(id: Swift.String, catalog: PRCatalogModel.Catalog, info: [Swift.String : any Swift.Sendable], forceUpdate: Swift.Bool = false) throws -> Self
+  public class func item(catalog: PRCatalogModel.Catalog, info: [Swift.String : any Swift.Sendable], forceUpdate: Swift.Bool = false) throws -> Self
 }
 extension PRCatalogModel.PublicationType {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PublicationType>
 }
 extension PRCatalogModel.Downloads {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Downloads>
-  @objc @NSManaged dynamic public var items: Foundation.NSOrderedSet? {
+  @objc @NSManaged nonisolated dynamic public var items: Foundation.NSOrderedSet? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.Downloads {
-  @objc(insertObject:inItemsAtIndex:) @NSManaged dynamic public func insertIntoItems(_ value: PRCatalogModel.CatalogItem, at idx: Swift.Int)
-  @objc(removeObjectFromItemsAtIndex:) @NSManaged dynamic public func removeFromItems(at idx: Swift.Int)
-  @objc(insertItems:atIndexes:) @NSManaged dynamic public func insertIntoItems(_ values: [PRCatalogModel.CatalogItem], at indexes: Foundation.NSIndexSet)
-  @objc(removeItemsAtIndexes:) @NSManaged dynamic public func removeFromItems(at indexes: Foundation.NSIndexSet)
-  @objc(replaceObjectInItemsAtIndex:withObject:) @NSManaged dynamic public func replaceItems(at idx: Swift.Int, with value: PRCatalogModel.CatalogItem)
-  @objc(replaceItemsAtIndexes:withItems:) @NSManaged dynamic public func replaceItems(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogItem])
-  @objc(addItemsObject:) @NSManaged dynamic public func addToItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(removeItemsObject:) @NSManaged dynamic public func removeFromItems(_ value: PRCatalogModel.CatalogItem)
-  @objc(addItems:) @NSManaged dynamic public func addToItems(_ values: Foundation.NSOrderedSet)
-  @objc(removeItems:) @NSManaged dynamic public func removeFromItems(_ values: Foundation.NSOrderedSet)
+  @objc(insertObject:inItemsAtIndex:) @NSManaged nonisolated dynamic public func insertIntoItems(_ value: PRCatalogModel.CatalogItem, at idx: Swift.Int)
+  @objc(removeObjectFromItemsAtIndex:) @NSManaged nonisolated dynamic public func removeFromItems(at idx: Swift.Int)
+  @objc(insertItems:atIndexes:) @NSManaged nonisolated dynamic public func insertIntoItems(_ values: [PRCatalogModel.CatalogItem], at indexes: Foundation.NSIndexSet)
+  @objc(removeItemsAtIndexes:) @NSManaged nonisolated dynamic public func removeFromItems(at indexes: Foundation.NSIndexSet)
+  @objc(replaceObjectInItemsAtIndex:withObject:) @NSManaged nonisolated dynamic public func replaceItems(at idx: Swift.Int, with value: PRCatalogModel.CatalogItem)
+  @objc(replaceItemsAtIndexes:withItems:) @NSManaged nonisolated dynamic public func replaceItems(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogItem])
+  @objc(addItemsObject:) @NSManaged nonisolated dynamic public func addToItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(removeItemsObject:) @NSManaged nonisolated dynamic public func removeFromItems(_ value: PRCatalogModel.CatalogItem)
+  @objc(addItems:) @NSManaged nonisolated dynamic public func addToItems(_ values: Foundation.NSOrderedSet)
+  @objc(removeItems:) @NSManaged nonisolated dynamic public func removeFromItems(_ values: Foundation.NSOrderedSet)
 }
 extension PRCatalogModel.Downloads : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
@@ -1375,26 +1429,26 @@ extension PRCatalogModel.Downloads : Swift.Identifiable {
 extension PRCatalogModel.Author {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Author>
 }
-@_inheritsConvenienceInitializers @objc(Masthead) public class Masthead : CoreData.NSManagedObject {
-  convenience public init?(info: [Swift.String : Any], titleItem: PRCatalogModel.TitleItem)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Masthead) nonisolated public class Masthead : CoreData.NSManagedObject {
+  convenience nonisolated public init?(info: [Swift.String : any Swift.Sendable], titleItem: PRCatalogModel.TitleItem)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Masthead {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Masthead>
-  @objc @NSManaged dynamic public var aspectRatio: Swift.Float {
+  @objc @NSManaged nonisolated dynamic public var aspectRatio: Swift.Float {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var originalId: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var originalId: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var templateId: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var templateId: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var titleItem: PRCatalogModel.TitleItem {
+  @objc @NSManaged nonisolated dynamic public var titleItem: PRCatalogModel.TitleItem {
     @objc get
     @objc set
   }
@@ -1402,7 +1456,7 @@ extension PRCatalogModel.Masthead {
 extension PRCatalogModel.Masthead : Swift.Identifiable {
   public typealias ID = Swift.ObjectIdentifier
 }
-@_inheritsConvenienceInitializers @objc(CatalogEntity) public class CatalogEntity : CoreData.NSManagedObject {
+@_inheritsConvenienceInitializers @objc(CatalogEntity) nonisolated public class CatalogEntity : CoreData.NSManagedObject {
   public enum LoadingParameter : Swift.String {
     case size
     case groupBy
@@ -1444,8 +1498,8 @@ extension PRCatalogModel.Masthead : Swift.Identifiable {
       get
     }
   }
-  public enum LoadingOrder : Swift.Int {
-    case popularity, date, alphabet, manual
+  @objc(PRLoadingOrder) public enum LoadingOrder : Swift.Int, Swift.Sendable {
+    case popularity, date, alphabet, manual, serverDefault
     public var value: Swift.String? {
       get
     }
@@ -1459,166 +1513,176 @@ extension PRCatalogModel.Masthead : Swift.Identifiable {
   public struct Constants {
     public static let compoundIdJoint: Swift.String
   }
-  @PRCoreDataUtils.CDRawRepresentablePrimitive public var loadingOrder: PRCatalogModel.CatalogEntity.LoadingOrder {
+  nonisolated public var loadingOrder: PRCatalogModel.CatalogEntity.LoadingOrder {
     get
     set
-    _modify
   }
-  public var loadingOrderValue: Swift.String? {
+  nonisolated public var loadingOrderValue: Swift.String? {
     get
   }
-  final public var loadedCatalogItems: [PRCatalogModel.CatalogItem]? {
+  final nonisolated public var loadedCatalogItems: [PRCatalogModel.CatalogItem]? {
     get
   }
-  public var loadedItemsCount: Swift.Int {
+  nonisolated public var loadedItemsCount: Swift.Int {
     get
   }
-  public var loadingPath: Swift.String {
+  nonisolated public var loadingPath: Swift.String {
     get
   }
-  public var slug: Swift.String {
+  nonisolated public var slug: Swift.String {
     get
   }
-  final public var refinedId: Swift.String {
+  final nonisolated public var refinedId: Swift.String {
     get
   }
-  public var recommendedBatchSize: Swift.Int {
+  nonisolated public var recommendedBatchSize: Swift.Int {
     get
   }
-  final public var loadingParameters: PRCatalogModel.CatalogEntity.LoadingParameters {
+  final nonisolated public var loadingParameters: PRCatalogModel.CatalogEntity.LoadingParameters {
     get
   }
-  final public var navigationParameters: PRCatalogModel.CatalogEntity.LoadingParameters? {
+  final nonisolated public var navigationParameters: PRCatalogModel.CatalogEntity.LoadingParameters? {
     get
   }
-  final public var superEntitiesArray: [PRCatalogModel.CatalogEntity]? {
+  final nonisolated public var superEntitiesArray: [PRCatalogModel.CatalogEntity]? {
     get
   }
-  final public var navigationPath: [PRCatalogModel.CatalogEntity] {
+  final nonisolated public var navigationPath: [PRCatalogModel.CatalogEntity] {
     get
   }
-  public var navigationTypes: [PRCatalogModel.CatalogNavigationScope] {
+  nonisolated public var navigationTypes: [PRCatalogModel.CatalogNavigationScope] {
     get
   }
-  final public func resetLoading()
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  final nonisolated public func resetLoading()
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CatalogEntity : PRSyntacticSugar.Emptiable {
-  @objc dynamic public var isEmpty: Swift.Bool {
+  @objc nonisolated dynamic public var isEmpty: Swift.Bool {
     @objc get
   }
 }
-@_inheritsConvenienceInitializers @objc(PageArea) public class PageArea : CoreData.NSManagedObject {
-  public var rect: CoreFoundation.CGRect {
+@_inheritsConvenienceInitializers @objc(PageArea) nonisolated public class PageArea : CoreData.NSManagedObject {
+  nonisolated public var rect: CoreFoundation.CGRect {
     get
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.TitleItem {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.TitleItem>
-  @objc @NSManaged dynamic public var isSmart: Swift.Bool {
+  @objc @NSManaged nonisolated dynamic public var isSmart: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var issuesUpdateDate: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var issuesUpdateDate: Foundation.Date? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var masthead: PRCatalogModel.Masthead? {
+  @objc @NSManaged nonisolated dynamic public var masthead: PRCatalogModel.Masthead? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var mainEdition: PRCatalogModel.TitleItem? {
+  @objc @NSManaged nonisolated dynamic public var mainEdition: PRCatalogModel.TitleItem? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var schedule: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var schedule: Swift.Int16 {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var parents: Foundation.NSOrderedSet? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var supplements: Foundation.NSOrderedSet? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var regionalEditions: Foundation.NSOrderedSet? {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(TitleItem) public class TitleItem : PRCatalogModel.CatalogItem {
-  @PRCoreDataUtils.CDOrderedSetArrayRepresentation public var _parents: [PRCatalogModel.TitleItem] {
+@_inheritsConvenienceInitializers @objc(TitleItem) nonisolated public class TitleItem : PRCatalogModel.CatalogItem {
+  nonisolated public var parents_: [PRCatalogModel.TitleItem] {
     get
     set
-    _modify
   }
-  @PRCoreDataUtils.CDOrderedSetArrayRepresentation public var _supplements: [PRCatalogModel.TitleItem] {
+  nonisolated public var supplements_: [PRCatalogModel.TitleItem] {
     get
     set
-    _modify
   }
-  @PRCoreDataUtils.CDOrderedSetArrayRepresentation public var _regionalEditions: [PRCatalogModel.TitleItem] {
+  nonisolated public var regionalEditions_: [PRCatalogModel.TitleItem] {
     get
     set
-    _modify
   }
-  public func update(info: [Swift.String : Any], catalog: PRCatalogModel.Catalog)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  nonisolated public func update(info: [Swift.String : any Swift.Sendable], catalog: PRCatalogModel.Catalog)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(BookContent) public class BookContent : PRCatalogModel.CatalogItemContent {
-  public var bookmarks: [PRCatalogModel.Bookmark]? {
+@_inheritsConvenienceInitializers @objc(BookContent) nonisolated public class BookContent : PRCatalogModel.CatalogItemContent {
+  nonisolated public var bookmarks: [PRCatalogModel.Bookmark]? {
     get
   }
-  public var highlights: [PRCatalogModel.Highlight]? {
+  nonisolated public var highlights: [PRCatalogModel.Highlight]? {
     get
   }
-  override public var isSupportedContentType: Swift.Bool {
+  override nonisolated public var isSupportedContentType: Swift.Bool {
     get
   }
-  override public func update(info: [Swift.String : Any])
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  override nonisolated public func update(info: [Swift.String : Any])
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(TitleIssue) public class TitleIssue : PRCatalogModel.CatalogIssue, PRCatalogModel.Issue {
+@_inheritsConvenienceInitializers @objc(TitleIssue) nonisolated public class TitleIssue : PRCatalogModel.CatalogIssue, PRCatalogModel.Issue {
   public typealias IssueType = PRCatalogModel.TitleIssue
-  public func markArticleAsPlayed(_ articleID: Swift.String)
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  nonisolated public var isAudible: Swift.Bool {
+    get
+  }
+  nonisolated public var isCommentable: Swift.Bool {
+    get
+  }
+  nonisolated public func markArticleAsPlayed(_ articleID: Swift.String)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.TitleIssue {
-  @objc @NSManaged dynamic public var updateDate: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var updateDate: Foundation.Date? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var radioInfo: [Swift.String : Any]? {
+  @objc @NSManaged nonisolated dynamic public var radioInfo: [Swift.String : any Swift.Sendable]? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var version: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var version: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var expungeVersion: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var expungeVersion: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var layoutVersion: Swift.Int16 {
+  @objc @NSManaged nonisolated dynamic public var layoutVersion: Swift.Int16 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var audible: Swift.Bool {
+  @objc @NSManaged nonisolated dynamic public var aspectRatio: Swift.Float {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var aspectRatio: Swift.Float {
+  @objc @NSManaged nonisolated dynamic public var currentRadioArticleId: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var currentRadioArticleId: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic public var playedArticles: Swift.Set<Swift.String>? {
+  @objc @NSManaged nonisolated dynamic public var playedArticles: Swift.Set<Swift.String>? {
     @objc get
     @objc set
   }
 }
-@_inheritsConvenienceInitializers @objc(Magazine) public class Magazine : PRCatalogModel.TitleItem {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Magazine) nonisolated public class Magazine : PRCatalogModel.TitleItem {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Newspaper {
@@ -1627,18 +1691,19 @@ extension PRCatalogModel.Newspaper {
 extension PRCatalogModel.Magazine {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Magazine>
 }
-@_inheritsConvenienceInitializers @objc(Newspaper) public class Newspaper : PRCatalogModel.TitleItem {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Newspaper) nonisolated public class Newspaper : PRCatalogModel.TitleItem {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(RelationshipMetadata) public class RelationshipMetadata : CoreData.NSManagedObject {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(RelationshipMetadata) nonisolated public class RelationshipMetadata : CoreData.NSManagedObject {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(PublicationType) public class PublicationType : PRCatalogModel.CatalogEntity {
+@_inheritsConvenienceInitializers @objc(PublicationType) nonisolated public class PublicationType : PRCatalogModel.CatalogEntity {
   public enum Id : Swift.String, Swift.CaseIterable {
     case magazines
     case newspapers
+    case onlineEditions
     public init?(rawValue: Swift.String)
     public typealias AllCases = [PRCatalogModel.PublicationType.Id]
     public typealias RawValue = Swift.String
@@ -1649,16 +1714,31 @@ extension PRCatalogModel.Magazine {
       get
     }
   }
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(OnlineEdition) nonisolated public class OnlineEdition : PRCatalogModel.TitleItem {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+extension PRCatalogModel.OnlineEdition {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.OnlineEdition>
 }
 extension PRCatalogModel.PurchaseInfo {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.PurchaseInfo>
-  @objc @NSManaged dynamic public var date: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var date: Foundation.Date? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalogItem: PRCatalogModel.CatalogItem {
+  @objc @NSManaged nonisolated dynamic public var catalogItem: PRCatalogModel.CatalogItem {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var state_: Swift.Int16 {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var contentOptions_: Swift.Int16 {
     @objc get
     @objc set
   }
@@ -1669,8 +1749,8 @@ extension PRCatalogModel.PurchaseInfo : Swift.Identifiable {
 extension PRCatalogModel.Language {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Language>
 }
-@_inheritsConvenienceInitializers @objc(FragmentEndLocator) public class FragmentEndLocator : PRCatalogModel.EPubLocator {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(FragmentEndLocator) nonisolated public class FragmentEndLocator : PRCatalogModel.EPubLocator {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension Swift.KeyedDecodingContainer {
@@ -1679,187 +1759,187 @@ extension Swift.KeyedDecodingContainer {
 extension PRCatalogModel.Publications {
   @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.Publications>
 }
-@_inheritsConvenienceInitializers @objc(HotSpot) public class HotSpot : CoreData.NSManagedObject, PRCoreDataUtils.IdentifiableMO {
+@_inheritsConvenienceInitializers @objc(HotSpot) nonisolated public class HotSpot : CoreData.NSManagedObject, PRCoreDataUtils.IdentifiableMO {
   public static func object(id: Swift.String, name: Swift.String?, industry: Swift.String?, context: CoreData.NSManagedObjectContext, forceUpdate: Swift.Bool = true) -> PRCatalogModel.HotSpot
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.CatalogItem {
-  @objc @NSManaged dynamic public var countryCodes: [Swift.String]? {
+  @objc @NSManaged nonisolated dynamic public var countryCodes: [Swift.String]? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var date: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var date: Foundation.Date? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var language: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var language: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var pageCount: Swift.Int32 {
+  @objc @NSManaged nonisolated dynamic public var pageCount: Swift.Int32 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var rightToLeft: Swift.Bool {
+  @objc @NSManaged nonisolated dynamic public var rightToLeft: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var slug: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var slug: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var state: Swift.Int32 {
+  @objc @NSManaged nonisolated dynamic public var state: Swift.Int32 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var thumbnailId: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var thumbnailId: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var title: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var title: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var details: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var details: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var publishDate: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var publishDate: Foundation.Date? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var rank: Swift.Int32 {
+  @objc @NSManaged nonisolated dynamic public var rank: Swift.Int32 {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var activationTime: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var activationTime: Foundation.Date? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var alternateNames: [Swift.String]? {
+  @objc @NSManaged nonisolated dynamic public var alternateNames: [Swift.String]? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var isFree: Swift.Bool {
+  @objc @NSManaged nonisolated dynamic public var isFree: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var allowCellularDownload: Swift.Bool {
+  @objc @NSManaged nonisolated dynamic public var allowCellularDownload: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var contents: Foundation.NSSet? {
+  @objc @NSManaged nonisolated dynamic public var contents: Foundation.NSSet? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var downloads: PRCatalogModel.Downloads? {
+  @objc @NSManaged nonisolated dynamic public var downloads: PRCatalogModel.Downloads? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var entities: Foundation.NSOrderedSet? {
+  @objc @NSManaged nonisolated dynamic public var entities: Foundation.NSOrderedSet? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var entitiesMetadata: Foundation.NSSet? {
+  @objc @NSManaged nonisolated dynamic public var entitiesMetadata: Foundation.NSSet? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var hotSpot: PRCatalogModel.HotSpot? {
+  @objc @NSManaged nonisolated dynamic public var hotSpot: PRCatalogModel.HotSpot? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var loadingEntities: Swift.Set<PRCatalogModel.CatalogEntity>? {
+  @objc @NSManaged nonisolated dynamic public var loadingEntities: Swift.Set<PRCatalogModel.CatalogEntity>? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var purchaseInfo: PRCatalogModel.PurchaseInfo? {
+  @objc @NSManaged nonisolated dynamic public var purchaseInfo: PRCatalogModel.PurchaseInfo? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var catalogs: Swift.Set<PRCatalogModel.Catalog>? {
+  @objc @NSManaged nonisolated dynamic public var catalogs: Swift.Set<PRCatalogModel.Catalog>? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var preferableCatalog: PRCatalogModel.Catalog? {
+  @objc @NSManaged nonisolated dynamic public var preferableCatalog: PRCatalogModel.Catalog? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var paperColorCode: Swift.String? {
+  @objc @NSManaged nonisolated dynamic public var paperColorCode: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var loading: PRCatalogModel.IssueLoading? {
+  @objc @NSManaged nonisolated dynamic public var loading: PRCatalogModel.IssueLoading? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var issues: Swift.Set<PRCatalogModel.CatalogIssue>? {
-    @objc get
-    @objc set
-  }
-}
-extension PRCatalogModel.CatalogItem {
-  @objc dynamic public var latestIssue: PRCatalogModel.CatalogIssue? {
+  @objc @NSManaged nonisolated dynamic public var issues: Swift.Set<PRCatalogModel.CatalogIssue>? {
     @objc get
     @objc set
   }
 }
 extension PRCatalogModel.CatalogItem {
-  @objc(addCatalogsObject:) @NSManaged dynamic public func addToCatalogs(_ value: PRCatalogModel.Catalog)
-  @objc(removeCatalogsObject:) @NSManaged dynamic public func removeFromCatalogs(_ value: PRCatalogModel.Catalog)
+  @objc dynamic nonisolated public var latestIssue: PRCatalogModel.CatalogIssue? {
+    @objc get
+    @objc set
+  }
 }
 extension PRCatalogModel.CatalogItem {
-  @objc(addContentsObject:) @NSManaged dynamic public func addToContents(_ value: PRCatalogModel.CatalogItemContent)
-  @objc(removeContentsObject:) @NSManaged dynamic public func removeFromContents(_ value: PRCatalogModel.CatalogItemContent)
-  @objc(addContents:) @NSManaged dynamic public func addToContents(_ values: Foundation.NSSet)
-  @objc(removeContents:) @NSManaged dynamic public func removeFromContents(_ values: Foundation.NSSet)
+  @objc(addCatalogsObject:) @NSManaged nonisolated dynamic public func addToCatalogs(_ value: PRCatalogModel.Catalog)
+  @objc(removeCatalogsObject:) @NSManaged nonisolated dynamic public func removeFromCatalogs(_ value: PRCatalogModel.Catalog)
 }
 extension PRCatalogModel.CatalogItem {
-  @objc(insertObject:inEntitiesAtIndex:) @NSManaged dynamic public func insertIntoEntities(_ value: PRCatalogModel.CatalogEntity, at idx: Swift.Int)
-  @objc(removeObjectFromEntitiesAtIndex:) @NSManaged dynamic public func removeFromEntities(at idx: Swift.Int)
-  @objc(insertEntities:atIndexes:) @NSManaged dynamic public func insertIntoEntities(_ values: [PRCatalogModel.CatalogEntity], at indexes: Foundation.NSIndexSet)
-  @objc(removeEntitiesAtIndexes:) @NSManaged dynamic public func removeFromEntities(at indexes: Foundation.NSIndexSet)
-  @objc(replaceObjectInEntitiesAtIndex:withObject:) @NSManaged dynamic public func replaceEntities(at idx: Swift.Int, with value: PRCatalogModel.CatalogEntity)
-  @objc(replaceEntitiesAtIndexes:withEntities:) @NSManaged dynamic public func replaceEntities(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogEntity])
-  @objc(addEntitiesObject:) @NSManaged dynamic public func addToEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(removeEntitiesObject:) @NSManaged dynamic public func removeFromEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(addEntities:) @NSManaged dynamic public func addToEntities(_ values: Foundation.NSOrderedSet)
-  @objc(removeEntities:) @NSManaged dynamic public func removeFromEntities(_ values: Foundation.NSOrderedSet)
+  @objc(addContentsObject:) @NSManaged nonisolated dynamic public func addToContents(_ value: PRCatalogModel.CatalogItemContent)
+  @objc(removeContentsObject:) @NSManaged nonisolated dynamic public func removeFromContents(_ value: PRCatalogModel.CatalogItemContent)
+  @objc(addContents:) @NSManaged nonisolated dynamic public func addToContents(_ values: Foundation.NSSet)
+  @objc(removeContents:) @NSManaged nonisolated dynamic public func removeFromContents(_ values: Foundation.NSSet)
 }
 extension PRCatalogModel.CatalogItem {
-  @objc(addEntitiesMetadataObject:) @NSManaged dynamic public func addToEntitiesMetadata(_ value: PRCatalogModel.RelationshipMetadata)
-  @objc(removeEntitiesMetadataObject:) @NSManaged dynamic public func removeFromEntitiesMetadata(_ value: PRCatalogModel.RelationshipMetadata)
-  @objc(addEntitiesMetadata:) @NSManaged dynamic public func addToEntitiesMetadata(_ values: Foundation.NSSet)
-  @objc(removeEntitiesMetadata:) @NSManaged dynamic public func removeFromEntitiesMetadata(_ values: Foundation.NSSet)
+  @objc(insertObject:inEntitiesAtIndex:) @NSManaged nonisolated dynamic public func insertIntoEntities(_ value: PRCatalogModel.CatalogEntity, at idx: Swift.Int)
+  @objc(removeObjectFromEntitiesAtIndex:) @NSManaged nonisolated dynamic public func removeFromEntities(at idx: Swift.Int)
+  @objc(insertEntities:atIndexes:) @NSManaged nonisolated dynamic public func insertIntoEntities(_ values: [PRCatalogModel.CatalogEntity], at indexes: Foundation.NSIndexSet)
+  @objc(removeEntitiesAtIndexes:) @NSManaged nonisolated dynamic public func removeFromEntities(at indexes: Foundation.NSIndexSet)
+  @objc(replaceObjectInEntitiesAtIndex:withObject:) @NSManaged nonisolated dynamic public func replaceEntities(at idx: Swift.Int, with value: PRCatalogModel.CatalogEntity)
+  @objc(replaceEntitiesAtIndexes:withEntities:) @NSManaged nonisolated dynamic public func replaceEntities(at indexes: Foundation.NSIndexSet, with values: [PRCatalogModel.CatalogEntity])
+  @objc(addEntitiesObject:) @NSManaged nonisolated dynamic public func addToEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(removeEntitiesObject:) @NSManaged nonisolated dynamic public func removeFromEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(addEntities:) @NSManaged nonisolated dynamic public func addToEntities(_ values: Foundation.NSOrderedSet)
+  @objc(removeEntities:) @NSManaged nonisolated dynamic public func removeFromEntities(_ values: Foundation.NSOrderedSet)
 }
 extension PRCatalogModel.CatalogItem {
-  @objc(addLoadingEntitiesObject:) @NSManaged dynamic public func addToLoadingEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(removeLoadingEntitiesObject:) @NSManaged dynamic public func removeFromLoadingEntities(_ value: PRCatalogModel.CatalogEntity)
-  @objc(addLoadingEntities:) @NSManaged dynamic public func addToLoadingEntities(_ values: Foundation.NSSet)
-  @objc(removeLoadingEntities:) @NSManaged dynamic public func removeFromLoadingEntities(_ values: Foundation.NSSet)
+  @objc(addEntitiesMetadataObject:) @NSManaged nonisolated dynamic public func addToEntitiesMetadata(_ value: PRCatalogModel.RelationshipMetadata)
+  @objc(removeEntitiesMetadataObject:) @NSManaged nonisolated dynamic public func removeFromEntitiesMetadata(_ value: PRCatalogModel.RelationshipMetadata)
+  @objc(addEntitiesMetadata:) @NSManaged nonisolated dynamic public func addToEntitiesMetadata(_ values: Foundation.NSSet)
+  @objc(removeEntitiesMetadata:) @NSManaged nonisolated dynamic public func removeFromEntitiesMetadata(_ values: Foundation.NSSet)
+}
+extension PRCatalogModel.CatalogItem {
+  @objc(addLoadingEntitiesObject:) @NSManaged nonisolated dynamic public func addToLoadingEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(removeLoadingEntitiesObject:) @NSManaged nonisolated dynamic public func removeFromLoadingEntities(_ value: PRCatalogModel.CatalogEntity)
+  @objc(addLoadingEntities:) @NSManaged nonisolated dynamic public func addToLoadingEntities(_ values: Foundation.NSSet)
+  @objc(removeLoadingEntities:) @NSManaged nonisolated dynamic public func removeFromLoadingEntities(_ values: Foundation.NSSet)
 }
 extension PRCatalogModel.CatalogItem : Swift.Identifiable {
   public typealias ID = Swift.String
 }
 extension PRCatalogModel.BookLicense {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<PRCatalogModel.BookLicense>
-  @objc @NSManaged dynamic public var id: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var id: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var bookId: Swift.String {
+  @objc @NSManaged nonisolated dynamic public var bookId: Swift.String {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var endDate: Foundation.Date? {
+  @objc @NSManaged nonisolated dynamic public var endDate: Foundation.Date? {
     @objc get
     @objc set
   }
-  @objc @NSManaged dynamic public var startDate: Foundation.Date {
+  @objc @NSManaged nonisolated dynamic public var startDate: Foundation.Date {
     @objc get
     @objc set
   }
@@ -1867,14 +1947,14 @@ extension PRCatalogModel.BookLicense {
 extension PRCatalogModel.BookLicense : Swift.Identifiable {
   public typealias ID = Swift.String
 }
-@_inheritsConvenienceInitializers @objc(BookLicense) public class BookLicense : CoreData.NSManagedObject {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(BookLicense) nonisolated public class BookLicense : CoreData.NSManagedObject {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.BookLicense : PRCoreDataUtils.IdentifiableMO {
 }
-@_inheritsConvenienceInitializers @objc(Bookmark) public class Bookmark : PRCatalogModel.BookFragment {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+@_inheritsConvenienceInitializers @objc(Bookmark) nonisolated public class Bookmark : PRCatalogModel.BookFragment {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
 extension PRCatalogModel.Section.Id : Swift.Equatable {}

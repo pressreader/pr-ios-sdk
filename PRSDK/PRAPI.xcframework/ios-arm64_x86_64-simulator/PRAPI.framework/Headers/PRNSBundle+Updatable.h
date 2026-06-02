@@ -6,8 +6,9 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
-@import PRUtils.PRNSBundle;
+#import <Foundation/Foundation.h>
+#import <PRUtils/PRUtils.h>
+#import <PRConfiguration/PRNSBundle.h>
 
 @class PRUpdateItem;
 

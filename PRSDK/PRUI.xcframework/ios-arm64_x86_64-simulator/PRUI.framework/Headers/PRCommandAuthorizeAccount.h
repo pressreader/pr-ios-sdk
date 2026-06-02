@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-@import PRCommands.PRCommand;
+#import <PRCommands/PRCommands.h>
 
 @class PRAccountItem;
 

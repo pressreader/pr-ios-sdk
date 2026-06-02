@@ -6,7 +6,7 @@
 //  Copyright © 2020 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class PRMyLibraryItem;
 

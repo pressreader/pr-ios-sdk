@@ -6,11 +6,11 @@
 //  Copyright 2008 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
-@import PRUtils.PRReachability;
+#import <UIKit/UIKit.h>
 
 @class PROptions;
 @class CCCryptorAES256;
+@class MBProgressHUD;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,9 +20,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
     PRAlertControllerPresentationContextNone,
     PRAlertControllerPresentationContextAPICommand,
 };
-
-@class MBProgressHUD;
-@class PRReachability;
 
 @interface PRCoreUtil : NSObject
 
@@ -49,12 +46,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 - (BOOL) IsFileDestinationOlderOrDoesNotExist:(NSString*)srcPath dstPath:(NSString*)dstPath;
 - (BOOL) ReplaceFileIfOlderOrDoesNotExist:(NSString*)src dst:(NSString*)dst;
 
-- (void)restartNetworkNotifiers;
-- (void)stopNetworkNotifiers;
-- (void)addNetworkObserver:(id)observer selector:(SEL)selector;
-- (void)removeNetworkObserver:(id)observer;
-- (PRNetworkStatus)networkStatus;
-
 - (nullable id) unsupportedJSONClass:(id)unsupported;
 
 - (void) setDebugLevel:(NSInteger) debugLevel;
@@ -67,8 +58,6 @@ typedef NS_ENUM(NSUInteger, PRAlertControllerPresentationContext) {
 - (nullable NSDate*)NSDateFromIssueId:(NSString*)issueId;
 - (NSString*)GetJSONSystemParameters;
 - (NSString*)GetURLSystemParameters;
-
-@property (nonatomic, readonly) BOOL isNetworkReachable;
 
 @end
 

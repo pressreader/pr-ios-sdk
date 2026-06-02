@@ -31,7 +31,6 @@ typedef NS_OPTIONS(NSUInteger, PRCatalogSectionOption) {
 
 @interface PRCatalogSection : NSObject
 
-+ (PRCatalogSectionType)sectionTypeForName:(NSString *)name;
 + (NSString *)sectionNameForType:(PRCatalogSectionType)type;
 + (nullable NSString *)sectionReuseIdForType:(PRCatalogSectionType)type;
 

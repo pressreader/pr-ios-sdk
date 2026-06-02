@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSNotificationName const PROrderUpdatedPaymentInfoNotification;
 
-typedef void(^ _Nullable PROrderCompletion)(BOOL success, NSError *_Nullable error);
+typedef void(NS_SWIFT_SENDABLE ^ _Nullable PROrderCompletion)(BOOL success, NSError *_Nullable error);
 
 @interface PROrder : NSObject
 
@@ -45,7 +45,7 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success, NSError *_Nullable err
 - (void)updateThumbnail;
 - (void)resetBackIssueRequested;
 
-- (void)getPaymenInfo:(void(^ _Nullable)(NSString *, NSDate *, NSArray * _Nullable))completion;
+- (void)getPaymenInfo:(void(^ _Nullable)(NSString *, NSDate *, NSArray<NSString *> * _Nullable))completion;
 
 - (void)updateWithDate:(NSDate *)date;
 - (void)updateWithCID:(NSString *)cid date:(NSDate *)date;
@@ -95,7 +95,7 @@ typedef void(^ _Nullable PROrderCompletion)(BOOL success, NSError *_Nullable err
 
 @property (nonatomic) BOOL latestIssueDatesRequestInProgress;
 
-@property (nonatomic, readonly) BOOL hasRadio;
+@property (nonatomic) BOOL hasRadio;
 
 @property (nullable, nonatomic, strong, readonly) PRConsumableBundle *bundle;
 

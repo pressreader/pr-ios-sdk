@@ -6,8 +6,8 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-#import "PRThumbnailObject.h"
-#import "PRThumbnailMasthead.h"
+#import <PRThumbnail/PRThumbnailObject.h>
+#import <PRThumbnail/PRThumbnailMasthead.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

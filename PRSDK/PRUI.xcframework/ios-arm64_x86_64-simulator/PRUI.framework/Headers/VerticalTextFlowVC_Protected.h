@@ -34,7 +34,8 @@ typedef NS_OPTIONS(NSUInteger, VerticalTextFlowVCPreference) {
     VerticalTextFlowVCPreferenceDataSilentLoadingDisabled = 1 << 5,
     VerticalTextFlowVCPreferenceRefreshControlEnabled = 1 << 6,
     VerticalTextFlowVCPreferenceBottomBarHidden = 1 << 7,
-    VerticalTextFlowVCPreferenceScrollAnimationEnabled = 1 << 8
+    VerticalTextFlowVCPreferenceIssueThumbnailHidden = 1 << 8,
+    VerticalTextFlowVCPreferenceScrollAnimationEnabled = 1 << 9
 };
 
 @class PRActionMenuVC;

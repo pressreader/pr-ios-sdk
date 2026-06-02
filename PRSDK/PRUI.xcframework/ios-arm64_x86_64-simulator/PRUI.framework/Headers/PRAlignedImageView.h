@@ -24,6 +24,8 @@ typedef NS_ENUM(uint8_t, PRAlignmentStyle) {
 
 @property (nullable, nonatomic, strong) UIImage *image;
 
+@property (nonatomic, getter=isFocusable) BOOL focusable;
+
 @end
 
 NS_ASSUME_NONNULL_END

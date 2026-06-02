@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PRRoundedTableViewCell.h"
+#import <PRUIKit/PRRoundedTableViewCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

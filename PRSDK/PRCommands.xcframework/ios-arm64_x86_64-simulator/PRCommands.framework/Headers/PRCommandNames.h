@@ -45,3 +45,4 @@ extern PRCommandName const PRCommandNameShowModalAuthorization;
 extern PRCommandName const PRCommandNamePrintText;
 extern PRCommandName const PRCommandNamePresentBookWebPurchase;
 extern PRCommandName const PRCommandNameOpenBookDetails;
+extern PRCommandName const PRCommandNameOpenVideos;

@@ -46,9 +46,6 @@ typedef void(^_Nullable PRServiceCompletion)(BOOL success, NSError *_Nullable er
 - (void) AddReadingStatistics:(NSArray *)frames forViewType:(NSString *)view;
 - (void) addBookReadingStatisticsEvents:(NSArray<NSDictionary *> *)events NS_SWIFT_NAME(addBookReadingStatistics(events:));
 
-// client list interface
-- (void) updateActivationId;
-
 // template url and revision
 - (void) RequestTemplateInfo:(NSString *)locale;
 - (nullable NSString *)templateUrl;

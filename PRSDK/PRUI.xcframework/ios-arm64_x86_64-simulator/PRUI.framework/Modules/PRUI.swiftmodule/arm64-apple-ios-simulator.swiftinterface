@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRUI
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios17.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRUI
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import AuthenticationServices
 import BackgroundTasks
 import PRAPI.BranchAnalytics
@@ -26,7 +26,6 @@ import PRDIContainer
 import PRLogKit.PRLog
 import PRLogKit
 import PRPromiseKit
-import PRProtocols
 import PRSmart
 import PRSyntacticSugar
 import PRThumbnail
@@ -43,7 +42,7 @@ import WKYTPlayerView
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency final public class NTFPageSetCompactView : UIKit.UIView, PRUI.NTFItemCompactView {
+@_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency final public class NTFPageSetCompactView : UIKit.UIView, @_Concurrency.MainActor PRUI.NTFItemCompactView {
   @objc @_Concurrency.MainActor @preconcurrency final public var pageSetItem: PRAPI.NTFPageSetItem? {
     get
   }
@@ -52,6 +51,9 @@ import _SwiftConcurrencyShims
   }
   @objc @_Concurrency.MainActor @preconcurrency final public let options: PRUI.NTFArticleCompactViewOption
   @_Concurrency.MainActor @preconcurrency @objc final public var feedItem: (any PRAPI.NTFItem)? {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override final public var preferredFocusEnvironments: [any UIKit.UIFocusEnvironment] {
     @objc get
   }
   @objc @_Concurrency.MainActor @preconcurrency public init(options: PRUI.NTFArticleCompactViewOption)
@@ -69,9 +71,9 @@ import _SwiftConcurrencyShims
   @_Concurrency.MainActor @preconcurrency @objc override final public func setup(withRow row: Swift.Int, dataSource: PRUI.NTFDataSource?, actionBlock: PRUI.TextFlowItemAction?, contentWidth: CoreFoundation.CGFloat)
   @objc deinit
 }
-public protocol WelcomeHotSpotViewDelegate : AnyObject {
-  func `continue`()
-  func cancel()
+@_Concurrency.MainActor public protocol WelcomeHotSpotViewDelegate : AnyObject {
+  @_Concurrency.MainActor func `continue`()
+  @_Concurrency.MainActor func cancel()
 }
 @objc @_Concurrency.MainActor @preconcurrency final public class WelcomeHotSpotView : PRUIKit.BrandGradientView {
   @_Concurrency.MainActor @preconcurrency public init(delegate: any PRUI.WelcomeHotSpotViewDelegate)
@@ -115,7 +117,7 @@ extension Foundation.NSNotification.Name {
   @objc @_Concurrency.MainActor final public func deauthorize() async throws
   @objc deinit
 }
-@objc extension PRUI.PRBasePaymentOptionsVC : PRAnalytics.PaymentOptionsAnalyticsProvider {
+@objc extension PRUI.PRBasePaymentOptionsVC : @_Concurrency.MainActor PRAnalytics.PaymentOptionsAnalyticsProvider {
   @nonobjc @_Concurrency.MainActor @preconcurrency public var context: PRAnalytics.PaymentOptionsAnalyticsContext {
     get
   }
@@ -157,33 +159,36 @@ extension PRUI.PRRadioManager : PRAPI.RadioAnalyticsProvider {
   @objc dynamic public func _trackRadioPauseRestart()
   @objc dynamic public func _trackRadioComplete()
 }
-@objc extension PRUI.PRAVPlayerActor : PRAPI.RichMediaAnalyticsProvider {
+@objc extension PRUI.PRAVPlayerActor : PRAnalytics.RichMediaAnalyticsProvider {
   @objc dynamic public var mediaType: Swift.String {
     @objc get
   }
-  @objc dynamic public var issue: (any PRAPI.IssueAnalyticsProvider)? {
+  @objc dynamic public var issue: (any PRAnalytics.IssueAnalyticsProvider)? {
     @objc get
   }
   @objc dynamic public var mediaTitle: Swift.String? {
     @objc get
   }
+  @objc dynamic public var consumptionPercentage: Swift.Int {
+    @objc get
+  }
   @objc @available(*, unavailable)
   dynamic public func _trackRichMediaEvent(action: PRAnalytics.RMTAction)
 }
-extension PRUI.PROrderDelivery : PRAnalytics.RegistrationAnalyticsProvider {
-  public var registrationContext: PRAnalytics.RegistrationAnalyticsContext {
+@_Concurrency.MainActor extension PRUI.PROrderDelivery : @_Concurrency.MainActor PRAnalytics.RegistrationAnalyticsProvider {
+  @_Concurrency.MainActor public var registrationContext: PRAnalytics.RegistrationAnalyticsContext {
     get
   }
 }
-@objc extension PRUI.PROrderDelivery : PRAnalytics.PaymentOptionsAnalyticsProvider {
-  @nonobjc public var context: PRAnalytics.PaymentOptionsAnalyticsContext {
+@_Concurrency.MainActor extension PRUI.PROrderDelivery : @_Concurrency.MainActor PRAnalytics.PaymentOptionsAnalyticsProvider {
+  @_Concurrency.MainActor public var context: PRAnalytics.PaymentOptionsAnalyticsContext {
     get
   }
-  @objc dynamic public func trackProductPurchaseStarted(_ product: StoreKit.SKProduct)
-  @objc(trackProductPurchaseCompleted:) dynamic public func trackProductPurchaseCompleted(success: Swift.Bool)
-  @objc(trackProductPurchaseCompleted:error:) dynamic public func trackProductPurchaseCompleted(success: Swift.Bool, error: (any Swift.Error)?)
-  @objc dynamic public func trackRestoreCompleted(_ success: Swift.Bool)
-  @objc dynamic public func trackPremiumProductOffer()
+  @objc @_Concurrency.MainActor dynamic public func trackProductPurchaseStarted(_ product: StoreKit.SKProduct)
+  @objc(trackProductPurchaseCompleted:) @_Concurrency.MainActor dynamic public func trackProductPurchaseCompleted(success: Swift.Bool)
+  @objc(trackProductPurchaseCompleted:error:) @_Concurrency.MainActor dynamic public func trackProductPurchaseCompleted(success: Swift.Bool, error: (any Swift.Error)?)
+  @objc @_Concurrency.MainActor dynamic public func trackRestoreCompleted(_ success: Swift.Bool)
+  @objc @_Concurrency.MainActor dynamic public func trackPremiumProductOffer()
 }
 @objc extension PRUI.PRCollectionViewCell {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public var accessibilityLabel: Swift.String? {
@@ -192,38 +197,38 @@ extension PRUI.PROrderDelivery : PRAnalytics.RegistrationAnalyticsProvider {
   }
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility()
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CommandOrder : ObjectiveC.NSObject {
-  @objc final public class func execute(item: any PRAPI.PRCatalogItem)
-  @objc final public class func execute(item: any PRAPI.PRCatalogItem, options: PRUI.PROrderOption = [])
-  @objc final public class func execute(item: any PRAPI.PRCatalogItem, options: PRUI.PROrderOption, navigationController: UIKit.UINavigationController?)
-  @objc public static func execute(item: any PRAPI.PRCatalogItem, subscriptions: [PRAPI.PRSubscription]? = nil, date: Foundation.Date? = nil, options: PRUI.PROrderOption = [], preferredService: Swift.String? = nil, navigationController: UIKit.UINavigationController? = nil)
-  @objc public static func load(_ item: any PRAPI.PRCatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption, options: PRUI.PROrderOption)
-  @objc override dynamic public init()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @objcMembers final public class CommandOrder : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public class func execute(item: any PRAPI.PRCatalogItem)
+  @objc @_Concurrency.MainActor final public class func execute(item: any PRAPI.PRCatalogItem, options: PRUI.PROrderOption = [])
+  @objc @_Concurrency.MainActor final public class func execute(item: any PRAPI.PRCatalogItem, options: PRUI.PROrderOption, navigationController: UIKit.UINavigationController?)
+  @objc @_Concurrency.MainActor public static func execute(item: any PRAPI.PRCatalogItem, subscriptions: [PRAPI.PRSubscription]? = nil, date: Foundation.Date? = nil, options: PRUI.PROrderOption = [], preferredService: Swift.String? = nil, navigationController: UIKit.UINavigationController? = nil)
+  @objc @_Concurrency.MainActor public static func load(_ item: any PRAPI.PRCatalogItem, contentOptions: PRCatalogModel.CatalogItemContentOption, options: PRUI.PROrderOption)
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 public protocol UIStyleOverridable : AnyObject {
   var overrideUserInterfaceStyle: UIKit.UIUserInterfaceStyle { get set }
 }
-public protocol UIStyleOserver : AnyObject {
-  var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> { get }
-  func applyUIStyle()
+@_Concurrency.MainActor public protocol UIStyleOserver : AnyObject {
+  @_Concurrency.MainActor var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> { get }
+  @_Concurrency.MainActor func applyUIStyle()
 }
 extension PRUI.UIStyleOserver {
-  public var isUIStyleApplied: Swift.Bool {
+  @_Concurrency.MainActor public var isUIStyleApplied: Swift.Bool {
     get
   }
-  public var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> {
+  @_Concurrency.MainActor public var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> {
     get
   }
-  public func registerUIStyleObserver()
-  public func unregisterUIStyleObserver()
+  @_Concurrency.MainActor public func registerUIStyleObserver()
+  @_Concurrency.MainActor public func unregisterUIStyleObserver()
 }
 extension PRUI.UIStyleOserver where Self : PRUI.UIStyleOverridable {
-  public func applyUIStyle()
+  @_Concurrency.MainActor public func applyUIStyle()
 }
-extension UIKit.UIView : PRUI.UIStyleOverridable {
+extension UIKit.UIView : @_Concurrency.MainActor PRUI.UIStyleOverridable {
 }
-extension UIKit.UIViewController : PRUI.UIStyleOverridable {
+extension UIKit.UIViewController : @_Concurrency.MainActor PRUI.UIStyleOverridable {
 }
 @objc @_Concurrency.MainActor @preconcurrency final public class StoriesTabSearchVC : PRUI.ArticleSearchVC {
   @_Concurrency.MainActor @preconcurrency public init(dataSource: PRUI.StoriesSearchDataSource)
@@ -243,18 +248,22 @@ extension UIKit.UIViewController : PRUI.UIStyleOverridable {
   @objc public static var isEnabled: Swift.Bool {
     @objc get
   }
-  @objc final public func signIn(_ completion: ((Swift.Bool, (any Swift.Error)?) -> ())?)
+  @objc @_Concurrency.MainActor final public func signIn(_ completion: (@Sendable (Swift.Bool, (any Swift.Error)?) -> ())?)
   @objc deinit
 }
 extension PRUI.PRSourcesVC {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func registerAsObserver()
 }
-extension PRUI.PRSourcesVC : PRUI.PRSourceCategoriesCollectionDelegate {
+extension PRUI.PRSourcesVC : @_Concurrency.MainActor PRUI.PRSourceCategoriesCollectionDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func discloseCategory(_ value: any PRAPI.CatalogNavigation, sender: UIKit.UIView?)
 }
-@objc extension PRUI.PRBannerProvider {
-  @objc dynamic public func getBannerSections() -> [PRAPI.PRCatalogSection]
-  @objc dynamic public func allBannersSection() -> PRAPI.PRCatalogSection?
+@objc @_Concurrency.MainActor extension PRUI.PRBannerProvider {
+  @objc @_Concurrency.MainActor dynamic public func getBannerSections() -> [PRAPI.PRCatalogSection]
+  @objc @_Concurrency.MainActor dynamic public func allBannersSection() -> PRAPI.PRCatalogSection?
+}
+extension PRUI.ReadingViewController {
+  @_Concurrency.MainActor @preconcurrency public func navigate(pageNo: Swift.Int, articleId: Swift.String?)
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func handlePostponedScroll()
 }
 extension UIKit.UINavigationItem {
   @_Concurrency.MainActor @preconcurrency public func setupTitleView(mastheadProvider: any PRAPI.MastheadProvider, title: Swift.String?, subtitle: Swift.String?, style: UIKit.UIUserInterfaceStyle, completion: PRThumbnail.PRThumbnailHandler? = nil)
@@ -318,7 +327,8 @@ extension PRUI.PROrder {
   }
   @objc dynamic public func setupCID()
   @objc dynamic public func supplements(date: Foundation.Date) -> [PRAPI.PRTitleItemExemplar]?
-  @objc dynamic public func askOrderConfirmation(options: PRUI.PROrderDeliveryOption, completion: PRUI.PROrderCompletion?) -> Swift.Bool
+  @objc @_Concurrency.MainActor dynamic public func askOrderConfirmation(options: PRUI.PROrderDeliveryOption, completion: PRUI.PROrderCompletion?) -> Swift.Bool
+  @objc @_Concurrency.MainActor dynamic public func updateRadioInfo()
   @available(swift, obsoleted: 1.0)
   @objc dynamic public func subscriptionChangeNotification(_ notification: Foundation.Notification)
 }
@@ -366,10 +376,10 @@ extension PRUI.NTFFeedDataSource : PRUI.PRRadioDataSource {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(style: UIKit.UITableView.Style)
   @objc deinit
 }
-extension UIKit.UIApplication : PRUI.UIStyleOserver {
+extension UIKit.UIApplication : @_Concurrency.MainActor PRUI.UIStyleOserver {
   @available(swift, obsoleted: 1.0)
   @objc(registerUIStyleObserver) @_Concurrency.MainActor @preconcurrency dynamic public func _registerUIStyleObserver()
-  @_Concurrency.MainActor @preconcurrency public func applyUIStyle()
+  @_Concurrency.MainActor public func applyUIStyle()
 }
 @available(swift, obsoleted: 1.0)
 @objc extension PRUI.PRRadioVC {
@@ -382,24 +392,24 @@ extension PRUI.PRRadioVC : PRUIKit.NavigationBarAppearanceProvider {
 extension PRUI.PRSourceItemCellList {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func setupCell(item: any PRAPI.PRCatalogItem)
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class NTFCompactViewCommons : ObjectiveC.NSObject {
-  @objc public static var secondaryTintColor: UIKit.UIColor {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @objcMembers final public class NTFCompactViewCommons : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor public static var secondaryTintColor: UIKit.UIColor {
     @objc get
   }
-  @objc public static var menuButtonIcon: UIKit.UIImage? {
+  @objc @_Concurrency.MainActor public static var menuButtonIcon: UIKit.UIImage? {
     @objc get
   }
-  @objc public static var bylineTextColor: UIKit.UIColor {
+  @objc @_Concurrency.MainActor public static var bylineTextColor: UIKit.UIColor {
     @objc get
   }
-  @objc public static var bodyTextColor: UIKit.UIColor {
+  @objc @_Concurrency.MainActor public static var bodyTextColor: UIKit.UIColor {
     @objc get
   }
-  @objc public static func dateStyle(date: Foundation.Date?) -> PRUIKit.PRDatePresentationStyle
-  @objc public static func menuButton(handler: @escaping (PRUIKit.PRSwitchButton) -> ()) -> PRUIKit.PRSwitchButton
-  @objc public static func bylineLabel() -> PRUIKit.UILabelHidable
-  @objc public static func dateLabel() -> PRUIKit.UILabelHidable
-  @objc override dynamic public init()
+  @objc @_Concurrency.MainActor public static func dateStyle(date: Foundation.Date?) -> PRUIKit.PRDatePresentationStyle
+  @objc @_Concurrency.MainActor public static func menuButton(handler: @escaping (PRUIKit.PRSwitchButton) -> ()) -> PRUIKit.PRSwitchButton
+  @objc @_Concurrency.MainActor public static func bylineLabel() -> PRUIKit.UILabelHidable
+  @objc @_Concurrency.MainActor public static func dateLabel() -> PRUIKit.UILabelHidable
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 extension PRUI.VerticalTextFlowVC {
@@ -429,7 +439,15 @@ extension PRUI.VerticalTextFlowVC {
   @objc public func variant(indexPath: Foundation.IndexPath) -> any PRAPI.CatalogNavigationVariant
   @objc deinit
 }
-extension PRUIKit.PRSafariVC : @retroactive PRUIKit.Reportable {
+extension PRAPI.NTFArticleItem : @retroactive PRAPI.FlowArticle {
+  @objc nonisolated dynamic public var generalActionConfig: [Swift.AnyHashable : Any] {
+    @objc get
+  }
+  @objc nonisolated dynamic public var articleActionConfig: [Swift.AnyHashable : Any] {
+    @objc get
+  }
+}
+extension PRUIKit.PRSafariVC : @retroactive @_Concurrency.MainActor PRUIKit.Reportable {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func report()
 }
 @objc extension WKYTPlayerView.YTPlayerView {
@@ -442,7 +460,7 @@ extension PRUIKit.PRSafariVC : @retroactive PRUIKit.Reportable {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func premiumBannerCell(for tableView: UIKit.UITableView, reuseId: Swift.String) -> UIKit.UITableViewCell
 }
 @objc extension PRUI.PROrderDelivery {
-  @objc dynamic public func askUserForDownload() -> Swift.Bool
+  @objc @_Concurrency.MainActor dynamic public func askUserForDownload() -> Swift.Bool
 }
 extension UIKit.UIViewController {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var isInSearchFlow: Swift.Bool {
@@ -453,7 +471,8 @@ extension UIKit.UIViewController {
   }
 }
 extension UIKit.UIViewController : @retroactive PRUIKit.GlobalSearchSupportable {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func showGlobalSearch(text: Swift.String?) async -> UIKit.UIViewController?
+  @discardableResult
+  @_Concurrency.MainActor @preconcurrency public func showGlobalSearch(text: Swift.String?, scope: PRConfiguration.GlobalSearchConfig.Scope? = nil) async -> (any PRUIKit.SearchableVC)?
 }
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency final public class ArticlePopoverContainerVC : UIKit.UIViewController {
   @objc(ArticlePopoverContentAppearanceType) public enum AppearanceType : Swift.Int {
@@ -469,7 +488,7 @@ extension UIKit.UIViewController : @retroactive PRUIKit.GlobalSearchSupportable 
   @objc @_Concurrency.MainActor @preconcurrency public static var presentedInstance: PRUI.ArticlePopoverContainerVC? {
     @objc get
   }
-  @objc(dismissIfPresentedAnimated:completion:) @_Concurrency.MainActor @preconcurrency final public class func dismissIfPresented(animated: Swift.Bool, completion: (() -> ())?)
+  @objc(dismissIfPresentedAnimated:completion:) @_Concurrency.MainActor final public class func dismissIfPresented(animated: Swift.Bool) async
   @_Concurrency.MainActor @preconcurrency @objc override final public var childForStatusBarStyle: UIKit.UIViewController? {
     @objc get
   }
@@ -494,19 +513,19 @@ extension UIKit.UIViewController : @retroactive PRUIKit.GlobalSearchSupportable 
   }
   @objc deinit
 }
-extension UIKit.UINavigationController : PRUI.ViewRefreshable {
+extension UIKit.UINavigationController : @_Concurrency.MainActor PRUI.ViewRefreshable {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func refreshView()
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PressReaderState : ObjectiveC.NSObject {
-  public static let instance: PRUI.PressReaderState
-  final public let isActivated: Combine.CurrentValueSubject<Swift.Bool, any Swift.Error>
-  final public let isCatalogLoaded: Combine.CurrentValueSubject<Swift.Bool, any Swift.Error>
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor public class PressReaderState : ObjectiveC.NSObject {
+  @_Concurrency.MainActor public static let instance: PRUI.PressReaderState
+  @_Concurrency.MainActor final public let isActivated: Combine.CurrentValueSubject<Swift.Bool, any Swift.Error>
+  @_Concurrency.MainActor final public let isCatalogLoaded: Combine.CurrentValueSubject<Swift.Bool, any Swift.Error>
   @objc deinit
 }
 @objc extension PRUI.PRSourceItemCell {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateActionState()
 }
-@objc @_Concurrency.MainActor @preconcurrency public class PRVerticalBookmarksVC : PRUI.UniversalLayoutFeedVC, PRUI.PRBookmarkListDelegate {
+@objc @_Concurrency.MainActor @preconcurrency public class PRVerticalBookmarksVC : PRUI.UniversalLayoutFeedVC, @_Concurrency.MainActor PRUI.PRBookmarkListDelegate {
   @objc @_Concurrency.MainActor @preconcurrency public class func bookmarksVC(profileId: Swift.String) -> PRUI.PRVerticalBookmarksVC
   @objc @_Concurrency.MainActor @preconcurrency public class func bookmarksVC(profileId: Swift.String, collectionModel: PRAPI.PRCollectionsModel<PRAPI.NTFCollectionItem>?, collection: PRAPI.NTFCollectionItem?) -> PRUI.PRVerticalBookmarksVC
   @objc @_Concurrency.MainActor @preconcurrency public class func bookmarksVC(profileId: Swift.String, dataSource: PRUI.NTFBookmarksDataSource) -> PRUI.PRVerticalBookmarksVC
@@ -559,13 +578,16 @@ extension UIKit.UINavigationController : PRUI.ViewRefreshable {
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc public protocol TranslateHUDPresenter : ObjectiveC.NSObjectProtocol {
-  @objc var shouldPresentTanslationHUD: Swift.Bool { get }
+@_Concurrency.MainActor @objc public protocol TranslateHUDPresenter : ObjectiveC.NSObjectProtocol {
+  @objc @_Concurrency.MainActor var shouldPresentTanslationHUD: Swift.Bool { get }
 }
 @objc extension UIKit.UIViewController : PRUI.TranslateHUDPresenter {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public var shouldPresentTanslationHUD: Swift.Bool {
+  @_Concurrency.MainActor @objc dynamic public var shouldPresentTanslationHUD: Swift.Bool {
     @objc get
   }
+}
+@_Concurrency.MainActor extension PRUI.PRPubHubDataSource {
+  @objc @_Concurrency.MainActor dynamic public func videoSection(scheme: PRConfiguration.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
 }
 public protocol Downloaded {
   typealias Observer = Swift.AnyObject
@@ -574,23 +596,22 @@ public protocol Downloaded {
   func deleteAll()
   func observe(_ callback: @escaping () -> ()) -> Self.Observer
 }
-@objc @_inheritsConvenienceInitializers final public class CommandShowATTPermissionRequest : PRCommands.PRCommand {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CommandShowATTPermissionRequest : PRCommands.PRCommand {
   @objc override public static var defaultCommandName: PRCommands.PRCommandName {
     @objc get
   }
   @objc override final public class var isEnabled: Swift.Bool {
     @objc get
   }
-  @objc public static func execute(completion: (() -> Swift.Void)?)
-  @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
+  @objc @_Concurrency.MainActor public static func execute(completion: (() -> Swift.Void)?)
+  @_Concurrency.MainActor @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
-@objc extension PRUI.PressReader : PRProtocols.Singleton {
-  @_Concurrency.MainActor @preconcurrency @objc public static func instance() -> Self
-  @_Concurrency.MainActor @preconcurrency @objc public static func hasInstance() -> Swift.Bool
-  @_Concurrency.MainActor @preconcurrency @objc public static func dismiss()
+@objc @_Concurrency.MainActor extension PRUI.PressReader {
+  @objc @_Concurrency.MainActor public static func instance() -> Self
+  @objc @_Concurrency.MainActor public static func hasInstance() -> Swift.Bool
+  @objc @_Concurrency.MainActor public static func dismiss()
 }
 @objc public protocol CatalogFilterCellDelegate {
   @objc func catalogFilterCell(_ cell: PRUI.CatalogFilterCell, action: Swift.String)
@@ -611,7 +632,7 @@ extension PRUI.PRFeedbackController {
 }
 extension UIKit.UINavigationItem {
   @available(swift, obsoleted: 1.0)
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAppLogoTitle(style: UIKit.UIUserInterfaceStyle, completion: PRSyntacticSugar.PRSimpleBlock?)
+  @objc(setupAppLogoTitleWithStyle:completion:) @_Concurrency.MainActor @preconcurrency dynamic public func _setupAppLogoTitle(style: UIKit.UIUserInterfaceStyle, completion: PRSyntacticSugar.PRSimpleBlock?)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAppLogoTitle(title: Swift.String? = nil, style: UIKit.UIUserInterfaceStyle, isLarge: Swift.Bool = false, completion: PRSyntacticSugar.PRSimpleBlock? = nil)
 }
 @objc @_inheritsConvenienceInitializers final public class CollectionViewCellAccessories : ObjectiveC.NSObject {
@@ -621,8 +642,8 @@ extension UIKit.UINavigationItem {
 }
 public typealias PaymentInfoBlock = (PRUI.PROrderDeliveryResult, [Swift.String], PRAPI.PRConsumableBundle?) -> ()
 extension PRAPI.PRTitleItemExemplar {
-  public static let delivery: PRSyntacticSugar.ObjectAssociationProxy<PRUI.PROrderDelivery>
-  public static let paymentInfoDelivery: PRSyntacticSugar.ObjectAssociationProxy<PRUI.PROrderDelivery>
+  nonisolated(unsafe) public static let delivery: PRSyntacticSugar.ObjectAssociationProxy<PRUI.PROrderDelivery>
+  nonisolated(unsafe) public static let paymentInfoDelivery: PRSyntacticSugar.ObjectAssociationProxy<PRUI.PROrderDelivery>
   @objc dynamic public func requestPaymentInfo(subscription: PRAPI.PRSubscription, completion: @escaping PRUI.PaymentInfoBlock)
   @objc dynamic public func order(subscription: PRAPI.PRSubscription, options: PRUI.PROrderDeliveryOption, orderDescription: [Swift.String : Any]?, completion: PRUI.DeliveryCompletionBlock?)
   @objc dynamic public func order(subscription: PRAPI.PRSubscription, options: PRUI.PROrderDeliveryOption, usePremiumProduct: Swift.Bool, orderDescription: [Swift.String : Any]?, completion: PRUI.DeliveryCompletionBlock?)
@@ -635,12 +656,13 @@ extension PRAPI.PRTitleItemExemplar {
   @_Concurrency.MainActor @preconcurrency @objc final public func animateTransition(using transitionContext: any UIKit.UIViewControllerContextTransitioning)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc public class MySubscriptionsVCProvider : ObjectiveC.NSObject {
-  @objc public func getMySubscriptionsVC(withAccount account: PRAPI.PRAccountItem) -> UIKit.UIViewController
+@objc @_inheritsConvenienceInitializers @available(swift, obsoleted: 1.0)
+@objcMembers public class PRMySubscriptionsVC : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor public static func instance(account: PRAPI.PRAccountItem) -> UIKit.UIViewController
   @objc override dynamic public init()
   @objc deinit
 }
-@_Concurrency.MainActor @preconcurrency public class MySubscriptionsVC : PRUIKit.SwiftVC<PRUI.MySubscriptionsView, PRUI.MySubscriptionsModel>, UIKit.UITableViewDataSource, UIKit.UITableViewDelegate, PRAPI.LoadableModelObserver {
+@_Concurrency.MainActor @preconcurrency public class MySubscriptionsVC : PRUIKit.SwiftVC<PRUI.MySubscriptionsView, PRUI.MySubscriptionsModel>, UIKit.UITableViewDataSource, UIKit.UITableViewDelegate, @_Concurrency.MainActor PRAPI.LoadableModelObserver {
   @_Concurrency.MainActor @preconcurrency public init(withAccount account: PRAPI.PRAccountItem)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
@@ -649,9 +671,9 @@ extension PRAPI.PRTitleItemExemplar {
   @_Concurrency.MainActor @preconcurrency @objc public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
   @_Concurrency.MainActor @preconcurrency @objc public func tableView(_ tableView: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor @preconcurrency @objc public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
-  @_Concurrency.MainActor @preconcurrency public func didSelectManageSubscription()
-  @_Concurrency.MainActor @preconcurrency public func didSelectOpenTitle(cid: Swift.String)
-  @_Concurrency.MainActor @preconcurrency public func didSwitchAutodeliveryOn(isOn: Swift.Bool, cid: Swift.String)
+  @_Concurrency.MainActor public func didSelectManageSubscription()
+  @_Concurrency.MainActor public func didSelectOpenTitle(cid: Swift.String)
+  @_Concurrency.MainActor public func didSwitchAutodeliveryOn(isOn: Swift.Bool, cid: Swift.String)
   @_Concurrency.MainActor @preconcurrency public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
   @objc deinit
 }
@@ -694,14 +716,16 @@ extension PRUI.PRSourceItemCell {
   @objc required dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class CommandShowEmailSignIn : PRUI.PROnlineCommand {
-  @objc public class func execute(presenter: UIKit.UIViewController?, options: PRUI.PREmailSignInOptions?, uiPreference: PRUI.SignInUIPreferences)
-  @objc override dynamic public class func execute(parameters: [Swift.AnyHashable : Any]?)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor public class CommandShowEmailSignIn : PRUI.PROnlineCommand {
+  @objc @_Concurrency.MainActor public class func execute(presenter: UIKit.UIViewController?, options: PRUI.PREmailSignInOptions?, uiPreference: PRUI.SignInUIPreferences)
+  @_Concurrency.MainActor @objc override dynamic public class func execute(parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
 extension PRUI.NTFArticleCompactTextualView {
+  @objc nonisolated public static var mastheadHeight: CoreFoundation.CGFloat {
+    @objc get
+  }
   @_Concurrency.MainActor @preconcurrency public var mastheadProvider: (any PRAPI.MastheadProvider)? {
     get
   }
@@ -740,12 +764,12 @@ extension PRUI.PRSourceCategoriesCollectionVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility(view: UIKit.UICollectionViewCell, filter: any PRAPI.CatalogNavigation)
 }
-@objc extension PRUI.PROrderDelivery {
-  @objc dynamic public func showRegistrationAlert(productIDs: Swift.Set<Swift.String>, descriptions: ObjectiveC.NSObject, info: [Swift.AnyHashable : Any])
+@_Concurrency.MainActor @objc extension PRUI.PROrderDelivery {
+  @objc @_Concurrency.MainActor dynamic public func showRegistrationAlert(productIDs: Swift.Set<Swift.String>, descriptions: ObjectiveC.NSObject, info: [Swift.AnyHashable : Any])
 }
 @objc @_inheritsConvenienceInitializers final public class PartnerBannerViewAdapter : ObjectiveC.NSObject {
   public static func isEnabled(area: PRConfiguration.CoBrandingConfig.Area?) -> Swift.Bool
-  public static func viewController(area: PRConfiguration.CoBrandingConfig.Area?, horizontalSize: SwiftUICore.UserInterfaceSizeClass? = nil) -> UIKit.UIViewController?
+  @_Concurrency.MainActor public static func viewController(area: PRConfiguration.CoBrandingConfig.Area?, horizontalSize: SwiftUICore.UserInterfaceSizeClass? = nil) -> UIKit.UIViewController?
   @objc override dynamic public init()
   @objc deinit
 }
@@ -753,59 +777,55 @@ extension PRUI.PartnerBannerViewAdapter {
   public static var stackViewSpacing: CoreFoundation.CGFloat {
     get
   }
-  public static var stackView: UIKit.UIStackView {
+  @_Concurrency.MainActor public static var stackView: UIKit.UIStackView {
     get
   }
   public static func bannerHeight(area: PRConfiguration.CoBrandingConfig.Area?, horizontalSize: UIKit.UIUserInterfaceSizeClass) -> CoreFoundation.CGFloat
 }
-@objc @_inheritsConvenienceInitializers final public class CommandShowOnboarding : PRUI.PROnlineCommand {
-  public static var initialOnboardingVC: UIKit.UIViewController {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CommandShowOnboarding : PRUI.PROnlineCommand {
+  @_Concurrency.MainActor public static var initialOnboardingVC: UIKit.UIViewController {
     get
   }
-  @objc final public class var isGetStartedViewEnabled: Swift.Bool {
+  @objc @_Concurrency.MainActor final public class var isGetStartedViewEnabled: Swift.Bool {
     @objc get
   }
-  @objc final public class var isRegistrationIntroEnabled: Swift.Bool {
+  @objc @_Concurrency.MainActor final public class var isRegistrationIntroEnabled: Swift.Bool {
     @objc get
   }
-  @objc final public class var isIntroEnabled: Swift.Bool {
+  @objc @_Concurrency.MainActor final public class var isIntroEnabled: Swift.Bool {
     @objc get
   }
   @objc override final public class var isEnabled: Swift.Bool {
     @objc get
   }
-  @objc override final public class func execute(parameters: [Swift.AnyHashable : Any]?)
+  @_Concurrency.MainActor @objc override final public class func execute(parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
-@objc extension PRUI.PRPubHubDataSource {
-  @objc dynamic public func toggleBanner(type: PRConfiguration.PRBannerType)
-  @objc dynamic public func showBanner(type: PRConfiguration.PRBannerType)
-  @objc dynamic public func hideBanner(type: PRConfiguration.PRBannerType)
+@objc @_Concurrency.MainActor extension PRUI.PRPubHubDataSource {
+  @objc @_Concurrency.MainActor dynamic public func toggleBanner(type: PRConfiguration.PRBannerType)
+  @objc @_Concurrency.MainActor dynamic public func showBanner(type: PRConfiguration.PRBannerType)
+  @objc @_Concurrency.MainActor dynamic public func hideBanner(type: PRConfiguration.PRBannerType)
 }
 @objc extension UIKit.UICollectionView {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func scrollToTop(_ animated: Swift.Bool)
 }
-extension PRUI.PRPubHubDataSource {
-  @objc dynamic public func listenSection(scheme: PRAPI.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
-}
-extension PRUI.PRPubHubDataSource : PRAPI.LoadableModelObserver {
-  public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
+@_Concurrency.MainActor extension PRUI.PRPubHubDataSource {
+  @objc @_Concurrency.MainActor dynamic public func listenSection(scheme: PRConfiguration.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
 }
 @objc extension UIKit.UISplitViewController {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func refreshPrimaryView()
 }
-@_hasMissingDesignatedInitializers final public class KeyboardLayoutGuide {
-  final public let topGuide: UIKit.UILayoutGuide
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class KeyboardLayoutGuide {
+  @_Concurrency.MainActor final public let topGuide: UIKit.UILayoutGuide
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency final public class NavigationBarTitleView : UIKit.UIStackView {
   @objc @_Concurrency.MainActor @preconcurrency public init(title: Swift.String?, subtitle: Swift.String?)
   @objc deinit
 }
-public protocol PurchaseProductProvider {
-  var selectedProduct: PRAPI.PRProduct? { get }
+@_Concurrency.MainActor public protocol PurchaseProductProvider {
+  @_Concurrency.MainActor var selectedProduct: PRAPI.PRProduct? { get }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class PREmailSignInOptions : ObjectiveC.NSObject {
   @objc final public var userName: Swift.String
@@ -834,14 +854,13 @@ extension PRUI.PRiphoneAppDelegate {
 @objc extension PRUI.PRiphoneAppDelegate {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func openOrderView(cid: Swift.String?, date: Foundation.Date?, preferableServiceName: Swift.String?, asSeparatePanel: Swift.Bool, forceDownload: Swift.Bool) -> Swift.Bool
 }
-@objc @_inheritsConvenienceInitializers final public class FeedArticleAccessControlActor : ObjectiveC.NSObject {
-  @objc final public class func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, action: @escaping () -> ())
-  @objc final public class func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, signInAction: (() -> ())?, action: @escaping () -> ())
-  @objc final public func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, action: @escaping () -> ())
-  @objc final public func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, signInAction: (() -> ())?, action: @escaping () -> ())
-  @objc final public func purchaseSubscription(article: PRAPI.NTFArticleItem, completion: @escaping (Swift.Bool) -> ())
-  @objc final public func canPurchaseSubscription(article: PRAPI.NTFArticleItem) -> Swift.Bool
-  @objc override dynamic public init()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class FeedArticleAccessControlActor : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public class func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, action: @escaping () -> ())
+  @objc @_Concurrency.MainActor final public class func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, signInAction: (() -> ())?, action: @escaping () -> ())
+  @objc @_Concurrency.MainActor final public func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, action: @escaping () -> ())
+  @objc @_Concurrency.MainActor final public func performAction(_ actionType: PRUI.ActionType, article: (any PRAPI.NTFArticle)?, signInAction: (() -> ())?, action: @escaping () -> ())
+  @objc @_Concurrency.MainActor final public func purchaseSubscription(article: PRAPI.NTFArticleItem) async throws
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc extension PRUI.PRSplashScreenVC : PRAPI.SplashScreenAnalyticsProvider {
@@ -851,8 +870,11 @@ extension PRUI.PRiphoneAppDelegate {
 public struct BookContentActionAccessActor {
   public typealias Item = PRCatalogModel.BookContent
 }
+extension PRUI.NTFFeedDataSource : @unchecked Swift.Sendable {
+}
 extension PRUI.NTFFeedDataSource {
   @objc override dynamic public func type(forItem item: Any) -> PRAPI.NTFDataItemType
+  @_Concurrency.MainActor @objc dynamic public func updatedArticle(id: Swift.String) async throws -> (any PRAPI.NTFArticle)?
   @objc dynamic public func registerSubscriptionObserver()
 }
 @objc final public class PROrderModel : ObjectiveC.NSObject {
@@ -870,22 +892,31 @@ extension PRUI.NTFFeedDataSource {
   @objc deinit
 }
 extension PRUI.PressReader {
-  @objc @_Concurrency.MainActor @preconcurrency public static var serviceName: Swift.String {
+  @objc nonisolated public static var serviceName: Swift.String {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor @preconcurrency public static var isLocalService: Swift.Bool {
+  nonisolated public static var isLocalService: Swift.Bool {
     get
   }
-  @_Concurrency.MainActor @preconcurrency public static var isEdition: Swift.Bool {
+  nonisolated public static var isEdition: Swift.Bool {
     get
   }
 }
-@objc extension PRUI.ModalVideoPlayerVC : PRAPI.RichMediaAnalyticsProvider {
+@objc extension PRUI.ModalVideoPlayerVC : @_Concurrency.MainActor PRAnalytics.FeedVideoAnalyticsProvider {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var issueId: Swift.String? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var videoId: Swift.String? {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public var consumptionPercentage: Swift.Int {
+    @objc get
+  }
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var mediaType: Swift.String {
     @objc get
   }
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public var issue: (any PRAPI.IssueAnalyticsProvider)? {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public var issue: (any PRAnalytics.IssueAnalyticsProvider)? {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var mediaTitle: Swift.String? {
@@ -908,19 +939,25 @@ extension PRUI.PressReader {
   @_Concurrency.MainActor @preconcurrency @objc override final public func pageNumber(forPageViewIndex pageIndex: Swift.UInt, subIndex: Swift.UInt, doubleViewMode: Swift.Bool) -> Swift.UInt
   @_Concurrency.MainActor @preconcurrency @objc override final public func pdfScrollViewWithCurrentItem() -> PRUI.PRPDFScrollView
   @_Concurrency.MainActor @preconcurrency @objc override final public func configurePageView(_ pageView: PRUI.PRPDFScrollView, for index: Swift.UInt, scale: CoreFoundation.CGFloat, offset: CoreFoundation.CGPoint)
-  @_Concurrency.MainActor @preconcurrency @objc final public func adChangeHandler(_ ad: PRAds.AdBannerPresentation)
-  @_Concurrency.MainActor @preconcurrency @objc final public func presentEmbedableAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @_Concurrency.MainActor @preconcurrency @objc final public func presentInterstitialAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @_Concurrency.MainActor @preconcurrency @objc final public func presentFixedAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @_Concurrency.MainActor @objc final public func adChangeHandler(_ ad: PRAds.AdBannerPresentation)
+  @_Concurrency.MainActor @objc final public func presentEmbedableAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @_Concurrency.MainActor @objc final public func presentInterstitialAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @_Concurrency.MainActor @objc final public func presentFixedAds(_ ads: [PRAds.AdBannerPresentation]?)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(item: PRUI.PRReadableCatalogItem)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 @objc extension UIKit.UIViewController {
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public var popoverPresentationDelegate: PRUI.PopoverPresentationController? {
+  @objc @_Concurrency.MainActor @preconcurrency public static let defaultPopoverWidth: CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var isInPopover: Swift.Bool {
     @objc get
-    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var isActuallyInPopover: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var popoverLayoutMargins: UIKit.UIEdgeInsets {
+    @objc get
   }
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var popoverContainer: UIKit.UIViewController? {
     @objc get
@@ -929,15 +966,10 @@ extension PRUI.PressReader {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func popoverContentSize(height: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func signInPopoverContentSize() -> CoreFoundation.CGSize
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func isInPopoverWithArrow() -> Swift.Bool
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func resizePopover()
+  @objc(resizePopoverAnimated:) @_Concurrency.MainActor @preconcurrency dynamic public func resizePopover(animated: Swift.Bool)
 }
-@_inheritsConvenienceInitializers @objc(PRPopoverPresentationController) @_Concurrency.MainActor @preconcurrency final public class PopoverPresentationController : ObjectiveC.NSObject, UIKit.UIPopoverPresentationControllerDelegate {
-  @_Concurrency.MainActor @preconcurrency @objc final public func adaptivePresentationStyle(for controller: UIKit.UIPresentationController) -> UIKit.UIModalPresentationStyle
-  @_Concurrency.MainActor @preconcurrency @objc final public func popoverPresentationController(_ popoverPresentationController: UIKit.UIPopoverPresentationController, willRepositionPopoverTo rect: Swift.UnsafeMutablePointer<CoreFoundation.CGRect>, in view: Swift.AutoreleasingUnsafeMutablePointer<UIKit.UIView>)
-  @_Concurrency.MainActor @preconcurrency @objc final public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIKit.UIPopoverPresentationController)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
-  @objc deinit
-}
-extension PRUI.PRGiftIssuePromoBlockVC : PRAnalytics.GiftedIssueAnalyticsProvider {
+extension PRUI.PRGiftIssuePromoBlockVC : @_Concurrency.MainActor PRAnalytics.GiftedIssueAnalyticsProvider {
   @available(swift, obsoleted: 1.0)
   @objc(trackGiftedIssueAdget) @_Concurrency.MainActor @preconcurrency dynamic public func _trackGiftedIssueAdget()
   @available(swift, obsoleted: 1.0)
@@ -960,7 +992,7 @@ extension PRUI.PRGiftIssuePromoBlockVC : PRAnalytics.GiftedIssueAnalyticsProvide
   }
   @objc deinit
 }
-@objc public enum ActionType : Swift.Int {
+@objc public enum ActionType : Swift.Int, Swift.Sendable {
   case share
   case bookmark
   case listen
@@ -973,9 +1005,9 @@ extension PRUI.PRGiftIssuePromoBlockVC : PRAnalytics.GiftedIssueAnalyticsProvide
     get
   }
 }
-public protocol HotSpotNotFoundViewDelegate : AnyObject {
-  func close()
-  func contentSizeDidChange(_ size: CoreFoundation.CGSize)
+@_Concurrency.MainActor public protocol HotSpotNotFoundViewDelegate : AnyObject {
+  @_Concurrency.MainActor func close()
+  @_Concurrency.MainActor func contentSizeDidChange(_ size: CoreFoundation.CGSize)
 }
 @objc @_Concurrency.MainActor @preconcurrency final public class HotSpotNotFoundView : PRUIKit.BrandGradientView {
   @_Concurrency.MainActor @preconcurrency public init(delegate: any PRUI.HotSpotNotFoundViewDelegate)
@@ -1007,8 +1039,19 @@ public protocol Download {
 extension PRUI.ReadingViewController {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func monitorHotSpotExpiration()
 }
-@objc public protocol ItemSelectionDelegate {
-  @objc func viewController(_ vc: UIKit.UIViewController, selectItem item: Any?)
+extension PRUI.ThumbsSpread {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var pageFocusLeft: PRUIKit.FocusableView {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var pageFocusRight: PRUIKit.FocusableView {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateFocusFrames(topInset: CoreFoundation.CGFloat)
+}
+@_Concurrency.MainActor @objc public protocol ItemSelectionDelegate {
+  @objc @_Concurrency.MainActor func viewController(_ vc: UIKit.UIViewController, selectItem item: Any?)
 }
 extension UIKit.UIImage {
   @objc(bundledTemplateImageNamed:) public static func bundledTemplate(name: Swift.String) -> Self?
@@ -1024,7 +1067,7 @@ extension SwiftUICore.Image {
   public init?(bundledWithName name: Swift.String)
 }
 extension PRAPI.BannerAnalyticsProvider {
-  public var bannerContext: PRAnalytics.PRAnalyticsBannerContext {
+  @_Concurrency.MainActor public var bannerContext: PRAnalytics.PRAnalyticsBannerContext {
     get
   }
 }
@@ -1036,6 +1079,7 @@ extension PRUI.PREmbedablePubHubVC {
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func setupSectionCell<T>(_ cell: UIKit.UICollectionViewCell, section: PRAPI.PRCatalogSection, insets: UIKit.UIEdgeInsets = .zero, controller: () -> T) -> T? where T : UIKit.UIViewController
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupListenHighlightsSectionCell(_ cell: UIKit.UICollectionViewCell, section: PRAPI.PRCatalogSection)
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupVideoFeedSectionCell(_ cell: UIKit.UICollectionViewCell, section: PRAPI.PRCatalogSection)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupFilterSectionCell(_ cell: UIKit.UICollectionViewCell, section: PRAPI.PRCatalogSection)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupPartnerBannerSectionCell(_ cell: UIKit.UICollectionViewCell, section: PRAPI.PRCatalogSection)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func sourceVC(section: PRAPI.PRCatalogSection) -> PRUI.PRSourcesVC
@@ -1043,6 +1087,8 @@ extension PRUI.PREmbedablePubHubVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func _registerReusableCells()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func pushFullCatalogVC()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func headerViewOptions(sectionOptions: PRAPI.PRCatalogSectionOption, section: Swift.Int) -> PRUI.PRSectionHeaderViewOption
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func pushVideoVC()
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func needSeeAllButton(section: PRAPI.PRCatalogSection) -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, viewForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionReusableView
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var shouldDiscard: Swift.Bool {
     @objc get
@@ -1067,11 +1113,11 @@ extension PRUI.PREmbedablePubHubVC {
   @objc public static func shareMenuItem(pageNumberProvider: @escaping () -> Swift.Int, pagesProvider: @escaping () -> Swift.Set<Swift.Int>) -> PRUIKit.PRMenuItem?
   @objc public static func listenMenuItem(parameters: [Swift.String : Any]? = nil, context: Swift.String? = nil) -> PRUIKit.PRCommandMenuItem
 }
-@_inheritsConvenienceInitializers @objc final public class CommandOpenInterestsFeed : ObjectiveC.NSObject {
-  @objc final public class func execute(interest: PRAPI.Interest)
-  @objc final public class func execute(interest: PRAPI.Interest, presenter: UIKit.UINavigationController?)
-  @objc final public class func execute(interest: PRAPI.Interest, presenter: UIKit.UINavigationController?, animated: Swift.Bool)
-  @objc override dynamic public init()
+@_inheritsConvenienceInitializers @_Concurrency.MainActor @objc final public class CommandOpenInterestsFeed : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public class func execute(interest: PRAPI.Interest)
+  @objc @_Concurrency.MainActor final public class func execute(interest: PRAPI.Interest, presenter: UIKit.UINavigationController?)
+  @objc @_Concurrency.MainActor final public class func execute(interest: PRAPI.Interest, presenter: UIKit.UINavigationController?, animated: Swift.Bool)
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class UIStyleSelectorVC : PRUI.PRSelectionPanelVC {
@@ -1107,12 +1153,12 @@ extension PRUI.PREmbedablePubHubVC {
   public func items(context: CoreData.NSManagedObjectContext?) -> [any PRAPI.NTFItem]
   @objc deinit
 }
-extension PRUI.PRAppPanelsManager : PRAPI.AppUIReady {
-  @objc dynamic public func getReady() -> PRPromiseKit.Promise
-  @objc dynamic public func updateFirstPanelWhenReady() async
-  @objc dynamic public func openAppMenuPanel(command: PRCommands.PRCommandName, parameters: [Swift.String : Any]) -> Swift.Bool
-  @objc dynamic public func openAppMenuPanel(command: PRCommands.PRCommandName) -> Swift.Bool
-  @objc dynamic public func getAppUIReady() -> PRPromiseKit.Promise
+@_Concurrency.MainActor extension PRUI.PRAppPanelsManager : @_Concurrency.MainActor PRAPI.AppUIReady {
+  @objc @_Concurrency.MainActor dynamic public func getReady() -> PRPromiseKit.Promise
+  @objc @_Concurrency.MainActor dynamic public func updateFirstPanelWhenReady() async
+  @objc @_Concurrency.MainActor dynamic public func openAppMenuPanel(command: PRCommands.PRCommandName, parameters: [Swift.String : Any]) -> Swift.Bool
+  @objc @_Concurrency.MainActor dynamic public func openAppMenuPanel(command: PRCommands.PRCommandName) -> Swift.Bool
+  @_Concurrency.MainActor @objc dynamic public func getAppUIReady() -> PRPromiseKit.Promise
 }
 @objc extension PRUI.PROrderInfoBarView {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func update()
@@ -1148,65 +1194,65 @@ extension PRUI.CustomStyleableTextFlowVC : PRUIKit.NavigationBarAppearanceProvid
 @objc extension PRUI.CustomStyleableTextFlowVC : PRUI.TextFlowUIStyleOserver {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupTextFlowUIStyle()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func resetTextFlowUIStyle()
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public func applyUIStyle()
+  @objc @_Concurrency.MainActor dynamic public func applyUIStyle()
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterViewModel : ObjectiveC.NSObject, Foundation.ObservableObject {
-  @objc public static let defaultFont: UIKit.UIFont
-  @objc public static var recommendedSize: CoreFoundation.CGSize {
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor final public class CatalogFilterViewModel : ObjectiveC.NSObject, Foundation.ObservableObject {
+  @objc @_Concurrency.MainActor public static let defaultFont: UIKit.UIFont
+  @objc @_Concurrency.MainActor public static var recommendedSize: CoreFoundation.CGSize {
     @objc get
   }
-  @objc final public class func iconPadding(filterType: PRAPI.CatalogNavigationType) -> CoreFoundation.CGFloat
-  @objc final public class func contentInset(filterType: PRAPI.CatalogNavigationType) -> UIKit.NSDirectionalEdgeInsets
-  @objc final public class func iconWidth(filterType: PRAPI.CatalogNavigationType) -> CoreFoundation.CGFloat
-  final public var model: (any PRUI.CatalogFilterModel)? {
+  @objc @_Concurrency.MainActor final public class func iconPadding(filterType: PRAPI.CatalogNavigationType) -> CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor final public class func contentInset(filterType: PRAPI.CatalogNavigationType) -> UIKit.NSDirectionalEdgeInsets
+  @objc @_Concurrency.MainActor final public class func iconWidth(filterType: PRAPI.CatalogNavigationType) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor final public var model: (any PRUI.CatalogFilterModel)? {
     get
     set
   }
-  @objc final public var isTitleUppercased: Swift.Bool {
+  @objc @_Concurrency.MainActor final public var isTitleUppercased: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc final public var title: Swift.String {
+  @objc @_Concurrency.MainActor final public var title: Swift.String {
     @objc get
   }
-  @objc final public var numberOfLines: Swift.Int {
+  @objc @_Concurrency.MainActor final public var numberOfLines: Swift.Int {
     @objc get
   }
-  @objc final public var icon: UIKit.UIImage? {
+  @objc @_Concurrency.MainActor final public var icon: UIKit.UIImage? {
     get
   }
-  @objc final public var iconPadding: CoreFoundation.CGFloat {
+  @objc @_Concurrency.MainActor final public var iconPadding: CoreFoundation.CGFloat {
     @objc get
   }
-  @objc final public var contentInset: UIKit.NSDirectionalEdgeInsets {
+  @objc @_Concurrency.MainActor final public var contentInset: UIKit.NSDirectionalEdgeInsets {
     @objc get
   }
-  @objc @Combine.Published @_projectedValueProperty($font) final public var font: UIKit.UIFont {
+  @objc @Combine.Published<UIKit.UIFont> @_projectedValueProperty($font) @_Concurrency.MainActor final public var font: UIKit.UIFont {
     @objc get
     @objc @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     set
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     _modify
   }
-  final public var $font: Combine.Published<UIKit.UIFont>.Publisher {
+  @_Concurrency.MainActor final public var $font: Combine.Published<UIKit.UIFont>.Publisher {
     get
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
-  @objc @Combine.Published @_projectedValueProperty($itemSize) final public var itemSize: CoreFoundation.CGSize {
+  @objc @Combine.Published<CoreFoundation.CGSize> @_projectedValueProperty($itemSize) @_Concurrency.MainActor final public var itemSize: CoreFoundation.CGSize {
     @objc get
     @objc @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     set
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     _modify
   }
-  final public var $itemSize: Combine.Published<CoreFoundation.CGSize>.Publisher {
+  @_Concurrency.MainActor final public var $itemSize: Combine.Published<CoreFoundation.CGSize>.Publisher {
     get
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
-  @objc final public var action: (() -> ())?
-  @objc override dynamic public init()
+  @objc @_Concurrency.MainActor final public var action: (() -> ())?
+  @_Concurrency.MainActor @objc override dynamic public init()
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
@@ -1230,7 +1276,7 @@ extension PRUI.CustomStyleableTextFlowVC : PRUIKit.NavigationBarAppearanceProvid
     @objc get
   }
 }
-@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class BESettingsMasterPanelVC : PRUI.PRSettingsMasterPanelVC, PRUI.PRAccountInfoCellDelegate, UIKit.UIImagePickerControllerDelegate, UIKit.UINavigationControllerDelegate {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class BESettingsMasterPanelVC : PRUI.PRSettingsMasterPanelVC, @_Concurrency.MainActor PRUI.PRAccountInfoCellDelegate, UIKit.UIImagePickerControllerDelegate, UIKit.UINavigationControllerDelegate {
   @objc @_Concurrency.MainActor @preconcurrency final public var menuItems: [PRUIKit.PRMenuItem]? {
     @objc get
     @objc set
@@ -1245,6 +1291,7 @@ extension PRUI.CustomStyleableTextFlowVC : PRUIKit.NavigationBarAppearanceProvid
   @_Concurrency.MainActor @preconcurrency @objc override final public func titleForRow(at indexPath: Foundation.IndexPath) -> Swift.String
   @_Concurrency.MainActor @preconcurrency @objc override final public func settingsDetailsPanelClass(at indexPath: Foundation.IndexPath) -> Swift.AnyClass?
   @_Concurrency.MainActor @preconcurrency @objc override final public func shouldPresentDisclosureIndicatorForCell(at indexPath: Foundation.IndexPath) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override final public func isOnlineContent(at indexPath: Foundation.IndexPath) -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency @objc override final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @_Concurrency.MainActor @preconcurrency @objc override final public func tableView(_ tableView: UIKit.UITableView, titleForFooterInSection section: Swift.Int) -> Swift.String?
   @_Concurrency.MainActor @preconcurrency @objc override final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
@@ -1314,7 +1361,7 @@ extension PRUIKit.PRUINavigationController : @retroactive UIKit.UINavigationCont
 extension PRAPI.CatalogBanner : @retroactive PRAnalytics.AnalyticsProvider {
 }
 extension PRAPI.CatalogBanner : @retroactive PRAPI.BannerAnalyticsProvider {
-  final public var bannerType: PRAnalytics.PRAnalyticsBannerType {
+  @_Concurrency.MainActor final public var bannerType: PRAnalytics.PRAnalyticsBannerType {
     get
   }
 }
@@ -1362,7 +1409,7 @@ extension PRAPI.CatalogBanner : @retroactive PRAPI.BannerAnalyticsProvider {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func refreshContent(with reason: PRUI.NTFFeedDataSourceRefreshReason)
   @objc deinit
 }
-@objc extension PRUI.ArticleSearchVC : PRAPI.ArticleSearchAnalyticsProvider {
+@objc extension PRUI.ArticleSearchVC : @_Concurrency.MainActor PRAPI.ArticleSearchAnalyticsProvider {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var specificInfo: PRAnalytics.AnalyticsParameters {
     @objc get
   }
@@ -1370,9 +1417,42 @@ extension PRAPI.CatalogBanner : @retroactive PRAPI.BannerAnalyticsProvider {
     @objc get
   }
 }
+@_inheritsConvenienceInitializers @objc(PRCommandOpenReader) @_Concurrency.MainActor final public class CommandOpenReader : PRCommands.PRCommand {
+  public enum Key : Swift.String {
+    case cid
+    case mid
+    case issueDate
+    case pageNo
+    case articleId
+    case requestIssueIfNeeded
+    case titleItem
+    case issue
+    case document
+    case pageIndex
+    case waitForIssueInDQ
+    case forceDownload
+    case order
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public typealias Parameters = [PRUI.CommandOpenReader.Key : Any]
+  @objc override final public class var defaultCommandName: PRCommands.PRCommandName {
+    @objc get
+  }
+  @objc override final public class func isEnabled(forParameters parameters: [Swift.AnyHashable : Any]?) -> Swift.Bool
+  @objc(isEnabledForArticle:) @_Concurrency.MainActor public static func isEnabled(article: any PRAPI.NTFArticle) -> Swift.Bool
+  @objc @_Concurrency.MainActor public static func execute(article: any PRAPI.NTFArticle) async throws
+  @objc override final public func isEnabled(forParameters parameters: [Swift.AnyHashable : Any]?) -> Swift.Bool
+  @_Concurrency.MainActor @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
+  @_Concurrency.MainActor final public func invoke(parameters: PRUI.CommandOpenReader.Parameters?) async throws
+  @objc override dynamic public init(name: PRCommands.PRCommandName)
+  @objc deinit
+}
 @objc extension PRUI.PRPubHubVC {
-  @objc @_Concurrency.MainActor @preconcurrency public static func catalogHub() -> Self
-  @objc @_Concurrency.MainActor @preconcurrency public static func homeHub(scheme: PRUI.CatalogSchemeProvider = .home) -> Self
+  @objc @_Concurrency.MainActor @preconcurrency public static func homeHub(hotspotManager: (any PRUI.PRHotspotStatusViewManagerProtocol)? = nil, scheme: PRConfiguration.CatalogSchemeProvider = .home) -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func hub(hotspotManager: (any PRUI.PRHotspotStatusViewManagerProtocol)?) -> Self
   @objc @_Concurrency.MainActor @preconcurrency public static func hub(hotspotManager: (any PRUI.PRHotspotStatusViewManagerProtocol)?, dataSource: PRUI.PRPubHubDataSource) -> Self
 }
@@ -1391,7 +1471,7 @@ public protocol CatalogFilterModel {
   @objc final public func getIcon(size: CoreFoundation.CGSize) async -> UIKit.UIImage?
   @objc deinit
 }
-@objc extension PRUI.PRAccountVC : PRAPI.AccountAnalyticsProvider {
+@objc extension PRUI.PRAccountVC : @_Concurrency.MainActor PRAPI.AccountAnalyticsProvider {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var accountViewType: PRAnalytics.PRAnalyticsAccountView {
     @objc get
   }
@@ -1400,8 +1480,8 @@ public protocol CatalogFilterModel {
   @objc @available(*, unavailable)
   @_Concurrency.MainActor @preconcurrency dynamic public func _trackDeleteAccount(_ success: Swift.Bool)
 }
-public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewDelegate {
-  func detailsViewDidReceiveSubscribeTap(_ view: PRUI.PublicationDetailsView)
+@_Concurrency.MainActor public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewDelegate {
+  @_Concurrency.MainActor func detailsViewDidReceiveSubscribeTap(_ view: PRUI.PublicationDetailsView)
 }
 @_Concurrency.MainActor @preconcurrency final public class PublicationDetailsView : PRUIKit.BaseTabView<PRUI.PublicationDetailsTopView> {
   @_Concurrency.MainActor @preconcurrency weak final public var delegate: (any PRUI.PublicationDetailsViewDelegate)? {
@@ -1429,7 +1509,7 @@ public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewD
   @_Concurrency.MainActor @preconcurrency final public func additionalBottomInset(subscribeButtonVisible: Swift.Bool) -> CoreFoundation.CGFloat
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class CommandShowPushNotificationsRequest : PRUI.PROnlineCommand {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CommandShowPushNotificationsRequest : PRUI.PROnlineCommand {
   @objc override public static var defaultCommandName: PRCommands.PRCommandName {
     @objc get
   }
@@ -1437,16 +1517,15 @@ public protocol PublicationDetailsViewDelegate : PRUI.PublicationDetailsTopViewD
     @objc get
   }
   @objc @_Concurrency.MainActor public static func execute(forAutoDownload autoDownload: Swift.Bool) async
-  @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
+  @_Concurrency.MainActor @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
-@objc final public class BookmarkMenuItem : PRUIKit.PRMenuItem {
-  @objc convenience public init?(article: any PRAPI.NTFArticle)
-  @objc convenience public init?(article: any PRAPI.NTFArticle, isStandalone: Swift.Bool)
-  @objc convenience public init?(pageSet: PRSmart.PRSmartPageset?, dataSource: PRUI.NTFDataSource, pages: Swift.Set<Foundation.NSNumber>?, isActive: Swift.Bool, account: PRAPI.PRAccountItem?, discloseAction: ((PRUI.PRBookmarkEditVC, UIKit.UIViewController, PRUIKit.PRMenuItem) -> Swift.Void)? = nil)
-  @objc public init?(isActive: Swift.Bool = false, account: PRAPI.PRAccountItem?, discloseAction: ((UIKit.UIViewController, PRUIKit.PRMenuItem) -> Swift.Void)? = nil)
+@_Concurrency.MainActor @objc final public class BookmarkMenuItem : PRUIKit.PRMenuItem {
+  @objc @_Concurrency.MainActor convenience public init?(article: any PRAPI.NTFArticle)
+  @objc @_Concurrency.MainActor convenience public init?(article: any PRAPI.NTFArticle, isStandalone: Swift.Bool)
+  @objc @_Concurrency.MainActor convenience public init?(pageSet: PRSmart.PRSmartPageset?, dataSource: PRUI.NTFDataSource, pages: Swift.Set<Foundation.NSNumber>?, isActive: Swift.Bool, account: PRAPI.PRAccountItem?, discloseAction: ((PRUI.PRBookmarkEditVC, UIKit.UIViewController, PRUIKit.PRMenuItem) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor public init?(isActive: Swift.Bool = false, account: PRAPI.PRAccountItem?, discloseAction: ((UIKit.UIViewController, PRUIKit.PRMenuItem) -> Swift.Void)? = nil)
   @objc deinit
 }
 extension PRUI.PRGiftedIssueContainer {
@@ -1468,10 +1547,19 @@ extension PRUI.PRGiftedIssueContainer {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var style: UIKit.UIUserInterfaceStyle {
     @objc get
   }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var canBecomeFirstResponder: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var keyCommands: [UIKit.UIKeyCommand]? {
+    @objc get
+  }
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func reloadRelatedStories()
 }
-@objc public protocol UITextViewContainer : ObjectiveC.NSObjectProtocol {
-  @objc func textViewWillDismissContainer(_ textView: PRUI.UITextViewWithLinks)
+@_Concurrency.MainActor @objc public protocol UITextViewContainer : ObjectiveC.NSObjectProtocol {
+  @objc @_Concurrency.MainActor func textViewWillDismissContainer(_ textView: PRUI.UITextViewWithLinks)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor @preconcurrency final public class UITextViewWithLinks : UIKit.UITextView {
   @objc @_Concurrency.MainActor @preconcurrency weak final public var container: UIKit.UIViewController?
@@ -1500,31 +1588,30 @@ extension PRUI.PRGiftedIssueContainer {
   @objc deinit
 }
 extension PRUI.UITextViewWithLinks : UIKit.UITextViewDelegate {
-  @_Concurrency.MainActor @preconcurrency @objc final public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc final public func textView(_ textView: UIKit.UITextView, primaryActionFor textItem: UIKit.UITextItem, defaultAction: UIKit.UIAction) -> UIKit.UIAction?
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CommandOpenBookDetails : PRCommands.PRCommand {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @objcMembers final public class CommandOpenBookDetails : PRCommands.PRCommand {
   @objc override final public class var defaultCommandName: PRCommands.PRCommandName {
     @objc get
   }
-  @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
+  @_Concurrency.MainActor @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
   @objc @_Concurrency.MainActor final public class func execute(bookId: Swift.String) async
   @objc @_Concurrency.MainActor final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [])
   @objc @_Concurrency.MainActor final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [], navigationController: UIKit.UINavigationController?)
   @objc @_Concurrency.MainActor final public class func execute(book: PRCatalogModel.Book, options: PRUI.PROrderOption = [], navigationController: UIKit.UINavigationController?, animated: Swift.Bool)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers final public class CommandManageInterests : PRUI.PROnlineValidator {
   @objc override final public class var isEnabled: Swift.Bool {
     @objc get
   }
-  @objc final public class func execute(title: Swift.String? = nil)
+  @_Concurrency.MainActor @objc final public class func execute(title: Swift.String? = nil)
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class CommandManageFollowPublications : PRUI.PROnlineValidator, PRUI.PRExecutable {
-  @objc final public class func execute()
+@objc @_inheritsConvenienceInitializers final public class CommandManageFollowPublications : PRUI.PROnlineValidator, @_Concurrency.MainActor PRUI.PRExecutable {
+  @_Concurrency.MainActor @objc final public class func execute()
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1533,19 +1620,19 @@ extension PRUIKit.PRUINavigationController {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func update(viewController: UIKit.UIViewController, animated: Swift.Bool)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateAppearance(viewController: UIKit.UIViewController)
 }
-public protocol ScrollUpdater : AnyObject {
-  var scrollViewStartScrolling: ((UIKit.UIScrollView) -> ())? { get set }
-  var scrollViewScrolling: ((UIKit.UIScrollView) -> ())? { get set }
-  var scrollViewEndScrolling: ((UIKit.UIScrollView) -> ())? { get set }
+@_Concurrency.MainActor public protocol ScrollUpdater : AnyObject {
+  @_Concurrency.MainActor var scrollViewStartScrolling: ((UIKit.UIScrollView) -> ())? { get set }
+  @_Concurrency.MainActor var scrollViewScrolling: ((UIKit.UIScrollView) -> ())? { get set }
+  @_Concurrency.MainActor var scrollViewEndScrolling: ((UIKit.UIScrollView) -> ())? { get set }
 }
-public protocol GlobalSearchTopViewDelegate : AnyObject {
-  func sortTitle(topView view: PRUI.GlobalSearchTopView) -> Swift.String?
-  func topView(_ view: PRUI.GlobalSearchTopView, didTapOnSortButton sender: UIKit.UIButton)
-  func topView(_ view: PRUI.GlobalSearchTopView, didSelectTab tab: PRUIKit.TabItem)
-  func availableTabViews(_ view: PRUI.GlobalSearchTopView) -> PRUI.GlobalSearchTopView.Views
+@_Concurrency.MainActor public protocol GlobalSearchTopViewDelegate : AnyObject {
+  @_Concurrency.MainActor func sortTitle(topView view: PRUI.GlobalSearchTopView) -> Swift.String?
+  @_Concurrency.MainActor func topView(_ view: PRUI.GlobalSearchTopView, didTapOnSortButton sender: UIKit.UIButton)
+  @_Concurrency.MainActor func topView(_ view: PRUI.GlobalSearchTopView, didSelectTab tab: PRUIKit.TabItem)
+  @_Concurrency.MainActor func availableTabViews(_ view: PRUI.GlobalSearchTopView) -> PRUI.GlobalSearchTopView.Views
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class GlobalSearchTopView : UIKit.UIView, PRUIKit.TopTabView, PRUIKit.TabsPanelDelegate {
-  public struct Views : Swift.OptionSet {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class GlobalSearchTopView : UIKit.UIView, PRUIKit.TopTabView, PRUIKit.TabsPanelDelegate {
+  public struct Views : Swift.OptionSet, Swift.Sendable {
     public let rawValue: Swift.Int
     public init(rawValue: Swift.Int)
     public typealias ArrayLiteralElement = PRUI.GlobalSearchTopView.Views
@@ -1561,34 +1648,31 @@ public protocol GlobalSearchTopViewDelegate : AnyObject {
     get
     set
   }
-  @_Concurrency.MainActor @preconcurrency final public var tabs: [PRUIKit.TabItem] {
+  @_Concurrency.MainActor final public var tabs: [PRUIKit.TabItem] {
     get
     set
   }
   @_Concurrency.MainActor @preconcurrency final public var tabHeight: CoreFoundation.CGFloat {
     get
   }
-  @_Concurrency.MainActor @preconcurrency final public var height: CoreFoundation.CGFloat {
+  @_Concurrency.MainActor final public var height: CoreFoundation.CGFloat {
     get
   }
-  @_Concurrency.MainActor @preconcurrency @objc override final public func awakeFromNib()
   @_Concurrency.MainActor @preconcurrency final public func select(tab: PRUIKit.TabItem)
   @_Concurrency.MainActor @preconcurrency final public func refresh()
-  @_Concurrency.MainActor @preconcurrency final public func tabsPanel(_ view: PRUIKit.TabsPanel, didSelectTab tab: PRUIKit.TabItem)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor final public func tabsPanel(_ view: PRUIKit.TabsPanel, didSelectTab tab: PRUIKit.TabItem)
   @objc deinit
 }
-public protocol PublicationDetailsTopViewDelegate : AnyObject {
-  func topView(_ view: PRUI.PublicationDetailsTopView, didChangeAutodownloadStatus autodownload: Swift.Bool)
-  func topView(_ view: PRUI.PublicationDetailsTopView, didChangeFollowingStatus following: Swift.Bool)
-  func topView(_ view: PRUI.PublicationDetailsTopView, didSelectTab tab: PRUIKit.TabItem)
-  func topView(_ view: PRUI.PublicationDetailsTopView, didTapOnServiceSelectionButton button: UIKit.UIButton)
-  func topView(_ view: PRUI.PublicationDetailsTopView, didTapOnOnlineViewsButton button: UIKit.UIButton)
-  func topView(_ view: PRUI.PublicationDetailsTopView, didChangeMaxHeight height: CoreFoundation.CGFloat)
+@_Concurrency.MainActor public protocol PublicationDetailsTopViewDelegate : AnyObject {
+  @_Concurrency.MainActor func topView(_ view: PRUI.PublicationDetailsTopView, didChangeAutodownloadStatus autodownload: Swift.Bool)
+  @_Concurrency.MainActor func topView(_ view: PRUI.PublicationDetailsTopView, didChangeFollowingStatus following: Swift.Bool)
+  @_Concurrency.MainActor func topView(_ view: PRUI.PublicationDetailsTopView, didSelectTab tab: PRUIKit.TabItem)
+  @_Concurrency.MainActor func topView(_ view: PRUI.PublicationDetailsTopView, didTapOnServiceSelectionButton button: UIKit.UIButton)
+  @_Concurrency.MainActor func topView(_ view: PRUI.PublicationDetailsTopView, didTapOnOnlineViewsButton button: UIKit.UIButton)
+  @_Concurrency.MainActor func topView(_ view: PRUI.PublicationDetailsTopView, didChangeMaxHeight height: CoreFoundation.CGFloat)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class PublicationDetailsTopView : UIKit.UIView, PRUIKit.TopTabView, PRUIKit.TabsPanelDelegate {
-  public struct Views : Swift.OptionSet {
+  public struct Views : Swift.OptionSet, Swift.Sendable {
     public let rawValue: Swift.Int
     public init(rawValue: Swift.Int)
     public typealias ArrayLiteralElement = PRUI.PublicationDetailsTopView.Views
@@ -1600,7 +1684,7 @@ public protocol PublicationDetailsTopViewDelegate : AnyObject {
     get
     set
   }
-  @_Concurrency.MainActor @preconcurrency final public var tabs: [PRUIKit.TabItem] {
+  @_Concurrency.MainActor final public var tabs: [PRUIKit.TabItem] {
     get
     set
   }
@@ -1644,7 +1728,7 @@ public protocol PublicationDetailsTopViewDelegate : AnyObject {
     get
     set
   }
-  @_Concurrency.MainActor @preconcurrency final public var height: CoreFoundation.CGFloat {
+  @_Concurrency.MainActor final public var height: CoreFoundation.CGFloat {
     get
   }
   @_Concurrency.MainActor @preconcurrency final public var minHeight: CoreFoundation.CGFloat {
@@ -1656,10 +1740,10 @@ public protocol PublicationDetailsTopViewDelegate : AnyObject {
   @_Concurrency.MainActor @preconcurrency final public var titleView: UIKit.UIView? {
     get
   }
-  @_Concurrency.MainActor @preconcurrency @objc override final public func awakeFromNib()
+  @objc override final public func awakeFromNib()
   @_Concurrency.MainActor @preconcurrency @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency final public func setMasthead(_ image: UIKit.UIImage?, animated: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency final public func tabsPanel(_ view: PRUIKit.TabsPanel, didSelectTab tab: PRUIKit.TabItem)
+  @_Concurrency.MainActor final public func tabsPanel(_ view: PRUIKit.TabsPanel, didSelectTab tab: PRUIKit.TabItem)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
@@ -1681,17 +1765,17 @@ extension PRUI.PublicationDetailsView : PRUIKit.AccessibleView {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateAccessibilityState()
 }
-@objc @_inheritsConvenienceInitializers final public class CommandPresentInterstitialAD : ObjectiveC.NSObject {
-  @objc final public class var isEnabled: Swift.Bool {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CommandPresentInterstitialAD : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public class var isEnabled: Swift.Bool {
     @objc get
   }
-  @objc final public class func execute(container: UIKit.UIViewController, banner: PRAds.AdBannerPresentation, articleId: Swift.String)
-  @objc override dynamic public init()
+  @objc @_Concurrency.MainActor final public class func execute(container: UIKit.UIViewController, banner: PRAds.AdBannerPresentation, articleId: Swift.String)
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class NTFTextualRelatedArticleCell : PRUI.NTFRelatedArticleCell, PRUI.NTFArticleCell {
   @_Concurrency.MainActor @preconcurrency @objc override final public func setupSubviews()
-  @_Concurrency.MainActor @preconcurrency @objc final public func setup(article: PRAPI.NTFArticleItem?, contentWidth: CoreFoundation.CGFloat, action: PRUI.FeedItemAction?)
+  @_Concurrency.MainActor @objc final public func setup(article: PRAPI.NTFArticleItem?, contentWidth: CoreFoundation.CGFloat, action: PRUI.FeedItemAction?)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
@@ -1717,18 +1801,14 @@ extension PRUI.PublicationDetailsView : PRUIKit.AccessibleView {
   }
   @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
-@objc extension PRUI.PRCommandOpenHomeFeed {
-  @objc dynamic public func homeFeedVC() -> PRUI.PRVerticalFeedVC
+@_Concurrency.MainActor extension PRUI.PRCommandOpenHomeFeed {
+  @objc @_Concurrency.MainActor dynamic public func homeFeedVC() -> PRUI.PRVerticalFeedVC
 }
-extension PRUI.PROrderDelivery {
-  @objc dynamic public func waitForHotSpotUpdate() async
-  @objc dynamic public func stopHotSpotUpdateWaiting()
-}
-extension PRUI.PRHotSpotServicesBannerVC {
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public func bannerHeight(forWidth: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+@_Concurrency.MainActor extension PRUI.PROrderDelivery {
+  @objc @_Concurrency.MainActor dynamic public func waitForHotSpotUpdate() async
+  @objc @_Concurrency.MainActor dynamic public func stopHotSpotUpdateWaiting()
 }
 @objc extension PRUI.PRSourcesVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var shouldAnimateDisclosure: Swift.Bool {
@@ -1738,11 +1818,32 @@ extension PRUI.PRHotSpotServicesBannerVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func pushFilteredCollection(_ vc: UIKit.UIViewController)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func applyFilter(_ filter: PRCatalogModel.CatalogEntity)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class PublicationFiltersCollectionVC : PRUI.CatalogFiltersCollectionVC, PRAPI.PRCatalogFilterDelegate {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class PublicationFiltersCollectionVC : PRUI.CatalogFiltersCollectionVC, @_Concurrency.MainActor PRAPI.PRCatalogFilterDelegate {
   @objc @_Concurrency.MainActor @preconcurrency public init(catalogFilter: PRAPI.PRCatalogFilter, delegate: (any PRUI.PRSourceCategoriesCollectionDelegate)?)
   @available(*, unavailable)
   @_Concurrency.MainActor @preconcurrency required public init(filters: [any PRAPI.CatalogNavigation], delegate: (any PRUI.PRSourceCategoriesCollectionDelegate)?)
   @_Concurrency.MainActor @preconcurrency @objc final public func catalogFilterDidUpdate(_ sender: Any)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(PRTagView) @_Concurrency.MainActor @preconcurrency final public class TagView : UIKit.UILabel, PRUIKit.DynamicFontSupportable {
+  @objc @_Concurrency.MainActor @preconcurrency public static let minHeight: CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency final public var textInsets: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override final public var text: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override final public func drawText(in rect: CoreFoundation.CGRect)
+  @objc @_Concurrency.MainActor @preconcurrency final public func fill(text: Swift.String, color: UIKit.UIColor)
+  @_Concurrency.MainActor @objc final public func updateFont()
   @objc deinit
 }
 @objc final public class AttributedBodyActivityItem : PRUI.PRActivityItem {
@@ -1765,10 +1866,10 @@ extension PRUI.PRSourceCollectionVC {
 @objc extension PRUI.PRSourceCollectionVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func progressAction(cell: PRUI.PRCollectionViewCell, item: any PRAPI.PRCatalogItem)
 }
-extension PRUI.PRSourceCollectionVC : PRAPI.LoadableModelObserver {
+extension PRUI.PRSourceCollectionVC : @_Concurrency.MainActor PRAPI.LoadableModelObserver {
   @_Concurrency.MainActor @preconcurrency public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
 }
-extension PRUI.PRSourceCollectionVC : PRAPI.PRLatestIssuesListDelegate {
+extension PRUI.PRSourceCollectionVC : @_Concurrency.MainActor PRAPI.PRLatestIssuesListDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func latestIssuesListDidUpdate(_ list: PRAPI.PRLatestIssuesList)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor @preconcurrency final public class TextFlowActivityVC : PRUIKit.PRActivityVC, PRUI.TextFlowUIStyleOserver {
@@ -1781,13 +1882,13 @@ extension PRUI.PRSourceCollectionVC : PRAPI.PRLatestIssuesListDelegate {
     @objc get
   }
   @objc public init(buyPremiumAction: @escaping PRUI.LowCreditsAlertPresenter.Action, otherOptionsAction: PRUI.LowCreditsAlertPresenter.Action? = nil)
-  @objc final public func presentAlertIfNeeded(remainingCredits: Swift.Int)
+  @objc @_Concurrency.MainActor final public func presentAlertIfNeeded(remainingCredits: Swift.Int)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class PRMyLibraryItemActionAccessActor : ObjectiveC.NSObject {
-  @objc public static func performAction(_ actionType: PRUI.ActionType, item: PRUI.PRMyLibraryItemActionAccessActor.Item, action: @escaping () -> ())
-  @objc public static func performAction(_ actionType: PRUI.ActionType, item: PRUI.PRMyLibraryItemActionAccessActor.Item, parameters: PRUI.ActionAccessParameters? = nil, action: @escaping () -> ())
-  @objc override dynamic public init()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class PRMyLibraryItemActionAccessActor : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor public static func performAction(_ actionType: PRUI.ActionType, item: PRUI.PRMyLibraryItemActionAccessActor.Item, action: @escaping () -> ())
+  @objc @_Concurrency.MainActor public static func performAction(_ actionType: PRUI.ActionType, item: PRUI.PRMyLibraryItemActionAccessActor.Item, parameters: PRUI.ActionAccessParameters? = nil, action: @escaping () -> ())
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc extension PRUI.PRMyLibraryItemActionAccessActor {
@@ -1806,6 +1907,9 @@ extension UIKit.UIUserInterfaceStyle : @retroactive Swift.CaseIterable {
   @available(iOS 12.0, *)
   public typealias AllCases = [UIKit.UIUserInterfaceStyle]
 }
+extension PRUI.ReadingViewController {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupKeyCommands()
+}
 @_inheritsConvenienceInitializers @objc final public class Wide3CFeedLayoutItem : PRUI.AbstractFeedLayoutItem {
   @objc required dynamic public init()
   @objc deinit
@@ -1813,48 +1917,40 @@ extension UIKit.UIUserInterfaceStyle : @retroactive Swift.CaseIterable {
 @objc extension PRUI.PRSourceItemCell {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateRibbonStyle()
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class CatalogSchemeProvider : PRUI.PRSchemeProvider {
-  @objc final public class var publications: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var uncategorisedPublications: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var home: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var home2: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var home3: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var library: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var favorites: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var latestIssues: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public class var book: PRUI.CatalogSchemeProvider {
-    @objc get
-  }
-  @objc final public var sections: [PRAPI.CatalogSectionScheme]
-  @objc override dynamic public init()
-  @objc final public func firstScheme(type: PRConfiguration.PRCatalogSectionType) -> PRAPI.CatalogSectionScheme?
-  @objc override final public func loadConfigurationJSON(_ names: [Swift.String])
-  @objc deinit
-}
 @_inheritsConvenienceInitializers @objc final public class CommandPresentBookWebPurchase : PRCommands.PRCommand {
   @objc override final public class var defaultCommandName: PRCommands.PRCommandName {
     @objc get
   }
   @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
+}
+extension UIKit.UIViewController {
+  @_inheritsConvenienceInitializers @objcMembers @objc(PRPopoverOption) public class PopoverOption : PRSyntacticSugar.PROptionSet, @unchecked Swift.Sendable {
+    @objc public static let useNavigationStack: UIKit.UIViewController.PopoverOption
+    @objc public static let disableAdaptivePresentation: UIKit.UIViewController.PopoverOption
+    @objc required public init(rawValue: Swift.Int)
+    @available(iOS 2.0, *)
+    public typealias ArrayLiteralElement = UIKit.UIViewController.PopoverOption
+    @available(iOS 2.0, *)
+    public typealias Element = UIKit.UIViewController.PopoverOption
+    @available(iOS 2.0, *)
+    public typealias RawValue = Swift.Int
+    @objc deinit
+  }
+  @available(swift, obsoleted: 1.0)
+  @objc(presentViewControllerInPopover:) @_Concurrency.MainActor @preconcurrency dynamic public func _presentInPopover(_ viewController: UIKit.UIViewController)
+  @available(swift, obsoleted: 1.0)
+  @objc(presentViewControllerInPopover:dismissHandler:) @_Concurrency.MainActor @preconcurrency dynamic public func _presentInPopover(_ viewController: UIKit.UIViewController, dismissHandler: (() -> Swift.Void)?)
+  @objc(presentInPopoverWithOptions:dismissHandler:) @_Concurrency.MainActor @preconcurrency dynamic public func presentInPopover(options: UIKit.UIViewController.PopoverOption = [], dismissHandler: (() -> Swift.Void)? = nil)
+  @available(swift, obsoleted: 1.0)
+  @objc(presentViewControllerInPopover:anchor:) @_Concurrency.MainActor @preconcurrency dynamic public func presentInPopover(_ viewController: UIKit.UIViewController, anchor: Any? = nil)
+  @available(swift, obsoleted: 1.0)
+  @objc(presentViewControllerInPopover:anchor:permittedArrowDirections:options:) @_Concurrency.MainActor @preconcurrency dynamic public func presentInPopover(_ viewController: UIKit.UIViewController, anchor: Any? = nil, permittedArrowDirections: UIKit.UIPopoverArrowDirection = [], options: UIKit.UIViewController.PopoverOption = [])
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func presentInPopover(_ viewController: UIKit.UIViewController, anchor: Any? = nil, permittedArrowDirections: UIKit.UIPopoverArrowDirection = [], options: UIKit.UIViewController.PopoverOption = [], dismissHandler: (() -> Swift.Void)? = nil)
+  @available(swift, obsoleted: 1.0)
+  @objc(dismissPopoverAnimated:) @_Concurrency.MainActor @preconcurrency dynamic public func dismissPopover(animated: Swift.Bool)
+  @objc(dismissPopoverAnimated:completion:) @_Concurrency.MainActor @preconcurrency dynamic public func dismissPopover(animated: Swift.Bool, completion: (() -> Swift.Void)? = nil)
 }
 @objc public protocol InsetWrapable {
   @objc var insetWrapperInsets: () -> UIKit.UIEdgeInsets { get }
@@ -1903,11 +1999,23 @@ extension PRUI.VerticalTextFlowVC {
   @objc deinit
 }
 extension PRUI.HotSpotNotFoundVC : PRUI.HotSpotNotFoundViewDelegate {
-  @_Concurrency.MainActor @preconcurrency final public func close()
-  @_Concurrency.MainActor @preconcurrency final public func contentSizeDidChange(_ size: CoreFoundation.CGSize)
+  @_Concurrency.MainActor final public func close()
+  @_Concurrency.MainActor final public func contentSizeDidChange(_ size: CoreFoundation.CGSize)
 }
 extension UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency public func setupNavigationItemTitleView(mastheadProvider: any PRAPI.MastheadProvider, title: Swift.String?, subtitle: Swift.String?)
+}
+extension PRUI.PROrderParametersCell {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var focusableItems: [any UIKit.UIFocusEnvironment] {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var canBecomeFocused: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var preferredFocusEnvironments: [any UIKit.UIFocusEnvironment] {
+    @objc get
+  }
 }
 @_inheritsConvenienceInitializers @objc(PRCommandManageFavorites) public class CommandManageFavorites : PRUI.PROnlineCommand {
   @objc override dynamic public class var defaultCommandName: PRCommands.PRCommandName {
@@ -1917,7 +2025,6 @@ extension UIKit.UIViewController {
   @objc override dynamic public func isEnabled(forParameters parameters: [Swift.AnyHashable : Any]?) -> Swift.Bool
   @objc override dynamic public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency public class PRBottomBar : UIKit.UIView {
@@ -1929,7 +2036,6 @@ extension UIKit.UIViewController {
   @objc @_Concurrency.MainActor @preconcurrency final public let bottomSafeAreaInsetGuide: UIKit.UILayoutGuide
   @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func updateConstraints()
   @objc deinit
 }
@@ -1959,15 +2065,15 @@ extension PRUI.PRBottomBar {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor @preconcurrency @objc public var menu: PRUIKit.PRMenu? {
+  @_Concurrency.MainActor @objc public var menu: PRUIKit.PRMenu? {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor @preconcurrency @objc public var menuContainerVC: UIKit.UIViewController {
+  @_Concurrency.MainActor @objc public var menuContainerVC: UIKit.UIViewController {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc required override dynamic public init()
-  @_Concurrency.MainActor @preconcurrency @objc public func view(for item: PRUIKit.PRMenuItem) -> UIKit.UIView?
+  @_Concurrency.MainActor @objc public func view(for item: PRUIKit.PRMenuItem) -> UIKit.UIView?
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func addArrangedBarSubview(_ subview: UIKit.UIView)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
   @objc deinit
@@ -1992,6 +2098,17 @@ extension UIKit.UINavigationBar {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc final public class CommandOpenVideos : PRCommands.PRCommand {
+  @objc override final public class var defaultCommandName: PRCommands.PRCommandName {
+    @objc get
+  }
+  @objc override final public var isEnabled: Swift.Bool {
+    @objc get
+  }
+  @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
+  @objc override dynamic public init(name: PRCommands.PRCommandName)
+  @objc deinit
+}
 @objc extension PRUI.PRiphoneAppDelegate {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupApplicationShortcutItems()
 }
@@ -2002,10 +2119,10 @@ extension UIKit.UINavigationBar {
   @objc deinit
 }
 @objc extension PRCatalogModel.CatalogItem {
-  @objc dynamic public func thumbnail(size: CoreFoundation.CGSize) -> PRThumbnail.PRCatalogItemThumbnail?
+  @objc nonisolated dynamic public func thumbnail(size: CoreFoundation.CGSize) -> PRThumbnail.PRCatalogItemThumbnail?
 }
 extension PRCatalogModel.Book {
-  @objc override final public func thumbnail(size: CoreFoundation.CGSize) -> PRThumbnail.PRCatalogItemThumbnail?
+  @objc override nonisolated final public func thumbnail(size: CoreFoundation.CGSize) -> PRThumbnail.PRCatalogItemThumbnail?
 }
 @objc @_Concurrency.MainActor @preconcurrency public class CatalogFiltersCollectionVC : PRUI.PRSourceCategoriesCollectionVC {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public var dataProvider: [any PRAPI.CatalogNavigation]! {
@@ -2021,25 +2138,25 @@ extension PRCatalogModel.Book {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func brazeHandleUserNotification(response: UserNotifications.UNNotificationResponse, handler: @escaping () -> Swift.Void) -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @objc final public class KYMUtil : ObjectiveC.NSObject {
-  @objc public static func systemParameters() -> Swift.String
+  @objc @_Concurrency.MainActor public static func systemParameters() -> Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class CompatibilityFactory : ObjectiveC.NSObject {
-  @objc public static func publicationDetailsVC(with order: PRUI.PROrder) -> UIKit.UIViewController?
-  @objc public static func publicationDetailsVC(with order: PRUI.PROrder, options: PRUI.PROrderOption) -> UIKit.UIViewController?
-  @objc public static func latestIssuesDataSource(with titleItem: PRAPI.PRTitleItem) -> any PRAPI.CatalogItemDataSourceProtocol
-  @objc public static func latestIssuesDataSource(with titleItem: PRAPI.PRTitleItem, pageSize: Swift.Int) -> any PRAPI.CatalogItemDataSourceProtocol
-  @objc public static func latestIssuesDataSource(with titleItemExemplar: PRAPI.PRTitleItemExemplar, titleGroups: [PRUI.PRIssuesGroup]) -> any PRAPI.CatalogItemDataSourceProtocol
-  @objc public static func multipleLatestIssuesDataSource(withSourceList sourceList: PRAPI.PRLatestIssuesList) -> any PRAPI.CatalogItemDataSourceProtocol
-  @objc public static func presentUserConsentVC(withDismissCompletion completion: (() -> ())?)
-  @objc public static func getDeviceManagementVC(withAccount account: PRAPI.PRAccountItem) -> UIKit.UIViewController
-  @objc public static func getDeviceManagementVC(withDevices items: [PRAPI.DeviceActivation]) -> UIKit.UIViewController
-  @objc override dynamic public init()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CompatibilityFactory : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor public static func publicationDetailsVC(with order: PRUI.PROrder) -> UIKit.UIViewController?
+  @objc @_Concurrency.MainActor public static func publicationDetailsVC(with order: PRUI.PROrder, options: PRUI.PROrderOption) -> UIKit.UIViewController?
+  @objc @_Concurrency.MainActor public static func latestIssuesDataSource(with titleItem: PRAPI.PRTitleItem) -> any PRAPI.CatalogItemDataSourceProtocol
+  @objc @_Concurrency.MainActor public static func latestIssuesDataSource(with titleItem: PRAPI.PRTitleItem, pageSize: Swift.Int) -> any PRAPI.CatalogItemDataSourceProtocol
+  @objc @_Concurrency.MainActor public static func latestIssuesDataSource(with titleItemExemplar: PRAPI.PRTitleItemExemplar, titleGroups: [PRUI.PRIssuesGroup]) -> any PRAPI.CatalogItemDataSourceProtocol
+  @objc @_Concurrency.MainActor public static func multipleLatestIssuesDataSource(withSourceList sourceList: PRAPI.PRLatestIssuesList) -> any PRAPI.CatalogItemDataSourceProtocol
+  @objc @_Concurrency.MainActor public static func presentUserConsentVC(withDismissCompletion completion: (() -> ())?)
+  @objc @_Concurrency.MainActor public static func getDeviceManagementVC(withAccount account: PRAPI.PRAccountItem) -> UIKit.UIViewController
+  @objc @_Concurrency.MainActor public static func getDeviceManagementVC(withDevices items: [PRAPI.DeviceActivation]) -> UIKit.UIViewController
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers final public class HotSpotManagerUICoordinator : PRAPI.HotSpotManagerUIDelegate {
-  public struct UIScope : Swift.OptionSet {
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class HotSpotManagerUICoordinator : PRAPI.HotSpotManagerUIDelegate {
+  public struct UIScope : Swift.OptionSet, Swift.Sendable {
     public static let settingsAlert: PRUI.HotSpotManagerUICoordinator.UIScope
     public static let welcome: PRUI.HotSpotManagerUICoordinator.UIScope
     public static let search: PRUI.HotSpotManagerUICoordinator.UIScope
@@ -2052,13 +2169,13 @@ extension PRCatalogModel.Book {
     public typealias Element = PRUI.HotSpotManagerUICoordinator.UIScope
     public typealias RawValue = Swift.Int
   }
-  final public var components: PRUI.HotSpotManagerUICoordinator.UIScope
+  @_Concurrency.MainActor final public var components: PRUI.HotSpotManagerUICoordinator.UIScope
   @_Concurrency.MainActor final public func hotSpotManagerShouldStart(_ manager: PRAPI.HotSpotManager) async -> Swift.Bool
-  final public func hotSpotManagerDidStart(_ manager: PRAPI.HotSpotManager)
-  final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didUpdateHotSpotsList hotSpots: [PRAPI.GeoFencingHotSpot])
-  final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didEnterHotSpot hotSpot: PRAPI.GeoFencingHotSpot)
-  final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didExitHotSpot hotSpot: PRAPI.GeoFencingHotSpot?)
-  final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didFail error: PRAPI.HotSpotManager.ManagerError)
+  @_Concurrency.MainActor final public func hotSpotManagerDidStart(_ manager: PRAPI.HotSpotManager)
+  @_Concurrency.MainActor final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didUpdateHotSpotsList hotSpots: [PRAPI.GeoFencingHotSpot])
+  @_Concurrency.MainActor final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didEnterHotSpot hotSpot: PRAPI.GeoFencingHotSpot)
+  @_Concurrency.MainActor final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didExitHotSpot hotSpot: PRAPI.GeoFencingHotSpot?)
+  @_Concurrency.MainActor final public func hotSpotManager(_ manager: PRAPI.HotSpotManager, didFail error: PRAPI.HotSpotManager.ManagerError)
   @objc deinit
 }
 @objc extension PRAPI.PRModel {
@@ -2105,7 +2222,8 @@ extension PRUI.PREmbedablePubHubVC {
     get
   }
 }
-@objc @_Concurrency.MainActor @preconcurrency final public class PaymentOptionsVC : PRUI.PRBasePaymentOptionsVC, PRUI.UITextViewContainer, PRUI.PurchaseProductProvider {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class PaymentOptionsVC : PRUI.PRBasePaymentOptionsVC, PRUI.UITextViewContainer, PRUI.PurchaseProductProvider {
+  @objc @_Concurrency.MainActor @preconcurrency final public var premiumProducts: [PRAPI.PRProduct]?
   @_Concurrency.MainActor @preconcurrency final public var mode: PRUI.PaymentOptionsMode {
     get
     set
@@ -2113,11 +2231,9 @@ extension PRUI.PREmbedablePubHubVC {
   @_Concurrency.MainActor @preconcurrency @objc override final public var fullProductList: [PRAPI.PRProduct] {
     @objc get
   }
-  @_Concurrency.MainActor @preconcurrency final public var selectedProduct: PRAPI.PRProduct? {
+  @_Concurrency.MainActor final public var selectedProduct: PRAPI.PRProduct? {
     get
   }
-  @objc @_Concurrency.MainActor @preconcurrency convenience public init(products: [PRAPI.PRProduct], delegate: any PRUI.PRPurchaseSelectorProtocol, CID: Swift.String, date: Foundation.Date)
-  @objc @_Concurrency.MainActor @preconcurrency public init(products: [PRAPI.PRProduct], delegate: any PRUI.PRPurchaseSelectorProtocol, CID: Swift.String?, date: Foundation.Date?, premiumProducts: [PRAPI.PRProduct]?)
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLayoutSubviews()
@@ -2138,13 +2254,14 @@ extension PRUI.PREmbedablePubHubVC {
   @_Concurrency.MainActor @preconcurrency @objc override final public func tableView(_ tableView: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor @preconcurrency @objc override final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor @preconcurrency @objc override final public func tableView(_ tableView: UIKit.UITableView, willSelectRowAt indexPath: Foundation.IndexPath) -> Foundation.IndexPath?
-  @_Concurrency.MainActor @preconcurrency @objc final public func textViewWillDismissContainer(_ textView: PRUI.UITextViewWithLinks)
+  @_Concurrency.MainActor @objc final public func textViewWillDismissContainer(_ textView: PRUI.UITextViewWithLinks)
   @_Concurrency.MainActor @preconcurrency @objc override final public var navigationBarRightBarButtonItems: [UIKit.UIBarButtonItem]? {
     @objc get
   }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(cid CID: Swift.String?, date: Foundation.Date?, delegate: any PRUI.PRPurchaseSelectorProtocol)
   @objc deinit
 }
-extension PRUI.PaymentOptionsVC : PRAnalytics.RegistrationAnalyticsProvider {
+extension PRUI.PaymentOptionsVC : @_Concurrency.MainActor PRAnalytics.RegistrationAnalyticsProvider {
   @_Concurrency.MainActor @preconcurrency final public var registrationContext: PRAnalytics.RegistrationAnalyticsContext {
     get
   }
@@ -2236,7 +2353,7 @@ extension PRUI.PremiumBannerView {
   @objc var items: [PRUI.AppMenuItemInfo] { get }
   @objc func firstItem(type: PRUI.PRAppMenuItemType) -> PRUI.AppMenuItemInfo?
 }
-@objc @_inheritsConvenienceInitializers final public class AppMenuSchemeProviderImpl : PRUI.PRSchemeProvider, PRUI.AppMenuSchemeProvider {
+@objc @_inheritsConvenienceInitializers final public class AppMenuSchemeProviderImpl : PRConfiguration.PRSchemeProvider, PRUI.AppMenuSchemeProvider {
   @objc final public var items: [PRUI.AppMenuItemInfo] {
     get
   }
@@ -2249,7 +2366,7 @@ extension PRUI.PremiumBannerView {
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
   @objc deinit
 }
-extension PRUI.ExternalAuthSafariVC : SafariServices.SFSafariViewControllerDelegate {
+extension PRUI.ExternalAuthSafariVC : @_Concurrency.MainActor SafariServices.SFSafariViewControllerDelegate {
   @_Concurrency.MainActor @preconcurrency @objc final public func safariViewController(_ controller: SafariServices.SFSafariViewController, activityItemsFor URL: Foundation.URL, title: Swift.String?) -> [UIKit.UIActivity]
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class CancellationPolicyCell : PRUIKit.TextCell {
@@ -2261,13 +2378,18 @@ extension PRUI.ExternalAuthSafariVC : SafariServices.SFSafariViewControllerDeleg
 extension PRUI.PRMenuVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupAccessibility()
 }
-@objc extension PRAPI.PRAccountItem {
+extension PRUI.PRPubHubDataSource : @_Concurrency.MainActor PRAPI.LoadableModelObserver {
+  @_Concurrency.MainActor public func modelDidFinishLoading(model: any PRAPI.ObservableModel, result: PRUtils.VoidResult)
+}
+extension PRAPI.PRAccountItem {
+  @objc @_Concurrency.MainActor dynamic public func presentEditAccount() async throws
+  @available(swift, obsoleted: 1.0)
   @objc dynamic public func presentEditAccount()
 }
 extension PRUI.PRCalendarVC {
   @objc @_Concurrency.MainActor @preconcurrency convenience dynamic public init?(item: any PRAPI.PRCatalogItem, parameters: [Swift.String : Any])
 }
-extension PRUI.AutoTranslateSettingsVC : PRAPI.AutoTranslationStateAnalyticsProvider {
+extension PRUI.AutoTranslateSettingsVC : @_Concurrency.MainActor PRAPI.AutoTranslationStateAnalyticsProvider {
   @_Concurrency.MainActor @preconcurrency @objc final public var isAutoTranslationOn: Swift.Bool {
     @objc get
   }
@@ -2297,7 +2419,7 @@ extension PRUI.PRCommentComposeVC : PRUIKit.NavigationBarAppearanceProvider {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @objc deinit
 }
-@objc extension PRUI.PRSourcesVC : PRAPI.CatalogViewAnalyticsProvider {
+@objc extension PRUI.PRSourcesVC : @_Concurrency.MainActor PRAPI.CatalogViewAnalyticsProvider {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var catalogPath: Swift.String {
     @objc get
   }
@@ -2340,15 +2462,15 @@ extension PRUI.PressReader {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateMasthead()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func update(presentationStyle: UIKit.UIModalPresentationStyle)
 }
-@objc public protocol ScrollableContentDelegate {
-  @objc optional func scrollViewBeginScrolling(_ scrollView: UIKit.UIScrollView)
-  @objc func scrollViewScrolling(_ scrollView: UIKit.UIScrollView)
-  @objc optional func scrollViewEndScrolling(_ scrollView: UIKit.UIScrollView)
+@_Concurrency.MainActor @objc public protocol ScrollableContentDelegate {
+  @objc @_Concurrency.MainActor optional func scrollViewBeginScrolling(_ scrollView: UIKit.UIScrollView)
+  @objc @_Concurrency.MainActor func scrollViewScrolling(_ scrollView: UIKit.UIScrollView)
+  @objc @_Concurrency.MainActor optional func scrollViewEndScrolling(_ scrollView: UIKit.UIScrollView)
 }
-@objc public class ScrollObserver : ObjectiveC.NSObject {
+@objc @_Concurrency.MainActor public class ScrollObserver : ObjectiveC.NSObject {
   @objc deinit
-  public init(delegate: any PRUI.ScrollableContentDelegate)
-  public func observe(scrollView: UIKit.UIScrollView?)
+  @_Concurrency.MainActor public init(delegate: any PRUI.ScrollableContentDelegate)
+  @_Concurrency.MainActor public func observe(scrollView: UIKit.UIScrollView?)
 }
 extension PRUI.PRCalendarDataSource {
   @objc dynamic public var availableDates: [Foundation.Date]? {
@@ -2365,22 +2487,21 @@ extension PRUI.PRCalendarDataSource {
 extension PRUI.PRCalendarDataSource : PRAPI.DataSourceObserver {
   @objc dynamic public func completeDataLoading(_ source: Any)
 }
-extension PRUI.PRErrorManager : PRProtocols.Singleton {
-  @objc public static func instance() -> Self
-  @objc public static func hasInstance() -> Swift.Bool
-  @objc public static func dismiss()
+@_Concurrency.MainActor extension PRUI.PRErrorManager {
+  @objc @_Concurrency.MainActor public static func instance() -> Self
+  @_Concurrency.MainActor public static func hasInstance() -> Swift.Bool
+  @_Concurrency.MainActor public static func dismiss()
 }
-@objc final public class BannersHubDataSource : PRUI.PRPubHubDataSource {
+@objc final public class BannersHubDataSource : PRUI.PRPubHubDataSource, @unchecked Swift.Sendable {
   public init()
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency public class PlaceholderCell : UIKit.UITableViewCell {
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @objc deinit
 }
 extension PRAPI.NTFArticleItem {
-  @objc dynamic public func preloadVisuals()
-  @objc dynamic public func preloadVisuals(presentationType: PRAPI.NTFArticleItemPresentationType, completion: (() -> ())? = nil)
+  @objc nonisolated dynamic public func preloadVisuals()
+  @objc @_Concurrency.MainActor dynamic public func thumbnailSize(screenWidth: CoreFoundation.CGFloat, presentationType: PRAPI.NTFArticleItemPresentationType = .undefined) -> CoreFoundation.CGSize
 }
 extension PRUI.PRSourceItemCell {
   @_Concurrency.MainActor @preconcurrency public var consumptionProgress: Swift.Float {
@@ -2403,8 +2524,7 @@ extension PRUI.PRSourceItemCell {
   @_Concurrency.MainActor @preconcurrency @objc final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
   @objc deinit
 }
-@objc final public class CatalogHubDataSource : PRUI.PRPubHubDataSource {
-  public init()
+@_hasMissingDesignatedInitializers @objc final public class CatalogHubDataSource : PRUI.PRPubHubDataSource, @unchecked Swift.Sendable {
   @objc override final public func hotspotSection(with index: Swift.Int) -> PRAPI.PRCatalogSection?
   @objc override final public func updateSection(_ section: PRAPI.PRCatalogSection, source: any PRAPI.CatalogItemDataSourceProtocol)
   @objc override final public var adScreen: PRAds.AdBannerScreen {
@@ -2417,13 +2537,13 @@ extension PRUI.PRSourceItemCell {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc override final public func setupSubviews()
-  @_Concurrency.MainActor @preconcurrency @objc final public func setup(article: PRAPI.NTFArticleItem?, contentWidth: CoreFoundation.CGFloat, action: PRUI.FeedItemAction?)
+  @_Concurrency.MainActor @objc final public func setup(article: PRAPI.NTFArticleItem?, contentWidth: CoreFoundation.CGFloat, action: PRUI.FeedItemAction?)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers final public class AdsServiceProxy : ObjectiveC.NSObject, PRAds.AdsService {
-  @objc final public func requestGoogleAdsConfig(_ completion: @escaping (PRUtils.SPNode?, (any Swift.Error)?) -> ())
+  @objc final public func requestGoogleAdsConfig(_ completion: @escaping @Sendable (PRUtils.SPNode?, (any Swift.Error)?) -> ())
   @objc override dynamic public init()
   @objc deinit
 }
@@ -2432,8 +2552,8 @@ public struct NewsChannelsModel {
 @objc extension PRUI.PaymentOptionsVC {
   @objc @_Concurrency.MainActor @preconcurrency final public func setupAccessibility()
 }
-@objc public protocol NTFArticleCell {
-  @objc func setup(article: PRAPI.NTFArticleItem?, contentWidth: CoreFoundation.CGFloat, action: PRUI.FeedItemAction?)
+@objc @_Concurrency.MainActor public protocol NTFArticleCell {
+  @objc @_Concurrency.MainActor func setup(article: PRAPI.NTFArticleItem?, contentWidth: CoreFoundation.CGFloat, action: PRUI.FeedItemAction?)
 }
 @objc extension UIKit.UIView {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var isOffline: Swift.Bool {
@@ -2461,18 +2581,17 @@ extension PRAPI.PRMyLibraryItem {
     }
   }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func setupLabels()
   @_Concurrency.MainActor @preconcurrency public func stackViewInsets() -> UIKit.UIEdgeInsets
   @_Concurrency.MainActor @preconcurrency public func horizontalPaddingsForButtons() -> CoreFoundation.CGFloat
   @_Concurrency.MainActor @preconcurrency public func horizontalPaddingsForLabels() -> CoreFoundation.CGFloat
-  @_Concurrency.MainActor @preconcurrency public func bannerHeight(forWidth width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor public func bannerHeight(forWidth width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(PRCommandAuthorizeByKey) final public class CommandAuthorizeByKey : ObjectiveC.NSObject {
-  @objc final public class func isEnabled(parameters: [Swift.AnyHashable : Any]?) -> Swift.Bool
-  @objc public static func execute(parameters: [Swift.AnyHashable : Any]?)
-  @objc @_Concurrency.MainActor public static func execute(parameters: [Swift.AnyHashable : Any]?) async throws
+  @objc final public class func isEnabled(parameters: [Swift.String : Any]?) -> Swift.Bool
+  @objc public static func execute(parameters: [Swift.String : any Swift.Sendable]?)
+  @objc @_Concurrency.MainActor public static func execute(parameters: [Swift.String : any Swift.Sendable]?) async throws
   @objc override dynamic public init()
   @objc deinit
 }
@@ -2487,7 +2606,7 @@ extension PRAPI.PRMyLibraryItem {
   @objc(articleForIndex:) func article(for index: Swift.Int) -> (any PRAPI.NTFArticle)?
   @objc(indexForArticle:) func index(for article: any PRAPI.NTFArticle) -> Swift.Int
   @objc func getCurrentArticle(loadingHandler: ((any PRAPI.NTFArticle) -> ())?) -> (any PRAPI.NTFArticle)?
-  @objc func getCurrentArticle(completion: (((any PRAPI.NTFArticle)?) -> ())?)
+  @objc func getCurrentArticle(completion: (@Sendable ((any PRAPI.NTFArticle)?) -> ())?)
   @objc func article(id: Swift.String) -> (any PRAPI.NTFArticle)?
   @objc func loadMoreToTheEnd() async
   @objc func loadMoreAtTheBeginning() async
@@ -2510,7 +2629,7 @@ extension PRUI.HotSpotBannerView {
   @_Concurrency.MainActor @preconcurrency public static func bannerHeight(horizontalSize: UIKit.UIUserInterfaceSizeClass) -> CoreFoundation.CGFloat
 }
 extension PRCatalogModel.BookContent : PRUI.ActionAccessControllable {
-  @objc dynamic public func isActionAllowed(_ actionType: PRUI.ActionType, parameters: PRUI.ActionAccessParameters?) -> Swift.Bool
+  @objc nonisolated dynamic public func isActionAllowed(_ actionType: PRUI.ActionType, parameters: PRUI.ActionAccessParameters?) -> Swift.Bool
 }
 extension PRUI.PremiumBannerView {
   @_Concurrency.MainActor @preconcurrency public func setupAccessibility()
@@ -2534,27 +2653,34 @@ extension PRUI.PremiumBannerView {
 extension PRUI.PRiphoneAppDelegate {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupThirdPartyLibraries(launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]?)
 }
-@objc @_inheritsConvenienceInitializers final public class CommandOpenFavourites : PRCommands.PRCommand {
+extension PRAPI.NTFArticleItem {
+  @objc nonisolated dynamic public func waitForRestriction(_ restriction: PRUI.NTFArticleRestriction, item: PRUIKit.PRMenuItem)
+  @objc nonisolated dynamic public func preload() async throws
+}
+@available(*, unavailable)
+@objc extension PRAPI.NTFArticleItem {
+  @objc nonisolated dynamic public func setNeedsUpdateMenuItemsWithRestrictions()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CommandOpenFavourites : PRCommands.PRCommand {
   @objc override final public class var isEnabled: Swift.Bool {
     @objc get
   }
   @objc override final public class var defaultCommandName: PRCommands.PRCommandName {
     @objc get
   }
-  @objc override final public class func execute(parameters: [Swift.AnyHashable : Any]?)
-  @objc override final public var isEnabled: Swift.Bool {
+  @_Concurrency.MainActor @objc override final public class func execute(parameters: [Swift.AnyHashable : Any]?)
+  @_Concurrency.MainActor @objc override final public var isEnabled: Swift.Bool {
     @objc get
   }
-  @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
+  @_Concurrency.MainActor @objc override final public func invoke(withParameters parameters: [Swift.AnyHashable : Any]?)
   @objc override dynamic public init(name: PRCommands.PRCommandName)
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc extension PRUI.PRAccountVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func sendDeleteAccountEmailRequest(_ recepientEmail: Swift.String)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func deleteAccount()
 }
-extension PRUI.PRAccountVC : MessageUI.MFMailComposeViewControllerDelegate {
+extension PRUI.PRAccountVC : @_Concurrency.MainActor MessageUI.MFMailComposeViewControllerDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func mailComposeController(_ controller: MessageUI.MFMailComposeViewController, didFinishWith result: MessageUI.MFMailComposeResult, error: (any Swift.Error)?)
 }
 @objc extension UIKit.UIViewController {
@@ -2562,8 +2688,23 @@ extension PRUI.PRAccountVC : MessageUI.MFMailComposeViewControllerDelegate {
     @objc get
   }
 }
+@objc @objcMembers final public class NTFArticleRestriction : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public let rawValue: Swift.String
+  @objc public init(rawValue: Swift.String)
+  @objc deinit
+}
+@objc extension PRUI.NTFArticleRestriction {
+  @objc public static let sharing: PRUI.NTFArticleRestriction
+  @objc public static let translation: PRUI.NTFArticleRestriction
+  @objc public static let sound: PRUI.NTFArticleRestriction
+  @objc public static let commenting: PRUI.NTFArticleRestriction
+  @objc public static let replica: PRUI.NTFArticleRestriction
+  @objc public static var allCases: [PRUI.NTFArticleRestriction] {
+    @objc get
+  }
+}
 extension PRAPI.PRCatalogItem {
-  public var download: (any PRUI.Download)? {
+  @_Concurrency.MainActor public var download: (any PRUI.Download)? {
     get
   }
 }
@@ -2584,8 +2725,8 @@ extension PRAPI.PRCatalogItem {
   @objc deinit
 }
 extension PRUI.WelcomeHotSpotVC : PRUI.WelcomeHotSpotViewDelegate {
-  @_Concurrency.MainActor @preconcurrency final public func `continue`()
-  @_Concurrency.MainActor @preconcurrency final public func cancel()
+  @_Concurrency.MainActor final public func `continue`()
+  @_Concurrency.MainActor final public func cancel()
 }
 @objc extension PRUI.PRAppMenuVC {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func setupAccessibility()
@@ -2621,8 +2762,6 @@ extension PRUI.PRShareComponent {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func setupCategoryCell(_ cell: PRUI.CatalogFilterCell, indexPath: Foundation.IndexPath)
 }
 extension PRUI.PRExternalAuthManager {
-  @available(swift, obsoleted: 1.0)
-  @objc dynamic public func reconnectLibraryAccount(account: PRAPI.PRAccountItem)
   @objc @_Concurrency.MainActor dynamic public func reconnectLibraryAccount(account: PRAPI.PRAccountItem, onLibrarySelectorPresented: (() -> Swift.Void)? = nil) async throws
 }
 extension Foundation.NSNotification.Name {
@@ -2677,7 +2816,7 @@ public typealias TranslatableArticle = ObjectiveC.NSObject & PRAPI.NTFArticle
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor @preconcurrency @objc override final public func awakeFromNib()
+  @objc override final public func awakeFromNib()
   @objc @_Concurrency.MainActor @preconcurrency final public func fill(withTitle title: Swift.String, subtitle: Swift.String?, isDisabled: Swift.Bool)
   @available(iOS 3.0, *)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
@@ -2698,7 +2837,7 @@ extension PRAPI.PRMyLibraryItem : PRUI.ActionAccessControllable {
   @objc dynamic public func isActionAllowed(_ actionType: PRUI.ActionType, parameters: PRUI.ActionAccessParameters?) -> Swift.Bool
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor @preconcurrency final public class MastheadView : UIKit.UIStackView {
-  @objc @_Concurrency.MainActor @preconcurrency public static var height: CoreFoundation.CGFloat {
+  @objc nonisolated public static var height: CoreFoundation.CGFloat {
     @objc get
   }
   @objc @_Concurrency.MainActor @preconcurrency final public var label: UIKit.UILabel {
@@ -2719,17 +2858,17 @@ extension PRAPI.PRMyLibraryItem : PRUI.ActionAccessControllable {
   @objc override final public func compileDataProvider(withItems items: [Any], context: CoreData.NSManagedObjectContext?, targetContext: CoreData.NSManagedObjectContext?, moreFollow: Swift.Bool) -> [Any]
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PRHotSpotStatusWebVC) @_Concurrency.MainActor @preconcurrency final public class HotSpotStatusWebVC : PRUI.PRWebVC, PRProtocols.Singleton {
-  @_Concurrency.MainActor @preconcurrency @objc public static func instance() -> PRUI.HotSpotStatusWebVC
-  @_Concurrency.MainActor @preconcurrency @objc public static func dismiss()
-  @_Concurrency.MainActor @preconcurrency @objc public static func hasInstance() -> Swift.Bool
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PRHotSpotStatusWebVC) @_Concurrency.MainActor @preconcurrency final public class HotSpotStatusWebVC : PRUI.PRWebVC {
+  @objc @_Concurrency.MainActor @preconcurrency public static func instance() -> PRUI.HotSpotStatusWebVC
+  @objc @_Concurrency.MainActor @preconcurrency public static func dismiss()
+  @objc @_Concurrency.MainActor @preconcurrency public static func hasInstance() -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency @objc override final public func loadView()
   @_Concurrency.MainActor @preconcurrency final public func presentAsPopover()
   @objc deinit
 }
 extension PRUI.HotSpotStatusWebVC : WebKit.WKNavigationDelegate {
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
-  @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping @_Concurrency.MainActor @Sendable (WebKit.WKNavigationActionPolicy) -> Swift.Void)
 }
 extension PRUI.HotSpotStatusWebVC {
   @_Concurrency.MainActor @preconcurrency @objc override final public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
@@ -2764,10 +2903,10 @@ extension PRUI.HotSpotStatusWebVC {
   @objc @_Concurrency.MainActor @preconcurrency final public func reloadVoting(_ isVoteAvailable: Swift.Bool)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(PRCommandPresentHotSpotStatus) final public class CommandPresentHotSpotStatus : ObjectiveC.NSObject {
-  @objc(isEnabledForced:) public static func isEnabled(forced: Swift.Bool) -> Swift.Bool
-  @objc(executeForced:) public static func execute(forced: Swift.Bool)
-  @objc override dynamic public init()
+@_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(PRCommandPresentHotSpotStatus) final public class CommandPresentHotSpotStatus : ObjectiveC.NSObject {
+  @objc(isEnabledForced:) @_Concurrency.MainActor public static func isEnabled(forced: Swift.Bool) -> Swift.Bool
+  @objc(executeForced:) @_Concurrency.MainActor public static func execute(forced: Swift.Bool)
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class TwoTextFieldsView : UIKit.UIView {
@@ -2781,9 +2920,9 @@ extension PRUI.HotSpotStatusWebVC {
   @_Concurrency.MainActor @preconcurrency public func configureAutoLayout()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class AppPanelsManagerAlertsCoordinator : ObjectiveC.NSObject {
-  @objc final public func presentAlerts()
-  @objc override dynamic public init()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class AppPanelsManagerAlertsCoordinator : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public func presentAlerts()
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class ArticleLabel : PRUIKit.UILabelHidable {
@@ -2799,12 +2938,12 @@ extension PRUI.HotSpotStatusWebVC {
   @objc deinit
 }
 @objc extension UIKit.UIScreen {
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public func contentWidth() -> CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor dynamic public func contentWidth() -> CoreFoundation.CGFloat
 }
-extension PRUI.PRAppPanelsManager : PRProtocols.Singleton {
-  @objc public static func instance() -> Self
-  @objc public static func hasInstance() -> Swift.Bool
-  @objc public static func dismiss()
+@_Concurrency.MainActor extension PRUI.PRAppPanelsManager {
+  @objc @_Concurrency.MainActor public static func instance() -> Self
+  @_Concurrency.MainActor public static func hasInstance() -> Swift.Bool
+  @objc @_Concurrency.MainActor public static func dismiss()
 }
 extension UIKit.UIAlertController {
   @objc @_Concurrency.MainActor @preconcurrency public static func showHotSpotRequiredAlert()
@@ -2821,12 +2960,16 @@ extension PRUI.PRArticleContainerVC : PRUIKit.NavigationBarAppearanceProvider {
   @_Concurrency.MainActor @preconcurrency @objc override final public class var layoutType: PRConfiguration.NTFLayoutType {
     @objc get
   }
-  @objc @_Concurrency.MainActor @preconcurrency final public var mliDataSource: PRUI.NTFMyLibraryItemDataSource? {
+  @objc @_Concurrency.MainActor @preconcurrency final public var mliDataSource: PRUI.NTFMyLibraryItemDataSource {
     @objc get
   }
+  @available(*, unavailable, message: "Use mliDataSource instead.")
   @_Concurrency.MainActor @preconcurrency @objc override final public var dataSource: PRUI.NTFDataSource {
     @objc get
     @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override final public var textFlowType: PRUI.NTFTextFlowType {
+    @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc override final public var articleCompactViewOptions: PRUI.NTFArticleCompactViewOption {
     @objc get
@@ -2838,9 +2981,11 @@ extension PRUI.PRArticleContainerVC : PRUIKit.NavigationBarAppearanceProvider {
   @_Concurrency.MainActor @preconcurrency @objc override final public var translationMenuItem: PRUIKit.PRMenuItem? {
     @objc get
   }
+  @objc @_Concurrency.MainActor @preconcurrency public init(mliDataSource: PRUI.NTFMyLibraryItemDataSource)
+  @available(*, unavailable)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(dataSource: PRUI.NTFDataSource?)
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor @preconcurrency @objc override final public func setupDefaultValues()
   @_Concurrency.MainActor @preconcurrency @objc override final public func processSizeChange()
   @_Concurrency.MainActor @preconcurrency @objc override final public var navigationBarRightBarButtonItems: [UIKit.UIBarButtonItem]? {
@@ -2850,7 +2995,6 @@ extension PRUI.PRArticleContainerVC : PRUIKit.NavigationBarAppearanceProvider {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc override final public func registerObservers()
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(dataSource: PRUI.NTFDataSource?)
   @objc deinit
 }
 @objc public enum TranslationViewState : Swift.Int {
@@ -2883,6 +3027,9 @@ extension PRUI.PRArticleContainerVC : PRUIKit.NavigationBarAppearanceProvider {
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override final public var canBecomeFocused: Swift.Bool {
+    @objc get
+  }
   @objc deinit
 }
 extension PRAPI.PRCatalogSection {
@@ -2898,8 +3045,12 @@ extension PRUI.VerticalTextFlowArticleDetailsVC {
     @objc get
     @objc set
   }
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var feedArticle: PRAPI.NTFArticleItem? {
+    @objc get
+  }
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateTitle()
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func tryPurchaseSubscription(actor: PRUI.FeedArticleAccessControlActor)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateReadAccess()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func updateRelatedArticles()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public var shouldPresentTanslationHUD: Swift.Bool {
@@ -2912,7 +3063,7 @@ extension PRUI.VerticalTextFlowArticleDetailsVC : PRUIKit.NavigationBarAppearanc
   }
 }
 extension PRUI.VerticalTextFlowArticleDetailsVC : PRUI.TextFlowUIStyleOserver {
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public func applyUIStyle()
+  @objc @_Concurrency.MainActor dynamic public func applyUIStyle()
 }
 @available(swift, obsoleted: 1.0)
 extension PRUI.VerticalTextFlowArticleDetailsVC {
@@ -2990,8 +3141,20 @@ extension PRUI.PRLibraryItemsCollectionVC {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func launchRadio(item: any PRAPI.PRCatalogItem)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func onCatalogPreloaded(_ notification: Foundation.Notification)
 }
+@objc extension Foundation.NSNotification {
+  @objc public static let readerSearchKeyChanged: Foundation.Notification.Name
+}
+@_hasMissingDesignatedInitializers @objc(PRReplicaTextViewBridge) @_Concurrency.MainActor @preconcurrency final public class ReplicaTextViewBridge : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor @preconcurrency final public var searchTokens: [Swift.String] {
+    get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency public init(controller: UIKit.UIViewController, mli: PRAPI.PRMyLibraryItem)
+  @_Concurrency.MainActor @preconcurrency @objc override final public func searchButtonAction(_ sender: Any)
+  @objc deinit
+}
 extension PRUI.PressReader {
   public enum LogError : Foundation.LocalizedError {
+    case unavailable
     case linkToUploadedFileIsNotAvailable
     public static func == (a: PRUI.PressReader.LogError, b: PRUI.PressReader.LogError) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
@@ -2999,7 +3162,8 @@ extension PRUI.PressReader {
       get
     }
   }
-  @_Concurrency.MainActor @preconcurrency public func getLogs(completion: @escaping (_ result: Swift.Result<(linkToUploadedLogs: Foundation.URL, additionalInfo: Swift.String), any Swift.Error>) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public func getLogs() async throws -> (linkToUploadedLogs: Foundation.URL, additionalInfo: Swift.String)
+  @available(swift, obsoleted: 1.0)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func getLogs() async throws -> Foundation.URL
 }
 @_Concurrency.MainActor @preconcurrency public struct HotSpotBannerView : SwiftUICore.View {
@@ -3008,14 +3172,21 @@ extension PRUI.PressReader {
   }
   public typealias Body = @_opaqueReturnTypeOf("$s4PRUI17HotSpotBannerViewV4bodyQrvp", 0) __
 }
-@objc extension PRUI.PhotoGalleryVC : PRAPI.RichMediaPhotoAnalyticsProvider {
+extension PRUI.PRPDFScrollView {
+  @_Concurrency.MainActor @preconcurrency public func zoomIn()
+  @_Concurrency.MainActor @preconcurrency public func zoomOut()
+}
+@objc extension PRUI.PhotoGalleryVC : @_Concurrency.MainActor PRAnalytics.RichMediaPhotoAnalyticsProvider {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var mediaType: Swift.String {
     @objc get
   }
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public var issue: (any PRAPI.IssueAnalyticsProvider)? {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public var issue: (any PRAnalytics.IssueAnalyticsProvider)? {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var mediaTitle: Swift.String? {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public var consumptionPercentage: Swift.Int {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc dynamic public var photoIndex: Swift.Int {
@@ -3036,65 +3207,71 @@ extension PRUI.PressReader {
   }
   @objc deinit
 }
-extension PRUI.PRBannerPresentationConfig {
-  @objc dynamic public var hasAnySuggestions: Swift.Bool {
+@_Concurrency.MainActor extension PRUI.PRBannerPresentationConfig {
+  @objc @_Concurrency.MainActor dynamic public var hasAnySuggestions: Swift.Bool {
     @objc get
   }
-  @objc dynamic public func suggest(_ type: PRConfiguration.PRBannerType) -> Swift.Bool
-  public func isSingleBannerType(_ type: PRConfiguration.PRBannerType) -> Swift.Bool
+  @objc @_Concurrency.MainActor dynamic public func suggest(_ type: PRConfiguration.PRBannerType) -> Swift.Bool
+  @_Concurrency.MainActor public func isSingleBannerType(_ type: PRConfiguration.PRBannerType) -> Swift.Bool
 }
-@objc extension PRUI.PRAppMenu {
-  @objc public static let itemAnalyticsIdKey: Swift.String
-  @objc public static let itemAccessibilityIdKey: Swift.String
-  @objc public static let itemTitleKey: Swift.String
-  @objc public static let itemIconKey: Swift.String
-  @objc public static let itemURLKey: Swift.String
-  @objc public static let itemIsFoldedKey: Swift.String
-  @objc dynamic public var homeMenuItemInfo: [Swift.String : Any] {
+extension PRUI.NTFBaseHomeFeedDataSource {
+  @objc dynamic public func reloadTopStoriesWidget()
+}
+@_Concurrency.MainActor @objc extension PRUI.PRAppMenu {
+  @objc @_Concurrency.MainActor public static let itemAnalyticsIdKey: Swift.String
+  @objc @_Concurrency.MainActor public static let itemAccessibilityIdKey: Swift.String
+  @objc @_Concurrency.MainActor public static let itemTitleKey: Swift.String
+  @objc @_Concurrency.MainActor public static let itemIconKey: Swift.String
+  @objc @_Concurrency.MainActor public static let itemURLKey: Swift.String
+  @objc @_Concurrency.MainActor public static let itemIsFoldedKey: Swift.String
+  @objc @_Concurrency.MainActor dynamic public var homeMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var favoritesMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var favoritesMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var catalogMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var catalogMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var downloadedMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var downloadedMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var bookmarksMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var bookmarksMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var signInMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var signInMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var moreMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var moreMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var myAccountMoreMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var myAccountMoreMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var settingsMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var settingsMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var subscriptionsMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var subscriptionsMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var sendFeedbackMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var sendFeedbackMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var customerSupportMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var customerSupportMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var webViewMenuItemInfo: [Swift.String : Any] {
+  @objc @_Concurrency.MainActor dynamic public var webViewMenuItemInfo: [Swift.String : Any] {
     @objc get
   }
-  @objc dynamic public var itemsTypes: [[PRUI.PRAppMenuItemType]]? {
+  @objc @_Concurrency.MainActor dynamic public var videoItem: PRUIKit.PRCommandMenuItem {
     @objc get
   }
-  @objc dynamic public func exitSDKMenuItem() -> PRUIKit.PRMenuItem?
-  @objc dynamic public func appMenuItems(info: [PRUI.AppMenuItemInfo]) -> [PRUIKit.PRMenuItem]
-  @objc dynamic public func defaultImageName(type: PRUI.PRAppMenuItemType) -> Swift.String?
+  @objc @_Concurrency.MainActor dynamic public var itemsTypes: [[PRUI.PRAppMenuItemType]]? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor dynamic public func exitSDKMenuItem() -> PRUIKit.PRMenuItem?
+  @objc @_Concurrency.MainActor dynamic public func appMenuItems(info: [PRUI.AppMenuItemInfo]) -> [PRUIKit.PRMenuItem]
+  @objc @_Concurrency.MainActor dynamic public func defaultImageName(type: PRUI.PRAppMenuItemType) -> Swift.String?
 }
 extension PRUI.PRSourceCollectionVC {
   @objc(fillWithDataSource:) @_Concurrency.MainActor @preconcurrency dynamic public func fill(with dataSource: any PRAPI.CatalogItemDataSourceProtocol)
@@ -3146,21 +3323,21 @@ final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.
   }
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func loadAndPresentBanners()
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func presentInterstitialAds()
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentFixedAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentInterstitialAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentEmbedableAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func adChangeHandler(_ ad: PRAds.AdBannerPresentation)
+  @_Concurrency.MainActor @objc dynamic public func presentFixedAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @_Concurrency.MainActor @objc dynamic public func presentInterstitialAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @_Concurrency.MainActor @objc dynamic public func presentEmbedableAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @_Concurrency.MainActor @objc dynamic public func adChangeHandler(_ ad: PRAds.AdBannerPresentation)
 }
 @_inheritsConvenienceInitializers @objc final public class Regular3CFeedLayoutItem : PRUI.AbstractFeedLayoutItem {
   @objc required dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class CommandShowPurchaseConfirmation : ObjectiveC.NSObject {
-  @objc final public class func execute(title: Swift.String)
-  @objc final public class func execute(title: Swift.String, footnote: Swift.String?)
-  @objc final public class func execute(confirmation: PRUI.PurchaseConfirmation)
-  @objc final public class func execute(title: Swift.String, footnote: Swift.String?, warning: Swift.String?, issue: PRAPI.PRTitleItemExemplar?, proceedButtonTitle: Swift.String?, cancelButtonTitle: Swift.String?, proceedHandler: (() -> ())?, cancelHandler: (() -> ())?)
-  @objc override dynamic public init()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CommandShowPurchaseConfirmation : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public class func execute(title: Swift.String)
+  @objc @_Concurrency.MainActor final public class func execute(title: Swift.String, footnote: Swift.String?)
+  @objc @_Concurrency.MainActor final public class func execute(confirmation: PRUI.PurchaseConfirmation)
+  @objc @_Concurrency.MainActor final public class func execute(title: Swift.String, footnote: Swift.String?, warning: Swift.String?, issue: PRAPI.PRTitleItemExemplar?, proceedButtonTitle: Swift.String?, cancelButtonTitle: Swift.String?, proceedHandler: (() -> ())?, cancelHandler: (() -> ())?)
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 @objc extension PRConfiguration.UserInterfaceStyleConfig {
@@ -3182,19 +3359,21 @@ final public class StoriesSearchDataSource : PRAPI.PRObservableObject<any PRAPI.
   @objc public init(hideBackButton: Swift.Bool, showSkipButton: Swift.Bool, isMandatory: Swift.Bool, mode: PRUI.PRAuthorizeVCMode)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class CommandShowSignInOptions : ObjectiveC.NSObject, PRUI.PRExecutable {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class CommandShowSignInOptions : ObjectiveC.NSObject {
   @discardableResult
-  @objc final public class func execute(presenter: UIKit.UIViewController?, preferences: PRUI.SignInUIPreferences?) -> UIKit.UIViewController?
-  @objc public static func execute()
-  @objc override dynamic public init()
+  @objc @_Concurrency.MainActor final public class func execute(presenter: UIKit.UIViewController?, preferences: PRUI.SignInUIPreferences?) -> UIKit.UIViewController?
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers final public class PRExternalLinkAccountManager {
-  public static var isEnabled: Swift.Bool {
+extension PRUI.CommandShowSignInOptions : @_Concurrency.MainActor PRUI.PRExecutable {
+  @_Concurrency.MainActor @objc public static func execute()
+}
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class PRExternalLinkAccountManager {
+  @_Concurrency.MainActor public static var isEnabled: Swift.Bool {
     get
   }
-  final public func present()
-  final public func push(into nc: UIKit.UINavigationController)
+  @_Concurrency.MainActor final public func present()
+  @_Concurrency.MainActor final public func push(into nc: UIKit.UINavigationController)
   @objc deinit
 }
 extension PRUI.NTFSmartArticleDataItem : PRAPI.MastheadProvider {
@@ -3203,14 +3382,14 @@ extension PRUI.NTFSmartArticleDataItem : PRAPI.MastheadProvider {
   }
   public func masthead(height: CoreFoundation.CGFloat, style: UIKit.UIUserInterfaceStyle, handler: @escaping PRThumbnail.PRThumbnailHandler)
 }
-public protocol TextFlowUIStyleOserver : PRUI.UIStyleOserver {
+@_Concurrency.MainActor public protocol TextFlowUIStyleOserver : PRUI.UIStyleOserver {
 }
 extension PRUI.TextFlowUIStyleOserver {
-  public var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> {
+  @_Concurrency.MainActor public var valueSubject: Combine.CurrentValueSubject<UIKit.UIUserInterfaceStyle, Swift.Never> {
     get
   }
 }
-extension PRUI.PRPubHubDataSource {
+extension PRUI.PRPubHubDataSource : @unchecked Swift.Sendable {
   @objc dynamic public var accountManager: PRAPI.PRAccountManager? {
     @objc get
   }
@@ -3223,22 +3402,26 @@ extension PRUI.PRPubHubDataSource {
   @objc dynamic public var parentPublications: [any PRAPI.PRCatalogItem]? {
     @objc get
   }
+  @objc dynamic public var modernAPISupported: Swift.Bool {
+    @objc get
+  }
 }
 @objc extension PRUI.PRPubHubDataSource {
-  @objc dynamic public func dataSection(scheme: PRAPI.CatalogSectionScheme, title: Swift.String) -> PRAPI.PRCatalogSection?
+  @objc dynamic public func dataSection(scheme: PRConfiguration.CatalogSectionScheme, title: Swift.String) -> PRAPI.PRCatalogSection?
   @objc dynamic public func linkedServiceSectionDataSource(serviceName: Swift.String) -> (any PRAPI.CatalogItemDataSourceProtocol)?
-  @objc dynamic public func updatePublicationCategoriesSectionContentWidth()
-  @objc dynamic public func contentCategoriesSection(scheme: PRAPI.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
-  @objc dynamic public func topNewspapersSection(scheme: PRAPI.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
-  @objc dynamic public func topMagazinesSection(scheme: PRAPI.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
-  @objc dynamic public func partnerBannerSection() -> PRAPI.PRCatalogSection?
-  @objc dynamic public func allTitlesSection(scheme: PRAPI.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection
-  @objc dynamic public func categorySections(scheme: PRAPI.CatalogSectionScheme, startIndex: Swift.Int) -> [PRAPI.PRCatalogSection]?
-  @objc dynamic public func linkedServiceSection(service: PRAPI.PRAccountItem, scheme: PRAPI.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
+  @objc @_Concurrency.MainActor dynamic public func updatePublicationCategoriesSectionContentWidth()
+  @objc @_Concurrency.MainActor dynamic public func contentCategoriesSection(scheme: PRConfiguration.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
+  @objc dynamic public func topNewspapersSection(scheme: PRConfiguration.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
+  @objc dynamic public func topMagazinesSection(scheme: PRConfiguration.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
+  @objc dynamic public func onlineEditionsSection(scheme: PRConfiguration.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
+  @objc @_Concurrency.MainActor dynamic public func partnerBannerSection() -> PRAPI.PRCatalogSection?
+  @objc dynamic public func allTitlesSection(scheme: PRConfiguration.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection
+  @objc dynamic public func categorySections(scheme: PRConfiguration.CatalogSectionScheme, startIndex: Swift.Int) -> [PRAPI.PRCatalogSection]?
+  @objc dynamic public func linkedServiceSection(service: PRAPI.PRAccountItem, scheme: PRConfiguration.CatalogSectionScheme) -> PRAPI.PRCatalogSection?
   @objc dynamic public func favorites(order: PRConfiguration.PRCatalogSortingOrder) -> [any PRAPI.PRCatalogItem]?
-  @objc dynamic public func latestPublishDaySection(scheme: PRAPI.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
-  @objc dynamic public func section(scheme: PRAPI.CatalogSectionScheme, title: Swift.String? = nil, subtitle: Swift.String? = nil, dataSource: Any?) -> PRAPI.PRCatalogSection
-  @objc dynamic public func section(scheme: PRAPI.CatalogSectionScheme, title: Swift.String? = nil) -> PRAPI.PRCatalogSection?
+  @objc dynamic public func latestPublishDaySection(scheme: PRConfiguration.CatalogSectionScheme, index: Swift.Int) -> PRAPI.PRCatalogSection?
+  @objc dynamic public func section(scheme: PRConfiguration.CatalogSectionScheme, title: Swift.String? = nil, subtitle: Swift.String? = nil, dataSource: Any?) -> PRAPI.PRCatalogSection
+  @objc dynamic public func section(scheme: PRConfiguration.CatalogSectionScheme, title: Swift.String? = nil) -> PRAPI.PRCatalogSection?
 }
 @objc extension PRUI.PRMenuBottomBar {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func addThumbToMenuBar(tapHandler: @escaping (PRUI.PRArticleIssueThumbnail) -> ()) -> PRUI.PRArticleIssueThumbnail
@@ -3255,7 +3438,7 @@ extension PRUI.PRPubHubDataSource {
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class ActionAccessParameters : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ActionAccessParameters : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc final public var pageNo: Swift.Int
   @objc final public var isSingleArticle: Swift.Bool
   @objc final public var isPDF: Swift.Bool
@@ -3274,17 +3457,23 @@ extension PRUI.AutoTranslationActor : Swift.Sendable {}
 extension PRUI.Account.State : Swift.Equatable {}
 extension PRUI.Account.State : Swift.Hashable {}
 extension PRUI.Account.State : Swift.RawRepresentable {}
+extension PRUI.CommandOrder : Swift.Sendable {}
+extension PRUI.NTFCompactViewCommons : Swift.Sendable {}
 extension PRUI.ArticlePopoverContainerVC.AppearanceType : Swift.Equatable {}
 extension PRUI.ArticlePopoverContainerVC.AppearanceType : Swift.Hashable {}
 extension PRUI.ArticlePopoverContainerVC.AppearanceType : Swift.RawRepresentable {}
+extension PRUI.PressReaderState : Swift.Sendable {}
 extension PRUI.PRSlidePresentDismissActor : Swift.Sendable {}
+extension PRUI.KeyboardLayoutGuide : Swift.Sendable {}
 extension PRUI.CommandOpenBookCatalog : Swift.Sendable {}
-extension PRUI.PopoverPresentationController : Swift.Sendable {}
+extension PRUI.FeedArticleAccessControlActor : Swift.Sendable {}
 extension PRUI.ActionType : Swift.Equatable {}
 extension PRUI.ActionType : Swift.Hashable {}
 extension PRUI.ActionType : Swift.RawRepresentable {}
 extension PRUI.DownloadState : Swift.Equatable {}
 extension PRUI.DownloadState : Swift.Hashable {}
+extension PRUI.CommandOpenInterestsFeed : Swift.Sendable {}
+extension PRUI.CatalogFilterViewModel : Swift.Sendable {}
 extension PRUI.PRAlertActionType : Swift.Equatable {}
 extension PRUI.PRAlertActionType : Swift.Hashable {}
 extension PRUI.PRAlertActionType : Swift.RawRepresentable {}
@@ -3292,16 +3481,29 @@ extension PRUI.PartnerBannerType : Swift.Equatable {}
 extension PRUI.PartnerBannerType : Swift.Hashable {}
 extension PRUI.PartnerBannerType : Swift.RawRepresentable {}
 extension PRUI.CommandNavigateBooks : Swift.Sendable {}
+extension PRUI.CommandOpenReader.Key : Swift.Equatable {}
+extension PRUI.CommandOpenReader.Key : Swift.Hashable {}
+extension PRUI.CommandOpenReader.Key : Swift.RawRepresentable {}
+extension PRUI.CommandPresentInterstitialAD : Swift.Sendable {}
+extension PRUI.PRMyLibraryItemActionAccessActor : Swift.Sendable {}
+extension PRUI.CompatibilityFactory : Swift.Sendable {}
+extension PRUI.HotSpotManagerUICoordinator : Swift.Sendable {}
 extension PRUI.PaymentOptionsMode : Swift.Equatable {}
 extension PRUI.PaymentOptionsMode : Swift.Hashable {}
 extension PRUI.PaymentOptionsMode : Swift.RawRepresentable {}
+extension PRUI.ScrollObserver : Swift.Sendable {}
 extension PRUI.PremiumBannerView.Style : Swift.Equatable {}
 extension PRUI.PremiumBannerView.Style : Swift.Hashable {}
 extension PRUI.HotSpotBannerView : Swift.Sendable {}
 extension PRUI.AutoTranslationActor.AutoTranslationError : Swift.Equatable {}
 extension PRUI.AutoTranslationActor.AutoTranslationError : Swift.Hashable {}
+extension PRUI.CommandPresentHotSpotStatus : Swift.Sendable {}
+extension PRUI.AppPanelsManagerAlertsCoordinator : Swift.Sendable {}
 extension PRUI.TranslationViewState : Swift.Equatable {}
 extension PRUI.TranslationViewState : Swift.Hashable {}
 extension PRUI.TranslationViewState : Swift.RawRepresentable {}
 extension PRUI.PressReader.LogError : Swift.Equatable {}
 extension PRUI.PressReader.LogError : Swift.Hashable {}
+extension PRUI.CommandShowPurchaseConfirmation : Swift.Sendable {}
+extension PRUI.CommandShowSignInOptions : Swift.Sendable {}
+extension PRUI.PRExternalLinkAccountManager : Swift.Sendable {}

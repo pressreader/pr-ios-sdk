@@ -6,7 +6,7 @@
 //  Copyright 2008 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class PRSmartObject;
 @class PRCountableValue;

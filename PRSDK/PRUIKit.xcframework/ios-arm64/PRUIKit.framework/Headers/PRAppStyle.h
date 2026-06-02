@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PRAppStyleProtocol.h"
+#import <PRUIKit/PRAppStyleProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "UIColor+AppStyle.h"
-#import "UIColor+Theme.h"
-#import "UIButton+AppStyle.h"
-#import "PRAppStyle+Measurements.h"
+#import <PRUIKit/UIColor+AppStyle.h>
+#import <PRUIKit/UIColor+Theme.h>
+#import <PRUIKit/UIButton+AppStyle.h>
+#import <PRUIKit/PRAppStyle+Measurements.h>

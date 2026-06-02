@@ -16,91 +16,91 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PRUIKit/PublicHeader.h>
 
-#import "PRGradientLayerView.h"
-#import "PRSplashBackgroundView.h"
+#import <PRUIKit/PRGradientLayerView.h>
+#import <PRUIKit/PRSplashBackgroundView.h>
 
-#import "UIUtils.h"
+#import <PRUIKit/UIUtils.h>
 
-#import "UIApplication+Orientation.h"
-#import "NSLayoutAnchor+Active.h"
-#import "UIControl+BlockAPI.h"
-#import "UIBarButtonItem+BlockAPI.h"
-#import "NSLayoutAnchor+Active.h"
-#import "NSDate+Presentation.h"
-#import "MKMapView+ZoomLevel.h"
-#import "UIScrollView+Extended.h"
+#import <PRUIKit/UIApplication+Orientation.h>
+#import <PRUIKit/NSLayoutAnchor+Active.h>
+#import <PRUIKit/UIControl+BlockAPI.h>
+#import <PRUIKit/UIBarButtonItem+BlockAPI.h>
+#import <PRUIKit/NSLayoutAnchor+Active.h>
+#import <PRUIKit/NSDate+Presentation.h>
+#import <PRUIKit/MKMapView+ZoomLevel.h>
+#import <PRUIKit/UIScrollView+Extended.h>
 
-#import "UIView+Drawing.h"
-#import "UIView+DeepCopy.h"
-#import "UIView+Nib.h"
-#import "UIView+SubviewSearch.h"
-#import "UIView+Theme.h"
+#import <PRUIKit/UIView+Drawing.h>
+#import <PRUIKit/UIView+DeepCopy.h>
+#import <PRUIKit/UIView+Nib.h>
+#import <PRUIKit/UIView+SubviewSearch.h>
+#import <PRUIKit/UIView+Theme.h>
 
-#import "UIButton+Configuration.h"
-#import "PRReversedButton.h"
-#import "PRSwitchButton.h"
-#import "PRFollowButton.h"
+#import <PRUIKit/UIButton+Configuration.h>
+#import <PRUIKit/PRReversedButton.h>
+#import <PRUIKit/PRSwitchButton.h>
+#import <PRUIKit/PRFollowButton.h>
 
-#import "_PRVC.h"
-#import "PRVC.h"
-#import "UIViewController+Child.h"
-#import "UIViewController+Rotation.h"
-#import "UIViewController+Presentation.h"
-#import "UIViewController+VisibilityState.h"
-#import "UIViewController+PopoverPresentation.h"
-#import "UIViewController+PRUINavigation.h"
-#import "UIViewController+PRAppMenu.h"
+#import <PRUIKit/_PRVC.h>
+#import <PRUIKit/PRVC.h>
+#import <PRUIKit/UIViewController+Child.h>
+#import <PRUIKit/UIViewController+Rotation.h>
+#import <PRUIKit/UIViewController+Presentation.h>
+#import <PRUIKit/UIViewController+VisibilityState.h>
+#import <PRUIKit/UIViewController+PopoverPresentation.h>
+#import <PRUIKit/UIViewController+PRUINavigation.h>
+#import <PRUIKit/UIViewController+PRAppMenu.h>
 
-#import "PRConfig+Theme.h"
+#import <PRUIKit/PRConfig+Theme.h>
 
-#import "UIColor+Theme.h"
-#import "UIColor+AppStyle.h"
+#import <PRUIKit/UIColor+Theme.h>
+#import <PRUIKit/UIColor+AppStyle.h>
 
-#import "PRAppStyle.h"
+#import <PRUIKit/PRAppStyle.h>
 
-#import "PRPopoverBackgroundView.h"
-#import "PRDropdownView.h"
+#import <PRUIKit/PRPopoverBackgroundView.h>
+#import <PRUIKit/PRDropdownView.h>
 
-#import "UINavigationBar+PRExtensions.h"
-#import "UINavigationItem+Title.h"
+#import <PRUIKit/UINavigationBar+PRExtensions.h>
+#import <PRUIKit/UINavigationItem+Title.h>
 
-#import "PRSlidingMenuContentHolderProtocol.h"
-#import "PRActionMenuItemPresenter.h"
-#import "PRActionMenuActorProtocol.h"
-#import "PRPickable.h"
+#import <PRUIKit/PRSlidingMenuContentHolderProtocol.h>
+#import <PRUIKit/PRActionMenuItemPresenter.h>
+#import <PRUIKit/PRActionMenuActorProtocol.h>
+#import <PRUIKit/PRPickable.h>
 
-#import "UISearchBar+Custom.h"
-#import "PRSearchBar.h"
-#import "LottieLinker.h"
+#import <PRUIKit/UISearchBar+Custom.h>
+#import <PRUIKit/PRSearchBar.h>
+#import <PRUIKit/LottieLinker.h>
 
-#import "PRSlider.h"
-#import "PRSnapSlider.h"
+#import <PRUIKit/PRSlider.h>
+#import <PRUIKit/PRSnapSlider.h>
 
-#import "PRMenuItem.h"
-#import "PRCommandMenuItem.h"
-#import "PRCustomCellMenuItem.h"
-#import "PRSwitcherMenuItem.h"
-#import "PRFontAdjustmentCell.h"
-#import "PRBrightnessAdjustmentCell.h"
-#import "PRMenuSection.h"
-#import "PRMenu.h"
+#import <PRUIKit/PRMenuItem.h>
+#import <PRUIKit/PRCommandMenuItem.h>
+#import <PRUIKit/PRCustomCellMenuItem.h>
+#import <PRUIKit/PRSwitcherMenuItem.h>
+#import <PRUIKit/PRFontAdjustmentCell.h>
+#import <PRUIKit/PRBrightnessAdjustmentCell.h>
+#import <PRUIKit/PRMenuSection.h>
+#import <PRUIKit/PRMenu.h>
 
-#import "PRRoundedTableViewCell.h"
-#import "UITableView+RoundedCell.h"
-#import "PRRoundedCenteredCell.h"
+#import <PRUIKit/PRRoundedTableViewCell.h>
+#import <PRUIKit/UITableView+RoundedCell.h>
+#import <PRUIKit/PRRoundedCenteredCell.h>
 
-#import "UILabel+TappableLink.h"
+#import <PRUIKit/UILabel+TappableLink.h>
 
-#import "UIFont+CustomFonts.h"
-#import "UIFont+CoreTextExtensions.h"
+#import <PRUIKit/UIFont+CustomFonts.h>
+#import <PRUIKit/UIFont+CoreTextExtensions.h>
 
-#import "NSMutableAttributedString+PRExtensions.h"
+#import <PRUIKit/NSMutableAttributedString+PRExtensions.h>
 
-#import "WKWebView+Clean.h"
-#import "PRSafariVC.h"
-#import "PRActivityVC.h"
+#import <PRUIKit/WKWebView+Clean.h>
+#import <PRUIKit/PRSafariVC.h>
+#import <PRUIKit/PRActivityVC.h>
 
-#import "UILayoutPriority+Constants.h"
+#import <PRUIKit/UILayoutPriority+Constants.h>
 
-#import "PRUINavigationController.h"
-#import "PRTableViewHeaderView.h"
+#import <PRUIKit/PRUINavigationController.h>
+#import <PRUIKit/PRTableViewHeaderView.h>

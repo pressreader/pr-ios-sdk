@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 @import PRSyntacticSugar;
 
 NS_ASSUME_NONNULL_BEGIN

@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRCoreDataUtils
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios17.6 -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRCoreDataUtils
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import CoreData
 import Foundation
 @_exported import PRCoreDataUtils
@@ -12,22 +12,25 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 extension CoreData.NSManagedObjectContext {
-  @objc dynamic public func verboseSave()
-  @objc(performBlockAndSave:) dynamic public func performAndSave(_ block: @escaping () -> ())
-  @objc(performBlockAndWaitAndSave:) dynamic public func performAndWaitAndSave(_ block: () -> ())
-  public func performAndSave_(_ block: @escaping (CoreData.NSManagedObjectContext) -> ())
-  public func performAndWaitAndSave_<T>(_ block: (CoreData.NSManagedObjectContext) throws -> T) rethrows -> T
-  public func performAndWaitAndSave<T>(_ block: () throws -> T) rethrows -> T
+  @objc nonisolated dynamic public func verboseSave()
+  @objc(performBlockAndSave:) nonisolated dynamic public func performAndSave(_ block: @escaping @Sendable () -> ())
+  @objc(performBlockAndWaitAndSave:) nonisolated dynamic public func performAndWaitAndSave(_ block: @Sendable () -> ())
+  nonisolated public func performAndSave_(_ block: @escaping @Sendable (CoreData.NSManagedObjectContext) -> ())
   @discardableResult
-  public func performAndSave_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) throws -> T) async rethrows -> T
+  nonisolated public func performAndWaitAndSave_<T>(_ block: @Sendable (CoreData.NSManagedObjectContext) throws -> T) rethrows -> T
+  nonisolated public func performAndWaitAndSave<T>(_ block: @Sendable () throws -> T) rethrows -> T
   @discardableResult
-  public func performAndSave<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping () throws -> T) async rethrows -> T
+  nonisolated public func performAndSave_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping @Sendable (CoreData.NSManagedObjectContext) throws -> T) async rethrows -> T
   @discardableResult
-  public func perform_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) throws -> T) async rethrows -> T
+  nonisolated public func performAndSave<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping @Sendable () throws -> T) async rethrows -> T
   @discardableResult
-  public func perform_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) -> T) async -> T
+  nonisolated public func perform_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping @Sendable (CoreData.NSManagedObjectContext) throws -> T) async rethrows -> T
   @discardableResult
-  public func performAndWait_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping (CoreData.NSManagedObjectContext) -> T) -> T
+  nonisolated public func perform_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping @Sendable (CoreData.NSManagedObjectContext) -> T) async -> T
+  @discardableResult
+  nonisolated public func performAndWait_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping @Sendable (CoreData.NSManagedObjectContext) throws -> T) rethrows -> T
+  @discardableResult
+  nonisolated public func performAndWait_<T>(schedule: CoreData.NSManagedObjectContext.ScheduledTaskType = .immediate, _ block: @escaping @Sendable (CoreData.NSManagedObjectContext) -> T) -> T
 }
 @_inheritsConvenienceInitializers public class DataTransformer<T, T1> : Foundation.ValueTransformer where T1 : ObjectiveC.NSObject, T1 : Foundation.NSCoding {
   @objc override public static func transformedValueClass() -> Swift.AnyClass
@@ -59,13 +62,33 @@ extension Foundation.JSONSerialization {
   public static func jsonObject<T>(with stringRepresentation: Swift.String) -> T?
   public static func stringRepresentation(json: Any) -> Swift.String?
 }
-extension CoreData.NSManagedObjectContext {
-  public func object<T>(predicate: Foundation.NSPredicate?) -> T where T : CoreData.NSManagedObject
-  public func object<T>(predicate: Foundation.NSPredicate?) -> T? where T : CoreData.NSManagedObject
-  public func objects<T>(predicate: Foundation.NSPredicate?) -> [T]? where T : CoreData.NSManagedObject
+public struct SendableMO<T> : Swift.Sendable where T : CoreData.NSManagedObject {
+  public enum RestorationError : Swift.Error {
+    case typeMismatch
+    public static func == (a: PRCoreDataUtils.SendableMO<T>.RestorationError, b: PRCoreDataUtils.SendableMO<T>.RestorationError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let objectID: CoreData.NSManagedObjectID
+  public let type: T.Type
+  public init(objectID: CoreData.NSManagedObjectID, type: T.Type)
+  public init(_ object: T)
+  public func restore(context: CoreData.NSManagedObjectContext) throws -> T
+}
+extension Swift.Array where Element : CoreData.NSManagedObject {
+  public var sendable: [PRCoreDataUtils.SendableMO<Element>] {
+    get
+  }
 }
 extension CoreData.NSManagedObjectContext {
-  public func object(entityName: Swift.String, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil) -> CoreData.NSManagedObject?
+  nonisolated public func object<T>(predicate: Foundation.NSPredicate?) -> T where T : CoreData.NSManagedObject
+  nonisolated public func object<T>(predicate: Foundation.NSPredicate?) -> T? where T : CoreData.NSManagedObject
+  nonisolated public func objects<T>(predicate: Foundation.NSPredicate?) -> [T]? where T : CoreData.NSManagedObject
+}
+extension CoreData.NSManagedObjectContext {
+  nonisolated public func object(entityName: Swift.String, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil) -> CoreData.NSManagedObject?
 }
 extension Swift.Dictionary {
   public func castInt<T>(_ key: Key, defaultValue: T = 0) -> T where T : Swift.FixedWidthInteger, T : Swift.SignedInteger
@@ -88,15 +111,14 @@ extension Swift.FixedWidthInteger {
   @objc dynamic public class var entityName: Swift.String {
     @objc get
   }
-  @objc dynamic public class func itemsCount(context: CoreData.NSManagedObjectContext, predicate: Foundation.NSPredicate? = nil) -> Swift.UInt
-  @objc dynamic public var entityName: Swift.String {
+  @objc nonisolated dynamic public var entityName: Swift.String {
     @objc get
   }
-  @objc dynamic public var isAvailable: Swift.Bool {
+  @objc nonisolated dynamic public var isAvailable: Swift.Bool {
     @objc get
   }
-  @objc dynamic public func restore(context: CoreData.NSManagedObjectContext) throws -> Self
-  @objc dynamic public func delete()
+  @objc nonisolated dynamic public func restore(context: CoreData.NSManagedObjectContext) throws -> Self
+  @objc nonisolated dynamic public func delete()
 }
 public enum UpdatableMOError : Swift.Error {
   case invalidPayload
@@ -130,36 +152,11 @@ extension CoreData.NSManagedObjectContext {
       get
     }
   }
-  public func validObject(with objectID: CoreData.NSManagedObjectID) throws -> CoreData.NSManagedObject
-  public func fetchItems<T>(predicate: Foundation.NSPredicate? = nil, sortDecriptors: [Foundation.NSSortDescriptor]? = nil, limit: Swift.UInt = .max) -> [T]? where T : CoreData.NSManagedObject
-  public func fetchItem<T>(predicate: Foundation.NSPredicate) -> T? where T : CoreData.NSManagedObject
-  public func fetchAndDeleteItems<T>(request: CoreData.NSFetchRequest<T>) -> [T] where T : CoreData.NSManagedObject
-  public func deleteItems<T>(request: CoreData.NSFetchRequest<T>) throws where T : CoreData.NSManagedObject
-}
-@propertyWrapper public struct CDOrderedSetArrayRepresentation<Item> where Item : CoreData.NSManagedObject {
-  public static subscript<T>(_enclosingInstance instance: T, wrapped wrappedKeyPath: Swift.ReferenceWritableKeyPath<T, [Item]>, storage storageKeyPath: Swift.ReferenceWritableKeyPath<T, PRCoreDataUtils.CDOrderedSetArrayRepresentation<Item>>) -> [Item] where T : CoreData.NSManagedObject {
-    get
-    set
-  }
-  @available(*, unavailable)
-  public var wrappedValue: [Item] {
-    get
-    set
-  }
-  public init(key: Swift.String)
-}
-@propertyWrapper public struct CDRawRepresentablePrimitive<Value> where Value : Swift.RawRepresentable, Value.RawValue == Swift.Int {
-  public typealias Primitive = Swift.FixedWidthInteger
-  public static subscript<T>(_enclosingInstance instance: T, wrapped wrappedKeyPath: Swift.ReferenceWritableKeyPath<T, Value>, storage storageKeyPath: Swift.ReferenceWritableKeyPath<T, PRCoreDataUtils.CDRawRepresentablePrimitive<Value>>) -> Value where T : CoreData.NSManagedObject {
-    get
-    set
-  }
-  @available(*, unavailable)
-  public var wrappedValue: Value {
-    get
-    set
-  }
-  public init(key: Swift.String, primitiveType: any PRCoreDataUtils.CDRawRepresentablePrimitive<Value>.Primitive.Type, defaultValue: Value = Value(rawValue: 0)!)
+  nonisolated public func validObject(with objectID: CoreData.NSManagedObjectID) throws -> CoreData.NSManagedObject
+  nonisolated public func fetchItems<T>(predicate: Foundation.NSPredicate? = nil, sortDecriptors: [Foundation.NSSortDescriptor]? = nil, limit: Swift.UInt = .max) -> [T]? where T : CoreData.NSManagedObject
+  nonisolated public func fetchItem<T>(predicate: Foundation.NSPredicate) -> T? where T : CoreData.NSManagedObject
+  nonisolated public func fetchAndDeleteItems<T>(request: CoreData.NSFetchRequest<T>) -> [T] where T : CoreData.NSManagedObject
+  nonisolated public func deleteItems<T>(request: CoreData.NSFetchRequest<T>) throws where T : CoreData.NSManagedObject
 }
 public protocol IdentifiableMO : CoreData.NSManagedObject {
   static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self
@@ -169,6 +166,8 @@ extension PRCoreDataUtils.IdentifiableMO {
   public static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self
   public static func object(id: Swift.String, context: CoreData.NSManagedObjectContext) -> Self?
 }
+extension PRCoreDataUtils.SendableMO.RestorationError : Swift.Equatable {}
+extension PRCoreDataUtils.SendableMO.RestorationError : Swift.Hashable {}
 extension CoreData.NSManagedObject.MOError : Swift.Equatable {}
 extension CoreData.NSManagedObject.MOError : Swift.Hashable {}
 extension PRCoreDataUtils.UpdatableMOError : Swift.Equatable {}

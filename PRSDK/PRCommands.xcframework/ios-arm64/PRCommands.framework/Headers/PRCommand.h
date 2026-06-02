@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)commandWithName:(PRCommandName)name;
 + (BOOL)isEnabledForParameters:(NSDictionary *)parameters;
 
-- (instancetype)initWithName:(PRCommandName)name;
+- (instancetype)initWithName:(PRCommandName)name NS_DESIGNATED_INITIALIZER;
 
-- (void)invokeWithParameters:(nullable NSDictionary *)parameters;
+- (void)invokeWithParameters:(nullable NSDictionary *)parameters NS_SWIFT_MAIN_ACTOR;
 
 - (BOOL)isCheckedWithParameters:(NSDictionary *)parameters;
 - (BOOL)isCheckable;
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) PRCommandName defaultCommandName;
 
 @property (nonatomic, strong) PRCommandName name;
-@property (nonatomic, readonly) BOOL isEnabled;
+@property (nonatomic, readonly) BOOL isEnabled NS_SWIFT_MAIN_ACTOR;
 @property (nullable, nonatomic, strong) id result;
 @property (nullable, nonatomic, weak) PRContext *context;
 @property (nullable, nonatomic, copy) PRCompletionBlock completionHandler;
@@ -41,15 +41,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRCommand (Global)
 
-+ (void)execute;
++ (void)execute NS_SWIFT_MAIN_ACTOR;
 
 + (void)executeWithParameters:(nullable NSDictionary *)parameters
-NS_SWIFT_NAME(execute(parameters:));
+NS_SWIFT_NAME(execute(parameters:)) NS_SWIFT_MAIN_ACTOR;
 
 + (void)executeWithParameters:(nullable NSDictionary *)parameters
             completionHandler:(nullable PRCompletionBlock)completionHandler
-NS_SWIFT_NAME(execute(parameters:completionHandler:));
-
+NS_SWIFT_NAME(execute(parameters:completionHandler:)) NS_SWIFT_MAIN_ACTOR;
 
 @property (class, nonatomic, readonly) BOOL isEnabled;
 

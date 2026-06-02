@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRAccessibility
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios17.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRAccessibility
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import Foundation
 @_exported import PRAccessibility
 import Swift
@@ -9,7 +9,7 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc @objcMembers final public class AccessibilityId : ObjectiveC.NSObject {
+@objc @objcMembers final public class AccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let rawValue: Swift.String
   @objc public init(rawValue: Swift.String)
   @objc final public func id(with theme: UIKit.UIUserInterfaceStyle) -> Swift.String
@@ -25,7 +25,7 @@ import _SwiftConcurrencyShims
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let feed: PRAccessibility.FeedAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class FeedAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class FeedAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let article: PRAccessibility.FeedArticleAccessibilityId
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc final public let issueThumbnail: PRAccessibility.AccessibilityId
@@ -33,7 +33,7 @@ import _SwiftConcurrencyShims
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class FeedArticleAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class FeedArticleAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc final public let tags: PRAccessibility.AccessibilityId
   @objc final public let tag: PRAccessibility.AccessibilityId
@@ -43,7 +43,7 @@ import _SwiftConcurrencyShims
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let paymentOptions: PRAccessibility.PaymentOptionsAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class PaymentOptionsAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class PaymentOptionsAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let productWithCIDsCell: PRAccessibility.AccessibilityId
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
@@ -52,7 +52,7 @@ import _SwiftConcurrencyShims
 extension PRAccessibility.AccessibilityId {
   public static let appMenu: PRAccessibility.AppMenuItemAccessibilityId
 }
-public struct AppMenuItemAccessibilityId {
+public struct AppMenuItemAccessibilityId : Swift.Sendable {
   public let menu: PRAccessibility.AccessibilityId
   public let home: PRAccessibility.AccessibilityId
   public let catalog: PRAccessibility.AccessibilityId
@@ -72,19 +72,19 @@ public struct AppMenuItemAccessibilityId {
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let catalog: PRAccessibility.CatalogAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let filter: PRAccessibility.CatalogFilterAccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let option: PRAccessibility.CatalogFilterOptionAccessibilityId
   @objc final public func filter(type: Swift.String) -> PRAccessibility.AccessibilityId
   @objc final public func thumbnail(type: Swift.String) -> PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterOptionAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class CatalogFilterOptionAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let thumbnail: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
@@ -92,10 +92,10 @@ public struct AppMenuItemAccessibilityId {
 extension PRAccessibility.AccessibilityId {
   public static let sdkTest: PRAccessibility.SDKTestAccessibilityId
 }
-public struct SDKTestAccessibilityId {
+public struct SDKTestAccessibilityId : Swift.Sendable {
   public let cells: PRAccessibility.SDKTestCellsAccessibilityId
 }
-public struct SDKTestCellsAccessibilityId {
+public struct SDKTestCellsAccessibilityId : Swift.Sendable {
   public let article: PRAccessibility.AccessibilityId
   public let issue: PRAccessibility.AccessibilityId
   public let fullUI: PRAccessibility.AccessibilityId
@@ -104,20 +104,20 @@ public struct SDKTestCellsAccessibilityId {
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let account: PRAccessibility.AccountAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let hub: PRAccessibility.AccountHubAccessibilityId
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc final public let cell: PRAccessibility.AccountCellAccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountHubAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountHubAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc final public let defaultAccountCell: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountCellAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AccountCellAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let signOut: PRAccessibility.AccessibilityId
   @objc final public let reset: PRAccessibility.AccessibilityId
   @objc final public let delete: PRAccessibility.AccessibilityId
@@ -127,7 +127,7 @@ public struct SDKTestCellsAccessibilityId {
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let reader: PRAccessibility.ReaderAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class ReaderAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ReaderAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
@@ -135,7 +135,7 @@ public struct SDKTestCellsAccessibilityId {
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let articleDetails: PRAccessibility.ArticleDetailsAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleDetailsAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleDetailsAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
@@ -157,7 +157,7 @@ public enum PRLaunchCommandParameter : Swift.String {
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let orderView: PRAccessibility.OrderAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class OrderAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class OrderAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let cell: PRAccessibility.OrderCellAccessibilityId
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc final public let thumbnail: PRAccessibility.AccessibilityId
@@ -165,7 +165,7 @@ public enum PRLaunchCommandParameter : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class OrderCellAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class OrderCellAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let date: PRAccessibility.AccessibilityId
   @objc final public let autoDelivery: PRAccessibility.AccessibilityId
   @objc final public let autoDeliverySupplements: PRAccessibility.AccessibilityId
@@ -185,17 +185,18 @@ public enum PRLaunchCommandParameter : Swift.String {
   @objc public static let sourceView: PRAccessibility.AccessibilityId
   @objc public static let horizontalScroller: PRAccessibility.AccessibilityId
   @objc public static let searchField: PRAccessibility.AccessibilityId
+  @objc public static let calendar: PRAccessibility.AccessibilityId
   @objc public static let auth: PRAccessibility.AuthAccessibilityId
   @objc public static let textField: PRAccessibility.TextFieldAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class AuthAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class AuthAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let options: PRAccessibility.AccessibilityId
   @objc final public let web: PRAccessibility.AccessibilityId
   @objc final public let email: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class TextFieldAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class TextFieldAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let username: PRAccessibility.AccessibilityId
   @objc final public let password: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
@@ -222,7 +223,7 @@ extension PRAccessibility.AccessibilityId {
   @objc public static let tabPanel: PRAccessibility.AccessibilityId
   public static let tab: PRAccessibility.TabAccessibilityId
 }
-public struct TabAccessibilityId {
+public struct TabAccessibilityId : Swift.Sendable {
   public let all: PRAccessibility.AccessibilityId
   public let otherIssues: PRAccessibility.AccessibilityId
   public let supplements: PRAccessibility.AccessibilityId
@@ -241,7 +242,7 @@ public struct TabAccessibilityId {
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let article: PRAccessibility.ArticleAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ArticleAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let view: PRAccessibility.AccessibilityId
   @objc final public let issueThumbnail: PRAccessibility.AccessibilityId
   @objc override dynamic public init()
@@ -250,12 +251,14 @@ public struct TabAccessibilityId {
 @objc extension PRAccessibility.AccessibilityId {
   @objc public static let button: PRAccessibility.ButtonAccessibilityId
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class ButtonAccessibilityId : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers final public class ButtonAccessibilityId : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let back: PRAccessibility.AccessibilityId
   @objc final public let actionMenu: PRAccessibility.AccessibilityId
   @objc final public let close: PRAccessibility.AccessibilityId
   @objc final public let done: PRAccessibility.AccessibilityId
+  @objc final public let save: PRAccessibility.AccessibilityId
   @objc final public let cancel: PRAccessibility.AccessibilityId
+  @objc final public let delete: PRAccessibility.AccessibilityId
   @objc final public let read: PRAccessibility.AccessibilityId
   @objc final public let follow: PRAccessibility.AccessibilityId
   @objc final public let listen: PRAccessibility.AccessibilityId
@@ -276,7 +279,7 @@ extension PRAccessibility.AccessibilityId {
   @objc public static let recommendedCarousel: PRAccessibility.AccessibilityId
   public static let navigationFilter: PRAccessibility.NavigationFilterAccessibilityId
 }
-public struct NavigationFilterAccessibilityId {
+public struct NavigationFilterAccessibilityId : Swift.Sendable {
   public let collectionView: PRAccessibility.AccessibilityId
   public let free: PRAccessibility.AccessibilityId
 }

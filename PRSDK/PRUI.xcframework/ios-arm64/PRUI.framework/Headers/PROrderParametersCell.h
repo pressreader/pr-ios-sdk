@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PROrderParametersCell : PRRoundedTableViewCell
+
 @property (nonatomic) CGFloat lineViewPadding;
 @property (nonatomic) BOOL topLineViewHidden;
 @property (nonatomic) BOOL bottomLineViewHidden;

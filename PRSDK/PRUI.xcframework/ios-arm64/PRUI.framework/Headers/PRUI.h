@@ -96,14 +96,12 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRCommandAuthorizeAccount.h"
 #import "PRCommandOpenOrder.h"
 #import "PRCommandOpenHomeFeed.h"
-#import "PRCommandOpenReader.h"
 
 #import "UINavigationController+Presentation.h"
 #import "PRModalNavigationController.h"
 
 #import "PRSubscriptionBundle+PlanType.h"
 
-#import "UIViewController+Popover.h"
 #import "UIViewController+AccountObserver.h"
 #import "UIViewController+Modal.h"
 #import "UIViewController+NavigationState.h"
@@ -203,6 +201,7 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "UIImage+BarButtonSystemItem.h"
 
 #import "PRDismissOnSwipeActor.h"
+#import "PRHotspotStatusCupManager.h"
 
 // Protected API
 #import "PRVerticalFeedVC_Protected.h"
@@ -213,7 +212,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRAVPlayerActor.h"
 #import "PRScrollAnimationSynchronizer.h"
 #import "PRImageDetailsCaptionView.h"
-#import "PRHotSpotServicesBannerVC.h"
 #import "PRBannerProvider.h"
 #import "PRMyAccountMasterPanelVC.h"
 #import "PRPremiumBannerView.h"
@@ -226,7 +224,6 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "NTFRelatedArticleCell.h"
 #import "PROrderView.h"
 #import "PRExitSDKUtil.h"
-#import "PRSchemeProvider.h"
 #import "PRCalendarDataSource.h"
 #import "PRCalendarVC.h"
 #import "PRCalendarDataSource.h"
@@ -237,3 +234,4 @@ FOUNDATION_EXPORT const unsigned char PRUIVersionString[];
 #import "PRSmartArticleTools.h"
 #import "PRExternalAuthManager.h"
 #import "PRWebVC.h"
+#import "ThumbsSpread.h"

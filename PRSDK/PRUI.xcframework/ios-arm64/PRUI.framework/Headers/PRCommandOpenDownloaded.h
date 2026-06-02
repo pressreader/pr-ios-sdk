@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-@import PRCommands.PRCommand;
-@import UIKit;
+#import <PRCommands/PRCommands.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

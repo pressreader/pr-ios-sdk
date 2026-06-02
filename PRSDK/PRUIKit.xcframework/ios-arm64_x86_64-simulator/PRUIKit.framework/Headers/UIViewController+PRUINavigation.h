@@ -6,7 +6,7 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -60,4 +60,4 @@ typedef NS_OPTIONS(uint8_t, PRNavigationBarRefreshOption) {
 
 NS_ASSUME_NONNULL_END
 
-#import "UIViewController+Search.h"
+#import <PRUIKit/UIViewController+Search.h>

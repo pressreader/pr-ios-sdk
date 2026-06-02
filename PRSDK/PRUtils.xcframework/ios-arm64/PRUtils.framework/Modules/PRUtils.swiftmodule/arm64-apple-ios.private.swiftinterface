@@ -1,14 +1,17 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRUtils
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios17.6 -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRUtils
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import Combine
 import Compression
 import CoreLocation
 import CryptoKit
 import Foundation
+import Network
 import PRConfiguration
 import PRLogKit
+import PRConfiguration.PRNSBundle
+import PRConfiguration.PRNSBundle_LocalizedStrings
 import PRSyntacticSugar
 @_exported import PRUtils
 import Swift
@@ -16,8 +19,8 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-extension CoreLocation.CLLocationCoordinate2D : @retroactive Swift.Equatable {
-  public static func == (left: CoreLocation.CLLocationCoordinate2D, right: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+extension _LocationEssentials.CLLocationCoordinate2D : @retroactive Swift.Equatable {
+  public static func == (left: _LocationEssentials.CLLocationCoordinate2D, right: _LocationEssentials.CLLocationCoordinate2D) -> Swift.Bool
 }
 extension Foundation.TimeZone {
   public func minutesFromGMT(for date: Foundation.Date = Date()) -> Swift.Int
@@ -63,8 +66,8 @@ extension Foundation.NSMutableAttributedString {
     }
   }
   public typealias Options = [Foundation.NSAttributedString.DocumentReadingOptionKey : Any]
-  @objc @available(swift, obsoleted: 1.0)
-  dynamic public class func htmlAttributedString(_ html: Swift.String) -> Self?
+  @available(swift, obsoleted: 1.0)
+  @objc(htmlAttributedString:) dynamic public class func _htmlAttributedString(_ html: Swift.String) -> Self?
   @objc dynamic public class func htmlAttributedString(_ html: Swift.String, options: Foundation.NSAttributedString.Options = [:], documentAttributes: Swift.AutoreleasingUnsafeMutablePointer<Foundation.NSDictionary?>? = nil) throws -> Self
 }
 extension Foundation.NSAttributedString {
@@ -168,7 +171,7 @@ extension PRUtils.DefaultLocalizedError {
 extension Foundation.JSONDecoder.DateDecodingStrategy {
   public static let flexibleISO8601: Foundation.JSONDecoder.DateDecodingStrategy
 }
-public struct TrimOption : Swift.OptionSet {
+public struct TrimOption : Swift.OptionSet, Swift.Sendable {
   public static let null: PRUtils.TrimOption
   public static let emptyCollection: PRUtils.TrimOption
   public static let all: PRUtils.TrimOption
@@ -287,7 +290,7 @@ extension Foundation.NSDictionary {
   @objc dynamic public func canHandleURL(_ url: Foundation.URL) -> Swift.Bool
 }
 extension Swift.Encodable {
-  public func jsonObject<T>() -> T?
+  public func jsonObject<T>() throws -> T
 }
 @objc @_inheritsConvenienceInitializers final public class HTMLFormatter : ObjectiveC.NSObject {
   @objc final public class func css(font: UIKit.UIFont, fontSource: Swift.String? = nil, color: UIKit.UIColor? = nil, margin: Foundation.NSNumber? = nil) -> Swift.String
@@ -296,6 +299,13 @@ extension Swift.Encodable {
   @objc final public class func fillWidthWrapper(string: Swift.String) -> Swift.String
   @objc override dynamic public init()
   @objc deinit
+}
+public protocol Loggable {
+  func log(_ message: Swift.String)
+}
+extension PRUtils.Loggable where Self : ObjectiveC.NSObject {
+  public func log(_ message: Swift.String)
+  public func log(method: Swift.String = #function, message: Swift.String? = nil)
 }
 final public class WeakArray<T> where T : AnyObject {
   final public var count: Swift.Int {
@@ -328,7 +338,7 @@ extension Foundation.UUID {
 }
 @objc @_hasMissingDesignatedInitializers public class Synchronizer : ObjectiveC.NSObject {
   @objc public func sync(_ block: @escaping () -> ())
-  @objc public func async(_ block: @escaping () -> ())
+  @objc public func async(_ block: @escaping @Sendable () -> ())
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers final public class SerialSynchronizer : PRUtils.Synchronizer {
@@ -338,8 +348,25 @@ extension Foundation.UUID {
 @objc @_hasMissingDesignatedInitializers @objcMembers final public class ConcurrentSynchronizer : PRUtils.Synchronizer {
   @objc public init(label: Swift.String? = nil)
   @objc override final public func sync(_ block: @escaping () -> ())
-  @objc override final public func async(_ block: @escaping () -> ())
+  @objc override final public func async(_ block: @escaping @Sendable () -> ())
   @objc deinit
+}
+public enum TaskError : Swift.Error {
+  case timeout
+  public static func == (a: PRUtils.TaskError, b: PRUtils.TaskError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension _Concurrency.ThrowingTaskGroup where ChildTaskResult == (), Failure == any Swift.Error {
+  public mutating func addTimeoutTask(_ timeout: Swift.Duration)
+}
+extension _Concurrency.ThrowingTaskGroup where ChildTaskResult : Swift.ExpressibleByNilLiteral, Failure == any Swift.Error {
+  public mutating func addTimeoutTask(_ timeout: Swift.Duration)
+}
+extension _Concurrency.TaskGroup where ChildTaskResult : Swift.ExpressibleByNilLiteral {
+  public mutating func addTimeoutTask(_ timeout: Swift.Duration)
 }
 extension Swift.String {
   public var wordCount: Swift.Int {
@@ -356,7 +383,35 @@ extension Foundation.Data {
     get
   }
 }
-public func PRLocalizedString(_ key: Swift.String, default: Swift.String = "") -> Swift.String
+@objc(PRNetworkMonitorObserver) public protocol NetworkMonitorObserver {
+  @objc func networkDidUpdate(status: PRUtils.NetworkMonitor.Status)
+}
+@_inheritsConvenienceInitializers @objc(PRNetworkMonitor) final public class NetworkMonitor : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc(PRNetworkStatus) public enum Status : Swift.Int {
+    case unknown = -1
+    case notReachable
+    case wiFi
+    case cellular
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc final public var status: PRUtils.NetworkMonitor.Status {
+    @objc get
+    @objc set
+  }
+  @objc final public var isConnected: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+  @objc final public func start()
+  @objc final public func cancel()
+  @objc final public func addObserver(_ observer: any PRUtils.NetworkMonitorObserver)
+  @objc final public func removeObserver(_ observer: any PRUtils.NetworkMonitorObserver)
+  @objc override dynamic public init()
+}
 @objc extension UIKit.UIApplication {
   @objc @_Concurrency.MainActor @preconcurrency public static let PRRootVCClass: Swift.AnyClass?
   @objc @_Concurrency.MainActor @preconcurrency dynamic public var rootVC: UIKit.UIViewController? {
@@ -410,6 +465,11 @@ extension Foundation.NSAttributedString.InitError : Swift.Hashable {}
 extension PRUtils.AuthPriority : Swift.Equatable {}
 extension PRUtils.AuthPriority : Swift.Hashable {}
 extension PRUtils.AuthPriority : Swift.RawRepresentable {}
+extension PRUtils.TaskError : Swift.Equatable {}
+extension PRUtils.TaskError : Swift.Hashable {}
+extension PRUtils.NetworkMonitor.Status : Swift.Equatable {}
+extension PRUtils.NetworkMonitor.Status : Swift.Hashable {}
+extension PRUtils.NetworkMonitor.Status : Swift.RawRepresentable {}
 extension PRUtils.SecureStorage.CryptoStorageError : Swift.Equatable {}
 extension PRUtils.SecureStorage.CryptoStorageError : Swift.Hashable {}
 extension PRUtils.SecureStorage.CryptoStorageError : Swift.RawRepresentable {}

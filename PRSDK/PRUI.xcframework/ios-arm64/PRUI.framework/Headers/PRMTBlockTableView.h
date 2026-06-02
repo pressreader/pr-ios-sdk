@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Mysterious Trousers. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface PRMTBlockTableView : UITableView <UITableViewDelegate, UITableViewDataSource>
 

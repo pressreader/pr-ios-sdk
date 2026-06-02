@@ -6,8 +6,8 @@
 //  Copyright © 2020 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
-#import "PRThumbnailsManager.h"
+#import <UIKit/UIKit.h>
+#import <PRThumbnail/PRThumbnailsManager.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

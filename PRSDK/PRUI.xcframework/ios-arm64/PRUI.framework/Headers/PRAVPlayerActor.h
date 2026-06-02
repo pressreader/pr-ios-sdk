@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <AVKit/AVPlayerViewController.h>
-
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSInteger const kAVPlayerViewTag;
 
+@class ModalVideoPlayerVC;
+
 @interface PRAVPlayerActor : NSObject
 @property (nonatomic, readonly) AVPlayerViewController *avPlayerVC;
+@property (nonatomic, readonly) ModalVideoPlayerVC *modalPlayerVC;
 
 + (instancetype)actorWithVC:(UIViewController *)vc;
 - (instancetype)initWithVC:(UIViewController *)vc;

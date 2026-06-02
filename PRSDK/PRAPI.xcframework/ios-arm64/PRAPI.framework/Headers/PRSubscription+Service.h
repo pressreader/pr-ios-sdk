@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 #import <PRAPI/PRCatalogItem.h>
 #import "PRSubscription.h"
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
                         pagesize:(NSInteger)pagesize
                             skip:(NSInteger)skip
                lastAvailableDate:(nullable NSDate *)lastAvailableDate
-                      completion:(void(^ _Nullable)(NSArray<PRTitleItemExemplar *> * _Nullable))completion;
+               completionHandler:(void(^ _Nullable)(NSArray<PRTitleItemExemplar *> * _Nullable))completion;
 
 - (void) RequestIssueVersionsIntForCID:(NSString*)CID issueDate:(NSDate *)issueDate;
 - (void) RequestAudioUrlsForCID:(NSString *)CID issueDate:(NSDate *)issueDate;
@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger, BookmarkType) {
 - (void)requestDataForArticleWithId:(NSString *)artKey
                            language:(nullable NSString *)lngIsoCode
                     repeatOnTimeout:(BOOL)repeatOnTimeout
-                         completion:(void (^_Nullable)(NSDictionary<NSString *, id> *_Nullable artInfo,
+                         completion:(void (^_Nullable)(NSDictionary<NSString *, id> *_Nullable NS_SWIFT_SENDABLE artInfo,
                                                        NSError *_Nullable error))completion;
 
 - (PRPromise *)requestOnlineToken;

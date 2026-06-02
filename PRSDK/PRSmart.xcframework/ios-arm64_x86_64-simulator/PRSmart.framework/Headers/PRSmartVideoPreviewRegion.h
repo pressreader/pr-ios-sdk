@@ -6,7 +6,7 @@
 //  Copyright © 2017 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSmartImageRegion.h"
+#import <PRSmart/PRSmartImageRegion.h>
 
 @class PRArticleVideo;
 

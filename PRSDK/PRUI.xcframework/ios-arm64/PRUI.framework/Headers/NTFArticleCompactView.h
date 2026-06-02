@@ -6,10 +6,9 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-#import "NTFArticleCompactTextualView.h"
-#import "NTFItemCompactView.h"
-
-@import PRUIKit;
+#import <PRUI/NTFArticleCompactTextualView.h>
+#import <PRUI/NTFItemCompactView.h>
+#import <PRUIKit/PRUIKit.h>
 
 @class PRAlignedImageView;
 @class FeedItemAction;
@@ -58,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL offlineMode;
 @property (nullable, nonatomic, weak) NTFArticleCompactView *anchorArticleView;
 @property (nonatomic, readonly) NTFArticleCompactViewOption options;
-
+@property (nonatomic) PRDatePresentationStyle dateStyle;
 
 // UI Components
 @property (nonatomic, strong, readonly) NTFArticleCompactTextualView *textualView;
@@ -72,6 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setupConstraints;
 - (void)configurePlaceholder;
 - (void)setThumbnailImage:(nullable UIImage *)image;
+- (CGFloat)loadPreferredImage;
 
 @property (nonatomic, strong) PRAlignedImageView *imageView;
 

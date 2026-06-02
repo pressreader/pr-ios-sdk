@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reloadData;
 - (void)refreshMenuBar;
 - (void)showMenuBarAnimated:(BOOL)animated;
+- (void)showIssueThumbnail:(BOOL)show;
 
 - (void)updateReplicaThumbnailWithArticle:(id<NTFArticle>)article
                                 animation:(PRImageSwitcherAnimationStyle)animation;

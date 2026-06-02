@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, PRNavigationBarSearchItemStyle) {
     PRNavigationBarSearchItemStyleTextField
 };
 
-extern NSUInteger const PRUIViewControllerSearchButtonTag;
+extern NSInteger const PRUIViewControllerSearchButtonTag;
 
 @class PRSearchBar;
 
@@ -22,11 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Search)
 
-- (UIBarButtonItem *)createSearchBarButton;
 - (UIView *)createSearchBar;
-- (UIView *)createSearchBarWithText:(nullable NSString *)text;
-
-- (void)searchButtonAction:(id)sender;
+- (UIView *)createSearchBarWithText:(nullable NSString *)text
+                        placeholder:(nullable NSString *)placeholder;
 
 @property (nonatomic, readonly) CGFloat searchBarRegularWidth;
 @property (nonatomic, readonly) PRNavigationBarSearchItemStyle searchItemStyle;

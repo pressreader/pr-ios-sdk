@@ -6,21 +6,13 @@
 //  Copyright (c) 2021 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
-@import AuthenticationServices;
-#import "PRSocialSignInManager.h"
+#import <Foundation/Foundation.h>
+#import <AuthenticationServices/AuthenticationServices.h>
+#import <PRAPI/PRSocialSignInManager.h>
 
 @class PRAccountItem;
 
 NS_ASSUME_NONNULL_BEGIN
-
-#ifndef SignInCompletion
-typedef void (^SignInCompletion)(BOOL success, BOOL isNewUser, NSError *_Nullable error);
-#endif
-
-#ifndef ExternalAuthCompletion
-typedef void (^ExternalAuthCompletion)(NSString *_Nullable authKey, BOOL isNewUser, NSError *_Nullable error);
-#endif
 
 @interface PRSocialSignInManager (ASWebAuthenticationPresentationContextProviding) <ASWebAuthenticationPresentationContextProviding>
 @end

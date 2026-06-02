@@ -6,7 +6,7 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 //! Project version number for PRPromiseKit.
 FOUNDATION_EXPORT double PRPromiseKitVersionNumber;

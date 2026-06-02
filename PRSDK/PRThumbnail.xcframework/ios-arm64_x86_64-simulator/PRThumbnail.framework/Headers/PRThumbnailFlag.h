@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-#import "PRThumbnailObject.h"
+#import <PRThumbnail/PRThumbnailObject.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

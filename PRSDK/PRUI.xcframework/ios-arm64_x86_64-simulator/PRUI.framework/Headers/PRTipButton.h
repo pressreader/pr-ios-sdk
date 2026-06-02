@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)buttonWithCount:(NSInteger)count font:(UIFont *)font;
 + (instancetype)buttonWithType:(UIButtonType)buttonType NS_UNAVAILABLE;
 
-@property (nonatomic) NSInteger count;
-@property (nonatomic, strong) UIFont *tipFont;
+@property (nonatomic) NSInteger count NS_SWIFT_NONISOLATED;
+@property (nonatomic, strong) UIFont *tipFont NS_SWIFT_NONISOLATED;
 
 @property (nonatomic, strong, readonly) NSLayoutConstraint *heightConstraint;
 @property (nonatomic, strong, readonly) NSLayoutConstraint *widthConstraint;

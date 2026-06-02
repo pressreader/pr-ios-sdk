@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <PRCommands/PRCommandNames.h>
-#import <PRProtocols/PRProtocols-Swift.h>
-
 #import <PRCommands/PRContext.h>
 #import <PRCommands/PRCommand.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRCommandManager : NSObject <Singleton>
+@interface PRCommandManager : NSObject
 
 - (PRContext *)createContext;
 - (PRContext *)createContextWithKey:(id)key;

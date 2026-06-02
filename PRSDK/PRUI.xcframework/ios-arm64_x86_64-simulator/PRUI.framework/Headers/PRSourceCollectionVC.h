@@ -9,7 +9,7 @@
 #import "PRFilterableCollectionVC.h"
 
 @import PRAPI.PROptions;
-@import PRUIKit;
+#import <PRUIKit/PRUIKit.h>
 
 @class PRSourceCollectionVC;
 @class PRIssuesGroup;
@@ -120,7 +120,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PRSourceCollectionVC (/*Protected*/)
 
 - (void)progressAction:(PRCollectionViewCell *)cell withExemplar:(PRTitleItemExemplar *)exemplar;
-- (void)progressAction:(PRCollectionViewCell *)cell withCatalogItem:(CatalogItem *)item;
 
 /// Contains raw data without banners, etc.
 @property (nullable, nonatomic, strong) NSArray *rawDataProvider;

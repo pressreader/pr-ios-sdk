@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class PRSmartCommentPost;
 @class PRMyLibraryItem;

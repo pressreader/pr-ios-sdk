@@ -16,8 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shared;
 
-- (void)signIn:(void(^)(GoogleSignInResult *))completion NS_SWIFT_NAME(signIn(_:));
-
 @end
 
 NS_ASSUME_NONNULL_END

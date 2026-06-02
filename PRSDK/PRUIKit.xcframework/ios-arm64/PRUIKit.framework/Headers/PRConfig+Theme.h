@@ -6,6 +6,6 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 #define THEME_SWITCHING_ENABLED _PRCONFIG_BOOL_(@"THEME_SWITCHING_ENABLED", NO /*!PRConfig.isBrandEdition*/)

@@ -6,9 +6,9 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-@import PRUIKit.PRVC;
-@import PRConfiguration.PRFeedConfig;
-@import PRAccessibility;
+#import <PRUIKit/PRUIKit.h>
+#import <PRConfiguration/PRConfiguration.h>
+#import <PRAccessibility/PRAccessibility.h>
 #import <PRUI/AdditionalContentInsetable.h>
 #import <PRUI/NTFDataSource.h>
 

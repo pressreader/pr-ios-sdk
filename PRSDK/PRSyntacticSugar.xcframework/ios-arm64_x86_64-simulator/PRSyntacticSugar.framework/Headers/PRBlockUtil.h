@@ -27,7 +27,7 @@ typedef id _Nullable(^PRReturnBlock)(void);
 /// return handle to use with cancel
 + (id)performBlock:(PRSimpleBlock)aBlock afterDelay:(NSTimeInterval)seconds dispatch_queue:(dispatch_queue_t)dispatch_queue;
 
-+ (id)tryPerformBlockWithError:(NSError * _Nullable __autoreleasing * _Nullable)error block:(PRReturnBlock)aBlock  NS_REFINED_FOR_SWIFT;
++ (nullable id)tryPerformBlockWithError:(NSError * _Nullable __autoreleasing * _Nullable)error block:(PRReturnBlock)aBlock  NS_REFINED_FOR_SWIFT;
 
 /// cancel previous perform block
 + (void)cancelPreviousPerformBlockInMainThread:(id)aHandle;

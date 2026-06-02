@@ -37,11 +37,11 @@
 
 #import <Foundation/Foundation.h>
 #import <pthread.h>
-#import "STKDataSource.h"
+#import <StreamingKit/STKDataSource.h>
 #import <AudioToolbox/AudioToolbox.h>
 
 #if TARGET_OS_IPHONE
-#include "UIKit/UIApplication.h"
+#include <UIKit/UIApplication.h>
 #endif
 
 NS_ASSUME_NONNULL_BEGIN

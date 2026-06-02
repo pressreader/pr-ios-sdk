@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(uint8_t, PRDatePresentationStyle) {
-    PRDatePresentationStyleDMY = 0,
+    PRDatePresentationStyleHide = -1,
+    PRDatePresentationStyleAuto = 0,
+    PRDatePresentationStyleDMY,
     PRDatePresentationStyleDM
 };
 

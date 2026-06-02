@@ -1,13 +1,14 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRAnalytics
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios17.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRAnalytics
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import Combine
 import Foundation
 @_exported import PRAnalytics
 import PRConfiguration
 import PRDIContainer
 import PRLogKit
+import PRSyntacticSugar
 import PRUtils
 import StoreKit
 import Swift
@@ -36,6 +37,47 @@ public struct AnalyticsNamingMapper {
   public init(provider: Swift.String)
   public func map(name: Swift.String) -> Swift.String?
 }
+public enum VideoFeedSource : Swift.String {
+  case carousel, grid
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum VideoFeedEntryPoint : Swift.String {
+  case bottomMenu
+  case carousel
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol VideoFeedAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  var videoFeedSource: PRAnalytics.VideoFeedSource { get }
+  var entryPoint: PRAnalytics.VideoFeedEntryPoint? { get }
+}
+extension PRAnalytics.VideoFeedAnalyticsProvider {
+  public func trackVideoFeedScreen()
+  public func trackVideo(videoId: Swift.String, index: Swift.Int, isLocked: Swift.Bool)
+}
+@objc public protocol RichMediaAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  @objc var mediaType: Swift.String { get }
+  @objc var issue: (any PRAnalytics.IssueAnalyticsProvider)? { get }
+  @objc var mediaTitle: Swift.String? { get }
+  @objc var consumptionPercentage: Swift.Int { get }
+}
+@objc public protocol RichMediaPhotoAnalyticsProvider : PRAnalytics.RichMediaAnalyticsProvider {
+  @objc var photosCount: Swift.Int { get }
+  @objc var photoIndex: Swift.Int { get }
+}
+extension PRAnalytics.RichMediaAnalyticsProvider {
+  public func trackRichMedia(action: PRAnalytics.RMTAction)
+}
+extension PRAnalytics.RichMediaPhotoAnalyticsProvider {
+  public func trackRichMedia(action: PRAnalytics.RMTAction)
+}
 extension Foundation.NSURL {
   @objc dynamic public func track()
 }
@@ -60,18 +102,18 @@ extension PRAnalytics.PaymentOptionsAnalyticsProvider {
   public func trackProductPurchase(parameters: () -> PRAnalytics.AnalyticsParameters?)
   public func trackPremiumProductOffer(parameters: () -> PRAnalytics.AnalyticsParameters?)
 }
-public protocol WidgetsAnalyticsProvider : PRAnalytics.AnalyticsProvider {
-  func widgetsInfo() async throws -> [WidgetKit.WidgetInfo]
+@_Concurrency.MainActor public protocol WidgetsAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  @_Concurrency.MainActor func widgetsInfo() async throws -> [WidgetKit.WidgetInfo]
 }
 extension PRAnalytics.WidgetsAnalyticsProvider {
-  public func trackWidgetsInfo()
-  public func trackWidgetsInstallation()
+  @_Concurrency.MainActor public func trackWidgetsInfo()
+  @_Concurrency.MainActor public func trackWidgetsInstallation()
 }
 extension WidgetKit.WidgetFamily : @retroactive Swift.Codable, @retroactive Swift.CaseIterable {
   public static var allCases: [WidgetKit.WidgetFamily] {
     get
   }
-  @available(iOS 14.0, watchOS 9.0, macOS 11.0, *)
+  @available(iOS 14.0, watchOS 9.0, visionOS 26.0, macOS 11.0, *)
   @available(tvOS, unavailable)
   public typealias AllCases = [WidgetKit.WidgetFamily]
 }
@@ -205,6 +247,25 @@ extension PRAnalytics.GiftedIssueAnalyticsProvider {
   public func trackGiftedIssueVideoPlayed()
   public func updateUserEngagementAnalyticsParameters()
 }
+@objc public protocol IssueAnalyticsProvider : PRAnalytics.AnalyticsProvider {
+  @objc var issueDate: Foundation.Date { get }
+  @objc var page: Swift.Int { get }
+  @objc var pageName: Swift.String? { get }
+  @objc var identifier: Swift.String? { get }
+}
+public protocol FeedVideoAnalyticsProvider : PRAnalytics.RichMediaAnalyticsProvider {
+  var videoId: Swift.String? { get }
+}
+extension PRAnalytics.FeedVideoAnalyticsProvider {
+  public func trackRichMedia(action: PRAnalytics.RMTAction)
+  public func trackVideoReadFullArticle()
+}
+extension PRAnalytics.VideoFeedSource : Swift.Equatable {}
+extension PRAnalytics.VideoFeedSource : Swift.Hashable {}
+extension PRAnalytics.VideoFeedSource : Swift.RawRepresentable {}
+extension PRAnalytics.VideoFeedEntryPoint : Swift.Equatable {}
+extension PRAnalytics.VideoFeedEntryPoint : Swift.Hashable {}
+extension PRAnalytics.VideoFeedEntryPoint : Swift.RawRepresentable {}
 extension PRAnalytics.SponsorshipStatus : Swift.Equatable {}
 extension PRAnalytics.SponsorshipStatus : Swift.Hashable {}
 extension PRAnalytics.SponsorshipStatus : Swift.RawRepresentable {}

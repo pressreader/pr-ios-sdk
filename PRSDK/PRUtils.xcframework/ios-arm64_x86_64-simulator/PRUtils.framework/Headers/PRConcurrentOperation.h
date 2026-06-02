@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 @interface PRConcurrentOperation : NSOperation {
 

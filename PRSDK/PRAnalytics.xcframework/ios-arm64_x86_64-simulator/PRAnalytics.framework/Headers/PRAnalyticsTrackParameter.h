@@ -123,3 +123,11 @@ extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterWidgetSize; // S
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterWidgetKinds; // [WidgetKind]
 
 extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterDuration; // Int
+
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterConsumptionPercentage;
+
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterVideoId;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterIndex;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterSource;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterIsLocked;
+extern PRAnalyticsTrackParameter const PRAnalyticsTrackParameterEntryPoint;

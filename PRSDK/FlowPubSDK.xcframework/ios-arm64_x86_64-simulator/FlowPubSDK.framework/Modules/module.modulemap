@@ -1,0 +1,11 @@
+framework module FlowPubSDK {
+  umbrella header "FlowPubSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module FlowPubSDK.Swift {
+  header "FlowPubSDK-Swift.h"
+  requires objc
+}

@@ -152,3 +152,8 @@ extern PRAnalyticsTrackName const PRAnalyticsTrackWidgetInstallation;
 extern PRAnalyticsTrackName const PRAnalyticsTrackHomeFeedOpened;
 extern PRAnalyticsTrackName const PRAnalyticsTrackGiftedIssueAdget;
 extern PRAnalyticsTrackName const PRAnalyticsTrackGiftedIssueVideoPlayed;
+
+extern PRAnalyticsTrackName const PRAnalyticsTrackVideoFeedView;
+
+extern PRAnalyticsTrackName const PRAnalyticsTrackFeedVideo;
+extern PRAnalyticsTrackName const PRAnalyticsTrackVideoReadFullArticle;

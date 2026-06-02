@@ -31,7 +31,6 @@ extern NSString *const kHotSpotIndustryKey;
 // Notifications
 extern NSNotificationName const PRLibraryItemWiFiDownloadNotAvailableNotification;
 extern NSNotificationName const PRLibraryItemCurrentArticleDidChange;
-extern NSNotificationName const PRLibraryItemGotoPage;
 
 @interface PRMyLibraryItem : PRSourceItem <PRSmartLayoutItem, _ReadingViewItem>
 
@@ -78,11 +77,7 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (BOOL)failed;
 - (BOOL)readyToOpen;
 - (BOOL)preparedToOpen;
-- (BOOL)indexDone;
 - (BOOL)indexDownloaded;
-- (BOOL)imgPacksDone;
-- (BOOL)imgPackDone;
-- (BOOL)imgPack2Done;
 - (BOOL)imgPacksDownloaded;
 - (BOOL)pdnFailed;
 - (BOOL)imgPacksFailed;
@@ -99,7 +94,6 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 - (BOOL)isDownloaded;
 - (BOOL)isLicenseAvailable;
 - (BOOL)isRadioAvailableForArticle:(NSString *)articleId;
-- (BOOL)isTextFlowViewAvailable;
 - (BOOL)translationDisabled;
 - (BOOL)isTranslationSupported;
 - (BOOL)voteDisabled;
@@ -312,11 +306,14 @@ extern NSNotificationName const PRLibraryItemGotoPage;
 @property (nonatomic) BOOL isReading;
 @property (nonatomic, strong) NSString *messageType;
 
-@end
+@property (nonatomic, readonly) BOOL isSmartflowDisabled;
 
-@interface PRMyLibraryItem (Reader)
-- (void)readerGotoPage:(NSUInteger)pageNo;
-- (void)readerGotoPage:(NSUInteger)pageNo article:(nullable NSString *)articleId;
+@property (nonatomic, readonly) BOOL indexDone;
+@property (nonatomic, readonly) BOOL imgPacksDone;
+@property (nonatomic, readonly) BOOL imgPackDone;
+@property (nonatomic, readonly) BOOL imgPack2Done;
+@property (nonatomic, readonly) BOOL smartJSONDone;
+
 @end
 
 @interface PRMyLibraryItem (CustomAnalytics)

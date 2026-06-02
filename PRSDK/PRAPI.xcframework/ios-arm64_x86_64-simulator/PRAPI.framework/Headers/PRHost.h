@@ -6,7 +6,7 @@
 //  Copyright 2010 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 @class PRPromise;
 
 NS_ASSUME_NONNULL_BEGIN

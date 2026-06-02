@@ -21,8 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "AFImageRequestOperation.h"
-
+#import <NetworkingKit/AFImageRequestOperation.h>
 #import <Availability.h>
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED

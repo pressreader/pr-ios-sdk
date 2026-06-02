@@ -90,7 +90,7 @@ typedef enum _PAGE_CONTENT_MODE {
 - (void)zoomToPoint:(CGPoint)zoomPoint withScale:(CGFloat)scale animated:(BOOL)animated;
 - (BOOL)zoomToArticle:(PRSmartArticle *)article withScale:(CGFloat)scale animated:(BOOL)animated;
 - (void)defaultZoomToPoint:(CGPoint)zoomPoint animated:(BOOL)animated;
-- (void) defaultZoomToArticle:(PRSmartArticle *)article animated:(BOOL)animated;
+- (void)defaultZoomToArticle:(PRSmartArticle *)article animated:(BOOL)animated;
 
 - (CGPoint)pointToCenterAfterRotation;
 - (CGFloat)scaleToRestoreAfterRotation;

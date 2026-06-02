@@ -6,7 +6,7 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 // Type1 (Default) : simple title text, URL, image
 //extern UIActivityType const UIActivityTypeMessage;

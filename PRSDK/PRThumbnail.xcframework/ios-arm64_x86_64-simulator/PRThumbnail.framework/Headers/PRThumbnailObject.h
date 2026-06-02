@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class PRThumbnailInfo;
 
@@ -138,4 +138,4 @@ extern PRThumbnailCacheFieSizeSuffix const PRThumbnailCacheFieSizeSuffixWidth;
 
 NS_ASSUME_NONNULL_END
 
-#import "PRThumbnail+Variant.h"
+#import <PRThumbnail/PRThumbnail+Variant.h>

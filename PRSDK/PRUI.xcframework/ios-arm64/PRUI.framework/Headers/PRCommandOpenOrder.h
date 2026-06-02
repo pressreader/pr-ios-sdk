@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-@import PRUIKit;
+#import <PRUIKit/PRUIKit.h>
 
 @interface PRCommandOpenOrder : PRCommand
 

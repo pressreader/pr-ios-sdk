@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import PRProtocols;
-#import "PROrderDelivery.h"
+#import <PRUI/PROrderDelivery.h>
 
 @class PRSubscription;
 @class PRMyLibraryItem;
@@ -17,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRSourceItemManager : NSObject <Singleton>
+@interface PRSourceItemManager : NSObject
 
 - (void)readLibraryItem:(PRMyLibraryItem *)libraryItem
              parameters:(nullable NSDictionary *)parameters

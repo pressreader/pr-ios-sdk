@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class AdBannerInfo;
+@class PRGoogleAdProvider;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,16 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isEnabled;
 - (BOOL)shouldDisplayInterstitialAdForArticleTitle:(NSString *)articleTitle;
 
-- (void)loadAdForBannerAdSize:(CGSize)size
-                       adView:(UIView *)adView
-                     adUnitID:(NSString *)adUnitId
-           rootViewController:(UIViewController *)vc
-                    completed:(void (^_Nonnull)(BOOL success,
-                                                __kindof UIView *adView,
-                                                NSError * _Nullable error))completionBlock;
-
 @property (nonatomic, strong, readonly) NSArray<NSValue *> *supportedInterstitialAdSizes;
 @property (nonatomic, strong, readonly) NSSet<NSValue *> *availableInterstitialAdSizes;
+
+@end
+
+@interface PRGoogleAdManager (/*PROTECTED*/)
+@property (nullable, nonatomic, strong) PRGoogleAdProvider *adProvider;
 
 @end
 

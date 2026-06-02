@@ -6,11 +6,8 @@
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import <PRUI/PRAppPanel.h>
-@import PRUIKit.PRMenu;
-@import PRProtocols;
+#import <PRUIKit/PRMenu.h>
 
 @protocol CatalogFacade;
 
@@ -33,6 +30,7 @@ extern PRAppMenuItemType const PRAppMenuItemTypeSubscriptions;
 extern PRAppMenuItemType const PRAppMenuItemTypeSendFeedback;
 extern PRAppMenuItemType const PRAppMenuItemTypeCustomerSupport;
 extern PRAppMenuItemType const PRAppMenuItemTypeWebView;
+extern PRAppMenuItemType const PRAppMenuItemTypeVideos;
 
 typedef NSString * PRAppMenuIcon NS_TYPED_ENUM;
 extern PRAppMenuIcon const PRAppMenuIconHome;
@@ -72,9 +70,10 @@ extern NSString *const PRAppMenuDidChangeNotification;
 @interface PRAppMenuSection : PRMenuSection
 @end
 
-@interface PRAppMenu : PRMenu <Singleton>
+@interface PRAppMenu : PRMenu
 
 - (void)selectByPanelId:(PRPanelId)panelId;
++ (void)dismiss;
 
 @property (class, nonatomic, readonly) PRAppMenu *instance;
 

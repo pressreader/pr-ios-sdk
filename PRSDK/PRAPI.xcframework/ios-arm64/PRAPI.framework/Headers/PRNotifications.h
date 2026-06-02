@@ -34,7 +34,6 @@ extern NSNotificationName const PRGetOrderScreenAdOperationCompletedNotification
 extern NSNotificationName const PRNewerIssueAvailableInCatalogNotification;
 extern NSNotificationName const PRIssueDatesUpdatedNotification;
 extern NSNotificationName const PRAppPanelCurrentDidChangeNotification;
-extern NSNotificationName const PRTextViewUpdatedNotification;
 extern NSNotificationName const PRProfilePhotoIconDidChangeNotification;
 
 extern NSNotificationName const PRGetTextViewAdOperationCompletedNotification;
@@ -87,8 +86,6 @@ extern NSNotificationName const PROnboardingStatusReceivedNotification;
 extern NSNotificationName const PROnboardingFailedToReceiveStatusNotification;
 
 extern NSNotificationName const PRPushNotificationsAccessWasRequestedNotification;
-
-extern NSNotificationName const PRServiceHostDidUpdate;
 
 extern NSNotificationName const PRLaunchCommandNotification;
 extern NSNotificationName const PRActionCommandNotification;

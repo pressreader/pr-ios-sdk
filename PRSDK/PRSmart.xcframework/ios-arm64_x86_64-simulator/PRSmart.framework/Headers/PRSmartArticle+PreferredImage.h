@@ -6,7 +6,7 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSmartArticle.h"
+#import <PRSmart/PRSmartArticle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

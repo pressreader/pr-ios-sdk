@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tryToPerformSelector:(SEL)selector;
 - (void)tryToPerformSelector:(SEL)selector withObject:(id)object;
 
+- (void)setNeedsPerformSelector:(SEL)selector
+                     afterDelay:(NSTimeInterval)delay
+             retainWhileWaiting:(BOOL)retainWhileWaiting;
+
 - (void)setNeedsPerformSelector:(SEL)selector afterDelay:(NSTimeInterval)delay;
 - (void)setNeedsPerformSelector:(SEL)selector;
 

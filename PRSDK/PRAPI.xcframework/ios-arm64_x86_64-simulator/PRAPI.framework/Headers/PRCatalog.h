@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@import PRConfiguration.PRCatalogConfig;
+#import <PRConfiguration/PRConfiguration.h>
 
 @class PRTitleItem;
 @class PRTitleItemExemplar;

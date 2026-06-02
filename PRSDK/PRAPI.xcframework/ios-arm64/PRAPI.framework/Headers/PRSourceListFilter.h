@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 @import CoreGraphics;
 
 NS_ASSUME_NONNULL_BEGIN

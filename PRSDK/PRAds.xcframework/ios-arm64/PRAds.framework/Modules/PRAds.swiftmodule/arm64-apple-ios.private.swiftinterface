@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRAds
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios17.6 -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRAds
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import DeveloperToolsSupport
 import Foundation
 import PRAPI
@@ -19,7 +19,7 @@ import PRUIKit.UIUtils
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AdBannerPresentation : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AdBannerPresentation : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc final public let info: PRAds.AdBannerInfo
   @objc final public let bannerVC: UIKit.UIViewController
   @objc deinit
@@ -54,7 +54,7 @@ public struct GoogleAdModel {
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc public enum AdBannerPosition : Swift.Int {
+@objc public enum AdBannerPosition : Swift.Int, Swift.Sendable {
   case topScrollable
   case top
   case inline
@@ -66,7 +66,7 @@ public struct GoogleAdModel {
     get
   }
 }
-@objc public enum AdBannerScreen : Swift.Int {
+@objc public enum AdBannerScreen : Swift.Int, Swift.Sendable {
   case undefined = -1
   case home = 0
   case catalog
@@ -81,7 +81,7 @@ public struct GoogleAdModel {
     get
   }
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers final public class AdBannerInfo : ObjectiveC.NSObject {
+@objc @_hasMissingDesignatedInitializers @objcMembers final public class AdBannerInfo : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc final public let unitId: Swift.String
   @objc final public let screen: PRAds.AdBannerScreen
   @objc final public let position: PRAds.AdBannerPosition
@@ -91,6 +91,17 @@ public struct GoogleAdModel {
   @objc final public var interstitialBannerInfo: PRAds.InterstitialAdBannerInfo?
   @objc deinit
 }
+extension PRAds.PRGoogleAdManager {
+  public enum LoadingError : Swift.Error {
+    case unknown
+    case unavailable
+    public static func == (a: PRAds.PRGoogleAdManager.LoadingError, b: PRAds.PRGoogleAdManager.LoadingError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
 @objc @objcMembers final public class InterstitialAdCounter : ObjectiveC.NSObject {
   @objc final public var numOfArticleBeforeInterstitialAdDisplay: Swift.Int
   @objc final public var displayedArticles: Foundation.NSMutableSet
@@ -99,31 +110,31 @@ public struct GoogleAdModel {
   @objc public init?(bannerInfo: PRAds.AdBannerInfo)
   @objc deinit
 }
-@objc public protocol AdDataSourceDelegate {
-  @objc func presentEmbedableAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @objc func presentInterstitialAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @objc func presentFixedAds(_ ads: [PRAds.AdBannerPresentation]?)
-  @objc func adChangeHandler(_ ad: PRAds.AdBannerPresentation)
-  @objc optional func currentIssue() -> PRAPI.PRTitleItemExemplar?
+@_Concurrency.MainActor @objc public protocol AdDataSourceDelegate {
+  @objc @_Concurrency.MainActor func presentEmbedableAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @objc @_Concurrency.MainActor func presentInterstitialAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @objc @_Concurrency.MainActor func presentFixedAds(_ ads: [PRAds.AdBannerPresentation]?)
+  @objc @_Concurrency.MainActor func adChangeHandler(_ ad: PRAds.AdBannerPresentation)
+  @objc @_Concurrency.MainActor optional func currentIssue() -> PRAPI.PRTitleItemExemplar?
 }
-@objc public class AdDataSource : ObjectiveC.NSObject {
-  weak public var delegate: (any PRAds.AdDataSourceDelegate)?
-  @objc public var interstitialAds: [PRAds.AdBannerPresentation]? {
+@_Concurrency.MainActor @objc public class AdDataSource : ObjectiveC.NSObject {
+  @_Concurrency.MainActor weak public var delegate: (any PRAds.AdDataSourceDelegate)?
+  @objc @_Concurrency.MainActor public var interstitialAds: [PRAds.AdBannerPresentation]? {
     @objc get
   }
-  @objc public var fixedAds: [PRAds.AdBannerPresentation]? {
+  @objc @_Concurrency.MainActor public var fixedAds: [PRAds.AdBannerPresentation]? {
     @objc get
   }
-  @objc public var embedableAds: [PRAds.AdBannerPresentation]? {
+  @objc @_Concurrency.MainActor public var embedableAds: [PRAds.AdBannerPresentation]? {
     @objc get
   }
-  @objc public init?(screen: PRAds.AdBannerScreen, service: any PRAds.AdsService, delegate: (any PRAds.AdDataSourceDelegate)? = nil)
-  @objc public func ad(position: PRAds.AdBannerPosition) -> PRAds.AdBannerPresentation?
-  public func resetAdsProvider()
-  @objc public func loadAndPresentBannersWithDefaultSize()
-  @objc public func loadAndPresentBanners(size: CoreFoundation.CGSize)
-  @objc public func loadAndPresentBanners(width: CoreFoundation.CGFloat)
-  public func presentAllBanners()
+  @objc @_Concurrency.MainActor public init?(screen: PRAds.AdBannerScreen, service: any PRAds.AdsService, delegate: (any PRAds.AdDataSourceDelegate)? = nil)
+  @objc @_Concurrency.MainActor public func ad(position: PRAds.AdBannerPosition) -> PRAds.AdBannerPresentation?
+  @_Concurrency.MainActor public func resetAdsProvider()
+  @objc @_Concurrency.MainActor public func loadAndPresentBannersWithDefaultSize()
+  @objc @_Concurrency.MainActor public func loadAndPresentBanners(size: CoreFoundation.CGSize)
+  @objc @_Concurrency.MainActor public func loadAndPresentBanners(width: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor public func presentAllBanners()
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class InterstitialADVC : PRAds.GoogleAdVC<PRAds.InterstitialADView>, UIKit.UIScrollViewDelegate {
@@ -136,7 +147,7 @@ public struct GoogleAdModel {
   @objc deinit
 }
 @objc public protocol AdsService {
-  @objc func requestGoogleAdsConfig(_ completion: @escaping (PRUtils.SPNode?, (any Swift.Error)?) -> ())
+  @objc func requestGoogleAdsConfig(_ completion: @escaping @Sendable (PRUtils.SPNode?, (any Swift.Error)?) -> ())
 }
 extension PRAds.GoogleAdVC : Swift.Sendable {}
 extension PRAds.AdBannerPosition : Swift.Equatable {}
@@ -145,3 +156,6 @@ extension PRAds.AdBannerPosition : Swift.RawRepresentable {}
 extension PRAds.AdBannerScreen : Swift.Equatable {}
 extension PRAds.AdBannerScreen : Swift.Hashable {}
 extension PRAds.AdBannerScreen : Swift.RawRepresentable {}
+extension PRAds.PRGoogleAdManager.LoadingError : Swift.Equatable {}
+extension PRAds.PRGoogleAdManager.LoadingError : Swift.Hashable {}
+extension PRAds.AdDataSource : Swift.Sendable {}

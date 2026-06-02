@@ -6,8 +6,7 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
-@import PRAccessibility;
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

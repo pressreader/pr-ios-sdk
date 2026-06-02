@@ -6,7 +6,7 @@
 //
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 @import PRUIKit.PRPickable;
 
 NS_ASSUME_NONNULL_BEGIN

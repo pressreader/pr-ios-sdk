@@ -6,8 +6,8 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
-@import PRUIKit;
+#import <UIKit/UIKit.h>
+#import <PRUIKit/PRUIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

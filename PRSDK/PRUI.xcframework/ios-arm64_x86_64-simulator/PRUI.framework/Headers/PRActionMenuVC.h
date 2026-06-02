@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-@import PRCommands.PRCommand;
+#import <PRCommands/PRCommands.h>
 @import PRUIKit.PRActionMenuActorProtocol;
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class PRMenu;
 @class PRMenuItem;

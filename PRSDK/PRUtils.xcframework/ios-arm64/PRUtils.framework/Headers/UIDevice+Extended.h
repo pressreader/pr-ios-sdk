@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIDevice (Extended)
-@property (class, nonatomic, readonly) BOOL isConnected;
-@property (class, nonatomic, readonly) BOOL isWiFiAvailable;
 @property (class, nonatomic, readonly) BOOL isUserIntefaceIdiomPad;
-
 @property (nonatomic, readonly) NSString *appSpecificUniqueIdentifier;
 
 @end

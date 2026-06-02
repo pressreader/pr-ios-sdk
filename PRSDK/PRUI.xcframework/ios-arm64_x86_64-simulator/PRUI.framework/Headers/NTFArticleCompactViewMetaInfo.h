@@ -6,11 +6,10 @@
 //  Copyright © 2021 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
-
-@import PRAPI.NTFArticle;
-@import PRAccessibility;
-
+#import <UIKit/UIKit.h>
+#import <PRAPI/PRAPI.h>
+#import <PRUIKit/PRUIKit.h>
+#import <PRAccessibility/PRAccessibility.h>
 #import <PRUI/NTFArticleCompactView_Constants.h>
 
 @class PRSwitchButton;
@@ -30,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NTFArticleCompactViewStyle style;
 @property (nonatomic) NTFArticleCompactViewBylineStyle bylineStyle;
 @property (nonatomic) NTFArticleCompactTextualViewOption options;
+@property (nonatomic) PRDatePresentationStyle dateStyle;
 
 @property (nonatomic) CGSize contentSize;
 
@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) UITextViewWithLinks *tagsView;
 @property (nonatomic, strong, readonly) UIStackView *listenDurationView;
 
+@property (nonatomic, readonly) NSArray<id<UIFocusEnvironment>> *preferredFocusEnvironments;
 @end
 
 NS_ASSUME_NONNULL_END
