@@ -88,7 +88,16 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "actionCell")
         table.register(TextFieldCell.self, forCellReuseIdentifier: "textFieldCell")
         table.register(IssueCell.self, forCellReuseIdentifier: .sdkTest.cells.issue)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: .sdkTest.cells.article)
+        
+        let plainCellIds: [AccessibilityId] = [
+            .sdkTest.cells.article,
+            .sdkTest.cells.game,
+            .sdkTest.cells.book
+        ]
+        
+        plainCellIds.forEach {
+            table.register(UITableViewCell.self, forCellReuseIdentifier: $0)
+        }
     }
     
     // MARK: - Private Methods
@@ -196,7 +205,36 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         
         activityIndicator.stopAnimating()
     }
-    
+
+    private func openGame(at indexPath: IndexPath) async throws {
+        let issue = self.model.games[indexPath.row]
+        do {
+            let vc = try await PressReader.instance().gamePlay(
+                issueId: issue.string("id")!,
+                title: issue.string("displayName"),
+                date: issue.string("issueDate")?.serverDate
+            )
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        catch {
+            UIAlertController.showErrorAlert(message: error.localizedDescription)
+        }
+    }
+
+    private func openBook(at indexPath: IndexPath) async throws {
+        let book = self.model.books[indexPath.row]
+        do {
+            let vc = try await PressReader.instance().bookReader(
+                bookId: book.string("id")!
+            )
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        catch {
+            UIAlertController.showErrorAlert(message: error.localizedDescription)
+        }
+    }
+
     @MainActor
     private func authTextField(at row: Int) -> UITextField? {
         guard let section = self.sections.firstIndex(of: .auth),
@@ -431,28 +469,48 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             cell = _cell
 
         case .articles:
-            cell = tableView.dequeueReusableCell(
-                withIdentifier: .sdkTest.cells.article,
-                for: indexPath
+            cell = self.tableView(
+                tableView,
+                cellForRowAt: indexPath,
+                reuseId: .sdkTest.cells.article,
+                text: "id: \(model.articles[indexPath.row])"
             )
             
-            var content = cell.defaultContentConfiguration()
-            content.text = "id: \(model.articles[indexPath.row])"
-            cell.contentConfiguration = content
-            
         case .books:
-            let _cell = self.issueCell(tableView, indexPath: indexPath)
-            //_cell.issue = model.catalogItem(at: indexPath.row)
-
-            cell = _cell
+            cell = self.tableView(
+                tableView,
+                cellForRowAt: indexPath,
+                reuseId: .sdkTest.cells.book,
+                text: "book id: \(model.books[indexPath.row].string("id")!)"
+            )
 
         case .games:
-            let _cell = self.issueCell(tableView, indexPath: indexPath)
-            //_cell.issue = model.catalogItem(at: indexPath.row)
-
-            cell = _cell
+            cell = self.tableView(
+                tableView,
+                cellForRowAt: indexPath,
+                reuseId: .sdkTest.cells.game,
+                text: "issue id: \(model.games[indexPath.row].string("id")!)"
+            )
         }
         
+        return cell
+    }
+    
+    private func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath,
+        reuseId: AccessibilityId,
+        text: String
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: reuseId,
+            for: indexPath
+        )
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = text
+        cell.contentConfiguration = content
+
         return cell
     }
     
@@ -463,7 +521,7 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case .auth:
             self.model.canAuthorize
             && !(tableView.cellForRow(at: indexPath) is TextFieldCell)
-        case .log, .dismiss, .fullUI, .articles:
+        case .log, .dismiss, .fullUI, .articles, .games, .books:
             true
         case .service:
             self.model.isServiceSelectionEnabled
@@ -507,7 +565,13 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             
         case .articles:
             Task { await self.openArticle(at: indexPath) }
-            
+
+        case .games:
+            Task { try await self.openGame(at: indexPath) }
+
+        case .books:
+            Task { try await self.openBook(at: indexPath) }
+
         case .dismiss:
             model.isDismissed.toggle()
             

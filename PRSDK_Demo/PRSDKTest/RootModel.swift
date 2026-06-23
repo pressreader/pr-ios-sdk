@@ -125,12 +125,45 @@ final class RootModel {
         self.downloaded?.items.count ?? 0
     }
     
-    var books: [Book] {
-        []
+    var books: [[String: Sendable]] {
+        [
+            ["id": "196778"],
+            ["id": "211279"],
+            ["id": "394959"],
+            ["id": "216086"],
+            ["id": "271073"],
+            ["id": "196556"]
+        ]
     }
     
-    var games: [Games] {
-        []
+    var games: [[String: Sendable]] {
+        [
+            ["id": 44667,
+             "titleId": 40001,
+             "displayName": "Codeword",
+             "issueDate": "2026-06-16",
+             "slug": "0071b441059049689269f8653e3b1f0a"],
+            ["id": 44528,
+             "titleId": 40012,
+             "displayName": "Concise Crossword",
+             "issueDate": "2026-06-16",
+             "slug": "30f64dcc5fe8482eb5fd2d639f57a2f7"],
+            ["id": 44529,
+             "titleId": 40003,
+             "displayName": "Cryptic Crossword",
+             "issueDate": "2026-06-16",
+             "slug": "233901f620cf40dfb7d2c42618c6ecea"],
+            ["id": 44531,
+             "titleId": 40013,
+             "displayName": "Make Tracks",
+             "issueDate": "2026-06-16",
+             "slug": "2836b531c44b4172b6d26d4d2d95a607"],
+            ["id": 44536,
+             "titleId": 40011,
+             "displayName": "Noughts and Crosses",
+             "issueDate": "2026-06-16",
+             "slug": "76491f640cb841f19711bb3838df48a6"]
+        ]
     }
     
     var articles: [String] {
