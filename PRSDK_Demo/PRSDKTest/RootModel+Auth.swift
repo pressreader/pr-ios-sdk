@@ -65,10 +65,6 @@ extension RootModel {
     
     // MARK: - Public Properties
     
-    var isAuthorizationEnabled: Bool {
-        !self.isDismissed && !self.isLocalService
-    }
-    
     var authorizationData: AuthData {
         get {
             let rawData = UserDefaults.standard

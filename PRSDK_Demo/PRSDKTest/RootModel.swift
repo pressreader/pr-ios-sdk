@@ -96,25 +96,33 @@ final class RootModel {
     var account: Account? {
         self.pressreader?.account
     }
-    
-    var isCatalogEnabled: Bool {
-        !self.isDismissed && !self.cids.isEmpty && !self.isLocalService
-    }
-    
-    var booksEnabled: Bool {
-        true
-    }
 
-    var gamesEnabled: Bool {
-        true
+    var isAuthorizationEnabled: Bool {
+        !self.isDismissed && !self.isLocalService
     }
 
     var isLoggingEnabled: Bool {
         !self.isDismissed
     }
 
-    var isArticleSetEnabled: Bool {
-        !self.isDismissed && !self.articles.isEmpty && !self.isLocalService && !self.isEdition
+    var isCatalogEnabled: Bool {
+        !self.isDismissed && !self.isLocalService
+    }
+
+    var publicationsEnabled: Bool {
+        self.isCatalogEnabled && !self.cids.isEmpty
+    }
+
+    var booksEnabled: Bool {
+        self.isCatalogEnabled && !self.isEdition
+    }
+
+    var gamesEnabled: Bool {
+        self.isCatalogEnabled && !self.isEdition
+    }
+
+    var articlesEnabled: Bool {
+        self.isCatalogEnabled && !self.isEdition && !self.articles.isEmpty
     }
 
     var catalogItemsCount: Int {
@@ -255,12 +263,6 @@ final class RootModel {
         self.catalog?.downloaded.items[index]
     }
     
-    func deleteDownloadedItem(at index: Int) {
-        self.downloadedItem(at: index).map {
-            self.delete($0)
-        }
-    }
-
     func delete(_ item: TitleItem) {
         self.downloaded?.delete(item)
     }
