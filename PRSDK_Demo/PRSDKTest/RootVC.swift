@@ -415,7 +415,8 @@ final class RootVC: UITableViewController, Reloadable {
                 tableView,
                 indexPath: indexPath,
                 title: contentSection.title,
-                details: details
+                details: details,
+                accessibilityId: contentSection.acessibilityId
             )
         }
 

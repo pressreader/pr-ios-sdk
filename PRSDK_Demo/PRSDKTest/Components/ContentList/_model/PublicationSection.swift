@@ -33,19 +33,17 @@ class PublicationSection: ContentSection {
         self.model.catalogItem(at: index)
     }
 
-    func discloseItem(_ item: PRCatalogItem, sender: Any) async throws {
-        guard let presenter = (sender as? UIViewController) ?? UIApplication.shared.rootVC,
-              let reader = ReadingVC(item)
-        else {
-            throw ServiceError.unavailable
-        }
-        
-        presenter.present(reader, animated: true, completion: nil)
+    func discloseItem(_ item: PRCatalogItem, sender: Any) throws {
+        let reader = try PressReader.instance().publications.reader(item: item)
+        let presenter = (sender as? UIViewController) ?? UIApplication.shared.rootVC
+        presenter?.present(reader, animated: true)
     }
 
     // MARK: - ContentSection
 
     var title: String { "Publications" }
+
+    var acessibilityId: AccessibilityId { .sdkTest.cells.issue }
 
     var itemsCount: Int {
         self.model.catalogItemsCount
@@ -64,6 +62,6 @@ class PublicationSection: ContentSection {
             throw ServiceError.unavailable
         }
         
-        try await self.discloseItem(item, sender: sender)
+        try self.discloseItem(item, sender: sender)
     }
 }

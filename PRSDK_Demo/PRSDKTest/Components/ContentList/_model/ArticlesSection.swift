@@ -31,6 +31,8 @@ final class ArticlesSection: ContentSection {
 
     var title: String { "Articles" }
 
+    var acessibilityId: AccessibilityId { .sdkTest.cells.article }
+
     var itemsCount: Int {
         self.model.articles.count
     }

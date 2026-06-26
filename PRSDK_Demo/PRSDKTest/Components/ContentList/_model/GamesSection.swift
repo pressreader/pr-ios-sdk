@@ -31,6 +31,8 @@ final class GamesSection: ContentSection {
 
     var title: String { "Games" }
 
+    var acessibilityId: AccessibilityId { .sdkTest.cells.game }
+
     var itemsCount: Int {
         self.model.games.count
     }
@@ -42,7 +44,7 @@ final class GamesSection: ContentSection {
     func discloseItem(at index: Int, sender: Any) async throws {
         let issue = self.item(at: index)
         
-        let vc = try await PressReader.instance().gamePlay(
+        let vc = try await PressReader.instance().games.gamePlay(
             issueId: issue.string("id")!,
             title: issue.string("displayName"),
             date: issue.string("issueDate")?.serverDate

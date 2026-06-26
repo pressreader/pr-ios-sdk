@@ -30,6 +30,8 @@ final class BooksSection: ContentSection {
     // MARK: - ContentSection
 
     var title: String { "Books" }
+    
+    var acessibilityId: AccessibilityId { .sdkTest.cells.book }
 
     var itemsCount: Int {
         self.model.books.count
@@ -40,7 +42,7 @@ final class BooksSection: ContentSection {
     }
 
     func discloseItem(at index: Int, sender: Any) async throws {
-        let vc = try await PressReader.instance().bookReader(bookId: self.item(at: index))
-        (sender as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
+        let vc = try await PressReader.instance().books.reader(bookId: self.item(at: index))
+        (sender as? UIViewController)?.present(vc, animated: true)
     }
 }

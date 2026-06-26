@@ -80,13 +80,11 @@ final class IssueListVC: ContentListVC, IssueHandler {
     // MARK: - IssueHandler
 
     func openIssue(_ issue: PRCatalogItem) {
-        Task {
-            do {
-                try await self.section.discloseItem(issue, sender: self)
-            }
-            catch {
-                UIAlertController.showErrorAlert(message: error.localizedDescription)
-            }
+        do {
+            try self.section.discloseItem(issue, sender: self)
+        }
+        catch {
+            UIAlertController.showErrorAlert(message: error.localizedDescription)
         }
     }
 }

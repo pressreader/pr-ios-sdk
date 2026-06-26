@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import PRAccessibility
 
 @MainActor
 protocol ContentSection {
     var title: String { get }
+    var acessibilityId: AccessibilityId { get }
     var isLoadable: Bool { get }
     var itemsCount: Int { get }
 
