@@ -17,6 +17,10 @@ final class DownloadedSection: PublicationSection {
         self.model.downloadedItemsCount
     }
 
+    override var isLoadable: Bool {
+        false
+    }
+    
     override func item(at index: Int) -> TitleItem? {
         self.model.downloadedItem(at: index)
     }
