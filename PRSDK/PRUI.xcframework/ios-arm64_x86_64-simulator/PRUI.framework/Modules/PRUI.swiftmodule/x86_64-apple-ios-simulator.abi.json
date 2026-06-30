@@ -2495,6 +2495,175 @@
       },
       {
         "kind": "Import",
+        "name": "PRDIContainer",
+        "printedName": "PRDIContainer",
+        "declKind": "Import",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRCatalogModel",
+        "printedName": "PRCatalogModel",
+        "declKind": "Import",
+        "moduleName": "PRUI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BookFacade",
+        "printedName": "BookFacade",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "book",
+            "printedName": "book(id:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Book",
+                "printedName": "PRCatalogModel.Book",
+                "usr": "c:@M@PRCatalogModel@objc(cs)Book"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4PRUI10BookFacadeV4book2id14PRCatalogModel0B0CSS_tYaKF",
+            "mangledName": "$s4PRUI10BookFacadeV4book2id14PRCatalogModel0B0CSS_tYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "downloadBook",
+            "printedName": "downloadBook(id:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4PRUI10BookFacadeV08downloadB02idySS_tYaKF",
+            "mangledName": "$s4PRUI10BookFacadeV08downloadB02idySS_tYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "downloadBook",
+            "printedName": "downloadBook(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Book",
+                "printedName": "PRCatalogModel.Book",
+                "usr": "c:@M@PRCatalogModel@objc(cs)Book"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4PRUI10BookFacadeV08downloadB0yy14PRCatalogModel0B0CYaKF",
+            "mangledName": "$s4PRUI10BookFacadeV08downloadB0yy14PRCatalogModel0B0CYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reader",
+            "printedName": "reader(bookId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UINavigationController",
+                "printedName": "UIKit.UINavigationController",
+                "usr": "c:objc(cs)UINavigationController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4PRUI10BookFacadeV6reader6bookIdSo22UINavigationControllerCSS_tYaKF",
+            "mangledName": "$s4PRUI10BookFacadeV6reader6bookIdSo22UINavigationControllerCSS_tYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:4PRUI10BookFacadeV",
+        "mangledName": "$s4PRUI10BookFacadeV",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "AccessControl",
+          "Custom"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -5239,6 +5408,625 @@
         "printedName": "MBProgressHUD",
         "declKind": "Import",
         "moduleName": "PRUI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GamePlayVC",
+        "printedName": "GamePlayVC",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(issueId:categoryId:title:subtitle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GamePlayVC",
+                "printedName": "PRUI.GamePlayVC",
+                "usr": "c:@M@PRUI@objc(cs)GamePlayVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4PRUI10GamePlayVCC7issueId08categoryF05title8subtitleACSS_SSSgA2Htcfc",
+            "mangledName": "$s4PRUI10GamePlayVCC7issueId08categoryF05title8subtitleACSS_SSSgA2Htcfc",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "Convenience",
+              "AccessControl"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Function",
+            "name": "loadView",
+            "printedName": "loadView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)loadView",
+            "mangledName": "$s4PRUI10GamePlayVCC8loadViewyyF",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "loadView",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewDidLoad",
+            "printedName": "viewDidLoad()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)viewDidLoad",
+            "mangledName": "$s4PRUI10GamePlayVCC11viewDidLoadyyF",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "viewDidLoad",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewWillDisappear",
+            "printedName": "viewWillDisappear(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)viewWillDisappear:",
+            "mangledName": "$s4PRUI10GamePlayVCC17viewWillDisappearyySbF",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "viewWillDisappear:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "newConfiguration",
+            "printedName": "newConfiguration()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebViewConfiguration",
+                "printedName": "WebKit.WKWebViewConfiguration",
+                "usr": "c:objc(cs)WKWebViewConfiguration"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)newConfiguration",
+            "mangledName": "$s4PRUI10GamePlayVCC16newConfigurationSo09WKWebViewF0CyF",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "newConfiguration",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "unloadScriptsAndHandlers",
+            "printedName": "unloadScriptsAndHandlers()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)unloadScriptsAndHandlers",
+            "mangledName": "$s4PRUI10GamePlayVCC24unloadScriptsAndHandlersyyF",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "unloadScriptsAndHandlers",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "supportedInterfaceOrientations",
+            "printedName": "supportedInterfaceOrientations",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIInterfaceOrientationMask",
+                "printedName": "UIKit.UIInterfaceOrientationMask",
+                "usr": "c:@E@UIInterfaceOrientationMask"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(py)supportedInterfaceOrientations",
+            "mangledName": "$s4PRUI10GamePlayVCC30supportedInterfaceOrientationsSo26UIInterfaceOrientationMaskVvp",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "supportedInterfaceOrientations",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIInterfaceOrientationMask",
+                    "printedName": "UIKit.UIInterfaceOrientationMask",
+                    "usr": "c:@E@UIInterfaceOrientationMask"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)supportedInterfaceOrientations",
+                "mangledName": "$s4PRUI10GamePlayVCC30supportedInterfaceOrientationsSo26UIInterfaceOrientationMaskVvg",
+                "moduleName": "PRUI",
+                "overriding": true,
+                "objc_name": "supportedInterfaceOrientations",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isAppMenuAllowed",
+            "printedName": "isAppMenuAllowed",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(py)isAppMenuAllowed",
+            "mangledName": "$s4PRUI10GamePlayVCC16isAppMenuAllowedSbvp",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "isAppMenuAllowed",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)isAppMenuAllowed",
+                "mangledName": "$s4PRUI10GamePlayVCC16isAppMenuAllowedSbvg",
+                "moduleName": "PRUI",
+                "overriding": true,
+                "objc_name": "isAppMenuAllowed",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "userContentController",
+            "printedName": "userContentController(_:didReceive:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKUserContentController",
+                "printedName": "WebKit.WKUserContentController",
+                "usr": "c:objc(cs)WKUserContentController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKScriptMessage",
+                "printedName": "WebKit.WKScriptMessage",
+                "usr": "c:objc(cs)WKScriptMessage"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)userContentController:didReceiveScriptMessage:",
+            "mangledName": "$s4PRUI10GamePlayVCC21userContentController_10didReceiveySo06WKUserfG0C_So15WKScriptMessageCtF",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "userContentController:didReceiveScriptMessage:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(urlRequest:options:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GamePlayVC",
+                "printedName": "PRUI.GamePlayVC",
+                "usr": "c:@M@PRUI@objc(cs)GamePlayVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.URLRequest?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URLRequest",
+                    "printedName": "Foundation.URLRequest",
+                    "usr": "s:10Foundation10URLRequestV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRSafariOptions",
+                "printedName": "PRUIKit.PRSafariOptions",
+                "hasDefaultArg": true,
+                "usr": "c:@E@PRSafariOptions"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)initWithURLRequest:options:",
+            "mangledName": "$s4PRUI10GamePlayVCC10urlRequest7optionsAC10Foundation10URLRequestVSg_So15PRSafariOptionsVtcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithURLRequest:options:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(url:options:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GamePlayVC",
+                "printedName": "PRUI.GamePlayVC",
+                "usr": "c:@M@PRUI@objc(cs)GamePlayVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRSafariOptions",
+                "printedName": "PRUIKit.PRSafariOptions",
+                "hasDefaultArg": true,
+                "usr": "c:@E@PRSafariOptions"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)GamePlayVC(im)initWithURL:options:",
+            "mangledName": "$s4PRUI10GamePlayVCC3url7optionsAC10Foundation3URLVSg_So15PRSafariOptionsVtcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithURL:options:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRUI@objc(cs)GamePlayVC",
+        "mangledName": "$s4PRUI10GamePlayVCC",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "Final",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)PRSafariVC",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "PRUIKit.PRSafariVC",
+          "UIKit.UIViewController",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TranslateHUDPresenter",
+            "printedName": "TranslateHUDPresenter",
+            "usr": "c:@M@PRUI@objc(pl)TranslateHUDPresenter",
+            "mangledName": "$s4PRUI21TranslateHUDPresenterP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UIStyleOverridable",
+            "printedName": "UIStyleOverridable",
+            "usr": "s:4PRUI18UIStyleOverridableP",
+            "mangledName": "$s4PRUI18UIStyleOverridableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "GlobalSearchSupportable",
+            "printedName": "GlobalSearchSupportable",
+            "usr": "s:7PRUIKit23GlobalSearchSupportableP",
+            "mangledName": "$s7PRUIKit23GlobalSearchSupportableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NavigationBarDismissable",
+            "printedName": "NavigationBarDismissable",
+            "usr": "c:@M@PRUIKit@objc(pl)NavigationBarDismissable",
+            "mangledName": "$s7PRUIKit24NavigationBarDismissableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Reportable",
+            "printedName": "Reportable",
+            "usr": "c:@M@PRUIKit@objc(pl)Reportable",
+            "mangledName": "$s7PRUIKit10ReportableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -14689,6 +15477,478 @@
       },
       {
         "kind": "Import",
+        "name": "PRAPI",
+        "printedName": "PRAPI",
+        "declKind": "Import",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PRUIKit",
+        "printedName": "PRUIKit",
+        "declKind": "Import",
+        "moduleName": "PRUI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PublicationFacade",
+        "printedName": "PublicationFacade",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "reader",
+            "printedName": "reader(item:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UINavigationController",
+                "printedName": "UIKit.UINavigationController",
+                "usr": "c:objc(cs)UINavigationController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRCatalogItem",
+                "printedName": "any PRAPI.PRCatalogItem",
+                "usr": "c:objc(pl)PRCatalogItem"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4PRUI17PublicationFacadeV6reader4itemSo22UINavigationControllerCSo13PRCatalogItem_p_tKF",
+            "mangledName": "$s4PRUI17PublicationFacadeV6reader4itemSo22UINavigationControllerCSo13PRCatalogItem_p_tKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:4PRUI17PublicationFacadeV",
+        "mangledName": "$s4PRUI17PublicationFacadeV",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "AccessControl",
+          "Custom"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ReadingVC",
+        "printedName": "ReadingVC",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRUI.ReadingVC?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReadingVC",
+                    "printedName": "PRUI.ReadingVC",
+                    "usr": "c:@M@PRUI@objc(cs)ReadingVC"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PRCatalogItem",
+                "printedName": "any PRAPI.PRCatalogItem",
+                "usr": "c:objc(pl)PRCatalogItem"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4PRUI9ReadingVCCyACSgSo13PRCatalogItem_pcfc",
+            "mangledName": "$s4PRUI9ReadingVCCyACSgSo13PRCatalogItem_pcfc",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(viewControllers:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReadingVC",
+                "printedName": "PRUI.ReadingVC",
+                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[UIKit.UIViewController]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithViewControllers:",
+            "mangledName": "$s4PRUI9ReadingVCC15viewControllersACSaySo16UIViewControllerCG_tcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithViewControllers:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(navigationBarClass:toolbarClass:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReadingVC",
+                "printedName": "PRUI.ReadingVC",
+                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AnyObject.Type)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExistentialMetatype",
+                    "printedName": "any AnyObject.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AnyObject.Type)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExistentialMetatype",
+                    "printedName": "any AnyObject.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithNavigationBarClass:toolbarClass:",
+            "mangledName": "$s4PRUI9ReadingVCC18navigationBarClass07toolbarF0ACyXlXpSg_AFtcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "intro_iOS": "5.0",
+            "objc_name": "initWithNavigationBarClass:toolbarClass:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "Available"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rootViewController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReadingVC",
+                "printedName": "PRUI.ReadingVC",
+                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithRootViewController:",
+            "mangledName": "$s4PRUI9ReadingVCC18rootViewControllerACSo06UIViewF0C_tcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithRootViewController:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nibName:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReadingVC",
+                "printedName": "PRUI.ReadingVC",
+                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithNibName:bundle:",
+            "mangledName": "$s4PRUI9ReadingVCC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithNibName:bundle:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRUI@objc(cs)ReadingVC",
+        "mangledName": "$s4PRUI9ReadingVCC",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "Final",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@PRUI@objc(cs)ReaderWrapper",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "PRUI.ReaderWrapper",
+          "PRUIKit.PRUINavigationController",
+          "UIKit.UINavigationController",
+          "UIKit.UIViewController",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TranslateHUDPresenter",
+            "printedName": "TranslateHUDPresenter",
+            "usr": "c:@M@PRUI@objc(pl)TranslateHUDPresenter",
+            "mangledName": "$s4PRUI21TranslateHUDPresenterP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UIStyleOverridable",
+            "printedName": "UIStyleOverridable",
+            "usr": "s:4PRUI18UIStyleOverridableP",
+            "mangledName": "$s4PRUI18UIStyleOverridableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "GlobalSearchSupportable",
+            "printedName": "GlobalSearchSupportable",
+            "usr": "s:7PRUIKit23GlobalSearchSupportableP",
+            "mangledName": "$s7PRUIKit23GlobalSearchSupportableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NavigationBarDismissable",
+            "printedName": "NavigationBarDismissable",
+            "usr": "c:@M@PRUIKit@objc(pl)NavigationBarDismissable",
+            "mangledName": "$s7PRUIKit24NavigationBarDismissableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -18461,13 +19721,15 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:4PRUI17FilteredCatalogVCC5scopeAC14PRCatalogModel0C6EntityC_tcfc",
+            "usr": "c:@M@PRUI@objc(cs)FilteredCatalogVC(im)initWithScope:",
             "mangledName": "$s4PRUI17FilteredCatalogVCC5scopeAC14PRCatalogModel0C6EntityC_tcfc",
             "moduleName": "PRUI",
+            "objc_name": "initWithScope:",
             "declAttributes": [
               "Preconcurrency",
               "Custom",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "init_kind": "Designated"
@@ -27895,6 +29157,13 @@
       },
       {
         "kind": "Import",
+        "name": "PRUtils",
+        "printedName": "PRUtils",
+        "declKind": "Import",
+        "moduleName": "PRUI"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -29453,6 +30722,92 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "searchTokens",
+            "printedName": "searchTokens",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUI@objc(cs)ArticleSearchVC(py)searchTokens",
+            "mangledName": "$s4PRUI15ArticleSearchVCC12searchTokensSaySSGSgvp",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "searchTokens",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUI@objc(cs)ArticleSearchVC(im)searchTokens",
+                "mangledName": "$s4PRUI15ArticleSearchVCC12searchTokensSaySSGSgvg",
+                "moduleName": "PRUI",
+                "overriding": true,
+                "objc_name": "searchTokens",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(dataSource:)",
@@ -29588,74 +30943,6 @@
               "Custom",
               "AccessControl",
               "Override"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "presentDetailsVC",
-            "printedName": "presentDetailsVC(article:completion:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "NTFArticle",
-                "printedName": "any PRAPI.NTFArticle",
-                "usr": "c:objc(pl)NTFArticle"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((UIKit.UIViewController?) -> ())?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(UIKit.UIViewController?) -> ()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "UIKit.UIViewController?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "UIViewController",
-                            "printedName": "UIKit.UIViewController",
-                            "usr": "c:objc(cs)UIViewController"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ]
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@PRUI@objc(cs)ArticleSearchVC(im)presentDetailsVCForArticle:completion:",
-            "mangledName": "$s4PRUI15ArticleSearchVCC014presentDetailsD07article10completionySo10NTFArticle_p_ySo16UIViewControllerCSgcSgtF",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "objc_name": "presentDetailsVCForArticle:completion:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Override",
-              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -45519,6 +46806,112 @@
         "printedName": "PRUIKit",
         "declKind": "Import",
         "moduleName": "PRUI"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GameFacade",
+        "printedName": "GameFacade",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "gamePlay",
+            "printedName": "gamePlay(issueId:title:date:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4PRUI10GameFacadeV8gamePlay7issueId5title4dateSo16UIViewControllerCSS_SSSg10Foundation4DateVSgtYaKF",
+            "mangledName": "$s4PRUI10GameFacadeV8gamePlay7issueId5title4dateSo16UIViewControllerCSS_SSSg10Foundation4DateVSgtYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:4PRUI10GameFacadeV",
+        "mangledName": "$s4PRUI10GameFacadeV",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "AccessControl",
+          "Custom"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -69033,6 +70426,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -70944,7 +72347,6 @@
             "static": true,
             "declAttributes": [
               "Final",
-              "Preconcurrency",
               "Custom",
               "AccessControl",
               "ObjC",
@@ -70970,7 +72372,6 @@
             "static": true,
             "declAttributes": [
               "Final",
-              "Preconcurrency",
               "Custom",
               "AccessControl",
               "ObjC"
@@ -70996,7 +72397,6 @@
             "static": true,
             "declAttributes": [
               "Final",
-              "Preconcurrency",
               "Custom",
               "AccessControl",
               "ObjC"
@@ -71023,7 +72423,6 @@
             "declAttributes": [
               "Final",
               "ObjC",
-              "Preconcurrency",
               "Custom",
               "Override",
               "AccessControl",
@@ -71047,7 +72446,6 @@
             "mangledName": "$s4PRUI18HotSpotStatusWebVCC16presentAsPopoveryyF",
             "moduleName": "PRUI",
             "declAttributes": [
-              "Preconcurrency",
               "Custom",
               "Final",
               "AccessControl",
@@ -71189,7 +72587,6 @@
             "declAttributes": [
               "Final",
               "ObjC",
-              "Preconcurrency",
               "Custom",
               "AccessControl",
               "Override"
@@ -71204,11 +72601,10 @@
         "moduleName": "PRUI",
         "objc_name": "PRHotSpotStatusWebVC",
         "declAttributes": [
-          "Preconcurrency",
-          "Custom",
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "Custom"
         ],
         "superclassUsr": "c:objc(cs)PRWebVC",
         "hasMissingDesignatedInitializers": true,
@@ -75017,9 +76413,94 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "searchTokens",
+            "printedName": "searchTokens",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUI@objc(cs)LibraryItemFeedVC(py)searchTokens",
+            "mangledName": "$s4PRUI17LibraryItemFeedVCC12searchTokensSaySSGSgvp",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "searchTokens",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUI@objc(cs)LibraryItemFeedVC(im)searchTokens",
+                "mangledName": "$s4PRUI17LibraryItemFeedVCC12searchTokensSaySSGSgvg",
+                "moduleName": "PRUI",
+                "overriding": true,
+                "objc_name": "searchTokens",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(mliDataSource:)",
+            "printedName": "init(mliDataSource:bridgeController:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -75032,13 +76513,28 @@
                 "name": "NTFMyLibraryItemDataSource",
                 "printedName": "PRUI.NTFMyLibraryItemDataSource",
                 "usr": "c:objc(cs)NTFMyLibraryItemDataSource"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRUI.ReplicaTextViewBridge?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReplicaTextViewBridge",
+                    "printedName": "PRUI.ReplicaTextViewBridge",
+                    "usr": "c:@M@PRUI@objc(cs)PRReplicaTextViewBridge"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)LibraryItemFeedVC(im)initWithMliDataSource:",
-            "mangledName": "$s4PRUI17LibraryItemFeedVCC13mliDataSourceACSo05NTFMybcgH0C_tcfc",
+            "usr": "c:@M@PRUI@objc(cs)LibraryItemFeedVC(im)initWithMliDataSource:bridgeController:",
+            "mangledName": "$s4PRUI17LibraryItemFeedVCC13mliDataSource16bridgeControllerACSo05NTFMybcgH0C_AA21ReplicaTextViewBridgeCSgtcfc",
             "moduleName": "PRUI",
-            "objc_name": "initWithMliDataSource:",
+            "objc_name": "initWithMliDataSource:bridgeController:",
             "declAttributes": [
               "Preconcurrency",
               "Custom",
@@ -75154,6 +76650,46 @@
             "moduleName": "PRUI",
             "overriding": true,
             "objc_name": "processSizeChange",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:cellForRowAt:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UITableViewCell",
+                "printedName": "UIKit.UITableViewCell",
+                "usr": "c:objc(cs)UITableViewCell"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UITableView",
+                "printedName": "UIKit.UITableView",
+                "usr": "c:objc(cs)UITableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "IndexPath",
+                "printedName": "Foundation.IndexPath",
+                "usr": "s:10Foundation9IndexPathV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PRUI@objc(cs)LibraryItemFeedVC(im)tableView:cellForRowAtIndexPath:",
+            "mangledName": "$s4PRUI17LibraryItemFeedVCC9tableView_12cellForRowAtSo07UITableG4CellCSo0lG0C_10Foundation9IndexPathVtF",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "tableView:cellForRowAtIndexPath:",
             "declAttributes": [
               "Final",
               "ObjC",
@@ -77313,6 +78849,489 @@
       },
       {
         "kind": "Import",
+        "name": "PRUIKit",
+        "printedName": "PRUIKit",
+        "declKind": "Import",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ReaderWrapper",
+        "printedName": "ReaderWrapper",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "modalPresentationStyle",
+            "printedName": "modalPresentationStyle",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIModalPresentationStyle",
+                "printedName": "UIKit.UIModalPresentationStyle",
+                "usr": "c:@E@UIModalPresentationStyle"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(py)modalPresentationStyle",
+            "mangledName": "$s4PRUI13ReaderWrapperC22modalPresentationStyleSo07UIModaleF0Vvp",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "objc_name": "modalPresentationStyle",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIModalPresentationStyle",
+                    "printedName": "UIKit.UIModalPresentationStyle",
+                    "usr": "c:@E@UIModalPresentationStyle"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(im)modalPresentationStyle",
+                "mangledName": "$s4PRUI13ReaderWrapperC22modalPresentationStyleSo07UIModaleF0Vvg",
+                "moduleName": "PRUI",
+                "overriding": true,
+                "objc_name": "modalPresentationStyle",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIModalPresentationStyle",
+                    "printedName": "UIKit.UIModalPresentationStyle",
+                    "usr": "c:@E@UIModalPresentationStyle"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(im)setModalPresentationStyle:",
+                "mangledName": "$s4PRUI13ReaderWrapperC22modalPresentationStyleSo07UIModaleF0Vvs",
+                "moduleName": "PRUI",
+                "overriding": true,
+                "objc_name": "setModalPresentationStyle:",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(viewControllers:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReaderWrapper",
+                "printedName": "PRUI.ReaderWrapper",
+                "usr": "c:@M@PRUI@objc(cs)ReaderWrapper"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[UIKit.UIViewController]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(im)initWithViewControllers:",
+            "mangledName": "$s4PRUI13ReaderWrapperC15viewControllersACSaySo16UIViewControllerCG_tcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithViewControllers:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(navigationBarClass:toolbarClass:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReaderWrapper",
+                "printedName": "PRUI.ReaderWrapper",
+                "usr": "c:@M@PRUI@objc(cs)ReaderWrapper"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AnyObject.Type)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExistentialMetatype",
+                    "printedName": "any AnyObject.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AnyObject.Type)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExistentialMetatype",
+                    "printedName": "any AnyObject.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(im)initWithNavigationBarClass:toolbarClass:",
+            "mangledName": "$s4PRUI13ReaderWrapperC18navigationBarClass07toolbarF0ACyXlXpSg_AFtcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "intro_iOS": "5.0",
+            "objc_name": "initWithNavigationBarClass:toolbarClass:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "Available"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rootViewController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReaderWrapper",
+                "printedName": "PRUI.ReaderWrapper",
+                "usr": "c:@M@PRUI@objc(cs)ReaderWrapper"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(im)initWithRootViewController:",
+            "mangledName": "$s4PRUI13ReaderWrapperC18rootViewControllerACSo06UIViewF0C_tcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithRootViewController:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nibName:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ReaderWrapper",
+                "printedName": "PRUI.ReaderWrapper",
+                "usr": "c:@M@PRUI@objc(cs)ReaderWrapper"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(im)initWithNibName:bundle:",
+            "mangledName": "$s4PRUI13ReaderWrapperC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithNibName:bundle:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PRUI.ReaderWrapper?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReaderWrapper",
+                    "printedName": "PRUI.ReaderWrapper",
+                    "usr": "c:@M@PRUI@objc(cs)ReaderWrapper"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PRUI@objc(cs)ReaderWrapper(im)initWithCoder:",
+            "mangledName": "$s4PRUI13ReaderWrapperC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "PRUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Required"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PRUI@objc(cs)ReaderWrapper",
+        "mangledName": "$s4PRUI13ReaderWrapperC",
+        "moduleName": "PRUI",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)PRUINavigationController",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "PRUIKit.PRUINavigationController",
+          "UIKit.UINavigationController",
+          "UIKit.UIViewController",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TranslateHUDPresenter",
+            "printedName": "TranslateHUDPresenter",
+            "usr": "c:@M@PRUI@objc(pl)TranslateHUDPresenter",
+            "mangledName": "$s4PRUI21TranslateHUDPresenterP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UIStyleOverridable",
+            "printedName": "UIStyleOverridable",
+            "usr": "s:4PRUI18UIStyleOverridableP",
+            "mangledName": "$s4PRUI18UIStyleOverridableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "GlobalSearchSupportable",
+            "printedName": "GlobalSearchSupportable",
+            "usr": "s:7PRUIKit23GlobalSearchSupportableP",
+            "mangledName": "$s7PRUIKit23GlobalSearchSupportableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NavigationBarDismissable",
+            "printedName": "NavigationBarDismissable",
+            "usr": "c:@M@PRUIKit@objc(pl)NavigationBarDismissable",
+            "mangledName": "$s7PRUIKit24NavigationBarDismissableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "PRAPI",
         "printedName": "PRAPI",
         "declKind": "Import",
@@ -78553,7 +80572,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(controller:mli:)",
+            "printedName": "init(mli:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -78563,22 +80582,16 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "PRMyLibraryItem",
                 "printedName": "PRAPI.PRMyLibraryItem",
                 "usr": "c:objc(cs)PRMyLibraryItem"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)PRReplicaTextViewBridge(im)initWithController:mli:",
-            "mangledName": "$s4PRUI21ReplicaTextViewBridgeC10controller3mliACSo16UIViewControllerC_So15PRMyLibraryItemCtcfc",
+            "usr": "c:@M@PRUI@objc(cs)PRReplicaTextViewBridge(im)initWithMli:",
+            "mangledName": "$s4PRUI21ReplicaTextViewBridgeC3mliACSo15PRMyLibraryItemC_tcfc",
             "moduleName": "PRUI",
-            "objc_name": "initWithController:mli:",
+            "objc_name": "initWithMli:",
             "declAttributes": [
               "Preconcurrency",
               "Custom",
@@ -79198,506 +81211,6 @@
         "moduleName": "PRUI",
         "declAttributes": [
           "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "PRUIKit",
-        "printedName": "PRUIKit",
-        "declKind": "Import",
-        "moduleName": "PRUI",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "ReadingVC",
-        "printedName": "ReadingVC",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "PRUI.ReadingVC?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ReadingVC",
-                    "printedName": "PRUI.ReadingVC",
-                    "usr": "c:@M@PRUI@objc(cs)ReadingVC"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "PRCatalogItem",
-                "printedName": "any PRAPI.PRCatalogItem",
-                "usr": "c:objc(pl)PRCatalogItem"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:4PRUI9ReadingVCCyACSgSo13PRCatalogItem_pcfc",
-            "mangledName": "$s4PRUI9ReadingVCCyACSgSo13PRCatalogItem_pcfc",
-            "moduleName": "PRUI",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "modalPresentationStyle",
-            "printedName": "modalPresentationStyle",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "UIModalPresentationStyle",
-                "printedName": "UIKit.UIModalPresentationStyle",
-                "usr": "c:@E@UIModalPresentationStyle"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@PRUI@objc(cs)ReadingVC(py)modalPresentationStyle",
-            "mangledName": "$s4PRUI9ReadingVCC22modalPresentationStyleSo07UIModaleF0Vvp",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "objc_name": "modalPresentationStyle",
-            "declAttributes": [
-              "Final",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Override",
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIModalPresentationStyle",
-                    "printedName": "UIKit.UIModalPresentationStyle",
-                    "usr": "c:@E@UIModalPresentationStyle"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)modalPresentationStyle",
-                "mangledName": "$s4PRUI9ReadingVCC22modalPresentationStyleSo07UIModaleF0Vvg",
-                "moduleName": "PRUI",
-                "overriding": true,
-                "objc_name": "modalPresentationStyle",
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIModalPresentationStyle",
-                    "printedName": "UIKit.UIModalPresentationStyle",
-                    "usr": "c:@E@UIModalPresentationStyle"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)setModalPresentationStyle:",
-                "mangledName": "$s4PRUI9ReadingVCC22modalPresentationStyleSo07UIModaleF0Vvs",
-                "moduleName": "PRUI",
-                "overriding": true,
-                "objc_name": "setModalPresentationStyle:",
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:4PRUI9ReadingVCC22modalPresentationStyleSo07UIModaleF0VvM",
-                "mangledName": "$s4PRUI9ReadingVCC22modalPresentationStyleSo07UIModaleF0VvM",
-                "moduleName": "PRUI",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(viewControllers:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ReadingVC",
-                "printedName": "PRUI.ReadingVC",
-                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[UIKit.UIViewController]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIViewController",
-                    "printedName": "UIKit.UIViewController",
-                    "usr": "c:objc(cs)UIViewController"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithViewControllers:",
-            "mangledName": "$s4PRUI9ReadingVCC15viewControllersACSaySo16UIViewControllerCG_tcfc",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithViewControllers:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(navigationBarClass:toolbarClass:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ReadingVC",
-                "printedName": "PRUI.ReadingVC",
-                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "(any AnyObject.Type)?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ExistentialMetatype",
-                    "printedName": "any AnyObject.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "AnyObject"
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "(any AnyObject.Type)?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ExistentialMetatype",
-                    "printedName": "any AnyObject.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "AnyObject"
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithNavigationBarClass:toolbarClass:",
-            "mangledName": "$s4PRUI9ReadingVCC18navigationBarClass07toolbarF0ACyXlXpSg_AFtcfc",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "implicit": true,
-            "intro_iOS": "5.0",
-            "objc_name": "initWithNavigationBarClass:toolbarClass:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Override",
-              "Available"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rootViewController:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ReadingVC",
-                "printedName": "PRUI.ReadingVC",
-                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithRootViewController:",
-            "mangledName": "$s4PRUI9ReadingVCC18rootViewControllerACSo06UIViewF0C_tcfc",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithRootViewController:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(nibName:bundle:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ReadingVC",
-                "printedName": "PRUI.ReadingVC",
-                "usr": "c:@M@PRUI@objc(cs)ReadingVC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.Bundle?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bundle",
-                    "printedName": "Foundation.Bundle",
-                    "usr": "c:objc(cs)NSBundle"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@PRUI@objc(cs)ReadingVC(im)initWithNibName:bundle:",
-            "mangledName": "$s4PRUI9ReadingVCC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
-            "moduleName": "PRUI",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithNibName:bundle:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Preconcurrency",
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@PRUI@objc(cs)ReadingVC",
-        "mangledName": "$s4PRUI9ReadingVCC",
-        "moduleName": "PRUI",
-        "declAttributes": [
-          "Preconcurrency",
-          "Custom",
-          "Final",
-          "AccessControl",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)PRUINavigationController",
-        "hasMissingDesignatedInitializers": true,
-        "superclassNames": [
-          "PRUIKit.PRUINavigationController",
-          "UIKit.UINavigationController",
-          "UIKit.UIViewController",
-          "UIKit.UIResponder",
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "TranslateHUDPresenter",
-            "printedName": "TranslateHUDPresenter",
-            "usr": "c:@M@PRUI@objc(pl)TranslateHUDPresenter",
-            "mangledName": "$s4PRUI21TranslateHUDPresenterP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "UIStyleOverridable",
-            "printedName": "UIStyleOverridable",
-            "usr": "s:4PRUI18UIStyleOverridableP",
-            "mangledName": "$s4PRUI18UIStyleOverridableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "GlobalSearchSupportable",
-            "printedName": "GlobalSearchSupportable",
-            "usr": "s:7PRUIKit23GlobalSearchSupportableP",
-            "mangledName": "$s7PRUIKit23GlobalSearchSupportableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "NavigationBarDismissable",
-            "printedName": "NavigationBarDismissable",
-            "usr": "c:@M@PRUIKit@objc(pl)NavigationBarDismissable",
-            "mangledName": "$s7PRUIKit24NavigationBarDismissableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "SendableMetatype",
-            "printedName": "SendableMetatype",
-            "usr": "s:s16SendableMetatypeP",
-            "mangledName": "$ss16SendableMetatypeP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "UITraitChangeObservable",
-            "printedName": "UITraitChangeObservable",
-            "usr": "s:5UIKit23UITraitChangeObservableP",
-            "mangledName": "$s5UIKit23UITraitChangeObservableP"
-          }
         ]
       },
       {
@@ -86343,6 +87856,836 @@
             "printedName": "RegistrationAnalyticsProvider",
             "usr": "s:11PRAnalytics29RegistrationAnalyticsProviderP",
             "mangledName": "$s11PRAnalytics29RegistrationAnalyticsProviderP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DependencyResolver",
+            "printedName": "DependencyResolver",
+            "usr": "s:13PRDIContainer18DependencyResolverP",
+            "mangledName": "$s13PRDIContainer18DependencyResolverP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PressReader",
+        "printedName": "PressReader",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "books",
+            "printedName": "books",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BookFacade",
+                "printedName": "PRUI.BookFacade",
+                "usr": "s:4PRUI10BookFacadeV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So11PressReaderC4PRUIE5booksAC10BookFacadeVvp",
+            "mangledName": "$sSo11PressReaderC4PRUIE5booksAC10BookFacadeVvp",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BookFacade",
+                    "printedName": "PRUI.BookFacade",
+                    "usr": "s:4PRUI10BookFacadeV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE5booksAC10BookFacadeVvg",
+                "mangledName": "$sSo11PressReaderC4PRUIE5booksAC10BookFacadeVvg",
+                "moduleName": "PRUI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "instance",
+            "printedName": "instance()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DynamicSelf",
+                "printedName": "Self"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)instance",
+            "mangledName": "$sSo11PressReaderC4PRUIE8instanceABXDyFZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hasInstance",
+            "printedName": "hasInstance()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)hasInstance",
+            "mangledName": "$sSo11PressReaderC4PRUIE11hasInstanceSbyFZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dismiss",
+            "printedName": "dismiss()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)dismiss",
+            "mangledName": "$sSo11PressReaderC4PRUIE7dismissyyFZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "publications",
+            "printedName": "publications",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PublicationFacade",
+                "printedName": "PRUI.PublicationFacade",
+                "usr": "s:4PRUI17PublicationFacadeV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So11PressReaderC4PRUIE12publicationsAC17PublicationFacadeVvp",
+            "mangledName": "$sSo11PressReaderC4PRUIE12publicationsAC17PublicationFacadeVvp",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PublicationFacade",
+                    "printedName": "PRUI.PublicationFacade",
+                    "usr": "s:4PRUI17PublicationFacadeV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE12publicationsAC17PublicationFacadeVvg",
+                "mangledName": "$sSo11PressReaderC4PRUIE12publicationsAC17PublicationFacadeVvg",
+                "moduleName": "PRUI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "serviceName",
+            "printedName": "serviceName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cpy)serviceName",
+            "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvpZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Nonisolated",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)serviceName",
+                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvgZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)setServiceName:",
+                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvsZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE11serviceNameSSvMZ",
+                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvMZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isLocalService",
+            "printedName": "isLocalService",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So11PressReaderC4PRUIE14isLocalServiceSbvpZ",
+            "mangledName": "$sSo11PressReaderC4PRUIE14isLocalServiceSbvpZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Nonisolated"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE14isLocalServiceSbvgZ",
+                "mangledName": "$sSo11PressReaderC4PRUIE14isLocalServiceSbvgZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isEdition",
+            "printedName": "isEdition",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So11PressReaderC4PRUIE9isEditionSbvpZ",
+            "mangledName": "$sSo11PressReaderC4PRUIE9isEditionSbvpZ",
+            "moduleName": "PRUI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Nonisolated"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE9isEditionSbvgZ",
+                "mangledName": "$sSo11PressReaderC4PRUIE9isEditionSbvgZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "games",
+            "printedName": "games",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GameFacade",
+                "printedName": "PRUI.GameFacade",
+                "usr": "s:4PRUI10GameFacadeV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So11PressReaderC4PRUIE5gamesAC10GameFacadeVvp",
+            "mangledName": "$sSo11PressReaderC4PRUIE5gamesAC10GameFacadeVvp",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GameFacade",
+                    "printedName": "PRUI.GameFacade",
+                    "usr": "s:4PRUI10GameFacadeV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So11PressReaderC4PRUIE5gamesAC10GameFacadeVvg",
+                "mangledName": "$sSo11PressReaderC4PRUIE5gamesAC10GameFacadeVvg",
+                "moduleName": "PRUI",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "account",
+            "printedName": "account",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Account",
+                "printedName": "PRUI.Account",
+                "usr": "c:@M@PRUI@objc(cs)Account"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@PRUI@@objc(cs)PressReader(py)account",
+            "mangledName": "$sSo11PressReaderC4PRUIE7accountAC7AccountCvp",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Dynamic",
+              "Preconcurrency",
+              "Custom",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Account",
+                    "printedName": "PRUI.Account",
+                    "usr": "c:@M@PRUI@objc(cs)Account"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@PRUI@@objc(cs)PressReader(im)account",
+                "mangledName": "$sSo11PressReaderC4PRUIE7accountAC7AccountCvg",
+                "moduleName": "PRUI",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "LogError",
+            "printedName": "LogError",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "unavailable",
+                "printedName": "unavailable",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRUI.PressReader.LogError.Type) -> PRUI.PressReader.LogError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LogError",
+                        "printedName": "PRUI.PressReader.LogError",
+                        "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRUI.PressReader.LogError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LogError",
+                            "printedName": "PRUI.PressReader.LogError",
+                            "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So11PressReaderC4PRUIE8LogErrorO11unavailableyA2EmF",
+                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO11unavailableyA2EmF",
+                "moduleName": "PRUI"
+              },
+              {
+                "kind": "Var",
+                "name": "linkToUploadedFileIsNotAvailable",
+                "printedName": "linkToUploadedFileIsNotAvailable",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(PRUI.PressReader.LogError.Type) -> PRUI.PressReader.LogError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LogError",
+                        "printedName": "PRUI.PressReader.LogError",
+                        "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "PRUI.PressReader.LogError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LogError",
+                            "printedName": "PRUI.PressReader.LogError",
+                            "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:So11PressReaderC4PRUIE8LogErrorO32linkToUploadedFileIsNotAvailableyA2EmF",
+                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO32linkToUploadedFileIsNotAvailableyA2EmF",
+                "moduleName": "PRUI"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LogError",
+                    "printedName": "PRUI.PressReader.LogError",
+                    "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LogError",
+                    "printedName": "PRUI.PressReader.LogError",
+                    "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So11PressReaderC4PRUIE8LogErrorO2eeoiySbAE_AEtFZ",
+                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO2eeoiySbAE_AEtFZ",
+                "moduleName": "PRUI",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:So11PressReaderC4PRUIE8LogErrorO9hashValueSivp",
+                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO9hashValueSivp",
+                "moduleName": "PRUI",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:So11PressReaderC4PRUIE8LogErrorO9hashValueSivg",
+                    "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO9hashValueSivg",
+                    "moduleName": "PRUI",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:So11PressReaderC4PRUIE8LogErrorO4hash4intoys6HasherVz_tF",
+                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO4hash4intoys6HasherVz_tF",
+                "moduleName": "PRUI",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:So11PressReaderC4PRUIE8LogErrorO",
+            "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO",
+            "moduleName": "PRUI",
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "LocalizedError",
+                "printedName": "LocalizedError",
+                "usr": "s:10Foundation14LocalizedErrorP",
+                "mangledName": "$s10Foundation14LocalizedErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Error",
+                "printedName": "Error",
+                "usr": "s:s5ErrorP",
+                "mangledName": "$ss5ErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "getLogs",
+            "printedName": "getLogs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Tuple",
+                "printedName": "(linkToUploadedLogs: Foundation.URL, additionalInfo: Swift.String)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So11PressReaderC4PRUIE7getLogs10Foundation3URLV014linkToUploadedE0_SS14additionalInfotyYaKF",
+            "mangledName": "$sSo11PressReaderC4PRUIE7getLogs10Foundation3URLV014linkToUploadedE0_SS14additionalInfotyYaKF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)PressReader",
+        "moduleName": "PRUI",
+        "isOpen": true,
+        "objc_name": "PressReader",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)PRiphoneAppDelegate",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "PRUI.PRiphoneAppDelegate",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
           },
           {
             "kind": "Conformance",
@@ -93542,6 +95885,7 @@
             "usr": "c:@CM@PRUI@@objc(cs)VerticalTextFlowVC(im)emptyFeedMessageCellHeightIn:",
             "mangledName": "$sSo18VerticalTextFlowVCC4PRUIE26emptyFeedMessageCellHeight2in12CoreGraphics7CGFloatVSo11UITableViewC_tF",
             "moduleName": "PRUI",
+            "objc_name": "emptyFeedMessageCellHeightIn:",
             "declAttributes": [
               "Dynamic",
               "Preconcurrency",
@@ -93612,6 +95956,7 @@
             "usr": "c:@CM@PRUI@@objc(cs)VerticalTextFlowVC(im)cellClassWithLayoutItem:",
             "mangledName": "$sSo18VerticalTextFlowVCC4PRUIE9cellClass10layoutItemSo17NTFArticleSetCellCmSgAC018AbstractFeedLayoutI0C_tF",
             "moduleName": "PRUI",
+            "objc_name": "cellClassWithLayoutItem:",
             "declAttributes": [
               "Dynamic",
               "Preconcurrency",
@@ -93641,6 +95986,34 @@
               "Preconcurrency",
               "Custom",
               "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "highlightSearchTokens",
+            "printedName": "highlightSearchTokens(cell:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UITableViewCell",
+                "printedName": "UIKit.UITableViewCell",
+                "usr": "c:objc(cs)UITableViewCell"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So18VerticalTextFlowVCC4PRUIE21highlightSearchTokens4cellySo15UITableViewCellC_tF",
+            "mangledName": "$sSo18VerticalTextFlowVCC4PRUIE21highlightSearchTokens4cellySo15UITableViewCellC_tF",
+            "moduleName": "PRUI",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom"
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -97358,704 +99731,6 @@
             "printedName": "SendableMetatype",
             "usr": "s:s16SendableMetatypeP",
             "mangledName": "$ss16SendableMetatypeP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "PressReader",
-        "printedName": "PressReader",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "instance",
-            "printedName": "instance()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DynamicSelf",
-                "printedName": "Self"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)instance",
-            "mangledName": "$sSo11PressReaderC4PRUIE8instanceABXDyFZ",
-            "moduleName": "PRUI",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "hasInstance",
-            "printedName": "hasInstance()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)hasInstance",
-            "mangledName": "$sSo11PressReaderC4PRUIE11hasInstanceSbyFZ",
-            "moduleName": "PRUI",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "dismiss",
-            "printedName": "dismiss()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)dismiss",
-            "mangledName": "$sSo11PressReaderC4PRUIE7dismissyyFZ",
-            "moduleName": "PRUI",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "serviceName",
-            "printedName": "serviceName",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUI@@objc(cs)PressReader(cpy)serviceName",
-            "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvpZ",
-            "moduleName": "PRUI",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "Nonisolated",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)serviceName",
-                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvgZ",
-                "moduleName": "PRUI",
-                "static": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUI@@objc(cs)PressReader(cm)setServiceName:",
-                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvsZ",
-                "moduleName": "PRUI",
-                "static": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:So11PressReaderC4PRUIE11serviceNameSSvMZ",
-                "mangledName": "$sSo11PressReaderC4PRUIE11serviceNameSSvMZ",
-                "moduleName": "PRUI",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "isLocalService",
-            "printedName": "isLocalService",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:So11PressReaderC4PRUIE14isLocalServiceSbvpZ",
-            "mangledName": "$sSo11PressReaderC4PRUIE14isLocalServiceSbvpZ",
-            "moduleName": "PRUI",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "Nonisolated"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:So11PressReaderC4PRUIE14isLocalServiceSbvgZ",
-                "mangledName": "$sSo11PressReaderC4PRUIE14isLocalServiceSbvgZ",
-                "moduleName": "PRUI",
-                "static": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "isEdition",
-            "printedName": "isEdition",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:So11PressReaderC4PRUIE9isEditionSbvpZ",
-            "mangledName": "$sSo11PressReaderC4PRUIE9isEditionSbvpZ",
-            "moduleName": "PRUI",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "Nonisolated"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:So11PressReaderC4PRUIE9isEditionSbvgZ",
-                "mangledName": "$sSo11PressReaderC4PRUIE9isEditionSbvgZ",
-                "moduleName": "PRUI",
-                "static": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "account",
-            "printedName": "account",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Account",
-                "printedName": "PRUI.Account",
-                "usr": "c:@M@PRUI@objc(cs)Account"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@PRUI@@objc(cs)PressReader(py)account",
-            "mangledName": "$sSo11PressReaderC4PRUIE7accountAC7AccountCvp",
-            "moduleName": "PRUI",
-            "declAttributes": [
-              "Dynamic",
-              "Preconcurrency",
-              "Custom",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Account",
-                    "printedName": "PRUI.Account",
-                    "usr": "c:@M@PRUI@objc(cs)Account"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@PRUI@@objc(cs)PressReader(im)account",
-                "mangledName": "$sSo11PressReaderC4PRUIE7accountAC7AccountCvg",
-                "moduleName": "PRUI",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "TypeDecl",
-            "name": "LogError",
-            "printedName": "LogError",
-            "children": [
-              {
-                "kind": "Var",
-                "name": "unavailable",
-                "printedName": "unavailable",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(PRUI.PressReader.LogError.Type) -> PRUI.PressReader.LogError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "LogError",
-                        "printedName": "PRUI.PressReader.LogError",
-                        "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Metatype",
-                        "printedName": "PRUI.PressReader.LogError.Type",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "LogError",
-                            "printedName": "PRUI.PressReader.LogError",
-                            "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "declKind": "EnumElement",
-                "usr": "s:So11PressReaderC4PRUIE8LogErrorO11unavailableyA2EmF",
-                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO11unavailableyA2EmF",
-                "moduleName": "PRUI"
-              },
-              {
-                "kind": "Var",
-                "name": "linkToUploadedFileIsNotAvailable",
-                "printedName": "linkToUploadedFileIsNotAvailable",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(PRUI.PressReader.LogError.Type) -> PRUI.PressReader.LogError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "LogError",
-                        "printedName": "PRUI.PressReader.LogError",
-                        "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Metatype",
-                        "printedName": "PRUI.PressReader.LogError.Type",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "LogError",
-                            "printedName": "PRUI.PressReader.LogError",
-                            "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "declKind": "EnumElement",
-                "usr": "s:So11PressReaderC4PRUIE8LogErrorO32linkToUploadedFileIsNotAvailableyA2EmF",
-                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO32linkToUploadedFileIsNotAvailableyA2EmF",
-                "moduleName": "PRUI"
-              },
-              {
-                "kind": "Function",
-                "name": "==",
-                "printedName": "==(_:_:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "LogError",
-                    "printedName": "PRUI.PressReader.LogError",
-                    "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "LogError",
-                    "printedName": "PRUI.PressReader.LogError",
-                    "usr": "s:So11PressReaderC4PRUIE8LogErrorO"
-                  }
-                ],
-                "declKind": "Func",
-                "usr": "s:So11PressReaderC4PRUIE8LogErrorO2eeoiySbAE_AEtFZ",
-                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO2eeoiySbAE_AEtFZ",
-                "moduleName": "PRUI",
-                "static": true,
-                "implicit": true,
-                "funcSelfKind": "NonMutating"
-              },
-              {
-                "kind": "Var",
-                "name": "hashValue",
-                "printedName": "hashValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Var",
-                "usr": "s:So11PressReaderC4PRUIE8LogErrorO9hashValueSivp",
-                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO9hashValueSivp",
-                "moduleName": "PRUI",
-                "implicit": true,
-                "accessors": [
-                  {
-                    "kind": "Accessor",
-                    "name": "Get",
-                    "printedName": "Get()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:So11PressReaderC4PRUIE8LogErrorO9hashValueSivg",
-                    "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO9hashValueSivg",
-                    "moduleName": "PRUI",
-                    "implicit": true,
-                    "accessorKind": "get"
-                  }
-                ]
-              },
-              {
-                "kind": "Function",
-                "name": "hash",
-                "printedName": "hash(into:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Hasher",
-                    "printedName": "Swift.Hasher",
-                    "paramValueOwnership": "InOut",
-                    "usr": "s:s6HasherV"
-                  }
-                ],
-                "declKind": "Func",
-                "usr": "s:So11PressReaderC4PRUIE8LogErrorO4hash4intoys6HasherVz_tF",
-                "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO4hash4intoys6HasherVz_tF",
-                "moduleName": "PRUI",
-                "implicit": true,
-                "funcSelfKind": "NonMutating"
-              }
-            ],
-            "declKind": "Enum",
-            "usr": "s:So11PressReaderC4PRUIE8LogErrorO",
-            "mangledName": "$sSo11PressReaderC4PRUIE8LogErrorO",
-            "moduleName": "PRUI",
-            "isFromExtension": true,
-            "conformances": [
-              {
-                "kind": "Conformance",
-                "name": "LocalizedError",
-                "printedName": "LocalizedError",
-                "usr": "s:10Foundation14LocalizedErrorP",
-                "mangledName": "$s10Foundation14LocalizedErrorP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Equatable",
-                "printedName": "Equatable",
-                "usr": "s:SQ",
-                "mangledName": "$sSQ"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Hashable",
-                "printedName": "Hashable",
-                "usr": "s:SH",
-                "mangledName": "$sSH"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Error",
-                "printedName": "Error",
-                "usr": "s:s5ErrorP",
-                "mangledName": "$ss5ErrorP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Sendable",
-                "printedName": "Sendable",
-                "usr": "s:s8SendableP",
-                "mangledName": "$ss8SendableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "SendableMetatype",
-                "printedName": "SendableMetatype",
-                "usr": "s:s16SendableMetatypeP",
-                "mangledName": "$ss16SendableMetatypeP"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "getLogs",
-            "printedName": "getLogs()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Tuple",
-                "printedName": "(linkToUploadedLogs: Foundation.URL, additionalInfo: Swift.String)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "URL",
-                    "printedName": "Foundation.URL",
-                    "usr": "s:10Foundation3URLV"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:So11PressReaderC4PRUIE7getLogs10Foundation3URLV014linkToUploadedE0_SS14additionalInfotyYaKF",
-            "mangledName": "$sSo11PressReaderC4PRUIE7getLogs10Foundation3URLV014linkToUploadedE0_SS14additionalInfotyYaKF",
-            "moduleName": "PRUI",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom",
-              "RawDocComment"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:objc(cs)PressReader",
-        "moduleName": "PRUI",
-        "isOpen": true,
-        "objc_name": "PressReader",
-        "declAttributes": [
-          "Preconcurrency",
-          "Custom",
-          "ObjC",
-          "Dynamic"
-        ],
-        "superclassUsr": "c:objc(cs)PRiphoneAppDelegate",
-        "isExternal": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "PRUI.PRiphoneAppDelegate",
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "DependencyResolver",
-            "printedName": "DependencyResolver",
-            "usr": "s:13PRDIContainer18DependencyResolverP",
-            "mangledName": "$s13PRDIContainer18DependencyResolverP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
           }
         ]
       },
@@ -120895,6 +122570,13 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Onboarding\/Interests\/InterestsDataSource.swift",
+      "kind": "Array",
+      "offset": 451,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/HomeFeed\/Components\/EmptySourcesView.swift",
       "kind": "IntegerLiteral",
       "offset": 292,
@@ -121401,14 +123083,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Components\/GamePlay\/GamePlayVC.swift",
       "kind": "StringLiteral",
-      "offset": 352,
+      "offset": 359,
       "length": 17,
       "value": "\"gameStateBridge\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Components\/GamePlay\/GamePlayVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 3839,
+      "offset": 4516,
       "length": 5,
       "value": "false"
     },
@@ -122542,63 +124224,63 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7154,
+      "offset": 7132,
       "length": 9,
       "value": "\"book-id\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7624,
+      "offset": 7580,
       "length": 15,
       "value": "\"forceDownload\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "BooleanLiteral",
-      "offset": 7653,
+      "offset": 7609,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7723,
+      "offset": 7679,
       "length": 18,
       "value": "\"waitForIssueInDQ\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "BooleanLiteral",
-      "offset": 7755,
+      "offset": 7711,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7821,
+      "offset": 7777,
       "length": 11,
       "value": "\"pageIndex\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7849,
+      "offset": 7805,
       "length": 8,
       "value": "\"pageNo\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "StringLiteral",
-      "offset": 7931,
+      "offset": 7887,
       "length": 7,
       "value": "\"artID\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/AppDelegate\/PRiphoneAppDelegate+Commands.swift",
       "kind": "BooleanLiteral",
-      "offset": 7986,
+      "offset": 7942,
       "length": 5,
       "value": "false"
     },
@@ -122983,21 +124665,21 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Books\/BookDetails\/BookDetailsVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 9404,
+      "offset": 9445,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Books\/BookDetails\/BookDetailsVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 9472,
+      "offset": 9513,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Books\/BookDetails\/BookDetailsVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 10118,
+      "offset": 10159,
       "length": 4,
       "value": "true"
     },
@@ -123921,14 +125603,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/GlobalSearch\/Base\/ArticleSearchVC.swift",
       "kind": "FloatLiteral",
-      "offset": 576,
+      "offset": 722,
       "length": 3,
       "value": "0.2"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/GlobalSearch\/Base\/ArticleSearchVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 3635,
+      "offset": 3159,
       "length": 5,
       "value": "false"
     },
@@ -125041,7 +126723,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Commands\/Order\/CommandOrderGame.swift",
       "kind": "BooleanLiteral",
-      "offset": 559,
+      "offset": 534,
       "length": 5,
       "value": "false"
     },
@@ -126798,21 +128480,21 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/HotSpot\/WelcomeHotSpot\/HotSpotStatusWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 1088,
+      "offset": 1099,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/HotSpot\/WelcomeHotSpot\/HotSpotStatusWebVC.swift",
       "kind": "Array",
-      "offset": 1179,
+      "offset": 1190,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/HotSpot\/WelcomeHotSpot\/HotSpotStatusWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 1211,
+      "offset": 1222,
       "length": 5,
       "value": "false"
     },
@@ -127036,21 +128718,21 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Reader\/NativeTextFlow\/LibraryItemFeedVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 10717,
+      "offset": 10904,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Reader\/NativeTextFlow\/LibraryItemFeedVC.swift",
       "kind": "StringLiteral",
-      "offset": 13476,
+      "offset": 13931,
       "length": 11,
       "value": "\"i-toc.png\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Reader\/NativeTextFlow\/LibraryItemFeedVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 13732,
+      "offset": 14187,
       "length": 5,
       "value": "false"
     },
@@ -127295,21 +128977,21 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Reader\/ReadingVC\/ReplicaTextViewBridge.swift",
       "kind": "StringLiteral",
-      "offset": 979,
+      "offset": 926,
       "length": 10,
       "value": "\"newValue\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Reader\/ReadingVC\/ReplicaTextViewBridge.swift",
       "kind": "StringLiteral",
-      "offset": 899,
+      "offset": 846,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRUI\/Sources\/_components\/Banners\/HotSpotBannerView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2097,
+      "offset": 2042,
       "length": 1,
       "value": "0"
     },

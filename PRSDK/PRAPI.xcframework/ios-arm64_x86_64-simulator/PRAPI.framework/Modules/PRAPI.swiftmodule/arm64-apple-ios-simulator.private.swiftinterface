@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-compiler-version: Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
 // swift-module-flags: -target arm64-apple-ios17.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRAPI
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
 import AVFAudio
 import AVFoundation
 import AppTrackingTransparency
@@ -1056,7 +1056,7 @@ extension PRAPI.ArticleSearchAnalyticsProvider {
   }
   public func trackMoreArticlesLoaded()
 }
-public struct CatalogServiceItemInfo {
+public struct CatalogServiceItemInfo : Swift.Sendable {
   public var gracePeriodAddedMessage: Swift.String?
   public init()
 }
@@ -1067,7 +1067,7 @@ extension Foundation.NSNotification.Name {
 @objc extension Foundation.NSNotification {
   @objc public static let catalogPreloaded: Foundation.Notification.Name
 }
-@_inheritsConvenienceInitializers @_Concurrency.MainActor public class _CatalogService<T> : PRAPI.MOService<T, PRAPI.CatalogCoreDataController>, PRAPI.Preloadable where T : PRAPI.PressCatalogable {
+@_inheritsConvenienceInitializers @_Concurrency.MainActor public class _CatalogService<T> : PRAPI.MOService<T, PRAPI.CatalogCoreDataController>, PRAPI.Preloadable, @_Concurrency.MainActor PRAPI.LoadableCatalog where T : PRAPI.PressCatalogable {
   @_Concurrency.MainActor public var updateInterval: Foundation.TimeInterval {
     get
   }
@@ -1079,12 +1079,11 @@ extension Foundation.NSNotification.Name {
   }
   @_Concurrency.MainActor public func preload() async
   @_Concurrency.MainActor public func cancelPreloading()
-  override public init(item: T)
-  @objc deinit
-}
-extension PRAPI._CatalogService : @preconcurrency PRAPI.LoadableCatalog {
   @_Concurrency.MainActor public func catalog(context: CoreData.NSManagedObjectContext) throws -> any PRAPI.PressCatalogable
   @_Concurrency.MainActor public func catalog(context: CoreData.NSManagedObjectContext, service: Swift.String?) throws -> any PRAPI.PressCatalogable
+  @_Concurrency.MainActor public func loadItem<I>(id: Swift.String) async throws -> I where I : PRCatalogModel.CatalogItem
+  override public init(item: T)
+  @objc deinit
 }
 public protocol SearchHistoryAnalyticsProvider : PRAnalytics.AnalyticsProvider {
 }
@@ -1998,9 +1997,6 @@ extension PRCatalogModel.PressCatalog {
     get
   }
 }
-@objc extension PRCatalogModel.Document {
-  @objc override dynamic public class func loadItem(id: Swift.String, catalog: PRCatalogModel.Catalog) -> PRPromiseKit.Promise
-}
 @objc @_hasMissingDesignatedInitializers final public class LocationManager : ObjectiveC.NSObject, PRAPI.BackgroundTaskRunner {
   final public var backgroundTasks: Swift.Set<PRAPI.BackgroundTask>
   @objc deinit
@@ -2383,8 +2379,10 @@ extension PRAPI.PRMyLibraryItem : PRAPI.TitleItemDerivative {
 @_inheritsConvenienceInitializers @_Concurrency.MainActor final public class PublicationService : PRAPI._CatalogService<PRCatalogModel.Publications> {
   @discardableResult
   @_Concurrency.MainActor final public func loadPublication(cid: Swift.String, service: Swift.String? = nil) async throws -> any PRAPI.TitleItem
+  @_Concurrency.MainActor final public func loadDocument(id: Swift.String, service: Swift.String? = nil) async throws -> PRCatalogModel.Document
   @_Concurrency.MainActor final public func loadRestrictions(issue: PRCatalogModel.TitleIssue, service: Swift.String? = nil) async throws
   @_Concurrency.MainActor override final public func preload() async
+  @_Concurrency.MainActor override final public func loadItem<I>(id: Swift.String) async throws -> I where I : PRCatalogModel.CatalogItem
   override public init(item: PRCatalogModel.Publications)
   @objc deinit
 }
@@ -2409,14 +2407,13 @@ extension PRAPI.GameService {
     case missingGamePlayURL
     case corruptedGamePlayURL
     case accessToken
-    case missingCategory
     public static func == (a: PRAPI.GameService.GamePlayError, b: PRAPI.GameService.GamePlayError) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
   }
-  @_Concurrency.MainActor final public func gamePlay(issue: PRCoreDataUtils.SendableMO<PRCatalogModel.GameIssue>) async throws -> Foundation.URLRequest
+  @_Concurrency.MainActor final public func gamePlay(issueId: Swift.String, categoryId: Swift.String? = nil) async throws -> Foundation.URLRequest
 }
 extension PRAPI.PRTitleGroup : PRAPI.TitleItemDerivative {
   public var titleItem: (any PRAPI.TitleItem)? {
@@ -3599,6 +3596,7 @@ public enum AccessError : PRUtils.DefaultLocalizedError {
   @_Concurrency.MainActor final public func purchaseBook(id: Swift.String, options: PRCatalogModel.CatalogItemContentOption, preloadDetails: Swift.Bool = false, itemInfo: inout PRAPI.CatalogServiceItemInfo) async throws
   @_Concurrency.MainActor override final public func preload() async
   @_Concurrency.MainActor override final public func cancelPreloading()
+  @_Concurrency.MainActor override final public func loadItem<I>(id: Swift.String) async throws -> I where I : PRCatalogModel.CatalogItem
   override public init(item: PRCatalogModel.Books)
   @objc deinit
 }
@@ -3681,7 +3679,6 @@ extension PRAPI.PROptions {
 @objc extension PRCatalogModel.CatalogItem {
   public enum LoadingError : PRUtils.DefaultLocalizedError {
     case unableToLoad
-    case noContent
     case unexpectedResponse
     case noServiceUrlProvided
     public static func == (a: PRCatalogModel.CatalogItem.LoadingError, b: PRCatalogModel.CatalogItem.LoadingError) -> Swift.Bool
@@ -3690,7 +3687,6 @@ extension PRAPI.PROptions {
       get
     }
   }
-  @objc dynamic public class func loadItem(id: Swift.String, catalog: PRCatalogModel.Catalog) -> PRPromiseKit.Promise
 }
 @objc extension PRCatalogModel.CatalogItem {
   @objc nonisolated dynamic public func downloadState(options: PRCatalogModel.CatalogItemContentOption = []) -> PRAPI.PRTitleItemExemplarState
@@ -4093,6 +4089,7 @@ public protocol LoadableCatalog {
   var mainContext: CoreData.NSManagedObjectContext { get }
   func catalog(context: CoreData.NSManagedObjectContext) throws -> any PRAPI.PressCatalogable
   @_Concurrency.MainActor func loadBatch(entity: PRCatalogModel.CatalogEntity) async throws -> [PRCatalogModel.CatalogItem]
+  @_Concurrency.MainActor func loadItem<I>(id: Swift.String) async throws -> I where I : PRCatalogModel.CatalogItem
 }
 extension Foundation.NSNotification.Name {
   public static let catalogItemsUpdated: Foundation.Notification.Name
@@ -4578,6 +4575,10 @@ extension PRCatalogModel.CatalogEntity : @_Concurrency.MainActor PRAPI.CatalogIt
   @objc nonisolated dynamic public func title(for section: Swift.Int) -> Swift.String?
   @objc nonisolated dynamic public var canLoadMoreSilently: Swift.Bool {
     @objc get
+  }
+  nonisolated public var state: PRAPI.ModelState {
+    get
+    set
   }
 }
 extension PRCatalogModel.Query {

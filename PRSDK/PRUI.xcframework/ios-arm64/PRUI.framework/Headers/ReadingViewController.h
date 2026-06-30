@@ -123,6 +123,7 @@ typedef enum {
 
 - (PRPDFScrollView *)pdfScrollViewWithCurrentItem;
 - (void)updateTitle;
+- (UIViewController *)createTextFlowController;
 
 @property (nullable, nonatomic, strong) UIButton *readingModeSwitchButton;
 @property (nonatomic) BOOL shouldDismissBarsImmediately;

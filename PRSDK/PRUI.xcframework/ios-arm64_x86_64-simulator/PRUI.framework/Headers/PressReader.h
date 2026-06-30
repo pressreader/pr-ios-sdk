@@ -49,7 +49,7 @@ typedef NS_OPTIONS(NSUInteger, PRState) {
 @property (class, nullable, nonatomic, copy) NSDictionary<UIApplicationLaunchOptionsKey, id> *launchOptions;
 
 @property (nonatomic, assign, readonly) PRState state;
-@property (nonatomic, readonly) PRCatalog *catalog;
+@property (nullable, nonatomic, readonly) PRCatalog *catalog;
 
 @property (nonatomic, strong, readonly) UIViewController *rootViewController;
 

@@ -104,6 +104,8 @@ typedef NS_OPTIONS(NSUInteger, VerticalTextFlowVCPreference) {
 @property (nullable, nonatomic, strong, readonly) TranslationView *translationView;
 @property (nullable, nonatomic, strong) TextFlowActivityVC *activityVC;
 
+@property (nullable, nonatomic, readonly) NSArray<NSString *> *searchTokens;
+
 @end
 
 NS_ASSUME_NONNULL_END

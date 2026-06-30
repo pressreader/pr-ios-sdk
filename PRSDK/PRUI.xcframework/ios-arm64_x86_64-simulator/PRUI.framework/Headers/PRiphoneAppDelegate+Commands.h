@@ -42,10 +42,6 @@ NS_SWIFT_NAME(openArticle(id:completionHandler:));
              parent:(nullable NTFArticleItem *)parent
           presenter:(nullable UIViewController *)presenter;
 
-- (BOOL)openCatalogItemWithId:(NSString *)itemId
-                        class:(Class)itemClass
-                      catalog:(nullable Catalog *)catalog;
-
 - (BOOL)signInWithUserName:(nullable NSString *)username
                   password:(nullable NSString *)password
                serviceName:(nullable NSString *)serviceName
