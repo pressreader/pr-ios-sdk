@@ -29,7 +29,7 @@ class PublicationSection: ContentSection {
         }
     }
 
-    func item(at index: Int) -> TitleItem? {
+    func item(at index: Int) -> PRCatalogItem? {
         self.model.catalogItem(at: index)
     }
 

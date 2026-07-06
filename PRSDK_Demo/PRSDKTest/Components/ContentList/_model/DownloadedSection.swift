@@ -21,7 +21,7 @@ final class DownloadedSection: PublicationSection {
         false
     }
     
-    override func item(at index: Int) -> TitleItem? {
+    override func item(at index: Int) -> PRCatalogItem? {
         self.model.downloadedItem(at: index)
     }
 }

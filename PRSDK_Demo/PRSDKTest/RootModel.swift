@@ -259,11 +259,11 @@ final class RootModel {
         }
     }
 
-    func downloadedItem(at index: Int) -> TitleItem? {
+    func downloadedItem(at index: Int) -> PRCatalogItem? {
         self.catalog?.downloaded.items[index]
     }
     
-    func delete(_ item: TitleItem) {
+    func delete(_ item: PRCatalogItem) {
         self.downloaded?.delete(item)
     }
 
