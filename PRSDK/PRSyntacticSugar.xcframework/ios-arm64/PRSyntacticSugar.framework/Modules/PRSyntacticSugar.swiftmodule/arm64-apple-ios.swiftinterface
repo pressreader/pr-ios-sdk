@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRSyntacticSugar
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRSyntacticSugar
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
 import Foundation
 @_exported import PRSyntacticSugar
 import Swift
@@ -15,7 +15,18 @@ final public class ObjectAssociationProxy<T> {
   @objc deinit
 }
 extension PRSyntacticSugar.PRBlockUtil {
+  public enum BlockError : Swift.Error {
+    case timeout
+    public static func == (a: PRSyntacticSugar.PRBlockUtil.BlockError, b: PRSyntacticSugar.PRBlockUtil.BlockError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
   public class func perform<T>(_ block: @escaping () throws -> T) throws -> T
+  @_Concurrency.MainActor public class func perform<T>(checkInterval: Foundation.TimeInterval, timeout: Foundation.TimeInterval, condition: () -> Swift.Bool, block: @escaping () throws -> T) async throws -> T
+  @available(swift, obsoleted: 1.0)
+  @objc dynamic public class func perform(checkInterval: Foundation.TimeInterval, timeout: Foundation.TimeInterval, condition: @escaping () -> Swift.Bool, block: @escaping () -> ())
 }
 public func missingImplementationError(_ message: Swift.String? = nil) -> Swift.Never
 extension Swift.OptionSet {
@@ -29,7 +40,7 @@ public func lift<A, B, C>(_ tuple: (A?, B?, C?)) -> (A, B, C)?
 public func lift<A, B>(_ a: A?, _ b: B?) -> (A, B)?
 public func lift<A, B, C>(_ a: A?, _ b: B?, _ c: C?) -> (A, B, C)?
 public func isSequenceLiftable(args: Any?...) -> Swift.Bool
-extension Swift.Dictionary where Key == Swift.String, Value == Any {
+extension Swift.Dictionary where Key == Swift.String, Value == any Swift.Sendable {
   public enum DictionaryValuePathError : Swift.Error {
     case invalidType
     public static func == (a: Swift.Dictionary<Key, Value>.DictionaryValuePathError, b: Swift.Dictionary<Key, Value>.DictionaryValuePathError) -> Swift.Bool
@@ -59,13 +70,15 @@ extension Foundation.NSDictionary {
 public func typeString<T>(_ type: T.Type) -> Swift.String
 public func typeString<T>(_ value: T) -> Swift.String
 public typealias PROptionSet = PRSyntacticSugar._PROptionSet & Swift.OptionSet
-@objc @objcMembers open class _PROptionSet : ObjectiveC.NSObject {
+@objc @objcMembers open class _PROptionSet : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc final public let rawValue: Swift.Int
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
   @objc required public init(rawValue: Swift.Int)
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @available(swift, obsoleted: 1.0)
+  @objc(contains:) public func _contains(_ object: Any?) -> Swift.Bool
   @objc deinit
 }
 public protocol Emptiable {
@@ -108,7 +121,7 @@ extension Foundation.NSString : PRSyntacticSugar.Countable {
 extension Swift.SetAlgebra {
   public mutating func update(_ member: Self.Element, _ set: Swift.Bool)
 }
-extension Swift.Dictionary where Key == Swift.String, Value == Any {
+extension Swift.Dictionary where Key == Swift.String, Value == any Swift.Sendable {
   public func typified<T>(key keyType: T.Type) -> PRSyntacticSugar.TypifiedDictionaryWrapper<T> where T : Swift.RawRepresentable, T.RawValue == Swift.String
 }
 public struct TypifiedDictionaryWrapper<T> where T : Swift.RawRepresentable, T.RawValue == Swift.String {
@@ -118,3 +131,5 @@ public struct TypifiedDictionaryWrapper<T> where T : Swift.RawRepresentable, T.R
   public let dictionary: [Swift.String : Any]
   public init(_ dictionary: [Swift.String : Any], keyType: T.Type)
 }
+extension PRSyntacticSugar.PRBlockUtil.BlockError : Swift.Equatable {}
+extension PRSyntacticSugar.PRBlockUtil.BlockError : Swift.Hashable {}

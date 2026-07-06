@@ -15,11 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PRBasePaymentOptionsVC : UITableViewController
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
-                  productList:(NSArray<PRProduct *> *)products
-                          CID:(nullable NSString *)CID
-                         date:(nullable NSDate *)date
-                     delegate:(id<PRPurchaseSelectorProtocol>)delegate NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(style:productList:CID:date:delegate:));
+- (instancetype)initWithCID:(nullable NSString *)CID
+                       date:(nullable NSDate *)date
+                   delegate:(id<PRPurchaseSelectorProtocol>)delegate NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(cid:date:delegate:));
 
 - (instancetype)initWithStyle:(UITableViewStyle)style NS_UNAVAILABLE;
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil

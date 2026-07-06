@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRSDKConfig : NSObject
-@property (nonatomic, readonly) id sdkInstance;
 @property (nonatomic, readonly) BOOL isSDK;
 
 @property (nonatomic, readonly) NSString *exitButtonTitle;

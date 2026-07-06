@@ -11,23 +11,28 @@ import PRUI
 import PRUIKit
 import SwiftUI
 
-final class RootVC: UITableViewController, Reloadable, IssueHandler {
+final class RootVC: UITableViewController, Reloadable {
     
     // MARK: - Nested Types
     
     private enum Section: Int {
-        case service, fullUI, auth, log, dismiss, catalog, downloaded, articles
+        case service
+        case fullUI
+        case auth
+        case log
+        case dismiss
+        case catalog
     }
-        
+    
     // MARK: - Private Properties
     
     private lazy var model = {
         RootModel(delegate: self)
     }()
     
-    private var isReloadingDisabled = false
     private var sections = [Section]()
-    
+    private var catalogSections = [any ContentSection]()
+
     private var authorizeCellTitle: String {
         let model = self.model
         guard let account = model.account else {
@@ -83,8 +88,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         let table: UITableView = self.tableView
         table.register(UITableViewCell.self, forCellReuseIdentifier: "actionCell")
         table.register(TextFieldCell.self, forCellReuseIdentifier: "textFieldCell")
-        table.register(IssueCell.self, forCellReuseIdentifier: .sdkTest.cells.issue)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: .sdkTest.cells.article)
     }
     
     // MARK: - Private Methods
@@ -137,16 +140,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
     }
 
-    private func issueCell(_ tableView: UITableView, indexPath: IndexPath) -> IssueCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: .sdkTest.cells.issue, for: indexPath
-        ) as! IssueCell
-        
-        cell.delegate = self
-        
-        return cell
-    }
-        
     private func configureAuthTextField(cell: TextFieldCell,
                                         text: String?,
                                         placeholder: String,
@@ -176,21 +169,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         hosting.title = "Services"
         
         self.navigationController?.pushViewController(hosting, animated: true)
-    }
-    
-    @MainActor
-    private func openArticle(at indexPath: IndexPath) async {
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-        activityIndicator.startAnimating()
-        
-        let cell = tableView.cellForRow(at: indexPath)!
-        cell.accessoryView = activityIndicator
-        
-        await PressReader.instance().openArticle(
-            id: model.articles[indexPath.row]
-        )
-        
-        activityIndicator.stopAnimating()
     }
     
     @MainActor
@@ -256,15 +234,34 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             
             if model.isCatalogEnabled {
                 sections.append(.catalog)
-                sections.append(.downloaded)
-            }
-            
-            if model.isArticleSetEnabled {
-                sections .append(.articles)
             }
         }
         
         self.sections = sections
+    }
+    
+    private func updateCatalogSections() {
+        let model = self.model
+        var sections = [any ContentSection]()
+        
+        if model.publicationsEnabled {
+            sections.append(PublicationSection(model: model))
+            sections.append(DownloadedSection(model: model))
+        }
+
+        if model.articlesEnabled {
+            sections.append(ArticlesSection(model: model))
+        }
+
+        if model.booksEnabled {
+            sections.append(BooksSection(model: model))
+        }
+
+        if model.gamesEnabled {
+            sections.append(GamesSection(model: model))
+        }
+
+        self.catalogSections = sections
     }
     
     private func authCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -334,8 +331,6 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     // MARK: - Reloadable
 
     func reloadData() {
-        guard !self.isReloadingDisabled else { return }
-        
         self.tableView.reloadData()
     }
 
@@ -350,9 +345,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sections = self.sections
         let model = self.model
-        switch sections[section] {
+        
+        return switch sections[section] {
         case .auth:
-            return switch model.authorizationData {
+            switch model.authorizationData {
             case .giftToken:
                 2
             case .externalAuthToken:
@@ -360,14 +356,15 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 ? model.account?.state == .authorized ? 4 : 5
                 : 3
             }
-        case .catalog:
-            return model.catalogItemsCount
-        case .downloaded:
-            return model.downloadedItemsCount
-        case .articles:
-            return model.articles.count
+            
+        case .catalog: {
+            self.updateCatalogSections()
+            
+            return self.catalogSections.count
+        }()
+            
         default:
-            return 1
+            1
         }
     }
     
@@ -386,18 +383,18 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                                      title: "Service",
                                      details: model.currentService,
                                      selectionEnabled: model.isServiceSelectionEnabled)
-
+            
         case .fullUI:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: "Full UI",
                                    accessibilityId: .sdkTest.cells.fullUI)
-
+            
         case .log:
             cell = self.actionCell(tableView,
                                    indexPath: indexPath,
                                    title: "Upload Logs and Get the link")
-
+            
         case .dismiss:
             cell = self.actionCell(
                 tableView,
@@ -405,30 +402,24 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 title: model.isDismissed ? "Restore" : "Dismiss",
                 accessibilityId: .sdkTest.cells.dismiss
             )
-
-        case .catalog:
-            let _cell = self.issueCell(tableView, indexPath: indexPath)
-            _cell.issue = model.catalogItem(at: indexPath.row)
-
-            cell = _cell
-
-        case .downloaded:
-            let _cell = self.issueCell(tableView, indexPath: indexPath)
-            _cell.issue = model.downloadedItem(at: indexPath.row)
-
-            cell = _cell
-
-        case .articles:
-            cell = tableView.dequeueReusableCell(
-                withIdentifier: .sdkTest.cells.article,
-                for: indexPath
-            )
             
-            var content = cell.defaultContentConfiguration()
-            content.text = "id: \(model.articles[indexPath.row])"
-            cell.contentConfiguration = content
+        case .catalog:
+            let contentSection = self.catalogSections[indexPath.row]
+            let itemsCount = contentSection.itemsCount
+            
+            let details = itemsCount > 0
+            ? "\(itemsCount)"
+            : contentSection.isLoadable ? "Loading..." : "0"
+            
+            cell = self.selectorCell(
+                tableView,
+                indexPath: indexPath,
+                title: contentSection.title,
+                details: details,
+                accessibilityId: contentSection.acessibilityId
+            )
         }
-        
+
         return cell
     }
     
@@ -439,12 +430,10 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
         case .auth:
             self.model.canAuthorize
             && !(tableView.cellForRow(at: indexPath) is TextFieldCell)
-        case .log, .dismiss, .fullUI, .articles:
+        case .log, .dismiss, .fullUI, .catalog:
             true
         case .service:
             self.model.isServiceSelectionEnabled
-        default:
-            false
         }
     }
     
@@ -480,10 +469,11 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
             
         case .log:
             model.getLogs()
-            
-        case .articles:
-            Task { await self.openArticle(at: indexPath) }
-            
+
+        case .catalog:
+            let listVC = self.catalogSections[indexPath.row].contentController()
+            self.navigationController?.pushViewController(listVC, animated: true)
+
         case .dismiss:
             model.isDismissed.toggle()
             
@@ -496,91 +486,32 @@ final class RootVC: UITableViewController, Reloadable, IssueHandler {
                 animated: true,
                 completion: nil
             )
-
-        default:
-            break
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView,
-                            titleForHeaderInSection section: Int) -> String?
-    {
+    override func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
         switch self.sections[section] {
         case .auth: "Authorization"
         case .log: "Logs"
         case .catalog: "Catalog"
-        case .downloaded: "Downloaded"
-        case .articles: "Articles"
         default: nil
         }
     }
-    
+
     override func tableView(
         _ tableView: UITableView,
         titleForFooterInSection section: Int
     ) -> String? {
-        let model = self.model
-
         switch self.sections[section] {
         case .auth:
             return self.authorizationFooterText
-        case .catalog:
-            return model.catalogItemsCount > 0 ? nil : "Loading..."
-
-        case .downloaded:
-            return "Downloaded (ordered) items will appear here"
-
         default:
             return nil
         }
-    }
-    
-    override func tableView(
-        _ tableView: UITableView,
-        editingStyleForRowAt indexPath: IndexPath
-    ) -> UITableViewCell.EditingStyle {
-        switch self.sections[indexPath.section] {
-        case .downloaded: .delete
-        case .catalog:
-            self.model.catalogItem(at: indexPath.row)?.download?.state ==  .ready
-            ? .delete
-            : .none
-        default: .none
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCell.EditingStyle,
-                            forRowAt indexPath: IndexPath)
-    {
-        switch self.sections[indexPath.section] {
-        case .downloaded:
-            self.isReloadingDisabled = true
-            
-            self.model.deleteDownloadedItem(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            
-            self.isReloadingDisabled = false
-        case .catalog:
-            self.model.catalogItem(at: indexPath.row).map {
-                self.model.delete($0)
-                (self.tableView.cellForRow(at: indexPath) as? IssueCell).map {
-                    $0.update()
-                }
-            }
-        default: break
-        }
-    }
-    
-    // MARK: - IssueHandler
-    
-    func openIssue(_ issue: PRCatalogItem) {
-        guard let rootVC = UIApplication.shared.rootVC,
-              let reader = ReadingVC(issue)
-        else { return }
-        
-        rootVC.present(reader, animated: true, completion: nil)
     }
 }

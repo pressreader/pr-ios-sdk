@@ -11,7 +11,7 @@
 #import "NTFArticleCompactView.h"
 #import "NTFArticleCompactView_Constants.h"
 
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,9 +26,9 @@ typedef NSArray<id<NTFItem>> * NTFItems;
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 - (void)setupWithItems:(NTFItems)items
-             contentWidth:(CGFloat)contentWidth
-                   action:(FeedItemAction *)action
-                  options:(NTFArticleCompactViewOption)options;
+          contentWidth:(CGFloat)contentWidth
+                action:(FeedItemAction *)action
+               options:(NTFArticleCompactViewOption)options;
 
 @property (nonatomic, strong, readonly) NTFItems feedItems;
 @property (nonatomic, assign, readonly) NSUInteger itemsCount;

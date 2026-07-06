@@ -290,7 +290,7 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
 - (void)setNeedsUpdatePressCatalog;
 - (void)updateCatalogAfterDelay:(NSTimeInterval)delay;
 - (void)updateCustomCatalog:(void(^ _Nullable)(BOOL))completion;
-- (void)updateAll;
+- (void)setNeedsUpdateAll;
 - (void)updateLatestAvailableDates:(BOOL)force completion:(void(^_Nullable)(void))completion;
 - (void)updateRemainingCredits;
 
@@ -312,6 +312,7 @@ typedef NS_ENUM(NSUInteger, PRSmartSearchArea) {
 
 @property (nonatomic, strong, readonly) NSString *name;
 @property (null_resettable, nonatomic, strong) PRPromise *onlineTokenRequest;
+@property (nonatomic) NSInteger accessTokenRequestAttemptCount;
 @property (nonatomic, readonly) BOOL hasOnlineToken;
 /// A storage, never access directly, use async api instead.
 @property (nullable, nonatomic, strong) NSString *_bearerToken;

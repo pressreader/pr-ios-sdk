@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PRConfig+Theme.h"
+#import <PRUIKit/PRConfig+Theme.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

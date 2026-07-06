@@ -6,7 +6,7 @@
 //  Copyright © 2017 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 @class PRPromise;
 
@@ -25,7 +25,7 @@ typedef NS_ENUM(uint8_t, PRPromiseState) {
     PRPromiseStateRejected
 };
 
-typedef void (^PRPromiseResolverBlock) (BOOL success, id _Nullable result, NSError *_Nullable error);
+typedef void (NS_SWIFT_SENDABLE ^PRPromiseResolverBlock) (BOOL success, id _Nullable result, NSError *_Nullable error);
 typedef void (^PRPromiseRunBlock) (PRPromiseResolverBlock);
 typedef BOOL (^PRPromiseExpirationConditionBlock) (PRPromise *promise);
 typedef PRPromise *_Nonnull(^PRPromiseReturnBlock)(id);

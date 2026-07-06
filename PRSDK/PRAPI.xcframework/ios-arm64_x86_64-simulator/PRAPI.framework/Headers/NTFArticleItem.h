@@ -36,10 +36,10 @@ extern NSString * const kPRPopularArticlesKey;
 @property (nullable, nonatomic, readonly) NSString *bylineForDisplayWithLineBreak;
 @property (nullable, nonatomic, readonly) NSArray<NTFArticleItem *> *relatedStories;
 // computed
-@property (nonatomic, readonly) PRSmartArticle *smartArticle;
+@property (nullable, nonatomic, readonly) PRSmartArticle *smartArticle;
 @property (nullable, nonatomic, readonly) PRMyLibraryItem *mli;
 @property (nullable, nonatomic, readonly) NTFSocialInfoItem *socialInfo;
-@property (nonatomic, readonly) NSArray<PRAnalyticsProfileBase *> *analyticsProfiles;
+@property (nullable, nonatomic, readonly) NSArray<PRAnalyticsProfileBase *> *analyticsProfiles;
 @property (nonatomic, readonly) BOOL featuredSection;
 @property (nullable, nonatomic, readonly) NTFUserItem *source;
 @property (nonatomic, readonly) BOOL isUserPost;

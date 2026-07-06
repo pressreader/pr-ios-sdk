@@ -14,13 +14,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#ifndef SignInCompletion
-typedef void (^SignInCompletion)(BOOL success, BOOL isNewUser, NSError *_Nullable error);
-#endif
-
-#ifndef ExternalAuthCompletion
-typedef void (^ExternalAuthCompletion)(NSString *_Nullable authKey, BOOL isNewUser, NSError *_Nullable error);
-#endif
+typedef void (NS_SWIFT_SENDABLE ^SignInCompletion)(BOOL success, BOOL isNewUser, NSError *_Nullable error);
+typedef void (NS_SWIFT_SENDABLE ^ExternalAuthCompletion)(NSString *_Nullable authKey, BOOL isNewUser, NSError *_Nullable error);
 
 @class SignInResult;
 

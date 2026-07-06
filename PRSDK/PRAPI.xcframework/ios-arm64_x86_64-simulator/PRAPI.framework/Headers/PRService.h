@@ -6,7 +6,7 @@
 //  Copyright 2008 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 @import NetworkingKit.AFHTTPClient;
 #import <PRAPI/PRService_Constants.h>
 
@@ -37,7 +37,7 @@
                                   options:(NSDictionary<PRServiceRequestOption, id> *)options;
 
 
-@property (nonatomic, class, readonly) NSDictionary *defaultServiceOptions;
+@property (nonatomic, class, readonly) NSDictionary<PRServiceRequestOption, id> *defaultServiceOptions;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PRSmartMarkerViewController.h"
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

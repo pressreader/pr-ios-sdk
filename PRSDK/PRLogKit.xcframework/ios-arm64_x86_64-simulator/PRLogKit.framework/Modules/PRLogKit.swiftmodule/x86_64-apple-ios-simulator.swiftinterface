@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
 // swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRLogKit
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 @_exported import PRLogKit
 import PRSyntacticSugar
 import Swift
@@ -10,16 +10,32 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 extension PRLogKit.PRLog {
   @objc public static let loggerCacheDirectory: Foundation.URL?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static var loggerCachePath: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func LogVerbose(_ msg: Swift.String, context: Swift.Int = 0, tag: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.UInt = #line)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public class func Debug(_ msg: Swift.String, tag: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.UInt = #line)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func LogDebug(_ msg: Swift.String, context: Swift.Int = 0, tag: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.UInt = #line)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func LogTrace(_ msg: Swift.String, context: Swift.Int = 0, tag: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.UInt = #line)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func LogInfo(_ msg: Swift.String, context: Swift.Int = 0, tag: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.UInt = #line)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func LogWarning(_ msg: Swift.String, context: Swift.Int = 0, tag: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.UInt = #line)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func LogError(_ msg: Swift.String, context: Swift.Int = 0, tag: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.UInt = #line)
+  #endif
   @objc dynamic public class func isInDebugger() -> Swift.Bool
   @objc dynamic public class func debugCrash(_ message: Swift.String)
   @objc dynamic public class func productionDebugCrash()

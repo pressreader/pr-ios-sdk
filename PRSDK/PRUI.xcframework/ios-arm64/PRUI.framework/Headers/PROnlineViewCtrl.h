@@ -6,7 +6,7 @@
 //  Copyright 2009 NewspaperDirect. All rights reserved.
 //
 
-@import PRUIKit;
+#import <PRUIKit/PRUIKit.h>
 #import <PRUI/PRAppPanel.h>
 
 @class PRAccountItem;

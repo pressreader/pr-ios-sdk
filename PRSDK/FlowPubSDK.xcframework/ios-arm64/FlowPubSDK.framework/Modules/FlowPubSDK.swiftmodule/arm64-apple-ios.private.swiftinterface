@@ -1,0 +1,790 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.2 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name FlowPubSDK
+@_exported import FlowPubSDK
+import Foundation
+import Swift
+import UIKit
+import UIKit.UIResponder
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@usableFromInline
+internal protocol _AnyDecodable {
+  var value: Any { get }
+  init<T>(_ value: T?)
+}
+extension FlowPubSDK._AnyDecodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BlobData : Swift.Codable {
+  public let basePath: Swift.String?
+  public let blobs: [FlowPubSDK.Blob]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Blob : Swift.Codable {
+  public let spineItemHref: Swift.String
+  public let blobPath: Swift.String
+  public let blobLength: Swift.Int
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Locator : Swift.Codable, Swift.Equatable {
+  public let href: Swift.String
+  public let type: Swift.String?
+  public var title: Swift.String?
+  public let locations: FlowPubSDK.Location?
+  public let text: FlowPubSDK.Text?
+  public let resourceSize: Swift.Int?
+  public let publicationSize: Swift.Int?
+  public let rangeLength: Swift.Int?
+  public init(href: Swift.String, locations: FlowPubSDK.Location!)
+  public func copy(href: Swift.String? = nil, type: Swift.String? = nil, title: Swift.String? = nil, locations: FlowPubSDK.Location? = nil, text: FlowPubSDK.Text? = nil, resourceSize: Swift.Int? = nil, publicationSize: Swift.Int? = nil, rangeLength: Swift.Int? = nil) -> FlowPubSDK.Locator
+  public static func == (a: FlowPubSDK.Locator, b: FlowPubSDK.Locator) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Location : Swift.Codable, Swift.Equatable {
+  public let fragments: [Swift.String]?
+  public let progression: Swift.Double?
+  public let totalProgression: Swift.Int?
+  public let position: Swift.Int?
+  public let relativePosition: Swift.Int?
+  public let partialCfi: Swift.String?
+  public init(position: Swift.Int?, relativePosition: Swift.Int?)
+  public func copy(fragments: [Swift.String]? = nil, progression: Swift.Double? = nil, totalProgression: Swift.Int? = nil, position: Swift.Int? = nil, relativePosition: Swift.Int? = nil, partialCfi: Swift.String? = nil) -> FlowPubSDK.Location
+  public static func == (a: FlowPubSDK.Location, b: FlowPubSDK.Location) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Text : Swift.Codable, Swift.Equatable {
+  public let before: Swift.String?
+  public let after: Swift.String?
+  public let highlight: Swift.String?
+  public func copy(before: Swift.String?, after: Swift.String?, highlight: Swift.String?) -> FlowPubSDK.Text
+  public static func == (a: FlowPubSDK.Text, b: FlowPubSDK.Text) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class NavigatorFactory : FlowPubSDK.WebViewModule {
+  public static let sharedInstance: FlowPubSDK.NavigatorFactory
+  final public let webViewFactory: FlowPubSDK.WebViewFactory
+  required public init(webViewFactory: FlowPubSDK.WebViewFactory = WebViewFactory.sharedInstance)
+  public func makeNavigator(frame: CoreFoundation.CGRect = CGRect(x: 0, y: 0, width: 768, height: 1024)) -> FlowPubSDK.Navigator
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class WebViewFactory {
+  public static let sharedInstance: FlowPubSDK.WebViewFactory
+  public func setURLSchemeHandler(_ urlSchemeHandler: (any WebKit.WKURLSchemeHandler)?, forURLScheme urlScheme: Swift.String)
+  public func makeWebView(frame: CoreFoundation.CGRect = .zero, configuration: WebKit.WKWebViewConfiguration = WKWebViewConfiguration(), label: Swift.String = "FlowPub.WebView") -> FlowPubSDK.WebView
+  @objc deinit
+}
+infix operator => : AssignmentPrecedence
+public enum ProgressionDirection : Swift.String, Swift.Codable {
+  case auto
+  case ltr
+  case rtl
+  case ttb
+  case btt
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Subject : Swift.Codable {
+  public let name: FlowPubSDK.LocalizedString
+  public let sortAs: Swift.String?
+  public let scheme: Swift.String?
+  public let code: Swift.String?
+  public let links: [FlowPubSDK.Link]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension Swift.Array where Element == FlowPubSDK.Link {
+  public func first(withRel rel: Swift.String, recursively: Swift.Bool = false) -> FlowPubSDK.Link?
+  public func first(withHref href: Swift.String, recursively: Swift.Bool = false) -> FlowPubSDK.Link?
+  public func first(recursively: Swift.Bool, where predicate: (FlowPubSDK.Link) -> Swift.Bool) -> FlowPubSDK.Link?
+  public func firstIndex(withHref href: Swift.String, recursively: Swift.Bool = false) -> Swift.Int?
+  public func firstIndex(recursively: Swift.Bool, where predicate: (FlowPubSDK.Link) -> Swift.Bool) -> Swift.Int?
+}
+@objc @_hasMissingDesignatedInitializers public class WebViewException : Foundation.NSException {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class WebViewUsageException : Foundation.NSException {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class WebViewJSException : Foundation.NSException {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class WebView : WebKit.WKWebView, WebKit.WKNavigationDelegate, WebKit.WKUIDelegate {
+  @_Concurrency.MainActor(unsafe) convenience public init(frame: CoreFoundation.CGRect, configuration: WebKit.WKWebViewConfiguration = WKWebViewConfiguration(), label: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect, configuration: WebKit.WKWebViewConfiguration = WKWebViewConfiguration())
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) public func setPanGestureHandler(handler: @escaping (CoreFoundation.CGPoint, CoreFoundation.CGFloat, UIKit.UIGestureRecognizer.State) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public func setPinchGestureHandler(handler: @escaping (Swift.Double, UIKit.UIGestureRecognizer.State) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder _: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func load(_ url: Foundation.URLRequest) -> WebKit.WKNavigation?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func loadFileURL(_: Foundation.URL, allowingReadAccessTo _: Foundation.URL) -> WebKit.WKNavigation?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func loadHTMLString(_ string: Swift.String, baseURL: Foundation.URL?) -> WebKit.WKNavigation?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func load(_ data: Foundation.Data, mimeType MIMEType: Swift.String, characterEncodingName: Swift.String, baseURL: Foundation.URL) -> WebKit.WKNavigation?
+  @_Concurrency.MainActor(unsafe) public func clearContent()
+  @_Concurrency.MainActor(unsafe) open func loadWithModules(_ modules: [FlowPubSDK.Module], completion: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public func enablePinchGestureDetection(_ enabled: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_: WebKit.WKWebView, didFinish _: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_: WebKit.WKWebView, decidePolicyFor _: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public func webView(_ webView: WebKit.WKWebView, shouldPreviewElement elementInfo: WebKit.WKContextMenuElementInfo) -> Swift.Bool
+}
+extension FlowPubSDK.WebView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func buildMenu(with builder: any UIKit.UIMenuBuilder)
+}
+public struct Link : Swift.Codable {
+  public let href: Swift.String
+  public let templated: Swift.Bool?
+  public let type: Swift.String?
+  public let title: Swift.String?
+  public let rel: [Swift.String]?
+  public let properties: FlowPubSDK.Properties?
+  public let height: Swift.Int?
+  public let width: Swift.Int?
+  public let duration: Swift.Double?
+  public let bitrate: Swift.Double?
+  public let language: [Swift.String]?
+  public let alternate: [FlowPubSDK.Link]?
+  public let children: [FlowPubSDK.Link]?
+  public static func == (lhs: FlowPubSDK.Link?, rhs: FlowPubSDK.Link) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum AdvancedSettings : Swift.String, Swift.Codable {
+  case on
+  case off
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DefaultsOverride : Swift.String, Swift.Codable {
+  case on
+  case off
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ReadingMode : Swift.String, Swift.Codable {
+  case day
+  case night
+  case sepia
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SpreadMode : Swift.String, Swift.Codable {
+  case single
+  case double
+  case auto
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum Hyphens : Swift.String, Swift.Codable {
+  case auto
+  case manual
+  case none
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum TextAlignment : Swift.String, Swift.Codable {
+  case left
+  case right
+  case center
+  case justify
+  case initial
+  case inherit
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ViewSettings : Swift.Codable {
+  public var columnGap: Swift.Int?
+  public var maxColumnWidth: Swift.Int?
+  public var minColumnWidth: Swift.Int?
+  public var fontSize: Swift.Int?
+  public var fontFamily: Swift.String?
+  public var spreadMode: FlowPubSDK.SpreadMode?
+  public var readingMode: FlowPubSDK.ReadingMode?
+  public var textColor: Swift.String?
+  public var backgroundColor: Swift.String?
+  public var textAlign: FlowPubSDK.TextAlignment?
+  public var hyphens: FlowPubSDK.Hyphens?
+  public var lineHeight: Swift.Double?
+  public var advancedSettings: FlowPubSDK.AdvancedSettings?
+  public var defaultsOverride: FlowPubSDK.DefaultsOverride?
+  public init(fontSize: Swift.Int? = nil, fontFamily: Swift.String? = nil, spreadMode: FlowPubSDK.SpreadMode? = nil, readingMode: FlowPubSDK.ReadingMode? = nil, columnGap: Swift.Int? = nil, maxColumnWidth: Swift.Int? = nil, minColumnWidth: Swift.Int? = nil, textColor: Swift.String? = nil, backgroundColor: Swift.String? = nil, textAlign: FlowPubSDK.TextAlignment? = nil, advancedSettings: FlowPubSDK.AdvancedSettings? = nil, defaultsOverride: FlowPubSDK.DefaultsOverride? = nil, hyphens: FlowPubSDK.Hyphens? = nil, lineHeight: Swift.Double? = nil)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct MimeType {
+  public var value: Swift.String {
+    get
+  }
+  public init(path: Swift.String)
+  public init(path: Foundation.NSString)
+  public init(url: Foundation.URL)
+}
+public enum PublicationFormat {
+  case epub
+  case readium
+  case w3c
+  public static func == (a: FlowPubSDK.PublicationFormat, b: FlowPubSDK.PublicationFormat) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+open class PublicationFactory : FlowPubSDK.WebViewModule {
+  public static let sharedInstance: FlowPubSDK.PublicationFactory
+  final public let webViewFactory: FlowPubSDK.WebViewFactory
+  required public init(webViewFactory: FlowPubSDK.WebViewFactory = WebViewFactory.sharedInstance)
+  public func makePublication(type publicationFormat: FlowPubSDK.PublicationFormat, with entryURL: Foundation.URL, completion: @escaping (_ result: Swift.Result<FlowPubSDK.Publication, any Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+public struct Contributor : Swift.Codable {
+  public let name: FlowPubSDK.LocalizedString
+  public let identifier: Swift.String?
+  public let sortAs: Swift.String?
+  public let role: [Swift.String]?
+  public let position: Swift.Double?
+  public let links: [FlowPubSDK.Link]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension FlowPubSDK.Publication {
+  public var baseURL: Foundation.URL? {
+    get
+  }
+  public var publicationSize: Swift.Int? {
+    get
+  }
+  public func getLocationTitle(_ position: Swift.Double) -> Swift.String
+  public func resolveAbsolutePosition(_ position: Swift.Int) -> FlowPubSDK.Locator?
+  public func resolveRelativePosition(_ position: Swift.Int, within link: FlowPubSDK.Link) -> FlowPubSDK.Locator?
+  public func resolveLink(_ link: FlowPubSDK.Link) -> FlowPubSDK.Locator?
+  public func resolveRangeBasedLocator(from begin: FlowPubSDK.Locator, to end: FlowPubSDK.Locator) -> [FlowPubSDK.Locator]?
+}
+public enum Module : Swift.String {
+  case core
+  case publication
+  case navigator
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension FlowPubSDK.Module {
+  public static func getModulePath(module: FlowPubSDK.Module, basePath: Swift.String = ".") -> Swift.String
+  public static func getModulePath(moduleKey: Swift.String, basePath: Swift.String = ".") -> Swift.String
+}
+public protocol WebViewModule {
+  var webViewFactory: FlowPubSDK.WebViewFactory { get }
+  init(webViewFactory: FlowPubSDK.WebViewFactory)
+}
+public struct Metadata : Swift.Codable {
+  public let title: FlowPubSDK.LocalizedString
+  public let subtitle: FlowPubSDK.LocalizedString?
+  public let identifier: Swift.String?
+  public let type: Swift.String?
+  public let published: Swift.String?
+  public let modified: Swift.String?
+  public let language: [Swift.String]?
+  public let description: Swift.String?
+  public let sortAs: Swift.String?
+  public let author: [FlowPubSDK.Contributor]?
+  public let translator: [FlowPubSDK.Contributor]?
+  public let editor: [FlowPubSDK.Contributor]?
+  public let artist: [FlowPubSDK.Contributor]?
+  public let illustrator: [FlowPubSDK.Contributor]?
+  public let letterer: [FlowPubSDK.Contributor]?
+  public let penciler: [FlowPubSDK.Contributor]?
+  public let colorist: [FlowPubSDK.Contributor]?
+  public let inker: [FlowPubSDK.Contributor]?
+  public let narrator: [FlowPubSDK.Contributor]?
+  public let contributor: [FlowPubSDK.Contributor]?
+  public let publisher: [FlowPubSDK.Contributor]?
+  public let imprint: [FlowPubSDK.Contributor]?
+  public let subject: [FlowPubSDK.Subject]?
+  public let readingProgression: FlowPubSDK.ProgressionDirection?
+  public let duration: Swift.Double?
+  public let numberOfPages: Swift.Int?
+  public let belongsTo: FlowPubSDK.BelongsTo?
+  public let presentation: FlowPubSDK.Presentation?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BelongsTo : Swift.Codable {
+  public let collection: [FlowPubSDK.Contributor]?
+  public let series: [FlowPubSDK.Contributor]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Properties : Swift.Codable {
+  public let contains: [Swift.String]?
+  public let encrypted: FlowPubSDK.Encryption?
+  public let layout: FlowPubSDK.Layout?
+  public let mediaOverlay: Swift.String?
+  public let clipped: Swift.Bool?
+  public let fit: Swift.String?
+  public let orientation: Swift.String?
+  public let page: FlowPubSDK.PagePosition?
+  public let spread: FlowPubSDK.Spread?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum PagePosition : Swift.String, Swift.Codable {
+  case left
+  case right
+  case center
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Encryption : Swift.Codable {
+  public let algorithm: Swift.String
+  public let compression: Swift.String?
+  public let originalLength: Swift.Int?
+  public let profile: Swift.String?
+  public let scheme: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum LocalizedString : Swift.Codable {
+  case nonLocalized(Swift.String)
+  case localized([Swift.String : Swift.String])
+}
+extension FlowPubSDK.LocalizedString {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct ProcessedResource : Swift.Codable {
+  public var href: Swift.String
+  public var textLength: Swift.Int
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Publication : Swift.Codable {
+  public var metadata: FlowPubSDK.Metadata
+  public var links: [FlowPubSDK.Link]
+  public var readingOrder: [FlowPubSDK.Link]
+  public var resources: [FlowPubSDK.Link]?
+  public var toc: [FlowPubSDK.Link]
+  public var pageList: [FlowPubSDK.Link]?
+  public var landmarks: [FlowPubSDK.Link]?
+  public var loa: [FlowPubSDK.Link]?
+  public var loi: [FlowPubSDK.Link]?
+  public var lot: [FlowPubSDK.Link]?
+  public var lov: [FlowPubSDK.Link]?
+  public var processedResources: [FlowPubSDK.ProcessedResource]?
+  public var tocPositionList: [FlowPubSDK.Locator]?
+  public var pageListPositionList: [FlowPubSDK.Locator]?
+  public var blobData: FlowPubSDK.BlobData?
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension FlowPubSDK.Publication {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum FlowPubLogLevel : Swift.String {
+  case info
+  case debug
+  case error
+  case fault
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol FPErrorListener {
+  func logMessage(level: FlowPubSDK.FlowPubLogLevel, info: [Swift.AnyHashable : Any], message: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class FPErrorLogger {
+  public static let shared: FlowPubSDK.FPErrorLogger
+  public func attachErrorListener(_ errorListener: any FlowPubSDK.FPErrorListener)
+  public func removeErrorListener()
+  @objc deinit
+}
+extension FlowPubSDK.FPErrorLogger : FlowPubSDK.FPErrorListener {
+  public func logMessage(level: FlowPubSDK.FlowPubLogLevel, info: [Swift.AnyHashable : Any], message: Swift.String)
+}
+public struct Presentation : Swift.Codable {
+  public let clipped: Swift.Bool?
+  public let continuous: Swift.Bool?
+  public let fit: FlowPubSDK.Fit?
+  public let orientation: FlowPubSDK.Orientation?
+  public let overflow: FlowPubSDK.Overflow?
+  public let spread: FlowPubSDK.Spread?
+  public let layout: FlowPubSDK.Layout?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum Fit : Swift.String, Swift.Codable {
+  case contain
+  case cover
+  case width
+  case height
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum Orientation : Swift.String, Swift.Codable {
+  case auto
+  case landscape
+  case portrait
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum Overflow : Swift.String, Swift.Codable {
+  case auto
+  case paginated
+  case scrolled
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum Spread : Swift.String, Swift.Codable {
+  case auto
+  case none
+  case landscape
+  case both
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum Layout : Swift.String, Swift.Codable {
+  case fixed
+  case reflowable
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct CoreError : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum PublicationEdge : Swift.String {
+  case start
+  case end
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PageLabelInfo : Swift.Codable, Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum PageLabelLocationType : Swift.Int, Swift.Codable {
+  case anchor
+  case cfi
+  case offset
+  case none
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Position : Swift.Codable, Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ComparatorError : Foundation.LocalizedError {
+  case emptyLocatorArray
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (a: FlowPubSDK.ComparatorError, b: FlowPubSDK.ComparatorError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum NavigatorError : Foundation.LocalizedError {
+  case instantiationFailure
+  case internalError
+  case generic(any Swift.Error)
+  case comparatorError(FlowPubSDK.ComparatorError)
+  case coreError(FlowPubSDK.CoreError)
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public struct SelectionInfo : Swift.Decodable {
+  public let content: Swift.String
+  public let rects: [FlowPubSDK.Rect]
+  public let start: FlowPubSDK.Locator
+  public let end: FlowPubSDK.Locator
+  public let highlights: [Swift.String]
+  public let highlightOverlappingByPosition: [Swift.String]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SelectedHighlightInfo : Swift.Decodable {
+  public let touchPoint: FlowPubSDK.Rect
+  public let highlights: [FlowPubSDK.HighlightInfo]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NewHighlightInfo : Swift.Codable {
+  public let id: Swift.String
+  public let startLocator: FlowPubSDK.Locator
+  public let endLocator: FlowPubSDK.Locator
+  public let color: Swift.String
+  public init(id: Swift.String, startLoc: FlowPubSDK.Locator, endLoc: FlowPubSDK.Locator, color: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HighlightInfo : Swift.Decodable {
+  public let id: Swift.String
+  public let rects: [FlowPubSDK.Rect]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Rect : Swift.Decodable {
+  public let x: Swift.Double
+  public let y: Swift.Double
+  public let width: Swift.Double
+  public let height: Swift.Double
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension FlowPubSDK.Rect {
+  public var CGRect: CoreFoundation.CGRect {
+    get
+  }
+  public func contains(_ point: CoreFoundation.CGPoint) -> Swift.Bool
+}
+public struct TapInfo : Swift.Decodable {
+  public var x: Swift.Double
+  public var y: Swift.Double
+  public var pointerType: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HotZoneGeometry : Swift.Equatable {
+  public var top: Swift.Double
+  public var right: Swift.Double
+  public var bottom: Swift.Double
+  public var left: Swift.Double
+  public init(top: Swift.Double, right: Swift.Double, bottom: Swift.Double, left: Swift.Double)
+  public static func == (lhs: FlowPubSDK.HotZoneGeometry, rhs: FlowPubSDK.HotZoneGeometry) -> Swift.Bool
+}
+public class HotZone : Swift.Equatable {
+  public init(geometry: FlowPubSDK.HotZoneGeometry, callback: @escaping () -> Swift.Void)
+  public static func == (lhs: FlowPubSDK.HotZone, rhs: FlowPubSDK.HotZone) -> Swift.Bool
+  @objc deinit
+}
+public struct GestureParameters : Swift.Codable {
+  public var swipeVelocityThreshold: Swift.Double?
+  public var panPageTurnThreshold: Swift.Double?
+  public init(swipeVelocityThreshold: Swift.Double? = nil, panPageTurnThreshold: Swift.Double? = nil)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public var customStyleSheetPaths: Swift.String
+extension Swift.String : Swift.Error {
+}
+open class Navigator {
+  public var webView: FlowPubSDK.WebView
+  public var currentTextSelection: FlowPubSDK.SelectionInfo? {
+    get
+  }
+  public init(webView: FlowPubSDK.WebView)
+  @objc deinit
+  public func openPublication(publication: FlowPubSDK.Publication, locator: FlowPubSDK.Locator? = nil, viewSettings: FlowPubSDK.ViewSettings? = nil, completion: @escaping (_ result: Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
+  @available(*, deprecated, message: "Please use `enablePageLabelRendering(Bool, (Result<Bool, Error>) -> Void)` instead")
+  public func enablePageLabelRendering(_ enabled: Swift.Bool) throws
+  public func enablePageLabelRendering(_ enabled: Swift.Bool, completion: @escaping (Swift.Result<Swift.Bool, any Swift.Error>) -> Swift.Void)
+  public func setPageLabelVisibility(to flag: Swift.Bool) throws
+  public func enableScreenTransitionAnimation(_ enabled: Swift.Bool, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
+  public func setScreenTransitionAnimation(animationOpts: [Swift.String : Swift.String], completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
+  public func setViewSettings(_ viewSettings: FlowPubSDK.ViewSettings)
+  public func setPrefetchPercent(_ percent: Swift.Double)
+  public func getViewSettings(completion: @escaping (_ result: Swift.Result<FlowPubSDK.ViewSettings, any Swift.Error>) -> Swift.Void)
+  public func getCurrentBackgroundColor(readingMode: FlowPubSDK.ReadingMode? = nil, handler: @escaping (Swift.String) -> Swift.Void)
+  public func addLocationChangedHandler(handler: @escaping (_ locations: [FlowPubSDK.Locator]) -> Swift.Void)
+  public func removeLocationChangedHandler()
+  public func addOnContentIsLoadingHandler(handler: @escaping (Swift.Bool) -> Swift.Void)
+  public func removeOnContentIsLoadingHandler()
+  public func addOnPageLabelInfoChangedHandler(handler: @escaping ([FlowPubSDK.PageLabelInfo]) -> Swift.Void)
+  public func removeOnPageLabelInfoChangedHandler()
+  public func addSelectionChangedHandler(handler: @escaping (_ selection: FlowPubSDK.SelectionInfo?) -> Swift.Void)
+  public func removeSelectionChangedHandler()
+  public func addSelectionChangingHandler(handler: @escaping (_ selection: FlowPubSDK.SelectionInfo?) -> Swift.Void)
+  public func removeSelectionChangingHandler()
+  public func addSelectionTappedHandler(handler: @escaping (_ selection: FlowPubSDK.SelectionInfo?) -> Swift.Void)
+  public func removeSelectionTappedHandler()
+  public func clearSelection()
+  public func removeHighlight(id: Swift.String)
+  public func removeHighlights(ids: [Swift.String])
+  public func updateHighlight(id: Swift.String, color: Swift.String)
+  public func addHighlightSelectedHandler(handler: @escaping (_ highlightInfo: FlowPubSDK.SelectedHighlightInfo) -> Swift.Void)
+  public func removeHighlightSelectedHandler()
+  public func addExternalLinkClickHandler(handler: @escaping (_ href: Swift.String) -> Swift.Void)
+  public func removeExternalLinkClickedHandler()
+  public func addPinchGestureHandler(handler: @escaping (_ state: Any, _ scale: Any) -> Swift.Void)
+  public func removePinchGestureHandler()
+  public func removeAllSignalHandler()
+  public func cleanUp()
+  public func enablePinchGestureDetection()
+  public func goForward(completion: @escaping (_ result: Swift.Result<Swift.Bool, any Swift.Error>) -> Swift.Void)
+  public func goBackward(completion: @escaping (_ result: Swift.Result<Swift.Bool, any Swift.Error>) -> Swift.Void)
+  public func getLocation(completion: @escaping (_ result: Swift.Result<[FlowPubSDK.Locator], any Swift.Error>) -> Swift.Void)
+  public func goToLocation(with jsonString: Swift.String)
+  public func removeReflowHighlightAndRefreshID()
+  public func goToLocation(with location: FlowPubSDK.Locator)
+  public func goToLocation(with link: FlowPubSDK.Link)
+  public func goToEdge(_ edge: FlowPubSDK.PublicationEdge)
+  public func goToLocation(with absolutePosition: Swift.Int)
+  public func addOnViewportTappedHandler(zone: FlowPubSDK.HotZone, handler: @escaping (_ tapInfo: FlowPubSDK.TapInfo) -> Swift.Void)
+  public func removeOnViewportTappedHandler(zone: FlowPubSDK.HotZone)
+  public func configureHotZone(zone: FlowPubSDK.HotZone)
+  public func removeHotZone(zone: FlowPubSDK.HotZone)
+  public func removeAllHotZones()
+  public func enablePageTurningOnTap(prevZone: FlowPubSDK.HotZoneGeometry, nextZone: FlowPubSDK.HotZoneGeometry)
+  public func addOnViewportResizeStartImmediateHandler(handler: @escaping () -> Swift.Void)
+  public func removeOnViewportResizeStartImmediateHandler()
+  public func addOnViewportResizeStartHandler(handler: @escaping () -> Swift.Void)
+  public func removeOnViewportResizeStartHandler()
+  public func addOnViewportResizedHandler(handler: @escaping () -> Swift.Void)
+  public func removeOnViewportResizedHandler()
+  public func setGestureParameters(params: FlowPubSDK.GestureParameters)
+  public func addHighlight(id: Swift.String, startLoc: FlowPubSDK.Locator, endLoc: FlowPubSDK.Locator, color: Swift.String, duration: Swift.Int = 0)
+  public func setHighlightingOnReflow(_ flag: Swift.Bool, color: Swift.String = "", duration: Swift.Int = 0)
+  public func addHighlights(highlights: [FlowPubSDK.NewHighlightInfo])
+  @available(*, deprecated, message: "Please use `compareLocators(Locator, Locator, (Result<Int, String>) -> Void)` instead")
+  public func compareLocators(_ locator1: FlowPubSDK.Locator, _ locator2: FlowPubSDK.Locator) -> Swift.Result<Swift.Int, Swift.String>
+  public func compareLocators(_ locator1: FlowPubSDK.Locator, _ locator2: FlowPubSDK.Locator, _ completion: @escaping (Swift.Result<Swift.Int, Swift.String>) -> Swift.Void)
+  public func compareCFIs(_ beginCFI: Swift.String, _ endCFI: Swift.String, _ completion: @escaping (Swift.Result<Swift.Int, Swift.String>) -> Swift.Void)
+  @available(*, deprecated, message: "Please use `compareCFIs(String, String, (Result<Int, String>) -> Void)` instead")
+  public func compareCFIs(_ beginCFI: Swift.String, _ endCFI: Swift.String) throws -> [Swift.Int]
+  public func setCustomStyleSheets(_ styleSheetPaths: [Swift.String])
+  @available(*, deprecated, message: "Please use `doLocationsIntersect([Locator], [Locator], (Result<Bool, Error>) -> Void)` instead")
+  public func doLocationsIntersect(_ array1: [FlowPubSDK.Locator], _ array2: [FlowPubSDK.Locator]) throws -> Swift.Bool
+  public func doLocationsIntersect(_ array1: [FlowPubSDK.Locator], _ array2: [FlowPubSDK.Locator], completion: @escaping (Swift.Result<Swift.Bool, any Swift.Error>) -> Swift.Void)
+  @available(*, deprecated, message: "Please use `isLocationContained([Locator], [Locator], Bool, (Result<Int?, String>) -> Void)` instead")
+  public func isLocationContained(_ outer: [FlowPubSDK.Locator], _ inner: [FlowPubSDK.Locator], strict: Swift.Bool = false) throws -> Swift.Bool
+  public func isLocationContained(_ outer: [FlowPubSDK.Locator], _ inner: [FlowPubSDK.Locator], strict: Swift.Bool = false, completion: @escaping (Swift.Result<Swift.Bool, any Swift.Error>) -> Swift.Void)
+  @available(*, deprecated, message: "Please use `getCharacterOffsetDistance([Locator], [Locator], (Result<Int?, String>) -> Void)` instead")
+  public func getCharacterOffsetDistance(_ first: [FlowPubSDK.Locator], _ second: [FlowPubSDK.Locator]) throws -> Swift.Int
+  public func getCharacterOffsetDistance(_ first: [FlowPubSDK.Locator], _ second: [FlowPubSDK.Locator], completion: @escaping (Swift.Result<Swift.Int?, any Swift.Error>) -> Swift.Void)
+  public func pageLinkToLocation(_ pageLink: FlowPubSDK.Link, _ completion: @escaping (Swift.Result<FlowPubSDK.Locator, any Swift.Error>) -> Swift.Void)
+  public func getChapterLocator(at position: Swift.Int, _ completion: @escaping (Swift.Result<FlowPubSDK.Locator, any Swift.Error>) -> Swift.Void)
+  public func getPageOfTocItem(at position: Swift.Int, _ completion: @escaping (Swift.Result<Swift.Int, any Swift.Error>) -> Swift.Void)
+  public func getBlobPathForSpineHref(_ href: Swift.String, completion: @escaping (Swift.Result<Swift.String?, any Swift.Error>) -> Swift.Void)
+  public func getBlobPathForSpineIndex(_ index: Swift.Int, completion: @escaping (Swift.Result<Swift.String?, any Swift.Error>) -> Swift.Void)
+  public func getBlobsArray(_ completion: @escaping (Swift.Result<[FlowPubSDK.Blob], any Swift.Error>) -> Swift.Void)
+  public func getBlobDataObject(_ completion: @escaping (Swift.Result<FlowPubSDK.BlobData, any Swift.Error>) -> Swift.Void)
+}
+@usableFromInline
+internal protocol _AnyEncodable {
+  var value: Any { get }
+  init<T>(_ value: T?)
+}
+extension FlowPubSDK._AnyEncodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension FlowPubSDK._AnyEncodable {
+  public init(nilLiteral _: ())
+  public init(booleanLiteral value: Swift.Bool)
+  public init(integerLiteral value: Swift.Int)
+  public init(floatLiteral value: Swift.Double)
+  public init(extendedGraphemeClusterLiteral value: Swift.String)
+  public init(stringLiteral value: Swift.String)
+  public init(arrayLiteral elements: Any...)
+  public init(dictionaryLiteral elements: (Swift.AnyHashable, Any)...)
+}
+extension FlowPubSDK.ProgressionDirection : Swift.Equatable {}
+extension FlowPubSDK.ProgressionDirection : Swift.Hashable {}
+extension FlowPubSDK.ProgressionDirection : Swift.RawRepresentable {}
+extension FlowPubSDK.AdvancedSettings : Swift.Equatable {}
+extension FlowPubSDK.AdvancedSettings : Swift.Hashable {}
+extension FlowPubSDK.AdvancedSettings : Swift.RawRepresentable {}
+extension FlowPubSDK.DefaultsOverride : Swift.Equatable {}
+extension FlowPubSDK.DefaultsOverride : Swift.Hashable {}
+extension FlowPubSDK.DefaultsOverride : Swift.RawRepresentable {}
+extension FlowPubSDK.ReadingMode : Swift.Equatable {}
+extension FlowPubSDK.ReadingMode : Swift.Hashable {}
+extension FlowPubSDK.ReadingMode : Swift.RawRepresentable {}
+extension FlowPubSDK.SpreadMode : Swift.Equatable {}
+extension FlowPubSDK.SpreadMode : Swift.Hashable {}
+extension FlowPubSDK.SpreadMode : Swift.RawRepresentable {}
+extension FlowPubSDK.Hyphens : Swift.Equatable {}
+extension FlowPubSDK.Hyphens : Swift.Hashable {}
+extension FlowPubSDK.Hyphens : Swift.RawRepresentable {}
+extension FlowPubSDK.TextAlignment : Swift.Equatable {}
+extension FlowPubSDK.TextAlignment : Swift.Hashable {}
+extension FlowPubSDK.TextAlignment : Swift.RawRepresentable {}
+extension FlowPubSDK.PublicationFormat : Swift.Equatable {}
+extension FlowPubSDK.PublicationFormat : Swift.Hashable {}
+extension FlowPubSDK.Module : Swift.Equatable {}
+extension FlowPubSDK.Module : Swift.Hashable {}
+extension FlowPubSDK.Module : Swift.RawRepresentable {}
+extension FlowPubSDK.PagePosition : Swift.Equatable {}
+extension FlowPubSDK.PagePosition : Swift.Hashable {}
+extension FlowPubSDK.PagePosition : Swift.RawRepresentable {}
+extension FlowPubSDK.FlowPubLogLevel : Swift.Equatable {}
+extension FlowPubSDK.FlowPubLogLevel : Swift.Hashable {}
+extension FlowPubSDK.FlowPubLogLevel : Swift.RawRepresentable {}
+extension FlowPubSDK.Fit : Swift.Equatable {}
+extension FlowPubSDK.Fit : Swift.Hashable {}
+extension FlowPubSDK.Fit : Swift.RawRepresentable {}
+extension FlowPubSDK.Orientation : Swift.Equatable {}
+extension FlowPubSDK.Orientation : Swift.Hashable {}
+extension FlowPubSDK.Orientation : Swift.RawRepresentable {}
+extension FlowPubSDK.Overflow : Swift.Equatable {}
+extension FlowPubSDK.Overflow : Swift.Hashable {}
+extension FlowPubSDK.Overflow : Swift.RawRepresentable {}
+extension FlowPubSDK.Spread : Swift.Equatable {}
+extension FlowPubSDK.Spread : Swift.Hashable {}
+extension FlowPubSDK.Spread : Swift.RawRepresentable {}
+extension FlowPubSDK.Layout : Swift.Equatable {}
+extension FlowPubSDK.Layout : Swift.Hashable {}
+extension FlowPubSDK.Layout : Swift.RawRepresentable {}
+extension FlowPubSDK.PublicationEdge : Swift.Equatable {}
+extension FlowPubSDK.PublicationEdge : Swift.Hashable {}
+extension FlowPubSDK.PublicationEdge : Swift.RawRepresentable {}
+extension FlowPubSDK.PageLabelLocationType : Swift.Equatable {}
+extension FlowPubSDK.PageLabelLocationType : Swift.Hashable {}
+extension FlowPubSDK.PageLabelLocationType : Swift.RawRepresentable {}
+extension FlowPubSDK.ComparatorError : Swift.Equatable {}
+extension FlowPubSDK.ComparatorError : Swift.Hashable {}

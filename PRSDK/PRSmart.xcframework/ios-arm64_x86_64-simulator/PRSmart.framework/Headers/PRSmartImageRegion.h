@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSmartComplexRegion.h"
+#import <PRSmart/PRSmartComplexRegion.h>
 
 @class PRImageValidationCriteria;
 

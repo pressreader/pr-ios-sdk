@@ -6,10 +6,11 @@
 //  Copyright © 2017 NewspaperDirect. All rights reserved.
 //
 
-#import "PRRoundedTableViewCell.h"
+#import <PRUIKit/PRRoundedTableViewCell.h>
 
 @interface PRRoundedCenteredCell : PRRoundedTableViewCell
 @property (nonatomic, readonly) UIImageView *iconImageView;
 @property (nonatomic, readonly) UILabel *titleLabel;
 
 @end
+

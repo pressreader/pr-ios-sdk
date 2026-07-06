@@ -6,7 +6,7 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-#import "_PRVC.h"
+#import <PRUIKit/_PRVC.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

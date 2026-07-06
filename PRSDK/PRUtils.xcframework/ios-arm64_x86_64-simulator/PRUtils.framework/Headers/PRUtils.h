@@ -11,7 +11,6 @@
 #import <PRUtils/NSObject+PerformSelector.h>
 #import <PRUtils/NSObject+KVO.h>
 #import <PRUtils/NSObject+Notification.h>
-#import <PRUtils/NSObject+Unwrap.h>
 #import <PRUtils/NSObject+Normalising.h>
 
 #import <PRUtils/NSNotificationCenter+ConvenienceAPI.h>
@@ -81,8 +80,6 @@
 #import <PRUtils/PRForwarder.h>
 #import <PRUtils/PRLIFOOperationQueue.h>
 
-#import <PRUtils/PRNSBundle.h>
-
 #import <PRUtils/PRsqliteDb.h>
 
 #import <PRUtils/PlistUtil.h>
@@ -107,8 +104,6 @@
 #import <PRUtils/UIDevice+Info.h>
 
 #import <PRUtils/NSData+Base64.h>
-
-#import <PRUtils/PRReachability.h>
 
 #import <PRUtils/PRSharedPreferences.h>
 #import <PRUtils/PRSharedPreferences+ResourceServiceURLs.h>

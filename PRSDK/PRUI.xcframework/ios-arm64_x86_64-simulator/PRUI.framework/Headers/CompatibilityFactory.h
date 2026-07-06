@@ -14,7 +14,8 @@ typedef NS_OPTIONS(NSUInteger, PROrderOption) {
     PROrderOptionScrollToIssueDate = 1 << 0,
     PROrderOptionDisplayParentTitleOnly = 1 << 1,
     PROrderOptionPresentContentIfAvailable = 1 << 2,
-    PROrderOptionHideLoadingView = 1 << 3
+    PROrderOptionHideLoadingView = 1 << 3,
+    PROrderOptionHideStatusAlerts = 1 << 4
 };
 
 #endif /* CompatibilityFactory_h */

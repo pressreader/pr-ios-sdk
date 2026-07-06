@@ -1,6 +1,6 @@
 //
 //  NTFSearchDataService.h
-//  PR-API
+//  PRAPI
 //
 //  Created by Viacheslav Soroka on 10/25/17.
 //  Copyright © 2017 NewspaperDirect. All rights reserved.
@@ -26,6 +26,9 @@ typedef NS_ENUM(NSInteger, NTFSearchSortingOrder) {
 @property (nonatomic) NTFSearchScope scope;
 @property (nonatomic) NTFSearchSortingOrder sortingOrder;
 @property (nonatomic, strong, readonly) NSSet<NSString *> *searchTokens;
+@property (nullable, nonatomic, strong) NSArray<NSString *> *cids;
+@property (nullable, nonatomic, strong) NSDate *startDate;
+@property (nullable, nonatomic, strong) NSDate *endDate;
 
 @end
 

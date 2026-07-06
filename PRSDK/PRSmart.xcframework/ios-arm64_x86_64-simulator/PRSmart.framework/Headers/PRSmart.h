@@ -7,22 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PRSmartObject.h"
-#import "PRSmartArticle.h"
-#import "PRImageValidator.h"
-#import "PRSmartMediaRegion.h"
-#import "PRSmartImageRegion.h"
-#import "PRSmartVideoPreviewRegion.h"
-#import "PRSmartPage.h"
-#import "PRSmartPageset.h"
-#import "PRSmartArtifact.h"
-#import "PRSmartLink.h"
+#import <PRSmart/PRSmartObject.h>
+#import <PRSmart/PRSmartArticle.h>
+#import <PRSmart/PRImageValidator.h>
+#import <PRSmart/PRSmartMediaRegion.h>
+#import <PRSmart/PRSmartImageRegion.h>
+#import <PRSmart/PRSmartVideoPreviewRegion.h>
+#import <PRSmart/PRSmartPage.h>
+#import <PRSmart/PRSmartPageset.h>
+#import <PRSmart/PRSmartArtifact.h>
+#import <PRSmart/PRSmartLink.h>
 
-#import "PRArticleVideo.h"
-#import "PRArticleBlock.h"
+#import <PRSmart/PRArticleVideo.h>
+#import <PRSmart/PRArticleBlock.h>
 
-#import "PRSmartArticle+PreferredImage.h"
-#import "PRSmartImageRegionDescriptorKey.h"
+#import <PRSmart/PRSmartArticle+PreferredImage.h>
+#import <PRSmart/PRSmartImageRegionDescriptorKey.h>
 
 //! Project version number for PRSmart.
 FOUNDATION_EXPORT double PRSmartVersionNumber;

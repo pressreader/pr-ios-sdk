@@ -13,8 +13,8 @@ typedef NS_ENUM(NSInteger, PRSourceType) {
     PRSourceTypeMagazine,
     PRSourceTypeDocument,
     PRSourceTypeBook,
-
-    PRSourceTypeAll = PRSourceTypeNotDefined,
+    PRSourceTypeOnlineEdition,
+    
     PRSourceTypeFirst = PRSourceTypeNotDefined,
-    PRSourceTypeLast = PRSourceTypeBook
+    PRSourceTypeLast = PRSourceTypeOnlineEdition
 };

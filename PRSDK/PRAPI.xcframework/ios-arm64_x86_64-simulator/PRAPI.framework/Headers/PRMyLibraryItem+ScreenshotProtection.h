@@ -7,8 +7,7 @@
 //
 
 #import "PRMyLibraryItem.h"
-
-@import PRConfiguration.PRConfig_ScreenshotProtection;
+#import <PRConfiguration/PRConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

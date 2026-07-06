@@ -21,4 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface PRSettingsMasterPanelVC (/*Protected*/)
+
+- (BOOL)isOnlineContentAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
 NS_ASSUME_NONNULL_END

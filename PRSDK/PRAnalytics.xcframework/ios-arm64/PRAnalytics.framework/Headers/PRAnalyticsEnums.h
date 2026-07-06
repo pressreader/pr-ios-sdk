@@ -18,6 +18,7 @@ typedef NSString *RMTAction NS_TYPED_ENUM;
 extern RMTAction const RMTActionPauseNRestart;
 extern RMTAction const RMTActionFirstStart;
 extern RMTAction const RMTActionComplete;
+extern RMTAction const RMTActionDismiss;
 extern RMTAction const RMTActionView;
 
 extern NSString *const RMTTypeVideo;

@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@import PRConfiguration.PRConfig_AppPanels;
+#import <PRConfiguration/PRConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

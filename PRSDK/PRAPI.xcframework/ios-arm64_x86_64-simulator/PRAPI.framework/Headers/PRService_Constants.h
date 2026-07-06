@@ -9,7 +9,7 @@
 #ifndef PRService_Constants_h
 #define PRService_Constants_h
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 #pragma mark - request DeliveryQueue and and OnlineService request keys in option dictionary
 

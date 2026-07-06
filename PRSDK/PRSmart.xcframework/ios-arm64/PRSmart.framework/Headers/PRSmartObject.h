@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PRSmartBaseObject.h"
+#import <PRSmart/PRSmartBaseObject.h>
 
 @class PRSmartArticle;
 @class PRSmartPage;

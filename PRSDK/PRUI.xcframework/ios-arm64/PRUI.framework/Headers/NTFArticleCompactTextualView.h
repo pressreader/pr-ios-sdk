@@ -6,9 +6,9 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 @import PRAPI.NTFArticle;
-@import PRAccessibility;
+#import <PRAccessibility/PRAccessibility.h>
 
 #import <PRUI/NTFArticleCompactView_Constants.h>
 
@@ -19,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @class ArticleLabel;
 
 @interface NTFArticleCompactTextualView : UIView
-
-+ (CGFloat)mastheadHeight;
 
 + (UIFont *)defaultTitleFontForStyle:(NTFArticleCompactViewStyle)style
                              options:(NTFArticleCompactTextualViewOption)options;   
@@ -50,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 // UI Components
 @property (nonatomic, strong, readonly) MastheadView *mastheadView;
 @property (nonatomic, strong, readonly) ArticleLabel *titleLabel;
+
+@property (nonatomic, strong) UIFont *defaultTitleFont;
 
 @end
 

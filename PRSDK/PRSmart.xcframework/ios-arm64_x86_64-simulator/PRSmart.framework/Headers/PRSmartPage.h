@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSmartBaseObject.h"
+#import <PRSmart/PRSmartBaseObject.h>
 
 @class PRSmartArticle;
 @class PRSmartArticleLink;

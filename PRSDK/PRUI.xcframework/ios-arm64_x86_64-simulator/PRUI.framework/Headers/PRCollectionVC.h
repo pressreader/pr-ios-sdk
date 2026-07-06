@@ -13,7 +13,7 @@
 
 @import PRUIKit.PRVC;
 @import PRAPI.PROptions;
-@import PRAccessibility;
+#import <PRAccessibility/PRAccessibility.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

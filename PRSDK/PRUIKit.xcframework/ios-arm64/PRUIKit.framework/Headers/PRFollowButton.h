@@ -6,7 +6,7 @@
 //  Copyright © 2020 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSwitchButton.h"
+#import <PRUIKit/PRSwitchButton.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,3 +17,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+

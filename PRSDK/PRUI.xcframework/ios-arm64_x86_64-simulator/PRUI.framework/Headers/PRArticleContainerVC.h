@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 #import "PRArticleContainer.h"
 @class PRArticleIssueThumbnail;
@@ -31,7 +31,6 @@ typedef NS_OPTIONS(NSUInteger, PRArticleContainerOption) {
 @property (nonatomic, strong, readonly) id<FlowArticle> article;
 @property (nullable, nonatomic, strong) NSArray<NSString *> *highlightedPhrases;
 @property (nonatomic, readonly) PRArticleContainerOption options;
-@property (nonatomic, strong, readonly) PRArticleIssueThumbnail *issueThumb;
 
 @end
 

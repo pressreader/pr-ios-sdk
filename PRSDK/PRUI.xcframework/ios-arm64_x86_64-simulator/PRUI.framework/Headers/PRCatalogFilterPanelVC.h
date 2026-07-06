@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 @class PRCatalogFilterPanelVC;
 @class PRCatalogFilterItem;

@@ -29,9 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) UIPercentDrivenInteractiveTransition *dismissInteractor;
 @property (nonatomic, readonly) id<UIViewControllerAnimatedTransitioning> animationController;
 
-- (instancetype)initWithVC:(UIViewController<UIViewControllerTransitioningDelegate> *)vc
-                scrollView:(UIScrollView *)scrollView
-                dataSource:(nullable NTFDataSource *)dataSource;
+@property (nullable, nonatomic, weak) UIScrollView *scrollView;
+@property (nullable, nonatomic, weak) NTFDataSource * dataSource;
+
+- (instancetype)initWithVC:(UIViewController<UIViewControllerTransitioningDelegate> *)vc;
 
 - (void)onViewDidAppear;
 - (void)onScrollViewWillBeginDragging:(UIScrollView *)scrollView;

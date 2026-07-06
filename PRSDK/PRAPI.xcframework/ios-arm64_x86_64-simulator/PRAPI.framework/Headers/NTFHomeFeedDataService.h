@@ -13,9 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString * const kPRHomeFeedBaseURL;
 extern NSString * const kPRDefaultToken;
 
+@class NewsFeedConfig;
+
 @interface NTFHomeFeedDataService : NTFDataService
 + (PRPromise *)submitToken:(NSString *)token;
 + (PRPromise *)requestLastToken;
+
+@property (nonatomic, readonly) NewsFeedConfig *newsFeedConfig;
 
 @end
 

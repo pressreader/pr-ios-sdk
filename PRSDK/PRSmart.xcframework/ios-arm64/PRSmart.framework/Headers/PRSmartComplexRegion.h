@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NewspaperDirect. All rights reserved.
 //
 
-#import "PRSmartRegion.h"
+#import <PRSmart/PRSmartRegion.h>
 
 @interface PRSmartComplexRegion	: PRSmartRegion {
     NSMutableArray<PRSmartRegion *>* regions;

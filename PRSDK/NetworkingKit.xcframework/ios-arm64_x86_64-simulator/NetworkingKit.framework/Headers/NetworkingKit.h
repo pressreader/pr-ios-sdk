@@ -16,7 +16,7 @@ FOUNDATION_EXPORT const unsigned char NetworkingKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <NetworkingKit/PublicHeader.h>
 
-#import "AFNetworking.h"
-#import "AFDownloadRequestOperation.h"
-#import "AFHTTPClient+FreeFormatStringBody.h"
-#import "AFJSONClient.h"
+#import <NetworkingKit/AFNetworking.h>
+#import <NetworkingKit/AFDownloadRequestOperation.h>
+#import <NetworkingKit/AFHTTPClient+FreeFormatStringBody.h>
+#import <NetworkingKit/AFJSONClient.h>

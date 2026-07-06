@@ -6,7 +6,7 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 @class NTFMyLibraryItemDataSource;
 

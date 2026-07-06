@@ -1,13 +1,23 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PRCommands
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios17.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name PRCommands
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
 import Foundation
 @_exported import PRCommands
 import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @objcMembers @objc(PRCommandParameterKey) final public class CommandParameterKey : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc public static let articleId: Swift.String
+  @objc public static let pageNo: Swift.String
+  @objc public static let cid: Swift.String
+  @objc public static let issueDate: Swift.String
+  @objc public static let requestIssueIfNeeded: Swift.String
+  @objc public static let mid: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
 extension Foundation.NSNotification.Name {
   public init(_ command: PRCommands.PRCommandName)
 }

@@ -33,3 +33,6 @@ FOUNDATION_EXPORT const unsigned char PRConfigurationVersionString[];
 #import <PRConfiguration/PRDefaultURLs.h>
 #import <PRConfiguration/PRSDKUtil.h>
 #import <PRConfiguration/PRAuthorizationConfig.h>
+#import <PRConfiguration/PRSchemeProvider.h>
+#import <PRConfiguration/PRNSBundle.h>
+

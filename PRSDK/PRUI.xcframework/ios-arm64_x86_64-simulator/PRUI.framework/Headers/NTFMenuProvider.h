@@ -6,7 +6,7 @@
 //  Copyright © 2017 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class PRCommand;
 @class PRMenuItem;
@@ -20,17 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol NTFMenuProvider <NSObject>
 
-- (void)getActionMenuItemsWithPresentingVC:(UIViewController *)vc
-                                    sender:(id)sender
-                               fullVersion:(BOOL)fullVersion
-                                completion:(void(^)(NSArray<PRMenuItem *> *_Nullable items))completion;
+- (NSArray<PRMenuItem *> *_Nullable)getActionMenuItemsWithPresentingVC:(UIViewController *)vc
+                                                                sender:(id)sender
+                                                           fullVersion:(BOOL)fullVersion;
 
-- (void)getHorizontalActionMenuItemsWithPresentingVC:(UIViewController *)vc
-                                              sender:(id)sender
-                                         fullVersion:(BOOL)fullVersion
-                                          completion:(void(^)(NSArray<PRMenuItem *> *_Nullable items))completion;
+- (NSArray<PRMenuItem *> *_Nullable)getHorizontalActionMenuItemsWithPresentingVC:(UIViewController *)vc
+                                                                          sender:(id)sender
+                                                                     fullVersion:(BOOL)fullVersion;
 
-- (void)preload:(void(^_Nullable)(void))completion;
+- (void)preloadWithCompletionHandler:(void(^_Nullable)(NSError *))completion;
 
 - (PRMenuItem * __nullable)translateMenuItemWithOptions:(NTFMenuItemProviderOption)options;
 

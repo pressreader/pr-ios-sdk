@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PRAppStyleProtocol.h"
+#import <PRUIKit/PRAppStyleProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

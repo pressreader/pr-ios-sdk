@@ -6,13 +6,12 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 #import <PRUI/NTFCommentsDataSource.h>
 #import <PRUI/PRFeedLayoutManager.h>
-
-@import PRConfiguration.PRFeedConfig;
-@import PRThumbnail;
+#import <PRConfiguration/PRConfiguration.h>
+#import <PRThumbnail/PRThumbnail.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

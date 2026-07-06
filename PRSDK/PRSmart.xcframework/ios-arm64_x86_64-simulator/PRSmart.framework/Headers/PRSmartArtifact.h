@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "PRSmartBaseObject.h"
+#import <PRSmart/PRSmartBaseObject.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

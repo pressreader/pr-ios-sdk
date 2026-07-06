@@ -9,7 +9,7 @@
 #ifndef PRCatalogItem_h
 #define PRCatalogItem_h
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 @import PRCatalogModel.PRSourceItem_Basics;
 @class PRTitleItemExposer;
 

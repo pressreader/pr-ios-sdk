@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator</title>
+    <script src="./node_modules/@flowpub/core/dist/bundle.js"></script>
+    <script src="./node_modules/@flowpub/publication/dist/bundle.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            min-height: 100%;
+        }
+        iframe {
+            border: none;
+        }
+    </style>
+    <script src="./node_modules/@flowpub/navigator/dist/bundle.js"></script>
+    <script>
+        window.js = flowpub_core.getWebviewRelayModules(["@flowpub/publication", "@flowpub/navigator"]);
+    </script>
+    <script>
+    (async () => {
+        // var pub = await js.publication.parseFromURL("/Testing/Fixtures/publications/accessible_epub_3/manifest.json")
+        // pub.links[0].href = "/Testing/Fixtures/publications/accessible_epub_3/manifest.json"
+        var pubUrl = new URL("/Testing/Fixtures/publications/metamorphosis/manifest.json", window.location).toString()
+        var pub = await js.publication.parseFromURL("/Testing/Fixtures/publications/metamorphosis/manifest.json", pubUrl)
+        pub.links[0].href = "/Testing/Fixtures/publications/metamorphosis/manifest.json"
+        
+        var navigator = js.navigator.createNavigator("body")
+        window.navigatorInstance = navigator
+        // await navigator.openPublicationFromURL(new URL("/Testing/Fixtures/publications/accessible_epub_3/manifest.json", window.location).toString())
+        navigator.openPublicationFromURL(pubUrl, pubUrl)
+    })();
+    </script>
+</head>
+<body>
+</body>
+</html>

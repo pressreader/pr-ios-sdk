@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "PRSmartBaseObject.h"
+#import <PRSmart/PRSmartBaseObject.h>
 
 typedef NSString *PRSmartRegionType NS_TYPED_EXTENSIBLE_ENUM;
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 NewspaperDirect Inc. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
+#import <NetworkingKit/AFHTTPClient.h>
 
 @interface AFHTTPClient (FreeFormatStringBody)
 

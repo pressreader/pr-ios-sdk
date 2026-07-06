@@ -38,7 +38,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 #import <PRAPI/PRAPIRequests.h>
 #import <PRAPI/PRNotifications.h>
 #import <PRAPI/PRUserDefaultsKeys.h>
-#import <PRAPI/PRConstants.h>
 #import <PRAPI/PRAccountNotifications.h>
 #import <PRAPI/PRService_Constants.h>
 
@@ -212,9 +211,6 @@ FOUNDATION_EXPORT const unsigned char PRAPIVersionString[];
 
 #import <PRAPI/NSObject+PRAPINotifications.h>
 #import <PRAPI/NTFArticleUtil.h>
-
-#import <PRAPI/NTFContentRestrictions.h>
-#import <PRAPI/NTFContentRestrictionsCache.h>
 
 #import <PRAPI/PRSmartCommentPost.h>
 

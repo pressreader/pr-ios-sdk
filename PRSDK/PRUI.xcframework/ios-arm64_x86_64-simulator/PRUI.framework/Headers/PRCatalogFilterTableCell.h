@@ -6,7 +6,7 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class PRThumbnailObject;
 

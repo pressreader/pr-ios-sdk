@@ -6,7 +6,7 @@
 //  Copyright 2011 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 @import PRUtils.PRNotification;
 
 #import <PRAPI/PRAccountItemNestedTypes.h>

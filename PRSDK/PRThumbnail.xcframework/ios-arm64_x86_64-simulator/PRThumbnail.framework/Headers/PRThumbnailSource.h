@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 NewspaperDirect. All rights reserved.
 //
 
-#import "PRThumbnailObject.h"
+#import <PRThumbnail/PRThumbnailObject.h>
 
 extern CGSize const kThumbnailSourceImageSizeNewsstand;
 
@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, PRThumbnailSourceType) {
     PRThumbnailSourceTypeNotDefined = 0,
     PRThumbnailSourceTypeNewspaper,
     PRThumbnailSourceTypeMagazine,
+    PRThumbnailSourceTypeOnlineEditions
 };
 
 typedef NS_ENUM(NSInteger, PRThumbnailSourceSizeType) {

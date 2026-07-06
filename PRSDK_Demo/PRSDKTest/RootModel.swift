@@ -96,17 +96,33 @@ final class RootModel {
     var account: Account? {
         self.pressreader?.account
     }
-    
-    var isCatalogEnabled: Bool {
-        !self.isDismissed && !self.cids.isEmpty && !self.isLocalService
+
+    var isAuthorizationEnabled: Bool {
+        !self.isDismissed && !self.isLocalService
     }
 
     var isLoggingEnabled: Bool {
         !self.isDismissed
     }
 
-    var isArticleSetEnabled: Bool {
-        !self.isDismissed && !self.articles.isEmpty && !self.isLocalService && !self.isEdition
+    var isCatalogEnabled: Bool {
+        !self.isDismissed && !self.isLocalService
+    }
+
+    var publicationsEnabled: Bool {
+        self.isCatalogEnabled && !self.cids.isEmpty
+    }
+
+    var booksEnabled: Bool {
+        self.isCatalogEnabled && !self.isEdition
+    }
+
+    var gamesEnabled: Bool {
+        self.isCatalogEnabled && !self.isEdition
+    }
+
+    var articlesEnabled: Bool {
+        self.isCatalogEnabled && !self.isEdition && !self.articles.isEmpty
     }
 
     var catalogItemsCount: Int {
@@ -115,6 +131,45 @@ final class RootModel {
 
     var downloadedItemsCount: Int {
         self.downloaded?.items.count ?? 0
+    }
+    
+    var books: [[String: Sendable]] {
+        [
+            ["id": "394959"],
+            ["id": "216086"],
+            ["id": "271073"],
+            ["id": "196556"]
+        ]
+    }
+    
+    var games: [[String: Sendable]] {
+        [
+            ["id": 44667,
+             "titleId": 40001,
+             "displayName": "Codeword",
+             "issueDate": "2026-06-16",
+             "slug": "0071b441059049689269f8653e3b1f0a"],
+            ["id": 44528,
+             "titleId": 40012,
+             "displayName": "Concise Crossword",
+             "issueDate": "2026-06-16",
+             "slug": "30f64dcc5fe8482eb5fd2d639f57a2f7"],
+            ["id": 44529,
+             "titleId": 40003,
+             "displayName": "Cryptic Crossword",
+             "issueDate": "2026-06-16",
+             "slug": "233901f620cf40dfb7d2c42618c6ecea"],
+            ["id": 44531,
+             "titleId": 40013,
+             "displayName": "Make Tracks",
+             "issueDate": "2026-06-16",
+             "slug": "2836b531c44b4172b6d26d4d2d95a607"],
+            ["id": 44536,
+             "titleId": 40011,
+             "displayName": "Noughts and Crosses",
+             "issueDate": "2026-06-16",
+             "slug": "76491f640cb841f19711bb3838df48a6"]
+        ]
     }
     
     var articles: [String] {
@@ -202,35 +257,43 @@ final class RootModel {
         }
     }
 
-    func downloadedItem(at index: Int) -> TitleItem? {
+    func downloadedItem(at index: Int) -> PRCatalogItem? {
         self.catalog?.downloaded.items[index]
     }
     
-    func deleteDownloadedItem(at index: Int) {
-        self.downloadedItem(at: index).map {
-            self.delete($0)
-        }
-    }
-
-    func delete(_ item: TitleItem) {
+    func delete(_ item: PRCatalogItem) {
         self.downloaded?.delete(item)
     }
 
     func getLogs() {
+        guard let pressreader else { return }
+        
         let hud = MBProgressHUD.showWindowHUD(withTitle: "Uploading...", message: nil, animated: true)
-        self.pressreader?
-            .getLogs { (result: Result<(linkToUploadedLogs: URL,
-                                        additionalInfo: String), Error>) in
+        
+        Task {
+            @MainActor
+            func presentResults(title: String, message: String) {
                 hud.hide(animated: false)
-
-                switch result {
-                case .success (let (link, extraInfo)):
-                    UIAlertController.presentDismissableAlert(withTitle: "Logs uploaded", message: "\(link.absoluteString)\n\n\(extraInfo)")
-                case .failure(let error):
-                    UIAlertController.presentDismissableAlert(withTitle: "Error", message: error.localizedDescription)
+                UIAlertController.presentDismissableAlert(
+                    withTitle: title,
+                    message: message
+                )
+            }
+            
+            do {
+                let logInfo = try await pressreader.getLogs()
+                presentResults(
+                    title: "Logs uploaded",
+                    message: "\(logInfo.linkToUploadedLogs.absoluteString)\n\n\(logInfo.additionalInfo)"
+                )
+            }
+            catch {
+                presentResults(
+                    title: "Error",
+                    message: error.localizedDescription
+                )
             }
         }
-
     }
         
     // MARK: - Notifications

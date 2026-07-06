@@ -41,9 +41,6 @@
 
 #define show_alert_if_no_wifi                 _PRCONFIG_BOOL_(@"show_alert_if_no_wifi", NO)
 
-#define LIBRARY_DISPLAY_NAME		_PRCONFIG_STRING_(@"Library display name", nil)
-#define LIBRARY_STORE_BUTTON_TITLE  _PRCONFIG_STRING_(@"Library Store Button", @"PR.iPad.Store")
-
 #pragma mark - Settings
 
 #define SETTINGS_SHOW_INSTRUCTIONS		_PRCONFIG_BOOL_(@"SETTINGS_SHOW_INSTRUCTIONS", NO)
@@ -161,7 +158,6 @@
 
 #pragma mark - Notifications
 
-#define notification_badge_visible              _PRCONFIG_BOOL_(@"notification_badge_visible", YES)
 #define notification_badge_show_unread_issues   _PRCONFIG_BOOL_(@"notification_badge_show_unread_issues", NO)
 
 #define APN_DISABLED                            _PRCONFIG_BOOL_(@"APN_DISABLED", NO)
@@ -297,7 +293,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) UserInterfaceStyleConfig *userInterfaceStyleConfig NS_SWIFT_NAME(userInterfaceStyle);
 
 @property (class, nonatomic, readonly) BOOL deepLinkCommandUseHost;
-@property (class, nonatomic, readonly) BOOL areTooltipsEnabled;
 @property (class, nonatomic, readonly) NSTimeInterval newAppVersionAlertTimeInterval;
 
 @property (nullable, class, nonatomic, readonly) NSDictionary<NSString *, id> *configDefaults;

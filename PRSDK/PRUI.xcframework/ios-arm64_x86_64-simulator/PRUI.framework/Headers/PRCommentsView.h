@@ -10,7 +10,7 @@
 
 #import "PRCommentPostView.h"
 
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class CommandOpenArticleParameters;
 @protocol NTFArticle;

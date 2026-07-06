@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PRSnapSlider.h"
+#import <PRUIKit/PRSnapSlider.h>
 
 @interface PRFontAdjustmentCell : UITableViewCell
 

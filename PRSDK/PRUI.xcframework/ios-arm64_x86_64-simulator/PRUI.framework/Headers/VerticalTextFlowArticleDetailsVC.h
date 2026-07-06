@@ -9,7 +9,7 @@
 @import PRUIKit.PRVC;
 #import "VerticalTextFlowArticleDetailsView.h"
 
-@import PRAPI;
+#import <PRAPI/PRAPI.h>
 
 #import "PRArticleContainer.h"
 
@@ -32,10 +32,10 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 @interface VerticalTextFlowArticleDetailsVC : PRVC <PRArticleContainer>
 
 - (instancetype)initWithArticleItem:(nullable id<FlowArticle>)articleItem;
-- (instancetype)initWithArticleItem:(nullable id<FlowArticle>)articleItem highlightedPhrases:(nullable NSArray<NSString *> *)highlightedPhrases;
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil
                          bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 - (void)setupDefaultNavigationBarAppearance;
 - (void)setupTransitionalNavigationBarAppearance;
@@ -62,7 +62,7 @@ typedef void(^PRScrollHandler)(UIScrollView *scrollView);
 @property (nonatomic, assign) BOOL subscriptionRequiredToRead;
 
 @property (nonatomic, assign) CGFloat topContentOffset;
-@property (nullable, nonatomic, readonly) NSArray<NSString *> *highlightedPhrases;
+@property (nullable, nonatomic, strong) NSArray<NSString *> *highlightedPhrases;
 @property (nonatomic, strong) NSArray<AdBannerPresentation *> *contentAds;
 @property (nonatomic, readonly) BOOL isTitleHidden;
 

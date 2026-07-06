@@ -26,7 +26,7 @@ extern NSString *const kSupplementName;
 @property (nonatomic, readonly) BOOL isFavoritable;
 @property (nonatomic, readonly) BOOL isInCatalog;
 
-@property (nullable, nonatomic, retain) NSDictionary<NSString *, id> *newspaperRadioInfo;
+@property (nullable, nonatomic, retain) NSDictionary<NSString *, id> * NS_SWIFT_SENDABLE newspaperRadioInfo;
 
 @property (nullable, nonatomic, strong) NSString *originalMasthead;
 @property (nullable, nonatomic, strong) NSString *templateMasthead;

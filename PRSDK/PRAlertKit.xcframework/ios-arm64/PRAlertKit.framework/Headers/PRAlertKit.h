@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char PRAlertKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PRAlertKit/PublicHeader.h>
 
-#import "UIAlertController+Convenience.h"
+#import <PRAlertKit/UIAlertController+Convenience.h>

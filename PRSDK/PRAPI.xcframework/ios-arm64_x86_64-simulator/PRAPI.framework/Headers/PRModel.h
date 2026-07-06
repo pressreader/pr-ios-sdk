@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-
-@import PRUtils.PRNSBundle;
+#import <PRUtils/PRUtils.h>
+@import PRConfiguration.PRNSBundle;
 
 @class PRAccountItem;
 @class PRMyLibrary;
@@ -47,9 +47,6 @@ extern NSNotificationName const PRModelDismissNotification;
 @property (nonatomic) PRModelStatus status;
 
 @property (nonatomic, readonly) BOOL isOffline;
-
-@property (nonatomic, readonly) NSString *appDisplayName;
-@property (nonatomic, readonly) NSString *appServiceDisplayName;
 
 /** @brief date of installation or last update of the app */
 @property (nonatomic, readonly) NSDate * appLastUpdateDate;

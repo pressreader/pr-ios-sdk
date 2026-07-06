@@ -6,15 +6,14 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
+#import <PRUIKit/PRUIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PRArticleBylineView : UIView
+@interface PRArticleBylineView : UIView <PRDynamicFontSupportable>
 
 + (instancetype)view;
-
-- (void)adjustFonts;
 
 @property (nullable, nonatomic, strong) NSString *title;
 @property (nullable, nonatomic, strong) NSAttributedString *byline;

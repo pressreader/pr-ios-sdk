@@ -36,7 +36,7 @@
  */
 
 #import <Foundation/Foundation.h>
-@import WebKit;
+#import <WebKit/WebKit.h>
 
 @interface WKWebView (clean)
 

@@ -113,4 +113,4 @@ NS_SWIFT_NAME(account(index:));
 
 NS_ASSUME_NONNULL_END
 
-#import "PRAccountManager+Store.h"
+#import <PRAPI/PRAccountManager+Store.h>

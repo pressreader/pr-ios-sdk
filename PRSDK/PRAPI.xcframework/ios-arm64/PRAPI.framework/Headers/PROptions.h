@@ -8,7 +8,7 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 
-@import PRConfiguration;
+#import <PRConfiguration/PRConfiguration.h>
 @import PRCatalogModel.PRSourceItem_Basics;
 
 @class PRSharedPreferences;
@@ -54,12 +54,6 @@ extern CGFloat const kIPhone_MaxZoomLevel;
 
 #define MAX_ZOOM_SCALE  (UIDevice.isUserIntefaceIdiomPad ? kIPad_MaxZoomLevel : kIPhone_MaxZoomLevel)
 
-typedef NS_ENUM(uint32_t, PRLayoutType) {
-    PRLayoutTypeNone = 0,
-    PRLayoutTypeCarousel,
-    PRLayoutTypeGrid
-};
-
 typedef NS_ENUM(NSInteger, PRPresentationStyle) {
     PRPresentationStyleNotDefined = 0,
     PRPresentationStyleList,
@@ -95,7 +89,6 @@ typedef NS_ENUM (NSInteger, PROpinionSortOrder) {
 - (NSInteger) titlesPopupWidth;
 
 - (BOOL)setServiceHost:(NSString *)serviceHost;
-- (BOOL)setServiceHost:(NSString *)serviceHost silently:(BOOL)silently;
 
 - (NSString *) testServiceUrlKey;
 - (NSArray *) testServiceUrlKeys;

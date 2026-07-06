@@ -42,6 +42,8 @@ NS_UNAVAILABLE;
 
 @property (nonatomic, readonly) PRPubHubOption hubOptions;
 
+- (void)discloseSection:(PRCatalogSection *)section;
+
 @end
 
 NS_ASSUME_NONNULL_END

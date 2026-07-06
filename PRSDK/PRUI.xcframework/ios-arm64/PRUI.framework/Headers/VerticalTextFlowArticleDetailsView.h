@@ -6,9 +6,10 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
-@import WebKit;
-@import PRAPI;
+#import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
+#import <PRApi/PRApi.h>
+#import <PRUIKit/PRUIKit.h>
 
 #import "PRCommentsView.h"
 #import "PRPhotoCollage.h"
@@ -46,7 +47,7 @@ extern CGFloat const kPRMaxTextWidth;
 
 @end
 
-@interface VerticalTextFlowArticleDetailsView : UIView <UIGestureRecognizerDelegate>
+@interface VerticalTextFlowArticleDetailsView : UIView <UIGestureRecognizerDelegate, PRDynamicFontSupportable>
 
 + (CGFloat)textWidthWithViewSize:(CGSize)viewSize;
 
@@ -66,7 +67,6 @@ extern CGFloat const kPRMaxTextWidth;
 - (void)updateTitleText;
 - (void)updateCommentsCounter;
 
-- (void)adjustFonts;
 - (void)contentSizeCategoryChanged;
 - (void)fontSliderValueChanged;
 

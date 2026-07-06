@@ -6,7 +6,7 @@
 //  Copyright © 2018 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 #ifndef PROrderEnum_h
 #define PROrderEnum_h

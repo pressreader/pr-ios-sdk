@@ -6,7 +6,7 @@
 //  Copyright 2010 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @class SectionLabel;
 @class SliderSpreadPlace;
@@ -40,6 +40,8 @@ extern NSNotificationName const PRPageSliderContentDidScrollNotification;
 - (void)activate:(BOOL)activate animated:(BOOL)animated;
 - (BOOL)showPanelAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
 - (BOOL)hidePanelAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
+
+- (void)onSelectSpread:(id)sender;
 
 @property (nonatomic) CGFloat scrollOffset;
 @property (nonatomic, weak) id<PRPageSliderDelegate> slideDelegate;

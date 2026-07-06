@@ -16,5 +16,5 @@ FOUNDATION_EXPORT const unsigned char StreamingKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <StreamingKit/PublicHeader.h>
 
-#import "STKAudioPlayer.h"
-#import "STKDataSource.h"
+#import <StreamingKit/STKAudioPlayer.h>
+#import <StreamingKit/STKDataSource.h>

@@ -1,0 +1,13 @@
+img, svg, audio, video {
+  /* set max-height in vertical view will cause wrong image size */
+  max-height: unset;
+}
+
+/**
+ * Some user agent stylesheets add a margin, which causes spine item iframes
+ * to have scrollbars because the document's scrollHeight/Width is greater
+ * than the offsetHeight/Width
+ */
+body {
+  margin: 0;
+}

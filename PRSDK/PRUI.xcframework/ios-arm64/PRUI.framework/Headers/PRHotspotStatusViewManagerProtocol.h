@@ -6,7 +6,7 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 #import "PRHotspotStatusViewPresenterProtocol.h"
 

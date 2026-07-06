@@ -21,7 +21,7 @@ final class IssueCell: UITableViewCell {
 
     weak var delegate: IssueHandler?
 
-    var issue: TitleItem? {
+    var issue: PRCatalogItem? {
         didSet {
             self.update()
 
@@ -30,13 +30,15 @@ final class IssueCell: UITableViewCell {
             let skip = newValue?.isEqual(oldValue) == true
             guard !skip else { return }
             
-            self.observer = newValue?.download?.observe {[weak self] (state, progress, error) in
+            self.observer = newValue?.download?.observe {
+                [weak self] (state, progress, error) in
                 self?.update()
                 
-                if let error = error {
-                    UIAlertController
-                        .presentDismissableAlert(withTitle: "Download error",
-                                                 message: error.localizedDescription)
+                if let error {
+                    UIAlertController.presentDismissableAlert(
+                        withTitle: "Download error",
+                        message: error.localizedDescription
+                    )
                 }
             }
         }
@@ -123,7 +125,7 @@ final class IssueCell: UITableViewCell {
         
         self.textLabel?.text = issue?.title
 
-        let size = issue?.size ?? 0
+        let size = (issue as? TitleItem)?.size ?? 0
         self.detailTextLabel?.text = isDownloading
         ? " "
         : issue?.date.map { self.dateFormatter.string(from: $0) +  (size > 0 ? ", \(size) bytes" : "")}

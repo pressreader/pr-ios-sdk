@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import PRConfiguration.PRConfig_ScreenshotProtection;
+#import <PRConfiguration/PRConfiguration.h>
 #import <PRAPI/PRCatalogItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,11 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly) BOOL rightToLeft;
 @property (readonly) BOOL isPurchaseAdvise;
 @property (readonly) BOOL isMarkedForDeletion;
-
+@property (nonatomic, readonly) BOOL pdnDone;
 
 - (BOOL)done;
-- (BOOL)pdnDone;
-
 - (BOOL)pdnDownloadedForPage:(NSUInteger)pageNumber;
 - (nullable PRPage*)getPage:(NSUInteger) pageNumber;
 

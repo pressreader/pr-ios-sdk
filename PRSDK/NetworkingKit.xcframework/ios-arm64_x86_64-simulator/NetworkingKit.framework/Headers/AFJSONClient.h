@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 NewspaperDirect Inc. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
-#import "AFJSONRequestOperation.h"
+#import <NetworkingKit/AFHTTPClient.h>
+#import <NetworkingKit/AFJSONRequestOperation.h>
 
 @interface AFJSONClient : AFHTTPClient
 

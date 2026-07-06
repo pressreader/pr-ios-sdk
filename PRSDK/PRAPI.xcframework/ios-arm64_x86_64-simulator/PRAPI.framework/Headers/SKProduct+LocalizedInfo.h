@@ -6,7 +6,7 @@
 //  Copyright © 2022 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 @import StoreKit;
 
 NS_ASSUME_NONNULL_BEGIN

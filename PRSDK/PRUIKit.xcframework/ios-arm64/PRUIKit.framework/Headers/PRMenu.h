@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PRMenuItem.h"
-#import "PRCommandMenuItem.h"
-#import "PRCustomCellMenuItem.h"
-#import "PRSwitcherMenuItem.h"
-
-#import "PRMenuSection.h"
+#import <PRUIKit/PRMenuItem.h>
+#import <PRUIKit/PRCommandMenuItem.h>
+#import <PRUIKit/PRCustomCellMenuItem.h>
+#import <PRUIKit/PRSwitcherMenuItem.h>
+#import <PRUIKit/PRMenuSection.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -53,3 +52,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+

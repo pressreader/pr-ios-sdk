@@ -6,9 +6,9 @@
 //  Copyright © 2016 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
-@import PRAPI;
-@import PRUIKit;
+#import <UIKit/UIKit.h>
+#import <PRAPI/PRAPI.h>
+#import <PRUIKit/PRUIKit.h>
 
 #import "NTFMenuProvider.h"
 

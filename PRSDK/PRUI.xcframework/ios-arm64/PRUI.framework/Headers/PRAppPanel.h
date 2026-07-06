@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 NewspaperDirect. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,27 +16,20 @@ typedef NS_ENUM(unsigned int, PRPanelId) {
     PRPanelIdDownloaded,
     PRPanelIdOptions,
     PRPanelIdNewsFeed,
-    PRPanelIdMyTopics,
     PRPanelIdMyBookmarks,
-    PRPanelIdOnlineProfile,
-    PRPanelIdSearchResult,
     PRPanelIdMyAccount,
-    PRPanelIdChannel,
     PRPanelIdAboutUs,
     PRPanelIdBlog,
     PRPanelIdHelpCenter,
     PRPanelIdOrder,
     PRPanelIdOnlineWebView,
     PRPanelIdHotSpotMap,
-    PRPanelIdUniversalSources,
     PRPanelIdOnboarding,
-    PRPanelIdOpinions,
-    PRPanelIdRegistration,
     PRPanelIdFavourites,
     PRPanelIdSubscriptions,
-    PRPanelIdSendFeedback,
     PRPanelIdSettings,
-    PRPanelIdCustomerSupport
+    PRPanelIdCustomerSupport,
+    PRPanelIdVideos
 };
 
 @interface PRAppPanel : NSObject

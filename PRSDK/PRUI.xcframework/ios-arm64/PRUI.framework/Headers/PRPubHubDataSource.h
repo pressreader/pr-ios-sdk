@@ -6,9 +6,7 @@
 //  Copyright © 2019 NewspaperDirect. All rights reserved.
 //
 
-@import PRAPI;
-
-#import <PRUI/PRMessageBar.h>
+#import <PRAPI/PRAPI.h>
 
 @class PRCountableValue;
 @class PRBannerPresentationConfig;
@@ -106,7 +104,7 @@ NS_SWIFT_NAME(dataSection(scheme:title:dataSource:));
 @end
 
 
-@protocol PRPubHubDataSourceDelegate <NSObject, PRSourceCollectionControllerDelegate, PRMessageBarDelegate>
+@protocol PRPubHubDataSourceDelegate <NSObject, PRSourceCollectionControllerDelegate>
 
 - (void)dataSourceDidUpdate:(PRPubHubDataSource *)dataSource;
 - (void)dataSource:(PRPubHubDataSource *)dataSource didUpdateSectionAtIndex:(NSInteger)index headerUpdated:(BOOL)headerUpdated;

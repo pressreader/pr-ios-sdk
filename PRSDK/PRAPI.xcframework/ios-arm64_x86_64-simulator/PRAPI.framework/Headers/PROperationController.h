@@ -6,8 +6,7 @@
 //  Copyright 2011 NewspaperDirect. All rights reserved.
 //
 
-@import Foundation;
-@import PRProtocols;
+#import <Foundation/Foundation.h>
 @class SPNode;
 @class PRSubscription;
 @class SKProductsResponse;
@@ -19,13 +18,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PROperationController : NSObject<Singleton> {
+@interface PROperationController : NSObject {
 
 @private
 	NSOperationQueue *operationQueue_;
 }
 
 + (instancetype)instance;
++ (void)dismiss;
 
 - (void)processGetBundlesResponse:(SPNode *)response subscription:(PRSubscription *)subscription;
 - (void)processGetUserBundlesResponse:(SPNode *)response subscription:(PRSubscription *)subscription;
