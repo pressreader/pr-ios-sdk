@@ -2275,8 +2275,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRSyntacticSugar",
+        "printedName": "PRSyntacticSugar",
         "declKind": "Import",
         "moduleName": "PRUtils",
         "declAttributes": [
@@ -2457,6 +2457,54 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "isEmpty",
+            "printedName": "isEmpty",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7PRUtils9WeakArrayC7isEmptySbvp",
+            "mangledName": "$s7PRUtils9WeakArrayC7isEmptySbvp",
+            "moduleName": "PRUtils",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7PRUtils9WeakArrayC7isEmptySbvg",
+                "mangledName": "$s7PRUtils9WeakArrayC7isEmptySbvg",
+                "moduleName": "PRUtils",
+                "genericSig": "<τ_0_0 where τ_0_0 : AnyObject>",
+                "sugared_genericSig": "<T where T : AnyObject>",
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Class",
@@ -2471,6 +2519,13 @@
           "RawDocComment"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Emptiable",
+            "printedName": "Emptiable",
+            "usr": "s:16PRSyntacticSugar9EmptiableP",
+            "mangledName": "$s16PRSyntacticSugar9EmptiableP"
+          },
           {
             "kind": "Conformance",
             "name": "Copyable",
@@ -14653,7 +14708,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/WeakArray.swift",
       "kind": "BooleanLiteral",
-      "offset": 1049,
+      "offset": 1055,
       "length": 5,
       "value": "false"
     },
@@ -14716,7 +14771,7 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRFrameworks\/PRUtils\/NetworkMonitor.swift",
       "kind": "BooleanLiteral",
-      "offset": 1137,
+      "offset": 1149,
       "length": 5,
       "value": "false"
     },

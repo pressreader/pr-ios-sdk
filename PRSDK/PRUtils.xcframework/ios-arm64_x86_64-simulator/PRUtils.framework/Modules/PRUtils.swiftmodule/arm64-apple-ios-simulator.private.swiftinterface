@@ -319,6 +319,11 @@ final public class WeakArray<T> where T : AnyObject {
   final public func forEach(reverse: Swift.Bool = false, callback: (T) -> ())
   @objc deinit
 }
+extension PRUtils.WeakArray : PRSyntacticSugar.Emptiable {
+  final public var isEmpty: Swift.Bool {
+    get
+  }
+}
 extension Swift.Result {
   public var isSucceeded: Swift.Bool {
     get

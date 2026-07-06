@@ -135,8 +135,6 @@ final class RootModel {
     
     var books: [[String: Sendable]] {
         [
-            ["id": "196778"],
-            ["id": "211279"],
             ["id": "394959"],
             ["id": "216086"],
             ["id": "271073"],

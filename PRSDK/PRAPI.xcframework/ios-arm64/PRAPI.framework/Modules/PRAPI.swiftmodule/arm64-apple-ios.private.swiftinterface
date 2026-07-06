@@ -1767,11 +1767,11 @@ extension PRCatalogModel.IssueCollection {
   }
 }
 extension PRAPI.PRMyLibrary {
-  public var catalogItems: [any PRAPI.TitleItem] {
+  public var catalogItems: [any PRAPI.PRCatalogItem]! {
     get
   }
-  public func getCatalogItems(order: PRConfiguration.PRCatalogSortingOrder = .notDefined) -> [any PRAPI.TitleItem]
-  public func delete(_ item: any PRAPI.TitleItem)
+  public func getTitleItems(order: PRConfiguration.PRCatalogSortingOrder = .notDefined) -> [any PRAPI.TitleItem]
+  public func delete(_ item: any PRAPI.PRCatalogItem)
   public func deleteAll()
 }
 extension PRAPI.PRMyLibrary : PRUtils.Observable {

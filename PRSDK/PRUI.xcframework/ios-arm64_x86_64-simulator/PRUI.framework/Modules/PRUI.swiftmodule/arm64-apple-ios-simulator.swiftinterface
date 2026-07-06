@@ -618,8 +618,9 @@ extension UIKit.UINavigationController : @_Concurrency.MainActor PRUI.ViewRefres
 }
 public protocol Downloaded {
   typealias Observer = Swift.AnyObject
-  var items: [any PRAPI.TitleItem] { get }
-  func delete(_ item: any PRAPI.TitleItem)
+  typealias Item = PRAPI.PRCatalogItem
+  var items: [any PRAPI.PRCatalogItem] { get }
+  func delete(_ item: any PRAPI.PRCatalogItem)
   func deleteAll()
   func observe(_ callback: @escaping () -> ()) -> Self.Observer
 }
@@ -1063,17 +1064,17 @@ public enum DownloadState {
     get
   }
 }
-public protocol Download {
+@_Concurrency.MainActor public protocol Download {
   typealias Progress = Swift.Int
   typealias Observer = Swift.AnyObject
   typealias Callback = (PRUI.DownloadState, Self.Progress, (any Swift.Error)?) -> Swift.Void
-  var state: PRUI.DownloadState { get }
-  var progress: Self.Progress { get }
-  var error: (any Swift.Error)? { get }
-  func start()
-  func pause()
-  func cancel()
-  func observe(_ callback: @escaping Self.Callback) -> Self.Observer
+  @_Concurrency.MainActor var state: PRUI.DownloadState { get }
+  @_Concurrency.MainActor var progress: Self.Progress { get }
+  @_Concurrency.MainActor var error: (any Swift.Error)? { get }
+  @_Concurrency.MainActor func start()
+  @_Concurrency.MainActor func pause()
+  @_Concurrency.MainActor func cancel()
+  @_Concurrency.MainActor func observe(_ callback: @escaping Self.Callback) -> Self.Observer
 }
 extension PRUI.ReadingViewController {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func monitorHotSpotExpiration()
@@ -2659,7 +2660,7 @@ extension PRAPI.PRCatalog {
   }
 }
 extension PRAPI.PRMyLibrary : PRUI.Downloaded {
-  public var items: [any PRAPI.TitleItem] {
+  public var items: [any PRAPI.PRCatalogItem] {
     get
   }
 }

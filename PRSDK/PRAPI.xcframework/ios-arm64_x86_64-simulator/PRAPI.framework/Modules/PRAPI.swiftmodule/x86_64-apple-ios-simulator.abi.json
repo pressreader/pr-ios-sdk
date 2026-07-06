@@ -78034,8 +78034,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "PRCatalogModel",
+        "printedName": "PRCatalogModel",
         "declKind": "Import",
         "moduleName": "PRAPI",
         "declAttributes": [
@@ -118198,22 +118198,30 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[any PRAPI.TitleItem]",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "[any PRAPI.PRCatalogItem]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "TitleItem",
-                    "printedName": "any PRAPI.TitleItem",
-                    "usr": "s:5PRAPI9TitleItemP"
+                    "name": "Array",
+                    "printedName": "[any PRAPI.PRCatalogItem]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PRCatalogItem",
+                        "printedName": "any PRAPI.PRCatalogItem",
+                        "usr": "c:objc(pl)PRCatalogItem"
+                      }
+                    ],
+                    "usr": "s:Sa"
                   }
                 ],
-                "usr": "s:Sa"
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:So11PRMyLibraryC5PRAPIE12catalogItemsSayAC9TitleItem_pGvp",
-            "mangledName": "$sSo11PRMyLibraryC5PRAPIE12catalogItemsSayAC9TitleItem_pGvp",
+            "usr": "s:So11PRMyLibraryC5PRAPIE12catalogItemsSaySo13PRCatalogItem_pGSgvp",
+            "mangledName": "$sSo11PRMyLibraryC5PRAPIE12catalogItemsSaySo13PRCatalogItem_pGSgvp",
             "moduleName": "PRAPI",
             "declAttributes": [
               "SetterAccess",
@@ -118229,22 +118237,30 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[any PRAPI.TitleItem]",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "[any PRAPI.PRCatalogItem]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "TitleItem",
-                        "printedName": "any PRAPI.TitleItem",
-                        "usr": "s:5PRAPI9TitleItemP"
+                        "name": "Array",
+                        "printedName": "[any PRAPI.PRCatalogItem]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "PRCatalogItem",
+                            "printedName": "any PRAPI.PRCatalogItem",
+                            "usr": "c:objc(pl)PRCatalogItem"
+                          }
+                        ],
+                        "usr": "s:Sa"
                       }
                     ],
-                    "usr": "s:Sa"
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:So11PRMyLibraryC5PRAPIE12catalogItemsSayAC9TitleItem_pGvg",
-                "mangledName": "$sSo11PRMyLibraryC5PRAPIE12catalogItemsSayAC9TitleItem_pGvg",
+                "usr": "s:So11PRMyLibraryC5PRAPIE12catalogItemsSaySo13PRCatalogItem_pGSgvg",
+                "mangledName": "$sSo11PRMyLibraryC5PRAPIE12catalogItemsSaySo13PRCatalogItem_pGSgvg",
                 "moduleName": "PRAPI",
                 "isFromExtension": true,
                 "accessorKind": "get"
@@ -118253,8 +118269,8 @@
           },
           {
             "kind": "Function",
-            "name": "getCatalogItems",
-            "printedName": "getCatalogItems(order:)",
+            "name": "getTitleItems",
+            "printedName": "getTitleItems(order:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -118279,8 +118295,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:So11PRMyLibraryC5PRAPIE15getCatalogItems5orderSayAC9TitleItem_pGSo21PRCatalogSortingOrderV_tF",
-            "mangledName": "$sSo11PRMyLibraryC5PRAPIE15getCatalogItems5orderSayAC9TitleItem_pGSo21PRCatalogSortingOrderV_tF",
+            "usr": "s:So11PRMyLibraryC5PRAPIE13getTitleItems5orderSayAC0E4Item_pGSo21PRCatalogSortingOrderV_tF",
+            "mangledName": "$sSo11PRMyLibraryC5PRAPIE13getTitleItems5orderSayAC0E4Item_pGSo21PRCatalogSortingOrderV_tF",
             "moduleName": "PRAPI",
             "declAttributes": [
               "AccessControl",
@@ -118301,14 +118317,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "TitleItem",
-                "printedName": "any PRAPI.TitleItem",
-                "usr": "s:5PRAPI9TitleItemP"
+                "name": "PRCatalogItem",
+                "printedName": "any PRAPI.PRCatalogItem",
+                "usr": "c:objc(pl)PRCatalogItem"
               }
             ],
             "declKind": "Func",
-            "usr": "s:So11PRMyLibraryC5PRAPIE6deleteyyAC9TitleItem_pF",
-            "mangledName": "$sSo11PRMyLibraryC5PRAPIE6deleteyyAC9TitleItem_pF",
+            "usr": "s:So11PRMyLibraryC5PRAPIE6deleteyySo13PRCatalogItem_pF",
+            "mangledName": "$sSo11PRMyLibraryC5PRAPIE6deleteyySo13PRCatalogItem_pF",
             "moduleName": "PRAPI",
             "declAttributes": [
               "AccessControl"
@@ -137898,14 +137914,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/TextFlow\/NTFAbstractArticle+.swift",
       "kind": "IntegerLiteral",
-      "offset": 1950,
+      "offset": 2007,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Data\/ValueObjects\/TextFlow\/NTFAbstractArticle+.swift",
       "kind": "IntegerLiteral",
-      "offset": 1954,
+      "offset": 2064,
       "length": 1,
       "value": "1"
     },
@@ -139291,14 +139307,14 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Analytics\/Analytics\/Analytics.swift",
       "kind": "BooleanLiteral",
-      "offset": 38171,
+      "offset": 38221,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Analytics\/Analytics\/Analytics.swift",
       "kind": "BooleanLiteral",
-      "offset": 39324,
+      "offset": 39374,
       "length": 5,
       "value": "false"
     },
@@ -139928,56 +139944,56 @@
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 274,
+      "offset": 278,
       "length": 28,
       "value": "\"LibraryItemDownloadStarted\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 377,
+      "offset": 381,
       "length": 29,
       "value": "\"LibraryItemDownloadFinished\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 481,
+      "offset": 485,
       "length": 29,
       "value": "\"LibraryItemDownloadProgress\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 586,
+      "offset": 590,
       "length": 30,
       "value": "\"LibraryItemDownloadCancelled\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 688,
+      "offset": 692,
       "length": 26,
       "value": "\"LibraryItemDownloadError\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 784,
+      "offset": 788,
       "length": 19,
       "value": "\"LibraryItemOpened\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 873,
+      "offset": 877,
       "length": 24,
       "value": "\"LibraryItemLockChanged\""
     },
     {
       "filePath": "\/Users\/berec\/Projects\/Luxoft\/newspaperdirect.com\/git\/PressReader\/PR\/PRApp\/PRAPI\/Protocols\/LibraryItemProtocol.swift",
       "kind": "StringLiteral",
-      "offset": 978,
+      "offset": 982,
       "length": 30,
       "value": "\"LibraryItemDownloadMenuError\""
     },
