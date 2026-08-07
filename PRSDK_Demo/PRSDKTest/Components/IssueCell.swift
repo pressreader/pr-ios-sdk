@@ -128,7 +128,9 @@ final class IssueCell: UITableViewCell {
         let size = (issue as? TitleItem)?.size ?? 0
         self.detailTextLabel?.text = isDownloading
         ? " "
-        : issue?.date.map { self.dateFormatter.string(from: $0) +  (size > 0 ? ", \(size) bytes" : "")}
+        : issue?.issueDate.map {
+            self.dateFormatter.string(from: $0) +  (size > 0 ? ", \(size) bytes" : "")
+        }
         
         let progressView = self.progressView
         progressView.isHidden = !isDownloading
